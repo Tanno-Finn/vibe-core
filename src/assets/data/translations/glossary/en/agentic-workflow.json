@@ -1,0 +1,9 @@
+{
+  "term": "Agentic Workflow",
+  "alternativeNames": [
+    "Agent-driven Workflow",
+    "Autonomous AI Workflow"
+  ],
+  "description": "An agentic workflow is a pattern in which an AI model — rather than simply responding to a single prompt — autonomously works through a multi-step task: it plans sub-steps, calls tools (code interpreter, web search, file operations), integrates the results into its context, and then decides which step to take next. This sets it fundamentally apart from a simple prompt-response cycle: the model enters a control loop whose duration it determines itself. The catch is that each self-made decision can amplify earlier errors — which is why well-designed agentic systems either impose tight guardrails or involve a human at critical decision points (human-in-the-loop). The spectrum runs from deterministic pipelines with a fixed sequence of steps to fully autonomous agents that devise their own plan.",
+  "example": "A developer gives a coding agent the task: 'Find the bug in my repository.' The agent reads the code, runs the tests, reads the error messages, forms a hypothesis, changes a line, tests again — and reports back only once the tests are green. No manual step in between."
+}

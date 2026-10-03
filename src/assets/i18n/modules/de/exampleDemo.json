@@ -1,0 +1,76 @@
+{
+  "title": "Beispiel-Demo: Der Bauplan",
+  "subtitle": "Eine Platzhalter-Demo, die zeigt und erklärt, wie eine interaktive Demo aufgebaut ist",
+  "description": "Platzhalter-Demo ohne Fachinhalt: Sie zeigt den Bauplan einer guten interaktiven Demo — Controls, Visualisierung, Beobachten, Verstehen.",
+  "intro": {
+    "title": "Das hier ist eine Platzhalter-Demo",
+    "text": "Diese Seite erklärt keinen Fachinhalt — sie zeigt dir den Bauplan. Jede Sektion ist ein Baustein einer guten interaktiven Demo und erklärt sich selbst. Nutze die Seite als Kopiervorlage für deine eigenen Demos."
+  },
+  "demo": {
+    "title": "Interaktiver Kern",
+    "lead": "Der interaktive Kern ist das Herz jeder Demo: eine Visualisierung, die sofort auf deine Eingaben reagiert. Hier ist sie bewusst fachfrei — farbige Punkte, die auf Slider, Auswahl und Buttons reagieren.",
+    "canvasAria": "Visualisierungsfläche: farbige Punkte, die auf die Bedienelemente reagieren",
+    "summary": "{n} Punkte im Muster „{pattern}“. {state}"
+  },
+  "controls": {
+    "points": "Anzahl Punkte",
+    "pointsAria": "Anzahl Punkte: {n}",
+    "pattern": "Muster",
+    "patterns": {
+      "scatter": "Verstreut",
+      "ring": "Ring",
+      "grid": "Gitter",
+      "wave": "Welle"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Demo zurücksetzen",
+    "reducedMotion": "Dein System wünscht reduzierte Bewegung — die Animation ist deshalb aus. Alle Regler funktionieren weiterhin."
+  },
+  "status": {
+    "points": "Anzahl Punkte auf {n} geändert.",
+    "pattern": "Muster auf {pattern} geändert.",
+    "running": "Animation läuft.",
+    "paused": "Animation pausiert.",
+    "reset": "Demo auf den Anfangszustand zurückgesetzt."
+  },
+  "tooltip": {
+    "points": "Wie viele Punkte gezeichnet werden. Ein Slider eignet sich für stetige Mengen mit klarem Minimum und Maximum.",
+    "pattern": "Wie die Punkte angeordnet werden. Eine Auswahl eignet sich für wenige, klar benannte Varianten.",
+    "moreInfo": "Mehr Informationen"
+  },
+  "structure": {
+    "title": "So ist eine Demo aufgebaut",
+    "intro": "Fast jede gute interaktive Demo besteht aus denselben vier Bausteinen — in dieser Reihenfolge erlebt sie auch der Lernende.",
+    "controls": {
+      "title": "Controls",
+      "text": "Wenige, klar beschriftete Bedienelemente: ein Slider für Mengen, eine Auswahl für Varianten, Start/Pause und ein Reset. Jedes Element trägt ein Label, ein aria-label und bei Bedarf einen Info-Tooltip."
+    },
+    "viz": {
+      "title": "Visualisierung",
+      "text": "Eine Fläche, die sofort auf jede Eingabe reagiert. Wichtig sind ein Text-Fallback für hohen Kontrast, eine Live-Region für Screenreader und Respekt vor reduzierter Bewegung."
+    },
+    "observe": {
+      "title": "Beobachten",
+      "text": "Der Lernende spielt mit den Controls und sieht die Wirkung unmittelbar. Kurze Hinweise lenken den Blick: Was passiert, wenn du das Muster wechselst? Was ändert der Slider?"
+    },
+    "understand": {
+      "title": "Verstehen",
+      "text": "Zum Schluss wird das Beobachtete eingeordnet: Erklärtexte, ein Checkpoint zum Selbsttest und Kernaussagen zum Mitnehmen. Erst dieser Schritt macht aus Spielen Lernen."
+    }
+  },
+  "checkpoint": {
+    "title": "Check: Hast du den Bauplan?",
+    "item1": "Ich kann die vier Bausteine einer Demo nennen: Controls, Visualisierung, Beobachten, Verstehen."
+  },
+  "takeaways": {
+    "title": "Das Wichtigste in Kürze",
+    "text": "1. **Vier Bausteine**: Controls, Visualisierung, Beobachten, Verstehen — in dieser Reihenfolge ist jede Demo dieser Seite aufgebaut.\n\n2. **Sofortiges Feedback**: Jede Eingabe wirkt unmittelbar sichtbar — das ist der Unterschied zwischen Demo und Schaubild.\n\n3. **Barrierefreiheit eingebaut**: aria-labels, Live-Region, Text-Fallback für hohen Kontrast und reduzierte Bewegung gehören von Anfang an dazu, nicht nachträglich.\n\nDiese Platzhalter-Demo ist bewusst fachfrei — ersetze die Punkte-Fläche durch deinen Inhalt und behalte die Struktur."
+  },
+  "build": {
+    "title": "Bau deine eigene Demo",
+    "text": "Diese Seite ist die Kopiervorlage: Ersetze den interaktiven Kern durch deinen Fachinhalt und behalte die Struktur bei. Im Entwicklungsmodus helfen dir zwei Werkzeuge:",
+    "designWorkshop": "die Design-Werkstatt mit allen Komponenten des Kits zum Ausprobieren",
+    "newComponent": "der geführte Weg, eine neue wiederverwendbare Komponente sauber anzulegen"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Build",
+  "alternativeNames": [
+    "Building the program"
+  ],
+  "description": "Build. A build makes a finished program out of code. Programmers write code in text files. The computer cannot run many programs directly as text. The build then translates the code for the computer. It packs all the parts together. At the end there is a program that runs. The build also checks for errors. Does it find an error? Then it stops right away. This is called a red build. A red build is an early warning. That is a good thing. The error does not reach the users.",
+  "example": "Think of a print shop. A manuscript is not yet a book. The print shop prints and binds the pages. Is a page missing? Then the print shop stops at once. A build works the same way."
+}

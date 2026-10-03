@@ -1,0 +1,15 @@
+{
+  "id": "fowler-foemmel-ci-original-2000",
+  "type": "article",
+  "authors": "Martin Fowler, Matthew Foemmel",
+  "year": "2000",
+  "publication": "martinfowler.com",
+  "url": "https://martinfowler.com/articles/originalContinuousIntegration.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "continuous-integration",
+    "software-history",
+    "extreme-programming"
+  ]
+}

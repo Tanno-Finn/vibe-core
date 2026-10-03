@@ -1,0 +1,17 @@
+{
+  "id": "google-cloud-shell-quotas-2026",
+  "type": "article",
+  "authors": "Google",
+  "year": "2026",
+  "publication": "Google Cloud documentation",
+  "url": "https://docs.cloud.google.com/shell/docs/quotas-limits",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "cloud-shell",
+    "quota",
+    "session-limit",
+    "storage",
+    "google-cloud"
+  ]
+}

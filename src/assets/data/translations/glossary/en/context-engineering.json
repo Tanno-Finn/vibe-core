@@ -1,0 +1,8 @@
+{
+  "term": "Context Engineering",
+  "alternativeNames": [
+    "Context Design for LLMs"
+  ],
+  "description": "Context Engineering is the systematic design and management of the context you give an LLM — that is, system prompts, examples, external knowledge sources, tools, and memory. The defining challenge is that the context window is a finite resource with a limited attention budget: it's not only about adding good content, but equally about selecting, ordering, limiting, and compressing the right things (context editing and compaction). Relevant information must take priority over irrelevant, and across long, agentic interactions the overflow of the context window must be managed. This careful stewardship of scarce space is what distinguishes Context Engineering from simply composing good prompts — the goal is to make the model respond more reliably, more consistently, and in a task-specific manner.",
+  "example": "Instead of just writing a prompt, Context Engineering has you design the entire information package: a system prompt with rules, RAG results as a knowledge source, few-shot examples, and tool definitions — everything together forms the context."
+}

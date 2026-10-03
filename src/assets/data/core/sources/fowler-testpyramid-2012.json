@@ -1,0 +1,17 @@
+{
+  "id": "fowler-testpyramid-2012",
+  "type": "article",
+  "authors": "Martin Fowler",
+  "year": "2012",
+  "publication": "martinfowler.com",
+  "url": "https://martinfowler.com/bliki/TestPyramid.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "test-pyramid",
+    "unit-test",
+    "end-to-end-test",
+    "canonical",
+    "mike-cohn"
+  ]
+}

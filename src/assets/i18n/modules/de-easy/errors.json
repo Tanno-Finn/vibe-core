@@ -1,0 +1,23 @@
+{
+  "404": {
+    "backToHome": "Zurück zum Start",
+    "description": "Die Seite ist nicht da. Vielleicht an einem anderen Ort. Das können wir nicht wissen.",
+    "goBack": "Zurück zur letzten Seite",
+    "popularPages": "Seiten, die es wirklich gibt",
+    "title": "Seite nicht gefunden"
+  },
+  "app": {
+    "newVersionTitle": "Es gibt eine neue Version.",
+    "newVersionDetail": "Die Seite ist neu. Lade die Seite bitte noch einmal.",
+    "reload": "Neu laden",
+    "unexpected": "Etwas hat nicht geklappt."
+  },
+  "http": {
+    "timeoutTitle": "Das hat zu lange gedauert.",
+    "timeoutDetail": "Der Server hat nicht geantwortet. Versuche es bitte noch einmal.",
+    "offlineTitle": "Keine Verbindung.",
+    "offlineDetail": "Wir erreichen den Server nicht. Prüfe bitte dein Internet.",
+    "serverTitle": "Fehler beim Server.",
+    "serverDetail": "Der Server hat einen Fehler. Der Fehler hat die Nummer {status}. Versuche es bitte später noch einmal."
+  }
+}

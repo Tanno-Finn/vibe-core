@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "title": "The Tour: How This Project Is Built with Agents",
+    "subtitle": "A walk through the repository that renders this page. Every station names a file you can open in your own copy."
+  },
+  "toc": {
+    "lead": "Before the first station",
+    "map": "The map, and the script that keeps it small",
+    "constitution": "A constitution with a version number",
+    "standards": "Standards, and the exception that is a file",
+    "directives": "Directives, skills, and what an index cannot see",
+    "books": "The books, the project's memory",
+    "gates": "The gates, and the wire to the tests",
+    "specs": "The specs loop and the license lesson",
+    "human": "Where the human decides",
+    "wave": "Four stages, and why the fourth exists",
+    "epilogue": "What this tour cannot do",
+    "takeaways": "Summary",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "The four articles of the Working with AI Agents path describe how agent-first work should go. This one is built differently. It walks through the repository that renders the page you are reading and points at files. Every station names a path. Where a claim has no path, it is an opinion, and you should read it that way. That is the rule this repo asks of its own agents, in directives/core-principles.md: git log before git blame, facts before claims.",
+    "paragraph2": "Two notes before the first station. This tour describes the kit as it ships. Once you start working in your copy, the files will move and the article will not; where the two disagree, the files win, for a reason Station 2 gives. That is also why the tour names files and folders rather than line numbers and counts: those are the first things to go stale.",
+    "paragraph3": "And the interesting part of this repo is not where the method works. It is where the method expects to fail: the places where a check exists because an agent can be confidently wrong, and the places where no check exists and the instruction has to carry the weight alone. Nothing here asks for trust. The last station lists three commands that check the parts of this tour a machine can check."
+  },
+  "map": {
+    "title": "Station 1 — The map has a hard cap, and a script enforces it",
+    "text1": "An agent that opens this repo reads AGENTS.md first. Its header says it has a hard cap of 150 lines. That is not a statement of intent, it is measured: scripts/verify-harness.mjs defines AGENTS_LINE_CAP = 150, counts the file, and fails the moment it grows past the cap. CLAUDE.md is a thin wrapper whose one job is to import AGENTS.md; the same script checks that the import is still there, so nobody can hollow out the wrapper and quietly hand one tool a different rulebook. It also checks that every link in AGENTS.md still resolves.",
+    "text2": "The point is what the file is, not how long it is. AGENTS.md is a map. It links to the constitution, the four standards, the safety model, the books, the directives, the specs, the contract in kit.json, the tools, and the packs, and then it stops. Nobody reads a 5,000-line instruction file to the end, and nobody maintains it either. A short one gets read every session.",
+    "text3": "The file makes that argument about itself in its last section: a bloated AGENTS.md crowds out the actual task, rots faster than anyone maintains it, and cannot be checked mechanically. The cap is the only reason the argument survives contact with a busy week.",
+    "statLabel": "AGENTS.md",
+    "statValue": "150",
+    "statDescription": "Line cap the harness enforces; the map links out instead of growing"
+  },
+  "constitution": {
+    "title": "Station 2 — The constitution carries a version number, and an amendment is not done until its dependents have moved",
+    "text1": "docs/CONSTITUTION.MD holds seven principles. It carries a Semver version with a rule for what bumps what: removing or reversing a principle is MAJOR, adding one is MINOR, rewording is PATCH. Above the principles sits a hidden HTML comment, the Sync-Impact-Report, which records for each amendment which downstream documents had to change in the same commit. The amending rule at the bottom says to open a spec, state the bump, list the documents that must move, change them together, and close every open clarification marker before it ships.",
+    "text2": "Two principles do most of the work in the rest of this tour. Principle 1: the user owns irreversible decisions; the agent proposes, and a human disposes of anything that cannot be taken back. Every human gate further down this page is that sentence made operational. Principle 6: shape, do not over-document, and derived views yield to the underlying data when the two disagree. Hold on to that one. It explains why the repo checks its own summaries against their sources, and it applies to this article too: the article is a derived view, and the files are the data."
+  },
+  "standards": {
+    "title": "Station 3 — Standards are a table, and the exception is a file, never a flag",
+    "text1": "The standards live in base/standards/ as A11Y, PRIVACY, SECURITY, and QUALITY, each a markdown table with an ID, a rule, a tag, and a reason in plain language. QUALITY's table ends in the one-liner every agent is measured against: a green build, green tests, docs in the same commit, and a second review for anything non-trivial. QUAL-001, QUAL-002, and QUAL-007 are tagged hard. The other four are overridable.",
+    "text2": "The tag is not decoration. scripts/check-overrides.mjs reads each ID's tag from exactly those table rows and refuses any override that names a hard rule; everything in SECURITY is out of reach anyway. The mechanism itself is explained in overrides/README.md. A committed file with five required frontmatter fields, among them who decided and when to revisit, turns a gate from blocking into advisory. The gate still runs afterwards, and its warning stays visible in the health and status skills; it only stops blocking. Once the revisit date has passed, the override expires and the gate blocks again. There is no way to switch a gate off down this road. An undocumented override does not exist: no config flag, no environment variable, no just this once.",
+    "footnoteTitle": "Where a fresh copy starts",
+    "footnoteText": "In a fresh copy, overrides/ holds only its README. Run node scripts/check-overrides.mjs and it reports how many standards it knows, how many of them are overridable, and that there are no override files, so every gate is blocking. That is the intended starting point: the mechanism is ready and tested, and the first override in your copy will be a decision of your own project, with your name and a revisit date on it."
+  },
+  "directives": {
+    "title": "Station 4 — Directives are knowledge, skills are verbs, and both are checked against their index",
+    "text1": "The kit separates two kinds of instruction. A directive is knowledge the agent carries into every task; a skill is a job you ask for by name (docs/explanation/directives-and-skills.md). The directives live under directives/, with watch playbooks in directives/watch/ and one guide plus one setup file per language in directives/languages/. The skills live under .claude/skills/, each a folder with a SKILL.md.",
+    "text2": "Both have an index, and both indexes are enforced. directives/index.yml explains in its header that it exists so an agent can find one directive without loading all of them. scripts/verify-harness.mjs checks it in both directions: every listed file must exist, and every directive on disk must be listed, because an unlisted directive is invisible to any agent reading only the index. Skills get similar treatment: each SKILL.md must carry a name, a description, and a layer.",
+    "text3": "Read one of each to feel the texture. directives/verification.md is the rule behind Station 9. The builder persists and keeps its context; the verifier is instantiated fresh every round, told to refute rather than confirm, and defaults to not verified when unsure. Memory in the builder, fresh doubt in the checker. And .claude/skills/ship/SKILL.md is the ship verb: it walks the QUALITY table row by row, stops at any red hard gate, and never pushes, deploys, or publishes. It prepares, and then it asks.",
+    "driftTitle": "Two kinds of drift no index check can see",
+    "drift1": "A sentence that outlives its fact. The harness proves that a skill file exists and carries its frontmatter. It cannot prove that what the skill says is still true. A skill that tells the agent a folder does not exist yet, long after docs/adr/ has filled with decision records, keeps working, because it tolerates the absence rather than requiring it. Nothing fails, so nothing reports it.",
+    "drift2": "A summary that leaves something out. Every entry in directives/index.yml carries a one-line summary, and an agent picks directives by those lines. directives/human-gate.md has three blocks: the feedback-file loop, generating variants for the human to pick from, and the automatic post-work quality review, whose point is that findings are surfaced, not applied. A summary naming only the first two would hide the third from every agent that chooses by summary, and the index check would stay green.",
+    "driftClose": "Both are what Principle 6 predicts: derived views drift, and the data wins. The only remedy is reading each summary against its source, which is slow and dull and not something a script does for you. The practical rule follows from QUAL-002: when you change a file, fix the sentences that describe it in the same commit, so the description never has a day to be wrong."
+  },
+  "books": {
+    "title": "Station 5 — The books are the memory",
+    "text1": "An agent has no memory between sessions. This repo replaces it with three files at the root, under a contract in base/BOOKKEEPING.md. JOURNAL.md is the append-only diary: per session, a short section on what was done, why, and what got parked. OPEN-QUESTIONS.md holds the decisions that belong to the human, each with a date, a one-line question, options, and the default the agent will proceed with if nobody answers, so that nothing stalls. CHANGELOG.md is the curated, user-facing summary of what ships. When a task degrades mid-flight, directives/task-execution.md tells the agent to stop, write a session report, and continue in a fresh context, treating that report on resumption as a claim about a past moment, re-verified against git before acting.",
+    "text2": "The kit ships JOURNAL.md and OPEN-QUESTIONS.md as empty templates. The books belong to the project, not to the kit: whoever starts from the kit starts their own history, and the first entries in your copy will be about your work. The journal template's example entry says what an entry should hold, including the part people skip: note what broke, and why, because that is more useful later than the successes alone. That is QUAL-007, state outcomes honestly, turned from a row in a standard into a habit of the diary.",
+    "text3": "The contract asks for a short section per session, not a line count. Write what the next reader needs; an entry that explains why costs more lines than one that lists what, and it is worth them. The journal is never capped, shortened, or summarized later. It is history, and it grows with the project.",
+    "text4": "The books are only as good as the day they were written. The /status skill reads the journal and the Open section of OPEN-QUESTIONS.md as primary sources, so a day of commits without a journal entry makes the record claim less than happened. The check is cheap and follows the core principle from the lead: put git log next to the journal now and then. Where the log shows work the journal does not mention, write the missing entry, and say that it was written late."
+  },
+  "gates": {
+    "title": "Station 6 — The gates, and the wire from the build to the tests",
+    "text1": "kit.json declares the health checks, each with a description written for someone who does not read code: is the harness intact, are the overrides valid, is the build green, is the code lint-clean and formatted, do the tests pass, do the built pages pass the accessibility check, do the helper tools still work. The health skill reads that list rather than hard-coding it. Behind the build check sits a chain in package.json: build:prod runs the Angular build, prepares the output directory, runs build:verify, runs the curated test suite, and finally writes and verifies a manifest. A bare ng build through npm run ng is intercepted by scripts/ng-guard.js, precisely because it would skip the chain and produce a broken output directory.",
+    "text2": "scripts/verify-harness.mjs is the gate on the agent system itself, with its checks listed in its header. Two of them show what kind of failure the harness is built for. A spec file that is not in the test allowlist of angular.json is never run, and the suite stays green anyway, which the comment calls the most dangerous kind of gap because it looks like coverage; so the harness compares the allowlist with the spec files on disk, in both directions. And a literal control byte in a source file makes grep and git treat the file as binary, so searches run into silence; so the harness refuses such bytes. Both turn a failure an agent can walk into without noticing into a machine check instead of a paragraph.",
+    "text3": "One gate sits not on the code but on the agent's hands. .claude/settings.json wires a pre-tool hook to the shell, file-write, edit, and read tools and to MCP tools. The hook, .claude/hooks/guard-red-actions.mjs, denies the hard-forbidden and Red actions from base/SAFETY.md: force-push, history rewrites, blanket staging, deploys, writes to secret files, deletes outside the project. verify-harness.mjs lists the hook and the settings file as mandatory and fails the harness if the matcher ever stops reaching one of those tools, PowerShell included. Behind the hook, the settings file's deny rules refuse edits to the hook and to the settings themselves, so the gate cannot be edited away by the agent it guards.",
+    "text4": "What the hook cannot do is written down next to what it can. base/SAFETY.md has a table, rule by rule: some rules doubly enforced, some partly, and SEC-004, the rule about exfiltrating personal data, answered with nothing at all, because no gate inspects outbound traffic. And the same file states the larger limit plainly: the hook is a mechanism of one tool. Every other agent that AGENTS.md invites in has exactly one layer, the instruction. So the table says less about the hook than about the instruction: that is the load-bearing layer, and the hook only narrows the blast radius of the rules it can pattern-match.",
+    "storyTitle": "Why the test suite runs inside the production build",
+    "text5": "Now the gate that is easiest to get wrong. build:verify is a chain of static checks: scripts that read files, and one verifier of the output directory. None of them starts a test. If the test suite ran only on request, a production build could pass while spec files fail to load, and a report saying build:prod is green would be true and useless at the same time. The suite would be red, the build green, and the two facts would never meet.",
+    "text6": "So build:prod runs scripts/check-test-baseline.mjs after build:verify and before the manifest is written. The gate writes its verdict next to the build output, bound to the hash of the built index.html, the git head, and the script that invoked it. The manifest step then reads that verdict and stops the build if it is red, missing, or belongs to a different build. The verdict is plain JSON, not a signature: it stops accidents, not someone who edits the file on purpose. And because the suite only runs what angular.json lists, a new spec file has to be added to the allowlist, which the harness check described above enforces.",
+    "text7": "A red suite therefore blocks an unrelated production build. That is the intended cost: an advisory step would leave a passing build:prod technically true and still misleading, which is exactly the kind of report the gate exists to prevent. The bypass is explicit, recorded in the manifest as skipped, and refused by the manifest writer and the verifier unless the same variable is still set at those steps. It is never a default.",
+    "text8": "QUAL-001 says in plain words that nothing is done without a green build and green tests. The rule alone does not make that true; the wire from the production build to the test runner does. A standard nobody measures is a sentence.",
+    "statTestsLabel": "Test gate",
+    "statTestsValue": "build:prod",
+    "statTestsDescription": "The curated suite runs inside the production build, before the manifest is written",
+    "statSilentLabel": "Bypass",
+    "statSilentValue": "SKIP_TEST_GATE=1",
+    "statSilentDescription": "Explicit, recorded in the manifest as skipped, never a default"
+  },
+  "specs": {
+    "title": "Station 7 — The specs loop, its largest example, and its most expensive lesson",
+    "text1": "Non-trivial work gets shaped before it is built. specs/README.md defines a spec as shaping rather than exhaustive documentation, on the grounds that a spec trying to be the manual rots the moment the code moves. One dated folder per piece of work, a shape file first and the rest only when it earns its place; a status line says whether the folder is live work or a record; open points carry a greppable clarification marker, at most three per spec.",
+    "text2": "The one to read is specs/2026-09-02-optimus-ui-migration/shape.md, the spec for replacing the component library. Its How section is headed order is binding: the decision record first; snapshot the cited library source lines before an install replaces node_modules; a format-only commit so formatter churn stays out of the semantic diff; then the semantic work, the gates, and the books. The folder ships its own tools, among them a script that relocates a citation by matching the cited source line rather than by arithmetic. For work of that size, directives/orchestration.md adds the rule for running many agents: never fire a batch cold. One representative job first, read the result, fix the brief, and only then release the rest in waves.",
+    "text3": "Now the expensive lesson, which is not the migration. docs/adr/0014-leave-primeng-22-for-optimus-ui.md records why it was necessary: a new major version of the component library had changed its license to one that excludes universities and public institutions, and the upgrade that brought it in was three things at once, of which only the first was ever discussed. The build was green and the tests passed. Neither can read a license file.",
+    "text4": "So directives/dependency-upgrades.md now tells an agent, before the first install of a new major version, to read the new license, the maintenance status, the peer ranges, and the companion packages, and to stop at a changed license and let a human decide. The method did not prevent the mistake. What it did was turn the mistake into a decision record with its facts and options, and into a rule that has the license read first at the next upgrade."
+  },
+  "human": {
+    "title": "Station 8 — Where the human decides",
+    "text1": "Principle 1 becomes a tier table in base/SAFETY.md. Green is local and reversible and never warns. Yellow checkpoints first, says one plain sentence, and proceeds. Red covers pushing, deploying, publishing, sending, deleting data, changing access, blanket staging, and anything that spends money or touches someone else's data. Red never happens without an explicit, informed go-ahead, and it is not delegable to a sub-agent. The warning has one shape every time: what could happen, how bad it would be, and the agent's suggestion. That is the theory, and the books let you count the practice.",
+    "text2": "OPEN-QUESTIONS.md is where that practice becomes visible. The kit ships it as a template: an Open section with one example entry to replace, and an Answered section with nothing in it yet. Each entry the agent parks there carries a date, the question in one line, why it is parked, one to three options, and the default the agent will proceed with if nobody answers (base/BOOKKEEPING.md). A settled question moves to the Answered tail with its date and the decision. That shape is the point. The work does not stall while a question waits, and because the agent's default stays on record next to the decision, the file lets you count later how often you simply followed the agent and where your answer changed the course. Good defaults mean the human's time goes where it changes something.",
+    "text3": "directives/human-gate.md adds two more kinds of gate. A taste gate covers choices with no single right answer, such as wording, layout, or visual direction, where the human's preference is the spec; the agent runs it as a feedback file or as several variants for the human to pick from. A quality gate covers places where the agent might be confidently wrong, such as facts, teaching, or the safety of a change; after content work, findings are surfaced for a human, not applied automatically. And a decision with consequences for everyone who deploys the kit, like switching to a library with a different license, is Red on any reading: the branch waits for a human go-ahead, however sure the agent is."
+  },
+  "wave": {
+    "title": "Station 9 — Four stages, and why the fourth exists",
+    "text1": "The pattern from this repo that carries over best to your own work is the one for checking what agents produce. directives/verification.md and directives/orchestration.md describe it in pieces; put together, it has four stages.",
+    "stagesTitle": "Four stages, and what each one is for",
+    "step1Label": "Built",
+    "step1Description": "A builder writes the work and keeps its context across rounds, so it remembers its own decisions.",
+    "step2Label": "Reviewed",
+    "step2Description": "Independent reviewers look for faults, each finding in a fixed format: the exact text, what is wrong, the replacement, and why the correction is right.",
+    "step3Label": "Fixed",
+    "step3Description": "One repair pass answers the findings.",
+    "step4Label": "Release-checked",
+    "step4Description": "A fresh check per unit, instructed to refute the fixer and to default to not verified when unsure.",
+    "text2": "The heaviest findings tend to sit in the recipes a reader would copy: example code, keyboard behavior, a cited line. Two habits produce many of them. Several components get described as one whenever their inputs look alike, and a declared surface gets read as the whole surface.",
+    "text3": "After stage three a normal process ships. Two stages have agreed. What directives/verification.md predicts is that parties agreeing it is done is not proof if they share a blind spot, so a fourth, independent check runs anyway. It is the stage nobody orders gladly: it arrives after the work already feels finished, and its whole job is to say no.",
+    "findingsTitle": "What a fourth check typically finds",
+    "finding1": "A repaired sentence that is wrong the other way. A false claim that something always happens gets replaced by an equally false claim that it never does.",
+    "finding2": "A corrected reference that is now off by one. The fix moved a citation to the neighboring line, which holds something else.",
+    "finding3": "A fix that removes one ambiguity and introduces another a few lines further down, or that contradicts what the component's own documentation says.",
+    "text4": "The fourth stage is not infallible either. When it sorts its remaining findings into blocking and non-blocking, read the non-blocking pile before you drop it. A finding filed as minor can still be wrong in a way that matters, for instance a claim supported by the very line that contradicts it.",
+    "text5": "There is no stage at which agents stop being wrong. There is only a stage at which the remaining errors are small enough to ship, and the person who decides that reads the evidence rather than a green tick. Writing a correct replacement sentence is a different skill from spotting a wrong one. That is the whole argument for a fourth stage, and the reason it is not a waste of money.",
+    "text6": "The same shape applies to a single measurement. directives/core-principles.md says to sanity-check your own measuring commands before you build a conclusion on them. An example: an agent measures color contrast on the built app through a plain static server. The server answers a single-page route with a 404, the app never boots, and every pair measures the same. The right reaction is to say loudly that the measurement is worthless and fix the setup, for instance with a fallback to index.html, not to report a nicer number.",
+    "text7": "What such a review costs is not part of this tour. Run costs depend on the model, the tool, and the day; the four stages and what each one is for do not, and those are what carry over to your own work."
+  },
+  "epilogue": {
+    "title": "Station 10 — What this tour cannot do",
+    "text1": "This article is a derived view. By Principle 6 it yields to the data, and in your copy the data will move. Station 4 showed how a sentence can outlive its fact while every check stays green; this article is made of such sentences. Nothing checks it against the files it describes except a reader who opens them.",
+    "text2": "So do not take its word for it. Open your copy and run three commands: node scripts/verify-harness.mjs for the harness, node scripts/check-overrides.mjs for the overrides, and npm run test:ci for the test suite. The first two tell you whether the harness described here is intact. The third tells you whether the tests are green right now. Whatever they report is the current chapter of this tour, and nobody had to write it."
+  },
+  "takeaways": {
+    "containerTitle": "What to take away",
+    "item1": "The rules in this repo that hold are the rules some script can check. The 150-line cap, the index checked in both directions, the tag on a standard: each one is a sentence with a machine behind it.",
+    "item2": "A standard nobody measures is a sentence. QUAL-001 has teeth because the production build runs the test suite and records its verdict in the manifest.",
+    "item3": "The exception is a file, never a flag. An override makes a gate advisory, in the open, with five required fields and a revisit date, and it never turns a gate off.",
+    "item4": "Repairing a wrong claim is a different skill from spotting one. That is why a fresh, independent check runs after the fix pass.",
+    "item5": "The books make the work checkable a month later, and they are only as good as the day they were written. In your copy they start empty; the history they hold will be your project's."
+  },
+  "checkpoint": {
+    "title": "Have you got it?",
+    "item1": "I can say why an override is a committed file rather than a config flag, and what it does to the gate it names.",
+    "item2": "I can explain why the production build runs the test suite itself, and what a green build:verify alone would not prove.",
+    "item3": "I can say why a fourth, independent check runs after a fix pass that has already answered every finding."
+  },
+  "quiz": {
+    "boxTitle": "Quiz",
+    "q1": {
+      "question": "What does an override file in this kit do to the gate it names?",
+      "a": "It turns the gate off until the file is deleted.",
+      "b": "It makes the gate advisory: it still runs and still reports, but it no longer blocks.",
+      "c": "It removes the standard from the standards table.",
+      "d": "It hides the gate from the health and status reports.",
+      "explanation": "An override is a committed file with five required frontmatter fields. It moves a gate from blocking to advisory. The gate keeps running, keeps reporting, and keeps showing up in the health and status output. A rule tagged hard cannot be overridden at all: the checker refuses the file."
+    },
+    "q2": {
+      "question": "Why does build:prod run the test-baseline check itself instead of relying on build:verify?",
+      "a": "build:verify already runs the tests; the second run is only a backup.",
+      "b": "The manifest needs a test count to display on the site.",
+      "c": "build:verify is a chain of static checks that starts no test, so without that step a production build could pass over a red suite.",
+      "d": "The tests are too slow to run during development.",
+      "explanation": "build:verify reads files and checks the output directory; it never starts a test. Without the test-baseline step, a report that build:prod is green would say nothing about the tests. The step runs before the manifest is written and records its verdict there, so a build cannot claim a gate that never ran."
+    },
+    "q3": {
+      "question": "What is the argument for running an independent check after a fix pass has already answered every review finding?",
+      "a": "It is a formality that satisfies the standards table.",
+      "b": "Writing a correct replacement sentence is a different skill from spotting a wrong one, so a repair can introduce new errors.",
+      "c": "Reviewers are unreliable and their findings need a second opinion.",
+      "d": "It spreads the cost of the work over more agents.",
+      "explanation": "The review findings can all be right and the repair can still be wrong: a sentence fixed into its mirror image, a citation moved to the neighboring line. A fresh checker, told to refute the fixer and to default to not verified, catches what the repair introduced."
+    },
+    "q4": {
+      "question": "What does an entry in OPEN-QUESTIONS.md keep next to the question, so that the work does not stall while it waits?",
+      "a": "Only the question; the agent stops until someone answers.",
+      "b": "The options and the default the agent proceeds with if nobody answers.",
+      "c": "The agent's final decision, which the human merely signs off.",
+      "d": "A link to the commit that will answer it.",
+      "explanation": "Each entry keeps the date, the question, the options, and the agent's default. The agent proceeds with the default, so nothing stalls, and the decision later moves to the Answered tail with its date. Because the default stays on record, you can see afterwards where your decision changed something."
+    },
+    "q5": {
+      "question": "What does Principle 6 say about a document that disagrees with the code it describes?",
+      "a": "The document wins, and the code is a bug.",
+      "b": "Both are suspect until a human decides.",
+      "c": "The derived view yields to the underlying data.",
+      "d": "The disagreement must be resolved before any commit lands.",
+      "explanation": "Shape, do not over-document, and derived views yield to the underlying data when they disagree. That principle is also why this article says out loud that it is itself a derived view, and asks you to run the commands instead of believing it."
+    }
+  }
+}

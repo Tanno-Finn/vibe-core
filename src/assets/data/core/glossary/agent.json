@@ -1,0 +1,23 @@
+{
+  "id": "agent",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [
+    "AI Agent"
+  ],
+  "englishTerm": "AI Agent",
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2025-08-26",
+  "updatedAt": "2025-08-26",
+  "related": {
+    "glossary": [
+      "agent-loop",
+      "agentic-ai",
+      "agentic-workflow",
+      "session",
+      "function-calling"
+    ]
+  }
+}

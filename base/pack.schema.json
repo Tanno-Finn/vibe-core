@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/Tanno-Finn/vibe-core/master/base/pack.schema.json",
+  "$comment": "The $id is the raw file on the project's own repository, so it dereferences to this document. It is an identifier only — pack manifests point at this schema by relative path, and nothing in the repo fetches the $id.",
+  "title": "Pack Contract",
+  "description": "The machine- and agent-readable manifest every pack declares. A pack is an optional bundle of task-skills (a role or workflow, e.g. teacher) that layers on TOP of a kit. Like base, a pack is kit-blind: it programs against the kit's declared capabilities only, never against kit code, and every capability it needs carries a fallback so it degrades gracefully when that capability is absent. Packs are activated conversationally (\"switch to teacher mode\"), not installed. See docs/explanation/the-pack-layer.md for the why.",
+  "type": "object",
+  "required": ["id", "name", "layer", "packVersion", "baseVersion", "activation", "capabilities"],
+  "additionalProperties": true,
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Stable kebab-case identifier, unique across packs. Matches the packs/<id>/ folder name."
+    },
+    "name": { "type": "string", "description": "Human-facing name shown when the pack activates." },
+    "description": { "type": "string" },
+    "layer": {
+      "const": "pack",
+      "description": "Always \"pack\". Mirrors the layer: field skills carry (base|kit|pack)."
+    },
+    "packVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "baseVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semver of the base contract this pack targets. A pack depends on the base+kit contract, never on a concrete kit — the same kit-blind rule the base itself follows."
+    },
+    "activation": {
+      "type": "object",
+      "description": "How the pack turns on. Packs are activated conversationally, in-place — there is no separate install step. The agent recognizes intent from the user's words and loads the pack's skills.",
+      "required": ["phrases"],
+      "additionalProperties": true,
+      "properties": {
+        "phrases": {
+          "type": "array",
+          "description": "Natural-language triggers the agent listens for, e.g. \"switch to teacher mode\". These are intent hints, not exact commands.",
+          "minItems": 1,
+          "items": { "type": "string" }
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional prose about activation behavior (e.g. what the agent announces when it switches mode)."
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "description": "The kit capabilities this pack's skills need. This is the kit-blind contract: the pack does NOT assume any of these exist. Each entry carries a fallback so the pack degrades gracefully on a kit that lacks the capability. file:markdown is guaranteed by the base and is the universal fallback of last resort.",
+      "items": {
+        "type": "object",
+        "required": ["id"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(file|content|page|check|site):[a-z0-9-]+$",
+            "description": "A capability the pack would like the kit to provide (same namespace as kit.json capabilities)."
+          },
+          "fallback": {
+            "type": "string",
+            "pattern": "^(file|content|page|check|site):[a-z0-9-]+$",
+            "description": "The lesser capability to degrade to when `id` is absent from the kit. Must itself be a capability the kit provides — ultimately file:markdown. Omit only for file:markdown (the base-guaranteed floor, which needs no fallback)."
+          },
+          "purpose": {
+            "type": "string",
+            "description": "Optional: what the pack uses this capability for, so a reader understands the dependency."
+          }
+        }
+      }
+    }
+  }
+}

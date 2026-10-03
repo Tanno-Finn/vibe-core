@@ -1,0 +1,38 @@
+# Dependabot opens pull requests; it never merges them. Every PR still runs the full CI
+# and waits for a human, which is the "bump it deliberately" the pinning note in
+# workflows/ci.yml asks for — Dependabot only does the re-resolving.
+#
+# Grouping: minor and patch updates arrive as one weekly PR per ecosystem. Majors are
+# deliberately NOT grouped, so each one gets its own PR — directives/dependency-upgrades.md
+# asks for the licence, maintenance status and peer ranges of every major to be read before
+# it lands, and "one major per branch" is how that stays reviewable.
+version: 2
+updates:
+  # The SHA-pinned actions in .github/workflows. Dependabot updates the SHA and the
+  # version comment after it together.
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    commit-message:
+      prefix: ci
+    groups:
+      github-actions:
+        patterns: ['*']
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: chore(deps)
+    groups:
+      # Angular's packages version in lockstep; splitting them only produces PRs that
+      # cannot pass on their own.
+      angular:
+        patterns: ['@angular/*', '@angular-devkit/*', '@schematics/angular', 'angular-eslint']
+        update-types: [minor, patch]
+      npm-minor-and-patch:
+        patterns: ['*']
+        update-types: [minor, patch]

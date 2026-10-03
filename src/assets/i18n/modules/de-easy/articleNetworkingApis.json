@@ -1,0 +1,185 @@
+{
+  "hero": {
+    "title": "Das Internet & APIs",
+    "subtitle": "Wie Computer im Internet miteinander reden."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "clientServer": "Client und Server",
+    "dns": "Adressen: IP und DNS",
+    "apis": "APIs: Die Schnitt·stelle",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Verständnis·check",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Du öffnest eine Webseite. Dein Computer schickt eine Nachricht an einen anderen Computer. Dieser Computer steht weit weg. Die Antwort kommt in weniger als einer Sekunde zurück. Wie funktioniert das?",
+    "paragraph2": "Drei Ideen erklären das. Diese Ideen stecken in jeder App. Am Ende verstehst du, was beim Laden einer Webseite passiert."
+  },
+  "clientServer": {
+    "title": "Client und Server: Wie im Restaurant",
+    "definitionTitle": "Client, Server und HTTP",
+    "analogy": "Stell dir ein Restaurant vor. Du bist der Gast. Du bestellst etwas. Der Kellner bringt die Bestellung in die Küche. Die Küche macht das Essen. Der Kellner bringt es zurück. Im Internet ist dein Computer der Gast. Er heißt Client. Der andere Computer ist die Küche. Er heißt Server.",
+    "scientific": "Der Client schickt eine Anfrage. Der Server schickt eine Antwort zurück. Das Web nutzt HTTP als Sprache. HTTP steht für Hypertext Transfer Protocol. Eine Anfrage hat eine Methode wie GET oder POST. Die Antwort hat einen Code wie 200 oder 404.",
+    "analogyBreak": "Ein Webserver bedient Tausende Gäste gleichzeitig. Das kann kein Restaurant. Ein Server kann auch selbst zum Client werden. Das Netzwerk kann Fehler machen. Daten können verloren gehen.",
+    "walkthrough": {
+      "title": "Was passiert, wenn du google.com eingibst?",
+      "step1": "Dein Browser fragt: Welche Adresse hat google.com?",
+      "step2": "Browser und Server verbinden sich.",
+      "step3": "Der Browser schickt eine Anfrage.",
+      "step4": "Der Server erstellt die Antwort.",
+      "step5": "Der Server schickt die Webseite zurück.",
+      "step6": "Der Browser zeigt die Seite an. Das dauert weniger als eine halbe Sekunde."
+    },
+    "misconception": {
+      "title": "Irrtum: Internet ist gleich Web",
+      "text": "Internet und Web sind nicht dasselbe. Das Internet sind Kabel und Router. Das Web ist nur ein Dienst im Internet. Es gibt auch E-Mail und Streaming."
+    }
+  },
+  "dns": {
+    "title": "Adressen: IP und DNS",
+    "definitionTitle": "IP-Adresse, DNS und Port",
+    "analogy": "DNS ist wie ein Telefonbuch. Aber nicht ein einziges großes Buch. Es ist eine Kette von Büchern. Jedes Buch weiß ein Stück der Antwort. Am Ende findest du die richtige Nummer.",
+    "scientific": "Jedes Gerät im Internet hat eine IP-Adresse. Das ist eine Nummer. IPv4 hat Nummern wie 192.168.0.1. DNS übersetzt Namen wie google.com in diese Nummern. Ports sind wie Durchwahlen. Port 443 ist für sichere Webseiten.",
+    "stats": {
+      "ipv4": {
+        "label": "IPv4-Adressen",
+        "value": "4,3",
+        "suffix": " Mrd.",
+        "description": "Es gibt 4,3 Milliarden. Das reicht nicht für alle Geräte."
+      },
+      "dnsTime": {
+        "label": "DNS-Auflösung",
+        "description": "Die Namens·suche dauert etwa 50 Millisekunden."
+      },
+      "port": {
+        "label": "HTTPS-Port",
+        "description": "Port 443 ist für sichere Webseiten."
+      }
+    },
+    "phoneBookAnalogy": "Dein Browser fragt zuerst im eigenen Speicher. Dann fragt er deinen Internet·anbieter. Der fragt weiter. Am Ende kommt die IP-Adresse zurück. Das Ergebnis wird gespeichert.",
+    "analogyBreak": "Ein echtes Telefonbuch kommt einmal im Jahr neu. DNS-Einträge können sich in Minuten ändern. DNS-Abfragen sind aktive Anfragen an Server.",
+    "resolution": {
+      "title": "DNS-Auflösung: Schritt für Schritt",
+      "step1": "Browser schaut im eigenen Speicher nach.",
+      "step2": "Kein Treffer: Anfrage an den Internet·anbieter.",
+      "step3": "Der fragt den Stamm·server: Wer kennt .com?",
+      "step4": "Der .com-Server sagt: Google nutzt diese Server.",
+      "step5": "Googles Server liefert die IP-Adresse.",
+      "step6": "Die Adresse wird gespeichert. Nächstes Mal geht es schneller."
+    },
+    "portsExplanation": "Ports sind wie Durchwahlen. Die IP-Adresse ist die Hauptnummer. Der Port zeigt den richtigen Dienst. Port 80 ist HTTP. Port 443 ist HTTPS. Port 22 ist SSH.",
+    "misconception": {
+      "title": "Irrtum: Meine IP-Adresse zeigt, wer ich bin",
+      "text": "Deine IP-Adresse ändert sich oft. Viele Geräte teilen sich eine Adresse. Die IP ist wie eine Hotel·zimmer·nummer. Sie zeigt nicht, wer du bist."
+    }
+  },
+  "apis": {
+    "title": "APIs: Die Speise·karte für Programme",
+    "definitionTitle": "API, REST und JSON",
+    "analogy": "Eine API ist wie eine Speise·karte. Die Karte zeigt, was es gibt. Du bestellst nach den Regeln. Du bekommst dein Ergebnis. Egal ob du eine App oder ein Programm bist.",
+    "scientific": "API steht für Application Programming Interface. Es ist eine Schnitt·stelle. Ein Programm nutzt die Funktionen eines anderen Programms. Web-APIs nutzen HTTP. Die Daten kommen als JSON.",
+    "analogyBreak": "API-Antworten können sehr komplex sein. APIs brauchen oft einen Schlüssel. Es gibt Grenzen für Anfragen pro Minute. Das gibt es im Restaurant nicht.",
+    "comparison": {
+      "websiteLabel": "Webseite (Browser)",
+      "websiteResult": "Der Server liefert HTML mit Farben und Bildern. Der Browser zeigt die Seite an. Gemacht für Menschen.",
+      "apiLabel": "API (Programm)",
+      "apiResult": "Der Server liefert Daten als JSON. Ein Programm verarbeitet die Daten weiter. Gemacht für Maschinen."
+    },
+    "weatherExample": "Ein Beispiel: Eine Wetter-API. Du schickst den Stadtnamen Berlin. Die Antwort kommt als JSON: Temperatur 18 Grad, bewölkt. Keine Bilder. Nur Daten.",
+    "aiForwardLink": "Spannend: Eine KI-API funktioniert genauso. Du schickst eine Frage. Die Antwort kommt als JSON. Statt einer Datenbank arbeitet ein neuronales Netz.",
+    "misconception": {
+      "title": "Irrtum: APIs sind nur für Programmierer",
+      "text": "Jede App auf deinem Smartphone nutzt APIs. Das Wetter·widget fragt eine API. Die Fahrplan·app fragt eine API. Du siehst die APIs nicht. Aber sie sind überall."
+    }
+  },
+  "deepDive": {
+    "httpMethods": {
+      "title": "HTTP-Methoden und Statuscodes",
+      "text": "HTTP hat ein kleines Vokabular. GET heißt: lies etwas. POST heißt: sende etwas. PUT heißt: ersetze etwas. DELETE heißt: lösche etwas.",
+      "statusCodes": "Statuscodes sind kurze Antworten. 200 heißt: alles gut. 404 heißt: nicht gefunden. 500 heißt: der Server hat ein Problem."
+    },
+    "aiApis": {
+      "title": "Von Wetter-APIs zu KI-APIs",
+      "text": "Eine Wetter-API: Du schickst einen Stadtnamen. Du bekommst die Temperatur. Eine KI-API: Du schickst eine Frage. Du bekommst eine Antwort. Das Muster ist gleich.",
+      "samePattern": "HTTP und JSON sind in beiden Fällen gleich. Nur der Server arbeitet anders. Einmal eine Datenbank. Einmal ein neuronales Netz."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste auf einen Blick",
+    "items": {
+      "clientServer": "Das Internet folgt einem Muster: Client fragt, Server antwortet. Das gilt für Webseiten, Apps und KI-Chatbots.",
+      "dns": "DNS ist das Telefonbuch des Internets. Es übersetzt Namen in Nummern.",
+      "api": "Eine API ist eine Schnitt·stelle. Programme reden darüber mit anderen Programmen. Jede App nutzt APIs.",
+      "json": "JSON ist das Format für API-Daten. Es ist einfach zu lesen. Jede Programmier·sprache versteht JSON.",
+      "cloud": "Die Cloud sind Computer in Rechenzentren. Sie funktionieren wie jede Webseite."
+    }
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Internet & APIs",
+    "q1": {
+      "question": "Was macht DNS im Internet?",
+      "a": "DNS verschlüsselt Daten",
+      "b": "DNS übersetzt Namen in Nummern",
+      "c": "DNS speichert Webseiten",
+      "d": "DNS schützt vor Viren",
+      "explanation": "DNS übersetzt Namen wie google.com in Nummern. Ohne DNS müsste man sich die Nummern merken."
+    },
+    "q2": {
+      "question": "Du tippst google.com ein. Es kommt ein Fehler: „DNS-Auflösung fehlgeschlagen.“ Was bedeutet das?",
+      "a": "Googles Computer ist kaputt",
+      "b": "Dein Browser konnte google.com nicht in eine Nummer übersetzen",
+      "c": "Die Webseite gibt es nicht mehr",
+      "d": "Dein Internet ist zu langsam",
+      "explanation": "Der Browser konnte den Namen google.com nicht in eine IP-Adresse übersetzen. Das liegt oft am DNS-Server oder an der Internet·verbindung."
+    },
+    "q3": {
+      "question": "Eine Wetter·app zeigt 18 Grad für Berlin. Was passiert im Hintergrund?",
+      "a": "Die App hat alle Wetter·daten gespeichert",
+      "b": "Die App öffnet eine Webseite",
+      "c": "Die App fragt eine API und bekommt JSON-Daten zurück",
+      "d": "Die App macht ein Foto einer Wetter·webseite",
+      "explanation": "Die App fragt eine Wetter-API. Die API schickt die Temperatur als JSON-Daten zurück. Keine Webseite. Nur Daten."
+    },
+    "q4": {
+      "question": "Webseiten und APIs nutzen beide HTTP. Was ist der Unterschied?",
+      "a": "APIs sind schneller",
+      "b": "Webseiten nutzen GET, APIs nutzen POST",
+      "c": "Webseiten liefern HTML für den Browser. APIs liefern JSON-Daten für Programme.",
+      "d": "APIs funktionieren nur auf dem Smartphone",
+      "explanation": "Webseiten liefern HTML mit Bildern und Farben. APIs liefern JSON-Daten ohne Bilder. Beides nutzt HTTP."
+    }
+  },
+  "checkpoint": {
+    "title": "Verständnis·check",
+    "item1": "Du tippst google.com ein. Aber die Seite kommt nicht. Was macht der Browser vorher alles?",
+    "item2": "Warum gibt es DNS? Warum tippen wir nicht einfach Nummern ein?",
+    "item3": "Dein Wetter·widget zeigt 18 Grad für Berlin. Woher hat die App diese Zahl?"
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: Netzwerk·basics",
+    "sectionTitle": "Interaktiv: Netzwerk·grundlagen verstehen",
+    "intro": {
+      "title": "HTTP-Request: Vom Browser zum Server",
+      "description": "Klicke auf Abspielen. Sieh, was passiert, wenn dein Browser eine API aufruft. Schritt fur Schritt."
+    },
+    "edu": {
+      "title": "Warum ist das wichtig?",
+      "description": "Jede Webseite nutzt HTTP-Requests. Jede App und jede KI-Anwendung auch. Ein Request ist eine Anfrage an einen Server. Hier lernst du: So ist ein Request aufgebaut. Und diese Schritte macht er. Dann kannst du APIs besser nutzen. Und du findest Fehler schneller."
+    },
+    "stage": {
+      "title1": "Browser (Client)",
+      "title2": "DNS-Auflösung",
+      "title3": "TCP/TLS-Verbindung",
+      "title4": "HTTP-Request senden",
+      "title5": "Server·verarbeitung",
+      "title6": "HTTP-Response empfangen",
+      "desc1": "Du gibst eine Adresse ein, zum Beispiel api.example-weather.com. Der Browser ist der Client. Client heißt: Er stellt die Anfrage.",
+      "desc2": "Der Browser braucht eine IP-Adresse. Das ist die Nummer vom Server. Darum fragt er den DNS-Server: Welche Nummer hat api.example-weather.com?",
+      "desc3": "Jetzt kennt der Browser die IP-Adresse. Er baut eine TCP-Verbindung zum Server auf. Bei HTTPS kommt ein TLS-Handshake dazu. Der Handshake verschlüsselt die Verbindung.",
+      "desc4": "Der Browser schickt den HTTP-Request: GET /current?city=Berlin. Dazu schickt er Header mit. Header sind Zusatzinfos, zum Beispiel der API-Key und Accept: application/json.",
+      "desc5": "Der Server bekommt die Anfrage. Er sucht die Daten in seiner Datenbank. Dann baut er die Antwort.",
+      "desc6": "Der Server schickt die HTTP-Response zurück. Response heißt Antwort. Sie hat den Statuscode 200 OK. Und sie hat die Daten als JSON."
+    }
+  }
+}

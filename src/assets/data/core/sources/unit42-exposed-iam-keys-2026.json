@@ -1,0 +1,17 @@
+{
+  "id": "unit42-exposed-iam-keys-2026",
+  "type": "other",
+  "authors": "William Gamazo, Nathaniel Quist (Palo Alto Networks Unit 42)",
+  "year": "2023",
+  "publication": "Unit 42 Threat Research",
+  "url": "https://unit42.paloaltonetworks.com/malicious-operations-of-exposed-iam-keys-cryptojacking/",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "exposed-credentials",
+    "controlled-exposure",
+    "automated-scanning",
+    "cloud",
+    "threat-research"
+  ]
+}

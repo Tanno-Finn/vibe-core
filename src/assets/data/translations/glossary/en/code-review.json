@@ -1,0 +1,9 @@
+{
+  "term": "Code Review",
+  "alternativeNames": [
+    "Peer Review",
+    "Change Review"
+  ],
+  "description": "Code review is the inspection of code changes by someone who did not write them - before they are merged into the project. Reviewers check for bugs, clarity, and side effects, usually by reading the diff. Like the four-eyes principle in accounting: a second pair of eyes catches what the first one missed. What has changed is the cast: today a human often reviews code written by an AI agent, and agents pre-review as an additional layer. One thing remains: responsibility for what gets merged stays with the human - a review is a check, not a guarantee.",
+  "example": "An agent delivers a new login feature. A second agent flags during pre-review: the password ends up in the log in plain text. You read the diff, confirm the problem, and have it fixed before the change enters the project. The hint came from a machine - the decision and the responsibility were yours."
+}

@@ -1,0 +1,62 @@
+{
+  "id": "test",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Software Testing",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Software-Test",
+      "Automatisierter Test",
+      "Test-Suite"
+    ],
+    "en": [
+      "Software test",
+      "Automated test",
+      "Test suite"
+    ],
+    "de-easy": [
+      "Test für Programme"
+    ],
+    "en-easy": [
+      "Program test"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Myers, G. J., Sandler, C., Badgett, T. (2011). The Art of Software Testing, 3rd Edition. Wiley.",
+      "type": "website",
+      "url": "https://onlinelibrary.wiley.com/doi/book/10.1002/9781119202486",
+      "notes": "Klassisches Lehrbuch: Testen als Prozess, ein Programm mit der Absicht auszuführen, Fehler zu finden; Grundlagen von Testfall-Design und Grenzen des Testens.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Dijkstra, E. W. (1970). Notes on Structured Programming (EWD249).",
+      "type": "paper",
+      "url": "https://www.cs.utexas.edu/users/EWD/ewd02xx/EWD249.PDF",
+      "notes": "Quelle des Diktums, dass Testen die Anwesenheit von Fehlern zeigen kann, aber nicht ihre Abwesenheit — Grundlage für 'grün ist kein Korrektheitsbeweis'."
+    },
+    {
+      "title": "Fowler, M.: TestPyramid (martinfowler.com)",
+      "type": "documentation",
+      "url": "https://martinfowler.com/bliki/TestPyramid.html",
+      "notes": "Einordnung automatisierter Tests nach Ebenen (Unit, Integration, UI) und Kosten/Nutzen-Verhältnis großer Test-Suites."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "build",
+      "ci-cd",
+      "linter",
+      "agentic-ai"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

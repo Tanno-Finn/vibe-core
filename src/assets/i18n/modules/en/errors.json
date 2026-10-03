@@ -1,0 +1,23 @@
+{
+  "404": {
+    "backToHome": "Back to Home",
+    "description": "In another reality, this page surely exists. Just not here. If that's any consolation.",
+    "goBack": "Back to Previous Page",
+    "popularPages": "Pages that provably exist",
+    "title": "Page Not Found"
+  },
+  "app": {
+    "newVersionTitle": "New version available",
+    "newVersionDetail": "The site has been updated. Please reload the page once.",
+    "reload": "Reload",
+    "unexpected": "An unexpected error occurred."
+  },
+  "http": {
+    "timeoutTitle": "Request timed out",
+    "timeoutDetail": "The server did not answer in time. Please try again.",
+    "offlineTitle": "Connection error",
+    "offlineDetail": "No connection to the server. Please check your internet connection.",
+    "serverTitle": "Server error",
+    "serverDetail": "The server reported an error ({status}). Please try again later."
+  }
+}

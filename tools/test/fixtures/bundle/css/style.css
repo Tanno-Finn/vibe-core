@@ -1,0 +1,9 @@
+@import url('base.css');
+.lead {
+  color: #1f4f7a;
+}
+.box {
+  width: 64px;
+  height: 64px;
+  background-repeat: repeat;
+}

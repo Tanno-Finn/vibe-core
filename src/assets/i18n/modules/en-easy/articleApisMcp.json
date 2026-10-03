@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "title": "Using Interfaces: APIs and MCP",
+    "subtitle": "Interfaces that let programs talk to AI."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "apiSection": "From Chat to Code",
+    "mcpSection": "One Plug for Everything",
+    "agentSection": "What Is an Agent?",
+    "takeaways": "Summary",
+    "quiz": "Quiz",
+    "checkpoint": "Self-Check"
+  },
+  "lead": {
+    "paragraph1": "You type in a chat window. The model answers. But software does not type. It sends requests through an API.",
+    "paragraph2": "This article explains three things. First: What is an API call? Second: What is MCP? Third: What is an agent?"
+  },
+  "apiSection": {
+    "title": "From Chat to Code",
+    "intro": "You move from chat to code. The model becomes a service. You call it.",
+    "definitionTitle": "LLM API",
+    "analogy": "Think of a restaurant counter. You fill out an order form. The form is a JSON request. You show your membership card. The card is the API key. The kitchen makes your food. The kitchen is the model. You get a tray back. The tray is the JSON response. You pay per dish.",
+    "scientific": "An API is an endpoint on the internet. You send a request as JSON. You get an answer as JSON. The API key is your access token. It is tied to your billing account.",
+    "analogyNote": "You do not choose the ingredients. You have no access to the model.",
+    "codeIntro": "A simple call in Python looks like this:",
+    "pricingTitle": "What Does a Call Cost?",
+    "pricingIntro": "You pay for input tokens and output tokens.",
+    "pricingExample": "An example: 30 input tokens cost USD 0.000075. 100 output tokens cost USD 0.001. Total: about USD 0.001. That is one tenth of a cent.",
+    "pricingScale": "1,000 calls per day cost about USD 1. 100,000 calls per day cost about USD 107.",
+    "stats": {
+      "costPerCall": {
+        "value": "~0.1",
+        "suffix": " cents",
+        "label": "Per Call",
+        "description": "One call costs very little"
+      },
+      "costAtScale": {
+        "value": "~107",
+        "suffix": " USD",
+        "label": "At 100k Calls/Day",
+        "description": "Many calls get expensive"
+      },
+      "mcpReduction": {
+        "value": "70",
+        "suffix": "%",
+        "label": "Less Work",
+        "description": "MCP saves integrations"
+      }
+    },
+    "misconceptionTitle": "Wrong: APIs Are Expensive",
+    "misconception": "One call costs almost nothing. It gets expensive only with many calls. Think of a water bill. One liter is cheap. But the tap must close at some point."
+  },
+  "mcpSection": {
+    "title": "One Plug for Everything — MCP",
+    "intro": "One app talks to one model. Now think of five apps. Each needs ten tools. Without a standard: 50 connections. That is a lot of work.",
+    "definitionTitle": "Model Context Protocol (MCP)",
+    "analogy": "Think of USB-C. Before, every device had its own cable. Now there is one plug for everything. MCP is like USB-C for AI.",
+    "scientific": "MCP is an open protocol. It came out in 2024. It connects AI apps to tools. A server offers tools. A client connects. The LLM picks the right tool.",
+    "analogyLimit": "Note: USB-C is an old standard. MCP is still very new.",
+    "comparison": {
+      "withoutLabel": "Without MCP",
+      "withoutResult": "5 apps times 10 tools equals 50 connections.",
+      "withLabel": "With MCP",
+      "withResult": "5 clients plus 10 servers equals 15. That saves 70 percent."
+    },
+    "architecture": "MCP has three parts. The server offers tools. The client connects. The LLM decides. Example: An AI app on your computer uses three MCP servers. One for files. One for databases. One for version control.",
+    "warningTitle": "Important: MCP Does Not Replace Everything",
+    "warning": "MCP does not replace all APIs. Some services do not have an MCP server yet. Direct connections stay important.",
+    "originTitle": "As of 2026-08-11 — this box ages, the rest doesn’t",
+    "origin": "The company Anthropic published MCP in November 2024. Other providers use it now too. That is just a historical fact. The rest of this article stays true without this box."
+  },
+  "agentSection": {
+    "title": "What Is an Agent?",
+    "intro": "An API call is one question, one answer. An agent is a loop. It plans, acts, and checks. Then it decides: continue or stop.",
+    "iconGrid": {
+      "llm": {
+        "label": "Brain (LLM)",
+        "description": "Plans and decides"
+      },
+      "tools": {
+        "label": "Hands (Tools)",
+        "description": "Execute actions"
+      },
+      "context": {
+        "label": "Memory (Context)",
+        "description": "Stores what happened"
+      },
+      "orchestration": {
+        "label": "Conductor (Control)",
+        "description": "Controls the flow"
+      }
+    },
+    "analogyIntro": "Think of a chef at dinner service.",
+    "analogy": "The chef's brain is the LLM. It reads orders. The chef's hands are the tools: knife, stove, oven. The order tickets are the memory. The workflow is the control.",
+    "analogyNote": "An agent can make mistakes. Just like a chef.",
+    "steps": {
+      "receive": "Receive task",
+      "plan": "Make a plan",
+      "execute": "Use a tool",
+      "observe": "Check the result",
+      "decide": "Continue or stop?"
+    },
+    "exampleTitle": "Example: A Travel Agent",
+    "example": "The user says: Book a flight to Berlin. The LLM reads the calendar. It searches for flights. It compares prices. It asks the user. The user says yes. The LLM books the flight. The control checks: Booking done. Loop ends.",
+    "misconceptionTitle": "Wrong: Agents Work on Their Own",
+    "misconception": "Agents only do what their tools allow. Without tools, an agent is a chat bot. Without rules, it is a risk.",
+    "frameworkTitle": "How agent frameworks differ",
+    "frameworks": {
+      "broad": "Many ready-made connections to other services. You start fast. But you must learn a lot.",
+      "retrieval": "Strong with documents and search. Good when the agent mostly needs to read.",
+      "multiAgent": "Several agents work together. That can do a lot. But errors are harder to find.",
+      "minimal": "Very lean. Tools arrive through an open standard."
+    },
+    "frameworkNote": "These are emphases. They are not recommendations. Product names change often. The emphases stay."
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "item1": "An API call is an HTTP POST with JSON. That is how software talks to models.",
+    "item2": "MCP turns many connections (N times M) into few connections (N plus M).",
+    "item3": "An agent is a loop. It has four parts: LLM, Tools, Context, and Control."
+  },
+  "quiz": {
+    "boxTitle": "Knowledge Check: APIs and MCP",
+    "q1": {
+      "question": "What does an API key do?",
+      "a": "It picks the answer language.",
+      "b": "It tells the provider who you are. And it tracks billing.",
+      "c": "It encrypts your text.",
+      "d": "It picks the hardware.",
+      "explanation": "The API key tells the provider who you are. It connects your use to your account."
+    },
+    "q2": {
+      "question": "What does MCP do?",
+      "a": "It builds language models.",
+      "b": "It sets the prices.",
+      "c": "It connects AI apps to tools through a shared protocol.",
+      "d": "It collects training data.",
+      "explanation": "MCP is a standard. It connects AI apps to tools."
+    },
+    "q3": {
+      "question": "50,000 calls per day. 200 input tokens and 500 output tokens per call. Input costs USD 3 per million. Output costs USD 15 per million. How much per day?",
+      "a": "About USD 4",
+      "b": "About USD 40",
+      "c": "About USD 405",
+      "d": "About USD 4,050",
+      "explanation": "10 million input tokens times USD 3 equals USD 30. 25 million output tokens times USD 15 equals USD 375. Total: USD 405."
+    },
+    "q4": {
+      "question": "3 apps need 8 tools. How many connections without MCP? And with MCP?",
+      "a": "Without: 11, With: 24",
+      "b": "Without: 24, With: 11",
+      "c": "Without: 24, With: 8",
+      "d": "Without: 11, With: 3",
+      "explanation": "Without MCP: 3 times 8 equals 24. With MCP: 3 plus 8 equals 11."
+    },
+    "q5": {
+      "question": "An agent summarizes a PDF. The summary is incomplete. Why?",
+      "a": "The loop stops too early.",
+      "b": "The PDF tool cannot read the file.",
+      "c": "The model has too little memory for the text.",
+      "d": "Any of the three reasons is possible.",
+      "explanation": "All three parts could be the problem. You must check each one."
+    },
+    "q6": {
+      "question": "When do you not need MCP?",
+      "a": "With 2 apps and 2 stable tools.",
+      "b": "With 10 apps and 15 tools.",
+      "c": "When new tools come every quarter.",
+      "d": "With open-source tools for many users.",
+      "explanation": "2 times 2 equals 4 connections. MCP is not worth it there."
+    }
+  },
+  "checkpoint": {
+    "title": "Self-Check: APIs and MCP",
+    "item1": "Can you explain what happens in an API call?",
+    "item2": "Why do you need only 15 connections instead of 50 with MCP?",
+    "item3": "What are the four parts of an agent?"
+  },
+  "enrichment": {
+    "tocLabel": "Interactive: HTTP Request",
+    "sectionTitle": "Interactive: What Happens in an API Call?",
+    "introText": "Click Play. See step by step what happens when your code calls an API.",
+    "intro": {
+      "title": "The Journey of an HTTP Request",
+      "description": "This animation shows the six steps every API call goes through."
+    },
+    "edu": {
+      "title": "Why Does This Matter?",
+      "description": "Every API call goes through these steps. Understanding them helps you fix errors faster."
+    },
+    "stage": {
+      "browser": "Browser / Client",
+      "dns": "DNS Resolution",
+      "tls": "TCP/TLS Handshake",
+      "request": "HTTP Request",
+      "server": "Server Processing",
+      "response": "HTTP Response"
+    },
+    "stageDesc": {
+      "browser": "Your code sends a request. The browser builds an HTTP message.",
+      "dns": "The domain name is turned into an IP address.",
+      "tls": "An encrypted connection is made. Nobody can steal your API key.",
+      "request": "The request is sent: method, headers, and body.",
+      "server": "The server gets the request and creates a response.",
+      "response": "The server sends the answer back: status code and data."
+    }
+  }
+}

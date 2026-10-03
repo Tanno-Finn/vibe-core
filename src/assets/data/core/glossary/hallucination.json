@@ -1,0 +1,20 @@
+{
+  "id": "hallucination",
+  "category": "fundamentals",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2025-08-26",
+  "updatedAt": "2025-11-17",
+  "related": {
+    "glossary": [
+      "prompt",
+      "context",
+      "context-window",
+      "human-in-the-loop",
+      "agent"
+    ]
+  }
+}

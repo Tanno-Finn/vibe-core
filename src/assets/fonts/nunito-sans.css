@@ -1,0 +1,28 @@
+/*
+ * Nunito Sans — self-hosted.
+ *
+ * Files copied from @fontsource/nunito-sans at build time via the angular.json
+ * assets glob. Latin only, 400/700 normal — italic and the other scripts
+ * are dropped (non-Latin scripts fall back to the Noto Sans families in
+ * FontService.SYSTEM_STACK).
+ *
+ * Loaded on demand as the body font of the Skizzenbuch style
+ * (ADR-0016 D4); not part of the initial bundle, and only fetched once a
+ * reader actually activates that style.
+ */
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./nunito-sans/nunito-sans-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./nunito-sans/nunito-sans-latin-700-normal.woff2') format('woff2');
+}

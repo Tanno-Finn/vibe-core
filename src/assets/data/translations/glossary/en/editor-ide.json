@@ -1,0 +1,9 @@
+{
+  "term": "Editor / IDE",
+  "alternativeNames": [
+    "Code editor",
+    "Integrated Development Environment"
+  ],
+  "description": "An editor is a program for writing and reading code - at its core a no-frills word processor with syntax highlighting. An IDE (Integrated Development Environment) builds a whole workshop around it: a debugger steps through the code, language servers flag errors and find definitions, version control is built in. The difference resembles a notepad and a workbench: you can work on both, but one has the tools hanging within reach. AI agents move part of the work into conversation - the agent writes and edits the code, while the editor remains your place for reading and checking.",
+  "example": "An agent reworks a function. Instead of typing yourself, you open the file in the editor, read the change in context, and set a breakpoint in the IDE to watch it run. The agent did the writing - the understanding and the sign-off happen in the editor."
+}

@@ -1,0 +1,41 @@
+/**
+ * WaterWorldComponent spec
+ *
+ * Scaffolded by tools/new-page.mjs: the page builds, reads its texts through the translation
+ * service and knows it runs in a browser. Add a test for everything the page does beyond that.
+ *
+ * Only the component class is under test: the template is replaced by an empty one.
+ */
+import { TestBed } from '@angular/core/testing';
+import { Subject } from 'rxjs';
+
+import { WaterWorldComponent } from './water-world.component';
+import { TranslationService } from '../../services/translation.service';
+
+class TranslationServiceStub {
+  readonly languageChanged = new Subject<string>().asObservable();
+  readonly currentLanguage = 'en';
+  translate(key: string): string {
+    return `[${key}]`;
+  }
+}
+
+function create(): WaterWorldComponent {
+  TestBed.resetTestingModule();
+  TestBed.configureTestingModule({
+    imports: [WaterWorldComponent],
+    providers: [{ provide: TranslationService, useClass: TranslationServiceStub }],
+  });
+  TestBed.overrideComponent(WaterWorldComponent, { set: { template: '', imports: [] } });
+  return TestBed.createComponent(WaterWorldComponent).componentInstance;
+}
+
+describe('WaterWorldComponent', () => {
+  it('reads its texts through the translation service', () => {
+    expect(create().t('waterWorld.description')).toBe('[waterWorld.description]');
+  });
+
+  it('knows it runs in a browser under the test runner', () => {
+    expect(create().isBrowser).toBe(true);
+  });
+});

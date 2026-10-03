@@ -1,0 +1,157 @@
+{
+  "completedBadge": "Completed",
+  "progressOf": "of",
+  "optional": "Optional",
+  "comingSoon": "Coming soon",
+  "downloadCertificate": "Download Certificate",
+  "difficulty": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced"
+  },
+  "stepType": {
+    "demo": "Demo",
+    "article": "Article",
+    "guide": "Guide"
+  },
+  "certificate": {
+    "title": "CERTIFICATE",
+    "seal": "LEARNING",
+    "subtitle": "Learning Path",
+    "hasCompleted": "Has successfully completed the following learning path:",
+    "dialogTitle": "Create Certificate",
+    "nameLabel": "Your Name",
+    "nameRequired": "Please enter your name",
+    "namePlaceholder": "Enter your name",
+    "privacyHint": "Your name is only used in the PDF and is not saved.",
+    "download": "Save as PDF",
+    "cancel": "Cancel",
+    "statusTitle": "Certificate Status",
+    "lockedHint": "Click to see the status",
+    "stepCompleted": "Completed",
+    "stepPending": "Pending",
+    "stepUnavailable": "Not yet available",
+    "completedStepsLabel": "Completed steps:",
+    "stepsRemaining": "{{count}} steps remaining",
+    "stepsUnavailable": "{{count}} steps not yet available"
+  },
+  "sectors": {
+    "foundation": "The Foundation",
+    "foundationDesc": "For users with no prior knowledge. If you can operate a computer, start here.",
+    "workshop": "The Workshop",
+    "workshopDesc": "Practice for makers. Focus on application, tools, and modern workflows.",
+    "academy": "The Academy",
+    "academyDesc": "The in-depth computer science track. Equivalent to AI modules in a CS degree, but accessible.",
+    "society": "Society & Inclusion",
+    "societyDesc": "Societal and legal implications, tailored to specific target groups.",
+    "misc": "Curiosities",
+    "miscDesc": "A growing showcase of demos that don't fit any single subject path — classics, curiosities, charming outliers."
+  },
+  "availableFrom": "Available from",
+  "prerequisiteLabel": "Prerequisite",
+  "seedPath1": {
+    "title": "Getting Started",
+    "description": "A gentle first path into the basics of your subject — what it is, and why it matters.",
+    "learningPromise": "After this path you can explain, in your own words, what the subject is about.",
+    "targetAudience": "Complete beginners — no prior knowledge needed",
+    "duration": "About 30 minutes",
+    "prerequisites": "None",
+    "steps": {
+      "intro": "Introduction",
+      "introDesc": "Start with the core idea of what the subject is really about."
+    }
+  },
+  "seedPath2": {
+    "title": "Your Subject in Everyday Life",
+    "description": "See where your subject already shows up around you — from search to recommendations.",
+    "learningPromise": "After this path you can spot your subject at work in everyday tools.",
+    "targetAudience": "Curious beginners",
+    "duration": "About 30 minutes",
+    "prerequisites": "None",
+    "steps": {
+      "intro": "It's All Around You",
+      "introDesc": "Discover everyday products that quietly use your subject."
+    }
+  },
+  "computerBasics": {
+    "title": "Computer Basics",
+    "description": "Terminal, development environment, version control, and network interfaces — the four tools everything else is built on.",
+    "learningPromise": "After this path you open a terminal without unease, you know what a repository keeps, and you can follow how two programs talk to each other across an interface.",
+    "targetAudience": "Beginners with no programming experience",
+    "duration": "4 articles, about 55 minutes",
+    "prerequisites": "None",
+    "steps": {
+      "terminal": "The Command Line",
+      "terminalDesc": "What a terminal is, why it takes typed commands instead of buttons, and how a command is put together.",
+      "devEnvironment": "Your Development Environment",
+      "devEnvironmentDesc": "Editor, IDE, and everything around them: set up the place where ideas become files.",
+      "versioning": "Version Control",
+      "versioningDesc": "How a repository records every change — and why that takes away the fear of breaking things.",
+      "network": "Networks and Interfaces",
+      "networkDesc": "How a request travels across the network and what an interface between two programs actually settles."
+    }
+  },
+  "agentsBasics": {
+    "title": "Working with AI Agents",
+    "description": "Programming in plain language, shaping a model’s context, and understanding how an agent reaches its tools.",
+    "learningPromise": "After this path you describe tasks so an agent can carry them out, you know what belongs in its context window, and you can trace the way from the model interface to a tool call.",
+    "targetAudience": "Anyone who wants to work with AI agents",
+    "duration": "4 articles, about 36 minutes",
+    "prerequisites": "Computer Basics",
+    "steps": {
+      "naturalLanguage": "Programming in Plain Language",
+      "naturalLanguageDesc": "What changes when you type the intent instead of the code — and where the limits are.",
+      "context": "Shaping the Context",
+      "contextDesc": "The context window as a scarce resource: what belongs in it, what clutters it, and how a session loses the thread.",
+      "interfaces": "Interfaces, Protocols, and the Agent Loop",
+      "interfacesDesc": "From the model interface through tool calls and an open protocol to the loop an agent runs while doing it.",
+      "harnessEngineering": "Harness Engineering (Guardrails Instead of Hope)",
+      "harnessEngineeringDesc": "Gates, sandbox, and memory: building the environment around the agent on purpose."
+    }
+  },
+  "quality": {
+    "title": "Software Quality & Testing",
+    "description": "Read tests, make sense of machine checks, sign off on changes, and protect secrets — quality without programming skills.",
+    "learningPromise": "You read a test and see what it actually checks, make sense of red machine checks, ask an agent the three questions whose answers you can verify yourself, and know what must never enter a repository.",
+    "targetAudience": "Anyone having AI agents build software",
+    "duration": "4 articles",
+    "prerequisites": "Working with AI Agents",
+    "steps": {
+      "agentTests": "Understanding tests when the agent writes them",
+      "agentTestsDesc": "Green does not mean correct: read a test, check its name, and spot the weakening trap.",
+      "qualityGates": "Gates: the safety net made of machine checks",
+      "qualityGatesDesc": "Tell the five questions behind a red board apart, separate a warning from a gate, and read the written exception.",
+      "codeReview": "Reviewing Without Knowing How to Program",
+      "codeReviewDesc": "Judge a diff by its silhouette, ask three testable questions, and trigger the case that has to fail.",
+      "secretsSecurity": "Secrets & Security: What Must Never Go Into a Repository",
+      "secretsSecurityDesc": "Recognize a secret, grasp why deleting takes nothing back, and keep the step with no way back to yourself."
+    }
+  },
+  "knowledgeConcepts": {
+    "title": "Second Brain & Digital Twins",
+    "description": "Organize knowledge outside your head — and understand what digital replicas of real things can do and where their limits are.",
+    "learningPromise": "You will set up your own second brain instead of collecting notes you never read again, and explain what separates a digital twin from a mere simulation.",
+    "targetAudience": "Everyone — no technical background needed",
+    "duration": "2 articles",
+    "prerequisites": "None",
+    "steps": {
+      "secondBrain": "Second Brain: Your External Memory",
+      "secondBrainDesc": "From the Zettelkasten to connected notes: store knowledge so it helps you think.",
+      "digitalTwins": "Digital Twins",
+      "digitalTwinsDesc": "What a digital replica of real objects can do, from factories to spaceflight — and where its limits are."
+    }
+  },
+  "underTheHood": {
+    "title": "Under the Hood",
+    "description": "A real agent-first project from the inside: the rulebook, the gates, the books, and the places where the method expects to fail.",
+    "learningPromise": "You will see, in a real repository, which rules a machine actually checks and which are only prose, why the production build runs the test suite itself, and what an independent fourth check is for after three stages have already agreed.",
+    "targetAudience": "Anyone who wants to set up an agent-first project",
+    "duration": "1 article, about 12 minutes",
+    "prerequisites": "Working with AI agents",
+    "steps": {
+      "tour": "The Tour: How This Project Is Built with Agents",
+      "tourDesc": "Ten stations through a real repository, each with a file you can open, from the line cap on the map to the test gate inside the build."
+    }
+  },
+  "draftSrOnly": "Draft — not yet translated to all languages"
+}

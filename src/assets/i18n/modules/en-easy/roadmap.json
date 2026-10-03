@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Roadmap",
+    "description": "What is already done and what is still coming. Here you see the plan."
+  },
+  "timeline": {
+    "title": "Content Roadmap",
+    "description": "This site keeps growing. New learning paths and demos are added. Everything is free.",
+    "released": "Available",
+    "upcoming": "Coming soon",
+    "planned": "Planned",
+    "articles": "Articles",
+    "paths": "Learning Paths",
+    "phaseSprint": "every week",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "updates": "Extensions"
+  },
+  "languages": {
+    "title": "Translations",
+    "description": "All translations were made with AI.\nThey are checked step by step.\nHere you can see the status for each language.",
+    "statusComplete": "Check done",
+    "statusPending": "Check planned",
+    "statusReference": "Main language",
+    "languageNames": {
+      "de": "German",
+      "en": "English",
+      "tr": "Turkish",
+      "bn": "Bengali",
+      "ru": "Russian",
+      "uk": "Ukrainian",
+      "pl": "Polish",
+      "el": "Greek",
+      "hi": "Hindi",
+      "mr": "Marathi",
+      "pa": "Punjabi",
+      "es": "Spanish",
+      "fr": "French",
+      "ko": "Korean",
+      "hr": "Croatian",
+      "it": "Italian",
+      "nl": "Dutch",
+      "pt-br": "Portuguese (BR)",
+      "ro": "Romanian",
+      "cs": "Czech",
+      "vi": "Vietnamese",
+      "id": "Indonesian",
+      "ms": "Malay",
+      "sv": "Swedish",
+      "da": "Danish",
+      "no": "Norwegian",
+      "sw": "Swahili",
+      "tl": "Tagalog"
+    },
+    "scripts": {
+      "latin": "Latin",
+      "cyrillic": "Cyrillic",
+      "devanagari": "Devanagari",
+      "bengali": "Bengali",
+      "hangul": "Hangul",
+      "greek": "Greek",
+      "gurmukhi": "Gurmukhi"
+    }
+  },
+  "mystery": {
+    "title": "Bonus content",
+    "description": "More content is coming soon. We are not telling you what it is yet."
+  }
+}

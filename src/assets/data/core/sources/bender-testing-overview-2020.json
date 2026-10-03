@@ -1,0 +1,17 @@
+{
+  "id": "bender-testing-overview-2020",
+  "type": "book",
+  "authors": "Adam Bender",
+  "year": "2020",
+  "publication": "Software Engineering at Google, Kapitel 11 (O'Reilly)",
+  "url": "https://abseil.io/resources/swe-book/html/ch11.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "test-sizes",
+    "coverage",
+    "canonical",
+    "google",
+    "brittle-tests"
+  ]
+}

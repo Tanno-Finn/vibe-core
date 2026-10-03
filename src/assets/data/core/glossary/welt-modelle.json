@@ -1,0 +1,53 @@
+{
+  "id": "welt-modelle",
+  "category": "ml",
+  "difficulty": "advanced",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "World Models",
+  "parentConcepts": [
+    "reinforcement-learning-rl"
+  ],
+  "childConcepts": [],
+  "createdAt": "2025-01-16",
+  "updatedAt": "2025-01-16",
+  "alternativeNames": {
+    "de": [
+      "Weltmodelle",
+      "Welt-Modelle",
+      "Environment Models"
+    ],
+    "en": [
+      "World Models",
+      "Environment Models"
+    ],
+    "de-easy": [
+      "Welt-Modell",
+      "Umgebungs-Modell"
+    ],
+    "en-easy": [
+      "World Model",
+      "Environment Model"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Ha, D., & Schmidhuber, J. (2018). World Models. arXiv:1803.10122",
+      "type": "paper",
+      "notes": "Influential paper on world models for RL agents"
+    },
+    {
+      "title": "Sutton, R. S., & Barto, A. G. (2018). Reinforcement Learning: An Introduction (2nd ed.). MIT Press. Chapter on Model-Based RL",
+      "type": "book",
+      "notes": "Theoretical foundation of model-based reinforcement learning",
+      "tags": [
+        "origin-type:textbook"
+      ]
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent"
+    ]
+  }
+}

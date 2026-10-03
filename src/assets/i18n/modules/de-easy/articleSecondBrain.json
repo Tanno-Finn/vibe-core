@@ -1,0 +1,229 @@
+{
+  "hero": {
+    "title": "Second Brain: Dein Gedächtnis außerhalb vom Kopf",
+    "subtitle": "Eine Hälfte der Arbeit fühlt sich gut an. Die andere Hälfte bringt den Nutzen."
+  },
+  "toc": {
+    "lead": "Einstieg",
+    "brain": "Was ein Second Brain ist",
+    "origin": "Die Idee ist alt",
+    "code": "Die schiefe Hälfte",
+    "limit": "Sammeln ist nicht Verstehen",
+    "ai": "Wenn die KI mitliest",
+    "mirror": "Zwei Gedächtnisse",
+    "close": "Wo der Hebel sitzt",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Stell dir vor: Du hebst jeden Tag 5 Dinge auf. Einen Artikel. Ein Bild. Einen Satz. Einen Link. Eine Sprach·nachricht. Das ist ganz normal. Rechne mit 5 Tagen pro Woche. Und mit 50 Wochen im Jahr. Das sind 1.250 Dinge im Jahr. Jetzt kommt die wichtige Frage. Wie viele davon hast du je benutzt?",
+    "paragraph2": "Die Zahlen sind nur ein Rechen·beispiel. Sie sind keine Messung. Du kannst mit deinen eigenen Zahlen rechnen. Das Ergebnis bleibt ähnlich. Wichtig ist nicht, wie viel du sammelst. Wichtig ist, was wieder heraus kommt.",
+    "paragraph3": "Noch ein Hinweis. Wie du mit einer KI lernst, steht in einem anderen Artikel. Er heißt „Lernen mit KI“. Hier geht es um eine andere Frage. Was hebst du auf? Und was bringt dir das?"
+  },
+  "brain": {
+    "title": "Was ein Second Brain ist",
+    "build1": "Kannst du 10 Telefonnummern auswendig? Wahrscheinlich nicht. Das ist normal. Du weißt aber, wo die Nummern stehen. Für eine Telefonnummer reicht das völlig.",
+    "build2": "Forscher nennen das Auslagern. Auslagern heißt: Du erledigst etwas außerhalb vom Kopf. Ein Wecker im Handy ist Auslagern. Auslagern ist eine gute Strategie. Es ist kein Fehler.",
+    "definitionTitle": "Second Brain",
+    "definitionEverydayLabel": "Kurz gesagt",
+    "definitionEveryday": "Ein Second Brain hat 2 Teile. Teil 1 ist ein Vorrat. Darin liegt Aufgeschriebenes außerhalb vom Kopf. Du kannst es wieder finden. Teil 2 ist eine Gewohnheit. Du arbeitest regelmäßig damit.",
+    "definitionPreciseLabel": "Genauer gesagt",
+    "definitionPrecise": "Teil 1 ist schnell gemacht. Teil 1 kostet dich danach fast nichts. Teil 2 kostet jedes Mal Mühe. Aber nur aus Teil 2 entsteht etwas Neues. Hast du nur Teil 1? Dann hast du ein Lager.",
+    "notAnApp": "Viele denken: Ein Second Brain ist eine App. Das stimmt nicht. Teil 2 ist eine Gewohnheit. Eine Gewohnheit kann man nicht installieren. Eine Notiz·app ist nur der übliche Ort. Ein gutes Heft schlägt eine chaotische App.",
+    "example": "Ein Beispiel: Im Februar hörst du etwas über Strom·verträge. Im Oktober sollst du einen Vertrag unterschreiben. Weißt du noch, dass du etwas dazu hast? Dann hilft dir dein Second Brain. Weißt du es nicht mehr? Dann hilft es dir nicht. Verarbeitet hast du es damit noch nicht.",
+    "misconception": {
+      "title": "Fehler·gedanke: Auslagern macht dumm",
+      "text": "Viele haben Angst davor. Die Forschung sagt etwas anderes. Auslagern ist normal. Es hilft sogar oft. Wichtig ist die Frage: Was lagerst du aus? Die Ablage: ja. Das Verstehen: nein."
+    },
+    "analogyBreak": "Aber Achtung. Eine Telefonnummer holst du nur heraus. Ein Gedanke ist anders. Beim Denken muss er im Kopf sein. Du kannst nicht mitten im Gespräch nachschlagen. Auslagern kannst du die Ablage. Das Denken kannst du nicht auslagern."
+  },
+  "origin": {
+    "title": "Die Idee ist alt",
+    "event1": {
+      "date": "1945",
+      "title": "Die Memex",
+      "description": "Vannevar Bush beschreibt eine Maschine. Sie speichert alles Gelesene. Sie holt es schnell wieder heraus."
+    },
+    "event2": {
+      "date": "1981",
+      "title": "Luhmanns Zweit·gedächtnis",
+      "description": "Niklas Luhmann war Soziologe. Er nennt seinen Zettel·kasten ein Zweit·gedächtnis."
+    },
+    "event3": {
+      "date": "1998",
+      "title": "Ein anderes zweites Gehirn",
+      "description": "Ein Buch heißt „The Second Brain“. Es geht um den Darm. Gleiches Wort, anderes Thema."
+    },
+    "event4": {
+      "date": "2017",
+      "title": "Der erste Kurs",
+      "description": "Tiago Forte gibt im Januar seinen Kurs. Der Kurs heißt „Building a Second Brain“."
+    },
+    "event5": {
+      "date": "2022",
+      "title": "Das Buch",
+      "description": "Das Buch erscheint. Viele Menschen kennen den Begriff jetzt."
+    },
+    "text1": "Tiago Forte hat die Methode bekannt gemacht. Den Begriff hat er aber nicht erfunden. Dagegen sprechen 2 verschiedene Dinge.",
+    "text2": "Erstens das Wort. 1998 gab es schon ein Buch „The Second Brain“. Es ging um den Darm. Gleiches Wort, anderes Thema.",
+    "text3": "Zweitens die Idee. Luhmann sagte 1981 „Zweit·gedächtnis“. Das ist keine Übersetzung von „Second Brain“. Zweit·gedächtnis heißt: zweites Gedächtnis. Es heißt nicht: zweites Gehirn. Die Idee war also 36 Jahre früher da.",
+    "useful": "Das ist praktisch zu wissen. Die Idee ist rund 80 Jahre alt. Dann glaubst du einen Satz nicht mehr: Die neue App verändert alles."
+  },
+  "code": {
+    "title": "Die schiefe Hälfte",
+    "intro": "Die bekannteste Methode heißt CODE. CODE hat 4 Schritte. Capture heißt: festhalten. Organize heißt: ablegen. Distill heißt: auf den Kern kürzen. Express heißt: etwas daraus machen. Die 4 Schritte sind nicht gleich wichtig.",
+    "kitchen1": "Denk ans Kochen. Erst einkaufen. Dann einräumen. Dann schneiden. Dann kochen. Ein voller Kühlschrank ist kein Essen. Erst Schneiden und Kochen machen satt.",
+    "kitchen2": "2 Sachen passen bei dem Bild nicht. Essen verdirbt. Notizen verderben nicht. Darum sammelt man Notizen so leicht. Und: Kochen hat ein Ende. CODE geht immer weiter.",
+    "funnelIntro": "Zurück zu den 1.250 Dingen. Rechne einmal mit:",
+    "stepsTitle": "Der Trichter. Alle Annahmen stehen dabei.",
+    "stepsAriaLabel": "4 Schritte vom Sammeln bis zum Ergebnis",
+    "step1": {
+      "label": "Capture: 1.250",
+      "description": "5 Dinge am Tag. 5 Tage pro Woche. 50 Wochen."
+    },
+    "step2": {
+      "label": "Organize: 125",
+      "description": "Jedes 10. Ding schaust du noch mal an."
+    },
+    "step3": {
+      "label": "Distill: 25",
+      "description": "Jedes 5. davon kürzt du in eigenen Worten. Das macht Mühe."
+    },
+    "step4": {
+      "label": "Express: 5",
+      "description": "5 Dinge werden zu etwas Neuem."
+    },
+    "statLabel": "Gesammelt zu benutzt",
+    "statValue": "250 : 1",
+    "statDescription": "Ein Rechen·beispiel. Keine Messung.",
+    "secondCalc": "Jetzt ändere eine einzige Zahl. Du sammelst weiter 5 Dinge am Tag. Schau auf die Dinge, die du noch mal öffnest. Davon kürzt du jetzt jedes 3. statt jedes 5. Dann werden aus 25 gut 40. Und am Ende kommen gut 8 heraus statt 5. Das sind zwei Drittel mehr.",
+    "lever": "Der Hebel sitzt nicht oben im Trichter. Eine schnellere App bringt dir fast nichts.",
+    "para": "Zu CODE gehört auch PARA. PARA ist eine Art zu ordnen. Die Regel lautet: Ordne nach deinen Aufgaben. Ordne nicht nach Themen. PARA gehört zur billigen Hälfte.",
+    "retrievalTitle": "Ein zweiter Weg zum gleichen Ergebnis",
+    "retrieval1": "Abrufen ist besser als noch mal lesen. Das steht schon im Artikel über Lernen mit KI. Neu ist hier nur der Beweis.",
+    "retrieval2": "In einer Studie lasen Menschen einen Text. Eine Gruppe las ihn mehrmals. Die andere Gruppe rief ihn aus dem Kopf ab. Direkt danach war Lesen besser. Nach einer Woche war Abrufen besser. Eine zweite Studie zeigte: Noch mal lesen half gar nicht. Abrufen half dagegen sehr.",
+    "retrieval3": "Das ist wichtig für CODE. Etwas in eigenen Worten kürzen ist ein Abruf. Etwas noch mal speichern ist wie noch mal lesen.",
+    "misconception": {
+      "title": "Fehler·gedanke: Es fühlte sich gut an, also hat es geholfen",
+      "text": "Das Gefühl ist kein Beweis. In der Studie sagten die Menschen vorher: So gut werde ich sein. Ihre Vorhersage stimmte gar nicht. Sammeln fühlt sich nach Arbeit an. Ob etwas hängen bleibt, ist eine andere Frage."
+    },
+    "deepDive": {
+      "title": "Warum Sammeln sich so gut anfühlt",
+      "text1": "Es gibt noch einen Grund. Du merkst den Fehler nicht. Ein schlechtes Notiz·system fällt nie auf. Nichts geht kaputt. Nichts fehlt sichtbar.",
+      "text2": "Andy Matuschak erklärt das so: Ohne Rückmeldung ändert niemand etwas. Man bleibt jahrelang auf dem gleichen Stand. Und man ist dabei zufrieden."
+    }
+  },
+  "limit": {
+    "title": "Sammeln ist nicht Verstehen",
+    "intro": "Das klingt wie eine Ermahnung. Es ist aber ein Mess·ergebnis. Darum kommt hier zuerst ein Versuch.",
+    "experiment1": "Rund 200 Menschen bekamen einfache Fragen. Zum Beispiel: Wie funktioniert ein Reißverschluss? Eine Gruppe durfte im Internet suchen. Die andere Gruppe durfte das nicht. Danach schätzten alle sich selbst ein. Auf einer Skala von 1 bis 7.",
+    "experiment2": "Dann kam der wichtige Teil. Alle bekamen Fragen aus 6 anderen Bereichen. Zum Beispiel Wetter, amerikanische Geschichte oder Ernährung. Diese Fragen hatten nichts mit dem Anfang zu tun. Niemand hatte dazu etwas gesucht.",
+    "experiment3": "Die Suchgruppe hielt sich trotzdem für besser. Sie hatte über diese Themen nichts gelernt. Nur eine Sache war anders: Sie hatte vorher gesucht. In einem weiteren Versuch wählte sie sogar Bilder von aktiveren Gehirnen. Insgesamt gibt es 9 Versuche zu dieser Täuschung. Der Übertragungs·effekt kommt aus dem ersten Versuch. Die anderen prüfen die Täuschung von anderen Seiten.",
+    "experiment4": "Noch erstaunlicher ist ein späterer Versuch. Dort brachte die Suche gar keine Antwort. Die Täuschung blieb trotzdem. Es reicht also, gesucht zu haben.",
+    "comparison": {
+      "ariaLabel": "Zugriff und Verstehen im Vergleich",
+      "beforeLabel": "Zugriff",
+      "beforeResult": "Ein Archiv kann das übernehmen",
+      "afterLabel": "Verstehen",
+      "afterResult": "Das geht nur in deinem Kopf",
+      "beforeText": "Zugriff liegt außerhalb von dir. Zugriff hilft beim Finden. Zugriff fühlt sich an wie Können. Eine KI kann dir Zugriff abnehmen.",
+      "afterText": "Verstehen liegt in dir. Verstehen hilft beim Denken. Verstehen fühlt sich auch an wie Können. Darum verwechselt man beides. Eine KI kann dir Verstehen nicht abnehmen."
+    },
+    "misconception": {
+      "title": "Fehler·gedanke: Ich habe es gespeichert, also weiß ich es",
+      "text": "Zugriff und Verstehen sind 2 verschiedene Dinge. Ein Archiv kann dir nur Zugriff geben. Beides fühlt sich fast gleich an. Darum merkst du den Unterschied spät. Ein Satz dazu ist schon von 2014: Von etwas zu wissen ist nicht: etwas zu wissen."
+    },
+    "luhmannContext": "Der beste Satz dazu ist alt. Er kommt von Niklas Luhmann. Er hatte die berühmteste Zettel·sammlung. Er schrieb 1981 über einen Zettel·kasten ohne Verweise:",
+    "luhmannQuote": "„Bis dahin arbeitet er nur als Behälter, aus dem man herausholt, was man hineingetan hat.“ Das heißt: Du bekommst nur zurück, was du hineingetan hast.",
+    "analogyBreak": "Der Satz beschreibt einen Zustand. Er beschreibt nicht die ganze Sache. Ein gutes Archiv ist nicht passiv. Es zeigt dir auch neue Verbindungen. Systeme sind also nicht sinnlos.",
+    "deepDive": {
+      "title": "Wie sicher ist das?",
+      "text1": "Ein bekannter Befund ist von 2011. Er sagt: Wir merken uns, wo etwas steht. Wir merken uns nicht, was dort steht. Später konnte man den ersten Teil nicht bestätigen. Zwei Mal nicht in einem großen Projekt. Dieses Projekt bestätigte 13 von 21 Studien. Auch eine weitere Studie fand nichts.",
+      "text2": "Nur ein Teil der Arbeit ist betroffen. Trotzdem baut dieser Artikel auf einem anderen Befund. Die Lehre ist einfach: Oft zitiert heißt nicht richtig."
+    }
+  },
+  "ai": {
+    "title": "Wenn die KI mitliest",
+    "text1": "Eine KI kann heute deine Dateien lesen. Dafür gibt es einen offenen Standard. Er heißt Model Context Protocol. Mehr dazu steht im Artikel über RAG.",
+    "text2": "Eine Sache ändert sich dadurch. Finden kostet fast nichts mehr. Gute Notizen werden dadurch wertvoller. 3.000 ungelesene Links bleiben aber genau so viel wert wie vorher.",
+    "text3": "Tiago Forte hat das 2026 selbst geschrieben. Er sagt: Das Problem ist nicht mehr die KI. Das Problem ist: Du musst ihr das Richtige geben. Er sagt auch: Es ist nie so leicht wie versprochen.",
+    "survey": "Zum eigenen Denken gibt es wenig sichere Daten. Es gibt eine Befragung von 319 Menschen. Wer der KI stark vertraut, denkt nach eigener Aussage weniger selbst nach. Wer sich selbst stark vertraut, denkt mehr nach. Das Denken verschiebt sich außerdem zum Prüfen der Antwort. Das sind Selbstaussagen. Es ist keine Messung der Leistung.",
+    "bottleneck": "Dieser Artikel zieht daraus einen Schluss. Forte sagt diesen Satz nicht selbst. Der Engpass liegt jetzt bei Distill. Die Maschine bekommt das Nachschlagen. Du bekommst das Verstehen."
+  },
+  "privacy": {
+    "title": "Achtung: Wo landen deine Notizen?",
+    "text1": "Viele Notiz·programme haben KI-Funktionen. Zum Beispiel: Die KI fasst deine Notizen zusammen. Dafür schickt das Programm deine Notizen oft an eine fremde Firma. Das passiert über das Internet. Manche Firmen dürfen deine Notizen auch zum Training ihrer KI nutzen. Das steht nicht im Programm. Das steht in den Nutzungs·bedingungen. Lies sie besser vorher.",
+    "text2": "Denk daran bei privaten Notizen. Du kannst die KI-Funktionen oft ausschalten. Die Regel ist: Schreibe nichts Geheimes in ein Programm mit Cloud-KI.",
+    "text3": "In deinem zweiten Gehirn stehen selten nur Sachen über dich. Auch Kollegen, Kunden und Familie kommen darin vor. Zum Beispiel auf einem Foto von einem Chat. Bleibt das alles rein privat? Dann gilt die Daten·schutz·grund·verordnung nicht für dich. Für die Cloud·firma gilt sie aber schon (Artikel 2 Absatz 2 Buchstabe c und Erwägungs·grund 18 DSGVO). Im Beruf ist das anders. Notizen über Kunden, Patienten oder Mitarbeiter sind fremde Daten. Dafür bist du oder dein Arbeitgeber verantwortlich. Eine KI-Funktion schickt solche Notizen an eine fremde Firma. Das ist eine Weitergabe. Dafür braucht man meistens einen Vertrag (Artikel 28 DSGVO). Kläre das vorher. Nicht erst hinterher."
+  },
+  "mirror": {
+    "title": "Zwei Gedächtnisse, ein Prinzip",
+    "text1": "Dieses Lernportal ist auch ein zweites Gedächtnis. Jemand anderes hat es für dich gepflegt. Eine Sache nimmt es dir nicht ab. Dafür gibt es Checkpoint und Quiz.",
+    "text2": "Auch eine Maschine braucht so etwas. Ein KI-Agent weiß am Montag nichts mehr von Freitag. Das steht in der Anleitung vom Hersteller. Stell dir 10 Sitzungen vor. Ohne Datei lernt er das Gleiche 10-mal. Mit Datei nur einmal. Mehr dazu steht im Artikel über Harness Engineering. Und im Glossar unter Agenten·gedächtnis.",
+    "text3": "Der Grund ist bei beiden gleich. Was der Kopf nicht behält, muss draußen liegen. Beim Menschen und bei der Maschine.",
+    "forward": "Noch eine Abgrenzung. Ein zweites Gedächtnis machst du selbst. Die Arbeit daran verändert dich. Ein digitaler Zwilling ist etwas anderes. Er wird an einem echten Ding gemessen. Und er wirkt auf dieses Ding zurück."
+  },
+  "close": {
+    "title": "Wo der Hebel sitzt",
+    "text1": "Denk an die Rechnung vom Anfang. Die Zahl ganz oben ist nicht wichtig. Darum ist „welche App?“ fast nie die erste Frage. Es gibt eine bessere Frage.",
+    "text2": "Wo passiert hier eigentlich Verarbeitung? Und was wäre die kleinste Änderung dafür? Ein voller Speicher hilft dir nicht. Eine Notiz in eigenen Worten hilft."
+  },
+  "takeaways": {
+    "containerTitle": "Die 5 wichtigsten Punkte",
+    "item1": "Ein Second Brain hat 2 Teile. Teil 1 ist ein Vorrat. Teil 2 ist eine Gewohnheit. Nur Teil 2 bringt den Nutzen.",
+    "item2": "Auslagern macht nicht dumm. Es ist normal und gut untersucht. Lagere die Ablage aus. Lagere das Verstehen nicht aus.",
+    "item3": "CODE hat eine billige und eine wertvolle Hälfte. Sammeln und Ordnen bringen wenig. Kürzen und Herausbringen bringen viel.",
+    "item4": "Zugriff und Verstehen sind 2 verschiedene Dinge. Zugriff fühlt sich aber wie Verstehen an. Das ist ein Effekt, kein Fehler von dir.",
+    "item5": "Eine KI hilft bei guten Notizen. Bei schlechten Notizen hilft sie nicht. Das Problem ist jetzt das Formulieren, nicht das Finden."
+  },
+  "checkpoint": {
+    "title": "Checkpoint",
+    "item1": "Ich kann sagen: Welcher zweite Teil gehört zum Notiz·vorrat dazu?",
+    "item2": "Ich kann sagen: Welche Hälfte von CODE bringt den Nutzen? Und warum ist das so?",
+    "item3": "Ich kann ein eigenes Beispiel nennen. Darin sind Zugriff und Verstehen nicht das Gleiche."
+  },
+  "quiz": {
+    "boxTitle": "Teste dein Wissen",
+    "q1": {
+      "question": "Wofür stehen die 4 Schritte von CODE?",
+      "a": "Collect, Order, Deliver, Evaluate",
+      "b": "Capture, Organize, Distill, Express",
+      "c": "Copy, Optimize, Download, Export",
+      "d": "Create, Observe, Decide, Execute",
+      "explanation": "Capture heißt festhalten. Organize heißt ablegen. Distill heißt kürzen. Express heißt: etwas daraus machen. Die letzten 2 Schritte bringen den Nutzen."
+    },
+    "q2": {
+      "question": "Der Artikel sagt: Forte hat die Methode bekannt gemacht. Den Begriff hat er nicht erfunden. Was spricht dagegen?",
+      "a": "Nichts. Der Artikel ist an dieser Stelle nur besonders vorsichtig.",
+      "b": "Zwei Dinge: Das Wort gab es 1998. Die Idee gab es 1981 bei Luhmann.",
+      "c": "Forte hat die Methode erst 2022 gemacht. Nicht schon 2017 im Kurs.",
+      "d": "Das Wort kommt aus der Hirn·forschung. Dort heißt es etwas anderes.",
+      "explanation": "1998 hieß ein Buch über den Darm „The Second Brain“. Gleiches Wort, anderes Thema. Luhmann sagte 1981 „Zweit·gedächtnis“. Das ist die gleiche Idee mit einem deutschen Wort."
+    },
+    "q3": {
+      "question": "Jemand sammelt 1.000 Dinge im Jahr. Er schaut 100 davon noch mal an. Er kürzt 20 in eigenen Worten. Daraus macht er 4 Sachen. Er will mehr Nutzen. Plan A: eine schnellere App für 2.000 Dinge. Plan B: 40 statt 20 kürzen. Was passiert?",
+      "a": "Plan A wirkt stärker. Mehr Material bedeutet immer mehr Ideen.",
+      "b": "Beide Pläne wirken gleich. Beide verdoppeln ja eine Zahl.",
+      "c": "Plan B wirkt. Plan A kaum. A verdoppelt den falschen Schritt.",
+      "d": "Kein Plan wirkt. Der Nutzen hängt hier nur vom Zufall ab.",
+      "explanation": "Plan A vergrößert die Zahl ganz oben. Diese Zahl ist nicht das Problem. Plan B vergrößert das Kürzen. Nur das Kürzen bringt den Nutzen."
+    },
+    "q4": {
+      "question": "Zwei Menschen bereiten ein Gespräch vor. Person A hat 40 Artikel gespeichert. Sie hat sie am Abend vorher überflogen. Sie fühlt sich gut vorbereitet. Person B hat 3 Artikel gelesen. Sie hat sie in eigenen Worten gekürzt. Wer wird im Gespräch eher überrascht?",
+      "a": "Person B. Drei Artikel sind für ein Gespräch einfach zu wenig.",
+      "b": "Person A. Zugriff auf viel Material fühlt sich nach Wissen an.",
+      "c": "Niemand. Vorbereitung wirkt erst ab einer großen Menge Material.",
+      "d": "Person A. Aber nur, weil sie zu spät angefangen hat.",
+      "explanation": "Der Versuch zeigt das: Wer nachschlägt, fühlt sich klüger. Auch bei Themen ohne Suche. Das ist keine Faulheit. Person B hat den wichtigen Schritt gemacht: kürzen in eigenen Worten."
+    },
+    "q5": {
+      "question": "Zwei Menschen richten eine KI auf ihre Notizen. A hat 3.000 Links gespeichert. A hat sie nie wieder geöffnet. B hat 300 Notizen. B hat jede in eigenen Worten gekürzt. Was ändert die KI?",
+      "a": "Die KI findet und kürzt. Darum holt A gegenüber B auf.",
+      "b": "Die KI ändert nichts. Sie sucht in beiden Archiven gleich.",
+      "c": "Die KI nimmt das Finden ab. Das Kürzen hat nur B gemacht.",
+      "d": "Die KI hilft B mehr. Kleine Archive sind einfach schneller.",
+      "explanation": "Die KI findet in beiden Archiven gut. Sie kürzt aber nicht für dich. Darum hilft sie B mehr. Das Problem ist jetzt das Formulieren."
+    }
+  }
+}

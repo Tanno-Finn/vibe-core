@@ -1,0 +1,47 @@
+# --- Build output & caches ---
+dist/
+**/dist/
+dist-content/
+out-tsc/
+.angular/
+coverage/
+node_modules/
+
+# --- Vendored / tooling / IDE ---
+.claude/
+.idea/
+.vscode/
+.chrome-test-profile/
+
+# --- Scratch / drafts / reports / non-app content trees ---
+tmp/
+docs/
+public/
+
+# --- Machine-maintained / very large data bundles (content, i18n, glossary,
+#     timeline). Generated or bulk-translated; never hand-format them. ---
+src/assets/data/
+
+# --- Byte-governed by other gates ---
+# `check-design-system.mjs` compares each registry entry's @case markup byte-for-byte
+# against DEMO_SNIPPETS in demo-host.component.ts, and `check-design-guides.mjs` reads
+# each article's tab bodies to decide which selectors and files a guide claims. Both
+# parse this tree as text, so reformatting it makes them report drift that is not there
+# — a formatter and a byte-comparison gate cannot both own the same file.
+src/app/dev/
+
+# --- Prose. Prettier formats code here, not documents. ---
+# Markdown in this repo is written to be read, and three gates govern it by content:
+# check-design-guides.mjs holds each agent doc to a byte budget, check-design-system.mjs
+# compares guide markup byte-for-byte against DEMO_SNIPPETS, and check-doc-drift.mjs
+# pins each translated mirror to a hash of its source. Prettier's markdown printer
+# reflows all three out of true (it also rewrites *emphasis* as _emphasis_), so running
+# it over prose costs six guides their budget and every mirror its marker, and buys
+# nothing a reader would notice. One template is worse still: it never converges —
+# `--write` then `--check` still reports packs/editor/assets/templates/style-review.vorlage.md.
+*.md
+*.MD
+
+# --- Lockfiles & generated feeds ---
+package-lock.json
+src/**/*.xml

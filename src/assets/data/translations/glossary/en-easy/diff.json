@@ -1,0 +1,8 @@
+{
+  "term": "Diff",
+  "alternativeNames": [
+    "List of changes"
+  ],
+  "description": "Diff. A diff is a list of changes. It compares two states of your code. The list shows: these lines are new. These lines are gone. It shows nothing else. So you do not need to read all files. You only see the differences. That matters when you work with AI. The AI changes your code. With the diff you check every change.",
+  "example": "The AI should fix a wrong word. You look at the diff. It shows two changed lines. You expected one line. You did not expect the other line. Good thing you checked."
+}

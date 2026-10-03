@@ -1,0 +1,67 @@
+{
+  "id": "agent-loop",
+  "category": "tools",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Agent Loop",
+  "parentConcepts": [
+    "agent",
+    "agentic-workflow"
+  ],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Agentenschleife",
+      "Agent-Zyklus",
+      "Perceive-Plan-Act-Zyklus"
+    ],
+    "en": [
+      "Agent Loop",
+      "Agent Cycle",
+      "Perceive-Plan-Act Cycle"
+    ],
+    "de-easy": [
+      "Agentenschleife",
+      "KI-Schleife"
+    ],
+    "en-easy": [
+      "Agent Loop",
+      "AI loop"
+    ]
+  },
+  "sources": [
+    {
+      "type": "paper",
+      "citation": "Yao, S., Zhao, J., Yu, D., et al. (2023). ReAct: Synergizing Reasoning and Acting in Language Models. ICLR 2023.",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "notes": "Formalisiert den Beobachten-Denken-Handeln-Zyklus für LLMs: Thought → Action → Observation, der iterativ wiederholt wird"
+    },
+    {
+      "type": "primary",
+      "citation": "Anthropic (2024). Building effective agents. Anthropic Blog.",
+      "url": "https://www.anthropic.com/research/building-effective-agents",
+      "notes": "Beschreibt den Agent Loop als Kernmuster: LLM erhält Beobachtung, plant nächste Aktion, führt Tool aus, integriert Observation — bis Aufgabe erledigt"
+    },
+    {
+      "type": "paper",
+      "citation": "Russell, S. J., & Norvig, P. (2020). Artificial Intelligence: A Modern Approach (4th ed.). Pearson. Chapter 2: Intelligent Agents.",
+      "url": "https://aima.cs.berkeley.edu/",
+      "notes": "Klassische Formalisierung des Perceive-Act-Zyklus als fundamentales Agentenmodell in der KI-Forschung"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent",
+      "agentic-ai",
+      "context-engineering",
+      "session",
+      "function-calling"
+    ],
+    "articles": [
+      "art-apis-mcp"
+    ]
+  },
+  "createdAt": "2026-06-22",
+  "updatedAt": "2026-06-22"
+}

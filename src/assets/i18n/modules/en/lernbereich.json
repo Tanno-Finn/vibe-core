@@ -1,0 +1,23 @@
+{
+  "title": "Learning Area",
+  "subtitle": "The central entry point to all learning content — guided or free, whatever you prefer.",
+  "viewPaths": "Learning Paths",
+  "viewContent": "Content",
+  "viewLabel": "View",
+  "filterAll": "All",
+  "filterDemos": "Demos",
+  "filterLessons": "Lessons",
+  "filterType": "Content type",
+  "filterDifficulty": "Difficulty level",
+  "searchPlaceholder": "Search content...",
+  "difficultyAll": "All Difficulties",
+  "group": {
+    "examples": "Example content"
+  },
+  "emptyState": "No content found",
+  "clearFilters": "Reset filters",
+  "backToLernbereich": "Back to Learning Area",
+  "badgeDemo": "Demo",
+  "badgeLesson": "Lesson",
+  "emptyStateHint": "Still empty — new content starts with “/new-content” in your AI agent."
+}

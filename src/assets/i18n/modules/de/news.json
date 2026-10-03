@@ -1,0 +1,53 @@
+{
+  "page": {
+    "title": "Aktuelles",
+    "subtitle": "Releases, Korrekturen und gelegentlich Begeisterung über kleine Dinge.",
+    "description": "Neueste Updates zu Inhalten, Sprachen und Features im Portal."
+  },
+  "search": {
+    "label": "Aktuelles durchsuchen",
+    "placeholder": "Suchen ...",
+    "clear": "Suche zurücksetzen"
+  },
+  "filters": {
+    "label": "Nach Typ filtern",
+    "all": "Alle",
+    "launch": "Go-Live",
+    "feature": "Features",
+    "release": "Releases",
+    "bugfix": "Bugfixes",
+    "article": "Artikel",
+    "blog": "Blog",
+    "interview": "Interviews",
+    "demo": "Demos",
+    "glossary": "Glossar",
+    "timeline": "Timeline",
+    "tool": "Tools",
+    "language": "Sprachen",
+    "quality": "Qualität",
+    "maintenance": "Wartung"
+  },
+  "toc": {
+    "title": "Monate"
+  },
+  "pinned": "Angeheftet",
+  "pinnedSection": "Angeheftet",
+  "new": {
+    "label": "Neu",
+    "aria": "Neu seit letztem Besuch"
+  },
+  "results": {
+    "allCount": "{n} Einträge",
+    "filteredCount": "{n} von {total} Einträgen"
+  },
+  "chips": {
+    "more": "weitere",
+    "less": "Weniger anzeigen"
+  },
+  "empty": {
+    "message": "Keine Einträge in dieser Auswahl.",
+    "reset": "Filter zurücksetzen",
+    "activeFilter": "Filter",
+    "activeSearch": "Suche"
+  }
+}

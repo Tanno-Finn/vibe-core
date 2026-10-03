@@ -1,0 +1,17 @@
+{
+  "id": "vscode-source-control-2026",
+  "type": "article",
+  "authors": "Microsoft",
+  "year": "2026",
+  "publication": "Visual Studio Code Docs",
+  "url": "https://code.visualstudio.com/docs/sourcecontrol/overview",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "vscode",
+    "git",
+    "source-control",
+    "diff",
+    "prerequisites"
+  ]
+}

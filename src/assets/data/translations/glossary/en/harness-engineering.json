@@ -1,0 +1,8 @@
+{
+  "term": "Harness Engineering",
+  "alternativeNames": [
+    "Agent harness design"
+  ],
+  "description": "Harness engineering is a young term, not firmly established yet: designing the environment an AI agent works in - its harness. That covers the agent's tools and permissions including sandboxing, verification gates such as tests and approvals, memory and journals, plus rules and directives. How reliably an agent works depends not only on the model, but heavily on this environment. To set it apart: prompt engineering shapes the individual instruction, context engineering manages the information inside the context window - harness engineering builds the system around both.",
+  "example": "Picture the workshop set up for a new employee: which machines he may operate, where the emergency stop sits, which manual lies on the bench, who signs off the work - all arranged before he starts. Harness engineering sets up exactly that workshop for an AI agent: permissions, checks, notes, rules."
+}

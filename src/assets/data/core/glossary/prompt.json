@@ -1,0 +1,54 @@
+{
+  "id": "prompt",
+  "category": "nlp",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Prompt",
+  "childConcepts": [
+    "prompt-engineering",
+    "prompt-injection"
+  ],
+  "parentConcepts": [],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "Eingabeaufforderung",
+      "Instruktion"
+    ],
+    "en": [
+      "Input Instruction",
+      "Query"
+    ],
+    "de-easy": [
+      "Eingabe",
+      "Anweisung"
+    ],
+    "en-easy": [
+      "Input",
+      "Instruction"
+    ]
+  },
+  "sources": [
+    {
+      "type": "paper",
+      "citation": "Brown, T. B., et al. (2020). Language Models are Few-Shot Learners. NeurIPS 2020",
+      "notes": "GPT-3 paper introducing in-context learning and systematic prompting"
+    },
+    {
+      "type": "documentation",
+      "citation": "OpenAI API Documentation: Prompt Engineering Guide. https://platform.openai.com/docs/guides/prompt-engineering",
+      "notes": "Official guide on prompt construction and best practices"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "prompt-engineering",
+      "prompt-injection",
+      "system-prompt",
+      "context",
+      "hallucination"
+    ]
+  }
+}

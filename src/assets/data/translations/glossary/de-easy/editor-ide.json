@@ -1,0 +1,8 @@
+{
+  "term": "Editor / IDE",
+  "alternativeNames": [
+    "Programm zum Schreiben von Code"
+  ],
+  "description": "Editor und IDE. Ein Editor ist ein Programm zum Schreiben von Code. Wie ein Schreib·programm, aber für Programmierer. Eine IDE ist ein Editor mit vielen Extra·werkzeugen. IDE spricht man Ei-Di-Ih aus. Die Werkzeuge helfen beim Programmieren. Zum Beispiel: Fehler finden. Oder das Programm Schritt für Schritt ausführen. Heute schreibt oft eine KI den Code. Aber du brauchst den Editor trotzdem. Dort liest und prüfst du, was die KI gebaut hat.",
+  "example": "Die KI ändert deinen Code. Du öffnest die Datei im Editor. Du liest die Änderung in Ruhe. Die IDE zeigt dir dabei Fehler an. So behältst du die Kontrolle."
+}

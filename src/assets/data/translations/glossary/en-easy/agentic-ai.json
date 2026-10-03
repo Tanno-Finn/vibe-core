@@ -1,0 +1,8 @@
+{
+  "term": "Agentic AI",
+  "alternativeNames": [
+    "Goal-driven AI"
+  ],
+  "description": "Agentic AI. This is an AI that works on its own. You give it a goal. Then it plans its own steps. It uses tools. For example a search or a calculator. It checks its results. Then it continues. It works until the goal is reached. A chatbot is different. It gives one answer. Then it waits. People set the goal. People also set the limits.",
+  "example": "You say: Plan my train trip to Berlin. The AI looks for connections. It compares the prices. It sees: One transfer is too short. So it finds a better connection. It does all this on its own."
+}

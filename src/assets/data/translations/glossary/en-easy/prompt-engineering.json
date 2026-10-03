@@ -1,0 +1,5 @@
+{
+  "term": "Prompt Engineering",
+  "description": "Prompt Engineering means: Writing good instructions for AI. It is like an art. You must know how to talk with AI. There are different methods. Zero-Shot means: Direct question without examples. Few-Shot means: Question with examples. Chain-of-Thought means: AI should think step by step. Good prompts are exact but not too strict. They should give clear answers but also allow creativity. Prompt Engineering changes quickly. What is good today can be bad tomorrow.",
+  "example": "Bad prompt: 'Write about AI'. This is too unclear. Good prompt: 'Write 300 words about Machine Learning for beginners. Explain 3 important ideas with examples. Writing style: friendly.' This gives better results."
+}

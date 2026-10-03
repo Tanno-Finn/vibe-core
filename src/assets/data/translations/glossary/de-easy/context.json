@@ -1,0 +1,8 @@
+{
+  "term": "Context",
+  "alternativeNames": [
+    "Kontext"
+  ],
+  "description": "Context ist ein englisches Wort. Es heißt Kontext. Eine KI liest immer einen Text. Der ganze Text ist der Context. Dazu gehört deine Frage. Dazu gehört auch das Gespräch davor. Eine KI hat kein eigenes Gedächtnis. Sie vergisst alles nach jeder Antwort. Darum bekommt die KI das Gespräch jedes Mal neu. Nur so kennt die KI dein Thema.",
+  "example": "Du redest mit einem Chatbot über Einstein. Dann fragst du: Wie alt ist er? Die KI versteht die Frage. Einstein steht noch im Context. Jetzt startest du ein neues Gespräch. Einstein ist nun weg. Die KI versteht die Frage nicht mehr."
+}

@@ -1,0 +1,28 @@
+{
+  "bell": {
+    "label": "Neue Nachrichten",
+    "labelWithCount": "Neue Nachrichten: {count} ungelesen",
+    "ariaLiveUpdate": "Es gibt eine neue Nachricht.",
+    "empty": "Keine Nachrichten.",
+    "viewAll": "Alle Nachrichten ansehen"
+  },
+  "welcome": {
+    "title": "Willkommen!",
+    "description": "Hier siehst du neue Nachrichten. Zum Beispiel über neue Texte oder neue Sprachen."
+  },
+  "cta": {
+    "open": "Ansehen"
+  },
+  "clientUpdate": {
+    "title": "Es gibt eine neue Version",
+    "description": "Lade die Seite neu. Dann hast du die neue Version."
+  },
+  "seedNotification1": {
+    "title": "Beispiel·meldung 1",
+    "description": "So sieht eine Neuigkeit aus. Eigene Meldungen kommen in den Ordner assets/data/notifications."
+  },
+  "seedNotification2": {
+    "title": "Beispiel·meldung 2",
+    "description": "Alte Meldungen kommen ins Archiv. So wie diese."
+  }
+}

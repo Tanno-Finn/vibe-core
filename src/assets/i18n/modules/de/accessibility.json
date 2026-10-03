@@ -1,0 +1,42 @@
+{
+  "title": "Erklärung zur Barrierefreiheit",
+  "subtitle": "Was hier gut funktioniert, was noch nicht — und wie du uns Barrieren meldest.",
+
+  "introTitle": "Worum es hier geht",
+  "introText": "Diese Erklärung gilt für dieses Angebot. Wir geben sie ab, weil uns wichtig ist, dass möglichst viele Menschen mit diesen Inhalten lernen können — und weil man ehrlich sagen sollte, was funktioniert und was noch nicht.",
+
+  "standardTitle": "Woran wir uns orientieren",
+  "standardText": "Wir orientieren uns an den international anerkannten Web Content Accessibility Guidelines (WCAG 2.2) auf Stufe AA sowie an der europäischen Norm EN 301 549. Wir verstehen diese Standards als Messlatte, an der wir uns fortlaufend verbessern. Eine externe Prüfung oder Zertifizierung ist bisher nicht erfolgt — alle Aussagen auf dieser Seite beruhen auf unserer eigenen Bewertung.",
+
+  "statusTitle": "Wie barrierefrei ist diese Website?",
+  "statusText": "Nach unserer eigenen Einschätzung ist diese Website teilweise mit den genannten Standards vereinbar. Vieles funktioniert gut: Tastaturbedienung in weiten Teilen, Kontraste, Textalternativen, Dark Mode, skalierbare Schrift und Inhalte in Einfacher Sprache. Einige Bereiche sind noch nicht vollständig barrierefrei — die wichtigsten stehen unten, mit Begründung.",
+
+  "limitsTitle": "Bekannte Einschränkungen",
+  "limitLanguageLabel": "Einfache Sprache ist keine geprüfte Leichte Sprache",
+  "limitLanguageText": "Unsere Texte in Einfacher Sprache entstehen KI-gestützt; ein Mensch hat sie durchgelesen, eine redaktionelle Prüfung gibt es nicht. Sie orientieren sich an den Grundprinzipien der Leichten Sprache — kurze Sätze, einfache Wörter, klare Struktur. Sie erfüllen aber nicht alle formalen Kriterien der Leichten Sprache: Es gibt keine Prüfung durch eine Prüfgruppe von Menschen mit Lernschwierigkeiten, und die typografischen und gestalterischen Vorgaben der Regelwerke setzen wir nicht vollständig um. Deshalb nennen wir das Angebot bewusst Einfache Sprache und nicht Leichte Sprache.",
+  "limitDemosLabel": "Einige interaktive Demos sind stark visuell",
+  "limitDemosText": "Diese Website enthält viele interaktive Demonstrationen. Die meisten sind mit der Tastatur bedienbar und mit erklärenden Texten versehen. Bei einigen steckt die Kernaussage aber im visuellen Ablauf einer Animation — diese Demos sind derzeit ohne Sehvermögen nicht vollständig nutzbar. Wir arbeiten daran, für solche Demos strukturierte Beschreibungstexte zu ergänzen, ähnlich einer Audiodeskription beim Film.",
+  "limitTranslationsLabel": "Übersetzungen entstehen KI-gestützt",
+  "limitTranslationsText": "Die Inhalte gibt es in {count} Sprachen, jede zusätzlich in Einfacher Sprache. Übersetzungen entstehen KI-gestützt und können vereinzelt Ungenauigkeiten enthalten. Maßgeblich sind die Fassungen auf Deutsch und Englisch; auch sie entstehen KI-gestützt und sind von einem Menschen durchgelesen, nicht redaktionell geprüft.",
+  "limitSignLabel": "Keine Gebärdensprache",
+  "limitSignText": "Inhalte in Deutscher Gebärdensprache (DGS) bieten wir derzeit nicht an. Automatische Gebärdensprach-Avatare setzen wir bewusst nicht ein — die Gehörlosen-Verbände raten davon derzeit ausdrücklich ab, und die Qualität überzeugt uns nicht. Wir beobachten die Entwicklung und prüfen ein Angebot erneut, wenn sich das ändert.",
+
+  "methodTitle": "Wie diese Erklärung entstanden ist",
+  "methodText": "Diese Erklärung beruht auf einer Selbstbewertung. Eine Bewertung durch Dritte ist bisher nicht erfolgt.",
+  "createdLabel": "Erstellt am",
+  "createdDate": "15. Juli 2026",
+  "updatedLabel": "Zuletzt geprüft am",
+  "updatedDate": "15. Juli 2026",
+
+  "feedbackTitle": "Barriere melden",
+  "feedbackText": "Ist dir eine Barriere aufgefallen? Kommst du an einer Stelle mit Screenreader, Tastatur oder Vergrößerung nicht weiter? Melde uns das bitte — am einfachsten über die Funktion „Barriere melden“ im Feedback-Menü. Hilfreich sind: die betroffene Seite, eine kurze Beschreibung des Problems und, falls vorhanden, die genutzte Hilfstechnologie. Alle Angaben sind freiwillig, auch anonyme Meldungen sind willkommen. Wir bemühen uns, Meldungen in der Regel innerhalb von vier Wochen zu beantworten oder zu beheben.",
+
+  "enforcementTitle": "Ehrlichkeit zum Schluss",
+  "enforcementText": "Deine Rückmeldung landet nicht im Leeren: Barrieren-Meldungen fließen direkt in die Weiterentwicklung ein — einiges auf dieser Seite steht hier, weil uns jemand darauf hingewiesen hat.",
+
+  "helpTitle": "Was dir beim Bedienen hilft",
+  "helpKeyboard": "Tastatur: Die Navigation und die meisten Demos sind mit Tab, Pfeiltasten und Enter bedienbar.",
+  "helpContrast": "Darstellung: Dark Mode und helles Design, hohe Kontraste, Schriftgröße per Browser-Zoom frei skalierbar.",
+  "helpEasyLanguage": "Einfache Sprache: Jede Sprache gibt es zusätzlich in einer einfachen Variante — umschaltbar über die Sprachauswahl oben.",
+  "helpStructure": "Struktur: Überschriften-Hierarchie, Landmarken und Alternativtexte für assistive Technologien."
+}

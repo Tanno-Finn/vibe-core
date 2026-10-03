@@ -1,0 +1,5 @@
+{
+  "term": "System Prompt",
+  "description": "System Prompt is a hidden instruction for the AI. The AI gets this instruction before the user. The instruction tells the AI how to behave. For example polite or factual. The user does not see this. But the AI follows these rules.",
+  "example": "An AI chat program gets a system instruction: You are a helpful assistant. The user does not see this. But the AI follows this rule. That is why the AI always answers politely."
+}

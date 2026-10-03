@@ -1,0 +1,8 @@
+{
+  "term": "Context Window",
+  "alternativeNames": [
+    "Kontext·fenster"
+  ],
+  "description": "Context Window. Das ist das Gedächtnis von KI-Modellen. Es zeigt, wie viel Text die KI auf einmal lesen kann. Das wird in Tokens gemessen. Ein Token ist ungefähr ein Wort. Zum Beispiel: 8.000 Tokens bedeutet ungefähr 6.000 Wörter. Das Kontext·fenster beinhaltet deine Frage und die Antwort zusammen. Neuere Modelle können mehr Text auf einmal verarbeiten.",
+  "example": "Du willst ein langes Buch hochladen. Das Buch hat 100 Seiten. Das sind ungefähr 75.000 Tokens. Wenn die KI nur 8.000 Tokens verarbeiten kann, funktioniert das nicht. Wenn die KI 200.000 Tokens verarbeiten kann, funktioniert es."
+}

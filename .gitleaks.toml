@@ -1,0 +1,10 @@
+# gitleaks: the default rules, plus the one documented false positive in this repo.
+title = "vibecore gitleaks config"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Bibliography IDs are slugs, not credentials: 'unit42-exposed-iam-keys-2026' names a 2026 report on exposed IAM keys."
+regexTarget = "match"
+regexes = ['''unit42-exposed-iam-keys-2026''']

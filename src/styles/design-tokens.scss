@@ -1,0 +1,1073 @@
+/**
+ * Design Tokens für vibecore
+ * 
+ * Diese Datei definiert das zentrale Design-Token-System für:
+ * - Theming-Unterstützung (Light/Dark Mode)
+ * - Konsistente Designsprache
+ * - Dynamische Farbverwaltung
+ * - Educational Design System
+ */
+
+// Modern SASS modules
+@use 'sass:map';
+@use 'sass:math';
+
+// ===================================================================
+// CORE DESIGN TOKENS
+// ===================================================================
+
+// Farbpalette - Base Colors
+$colors: (
+  // Primary Colors (Educational Amber)
+  'primary-50': #fffbeb,
+  'primary-100': #fef3c7,
+  'primary-200': #fde68a,
+  'primary-300': #fcd34d,
+  'primary-400': #fbbf24,
+  'primary-500': #f59e0b,
+  'primary-600': #d97706,
+  'primary-700': #b45309,
+  'primary-800': #92400e,
+  'primary-900': #78350f,
+
+  // Neutral Colors
+  'neutral-50': #f8fafc,
+  'neutral-100': #f1f5f9,
+  'neutral-200': #e2e8f0,
+  'neutral-300': #cbd5e1,
+  'neutral-400': #94a3b8,
+  'neutral-500': #64748b,
+  'neutral-600': #475569,
+  'neutral-700': #334155,
+  'neutral-800': #1e293b,
+  'neutral-900': #0f172a,
+
+  // Semantic Colors. The 400 steps are the dark theme's --<severity>-color
+  // (see $dark-theme); without them that map read absent keys and emitted the
+  // four tokens EMPTY in .dark-theme.
+  'success-50': #ecfdf5,
+  'success-100': #d1fae5,
+  'success-400': #34d399,
+  'success-500': #10b981,
+  'success-600': #059669,
+  'success-700': #047857,
+
+  'warning-50': #fffbeb,
+  'warning-100': #fef3c7,
+  'warning-400': #fbbf24,
+  'warning-500': #f59e0b,
+  'warning-600': #d97706,
+  'warning-700': #b45309,
+
+  'danger-50': #fef2f2,
+  'danger-100': #fee2e2,
+  'danger-400': #f87171,
+  'danger-500': #ef4444,
+  'danger-600': #dc2626,
+  'danger-700': #b91c1c,
+
+  'info-50': #eff6ff,
+  'info-100': #dbeafe,
+  'info-400': #60a5fa,
+  'info-500': #3b82f6,
+  'info-600': #2563eb,
+  'info-700': #1d4ed8,
+
+  // Educational Level Colors
+  'beginner-50': #e6f7ff,
+  'beginner-500': #0077b6,
+  'beginner-600': #005f8a,
+
+  'intermediate-50': #fff2e6,
+  'intermediate-500': #e76f00,
+  'intermediate-600': #cc5500,
+
+  'advanced-50': #ffdce0,
+  'advanced-500': #d32f2f,
+  'advanced-600': #b71c1c,
+
+  // Achievement Rarity Colors
+  'rarity-common': #6b7280,
+  'rarity-uncommon': #10b981,
+  'rarity-rare': #3b82f6,
+  'rarity-epic': #9333ea,
+  'rarity-legendary': #ea580c,
+
+  // AI/ML Specific Colors
+  'neural-network': #8b5cf6,
+  'clustering': #06b6d4,
+  'regression': #10b981,
+  'classification': #f59e0b,
+  'reinforcement': #ef4444,
+  'unsupervised': #8b5cf6,
+  'supervised': #10b981,
+  'deep-learning': #1e293b,
+
+  // UI-library (Aura) colour tokens (for theme switching)
+  'green-50': #ecfdf5,
+  'green-100': #d1fae5,
+  'green-200': #a7f3d0,
+  'green-300': #6ee7b7,
+  'green-400': #34d399,
+  'green-500': #10b981,
+  'green-600': #059669,
+  'green-700': #047857,
+  'green-800': #065f46,
+  'green-900': #064e3b,
+
+  'orange-50': #fff7ed,
+  'orange-100': #ffedd5,
+  'orange-200': #fed7aa,
+  'orange-300': #fdba74,
+  'orange-400': #fb923c,
+  'orange-500': #f97316,
+  'orange-600': #ea580c,
+  'orange-700': #c2410c,
+  'orange-800': #9a3412,
+  'orange-900': #7c2d12,
+
+  'blue-50': #eff6ff,
+  'blue-100': #dbeafe,
+  'blue-200': #bfdbfe,
+  'blue-300': #93c5fd,
+  'blue-400': #60a5fa,
+  'blue-500': #3b82f6,
+  'blue-600': #2563eb,
+  'blue-700': #1d4ed8,
+  'blue-800': #1e40af,
+  'blue-900': #1e3a8a,
+
+  'purple-50': #faf5ff,
+  'purple-100': #f3e8ff,
+  'purple-200': #e9d5ff,
+  'purple-300': #d8b4fe,
+  'purple-400': #c084fc,
+  'purple-500': #a855f7,
+  'purple-600': #9333ea,
+  'purple-700': #7c3aed,
+  'purple-800': #6b21a8,
+  'purple-900': #581c87,
+
+  'yellow-50': #fefce8,
+  'yellow-100': #fef3c7,
+  'yellow-200': #fde68a,
+  'yellow-300': #fcd34d,
+  'yellow-400': #fbbf24,
+  'yellow-500': #f59e0b,
+  'yellow-600': #d97706,
+  'yellow-700': #b45309,
+  'yellow-800': #92400e,
+  'yellow-900': #78350f,
+
+  'teal-50': #f0fdfa,
+  'teal-100': #ccfbf1,
+  'teal-200': #99f6e4,
+  'teal-300': #5eead4,
+  'teal-400': #2dd4bf,
+  'teal-500': #14b8a6,
+  'teal-600': #0d9488,
+  'teal-700': #0f766e,
+  'teal-800': #115e59,
+  'teal-900': #134e4a
+);
+
+// Spacing Scale (8pt Grid System)
+$spacing: (
+  '0': 0,
+  '1': 0.25rem,
+  // 4px
+  '2': 0.5rem,
+  // 8px
+  '3': 0.75rem,
+  // 12px
+  '4': 1rem,
+  // 16px
+  '5': 1.25rem,
+  // 20px
+  '6': 1.5rem,
+  // 24px
+  '7': 1.75rem,
+  // 28px
+  '8': 2rem,
+  // 32px
+  '9': 2.25rem,
+  // 36px
+  '10': 2.5rem,
+  // 40px
+  '11': 2.75rem,
+  // 44px
+  '12': 3rem,
+  // 48px
+  '14': 3.5rem,
+  // 56px
+  '16': 4rem,
+  // 64px
+  '18': 4.5rem,
+  // 72px
+  '20': 5rem,
+  // 80px
+  '24': 6rem,
+  // 96px
+  '28': 7rem,
+  // 112px
+  '32': 8rem,
+  // 128px
+  '36': 9rem,
+  // 144px
+  '40': 10rem,
+  // 160px
+  '44': 11rem,
+  // 176px
+  '48': 12rem,
+  // 192px
+  '52': 13rem,
+  // 208px
+  '56': 14rem,
+  // 224px
+  '60': 15rem,
+  // 240px
+  '64': 16rem,
+  // 256px
+  '72': 18rem,
+  // 288px
+  '80': 20rem,
+  // 320px
+  '96': 24rem, // 384px
+);
+
+// Typography Scale
+$font-sizes: (
+  'xs': 0.75rem,
+  // 12px
+  'sm': 0.875rem,
+  // 14px
+  'base': 1rem,
+  // 16px
+  'lg': 1.125rem,
+  // 18px
+  'xl': 1.25rem,
+  // 20px
+  '2xl': 1.5rem,
+  // 24px
+  '3xl': 1.875rem,
+  // 30px
+  '4xl': 2.25rem,
+  // 36px
+  '5xl': 3rem,
+  // 48px
+  '6xl': 3.75rem,
+  // 60px
+  '7xl': 4.5rem,
+  // 72px
+  '8xl': 6rem,
+  // 96px
+  '9xl': 8rem, // 128px
+);
+
+$font-weights: (
+  'thin': 100,
+  'extralight': 200,
+  'light': 300,
+  'normal': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'extrabold': 800,
+  'black': 900,
+);
+
+$line-heights: (
+  'none': 1,
+  'tight': 1.25,
+  'snug': 1.375,
+  'normal': 1.5,
+  'relaxed': 1.625,
+  'loose': 2,
+);
+
+// Font Families
+// Note: the Noto Sans entries below are a FALLBACK REQUEST, not a load. The kit
+// declares no @font-face for any Noto family and index.html links no font host
+// (Google Fonts included) — they paint only where the OS already carries them,
+// otherwise the stack falls through to its generic terminator. Guaranteeing a
+// script means shipping its files the way src/assets/fonts/ ships the picker fonts.
+$font-families: (
+  'sans': (
+    'Inter',
+    'Noto Sans KR',
+    'Noto Sans Devanagari',
+    'Noto Sans Bengali',
+    'system-ui',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Segoe UI',
+    'Roboto',
+    'Helvetica Neue',
+    'Arial',
+    'sans-serif',
+  ),
+  'serif': (
+    'Georgia',
+    'Cambria',
+    'Times New Roman',
+    'Times',
+    'serif',
+  ),
+  'mono': (
+    'Fira Code',
+    'JetBrains Mono',
+    'Menlo',
+    'Monaco',
+    'Consolas',
+    'Liberation Mono',
+    'Courier New',
+    'monospace',
+  ),
+  'heading': (
+    'Poppins',
+    'Inter',
+    'system-ui',
+    '-apple-system',
+    'sans-serif',
+  ),
+  'display': (
+    'Poppins',
+    'Inter',
+    'system-ui',
+    '-apple-system',
+    'sans-serif',
+  ),
+);
+
+// Border Radius
+$border-radius: (
+  'none': 0,
+  'sm': 0.125rem,
+  // 2px
+  'base': 0.25rem,
+  // 4px
+  'md': 0.375rem,
+  // 6px
+  'lg': 0.5rem,
+  // 8px
+  'xl': 0.75rem,
+  // 12px
+  '2xl': 1rem,
+  // 16px
+  '3xl': 1.5rem,
+  // 24px
+  'full': 9999px,
+);
+
+// Border Widths
+$border-widths: (
+  'none': 0,
+  'hairline': 0.5px,
+  'thin': 1px,
+  'base': 1px,
+  'thick': 2px,
+  'accent': 3px,
+  // For accent borders in containers
+  'heavy': 4px,
+  'extra-heavy': 6px,
+);
+
+// Shadows
+$shadows: (
+  'none': none,
+  'xs': (
+    0 1px 2px 0 rgba(0, 0, 0, 0.05),
+  ),
+  'sm': (
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06),
+  ),
+  'base': (
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px 0 rgba(0, 0, 0, 0.06),
+  ),
+  'md': (
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+  ),
+  'lg': (
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+  ),
+  'xl': (
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+  ),
+  '2xl': (
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+  ),
+  'inner': (
+    inset 0 2px 4px 0 rgba(0, 0, 0, 0.06),
+  ),
+  'outline': (
+    0 0 0 3px rgba(66, 153, 225, 0.5),
+  ),
+);
+
+// Transitions
+$transitions: (
+  'none': none,
+  'all': (
+    all 150ms ease-in-out,
+  ),
+  'default': (
+    all 150ms ease-in-out,
+  ),
+  'colors': (
+    color 150ms ease-in-out,
+    background-color 150ms ease-in-out,
+    border-color 150ms ease-in-out,
+  ),
+  'opacity': (
+    opacity 150ms ease-in-out,
+  ),
+  'shadow': (
+    box-shadow 150ms ease-in-out,
+  ),
+  'transform': (
+    transform 150ms ease-in-out,
+  ),
+);
+
+// Transition Durations
+$transition-durations: (
+  'instant': 0ms,
+  'fast': 150ms,
+  'normal': 300ms,
+  'slow': 500ms,
+  'extra-slow': 1000ms,
+);
+
+// Z-Index Scale
+$z-index: (
+  'auto': auto,
+  '0': 0,
+  '10': 10,
+  '20': 20,
+  '30': 30,
+  '40': 40,
+  '50': 50,
+  'dropdown': 1000,
+  'sticky': 1020,
+  'fixed': 1030,
+  'modal-backdrop': 1040,
+  'modal': 1050,
+  'popover': 1060,
+  'tooltip': 1070,
+  'toast': 1080,
+);
+
+// Container Sizes
+$containers: (
+  // Existing tokens
+  'article': 1200px,
+  // Legacy token - kept for compatibility
+  'content': 800px,
+  'sidebar': 300px,
+  'modal': 600px,
+  'hero': 1400px,
+  'card': 400px,
+  'form': 500px,
+  'table': 100%,
+  'image': 100%,
+  'video': 100%,
+
+  // New standardized container hierarchy
+  'header': 100%,
+  // Application Header - full width
+  'page': 1400px,
+  // Maximum page width for wide screens
+  'section': 1200px,
+  // Standard sections (articles, main content)
+  'demo': 1000px,
+  // Interactive demos - slightly narrower for focus
+  'definition': 900px,
+  // Definition boxes - focused reading width
+  'component': 800px,
+
+  // Smaller components and forms
+  // Responsive breakpoint containers
+  'mobile': 100%,
+  // Mobile: full width minus padding
+  'tablet': 768px,
+  // Tablet: constrained width
+  'desktop': 1200px,
+  // Desktop: standard content width
+  'wide': 1400px // Wide screens: maximum content width
+);
+
+// Animation Tokens
+$animations: (
+  'duration-fast': 150ms,
+  'duration-normal': 300ms,
+  'duration-slow': 500ms,
+  'duration-extra-slow': 1000ms,
+  'easing-default': ease-in-out,
+  'easing-bounce': cubic-bezier(0.68, -0.55, 0.265, 1.55),
+  'easing-smooth': cubic-bezier(0.4, 0, 0.2, 1),
+  'lift-distance': -2px,
+  'lift-hover': -4px,
+  'scale-hover': 1.02,
+  'scale-active': 0.98,
+  'scale-focus': 1.05,
+);
+
+// Component Specific Tokens
+$component-tokens: (
+  // Cards
+  'card-bg': var(--surface-card),
+  'card-border': var(--surface-border),
+  'card-shadow': var(--shadow-md),
+  'card-radius': var(--radius-lg),
+  'card-padding': var(--space-6),
+  // Buttons
+  'button-radius': var(--radius-md),
+  'button-padding-x': var(--space-4),
+  'button-padding-y': var(--space-2),
+  'button-font-weight': var(--font-weight-medium),
+  'button-transition': var(--transition-colors),
+  // Forms
+  'input-bg': var(--surface-section),
+  'input-border': var(--surface-border),
+  'input-radius': var(--radius-md),
+  'input-padding-x': var(--space-3),
+  'input-padding-y': var(--space-2),
+  // No focus token here: a field's focus indicator is the one kit ring in
+  // styles.scss (2px --primary-color-fg outline). The former
+  // 'input-focus-ring' shadow read an undeclared --primary-500-rgb and had no
+  // reader; it was removed.
+  // Navigation
+  'nav-bg': var(--surface-card),
+  'nav-border': var(--surface-border),
+  'nav-shadow': var(--shadow-sm),
+  'nav-height': 4rem,
+  'nav-padding-x': var(--space-6),
+  // Modals
+  'modal-bg': var(--surface-card),
+  'modal-backdrop': rgba(0, 0, 0, 0.5),
+  'modal-radius': var(--radius-xl),
+  'modal-shadow': var(--shadow-2xl),
+  'modal-max-width': 32rem,
+
+  // Tooltips
+  'tooltip-bg': var(--neutral-900),
+  'tooltip-text': var(--neutral-50),
+  'tooltip-radius': var(--radius-md),
+  'tooltip-padding-x': var(--space-3),
+  'tooltip-padding-y': var(--space-2),
+  'tooltip-font-size': var(--font-size-sm),
+  // Educational Components
+  'learning-card-bg': var(--surface-card),
+  'learning-card-border': var(--surface-border),
+  'learning-card-shadow': var(--shadow-md),
+  'learning-card-radius': var(--radius-lg),
+  'learning-card-padding': var(--space-6),
+  'learning-progress-height': 0.5rem,
+  'learning-progress-radius': var(--radius-full),
+  'learning-level-padding': var(--space-2) var(--space-3),
+  'learning-level-radius': var(--radius-full),
+  // Standard Container Components
+  'container-bg': var(--surface-card),
+  'container-border': var(--surface-border),
+  'container-border-accent': var(--border-width-accent),
+  'container-shadow': var(--shadow-sm),
+  'container-radius': var(--radius-lg),
+  'container-padding': var(--space-6),
+  'container-margin': var(--space-4),
+  'container-transition': var(--transition-colors),
+  'container-hover-shadow': var(--shadow-md),
+  // Quiz Components
+  'quiz-option-bg': var(--surface-section),
+  'quiz-option-hover-bg': var(--surface-hover),
+  'quiz-option-selected-bg': var(--primary-50),
+  'quiz-option-correct-bg': var(--success-50),
+  'quiz-option-incorrect-bg': var(--danger-50),
+  'quiz-option-border': var(--surface-border),
+  'quiz-option-radius': var(--radius-md),
+  'quiz-option-padding': var(--space-4),
+  // Algorithm Visualization
+  'algo-canvas-bg': var(--surface-card),
+  'algo-canvas-border': var(--surface-border),
+  'algo-canvas-radius': var(--radius-lg),
+  'algo-node-size': 2rem,
+  'algo-edge-width': 2px,
+  'algo-animation-duration': 300ms,
+
+  // Code Blocks
+  'code-bg': var(--neutral-900),
+  'code-text': var(--neutral-100),
+  'code-border': var(--surface-border),
+  'code-radius': var(--radius-md),
+  'code-padding': var(--space-4),
+  'code-font-family': var(--font-mono),
+  'code-font-size': var(--font-size-sm),
+  'code-line-height': var(--line-height-relaxed)
+);
+
+// ===================================================================
+// THEME DEFINITIONS
+// ===================================================================
+
+// Light Theme Tokens
+$light-theme: (
+  // Base Colors
+  // 'primary-color' is set dynamically by ThemeService based on user's color
+  // scheme (see theme.service.ts applyDesignSystemColors). Do NOT emit a
+  // static value here — it cascades onto <body> and overrides the runtime
+  // value set on <html>, breaking theme-driven gradients (page-header etc.).
+  'primary-color-text': #ffffff,
+  'primary-hover': map.get($colors, 'primary-700'),
+  'primary-active': map.get($colors, 'primary-800'),
+  // Surface Colors
+  'surface-ground': #ffffff,
+  'surface-card': #ffffff,
+  'surface-section': map.get($colors, 'neutral-50'),
+  'surface-border': map.get($colors, 'neutral-200'),
+  'surface-hover': map.get($colors, 'neutral-50'),
+  'surface-overlay': rgba(255, 255, 255, 0.8),
+  // Text Colors
+  'text-color': map.get($colors, 'neutral-800'),
+  'text-color-secondary': map.get($colors, 'neutral-600'),
+  'text-color-muted': map.get($colors, 'neutral-500'),
+  'text-color-disabled': map.get($colors, 'neutral-400'),
+  // Semantic Colors
+  'success-color': map.get($colors, 'success-500'),
+  'success-color-text': #ffffff,
+  'warning-color': map.get($colors, 'warning-500'),
+  'warning-color-text': #ffffff,
+  'danger-color': map.get($colors, 'danger-500'),
+  'danger-color-text': #ffffff,
+  'info-color': map.get($colors, 'info-500'),
+  'info-color-text': #ffffff,
+
+  // Educational Level Colors
+  'beginner-bg': map.get($colors, 'beginner-50'),
+  'beginner-text': map.get($colors, 'beginner-600'),
+  'intermediate-bg': map.get($colors, 'intermediate-50'),
+  'intermediate-text': map.get($colors, 'intermediate-600'),
+  'advanced-bg': map.get($colors, 'advanced-50'),
+  'advanced-text': map.get($colors, 'advanced-600'),
+  // Shadows
+  'shadow-sm': map.get($shadows, 'sm'),
+  'shadow-md': map.get($shadows, 'md'),
+  'shadow-lg': map.get($shadows, 'lg'),
+  'shadow-xl': map.get($shadows, 'xl')
+);
+
+// Dark Theme Tokens
+$dark-theme: (
+  // Base Colors
+  // 'primary-color' is set dynamically by ThemeService — see comment on $light-theme.
+  // 'primary-color-text' is also set by ThemeService — emitting it
+  // here in the .dark-theme block re-applies it on <body>, overriding the html
+  // inline-style and breaking the contrast theme. Removed; :root fallback in
+  // styles.scss:338 covers the brief boot moment before applyTheme() runs.
+  'primary-hover': map.get($colors, 'primary-300'),
+  'primary-active': map.get($colors, 'primary-200'),
+  // Surface Colors
+  'surface-ground': map.get($colors, 'neutral-900'),
+  'surface-card': map.get($colors, 'neutral-800'),
+  'surface-section': map.get($colors, 'neutral-700'),
+  'surface-border': map.get($colors, 'neutral-600'),
+  'surface-hover': map.get($colors, 'neutral-700'),
+  'surface-overlay': rgba(0, 0, 0, 0.8),
+  // Text Colors
+  'text-color': map.get($colors, 'neutral-100'),
+  'text-color-secondary': map.get($colors, 'neutral-300'),
+  'text-color-muted': map.get($colors, 'neutral-400'),
+  'text-color-disabled': map.get($colors, 'neutral-500'),
+  // Semantic Colors
+  'success-color': map.get($colors, 'success-400'),
+  'success-color-text': map.get($colors, 'neutral-900'),
+  'warning-color': map.get($colors, 'warning-400'),
+  'warning-color-text': map.get($colors, 'neutral-900'),
+  'danger-color': map.get($colors, 'danger-400'),
+  'danger-color-text': map.get($colors, 'neutral-900'),
+  'info-color': map.get($colors, 'info-400'),
+  'info-color-text': map.get($colors, 'neutral-900'),
+  // Educational Level Colors
+  'beginner-bg': rgba(0, 119, 182, 0.2),
+  'beginner-text': #4da6d9,
+  'intermediate-bg': rgba(231, 111, 0, 0.2),
+  'intermediate-text': #ff9940,
+  'advanced-bg': rgba(211, 47, 47, 0.2),
+  'advanced-text': #f87171,
+
+  // Shadows (Enhanced for dark theme)
+  'shadow-sm': (0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2)),
+  'shadow-md': (0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)),
+  'shadow-lg': (0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2)),
+  'shadow-xl': (0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2))
+);
+
+// ===================================================================
+// MIXINS AND FUNCTIONS
+// ===================================================================
+
+// Function to get a color value
+@function color($key) {
+  @return map.get($colors, $key);
+}
+
+// Function to get a spacing value
+@function space($key) {
+  @return map.get($spacing, $key);
+}
+
+// Function to get a font size value
+@function font-size($key) {
+  @return map.get($font-sizes, $key);
+}
+
+// Function to get a shadow value
+@function shadow($key) {
+  @return map.get($shadows, $key);
+}
+
+// Function to get a border radius value
+@function radius($key) {
+  @return map.get($border-radius, $key);
+}
+
+// Function to get a container value
+@function container($key) {
+  @return map.get($containers, $key);
+}
+
+// Function to get an animation value
+@function animation($key) {
+  @return map.get($animations, $key);
+}
+
+// Function to get a border width value
+@function border-width($key) {
+  @return map.get($border-widths, $key);
+}
+
+// Function to get a transition duration value
+@function transition-duration($key) {
+  @return map.get($transition-durations, $key);
+}
+
+// The breakpoint map ($breakpoints), respond-to(), container() and
+// demo-layout() were deleted 2026-08-20: no call site outside this file ever
+// existed (component CSS lives in inline styles arrays, which cannot @use a
+// Sass file). Breakpoint values are written as literals at the call site;
+// 768px is the kit's one collapse step.
+
+// Mixin for theme-specific styles
+@mixin theme($theme) {
+  @if $theme == 'light' {
+    :root {
+      @each $key, $value in $light-theme {
+        --#{$key}: #{$value};
+      }
+    }
+  } @else if $theme == 'dark' {
+    // `html.` only: the mode class is on <body> too, and tokens declared there
+    // would shadow the style tokens ThemeService writes inline on <html>.
+    html.dark-theme {
+      @each $key, $value in $dark-theme {
+        --#{$key}: #{$value};
+      }
+    }
+  }
+}
+
+// focus-ring(), button-base() and input-base() were deleted 2026-09-24:
+// focus-ring() emitted outline:none plus an rgba(var(--primary-color), 0.1)
+// shadow, invalid at computed-value time, and was only reached through the
+// other two, which nothing ever included. The kit's one focus ring is the
+// ring rule in styles.scss (2px solid --primary-color-fg, 2px offset).
+// card-base(), truncate() and visually-hidden() followed the same day, along
+// with the --focus-ring/--focus-ring-color theme tokens: nothing included or
+// read them, and no component stylesheet can include a mixin. Hide text with
+// .sr-only.
+
+// ===================================================================
+// EXPORT TOKENS AS CSS CUSTOM PROPERTIES
+// ===================================================================
+
+// Generate CSS custom properties for all tokens
+:root {
+  // Colors (prefixed: --color-orange-500 etc.)
+  @each $name, $value in $colors {
+    --color-#{$name}: #{$value};
+  }
+
+  // Color aliases (unprefixed: --orange-500 etc.)
+  // Components use the short form, e.g. var(--orange-500)
+  @each $name, $value in $colors {
+    --#{$name}: #{$value};
+  }
+
+  // Spacing
+  @each $name, $value in $spacing {
+    --space-#{$name}: #{$value};
+  }
+
+  // Font sizes
+  @each $name, $value in $font-sizes {
+    --font-size-#{$name}: #{$value};
+  }
+
+  // Font weights
+  @each $name, $value in $font-weights {
+    --font-weight-#{$name}: #{$value};
+  }
+
+  // Line heights
+  @each $name, $value in $line-heights {
+    --line-height-#{$name}: #{$value};
+  }
+
+  // Border radius
+  @each $name, $value in $border-radius {
+    --radius-#{$name}: #{$value};
+  }
+
+  // Border widths
+  @each $name, $value in $border-widths {
+    --border-width-#{$name}: #{$value};
+  }
+
+  // Shadows
+  @each $name, $value in $shadows {
+    --shadow-#{$name}: #{$value};
+  }
+
+  // Transitions
+  @each $name, $value in $transitions {
+    --transition-#{$name}: #{$value};
+  }
+
+  // Transition durations
+  @each $name, $value in $transition-durations {
+    --transition-duration-#{$name}: #{$value};
+  }
+
+  // Z-Index
+  @each $name, $value in $z-index {
+    --z-#{$name}: #{$value};
+  }
+
+  // Container sizes
+  @each $name, $value in $containers {
+    --container-#{$name}: #{$value};
+  }
+
+  // Animation tokens
+  @each $name, $value in $animations {
+    --animation-#{$name}: #{$value};
+  }
+
+  // Component tokens
+  @each $name, $value in $component-tokens {
+    --#{$name}: #{$value};
+  }
+
+  // Font families
+  --font-sans: #{map.get($font-families, 'sans')};
+  --font-serif: #{map.get($font-families, 'serif')};
+  --font-mono: #{map.get($font-families, 'mono')};
+  // ADR-0016 D4: headings follow the body font until a visual style sets its
+  // own heading family at runtime. The former value led with Poppins, for which
+  // this kit ships no @font-face — so it never rendered and only made the
+  // heading stack differ from the body stack on paper.
+  --font-heading: var(--font-base);
+  --font-display: #{map.get($font-families, 'display')};
+
+  // Convenient aliases for components
+  --transition-duration: var(--transition-duration-normal);
+}
+
+// Apply theme tokens
+@include theme('light');
+@include theme('dark');
+
+// ===================================================================
+// EDUCATIONAL SPECIFIC TOKENS
+// ===================================================================
+
+:root {
+  // AI/ML Algorithm Colors
+  --neural-network-color: #{color('neural-network')};
+  --clustering-color: #{color('clustering')};
+  --regression-color: #{color('regression')};
+  --classification-color: #{color('classification')};
+  --reinforcement-color: #{color('reinforcement')};
+  --unsupervised-color: #{color('unsupervised')};
+  --supervised-color: #{color('supervised')};
+  --deep-learning-color: #{color('deep-learning')};
+
+  // Achievement Rarity Colors
+  --rarity-common-color: #{color('rarity-common')};
+  --rarity-uncommon-color: #{color('rarity-uncommon')};
+  --rarity-rare-color: #{color('rarity-rare')};
+  --rarity-epic-color: #{color('rarity-epic')};
+  --rarity-legendary-color: #{color('rarity-legendary')};
+
+  // Educational Component Sizing
+  --learning-card-min-height: 12rem;
+  --quiz-option-min-height: 3rem;
+  --algorithm-canvas-min-height: 20rem;
+  --progress-bar-height: 0.5rem;
+
+  // Interactive States (using animation tokens)
+  --hover-scale: scale(var(--animation-scale-hover));
+  --active-scale: scale(var(--animation-scale-active));
+  --focus-scale: scale(var(--animation-scale-focus));
+
+  // Learning Path Colors
+  --path-beginner: linear-gradient(135deg, var(--beginner-bg), var(--beginner-text));
+  --path-intermediate: linear-gradient(135deg, var(--intermediate-bg), var(--intermediate-text));
+  --path-advanced: linear-gradient(135deg, var(--advanced-bg), var(--advanced-text));
+
+  // Gamification Colors
+  --xp-bar-bg: var(--surface-section);
+  --xp-bar-fill: var(--primary-color);
+  --achievement-glow: 0 0 20px var(--primary-color);
+  --level-up-glow: 0 0 30px var(--warning-color);
+}
+
+// ===================================================================
+// UTILITY CLASSES
+// ===================================================================
+
+// Generate utility classes for spacing
+@each $name, $value in $spacing {
+  .m-#{$name} {
+    margin: $value !important;
+  }
+  .mt-#{$name} {
+    margin-top: $value !important;
+  }
+  .mr-#{$name} {
+    margin-right: $value !important;
+  }
+  .mb-#{$name} {
+    margin-bottom: $value !important;
+  }
+  .ml-#{$name} {
+    margin-left: $value !important;
+  }
+  .mx-#{$name} {
+    margin-left: $value !important;
+    margin-right: $value !important;
+  }
+  .my-#{$name} {
+    margin-top: $value !important;
+    margin-bottom: $value !important;
+  }
+
+  .p-#{$name} {
+    padding: $value !important;
+  }
+  .pt-#{$name} {
+    padding-top: $value !important;
+  }
+  .pr-#{$name} {
+    padding-right: $value !important;
+  }
+  .pb-#{$name} {
+    padding-bottom: $value !important;
+  }
+  .pl-#{$name} {
+    padding-left: $value !important;
+  }
+  .px-#{$name} {
+    padding-left: $value !important;
+    padding-right: $value !important;
+  }
+  .py-#{$name} {
+    padding-top: $value !important;
+    padding-bottom: $value !important;
+  }
+}
+
+// Generate utility classes for font sizes
+@each $name, $value in $font-sizes {
+  .text-#{$name} {
+    font-size: $value !important;
+  }
+}
+
+// Generate utility classes for font weights
+@each $name, $value in $font-weights {
+  .font-#{$name} {
+    font-weight: $value !important;
+  }
+}
+
+// Generate utility classes for colors
+@each $name, $value in $colors {
+  .text-#{$name} {
+    color: $value !important;
+  }
+  .bg-#{$name} {
+    background-color: $value !important;
+  }
+  .border-#{$name} {
+    border-color: $value !important;
+  }
+}
+
+// Generate utility classes for border radius
+@each $name, $value in $border-radius {
+  .rounded-#{$name} {
+    border-radius: $value !important;
+  }
+}
+
+// Generate utility classes for shadows
+@each $name, $value in $shadows {
+  .shadow-#{$name} {
+    box-shadow: $value !important;
+  }
+}
+
+// ===================================================================
+// DOCUMENTATION
+// ===================================================================
+
+/*
+VERWENDUNG:
+
+1. Import this file in your main styles.scss:
+   @import 'styles/design-tokens';
+
+2. Use CSS custom properties in your components:
+   .my-component {
+     color: var(--text-color);
+     background: var(--surface-card);
+     padding: var(--space-4);
+     border-radius: var(--radius-md);
+   }
+
+3. Use SCSS functions in your stylesheets:
+   .my-component {
+     color: color('primary-600');
+     padding: space('4');
+     font-size: font-size('lg');
+   }
+
+4. Theme switching is handled automatically via CSS custom properties.
+   Light theme is default, dark theme is applied via .dark-theme class.
+
+THEMING:
+- Light theme: Default CSS custom properties
+- Dark theme: .dark-theme class overrides
+- Custom themes: Extend $light-theme or $dark-theme maps
+- Theme switching: ThemeService manages .dark-theme class on <html>
+
+EDUCATIONAL COMPONENTS:
+- Learning levels: --beginner-*, --intermediate-*, --advanced-*
+- AI/ML algorithms: --neural-network-color, --clustering-color, etc.
+- Achievement system: --rarity-* colors
+- Interactive states: --hover-*, --active-*, animations
+*/

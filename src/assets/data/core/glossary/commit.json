@@ -1,0 +1,57 @@
+{
+  "id": "commit",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Commit",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Änderungs-Schnappschuss"
+    ],
+    "en": [
+      "Revision",
+      "Changeset"
+    ],
+    "de-easy": [
+      "Speicher-Punkt"
+    ],
+    "en-easy": [
+      "Save point"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Scott Chacon, Ben Straub: Pro Git, 2. Auflage, Apress 2014 - Kapitel 2.2 'Recording Changes to the Repository'",
+      "type": "website",
+      "url": "https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository",
+      "notes": "Lehrbuch-Referenz: Commit als Schnappschuss des Projektstands samt Commit-Message.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Offizielle Git-Referenz: git-commit",
+      "type": "documentation",
+      "url": "https://git-scm.com/docs/git-commit",
+      "notes": "Befehlsreferenz: Commit als aufgezeichneter Snapshot samt Log-Message."
+    },
+    {
+      "title": "GitHub Docs: About commits",
+      "type": "documentation",
+      "url": "https://docs.github.com/en/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits",
+      "notes": "Cross-Referenz: Commit als Snapshot; Empfehlung kleiner, fokussierter Commits."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "git",
+      "repository"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

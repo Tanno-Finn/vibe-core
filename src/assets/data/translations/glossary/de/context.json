@@ -1,0 +1,9 @@
+{
+  "term": "Context",
+  "alternativeNames": [
+    "Kontext",
+    "Kontextinformation"
+  ],
+  "description": "Context – die gesamte Information, die ein Sprachmodell im Moment der Antwort tatsächlich vor sich hat. Dazu zählen der System-Prompt, der bisherige Gesprächsverlauf, die aktuelle Frage und alles zusätzlich Hineingereichte: eingefügte Dokumente, Suchergebnisse oder Tool-Ausgaben. Der entscheidende, gern übersehene Punkt: Ein LLM ist zwischen zwei Anfragen gedächtnislos. Es erinnert sich an nichts – der komplette relevante Verlauf wird bei jeder einzelnen Anfrage erneut mitgeschickt, sonst existiert er für das Modell schlicht nicht. Der Context ist damit das Arbeitsgedächtnis zur Laufzeit und klar zu unterscheiden vom Trainingswissen, das fest in den Gewichten sitzt. Wie viel davon auf einmal hineinpasst, bestimmt das Context Window; wie man ihn geschickt füllt, ist die Disziplin des Context Engineering.",
+  "example": "Man fragt einen Chatbot „Und wie alt war er?“, zwei Nachrichten nachdem es um Einstein ging. Das klappt nur, weil der gesamte frühere Verlauf erneut im Context mitgeschickt wird – in einem neuen Chat ist Einstein weg, und die Frage ergibt keinen Sinn mehr."
+}

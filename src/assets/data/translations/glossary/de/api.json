@@ -1,0 +1,10 @@
+{
+  "term": "API",
+  "alternativeNames": [
+    "Programmierschnittstelle",
+    "Application Programming Interface",
+    "Schnittstelle"
+  ],
+  "description": "Eine API (Application Programming Interface) ist eine definierte Schnittstelle zwischen Softwarekomponenten – gewissermaßen ein Vertrag, der festlegt, wie eine Komponente die Leistungen einer anderen nutzen kann, ohne deren interne Strukturen zu kennen. Das gilt ganz allgemein: Auch Programmbibliotheken, Betriebssysteme und die Standardbibliothek einer Programmiersprache stellen APIs bereit, die rein innerhalb eines Programms (in-process) laufen und nichts mit Netzwerk oder Server zu tun haben. Eine häufige und im KI-Kontext besonders wichtige Unterart ist die Web- beziehungsweise REST-API, die über das Netzwerk angesprochen wird. Hier passt das Bild vom Kellner im Restaurant der Programmierung: Du bestellst ein Gericht (sendest eine Anfrage), der Kellner (API) überbringt deine Bestellung an die Küche (Server) und bringt dir das fertige Essen (Antwort) zurück. REST-APIs haben sich als Standard durchgesetzt: Sie nutzen HTTP-Methoden wie GET, POST, PUT und DELETE und übertragen Daten meist im JSON-Format. In der KI-Welt sind solche APIs besonders wichtig geworden: Sie ermöglichen es Entwicklern, mächtige KI-Dienste wie große Sprachmodelle in ihre eigenen Anwendungen zu integrieren, ohne die komplexen Modelle selbst betreiben zu müssen. Eine gut designte API ist wie eine elegante Hotellobby – sie macht komplexe Vorgänge im Hintergrund für Besucher mühelos zugänglich.",
+  "example": "Die API eines Modell-Anbieters ermöglicht es Entwicklern, ein großes Sprachmodell in ihre Apps zu integrieren. Ein einfacher HTTP-Request mit einem Text-Prompt wird an die API gesendet, die intern das Large Language Model anspricht und eine KI-generierte Antwort zurückliefert – als wäre es ein normaler Webservice-Aufruf."
+}

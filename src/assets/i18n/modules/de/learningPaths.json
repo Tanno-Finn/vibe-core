@@ -1,0 +1,157 @@
+{
+  "completedBadge": "Erledigt",
+  "progressOf": "von",
+  "optional": "Optional",
+  "comingSoon": "Demnächst verfügbar",
+  "downloadCertificate": "Zertifikat herunterladen",
+  "difficulty": {
+    "beginner": "Einsteiger",
+    "intermediate": "Fortgeschritten",
+    "advanced": "Experte"
+  },
+  "stepType": {
+    "demo": "Demo",
+    "article": "Artikel",
+    "guide": "Guide"
+  },
+  "certificate": {
+    "title": "ZERTIFIKAT",
+    "seal": "LERNEN",
+    "subtitle": "Grundlagen deines Themas",
+    "hasCompleted": "Hat den folgenden Lernpfad erfolgreich abgeschlossen:",
+    "dialogTitle": "Zertifikat erstellen",
+    "nameLabel": "Dein Name",
+    "nameRequired": "Bitte gib deinen Namen ein",
+    "namePlaceholder": "Name eingeben",
+    "privacyHint": "Dein Name wird nur im PDF angezeigt und nicht gespeichert.",
+    "download": "Als PDF speichern",
+    "cancel": "Abbrechen",
+    "statusTitle": "Zertifikat-Status",
+    "lockedHint": "Klicke, um den Status zu sehen",
+    "stepCompleted": "Erledigt",
+    "stepPending": "Offen",
+    "stepUnavailable": "Noch nicht verfügbar",
+    "completedStepsLabel": "Absolvierte Schritte:",
+    "stepsRemaining": "{{count}} Schritte noch offen",
+    "stepsUnavailable": "{{count}} Schritte noch nicht verfügbar"
+  },
+  "sectors": {
+    "foundation": "Das Fundament",
+    "foundationDesc": "Holt Anwender ohne jegliches Vorwissen ab. Wer einen Computer bedienen kann, startet hier.",
+    "workshop": "Die Werkstatt",
+    "workshopDesc": "Praxis für Macher. Fokus auf Anwendung, Tools und moderne Workflows.",
+    "academy": "Die Akademie",
+    "academyDesc": "Der tiefgründige Fach-Track. Entspricht den Modulen eines Studiums, aber barrierefrei.",
+    "society": "Gesellschaft & Inklusion",
+    "societyDesc": "Gesellschaftliche und rechtliche Implikationen, zugeschnitten auf Zielgruppen.",
+    "misc": "Sammelsurium",
+    "miscDesc": "Eine wachsende Vitrine für Demos, die in keinen Fach-Pfad passen — Klassiker, Kuriositäten, kleine Eigenbrötler."
+  },
+  "availableFrom": "Verfügbar ab",
+  "prerequisiteLabel": "Voraussetzung",
+  "seedPath1": {
+    "title": "Erste Schritte",
+    "description": "Ein sanfter erster Pfad in die Grundlagen deines Themas — was es ist und warum es wichtig ist.",
+    "learningPromise": "Nach diesem Pfad kannst du in eigenen Worten erklären, worum es bei deinem Thema geht.",
+    "targetAudience": "Absolute Anfänger — kein Vorwissen nötig",
+    "duration": "Etwa 30 Minuten",
+    "prerequisites": "Keine",
+    "steps": {
+      "intro": "Einführung",
+      "introDesc": "Beginne mit der Kernidee, worum es bei deinem Thema wirklich geht."
+    }
+  },
+  "seedPath2": {
+    "title": "Dein Thema im Alltag",
+    "description": "Sieh, wo dir dein Thema schon überall begegnet — von der Suche bis zu Empfehlungen.",
+    "learningPromise": "Nach diesem Pfad erkennst du dein Thema in alltäglichen Werkzeugen.",
+    "targetAudience": "Neugierige Anfänger",
+    "duration": "Etwa 30 Minuten",
+    "prerequisites": "Keine",
+    "steps": {
+      "intro": "Dein Thema um dich herum",
+      "introDesc": "Entdecke Alltagsprodukte, in denen dein Thema unbemerkt steckt."
+    }
+  },
+  "computerBasics": {
+    "title": "Computer-Grundlagen",
+    "description": "Terminal, Entwicklungsumgebung, Versionskontrolle und Netz-Schnittstellen — die vier Werkzeuge, auf denen alles Weitere aufbaut.",
+    "learningPromise": "Nach diesem Pfad öffnest du ein Terminal ohne Unbehagen, weißt, was ein Repository festhält und kannst nachvollziehen, wie zwei Programme über eine Schnittstelle miteinander reden.",
+    "targetAudience": "Einsteiger ohne Programmiererfahrung",
+    "duration": "4 Artikel, etwa 55 Minuten",
+    "prerequisites": "Keine",
+    "steps": {
+      "terminal": "Die Kommandozeile",
+      "terminalDesc": "Was ein Terminal ist, warum es getippte Befehle statt Knöpfe gibt und wie ein Befehl aufgebaut ist.",
+      "devEnvironment": "Deine Entwicklungsumgebung",
+      "devEnvironmentDesc": "Editor, IDE und das Drumherum: den Ort einrichten, an dem aus Ideen Dateien werden.",
+      "versioning": "Versionskontrolle",
+      "versioningDesc": "Wie ein Repository jede Änderung festhält — und warum das die Angst vorm Kaputtmachen nimmt.",
+      "network": "Netz und Schnittstellen",
+      "networkDesc": "Wie eine Anfrage durchs Netz läuft und was eine Schnittstelle zwischen zwei Programmen regelt."
+    }
+  },
+  "agentsBasics": {
+    "title": "Arbeiten mit KI-Agenten",
+    "description": "In normaler Sprache programmieren, den Kontext eines Modells gestalten und verstehen, wie ein Agent an Werkzeuge kommt.",
+    "learningPromise": "Nach diesem Pfad beschreibst du Aufgaben so, dass ein Agent sie umsetzen kann, weißt, was in sein Kontextfenster gehört und kennst den Weg von der Modell-Schnittstelle bis zum Werkzeugaufruf.",
+    "targetAudience": "Alle, die mit KI-Agenten arbeiten wollen",
+    "duration": "4 Artikel, etwa 36 Minuten",
+    "prerequisites": "Computer-Grundlagen",
+    "steps": {
+      "naturalLanguage": "Programmieren in normaler Sprache",
+      "naturalLanguageDesc": "Was sich ändert, wenn die Absicht getippt wird statt der Code — und wo die Grenzen liegen.",
+      "context": "Kontext gestalten",
+      "contextDesc": "Das Kontextfenster als knappe Ressource: was hineingehört, was stört und wie eine Sitzung ihren Faden verliert.",
+      "interfaces": "Schnittstellen, Protokolle und die Agenten-Schleife",
+      "interfacesDesc": "Von der Modell-Schnittstelle über Werkzeugaufrufe und ein offenes Protokoll bis zur Schleife, die ein Agent dabei dreht.",
+      "harnessEngineering": "Harness Engineering (Leitplanken statt Hoffnung)",
+      "harnessEngineeringDesc": "Gates, Sandbox und Gedächtnis: die Umgebung um den Agenten bewusst bauen."
+    }
+  },
+  "quality": {
+    "title": "Softwarequalität & Testen",
+    "description": "Tests lesen, Maschinenprüfungen einordnen, Änderungen abnehmen und Geheimnisse schützen — Qualität ohne Programmierkenntnisse.",
+    "learningPromise": "Du liest einen Test und erkennst, was er wirklich prüft, ordnest rote Maschinenprüfungen ein, stellst einem Agenten die drei Fragen, deren Antwort du selbst nachprüfen kannst, und weißt, was niemals in ein Repository gehört.",
+    "targetAudience": "Alle, die KI-Agenten Software bauen lassen",
+    "duration": "4 Artikel",
+    "prerequisites": "Arbeiten mit KI-Agenten",
+    "steps": {
+      "agentTests": "Tests verstehen, wenn der Agent sie schreibt",
+      "agentTestsDesc": "Grün heißt nicht korrekt: einen Test lesen, seinen Namen prüfen und die Abschwäch-Falle erkennen.",
+      "qualityGates": "Gates: das Sicherheitsnetz aus Maschinenprüfungen",
+      "qualityGatesDesc": "Fünf Fragen hinter einem roten Brett unterscheiden, Hinweis von Tor trennen und die aufgeschriebene Ausnahme lesen.",
+      "codeReview": "Review ohne Programmierkenntnisse",
+      "codeReviewDesc": "Einen Diff nach seiner Form beurteilen, drei prüfbare Fragen stellen und den Fall auslösen, der scheitern muss.",
+      "secretsSecurity": "Geheimnisse & Sicherheit: Was nie ins Repository darf",
+      "secretsSecurityDesc": "Ein Geheimnis erkennen, verstehen warum Löschen nichts zurücknimmt, und den Schritt ohne Rückweg bei sich behalten."
+    }
+  },
+  "knowledgeConcepts": {
+    "title": "Second Brain & Digitale Zwillinge",
+    "description": "Wissen außerhalb des Kopfes organisieren — und verstehen, was digitale Abbilder realer Dinge leisten und wo ihre Grenzen liegen.",
+    "learningPromise": "Du legst ein eigenes Second Brain an, statt Notizen zu sammeln, die du nie wieder liest, und erklärst, was einen digitalen Zwilling von einer bloßen Simulation unterscheidet.",
+    "targetAudience": "Alle — kein technisches Vorwissen nötig",
+    "duration": "2 Artikel",
+    "prerequisites": "Keine",
+    "steps": {
+      "secondBrain": "Second Brain: Dein externes Gedächtnis",
+      "secondBrainDesc": "Vom Zettelkasten zur vernetzten Notiz: Wissen so ablegen, dass es beim Denken hilft.",
+      "digitalTwins": "Digitale Zwillinge",
+      "digitalTwinsDesc": "Was ein digitales Abbild realer Objekte kann, von der Fabrik bis zur Raumfahrt — und wo seine Grenzen liegen."
+    }
+  },
+  "underTheHood": {
+    "title": "Unter der Haube",
+    "description": "Ein echtes agent-first-Projekt von innen: Regelwerk, Gates, Bücher und die Stellen, an denen die Methode mit dem Scheitern rechnet.",
+    "learningPromise": "Du siehst an einem echten Repository, welche Regeln eine Maschine prüft und welche nur Prosa sind, warum der Produktions-Build die Test-Suite selbst laufen lässt und wofür eine unabhängige vierte Prüfung da ist, wenn sich drei Stufen schon einig waren.",
+    "targetAudience": "Alle, die ein agent-first-Projekt selbst aufsetzen wollen",
+    "duration": "1 Artikel, etwa 12 Minuten",
+    "prerequisites": "Arbeiten mit KI-Agenten",
+    "steps": {
+      "tour": "Die Tour: Wie dieses Projekt mit Agenten gebaut wird",
+      "tourDesc": "Zehn Stationen durch ein echtes Repository, jede mit einer Datei zum Aufschlagen, von der Zeilengrenze der Karte bis zum Test-Gate im Build."
+    }
+  },
+  "draftSrOnly": "Entwurf — noch nicht in alle Sprachen übersetzt"
+}

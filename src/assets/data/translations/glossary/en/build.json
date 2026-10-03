@@ -1,0 +1,9 @@
+{
+  "term": "Build",
+  "alternativeNames": [
+    "Build process",
+    "Software build"
+  ],
+  "description": "A build turns source code into a runnable artifact: the code gets compiled, dependencies are resolved, files are bundled — and a whole series of checks runs along the way. If any of these steps fails, the build is 'red': the earliest and cheapest warning signal in software development, because in a clean pipeline, a mistake caught at build time never gets anywhere near a user. For AI agents, a reproducible build command is especially valuable: after every change, the agent can verify on its own that the project still builds, instead of leaving the discovery to a human. Do not confuse this with the other meaning: 'build' is also used casually for a specific shipped version ('build 4711') — that refers to the result of the process, not the process itself.",
+  "example": "A manuscript is not yet a book: typesetting, printing, and binding turn it into something a reader can hold — and if page 12 is missing, the print shop stops before a single copy reaches the store. In the same way, only the build turns source code into a program you can start: for an Angular app, 'npm run build' bundles hundreds of TypeScript files into a few optimized JavaScript packages — and aborts with an error message if there is a typo anywhere. One difference from the print shop: a new build costs almost nothing and can run as often as you like."
+}

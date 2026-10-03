@@ -1,0 +1,14 @@
+{
+  "label": {
+    "inputSize": "Input size n ="
+  },
+  "ratio": {
+    "title": "Relative to the reference",
+    "curve": "Curve",
+    "operations": "Work",
+    "factor": "Factor",
+    "reference": "Reference",
+    "cheaper": "cheaper",
+    "costlier": "costlier"
+  }
+}

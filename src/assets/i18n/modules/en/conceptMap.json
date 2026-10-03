@@ -1,0 +1,35 @@
+{
+  "dialog": {
+    "openFullMap": "Open full knowledge map"
+  },
+  "map": {
+    "nodes": "Nodes",
+    "edges": "Connections",
+    "focus": "Focus",
+    "toggleGraph": "Graph",
+    "toggleTable": "Table",
+    "loading": "Loading map…",
+    "empty": "No connections found.",
+    "tableHeadType": "Type",
+    "tableHeadNode": "Node",
+    "tableHeadConnections": "Connections",
+    "tableHeadNeighbors": "Top neighbors",
+    "tableEmpty": "No nodes match the search.",
+    "openNeighbor": "Open neighbor",
+    "ariaSummary": "Ontology map with {{count}} nodes and {{edges}} connections.",
+    "ariaSummaryFocus": "Focused on {{type}}/{{id}}.",
+    "ariaSummaryTableHint": "Use the \"Table\" toggle to step through the connections in tabular form.",
+    "ariaEmpty": "Ontology map — empty.",
+    "searchResultLive": "{{count}} of {{total}} nodes match",
+    "type": {
+      "article": "Article",
+      "demo": "Demo",
+      "glossary": "Glossary",
+      "timeline": "Timeline",
+      "source": "Source",
+      "sources": "Sources"
+    },
+    "legendLabel": "Legend of node types",
+    "cameraReadoutInit": "Camera readout — initializing…"
+  }
+}

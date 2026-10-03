@@ -1,0 +1,8 @@
+{
+  "term": "Build",
+  "alternativeNames": [
+    "Programm bauen"
+  ],
+  "description": "Build. Das spricht man Bild aus. Ein Build macht aus Code ein fertiges Programm. Programmierer schreiben Code in Textdateien. Viele Programme kann der Computer als Text nicht direkt ausführen. Der Build übersetzt den Code dann für den Computer. Er packt alle Teile zusammen. Am Ende steht ein Programm, das läuft. Der Build prüft dabei auch auf Fehler. Findet er einen Fehler? Dann stoppt er sofort. Das nennt man einen roten Build. Ein roter Build ist eine frühe Warnung. Das ist gut so. Der Fehler erreicht die Nutzer dann nicht.",
+  "example": "Denk an eine Druckerei. Ein Manuskript ist noch kein Buch. Die Druckerei druckt und bindet die Seiten. Fehlt eine Seite? Dann stoppt die Druckerei sofort. Genau so arbeitet ein Build."
+}

@@ -1,0 +1,25 @@
+{
+  "id": "cli",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [
+    "CLI"
+  ],
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2026-03-26",
+  "updatedAt": "2026-03-26",
+  "related": {
+    "glossary": [
+      "git",
+      "repository",
+      "agent",
+      "session",
+      "api"
+    ],
+    "articles": [
+      "art-terminal-intro"
+    ]
+  }
+}

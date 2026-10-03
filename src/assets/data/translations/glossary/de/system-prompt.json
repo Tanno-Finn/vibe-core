@@ -1,0 +1,5 @@
+{
+  "term": "System-Prompt",
+  "description": "Eine spezielle Anweisung in modernen LLM-Systemen, die dem Modell seine Rolle, Verhaltensregeln und Sicherheitsrichtlinien vorgibt – bevor der Nutzer seinen eigenen Prompt eingibt. Der System-Prompt ist für den Nutzer meist unsichtbar, steuert aber das Grundverhalten des Modells fundamental.",
+  "example": "Ein KI-Chatbot erhält einen System-Prompt wie: „Du bist ein hilfreicher Assistent. Antworte präzise und höflich.“ Auch andere Assistenten bekommen zur Laufzeit einen System-Prompt, der Rolle und Verhaltensregeln vorgibt. Der Nutzer sieht diese Anweisungen nicht, sie bestimmen aber, wie das Modell reagiert."
+}

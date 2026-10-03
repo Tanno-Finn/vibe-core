@@ -1,0 +1,175 @@
+{
+  "hero": {
+    "title": "Context Engineering",
+    "subtitle": "How to help AI by giving it important information."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "promptVsContext": "Prompt and Context",
+    "ruleFile": "The Rule File",
+    "contextHierarchy": "Context Hierarchy",
+    "takeaways": "Summary",
+    "quiz": "Quiz",
+    "checkpoint": "Checkpoint",
+    "enrichment": "Interactive: Context Budget Scaling"
+  },
+  "lead": {
+    "paragraph1": "You ask the AI: Write a login endpoint. It gives you wrong code. The framework is wrong. The folder is wrong. The AI is not dumb. It does not know your project.",
+    "paragraph2": "Context Engineering helps you with this. You give the AI the right information. Then the code fits your project. In this article you learn three things."
+  },
+  "promptVsContext": {
+    "title": "From Prompt to Context",
+    "definitionTitle": "Context Engineering explained simply",
+    "analogy": "Context Engineering is like training a new colleague. A good prompt is a good question. Context Engineering is a training package. It contains rules and workflows. Without training, the colleague makes mistakes.",
+    "scientific": "Context Engineering means: You collect all information for the AI. For example, instructions and tools. The AI does not just get a question. It gets a whole working environment.",
+    "analogyBreak": "One difference: A colleague learns permanently. An AI can forget information. Its context window is limited.",
+    "comparison": {
+      "promptLabel": "Prompt Engineering",
+      "promptResult": "You improve the single question. You write all details every time. That is a lot of work.",
+      "contextLabel": "Context Engineering",
+      "contextResult": "You give the AI a rule file. The AI knows your project. You do not have to repeat everything."
+    },
+    "misconception": {
+      "title": "Common Misconception",
+      "text": "Some people think: A better prompt is enough. That is not true. You cannot write all project details every time. A rule file saves them permanently."
+    }
+  },
+  "ruleFile": {
+    "title": "The Rule File",
+    "intro": "A rule file is a file in your project. Your AI tool reads it automatically. The file contains rules in normal language. For example: Which framework do you use? Where are the files? This kit uses a file called AGENTS.md for this.",
+    "checklistIntro": "The rule file is like a checklist for pilots. It helps the AI avoid mistakes.",
+    "deepDive": {
+      "title": "What belongs in the rule file?",
+      "good": "Good content: How is the project structured? What rules apply when coding? How do you start the project? What should the AI never do?",
+      "bad": "Bad content: Passwords or secret keys. The entire code. Things that change constantly."
+    },
+    "codeExampleTitle": "Example: this is what a rule file looks like",
+    "codeExample": "## Architecture\n- Framework: NestJS 10\n- All imports: absolute (never relative)\n- Folder: src/modules/[domain]/\n\n## Coding Standards\n- Error responses: always use AppException class\n- Tests: Jest, one spec file per service\n- Never use console.log — use LoggerService\n\n## Build & Run\n- npm run dev (port 3000)\n- npm test (all specs)",
+    "misconception": {
+      "title": "Common Misconception",
+      "text": "Some people think: You write the file once and you are done. That is not true. The file grows over time. When the AI makes a mistake, you add a new rule."
+    }
+  },
+  "contextHierarchy": {
+    "title": "Context Hierarchy — Less Is More",
+    "intro": "AI models have a limited attention window. The more information you give, the less accurate the AI becomes. The question is: Which information does the AI need when?",
+    "analogyText": "Think of a surgeon. The operating room has thousands of instruments. But the tray only holds the instruments for the current step. Too many instruments get in the way.",
+    "analogyBreak": "One difference: The surgeon knows exactly what they need. The AI has to figure that out first.",
+    "example": "An example: Your project has 50,000 lines of code. Bad: Copy everything into the prompt. Better: The rule file gives an overview. The AI then searches for the right files.",
+    "feedbackLoop": {
+      "title": "The Feedback Loop",
+      "text": "A good rule file grows over time. You observe the AI's mistakes. You add a rule. Next time the AI does it better."
+    },
+    "misconception": {
+      "title": "Common Misconception",
+      "text": "Some people think: The AI reads everything automatically. That is not true. Too much information makes the AI less accurate. You have to select what is important."
+    }
+  },
+  "hierarchy": {
+    "step1": {
+      "label": "Permanent Rules",
+      "description": "The rule file — Always loaded. Architecture and standards."
+    },
+    "step2": {
+      "label": "Files for the Task",
+      "description": "The files that are important right now."
+    },
+    "step3": {
+      "label": "Previous Conversation",
+      "description": "What you discussed with the AI."
+    },
+    "step4": {
+      "label": "Tool Results",
+      "description": "Search results and file contents. Loaded when needed."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Key Points",
+    "point1": "Context Engineering means: The question is not the most important thing. What the AI already knows matters more.",
+    "point2": "A rule file is like a training package. The AI knows your project from the start.",
+    "point3": "Less context is often better. The AI needs the right information at the right time."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Context Engineering",
+    "q1": {
+      "question": "What is the difference between Prompt Engineering and Context Engineering?",
+      "a": "Prompt Engineering uses longer prompts.",
+      "b": "Prompt Engineering improves a question. Context Engineering improves the whole working environment.",
+      "c": "Context Engineering only works with very large models.",
+      "d": "Prompt Engineering is for beginners.",
+      "explanation": "Context Engineering goes further than Prompt Engineering. It improves not just the question. It improves all the information the AI receives."
+    },
+    "q2": {
+      "question": "The AI always creates files in the wrong folder. What is the solution?",
+      "a": "Write the folder in the prompt every time.",
+      "b": "Use a different AI model.",
+      "c": "Write a rule in the rule file.",
+      "d": "Turn off file creation.",
+      "explanation": "The rule file solves the problem permanently. You write the folder once. The AI uses it every time."
+    },
+    "q3": {
+      "question": "Your project has 30,000 lines of code. You want to rebuild one service. What is the best approach?",
+      "a": "Copy all the code into the prompt.",
+      "b": "Give a rule file with an overview. The AI searches for the right files itself.",
+      "c": "Only give the one file.",
+      "d": "Summarize the code in 500 words.",
+      "explanation": "The rule file gives the overview. The AI then finds the right files. That is better than too much or too little context."
+    },
+    "q4": {
+      "question": "A rule file contains the database password and all 200 endpoints. What is the problem?",
+      "a": "Everything is fine.",
+      "b": "The password is a security risk. The endpoint list is too much context.",
+      "c": "Only the API key is a problem.",
+      "d": "The file needs even more information.",
+      "explanation": "Passwords do not belong in the rule file. Too many endpoints overwhelm the AI. Better: Architecture rules that show where things can be found."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint: Context Engineering",
+    "item1": "Explain: What is the difference between a prompt and Context Engineering?",
+    "item2": "What belongs in a rule file? What does not?",
+    "item3": "Why is less context often better than everything at once?"
+  },
+  "enrichment": {
+    "tocLabel": "Interactive: how the work grows",
+    "sectionTitle": "Interactive: Why More Context Does Not Always Help",
+    "intro": "Move the slider. See how the work grows. Loading the rule file always costs the same (green). Reading the context grows steadily (blue). Cross-referencing information grows very fast (red).",
+    "curve": {
+      "constant": "Load the rule file",
+      "linear": "Read the context",
+      "quadratic": "Cross-reference information"
+    },
+    "insight": {
+      "small": {
+        "title": "Little context",
+        "description": "At {{n}} units of information the difference is small. Cross-referencing needs {{worst}} steps. Reading needs {{reference}} steps."
+      },
+      "moderate": {
+        "title": "Medium context",
+        "description": "At {{n}} units you can see the difference. Cross-referencing needs {{worst}} steps. That is {{factor}} times as much as reading."
+      },
+      "large": {
+        "title": "Much context",
+        "description": "At {{n}} units cross-referencing needs {{worst}} steps. That is {{factor}} times as much as reading. The AI now becomes less accurate."
+      },
+      "veryLarge": {
+        "title": "Very much context",
+        "description": "At {{n}} units cross-referencing needs {{worst}} steps. Reading needs only {{reference}} steps. That is a factor of {{factor}}. This is why little good context beats much context."
+      }
+    }
+  },
+  "ruleFileTraits": {
+    "fileName": {
+      "label": "Name and place",
+      "description": "Every tool has its own name for the rule file. It usually sits at the top of the project."
+    },
+    "scope": {
+      "label": "Where the rules apply",
+      "description": "Some rules apply to the whole project. Others apply only to one folder."
+    },
+    "loading": {
+      "label": "When the rules load",
+      "description": "Some rules are always there. The AI loads other rules only when it needs them."
+    }
+  }
+}

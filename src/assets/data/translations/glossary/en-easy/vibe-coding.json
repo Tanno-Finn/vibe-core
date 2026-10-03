@@ -1,0 +1,8 @@
+{
+  "term": "Vibe Coding",
+  "alternativeNames": [
+    "Coding with AI"
+  ],
+  "description": "Vibe Coding. This is a way to make programs. You do not write the code yourself. You tell an AI what you want. You use normal words for that. The AI then writes the code. You try the program out. Is something wrong? You tell the AI. The AI fixes it. The result matters most, not the code. But you must check the result yourself.",
+  "example": "You say: Build me a shopping list app. The AI builds the app. You test it. Then you ask for changes. It goes back and forth like that."
+}

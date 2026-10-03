@@ -1,0 +1,17 @@
+{
+  "id": "anthropic-harnesses-2025",
+  "type": "article",
+  "authors": "Justin Young (Anthropic)",
+  "year": "2025",
+  "publication": "Anthropic Engineering",
+  "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "harness-engineering",
+    "coding-agent",
+    "tests",
+    "verification",
+    "vendor-practice"
+  ]
+}

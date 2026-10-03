@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Easy-language pictogram — original work of this kit, CC BY 4.0 (see LICENSING.md).
+  Dimensions: 360x240 (3:2). Consumed as PNG by the language picker's easy-language
+  toggle, where it renders at roughly 30x20 CSS pixels — hence two shapes only, no
+  fine detail, no text.
+
+  Motif: an open book whose right-hand page carries a check mark — "text that has
+  been checked for plain reading". Deliberately unlike the established European
+  easy-to-read symbol (a white figure with a book and a raised thumb on blue),
+  which is a protected mark and is not used here.
+
+  Source-of-truth. Regenerate PNG via: node scripts/render-og.mjs
+  (target name "easy-language" if you want to re-bake this one alone)
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240">
+
+  <defs>
+    <!-- Kit amber (design-tokens: primary-500 → primary-600), same family as favicon.svg -->
+    <linearGradient id="amberBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background plate -->
+  <rect width="360" height="240" rx="18" fill="url(#amberBg)"/>
+
+  <!-- ─── OPEN BOOK (two pages, cream = primary-50) ──────────────────── -->
+  <g fill="#fffbeb">
+    <path d="M40 62 C82 44, 140 46, 174 66 L174 186 C140 166, 82 164, 40 182 Z"/>
+    <path d="M320 62 C278 44, 220 46, 186 66 L186 186 C220 166, 278 164, 320 182 Z"/>
+  </g>
+
+  <!-- Spine shadow: keeps the two pages readable as one book at icon size -->
+  <rect x="174" y="60" width="12" height="128" fill="#92400e" opacity="0.35"/>
+
+  <!-- ─── LEFT PAGE: three text lines (primary-900) ──────────────────── -->
+  <g fill="#78350f">
+    <rect x="62" y="88"  width="94" height="12" rx="6"/>
+    <rect x="62" y="115" width="94" height="12" rx="6"/>
+    <rect x="62" y="142" width="66" height="12" rx="6"/>
+  </g>
+
+  <!-- ─── RIGHT PAGE: check mark ─────────────────────────────────────── -->
+  <path d="M208 122 L238 152 L296 92"
+        fill="none" stroke="#78350f" stroke-width="22"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg>

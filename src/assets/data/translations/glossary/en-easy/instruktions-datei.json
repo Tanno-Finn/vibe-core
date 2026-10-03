@@ -1,0 +1,8 @@
+{
+  "term": "Instruction File",
+  "alternativeNames": [
+    "Rules File for AI Agents"
+  ],
+  "description": "Instruction File. This is a file with rules for an AI agent. The file is in the project folder. It holds important facts about the project. For example: this is how you run the tests. Or: do not change this folder. The agent usually reads the file at the start. So the rules apply in every session. You do not need to write them again. A well-known example is called AGENTS.md.",
+  "example": "A team writes rules into a file. For example: write comments in English. The AI agent reads the file. Then it follows the rule. In every task."
+}

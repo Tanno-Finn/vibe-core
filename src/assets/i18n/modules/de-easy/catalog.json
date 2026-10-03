@@ -1,0 +1,82 @@
+{
+  "title": "Katalog",
+  "subtitle": "Eine sortierte Liste mit Werkzeugen und nützlichen Seiten.",
+  "disclaimer": "Inhalte von anderen Webseiten – bitte selbst prüfen",
+  "entryType": {
+    "tool": "Programm",
+    "resource": "Lern·angebot"
+  },
+  "sort": {
+    "label": "Sortierung",
+    "rating": "Bewertung",
+    "alphabetical": "Von A bis Z",
+    "newest": "Neueste zuerst"
+  },
+  "filter": {
+    "search": "Suchen..."
+  },
+  "quickFilters": {
+    "topRated": "Am besten bewertet",
+    "freeAndGerman": "Kostenlos und auf Deutsch",
+    "onlyFavorites": "Nur Favoriten"
+  },
+  "noResults": {
+    "title": "Nichts gefunden",
+    "subtitle": "Versuche andere Filter oder einen anderen Such·begriff."
+  },
+  "loadMore": "Mehr anzeigen",
+  "loadingMore": "Wird geladen...",
+  "results": {
+    "showing": "Zeige",
+    "of": "von",
+    "entries": "Einträgen"
+  },
+  "details": {
+    "source": "Quelle",
+    "author": "Autor",
+    "estimatedTime": "Dauer",
+    "language": "Sprache",
+    "access": "Zugang",
+    "accessInfo": "Zugangs·informationen",
+    "category": "Kategorie",
+    "features": "Funktionen",
+    "useCases": "Einsatz·bereiche",
+    "pros": "Vorteile",
+    "cons": "Nachteile",
+    "alternatives": "Andere Möglichkeiten",
+    "paywall": "Bezahl·schranke",
+    "registration": "Anmeldung",
+    "required": "nötig",
+    "published": "Veröffentlicht",
+    "similarResources": "Ähnliche Lern·angebote",
+    "noSimilarResources": "Keine ähnlichen Lern·angebote gefunden",
+    "similarTools": "Ähnliche Programme",
+    "noSimilarTools": "Keine ähnlichen Programme gefunden"
+  },
+  "tags": {
+    "more": "weitere"
+  },
+  "actions": {
+    "favorite": "Als Favorit speichern",
+    "removeFavorite": "Aus Favoriten entfernen",
+    "compare": "Vergleichen",
+    "removeCompare": "Aus Vergleich entfernen"
+  },
+  "compare": {
+    "title": "Programme vergleichen",
+    "feature": "Eigenschaft",
+    "rating": "Bewertung",
+    "pricing": "Preis",
+    "difficulty": "Schwierigkeit",
+    "deployment": "Wie es läuft",
+    "features": "Funktionen",
+    "useCases": "Einsatz·bereiche"
+  },
+  "buttons": {
+    "share": "Teilen",
+    "visitSource": "Zur Quelle",
+    "close": "Schließen",
+    "clearAll": "Alle entfernen",
+    "startCompare": "Vergleich starten"
+  }
+}

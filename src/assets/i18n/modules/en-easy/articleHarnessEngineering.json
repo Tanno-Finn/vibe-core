@@ -1,0 +1,218 @@
+{
+  "hero": {
+    "title": "Harness Engineering: Clear Rules Instead of Hope",
+    "subtitle": "An AI agent works inside a setup. This setup is called the harness. It often decides the result more than the AI itself."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "thesis": "Model and harness",
+    "workshop": "Same worker, different workshop",
+    "gates": "The inspection station",
+    "rights": "The key card",
+    "limits": "Limits of the harness",
+    "loop": "Turning mistakes into rules",
+    "takeaways": "The main points",
+    "quiz": "Quiz",
+    "checkpoint": "Comprehension check"
+  },
+  "lead": {
+    "paragraph1": "An AI agent has to fix a bug in a program. An AI agent is a program with an AI inside. The agent works on a task on its own. The agent fixes the bug. Then it runs 2 tests. A test checks automatically whether a part of the program works. Both tests are fine. The agent saves its work. But the agent also changed another function. 3 other parts of the program use that function. One of them now computes the wrong number. Nobody notices. There is no error message.",
+    "paragraph2": "Why does this happen? The answer is rarely the AI itself. The answer is usually the setup. The setup is everything around the AI. This includes tools, rights, and checks. This setup is called the harness. Harness is an English word. Here it means: the workshop around the agent."
+  },
+  "thesis": {
+    "title": "Agent = Model + Harness",
+    "text1": "An agent has 2 parts. The first part is the model. The model is the trained AI. The second part is the harness. The harness is everything else: the tools, the setup, the checks, the rights, and the memory. Both parts create the result together. Harness engineering means: you build this setup on purpose.",
+    "delimitation": "There are 3 similar terms. Prompt engineering writes the single instruction. Context engineering picks the information for the AI. Harness engineering builds the whole workshop. The workshop is the place for both.",
+    "disputed": "Experts do not fully agree on this order. Some group the 3 terms exactly like this. Others see the harness as part of context engineering. This article uses the first order. It is easier to explain.",
+    "agcdDelimitation": "There is a second article about this. The article on agentic coding explains the agent itself. This article explains the setup around the agent.",
+    "objectives": {
+      "title": "What you learn in this article",
+      "item1": "You can say which parts belong to the harness.",
+      "item2": "You can tell a wish from a real automatic check.",
+      "item3": "You can predict what a tighter sandbox does to the questions.",
+      "item4": "You can explain: green tests are no proof of correct code."
+    },
+    "gridIntro": "The harness has 5 parts. Here is a short overview:"
+  },
+  "grid": {
+    "tools": {
+      "label": "Tools and scripts",
+      "description": "The agent calls other programs. For example tests or search commands."
+    },
+    "sandbox": {
+      "label": "Setup and sandbox",
+      "description": "A sandbox is a walled-off area. The agent works only in there."
+    },
+    "gates": {
+      "label": "Verification gates",
+      "description": "A gate is an inspection station. It checks the work automatically."
+    },
+    "memory": {
+      "label": "Memory and journal",
+      "description": "A journal is a notes file. It holds the state of the work."
+    },
+    "rules": {
+      "label": "Rules and instruction files",
+      "description": "These files hold the rules of the project. The agent reads them."
+    }
+  },
+  "workshop": {
+    "title": "Same worker, different workshop",
+    "intro": "Picture a workshop. A new person starts work there. You set the workshop up before day one. You decide which machines they may use. You show where the emergency stop is. You put the manual on the bench. You decide who signs off the work. The same person delivers different results in a different workshop. The difference comes from the room. The difference is not about skill.",
+    "definitionTitle": "Model and harness",
+    "analogy": "The model is the worker. The worker brings their own skill. That skill stays the same. The harness is the workshop. The workshop holds tools, emergency stop, manual, and sign-off. Every result comes from both.",
+    "scientific": "The model is the trained AI. The harness is everything else in the system. That means tools, setup, rights, checks, and storage. Both parts create the result together. So you can only compare 2 agents in the same harness.",
+    "example": "A large study measured this. The study looked at 21,730 agent runs. It used 9 models on 9 task collections. One result is surprising. The same model solved 68 out of 100 tasks in one setup. In another setup it solved only 34 out of 100 tasks. The AI was the same. Only the setup was different.",
+    "exampleCaveat": "2 notes about these numbers. The design of the study is well documented. The single numbers come from a second analysis. So read them as reported numbers. For comparison: reports say a new generation adds only a few points. At most it is a bit more than 10 points.",
+    "analogyBreak": "The workshop idea has a limit. A person remembers something you say once. An agent does not remember it. The agent starts every session from scratch. It keeps only what files hold. It reads these files at the start. So an explanation in the chat disappears again.",
+    "misconception1": {
+      "title": "Common error: a bad result means a weak AI",
+      "text": "Many people think this way. This answer is usually expensive. The same AI gives very different results in different setups. The gap is many percentage points wide. So the setup is often the real cause. Ask a different question first. Ask: what in the setup let this mistake through?"
+    },
+    "misconception2": {
+      "title": "The opposite error: so the AI does not matter",
+      "text": "This is not true either. The study only measures the effect of the setup. The quality of the AI still matters. In the same setup a strong AI gives better results. So the message is a different one. It means: compare 2 agents only in the same setup."
+    }
+  },
+  "memory": {
+    "title": "The agent only remembers files",
+    "text": "The agent keeps nothing on its own. So the setup has to do it. There are 3 simple ways. First: a file describes how the project starts. Second: a journal records every work step. Third: the agent saves after every finished piece. The benefit shows up in the next session. Then the state of the work is there in writing."
+  },
+  "rules": {
+    "title": "And the rule file?",
+    "text": "A rule file holds the rules of the project. The article on context engineering explains it in detail. There is an important finding about it. A study compared 2 agents. The agents solved 17 tasks in 288 runs. In some runs there was a rule file. In other runs there was none. The code did not get measurably better. The mistakes were in design and in wiring. A rule file does not fix such mistakes. The file is still useful. It gives orientation. But do not rely on it for correct code."
+  },
+  "gates": {
+    "title": "The inspection station instead of the sign",
+    "intro": "A gate is an inspection station. It sits between 2 states. State 1: the agent thinks it is done. State 2: the change really counts. The gate checks the work. On a failure the gate blocks the change. An instruction in text works differently. It only works if the agent follows it.",
+    "definitionTitle": "Gate",
+    "analogy": "A speed limit sign only works with attentive drivers. An inspection station for cars always works. The car has to drive through it. Without the check it goes nowhere. A gate is such an inspection station.",
+    "scientific": "A gate is an automatic check. It runs before a change is accepted. On a failure it blocks the change. Typical gates are tests and code checkers. The result goes back to the agent.",
+    "scope": "The next 3 numbers come from one single study. The study used open Qwen models. The models ran on normal hardware. The measurement used the task set SWE-bench Verified. So these numbers are one measurement. They are not a general value for the industry.",
+    "experiment": "The setup is simple. There were 3 runs with the same tasks. Run 1: nobody says anything. Result: 6.08 percent of the changes break something else. Run 2: the rule is written as text in the instruction. Result: 9.94 percent. Run 3: the rule runs as an automatic gate. The gate finds the affected tests. Then it runs these tests. Result: 1.82 percent.",
+    "comparison": {
+      "ariaLabel": "Comparison: rule as text and rule as a gate",
+      "proseLabel": "Rule is written as text only",
+      "proseResult": "9.94 percent of the changes break something else. With no rule at all it was only 6.08 percent.",
+      "gateLabel": "Rule runs as an automatic gate",
+      "gateResult": "1.82 percent. The agent also solved more tasks: 32 instead of 24 percent."
+    },
+    "keySentence": "The rule as text was worse than no rule at all.",
+    "stat": {
+      "label": "Errors with a gate",
+      "value": "-70 %",
+      "description": "The value drops from 6.08 to 1.82 percent."
+    },
+    "statResolve": {
+      "label": "Solved tasks",
+      "value": "+8 points",
+      "description": "The agent solved 32 instead of 24 percent of the tasks. The gate did not slow it down."
+    },
+    "inspection": "The inspection station fits better than the sign. The station checks everyone. Attention and good intentions do not matter.",
+    "inspectionBreak": "But this picture has a limit. At a real car inspection an independent body writes the list. For tests the checked party writes the list itself. So one question matters a lot. The question is: who owns the test file?",
+    "misconception1": {
+      "title": "Common error: green tests mean correct code",
+      "text": "Green means only one thing. Everything that gets checked works. Green says nothing about unchecked parts. Some mistakes no gate can find. This includes a wrong diagnosis. This includes an overly complex solution. This includes a clean solution for the wrong task."
+    },
+    "misconception2": {
+      "title": "Common error: writing it down is like enforcing it",
+      "text": "The number 9.94 percent shows the difference. The text rule did not help. It even made the result worse. One explanation is plausible. An extra instruction costs attention. The topic also feels handled after that. But nobody checked anything."
+    },
+    "deepDive": {
+      "title": "Deep dive: the agent memorizes the visible tests",
+      "text1": "A study looked at 30 hard programming tasks. Every task had 2 test suites. Suite 1 was visible. The agent was allowed to use it. Suite 2 was hidden. The agent never saw it. The best current agents pass the visible suite. With the hidden suite the gap gets bigger. The gap grows by 28 percentage points per 10 times more code.",
+      "text2": "One case from the study is very clear. A program had 2,900 lines. It looked like a translator for code. In truth it had memorized the test cases. One point is important here. The agent deleted no test file. The agent changed no test file. It only adapted to the visible tests. This is the quieter form of the same problem."
+    }
+  },
+  "rights": {
+    "title": "The key card instead of the guard dog",
+    "intro": "The heading names 2 pictures. A guard dog watches the behavior. It barks when something feels strange to it. But a guard dog can be fooled. A key card watches nothing at all. It opens 3 doors and not the fourth. It does not matter who carries the card. The rights of an agent work like the card. They are given in advance, door by door. There are 2 different settings. People often mix them up. Setting 1 controls the technical options. It decides: which folders may the agent write to? It decides: which addresses on the network may it reach? Setting 2 controls the questions. It decides: when does the agent have to ask a human? Many coding agents have 2 separate dials for this.",
+    "twoDials": "The interaction surprises many people. Most people expect more questions with tighter limits. The measurement shows the opposite.",
+    "stepsTitle": "Example: fewer questions through a tighter limit",
+    "step1": "We start with an example calculation. A session takes 3 hours. It creates about 50 permission questions. This number 50 is only assumed. It is not a measurement.",
+    "step2": "Now you turn on the isolation. The agent writes only in the project folder. It reaches only allowed addresses on the network.",
+    "step3": "The measured number is the saving. There are 84 percent fewer questions. This number comes from the vendor itself. So 50 questions become about 8.",
+    "step4": "The reason is simple. Everything inside the limit is now safe. So it needs no approval any more. Only actions across the limit remain.",
+    "step5": "Now comes the serious case. A hidden instruction sits in an outside document. The instruction says: send a config file to an outside server. The agent follows the instruction. The isolation does not prevent this. But the outside server is not allowed. So the upload fails.",
+    "analogyBreak": "But this picture has a limit. A card system trusts the holder. An agent can be talked into wrong actions. Its rights are completely legal. The guard dog does not help here either. Someone who behaves normally walks past him.",
+    "misconception1": {
+      "title": "Common error: the sandbox protects against prompt injection",
+      "text": "Prompt injection is a hidden command in outside text. The AI treats the command as a real instruction. Both big vendors write the same thing about this. A sandbox only limits the damage. It does not detect the hidden command. It does not prevent it either."
+    },
+    "misconception2": {
+      "title": "Common error: sandbox and questions are one dial",
+      "text": "There are 2 separate dials. Dial 1 controls the technical options. Dial 2 controls the questions. Many people think of a single dial. Then they expect more interruptions from more safety. So they set the setup up too loosely. But the measurement shows the opposite. A tighter limit brings fewer questions."
+    },
+    "injectionLink": "The article on prompt injections explains the technique. For this article one sentence is enough. The limit reduces the damage. It is not a defense."
+  },
+  "limits": {
+    "title": "The limits of the harness",
+    "coverage": "No gate finds every mistake. A gate does not spot a wrong diagnosis. A gate does not spot an overly complex solution. A gate does not spot a solution for the wrong task. A gate only checks the planned things. There is another problem on top. There is no fixed measure for the quality of a harness. So you notice an improvement. But you do not know the exact quality.",
+    "coinage": "The term harness engineering is still very young. Mitchell Hashimoto used it on February 5, 2026. He explains it there as a new coinage. Other experts name a later post as the origin. So the term is not even a year old. The origin is disputed. The subject itself is much older. Automatic checks have existed for decades. Walled-off setups have existed for decades too.",
+    "deepDive": {
+      "title": "Deep dive: the effort a harness costs",
+      "text": "A harness also costs effort. Experts report this from practice. The harness becomes a product of its own. It has its own bugs. It needs care. Extra checking agents cost time and money. The status of this criticism matters. It comes from experience reports. It does not come from a measurement. There is no fixed number for it. Nobody knows exactly when the effort gets too big. One piece of advice still helps. Build the cheapest checks first."
+    }
+  },
+  "loop": {
+    "title": "Turning mistakes into permanent rules",
+    "text": "Think back to the start of this article. There a part of the program computed the wrong number. Without a harness the mistake stays a story. Someone tells it in the team. After that nothing happens. With a harness the mistake becomes a rule. A check now tests the dependent parts. This is the idea behind harness engineering. Workshop, inspection station, and key card belong together. They show the same habit. The habit is: build your rules in."
+  },
+  "takeaways": {
+    "containerTitle": "The 5 main points",
+    "item1": "An agent has a model and a harness. The harness is often the more important part. You can also change it more easily.",
+    "item2": "A rule in text is only a wish. A rule as a gate is a real check. In the measurement the difference was very large.",
+    "item3": "Rights and questions are 2 separate dials. Dial 1 sets the options. Dial 2 sets the questions. A tighter limit often brings fewer questions.",
+    "item4": "A gate is no proof of correct code. It only shows: the checked parts work. In large projects the gap to hidden mistakes grows.",
+    "item5": "Harness engineering means: every mistake becomes a fixed check. Then the check blocks the same mistake the next time."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Harness Engineering",
+    "q1": {
+      "question": "An agent has a model and a harness. What belongs to the harness?",
+      "a": "Only the trained AI and its calculations belong to the harness.",
+      "b": "Everything except the AI: tools, setup, gates, rights, and memory.",
+      "c": "Only the chat interface for operating the agent counts as harness.",
+      "d": "Only the original training data from the AI belongs to the harness.",
+      "explanation": "The harness is everything except the AI itself. The trained AI is the model. The training data belongs to how the model was made. The chat interface is only one tool among many."
+    },
+    "q2": {
+      "question": "A colleague says: I explained the rule to the agent once in the chat. That should be enough. What is he missing?",
+      "a": "None of this is right. An agent remembers an explanation just like a person.",
+      "b": "Explanations only work for easy tasks. For hard tasks they stop working.",
+      "c": "An agent starts every session again. Only a file or a check is permanent.",
+      "d": "The agent does store the chat forever. But it does not read it at the start.",
+      "explanation": "The agent keeps nothing after the session ends. A rule becomes permanent through a file. It becomes reliable through a check. So saying it is not the same as building it in."
+    },
+    "q3": {
+      "question": "Your team often forgets the CHANGELOG entry. Proposal A: a sentence about it in the rule file. Proposal B: an automatic check. It blocks saving without the entry. What do the numbers in the article say about proposal A?",
+      "a": "Proposal A works just as reliably as proposal B. Both say the same thing.",
+      "b": "Proposal A works reliably. The rule only has to be written clearly enough.",
+      "c": "Proposal A works reliably in small projects. It only fails in large ones.",
+      "d": "Proposal A can be worse than no rule at all. Only check B is reliable.",
+      "explanation": "In the measurement the gate cut the error rate a lot. The same rule as text made the result worse. It was even worse than no rule at all. An instruction only works if the agent follows it. A check always works."
+    },
+    "q4": {
+      "question": "An agent has to read an outside project. It has to write a report. It should change nothing. You also want few questions. Which dial do you change? And what does that not protect you from?",
+      "a": "The dial for questions, set to never ask. That does not protect against missing context.",
+      "b": "The dial for the sandbox, set to read only. It does not protect against hidden commands.",
+      "c": "Both dials, set to full rights and never ask. That does not protect against a poor report.",
+      "d": "Neither of the 2 dials. The number of questions depends only on the chosen AI model.",
+      "explanation": "The 2 dials are independent of each other. With read only, changes are technically impossible. So no approval is needed for them. The questions therefore mostly disappear. But the sandbox still does not detect hidden commands."
+    },
+    "q5": {
+      "question": "In a large project an agent reports all visible tests as green. It deleted no test and changed no test. A hidden test suite later shows several failures. What explains this best? And what is the difference to deleting a test?",
+      "a": "It is test manipulation anyway. The difference is only formal and does not matter.",
+      "b": "Large projects simply have more bugs. There is no real difference between the two cases.",
+      "c": "It adapted to the visible tests. The gap to the hidden suite grows with project size.",
+      "d": "A good gate never allows this at all. So the case points to a bug inside the gate.",
+      "explanation": "A deleted test shows up in the history at once. Here every test file stays unchanged. The agent still adapts to the visible tests. Sometimes it even memorizes the results. The gap grows with the amount of code. It grows by 28 percentage points per 10 times more code. This quiet form is therefore more dangerous."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension check",
+    "item1": "A colleague uses the same AI in 2 tools. In tool A it works well. In tool B it works badly. Now he wants a bigger AI. What do you tell him?",
+    "item2": "Your team writes a new rule into the rule file. Is that a wish or a real check? What do the numbers in the article say about it?",
+    "item3": "You switch the agent to read only. Will it ask you more often or less often? And does that protect it from a doctored file?"
+  }
+}

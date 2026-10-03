@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "aiTimeline": "Zeitstrahl",
+    "aiTools": "Software & Plattformen",
+    "catalog": "Katalog",
+    "controls": "Header-Steuerelemente",
+    "emptyTitle": "Keine passende Seite gefunden",
+    "emptyHint": "Versuche es mit einem anderen Suchbegriff oder gib eine 4-stellige Seiten-ID ein.",
+    "emptyClearAction": "Suche zurücksetzen",
+    "glossary": "Glossar",
+    "group": {
+      "development": "Werkstatt (nur Dev)",
+      "interaktiveDemos": "Interaktive Demos",
+      "knowledge": "Wissen",
+      "learningPaths": "Lernpfade",
+      "lessons": "Lektionen",
+      "portal": "Portal",
+      "misc": "Sonstiges"
+    },
+    "home": "Startseite",
+    "invalidPageId": "Keine Seite mit dieser ID gefunden",
+    "main": "Hauptnavigation",
+    "pageNotFound": "Seite nicht gefunden",
+    "progress": "Mein Fortschritt",
+    "search": "Zu Seite navigieren...",
+    "searchHelp": "Gib Text ein, um Seiten zu finden. Verwende Pfeiltasten zur Navigation.",
+    "searchPages": "Seiten durchsuchen",
+    "showMore": "Mehr...",
+    "sitemap": "Seitenübersicht",
+    "userSettings": "Benutzereinstellungen",
+    "skipToContent": "Zum Inhalt springen",
+    "devWorkshop": "Werkstatt",
+    "devDesign": "Designsystem",
+    "devAgents": "Agenten-Leitfaden",
+    "breadcrumb": "Brotkrümelnavigation"
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "licenseLink": "Lizenzinformationen - CC BY 4.0",
+    "accessibility": "Barrierefreiheit",
+    "printLicense": "Lizenz: CC BY 4.0 — Namensnennung erforderlich",
+    "cookieSettings": "Cookie-Einstellungen"
+  }
+}

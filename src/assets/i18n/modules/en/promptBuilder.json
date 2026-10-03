@@ -1,0 +1,17 @@
+{
+  "label": {
+    "yourPrompt": "Your prompt",
+    "blocks": "blocks",
+    "reset": "Reset",
+    "emptyState": "Pick blocks above to assemble your prompt.",
+    "copied": "Copied!",
+    "copyPrompt": "Copy prompt",
+    "characters": "characters"
+  },
+  "quality": {
+    "title": "How complete is the prompt?",
+    "tipComplete": "Every block type is covered — the prompt gives the model clear guidance.",
+    "tipIncomplete": "Tip: add {{missing}} so the model has less to guess.",
+    "tipJoin": " and "
+  }
+}

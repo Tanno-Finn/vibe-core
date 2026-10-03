@@ -1,0 +1,10 @@
+{
+  "term": "Deepfake",
+  "alternativeNames": [
+    "KI-Fälschung",
+    "synthetisches Medienprodukt",
+    "Face-Swap"
+  ],
+  "description": "Deepfake ist ein KI-generierter oder KI-manipulierter Medieninhalt, der eine reale Person täuschend echt in einer Situation zeigt, die nie stattgefunden hat. Der Begriff entstand 2017 aus einem Reddit-Benutzernamen, der mittels Autoencoder-Verfahren erzeugte Gesichtsaustausch-Videos verbreitete; er setzt sich aus „deep learning“ und „fake“ zusammen. Die technische Grundlage sind heute vor allem Generative Adversarial Networks (GANs), Diffusionsmodelle und spezielle Encoder-Decoder-Architekturen, die Gesicht, Stimme oder gesamte Körperbewegungen überzeugend substituieren können. Deepfakes sind von synthetischen Medien generell zu unterscheiden: Synthetische Medien umfassen jede KI-generierte Bild- oder Videoproduktion (auch Comicfiguren, CGI-Landschaften), während Deepfakes spezifisch auf die täuschend echte Darstellung realer, identifizierbarer Personen abzielen. Die gesellschaftliche Gefahr liegt weniger in der perfekten Fälschung als im sogenannten Liar's Dividend: Schon die bloße Existenz überzeugender Deepfakes untergräbt das Vertrauen in authentische Video- und Audioaufnahmen, da jeder Beweis als potenzielle Fälschung in Frage gestellt werden kann. Der EU AI Act (Art. 50) schreibt eine Kennzeichnungspflicht für KI-generierte Inhalte vor.",
+  "example": "Ein Video kursiert in sozialen Netzwerken, das eine Politikerin bei einer vermeintlichen Bestechungsübergabe zeigt. Das Video ist ein Deepfake -- die Szene wurde nie gefilmt. Selbst nachdem die Fälschung nachgewiesen ist, hält sich Misstrauen gegenüber der Person: Der Liar's Dividend ist eingetreten."
+}

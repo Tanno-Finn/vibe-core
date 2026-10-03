@@ -1,0 +1,20 @@
+[
+  {
+    "id": "2020-01-02-seed-notification-2",
+    "publishedAt": "2020-01-02T00:00:00Z",
+    "type": "feature",
+    "titleKey": "notifications.seedNotification2.title",
+    "descriptionKey": "notifications.seedNotification2.description",
+    "priority": "normal",
+    "pinned": false
+  },
+  {
+    "id": "2020-01-01-seed-notification-1",
+    "publishedAt": "2020-01-01T00:00:00Z",
+    "type": "feature",
+    "titleKey": "notifications.seedNotification1.title",
+    "descriptionKey": "notifications.seedNotification1.description",
+    "priority": "normal",
+    "pinned": false
+  }
+]

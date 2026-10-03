@@ -1,0 +1,8 @@
+{
+  "term": "Context Engineering",
+  "alternativeNames": [
+    "Kontext·gestaltung"
+  ],
+  "description": "Context Engineering. Das spricht man Kontext Endschiniering aus. Du planst gezielt, welche Informationen das KI-Modell bekommt. Das Modell hat nur wenig Platz für Informationen. Dieser Platz heißt Kontext·fenster. Darum musst du gut auswählen. Du nimmst die wichtigen Informationen. Du lässt die unwichtigen weg. Manchmal musst du Informationen auch kürzer machen. Guter Kontext macht die Antworten besser. Das ist mehr als nur einen Prompt schreiben.",
+  "example": "Du gibst dem Modell Regeln, Beispiele und Wissen. Alles zusammen ist der Kontext. Je besser der Kontext, desto besser die Antwort."
+}

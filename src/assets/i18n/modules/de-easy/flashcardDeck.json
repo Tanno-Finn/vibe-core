@@ -1,0 +1,21 @@
+{
+  "badge": {
+    "term": "Begriff",
+    "explanation": "Erklärung"
+  },
+  "hint": {
+    "flip": "Klicke auf die Karte. Dann siehst du die Erklärung.",
+    "flipBack": "Klicke noch mal. Dann siehst du den Begriff."
+  },
+  "label": {
+    "syntax": "So schreibt man es",
+    "example": "Beispiel"
+  },
+  "nav": {
+    "prev": "← Zurück",
+    "shuffle": "Mischen",
+    "next": "Weiter →",
+    "cardAriaLabel": "Karte {{num}}"
+  },
+  "progress": "Karte {{current}} von {{total}}"
+}

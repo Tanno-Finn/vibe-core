@@ -1,0 +1,56 @@
+{
+  "id": "instruktions-datei",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Instruction File",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Instruction File",
+      "Agenten-Anweisungsdatei"
+    ],
+    "en": [
+      "Agent Instruction File"
+    ],
+    "de-easy": [
+      "Regel-Datei für KI-Agenten"
+    ],
+    "en-easy": [
+      "Rules File for AI Agents"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "AGENTS.md - a simple, open format for guiding coding agents",
+      "url": "https://agents.md/",
+      "notes": "Offizielle Seite der offenen AGENTS.md-Konvention; beschreibt die Datei als README für Agenten mit Build-, Test- und Konventions-Kontext."
+    },
+    {
+      "type": "documentation",
+      "citation": "GitHub: agentsmd/agents.md",
+      "url": "https://github.com/agentsmd/agents.md",
+      "notes": "Repository der Konvention mit Spezifikation und Beispielen; Format ist reines Markdown ohne Pflicht-Struktur."
+    },
+    {
+      "type": "paper",
+      "citation": "Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents? arXiv, 2026",
+      "url": "https://arxiv.org/abs/2602.11988",
+      "notes": "Empirische Untersuchung, ob und wann Repository-weite Instruktionsdateien Coding-Agenten tatsächlich helfen."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "system-prompt",
+      "prompt",
+      "agent",
+      "repository",
+      "context-engineering"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

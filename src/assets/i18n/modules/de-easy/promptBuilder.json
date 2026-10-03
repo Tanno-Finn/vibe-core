@@ -1,0 +1,17 @@
+{
+  "label": {
+    "yourPrompt": "Dein Prompt",
+    "blocks": "Bausteine",
+    "reset": "Zurücksetzen",
+    "emptyState": "Klicke oben auf Bausteine. Dann entsteht hier dein Prompt.",
+    "copied": "Kopiert!",
+    "copyPrompt": "Prompt kopieren",
+    "characters": "Zeichen"
+  },
+  "quality": {
+    "title": "Ist der Prompt vollständig?",
+    "tipComplete": "Du hast alle Bausteine gewählt. Das Modell weiß jetzt genau, was es tun soll.",
+    "tipIncomplete": "Tipp: Wähle noch {{missing}}. Dann muss das Modell weniger raten.",
+    "tipJoin": " und "
+  }
+}

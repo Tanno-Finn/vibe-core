@@ -1,0 +1,9 @@
+{
+  "term": "Sandbox & Permissions",
+  "alternativeNames": [
+    "Sandboxing and permissions",
+    "Agent permission model"
+  ],
+  "description": "If you give an AI agent tools, you have to decide what it may do with them — before anything goes wrong, not after. A sandbox is a walled-off environment the agent works in: read and write access only to specific directories, network access only to allowed addresses. Permissions additionally regulate, at a fine grain, which actions are allowed, forbidden, or require confirmation — irreversible steps like deleting or publishing pass through a confirmation gate with a human. The underlying idea, the principle of least privilege, is considerably older than AI agents and comes from classic IT security. The crucial shift: safety comes from the environment, not from trust in the model. That containment holds even when the agent hallucinates or gets foreign instructions smuggled in via prompt injection.",
+  "example": "A new intern gets a key card that opens exactly three rooms — not out of distrust, but because nobody wants to bet that nothing will go wrong. For the server room, a supervisor has to come along. In the same way, a coding agent may typically read and write inside the project folder but not on the drive next to it; 'git push' or deleting files requires the user's confirmation. Even if a rigged website slips the agent the instruction 'delete everything', the damage stays inside the project folder — the key card still does not open the other rooms. Which is why a sandbox is no substitute for version control: whatever lives inside it, the agent can change."
+}

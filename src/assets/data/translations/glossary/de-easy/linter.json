@@ -1,0 +1,8 @@
+{
+  "term": "Linter",
+  "alternativeNames": [
+    "Fehler·sucher für Code"
+  ],
+  "description": "Linter. Ein Linter sucht Fehler im Code. Dabei startet er das Programm nicht. Der Linter liest den Code wie einen Text. Er kennt viele bekannte Fehler·muster. Zum Beispiel: Eine Variable wird nirgends benutzt. Oder ein Name ist falsch geschrieben. Der Linter meldet solche Stellen sofort. Ein Test ist etwas anderes. Ein Test startet das Programm wirklich. Ein Formatter ist auch etwas anderes. Er macht den Code nur ordentlich und schön. Der Linter prüft dagegen den Inhalt.",
+  "example": "Denk an einen Korrektur·leser für ein Kochbuch. Er liest alle Rezepte genau. Er findet Schreib·fehler und fehlende Zutaten. Aber er kocht kein einziges Gericht. So arbeitet ein Linter mit Code."
+}

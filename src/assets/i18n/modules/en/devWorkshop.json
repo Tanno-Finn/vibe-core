@@ -1,0 +1,148 @@
+{
+  "common": {
+    "devOnlyBadge": "Dev only - removed from production builds"
+  },
+  "hub": {
+    "title": "Workshop",
+    "subtitle": "Internal tooling for building and documenting this kit. Nothing under /dev ships to users.",
+    "designTitle": "Design System",
+    "designDesc": "Gallery of reusable components - live demo, usage guidance, and the canonical agent doc for each one. Plus the Guides: long-form articles on library and layout building blocks.",
+    "agentsTitle": "Agent Guide",
+    "agentsDesc": "When to read which design-system doc, plus the loop for creating a new component the right way."
+  },
+  "gallery": {
+    "title": "Design System",
+    "subtitle": "Reusable components in this kit. Each tile links to a live demo, usage guidance, and the canonical agent doc.",
+    "filterLabel": "Filter components",
+    "filterPlaceholder": "Search by name, selector, or tag ...",
+    "countOf": "of",
+    "countComponents": "components",
+    "noMatches": "No components match"
+  },
+  "detail": {
+    "backToGallery": "Back to the gallery",
+    "sourceLabel": "Source",
+    "liveDemo": "Live demo",
+    "docsAriaLabel": "Component documentation",
+    "tabExample": "Example",
+    "tabUsage": "Usage",
+    "tabAgent": "Agent instructions",
+    "exampleNote": "The exact usage rendered in the live demo above.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "codeRegion": "Code example",
+    "tableRegion": "Table",
+    "loading": "Loading ...",
+    "noUsageSections": "This doc has no usage sections yet. The Agent instructions tab shows the full doc.",
+    "docError": "Could not load the doc:",
+    "notFoundTitle": "Not in the registry",
+    "notFoundNote": "There is no design-system component with this slug:",
+    "quickSwitchLabel": "Switch component or guide",
+    "quickSwitchPlaceholder": "Choose an entry ...",
+    "quickSwitchFilterPlaceholder": "Search by name, selector, or tag ...",
+    "quickSwitchEmpty": "No entry matches."
+  },
+  "groups": {
+    "scaffolding": {
+      "title": "Scaffolding a page",
+      "hint": "shell, reading column, title, wayfinding",
+      "chip": "Scaffolding"
+    },
+    "content": {
+      "title": "Adding explanatory content",
+      "hint": "callouts, examples, definitions, prompts, formulas, summaries",
+      "chip": "Content"
+    },
+    "inlineHelp": {
+      "title": "Explaining a term inline",
+      "hint": "a hover/tap help bubble next to a word",
+      "chip": "Inline help"
+    },
+    "quiz": {
+      "title": "Building a quiz or self-check",
+      "hint": "graded questions or a completion checklist",
+      "chip": "Quiz & check"
+    },
+    "progress": {
+      "title": "Showing progress, stats, or steps",
+      "hint": "a metric, a ratio, a percentage, a sequence",
+      "chip": "Progress"
+    },
+    "cards": {
+      "title": "A generic clickable card",
+      "hint": "title, description, chips, actions on a surface",
+      "chip": "Cards"
+    },
+    "other": {
+      "title": "More components",
+      "hint": "newly registered, not yet assigned to a task group",
+      "chip": "Other"
+    }
+  },
+  "agents": {
+    "title": "Agent Guide",
+    "subtitle": "How agents work on this kit: read the right doc before building UI - most needs are already covered by a reusable primitive.",
+    "orientationTitle": "Orientation",
+    "orientationP1": "The design system is the set of genuinely reusable UI primitives in this kit - containers, boxes, cards, progress indicators, a quiz, a tooltip. Every component has exactly one canonical doc that humans and agents read from the same source; the gallery shows that very file, so the doc on disk and the doc in the app can never drift.",
+    "factDocs": "Canonical docs",
+    "factRegistry": "Machine source of truth",
+    "factGate": "Self-maintenance gate",
+    "factHub": "Convention hub",
+    "factGuides": "Guide articles (agent docs)",
+    "factScript": "Agent CLI for the guides",
+    "englishNote": "The component docs are deliberately written in English: one canonical source for humans and agents alike, with no translation drift.",
+    "indexTitle": "When to read which doc",
+    "indexLede": "Find your task and open the linked docs first. This table is derived live from the registry - every registered component appears in exactly one row.",
+    "thTask": "Your task",
+    "thDocs": "Read these docs",
+    "indexSummary": "{count} components in {groups} task groups, derived automatically from the registry. The full filterable grid lives in the gallery.",
+    "loopTitle": "Adding a new component",
+    "loopLede": "The self-maintenance gate forces a conscious decision for every new component. Follow this loop - the /new-component skill walks you through it and scaffolds everything in one pass.",
+    "step1Title": "Check the gallery first.",
+    "step1Body": "If an existing component covers your need by about 80% or more, stop - use or extend it instead of building a near-duplicate.",
+    "step2Title": "Ask: is it reusable?",
+    "step2Body": "A genuinely reusable primitive earns a registry entry. A one-off stays out - build it and record it in the exclusions file with a one-line reason.",
+    "step3Title": "Scaffold four artifacts together.",
+    "step3Body": "The component file, the registry entry, the canonical doc, and a live demo case. As soon as the registry entry exists, the component appears in the gallery and in the table above automatically.",
+    "step4Title": "Prove it green.",
+    "step4Body": "Run both checks; they must pass with the new entry counted:",
+    "ctaBody": "Run /new-component to do all of this the right way. The doc-writing contract lives in docs/DESIGN-SYSTEM.MD."
+  },
+  "guideTabs": {
+    "examples": "Examples",
+    "usage": "Usage",
+    "design": "Design",
+    "development": "Development",
+    "i18n": "Internationalization (i18n)",
+    "history": "History",
+    "agent": "Agent instructions"
+  },
+  "guides": {
+    "sectionTitle": "Guides",
+    "sectionHint": "Long-form articles on how to build UI with library building blocks and layout patterns - complementing the reusable components above.",
+    "category": {
+      "library": "Library components (Optimus UI)",
+      "foundations": "Foundations",
+      "layouts": "Layouts & patterns"
+    },
+    "notFoundTitle": "Guide not found",
+    "notFoundNote": "There is no guide article with this id:",
+    "relatedTitle": "Related guides",
+    "agentTabHint": "Agents get the same content token-cheaply from the CLI:",
+    "agentsTitle": "Guides for library & layout questions",
+    "agentsLede": "For questions about Optimus UI building blocks, foundations, or layout patterns, the guides give long-form articles - with one canonical agent doc per guide. Read token-cheaply: the index first, then one section, then the whole doc only when needed.",
+    "cliTopicsNote": "coverage map: what exists at all, both layers",
+    "cliListNote": "compact index: id, category, tags, essence",
+    "cliJsonNote": "machine-readable index as JSON",
+    "cliSectionNote": "exactly one section (e.g. when choosing a component)",
+    "cliSectionsNote": "one heading across every doc — a single call",
+    "cliBlocksNote": "every do/don't pair from every article in one harvest",
+    "cliBundleNote": "a guide plus its related neighborhood",
+    "cliTabNote": "one article tab, interpolations resolved",
+    "cliShowNote": "the full agent doc while building",
+    "cliSearchNote": "full-text search across agent docs, article tabs, and kit docs",
+    "thGuide": "Guide",
+    "thGuideCat": "Category",
+    "thGuideDoc": "Doc"
+  }
+}

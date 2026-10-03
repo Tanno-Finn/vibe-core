@@ -1,0 +1,17 @@
+{
+  "id": "anthropic-mcp-dokumentation-2024",
+  "type": "article",
+  "authors": "Anthropic (MCP-Projekt)",
+  "year": "2026",
+  "publication": "Model Context Protocol Documentation",
+  "url": "https://modelcontextprotocol.io/specification/2026-07-28/server/tools",
+  "doi": "",
+  "accessed": "2026-08-31",
+  "tags": [
+    "mcp",
+    "documentation",
+    "tools",
+    "resources",
+    "prompts"
+  ]
+}

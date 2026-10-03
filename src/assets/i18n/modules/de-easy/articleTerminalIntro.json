@@ -1,0 +1,253 @@
+{
+  "hero": {
+    "title": "Das Terminal",
+    "subtitle": "Das Terminal ist ein altes, aber sehr starkes Werkzeug für den Computer."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "guiCli": "GUI und CLI",
+    "paths": "Pfade",
+    "commands": "Erste Befehle",
+    "flags": "Flags",
+    "aiTerminal": "Terminal und KI",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Hinter jeder App stecken Textbefehle. Das Terminal ist ein Programm, in dem du Befehle tippst. Damit steuerst du deinen Computer sehr genau.",
+    "paragraph2": "Du brauchst keine Vorkenntnisse. Am Ende weißt du: Was ist eine grafische Oberfläche? Was ist die Kommando·zeile? Wie funktionieren Datei·adressen? Und du kennst die wichtigsten Befehle."
+  },
+  "guiCli": {
+    "title": "Zwei Wege, deinen Computer zu bedienen",
+    "definitionTitle": "GUI, CLI, Terminal und Shell",
+    "analogy": "Eine GUI ist wie eine Karte. Du tippst auf Orte und wirst hingeführt. Ein CLI ist wie eine Adresse. Du tippst die Adresse ein und kommst direkt ans Ziel. Du kannst die gleiche Adresse auch vielen Taxis geben.",
+    "scientific": "GUI bedeutet: Grafische Oberfläche. Du klickst auf Fenster, Icons und Buttons. CLI bedeutet: Kommando·zeile. Du tippst Befehle als Text ein. Das Terminal ist das Programm mit dem Textfenster. Die Shell ist das Programm darin, das deine Befehle versteht.",
+    "analogyBreak": "Der Vergleich hat Grenzen: Ein falscher Befehl kann viel Schaden anrichten. Mehr als eine falsche Adresse.",
+    "history": "Kommando·zeilen gibt es seit den 1960er Jahren. Grafische Oberflächen kamen erst in den 1980er Jahren. Die Kommando·zeile war also zuerst da.",
+    "renameExample": "Beispiel: 500 Fotos umbenennen. Mit einer GUI musst du jedes Foto einzeln anklicken. Mit der Kommando·zeile schaffst du das mit einem einzigen Befehl.",
+    "comparison": {
+      "guiLabel": "GUI — Grafische Oberfläche",
+      "guiResult": "Du siehst Bilder und Buttons. Einfach zu lernen. Gut für Bilder bearbeiten. Schwer zu automatisieren.",
+      "cliLabel": "CLI — Kommando·zeile",
+      "cliResult": "Du tippst Befehle als Text. Sehr genau. Gut für Automatisierung. Du musst die Befehle lernen."
+    },
+    "terminalChoice": {
+      "title": "Welches Terminal benutzen?",
+      "text": "Mac und Linux haben ein Terminal eingebaut. Bei Windows nimm Windows Terminal oder WSL. Tipp: In Programmen wie VS Code gibt es auch ein eingebautes Terminal."
+    },
+    "noUndo": {
+      "title": "Es gibt kein Rückgängig im Terminal",
+      "text": "Im Terminal gibt es keinen Papierkorb. Ein Befehl wird sofort ausgeführt. Starte mit sicheren Befehlen wie pwd und ls. Die zeigen nur Informationen an und ändern nichts."
+    }
+  },
+  "paths": {
+    "title": "Pfade — Wo bin ich?",
+    "definitionTitle": "Pfade und Arbeits·verzeichnis",
+    "analogy": "Stell dir ein Büro·gebäude vor. Ein absoluter Pfad ist die vollständige Adresse: Gebäude, Stock 3, Raum 312. Ein relativer Pfad sagt: Geh eine Tür nach links. Das Arbeits·verzeichnis ist der Raum, in dem du gerade stehst.",
+    "scientific": "Ein Pfad ist die Adresse einer Datei. Ein absoluter Pfad beginnt ganz oben im Datei·system, zum Beispiel /home/user/datei.txt. Ein relativer Pfad beginnt von deinem aktuellen Ordner. Der Punkt . bedeutet: hier. Zwei Punkte .. bedeuten: eine Ebene höher.",
+    "analogyBreak": "Der Vergleich hat Grenzen: Im Datei·system gibt es Abkürzungen, die es in einem echten Gebäude nicht gibt.",
+    "crossPlatform": "Auf Linux und Mac verwendest du / als Trennzeichen. Auf Windows verwendest du \\. Die meisten Programme verstehen aber beides.",
+    "walkthrough": {
+      "title": "Übung: Im Datei·system navigieren",
+      "step1": "pwd → Zeigt dir, wo du bist",
+      "step2": "mkdir project → Erstellt einen neuen Ordner",
+      "step3": "cd project → Geht in den Ordner hinein",
+      "step4": "mkdir data src → Erstellt zwei Ordner gleichzeitig",
+      "step5": "cd data → Geht in den Ordner data",
+      "step6": "cd .. → Geht eine Ebene zurück"
+    },
+    "pitfalls": {
+      "title": "Häufige Fehler bei Pfaden",
+      "text": "Ordnernamen mit Leerzeichen brauchen Anführungs·zeichen: cd \"Mein Ordner\". Benutze pwd oft, damit du weißt, wo du bist."
+    },
+    "resolver": {
+      "title": "Probier es aus: Wo landet der Pfad?",
+      "intro": "Ein Pfad hängt von 2 Dingen ab: Wo stehst du gerade? Und was tippst du? Ändere unten eins davon. Dann siehst du sofort: Der Pfad führt woanders hin."
+    }
+  },
+  "commands": {
+    "title": "Deine ersten Befehle",
+    "intro": "Diese 9 Befehle sind wie 9 Wörter in einer fremden Sprache. Du bist nicht perfekt, aber du kommst zurecht.",
+    "grid": {
+      "pwd": {
+        "label": "pwd",
+        "description": "Zeigt, wo du bist"
+      },
+      "ls": {
+        "label": "ls",
+        "description": "Zeigt den Ordner·inhalt"
+      },
+      "cd": {
+        "label": "cd",
+        "description": "Wechselt den Ordner"
+      },
+      "mkdir": {
+        "label": "mkdir",
+        "description": "Erstellt einen Ordner"
+      },
+      "touch": {
+        "label": "touch",
+        "description": "Erstellt eine leere Datei"
+      },
+      "cat": {
+        "label": "cat",
+        "description": "Zeigt den Datei·inhalt"
+      },
+      "cp": {
+        "label": "cp",
+        "description": "Kopiert eine Datei"
+      },
+      "mv": {
+        "label": "mv",
+        "description": "Verschiebt oder benennt um"
+      },
+      "rm": {
+        "label": "rm",
+        "description": "Löscht eine Datei für immer"
+      }
+    },
+    "tabCompletion": "Tipp: Tippe die ersten Buchstaben und drücke die Tab·taste. Das Terminal vervollständigt den Namen für dich.",
+    "miniProject": {
+      "title": "Übung: Einen Projekt·ordner erstellen",
+      "step1": "mkdir ai-project → Erstellt den Haupt·ordner",
+      "step2": "cd ai-project → Geht hinein",
+      "step3": "mkdir data src docs → Erstellt drei Unterordner",
+      "step4": "touch requirements.txt README.md → Erstellt zwei Dateien",
+      "step5": "ls → Zeigt alle Dateien und Ordner",
+      "step6": "cp requirements.txt backup.txt → Kopiert die Datei",
+      "step7": "mv README.md docs/ → Verschiebt die Datei in den docs-Ordner"
+    },
+    "rmWarning": {
+      "title": "Vorsicht: rm löscht für immer",
+      "text": "Der Befehl rm löscht Dateien endgültig. Es gibt keinen Papierkorb.",
+      "tip": "Tipp: Benutze rm -i. Dann wirst du vor jeder Löschung gefragt. Prüfe vorher immer mit pwd und ls, ob du im richtigen Ordner bist."
+    },
+    "forwardLink": "Im nächsten Artikel lernst du deine Entwicklungs·umgebung kennen. Dort schreibst du deine Programme. Danach lernst du Git."
+  },
+  "flags": {
+    "title": "Mehr über Flags",
+    "intro": "Flags ändern, was ein Befehl tut. Sie beginnen mit einem Bindestrich. Zum Beispiel: ls -l zeigt mehr Details. ls -a zeigt versteckte Dateien.",
+    "examples": "Du kannst Flags kombinieren: ls -la zeigt versteckte Dateien mit Details.",
+    "help": "Tippe --help hinter einen Befehl, um zu sehen, welche Flags es gibt. Zum Beispiel: ls --help."
+  },
+  "aiTerminal": {
+    "title": "Warum das Terminal für KI wichtig ist",
+    "intro": "Viele KI-Computer haben keine grafische Oberfläche. Du verbindest dich über das Terminal mit ihnen.",
+    "useCases": "Du installierst Programme mit pip und conda. Du startest KI-Training mit einem Befehl. Und automatische Tests laufen auch im Terminal."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste",
+    "items": {
+      "guiCli": "Eine GUI hat Bilder und Buttons. Ein CLI hat Textbefehle. Beide sind nützlich.",
+      "paths": "Jede Datei hat eine Adresse. Das ist der Pfad. Es gibt absolute und relative Pfade.",
+      "commands": "9 Befehle reichen für den Anfang: pwd, ls, cd, mkdir, touch, cat, cp, mv, rm.",
+      "tabCompletion": "Die Tab·taste vervollständigt Dateinamen automatisch.",
+      "noUndo": "Das Terminal hat kein Rückgängig. Der Befehl rm löscht für immer."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint",
+    "item1": "Wann ist eine GUI besser? Wann ein CLI? Nenne je zwei Beispiele.",
+    "item2": "Du bist im Ordner /home/user/project. Wie kommst du zu /home/user/data/file.csv?",
+    "item3": "Erstelle einen Ordner, lege eine Datei hinein und prüfe, ob sie da ist. Welche Befehle brauchst du?"
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Das Terminal",
+    "q1": {
+      "question": "Was ist der Unterschied zwischen GUI und CLI?",
+      "a": "Eine GUI ist schneller",
+      "b": "Eine GUI hat Bilder und Buttons. Ein CLI hat Textbefehle.",
+      "c": "Ein CLI geht nur auf Linux",
+      "d": "Eine GUI ist für Profis. Ein CLI ist für Anfänger.",
+      "explanation": "Eine GUI zeigt Fenster, Icons und Buttons. Ein CLI arbeitet mit Text. Beides ist nützlich."
+    },
+    "q2": {
+      "question": "Du bist im Ordner /home/user/project/data. Was macht cd ..?",
+      "a": "Es löscht den Ordner data",
+      "b": "Es geht nach /home/user/project",
+      "c": "Es geht nach /home/user",
+      "d": "Es zeigt den Ordner·inhalt",
+      "explanation": "Zwei Punkte .. bedeuten: eine Ebene höher. Von /home/user/project/data geht cd .. nach /home/user/project."
+    },
+    "q3": {
+      "question": "Du willst einen Ordner „test“ erstellen, eine Datei „log.txt“ hineinlegen und prüfen, ob sie da ist. Was ist die richtige Reihenfolge?",
+      "a": "touch log.txt, mkdir test, ls",
+      "b": "mkdir test, cd test, touch log.txt, ls",
+      "c": "cd test, mkdir test, touch log.txt",
+      "d": "touch test/log.txt, ls test",
+      "explanation": "Zuerst den Ordner erstellen (mkdir test). Dann hinein gehen (cd test). Dann die Datei erstellen (touch log.txt). Dann prüfen (ls)."
+    },
+    "q4": {
+      "question": "Warum ist die Kommando·zeile besser für das Umbenennen von 500 Dateien?",
+      "a": "Sie zeigt Dateien schneller an",
+      "b": "Ein Befehl kann alle 500 Dateien auf einmal umbenennen",
+      "c": "Eine GUI kann keine Dateien umbenennen",
+      "d": "Die Kommando·zeile hat einen Papierkorb",
+      "explanation": "Die Kommando·zeile kann automatisieren: Ein Befehl benennt alle 500 Dateien in Sekunden um. In einer GUI muss man jede Datei einzeln anklicken."
+    }
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: Terminal",
+    "sectionTitle": "Interaktiv: Terminal·befehle lernen",
+    "intro": "Lerne die wichtigsten Befehle. Das Terminal ist ein mächtiges Werkzeug.",
+    "cards": {
+      "1": {
+        "front": "pwd",
+        "frontSub": "Wo bin ich gerade?",
+        "back": "Der Befehl zeigt dir den ganzen Pfad. Dann weißt du: In diesem Ordner bin ich gerade. Das ist sehr wichtig. Vor allem bevor du Dateien löschst oder verschiebst.",
+        "backFormula": "pwd\n→ /home/user/project",
+        "backExample": "Prüfe immer erst mit pwd, wo du bist. Erst dann nimm rm. So löschst du nichts im falschen Ordner."
+      },
+      "2": {
+        "front": "ls",
+        "frontSub": "Was liegt hier?",
+        "back": "Der Befehl zeigt dir alle Dateien und Ordner. Er zeigt den Ordner, in dem du gerade bist. Mit -l siehst du mehr Details. Mit -a siehst du auch versteckte Dateien.",
+        "backFormula": "ls -la\n→ drwxr-xr-x  .git/\n   -rw-r--r--  README.md",
+        "backExample": "ls -la zeigt auch .gitignore und andere versteckte Dateien."
+      },
+      "3": {
+        "front": "cd",
+        "frontSub": "Wohin soll es gehen?",
+        "back": "Mit cd gehst du in einen anderen Ordner. Du kannst den ganzen Pfad angeben. Oder den Weg von deinem Ordner aus. cd .. geht einen Ordner nach oben. cd ~ geht in deinen Home·ordner.",
+        "backFormula": "cd project/data\ncd ..\ncd ~",
+        "backExample": "cd ohne Argument bringt dich zurück ins Home·verzeichnis."
+      },
+      "4": {
+        "front": "mkdir",
+        "frontSub": "Neuen Ordner erstellen",
+        "back": "Der Befehl macht einen neuen Ordner. Du kannst auch mehrere Ordner auf einmal machen.",
+        "backFormula": "mkdir data src docs\nmkdir -p parent/child/grandchild",
+        "backExample": "mkdir -p erstellt auch fehlende Eltern·ordner automatisch."
+      },
+      "5": {
+        "front": "cat",
+        "frontSub": "Datei·inhalt anzeigen",
+        "back": "Der Befehl zeigt dir den ganzen Inhalt einer Datei. Das ist gut für kurze Dateien. Zum Beispiel für eine Einstellungs·datei oder requirements.txt.",
+        "backFormula": "cat requirements.txt\n→ numpy==1.24.4\n   transformers==4.37.0",
+        "backExample": "Für lange Dateien besser less statt cat verwenden."
+      },
+      "6": {
+        "front": "cp",
+        "frontSub": "Kopieren",
+        "back": "Der Befehl kopiert Dateien oder Ordner. Ein Ordner mit Inhalt braucht -r. Das r steht für rekursiv. Das heißt: Alles im Ordner wird mit kopiert.",
+        "backFormula": "cp datei.txt backup.txt\ncp -r ordner/ kopie/",
+        "backExample": "Vor riskanten Änderungen eine Sicherungs·kopie erstellen."
+      },
+      "7": {
+        "front": "mv",
+        "frontSub": "Verschieben oder umbenennen",
+        "back": "Der Befehl verschiebt Dateien oder Ordner an einen neuen Ort. Er kann sie auch umbenennen. Für beides ändert mv nur den Pfad.",
+        "backFormula": "mv alt.txt neu.txt\nmv datei.txt ordner/",
+        "backExample": "Du willst 500 Fotos umbenennen? Mit einer Schleife und mv geht das in Sekunden."
+      },
+      "8": {
+        "front": "rm",
+        "frontSub": "Endgültig löschen",
+        "back": "Der Befehl löscht Dateien für immer. Es gibt keinen Papierkorb. Du kannst es nicht rückgängig machen. Mit -r löscht er Ordner mit allem Inhalt. Sei darum immer vorsichtig!",
+        "backFormula": "rm datei.txt\nrm -r ordner/\nrm -i datei.txt  # fragt nach",
+        "backExample": "Ein Tipp: Nimm rm -i. Dann fragt der Befehl vor jedem Löschen nach. Das ist sicherer als nur rm."
+      }
+    }
+  }
+}

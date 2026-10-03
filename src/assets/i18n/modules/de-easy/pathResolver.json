@@ -1,0 +1,41 @@
+{
+  "label": {
+    "workingDirectory": "Hier stehst du gerade",
+    "path": "Dein Pfad",
+    "placeholder": "zum Beispiel: data/file.csv"
+  },
+  "action": {
+    "reset": "Neu anfangen"
+  },
+  "kind": {
+    "absolute": "Ganzer Pfad",
+    "relative": "Kurzer Pfad",
+    "home": "Pfad von deinem eigenen Ordner"
+  },
+  "hint": {
+    "absolute": "Der Pfad beginnt mit /. Es ist egal, wo du stehst.",
+    "relative": "Der Pfad beginnt da, wo du stehst.",
+    "home": "Das Zeichen ~ heißt: dein eigener Ordner."
+  },
+  "result": {
+    "landsAt": "Du landest hier:"
+  },
+  "target": {
+    "dir": "Hier ist ein Ordner",
+    "file": "Hier ist eine Datei",
+    "missing": "Hier ist nichts"
+  },
+  "trace": {
+    "title": "Schritt für Schritt",
+    "start": "Start",
+    "up": "eine Ebene hoch",
+    "stay": "hier bleiben",
+    "down": "hinein gehen"
+  },
+  "tree": {
+    "title": "Alle Ordner und Dateien",
+    "here": "hier bist du",
+    "target": "hier landest du"
+  },
+  "summary": "{{kind}}. Du landest hier: {{absolute}}. {{target}}."
+}

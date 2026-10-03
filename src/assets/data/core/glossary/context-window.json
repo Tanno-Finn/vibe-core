@@ -1,0 +1,60 @@
+{
+  "id": "context-window",
+  "category": "nlp",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Context Window",
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "Kontextfenster",
+      "Context Window",
+      "Kontextlänge"
+    ],
+    "en": [
+      "Context Window",
+      "Context Length",
+      "Context Size"
+    ],
+    "de-easy": [
+      "Kontextfenster",
+      "Context Window"
+    ],
+    "en-easy": [
+      "Context Window",
+      "Memory Size"
+    ]
+  },
+  "sources": [
+    {
+      "type": "paper",
+      "citation": "Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention Is All You Need. NeurIPS 2017",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "notes": "Original Transformer paper establishing context window concept"
+    },
+    {
+      "type": "paper",
+      "citation": "Anthropic. (2023). Introducing 100K Context Windows",
+      "url": "https://www.anthropic.com/index/100k-context-windows",
+      "notes": "Discussion of extended context windows in Claude"
+    },
+    {
+      "type": "textbook",
+      "citation": "Jurafsky, D., & Martin, J.H. (2024). Speech and Language Processing (3rd ed. draft)",
+      "notes": "Technical explanation of context window limitations"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "context",
+      "context-engineering",
+      "session",
+      "agenten-gedaechtnis",
+      "prompt"
+    ]
+  }
+}

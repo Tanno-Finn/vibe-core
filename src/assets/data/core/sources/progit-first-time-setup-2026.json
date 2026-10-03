@@ -1,0 +1,17 @@
+{
+  "id": "progit-first-time-setup-2026",
+  "type": "book",
+  "authors": "Scott Chacon, Ben Straub",
+  "year": "2026",
+  "publication": "Pro Git (2nd edition), chapter 1.6",
+  "url": "https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "git",
+    "configuration",
+    "user-name",
+    "user-email",
+    "setup"
+  ]
+}

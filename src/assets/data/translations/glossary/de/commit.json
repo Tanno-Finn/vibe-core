@@ -1,0 +1,8 @@
+{
+  "term": "Commit",
+  "alternativeNames": [
+    "Änderungs-Schnappschuss"
+  ],
+  "description": "Ein Commit ist ein gespeicherter Schnappschuss deines Projekts in der Versionskontrolle - samt kurzer Botschaft, die festhält, was sich geändert hat und warum. Wie ein Logbuch-Eintrag auf einem Schiff: Stand plus Begründung, dauerhaft notiert. Jeder Commit lässt sich später einzeln ansehen und in der Regel gezielt zurücknehmen - haben spätere Commits dieselben Stellen angefasst, muss man dabei von Hand entscheiden, was gelten soll. Gerade wenn ein KI-Agent den Code schreibt, lohnen kleine, thematisch getrennte Commits: Du siehst genau, welcher Arbeitsschritt was verändert hat - und kannst einen missglückten Schritt zurückrollen, ohne die gelungenen mitzuverlieren.",
+  "example": "Ein Agent baut dir erst eine Suchfunktion, dann ein neues Farbschema - zwei Commits statt einem: „Suche eingebaut“, „Farben überarbeitet“. Gefällt dir das Farbschema nicht, nimmst du nur den zweiten Commit zurück; die Suche bleibt. Und anders als ein Logbuch kann die Versionskontrolle jeden notierten Stand nicht nur nachschlagen, sondern wiederherstellen."
+}

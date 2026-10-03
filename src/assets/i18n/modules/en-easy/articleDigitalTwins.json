@@ -1,0 +1,250 @@
+{
+  "hero": {
+    "title": "Digital Twins",
+    "subtitle": "The term comes from spaceflight. Today it is also used in adverts. Four questions help you tell them apart."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "origin": "Two parents and a disputed year",
+    "test": "What makes a twin a twin",
+    "ladder": "Model, shadow, twin",
+    "works": "Where the term really fits",
+    "person": "The AI twin of a person",
+    "limits": "Limits",
+    "close": "The four questions",
+    "takeaways": "The main points",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "A jet engine has a bearing. The bearing gets too warm. A model in a computer notices this. The machine is then slowed down. Nobody has to walk over to it. An assistant writes your mail. It hits your tone of voice. It books your meetings too. Both are called a \"digital twin\".",
+    "paragraph2": "The word promises too much. \"Twin\" sounds like an exact copy. But that is not right. A digital twin is incomplete on purpose. It shows only what its purpose needs.",
+    "paragraph3": "There is a test for this. The test has four questions. You need no technical training. The test works for factories. It works for research and adverts too. Advertising is not always lying here. Serious bodies stretch the word as well. So a yardstick of your own is useful."
+  },
+  "objectives": {
+    "title": "What you will learn",
+    "item1": "You can name the four conditions. A real counterpart exists. Measurements flow in by themselves. Something flows back by itself. Purpose and accuracy are agreed.",
+    "item2": "You can tell three things apart. A digital model. A digital shadow. A digital twin. You look at the direction of the data.",
+    "item3": "You can explain why the idea and the name have different ages. And why no exact year is certain.",
+    "item4": "You can check a claim about an \"AI twin of a person\". You ask: what is measured on the human?",
+    "item5": "You can name two limits of the term. One limit applies to this portal too."
+  },
+  "origin": {
+    "title": "Two parents and a disputed year",
+    "concept": "The idea appears in the early 2000s. It comes from a course on product lifecycle management. The idea is simple. Every real product gets a counterpart in a computer. A data link holds the two together. Michael Grieves presents the idea there. But he did not invent the name. He writes this himself in 2014. The name comes from John Vickers. Vickers is an engineer at NASA.",
+    "documents": "There is a NASA roadmap from November 2010. A paper from 2012 names it as its foundation. It is seen as the first official document with the term. What it says exactly, we did not check. It is no longer at its old NASA address. So we do not quote it here. The first good definition dates from 2012. It comes from aerospace.",
+    "substance": "Why is this definition so strict? It grew up around aircraft. A mistake there is very expensive. Engineers used to work with safety margins. Where those numbers came from was often unclear. The twin was meant to replace the guessing. It represents this one particular aircraft. That is why the data link matters so much.",
+    "dispute": "Now the argument about the year. In 2014 Grieves writes: that was 2003. Later texts almost all write: that was 2002. Both statements come from the same person. Only one thing is certain. It was the early 2000s.",
+    "merke": "A number can appear everywhere. It is still not a checked number.",
+    "misconceptions": "You often hear two sentences. \"NASA invented the digital twin.\" That is wrong. \"Grieves invented the term.\" That is wrong too. The truth is a split. The idea comes from product lifecycle management. The name comes from spaceflight. The definition comes from aviation."
+  },
+  "test": {
+    "title": "What makes a twin a twin",
+    "analogy1": "Picture three things. All three show the same city. The first is a printed street map. It is accurate and useful. But it knows nothing about this morning's traffic jam.",
+    "analogy2": "The second is a navigation app with live traffic. The app knows about the jam. Data flows into the app. But the road notices nothing. Nothing changes out on the street.",
+    "analogy3": "The third is a traffic control center. It switches traffic lights. It closes lanes. It reroutes cars. The difference is not the pretty picture. The difference is the data. Does it flow by itself? And in how many directions?",
+    "definitionTitle": "Digital twin",
+    "definitionEverydayLabel": "In simple words",
+    "definitionEveryday": "A digital twin belongs to a real thing. The thing really exists. It is one particular thing. Measurements from this thing flow in by themselves. Something also flows back again. And it is agreed in advance. What is the twin good for? How accurate must it be? Two researchers put it very briefly. They work at the National Physical Laboratory in Britain. They say: without a physical twin it is a model.",
+    "definitionPreciseLabel": "Technically",
+    "definitionPrecise": "A digital twin is a representation in a computer. It belongs to one single, measurable object. An automatic data link keeps both in step. An automatic return path acts on the object. The twin has a fixed purpose. It is only as accurate as it needs to be. It is incomplete on purpose.",
+    "questionsTitle": "The four questions",
+    "q1": {
+      "label": "Does the real thing exist?",
+      "description": "It has to be one single, real thing. Not a type. Not something imagined."
+    },
+    "q2": {
+      "label": "Does the state of the thing measure itself?",
+      "description": "They must be measurements from the thing itself. Without manual work. Texts a person wrote are not measurements."
+    },
+    "q3": {
+      "label": "Does the model change something on the real thing - by itself or through a fixed rule?",
+      "description": "The return path must be built in and permanent. It runs by itself or through a fixed loop. A person looks at a dashboard now and then. Then that person thinks it over. That is not a return path. That is the border to a shadow."
+    },
+    "q4": {
+      "label": "Is it agreed what the twin is for and how accurate it must be?",
+      "description": "Purpose and accuracy must be named. Otherwise there is no yardstick for the twin."
+    },
+    "convergence": "These four points are not our invention. Their parts appear in four different sources. The first is the aerospace definition from 2012. The second is the standard ISO 23247. The third is the Digital Twin Consortium glossary. The fourth is a National Academies report from 2024. No source drew up the list alone. But several sources ask for each point. Together they add up to the same checklist. ISO 23247 says: a twin is only as accurate as needed. It must stay in step with the real thing. The National Academies say: both directions matter.",
+    "misconception1": {
+      "title": "Wrong idea: a detailed 3D model is a digital twin",
+      "text": "That is not right. Every definition asks for a real thing. Without that thing it is only a model. How finely the model computes does not matter. The reason is simple. A model of something invented cannot mirror anything. It can only compute. This portal has a flocking simulation. It shows birds that do not exist. It is a very good model. It is not a twin."
+    },
+    "misconception2": {
+      "title": "Wrong idea: a twin is a full copy",
+      "text": "Many people think: more content is better. That is not right. The standard ties accuracy to purpose. The consortium asks for a specified accuracy. A twin fits one decision. It is not a copy. Sometimes a thing hardly changes. Sometimes you cannot measure the change. Then a twin brings nothing. Then a model is enough."
+    },
+    "breakTitle": "Where the comparison stops working",
+    "analogyBreak": "The control center looks after a whole city. A city belongs to nobody alone. A twin belongs to one single thing. Not to the type. To this exact item. Later you will see two aircraft. They leave the same line on the same day."
+  },
+  "ladder": {
+    "title": "Model, shadow, twin",
+    "intro": "Experts know three levels. They only look at the direction of the data. Kritzinger and colleagues sorted this in 2018. Digital model means: data moves manually in both directions. Digital shadow means: data flows in automatically. It goes back manually. Digital twin means: data flows automatically both ways.",
+    "naming": "Back to the city: street map, navigation app, control center.",
+    "stepsTitle": "One wind turbine at three levels",
+    "stepsAriaLabel": "Three levels: model, shadow, twin",
+    "illustrationNote": "Please note: the numbers here are invented. They are chosen to be plausible. They come from no real installation. They only show what changes between the levels.",
+    "setup": "A wind farm has 40 turbines. Each turbine has a main bearing. If the bearing breaks, it gets expensive. You need a crane and a spare part. The turbine then stands still for about two weeks. There is a model for the bearing. It computes the expected temperature. It uses wind, rotation, and outside temperature.",
+    "step1": "Digital model",
+    "step1Desc": "Manual in both directions",
+    "step2": "Digital shadow",
+    "step2Desc": "Automatic in, manual out",
+    "step3": "Digital twin",
+    "step3Desc": "Automatic in both directions",
+    "level1": "Level 1 is the model. It runs on a laptop. A person types in typical values. At 12 m/s and 15 degrees it expects 62 degrees. The input is manual. The way back is manual too. This helps with planning. About turbine 17 on Tuesday it says nothing.",
+    "level2": "Level 2 is the shadow. Sensors send data every ten minutes. The model computes along. It shows the gap. Turbine 17 reports 68 degrees. The model expects 62 degrees. That is a gap of 6 kelvin. It grew over eleven days. A dashboard turns amber. Question 3 is not met here. An engineer looks at it now and then. That is not a fixed return loop.",
+    "level3": "Level 3 is the twin. The loop stays the same. A return path is added. If the gap lasts, the turbine is throttled. This happens automatically. A maintenance order is created. Later the maintenance report flows back. The model then computes better.",
+    "punchline": "The model did not improve between level 1 and level 3. Only the wiring changed. So \"digital twin\" says nothing about the quality of the model.",
+    "misconception3": {
+      "title": "Wrong idea: it reads live data, so it is a twin",
+      "text": "That is not right. Automatic in one direction is a digital shadow. Live data gives you a shadow. Only the second arrow gives you the twin. This is not nitpicking. Kritzinger and colleagues checked many papers. Much of that work calls itself \"digital twin\". By this yardstick a large share are models or shadows."
+    },
+    "misconception4": {
+      "title": "Wrong idea: only advertising stretches the word",
+      "text": "That is not right. The European Commission has a big Earth project. It calls it a digital twin of the Earth. But nothing flows back to the Earth. The word is stretched at every level. Serious bodies do it too. So a test of your own is useful. Check the claim. Not the logo."
+    },
+    "deepDive": {
+      "title": "The twin of the Earth: when an institution uses the word too loosely",
+      "text1": "The project is called Destination Earth. It comes from the European Commission. ECMWF, ESA, and EUMETSAT take part. The official launch was in 2022. In 2024 the first two twins were shown. One is for weather extremes. One is for climate change adaptation. By 2030 the whole Earth should be modeled. The climate twin computes over many decades. It works at a resolution of 5 to 10 km.",
+      "text2": "Now the test, applied honestly. Question 1 is met. The Earth really exists. Question 2 is met. Many parts of the Earth are measured. Question 4 is met. Purpose and resolution are named. Question 3 is not met. Nothing changes the state of the Earth. The results help policy makers. But that is not a return path. Otherwise every good model would be a twin.",
+      "text3": "By the strict yardstick it is a very good shadow. This is not criticism of the project. It is a statement about the word. Such a shadow is great science. It is still not a twin."
+    }
+  },
+  "works": {
+    "title": "Where the term really fits",
+    "aircraft1": "Here is an example from aviation. Two aircraft leave the line on the same day. For certification they are the same. Same design. Same material values. Same safety factors. But aircraft A has a tiny flaw. It sits in a wing joint. Aircraft B does not have it. The design model knows nothing about it. It shows the design. Not the single item.",
+    "aircraft2": "A twin is built for each aircraft. It represents that exact aircraft. It gets sensor data from the aircraft all the time. It also gets its own maintenance history. After a hard landing something important happens. The two twins drift apart. Same design. Same flight hours. But different remaining life.",
+    "aircraft3": "So people say: each twin belongs to one aircraft. And that is why the word is \"twin\". It is not \"model\".",
+    "caveat": "It is important to stay fair. The paper from 2012 describes a plan. It describes a research program. It was not finished in 2012.",
+    "human1": "The second case is about humans. The European Commission runs an initiative. It is called Virtual Human Twins. It means a picture of a health state. It can also be a disease state. More than EUR 100 million is invested. Work on the platform started on June 26, 2025. This is not about a person's character. It is about a state you can measure.",
+    "human2": "NASA had an entry for this back in 2015. It was called \"Human Digital Twin\". It sat under modeling of human performance. This shows the idea is not new. It does not come from today's advertising."
+  },
+  "person": {
+    "title": "The AI twin of a person",
+    "intro": "Since the AI boom the word has another meaning. It can mean a language model. The model acts for one particular person. It writes in her style. It knows her opinions. It answers her mail.",
+    "institutional": "This is not only advertising language. The Nielsen Norman Group is a research institute. It studies how people use software. In August 2025 it defined the term this way. It calls it a proxy for a particular person. In the same text it criticizes the results. So it is not only advertisers using the word. More precisely: the word has traveled. The criteria did not travel with it.",
+    "product": "Here is a concrete case. In early 2026 an assistant was launched. It is sold as a digital twin. It stands for a knowledge worker. It uses about 10,000 documents per user. They come from more than 20 integrations. For example meetings, mail, and files. It answers messages and books meetings. It puts replies up as drafts first. It only sends them after someone approves.",
+    "checksTitle": "The test, applied live",
+    "check1": "Does the real thing exist? Yes. There is this one person.",
+    "check2": "Does the state of the person measure itself? No. Texts flow in. The person wrote those texts herself. This really does happen automatically. That is no small thing. But reading in is not measuring. A transcript is a trace. It is not a measurement on a human.",
+    "check3": "Does the model change something on the person - by itself or through a fixed rule? No. The return path acts on the inbox. It does not act on the person.",
+    "check4": "Is it agreed what it is for and how accurate it must be? No. There is no specified accuracy.",
+    "score": "Result: 1 out of 4. This is a proxy. It is trained on traces. That is worth something. It is not a twin in the technical sense.",
+    "calibration": "This is not meant as a hatchet job. So here is the best research on it. A group around Joon Sung Park built something. They built agents from interviews. Each interview took two hours. Then they checked one thing. Does the agent match the person's answers? The yardstick is strict. They do not compare with a perfect score. They compare with the person herself. They asked her again two weeks later.",
+    "statA": {
+      "value": "83 %",
+      "label": "Agents built from interviews",
+      "description": "This is how far agents from a two-hour interview get. They are measured against the person herself."
+    },
+    "statB": {
+      "value": "74 %",
+      "label": "Only basic facts about the person",
+      "description": "This is how far a model with only demographic details gets. The gap is the real finding."
+    },
+    "snapshot": "This is a real effect. But it is also a limit. The interview happened only once. What happens later, the agent does not know.",
+    "benchmark": "One test method is called TwinVoice. A team around Bangde Du published it. That was in October 2025. It measures the same thing. The imitation stays well below humans. It is weakest at sentence structure and memory.",
+    "portrait1": "Think of a portrait and a mirror. A portrait is painted once. It shows you on one day. It gets no haircut when you do. A mirror changes with you. The person-twin does not lack intelligence. It lacks synchronization.",
+    "portrait2": "This comparison has a limit too. Some products do get new data all the time. So the portrait is repainted often. But always from what you wrote. Never from what you are.",
+    "comparison": {
+      "ariaLabel": "Comparison: measured state and collected traces",
+      "beforeLabel": "Virtual Human Twin",
+      "beforeResult": "Question 2 met",
+      "beforeText": "Topic: a health or disease state. Data: measured physiology and images. Purpose: predict how it develops. And weigh up treatments. The return path is the clinical decision. It runs through the doctor. But it is firmly established and permanent.",
+      "afterLabel": "AI twin as a proxy",
+      "afterResult": "Question 2 not met",
+      "afterText": "Topic: how a person comes across. Data: documents she wrote. Purpose: answer in her name. Nothing is measured on the person."
+    },
+    "misconception5": {
+      "title": "Wrong idea: an AI that writes like me is my twin",
+      "text": "That is not right. Two of the four conditions are missing. Nothing is measured on you. And there is no specified accuracy. It is a model of your traces. That can be useful. It is not a twin."
+    },
+    "misconception6": {
+      "title": "Wrong idea: a twin of a human is always nonsense",
+      "text": "That is not right either. NASA had a \"Human Digital Twin\" in 2015. The European Commission spends more than EUR 100 million. These twins use measured health data. The border runs through measurement. It does not run through humans."
+    },
+    "delimitation": "Two other terms sound similar. A deepfake copies looks and voice. It claims no coupling at all. In the EU there is a rule for this. A deepfake must be labeled. People should see that an AI made it. This rule applies since August 2, 2026 (Art. 50(4) AI Act). A world model is learned inside an AI. It is about the world in general. A twin is built. It belongs to one particular thing."
+  },
+  "limits": {
+    "title": "Limits: what the term cannot do",
+    "useless": "The most useful limit comes first. Some things hardly change. For some you cannot measure the change. Then only a model is left. This answers a practical question. Do you need a twin here at all?",
+    "objections": "The Nielsen Norman Group names two objections. People behave in messy and unclear ways. A proxy does not capture that. It helps more with desk research. It does not replace a real conversation. And one more thing matters. Some people build such a model from the data of a person. Then the question of consent comes up. The same source leaves this question open.",
+    "rights": {
+      "title": "Whose data is in the twin?",
+      "text1": "The coupling test says what such a stand-in is. Another question is: whose may it be? In the EU this question is less open than the ethical one. Some people build a stand-in from the data of another person. This person can be identified. Then they are processing personal data. For that they need a legal basis. The obvious one is consent from that person (Art. 6(1) GDPR). There is also the general right of personality. A name, a face, and a voice belong to the person. That holds in life and after death (German Federal Court of Justice, judgment of December 1, 1999, the Marlene Dietrich case).",
+      "text2": "This also applies to the assistant from before. It uses about 10,000 documents. Among them are mails and meetings. That is also data about colleagues and clients. Not only yours. In a company the employer is answerable for this (Art. 4(7) and Art. 24 GDPR). And for you yourself: everything about you is in one place. The program can also write in your name. That is not a twin. That is a master key. Whoever gets it does not have just one mail from you. They have your voice. That is why approval before sending matters so much."
+    },
+    "selfTest1": "Now the test at home. This portal is a model. It represents a field of knowledge. It is a store for a second brain. It is no more than that. The work with it stays with you. It is not a twin. There is no single measurable object behind it. And nothing flows back into the AI world. Question 1 and question 3 fail.",
+    "selfTest2": "Do not use the test only on others. Then it becomes a weapon. Use it on yourself as well. Then it is a yardstick.",
+    "deepDive": {
+      "title": "How solid is the evidence?",
+      "text1": "The National Academies wrote a report in 2024. They say: people talk a lot about digital twins. But there is less evidence of success. The fields do not agree on one term. So truth is hard to separate from hope.",
+      "text2": "The National Physical Laboratory warned back in 2020. It opened with Humpty Dumpty from Through the Looking-Glass. He says: a word means what I choose. An arbitrary definition does more than confuse. It can also cause a backlash. Then the useful part is lost too. The same paper says one more thing. Some vendors call every computer model a twin. They only give old technology a new name.",
+      "text3": "By this source you need trust in three things. In the model. In the data. And in the method between them."
+    }
+  },
+  "close": {
+    "title": "The four questions for you",
+    "text1": "Think of the two examples from the start. The jet engine reports its warm bearing. Then it is throttled back. It passes all four questions. The assistant answers your mail. It passes one question. Both go by the same name.",
+    "questionsIntro": "So here are the four questions again:",
+    "text2": "The test does not say whether something is good. It only says what it is. A very good shadow stays very good. It just has another name.",
+    "text3": "Soon a new word will arrive with a big promise. Then you already have the questions."
+  },
+  "takeaways": {
+    "containerTitle": "The main points",
+    "item1": "A digital twin says nothing about model quality. It is about the wiring. A real counterpart. Measurement in. Return path out. Fixed purpose and fixed accuracy.",
+    "item2": "Without a real counterpart it is a model. That is not an insult. It is simply something else.",
+    "item3": "Automatic data in one direction gives a digital shadow. Only the second arrow makes a twin. A person at a dashboard does not count.",
+    "item4": "The idea and the name have different parents. The idea comes from product lifecycle management. The name comes from spaceflight. Nobody can prove an exact year.",
+    "item5": "A twin of a human is not always nonsense. It is serious when something is really measured. The border runs through measurement."
+  },
+  "checkpoint": {
+    "title": "Quick self-check",
+    "item1": "I can name the four questions from memory.",
+    "item2": "I can say for a new example: model, shadow, or twin.",
+    "item3": "I can explain when a twin of a human is serious.",
+    "item4": "I can name two limits of the term. One applies to this portal too."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: twin or not?",
+    "q1": {
+      "question": "How do you recognize a digital twin?",
+      "a": "By the detail. The model computes very finely. So it must be a twin. Many parts also count.",
+      "b": "By four points. A real counterpart. Measurement in by itself. Return path by itself. Fixed purpose.",
+      "c": "By the fact that the picture is three-dimensional. You can view it from every side and walk through it.",
+      "d": "By the fact that an AI is involved.",
+      "explanation": "It is about the wiring. It is not about the looks. Detail, 3D, and AI appear in no definition."
+    },
+    "q2": {
+      "question": "How did the idea and the name come about?",
+      "a": "NASA invented both. That was in the roadmap from November 2010. The first definition is in there too.",
+      "b": "Michael Grieves invented both. That was in 2002. The place was a talk for a research center.",
+      "c": "The idea comes from a course in the early 2000s. Grieves credited the name to a NASA engineer.",
+      "d": "The term came with the AI boom from 2023.",
+      "explanation": "The idea and the name have different parents. The first definition is not in the 2010 roadmap. It is in a paper from 2012. An exact year cannot be proven."
+    },
+    "q3": {
+      "question": "A bridge has sensors. Every ten minutes the readings flow automatically into a model. The model shows deviations. An engineer looks at it in the morning. He then decides what happens. What is this system?",
+      "a": "A digital twin. It processes real readings without anyone's help. It computes them against a model of the bridge.",
+      "b": "A digital model. In the end a person decides. So the automation is interrupted.",
+      "c": "A digital shadow. Automatic in, manual out.",
+      "d": "None of these. A bridge does not drive. The term comes from vehicle engineering.",
+      "explanation": "Automatic in and manual out is a digital shadow. The engineer is not a built-in return path. That is where question 3 fails."
+    },
+    "q4": {
+      "question": "The European Commission calls its Earth project a digital twin. It processes measurement data all the time. It computes at 5 to 10 km resolution. Purpose and accuracy are named. Which question stays open?",
+      "a": "Question 1. The Earth is not a single object. So the project uses the term wrongly.",
+      "b": "Question 3. Nothing changes the Earth. So it is a very good shadow.",
+      "c": "Question 4. The accuracy is nowhere agreed. It only appears later from the computations.",
+      "d": "None. The project meets all four conditions.",
+      "explanation": "The Earth exists. Parts of it are measured. Purpose and resolution are named. The return path is missing. Nothing changes the Earth."
+    },
+    "q5": {
+      "question": "Two systems are called a digital twin of a human. System A reads about 10,000 documents of a person. It answers in her name. System B is a model of a disease course. It uses images and measured physiology. Which one is a twin in the technical sense?",
+      "a": "Both. In both cases data about the person flows in all the time. This happens without manual work.",
+      "b": "Neither. A digital twin of a human is impossible.",
+      "c": "System A. It uses more data about the person. So it captures her more precisely.",
+      "d": "System B. There something is measured on the human. The border runs through measurement.",
+      "explanation": "System A reads texts by the person. That is automatic. But it is not measurement. System B really measures on the human. Answer b would be the over-correction. Such a twin is possible."
+    }
+  }
+}

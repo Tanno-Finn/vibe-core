@@ -1,0 +1,16 @@
+{
+  "id": "seed-tool-2",
+  "category": "general",
+  "pricing": "free",
+  "deployment": "cloud",
+  "url": "https://example.com",
+  "rating": 4,
+  "privacy": "standard",
+  "integration": "api",
+  "support": "documentation",
+  "performance": "fast",
+  "targetAudience": "all",
+  "platform": "web",
+  "createdAt": "2020-01-01",
+  "updatedAt": "2020-01-01"
+}

@@ -1,0 +1,6 @@
+{
+  "term": "Example Term 3",
+  "alternativeNames": [],
+  "description": "Example entry number three. Entries can also carry alternative names and a category — the schema is deliberately small.",
+  "example": "Alternative names help when a term is known under several labels."
+}

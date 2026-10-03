@@ -1,0 +1,54 @@
+{
+  "id": "code-review",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Code Review",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Code-Durchsicht",
+      "Quellcode-Prüfung"
+    ],
+    "en": [
+      "Peer Review",
+      "Change Review"
+    ],
+    "de-easy": [
+      "Code-Prüfung"
+    ],
+    "en-easy": [
+      "Code check"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Alberto Bacchelli, Christian Bird: Expectations, Outcomes, and Challenges of Modern Code Review, ICSE 2013",
+      "type": "paper",
+      "url": "https://www.microsoft.com/en-us/research/publication/expectations-outcomes-and-challenges-of-modern-code-review/",
+      "notes": "Studie bei Microsoft: Erwartungen (Fehlerfindung) vs. tatsächliche Ergebnisse (Code-Verständnis, Wissenstransfer)."
+    },
+    {
+      "title": "Google Engineering Practices: Code Review Developer Guide",
+      "type": "documentation",
+      "url": "https://google.github.io/eng-practices/review/",
+      "notes": "Öffentlicher Praxis-Leitfaden: was Reviewer prüfen, Standards, Umgang mit Änderungswünschen."
+    },
+    {
+      "title": "GitHub Docs: About pull request reviews",
+      "type": "documentation",
+      "url": "https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews",
+      "notes": "Cross-Referenz: Review-Workflow entlang des Diffs im heute üblichen Pull-Request-Modell."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent",
+      "vibe-coding"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Agent Memory",
+  "alternativeNames": [
+    "Memory for AI Agents"
+  ],
+  "description": "Agent Memory. An AI agent normally forgets a lot. After a session its working store is empty. The working store is called the context window. Agent memory helps against forgetting. The agent writes important things down. For example into a notes file. In the next session it reads the notes. Then it knows the facts again. This is different from its training. You cannot easily change the training.",
+  "example": "An agent learns: this test needs a setting. It writes that into its notes file. Weeks later it works again. It reads the note. It does not make the mistake again."
+}

@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+
+# Development/test pages — no indexing
+Disallow: /test
+Disallow: /showcase/*
+Disallow: /*/showcase/*
+
+# Admin pages — no indexing
+Disallow: /admin-debug
+Disallow: /*/admin-debug
+
+# User settings — no indexing
+Disallow: /user-settings
+Disallow: /*/user-settings
+
+# Raw data files — no direct indexing
+Disallow: /*.json$
+
+# Allow images referenced in structured data
+Allow: /assets/images/
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
+
+# Sitemap location — uncomment and set your real domain once you deploy
+# (also set SITE_BASE_URL for the build so the sitemap itself is generated):
+# Sitemap: https://your-domain.example/sitemap.xml

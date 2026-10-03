@@ -1,0 +1,8 @@
+{
+  "term": "Agentic Workflow",
+  "alternativeNames": [
+    "AI agent workflow"
+  ],
+  "description": "An agentic workflow is a work process for an AI. The AI gets a task. Then it works on its own. It plans steps. It uses tools like search or code. It checks the results. Then it decides what comes next. This is different from a normal question to an AI. In an agentic workflow, the AI does many steps in a row.",
+  "example": "A user tells the AI: 'Find the bug in my program.' The AI reads the code. It runs tests. It reads the error messages. It changes a line. It tests again. Only when everything works does it report back."
+}

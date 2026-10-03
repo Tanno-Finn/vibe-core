@@ -1,0 +1,235 @@
+{
+  "hero": {
+    "title": "Your Development Environment",
+    "subtitle": "Four parts, four questions — and the cloud shortcut, if you would rather install nothing at all."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "thesis": "Core thesis",
+    "parts": "Four parts",
+    "comfort": "Comfort",
+    "cloud": "The cloud shortcut",
+    "notNeeded": "What you do not need",
+    "close": "What now?",
+    "takeaways": "Summary",
+    "checkpoint": "Understanding check",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "In the last lesson you opened a terminal and typed a command. In the next one you will be asked to run git init. In between, one piece of information is missing: what has to be on your machine for any of that to answer at all?",
+    "paragraph2": "The answer is not one big program you buy. It is four small parts — and the fastest way in runs through a different question. Not \"what do I download\", but \"which question does this part answer\".",
+    "paragraph3": "Your agent uses the same four parts: it runs in the terminal or inside the editor and reaches for the same runtime and the same git you do. So this is not background knowledge. It is what lets you check its work.",
+    "paragraph4": "What you will not find here: a click-by-click installation walkthrough. It looks different on every system and will be wrong in six months. It lives on the official pages linked below."
+  },
+  "thesis": {
+    "title": "What a development environment actually is",
+    "text1": "A development environment is not a product. It is the sum of four parts: a place to read, a place to command, something that actually runs the code, and a way back to a state that worked. None of them contains the others.",
+    "text2": "Two practical things follow from that: you can find out in under a minute what you are missing — and you can recognize what you only talked yourself into needing.",
+    "objectives": {
+      "title": "What you will be able to do",
+      "item1": "Name the four parts and say which question each one answers.",
+      "item2": "Work out which runtime a project you did not write needs — and why that hangs on the project's language, not on you.",
+      "item3": "Explain why an editor's version-control buttons stop doing anything when git is missing.",
+      "item4": "Convert a free allowance stated in core hours into real working time, and say what does not survive the end of a rented environment.",
+      "item5": "Argue from what official prerequisite lists actually contain that you need neither a full IDE, nor a graphical git program, nor a new computer."
+    }
+  },
+  "parts": {
+    "title": "Four parts, four questions",
+    "grid": {
+      "editor": {
+        "label": "Editor",
+        "description": "Where do I read and check what was written?"
+      },
+      "terminal": {
+        "label": "Terminal",
+        "description": "How do I give a command and see what happened?"
+      },
+      "runtime": {
+        "label": "Runtime",
+        "description": "What actually executes the code that was written?"
+      },
+      "versioning": {
+        "label": "Version control (git)",
+        "description": "How do I get back to a state that worked?"
+      }
+    },
+    "editorText": "You can already picture the editor: a window with text in it, colored and searchable. It is the place where you read and check — and the less you type yourself, because an agent has taken over part of the writing, the more that place matters.",
+    "terminalText": "You know the terminal from the last lesson. Only one thing is new here: it belongs to the basic kit, and you do not install one. Every operating system ships with one.",
+    "runtimeIntro": "That leaves the part most beginners overlook, because you never lay eyes on it. An editor displays text, a terminal takes commands — neither of them executes anything.",
+    "definitionTitle": "Runtime",
+    "definitionEverydayLabel": "In plain words",
+    "definitionEveryday": "The program that actually executes the code somebody wrote. Without it, a file full of code is a file full of text: correctly written, prettily colored, and completely inert. And you never lay eyes on it. It opens no window and announces nothing — you notice it only by its effect, that is, by whether it is there or missing.",
+    "definitionPreciseLabel": "Technically",
+    "definitionPrecise": "A runtime belongs to the language of the project, not to you. A project in JavaScript or TypeScript wants Node; a project in Python wants Python. So the question is never \"which one do I pick\", it is \"which one does this project ask for\". A comparison helps you in, but only with both of its limits in the same breath: a runtime is like the electricity in a house — invisible, and without it nothing you built does anything at all. First limit: electricity is the same everywhere, runtimes are not. Second limit, and it is the more important one: the electricity is already in the house. A runtime is not. It is precisely the part that most often turns out to be missing.",
+    "runtimeNotOnlyJs": "That holds even if you never write a line yourself: the project's own tooling needs the runtime before you type anything. A major web framework lists a minimum version of it in its installation page, purely so the project can be started.",
+    "packageManager": "One misunderstanding is worth losing early: the package manager is not a second download. It normally arrives with the runtime; on some systems the distribution ships it separately. And which installation route you take is not this article's call but the package manager's own installation guide — it points at a version manager, for permission reasons.",
+    "gitText": "The fourth part is git, the way back. What git does is the next lesson's subject; what counts here is that it is a separate program you install yourself, and that its entire mandatory setup is two configuration lines: name and email address, once per machine.",
+    "exampleTitle": "Example: four questions, four answers",
+    "exampleIntro": "Your setup is not a mood, it is four yes-or-no answers. You type the following queries into any terminal — your system's own or the one inside the editor, which is the same thing anyway.",
+    "stepsAriaLabel": "Four queries that tell you which of the four parts is missing on your machine",
+    "steps": {
+      "step1": {
+        "label": "Ask the runtime",
+        "description": "If it answers with a number, the third part is there."
+      },
+      "step2": {
+        "label": "Ask the package manager",
+        "description": "It usually answers only if step 1 worked."
+      },
+      "step3": {
+        "label": "Ask git",
+        "description": "No number coming back means the fourth part is missing."
+      },
+      "step4": {
+        "label": "Open the terminal inside the editor",
+        "description": "If that works, all four sit in one window."
+      }
+    },
+    "exampleResult": "Two of the answers look identical and mean different things. \"Command not found\" means either: not installed. Or: installed, but the command line cannot find it. The second case is so common that the official guide of a major programming language treats the search-path entry as its own, explicitly optional step.",
+    "misconception": {
+      "title": "\"The editor has git buttons, so git is included\"",
+      "text": "It has the buttons, not the program. The documentation of the most widely used editor says it in one sentence: the git installation it drives is the one sitting on your own machine, and it has to be at or above a stated version. If that is missing, the buttons sit there and do nothing. And that is exactly how you can see that there really are four separate parts here — one can be missing while the other three carry on."
+    },
+    "dated": {
+      "title": "Numbers with a shelf life (as of August 18, 2026)",
+      "runtime": "Runtime: the Node.js download page lists v24.19.0 as LTS and v26.7.0 as Current. Under the official release policy, even-numbered releases have so far moved into LTS status and are then considered fit for everyday work; an LTS line is maintained for roughly 30 months.",
+      "git": "git: current version 2.55.0, released on August 11, 2026. Visual Studio Code's version-control view is happy with anything from 2.0.0 upwards.",
+      "hardware": "Hardware: Visual Studio Code names 1.6 GHz, 1 GB of RAM, under 200 MB of download, and under 500 MB on disk. What follows from that is our own assessment and is documented nowhere: practically any machine that still boots will clear it.",
+      "python": "Python on Windows is mid-move: the Python Install Manager is now the recommended route, while the classic installer counts as deprecated from 3.14 onwards and 3.16 will no longer get one.",
+      "survey": "Adoption: in the most recent available Stack Overflow survey — fielded May 29 to June 23, 2025, 49,009 responses in total, 26,143 of them on the editor question — 75.9 percent named Visual Studio Code. The respondents are the readership of a developer platform, not a representative sample. The figure is good for exactly one statement: the most-used tool is a free one.",
+      "closing": "These numbers age. The linked pages do not — that is where the current state lives."
+    },
+    "deepDive": {
+      "title": "Deep dive: the proof in two browser tabs",
+      "text1": "You can test the four-part thesis without installing anything. Open vscode.dev: the documentation describes it as a Visual Studio Code that costs nothing, installs nothing, and lives in a browser tab. Files, search, syntax coloring, all present.",
+      "text2": "And then the same documentation draws the line, which is what this is about: two things are absent there, the terminal and the debugging tool — absent because a browser does not let programs be compiled and started in the first place. Take the terminal and the runtime away from an environment and what is left is not a workplace but a text window. Open a rented environment such as GitHub Codespaces next to it, and the queries from above answer. Two tabs, one proof, zero installations."
+    }
+  },
+  "comfort": {
+    "title": "The comfort that actually counts",
+    "intro": "Three conveniences of the editor are more than cosmetics, and one of them hides a trap.",
+    "autosave": "Auto save exists, but it is off out of the box. You can switch it on in three ways: after a short delay, when you leave the file, or when you leave the window. Until then \"it is in the editor\" and \"it is on the disk\" are two different statements; once git joins in, a third one appears. Why unsaved text is gone after a crash is something you already know from step 1 of this learning path.",
+    "diff": "The diff view puts old and new side by side. It is the one genuinely useful thing on screen when an agent has rewritten files you did not watch being written.",
+    "terminal": "And the built-in terminal is not a different terminal: every command from the terminal lesson works in there unchanged."
+  },
+  "cloud": {
+    "title": "The shortcut: renting an environment",
+    "what": "There is a route where you install none of it: a cloud development environment. That is a machine somebody else keeps ready, reachable in a browser tab, with all four parts already on it.",
+    "scope": "What it takes off your hands is the installation. Nothing more. The four parts are still there, you just operate them on somebody else's machine. Which is why this section comes after the first one and not before it.",
+    "analogy": "Think of a rented workshop rather than your own basement. You rent time and space at somebody else's bench, the clock runs while you work, and when your time is up you are out. Your only copy is best not left lying there.",
+    "exampleTitle": "Example: the arithmetic behind the free allowance",
+    "example1": "Two free tiers, two opposite shapes. One of them counts in core hours, and that is the whole point: the provider works it out on its own product page using a two-core machine — and there, half of the monthly allowance survives as real run time. On a machine with twice as many cores it halves again.",
+    "example2": "The second tier is the inversion: more hours per week, less persistent storage, a hard cap per session, and a rule that forgets. That is not a ranking, it is a choice.",
+    "comparison": {
+      "title": "Two free tiers side by side (as of August 18, 2026)",
+      "ariaLabel": "Comparison of the free allowances of GitHub Codespaces and Google Cloud Shell",
+      "beforeLabel": "GitHub Codespaces (GitHub Free)",
+      "beforeResult": "Less time, more storage",
+      "beforeText": "120 core hours per month, which on two cores is 60 hours of run time. 15 GB of storage per month. Once the allowance is used up and no payment method is on file, usage is blocked.",
+      "afterLabel": "Google Cloud Shell",
+      "afterResult": "More time, less storage",
+      "afterText": "50 hours per week by default. 5 GB of persistent storage in the home directory. Sessions end after 12 hours at the latest, unattended ones after 40 minutes. After 120 days without access the home directory is deleted."
+    },
+    "stat": {
+      "label": "Core hours divided by cores",
+      "value": "120 ÷ 4 = 30",
+      "description": "Same allowance, four cores instead of two: 60 hours a month become 30. As of August 18, 2026."
+    },
+    "rule": "The thing to remember is not a number at all but a calculation: divide by the core count. It holds for every provider, including the ones that do not exist yet.",
+    "misconception": {
+      "title": "\"So-and-so many hours for free\"",
+      "text": "The unit is core hours, not hours. One provider's billing page abbreviates it to \"hrs\" in its table and invites exactly the wrong reading; the same provider's plans page states it precisely. On every free tier, read the unit first and the number second."
+    },
+    "nothingNeeded": "\"In the cloud I need nothing\" is not quite true: you need a browser and an account. And the browser-only editor from the deep dive above is explicitly not an environment — without a terminal and a runtime you can read and edit, but you cannot run anything and cannot check anything.",
+    "forgetting": "\"Whatever is in the cloud stays there\" is even less true. One provider deletes the home directory after the period of inactivity named in the tier box above and states that the files cannot be recovered. The other blocks usage once the allowance is exhausted — and advises, in the same documentation, exporting your work-in-progress to a branch first.",
+    "analogyBreak": "That is where the analogy breaks, and it breaks in your favor: from a rented workshop you carry the workpiece home, here it is the other way round. The environment is the perishable part, the repository is what persists — and it lives in a third place, neither in the rented workshop nor in your hands."
+  },
+  "notNeeded": {
+    "title": "What you do NOT need",
+    "framing": "This section is not an opinion about tools. It is a count.",
+    "inventoryTitle": "Example: what the official guides actually require",
+    "inventory1": "Take the installation pages of real projects and write down what they list as required. A major web framework carries four points: a runtime in a minimum version, a text editor, a terminal — and, fourth, an add-on tool for the editor that it explicitly only recommends. Three of them are required; the fourth is advice. A second one names two under \"System requirements\". Git's own book asks for two configuration lines, once per machine. The editor asks for the hardware in the box above.",
+    "inventory2": "Now the second count: what appears on none of those lists? A full IDE, a graphical git program, a container runtime, a Linux subsystem as a requirement, a new computer. This list is longer than the first, and everything on it is something somebody added themselves.",
+    "analogy": "The packing list is written by the destination, not by the shop. What you have to take with you is decided by where you are going — not by how well prepared you would like to feel. That is exactly why one page requires three things and the other two: the difference comes from the projects, not from you.",
+    "analogyBreak": "And here is the limit of a packing list: it names the floor, not the ceiling, and it is written per destination. The documented case is the Linux subsystem on Windows. The vendor recommends it under an explicit condition — if your software is going to run on Linux servers, or your tooling is Linux-based. If neither applies, it is an option and not a rite of passage.",
+    "misconception": {
+      "title": "\"A professional tool makes me a professional faster\"",
+      "text": "Start at the lower bound. Every system ships with a notepad that opens text and saves it again; the beginner guidance of one of the largest web documentation projects lets it pass at a pinch but rates what it can do as thin. The upper bound is the full IDE, and the same source waves that away: at this stage it asks for more operating than it gives back. What it recommends is the middle, a proper code editor. That price does not decide the choice is clear from that source's own example list — Notepad++ (free, Windows only) sits beside Sublime Text (paid). So: one step above the notepad, one step below the full kit."
+    },
+    "hardware": "\"I need a new computer\" is settled by the box above: the floor documented there sits far below what any device that still boots brings with it today.",
+    "gitGui": "\"Without a graphical git program I will never understand git\" gets it backwards: git's own book records that such programs can do nothing the command line cannot. The one genuinely useful view you already have in the editor.",
+    "agentEditors": "There is now a category of editors with a built-in agent. For the minimal setup you do not need one: any editor plus a terminal will do.",
+    "departureTitle": "An open departure",
+    "departure": "The same documentation we owe the \"install it when you need it\" rule to also tells beginners not to worry about version control yet. We depart from that one item, and we would rather say so than quietly trim the source: its advice is written for somebody typing HTML by hand. You work with an agent that changes files you have not read.",
+    "deepDive": {
+      "title": "Deep dive: free of charge is not the same as free",
+      "text1": "The most-used editor costs nothing, privately and commercially, and its source code sits under the permissive MIT license. The download carrying the brand logo is still a different thing: the same sources, but under the vendor's own product license.",
+      "text2": "Free of charge and free are two separate statements here. Anyone who wants the free one takes VSCodium — the rebuild from those same sources. What separates a source license from a product license is the subject of the open-source article in this learning path."
+    }
+  },
+  "close": {
+    "title": "What now?",
+    "text1": "Four questions, four parts: where do I read? How do I command? What executes? How do I get back? Three of them you now have as far as you need them for a start.",
+    "text2": "The fourth has earned a lesson of its own. The cloud provider's advice from earlier — get your work into a branch before the clock runs out — only helps if you know what a branch is.",
+    "text3": "Which is exactly what the next article is about."
+  },
+  "takeaways": {
+    "containerTitle": "The essentials in five sentences",
+    "item1": "Four parts, four questions: the editor answers where you read and check. The terminal, how you command and see the result. The runtime, what executes the code. git, how you get back.",
+    "item2": "The runtime belongs to the language of the project, not to you. Ask the project, not the tutorial.",
+    "item3": "The editor does not contain the other three. It borrows them from your machine — which is why its git buttons stop working when git is missing.",
+    "item4": "The cloud spares you the installation, not the four parts. The rented environment is the perishable thing, the repository is what persists.",
+    "item5": "Anything that appears on no official requirement list is something you bought yourself."
+  },
+  "checkpoint": {
+    "title": "Understanding check",
+    "item1": "I can name the four parts and say which question each one answers.",
+    "item2": "I can say which runtime a project I did not write needs — and why that question does not hang on me.",
+    "item3": "I can explain what a rented environment takes off my hands and what it does not.",
+    "item4": "I can tell from the official requirement lists what I only talked myself into needing."
+  },
+  "quiz": {
+    "boxTitle": "Test your knowledge",
+    "q1": {
+      "question": "Which question does the runtime answer in a minimal setup?",
+      "a": "Where do I read and check what has been written down?",
+      "b": "How do I get back to a state that used to work?",
+      "c": "What actually executes the code that was written?",
+      "d": "How do I exchange my files with other people?",
+      "explanation": "The editor displays text, the terminal takes commands, git leads back. The code is executed by the runtime — the part you never see and without which nothing happens."
+    },
+    "q2": {
+      "question": "You are handed a project written in Python. You type no line of code yourself; the agent does that. What do you still need on your machine?",
+      "a": "Node, because that is the standard runtime for all projects.",
+      "b": "Python, because the runtime belongs to the project's language.",
+      "c": "Nothing further, because the agent does all of the programming.",
+      "d": "A paid environment, because Python will not start without one.",
+      "explanation": "The runtime hangs on the project's language, not on who is typing. A project in Python wants Python — even when the agent writes every single line."
+    },
+    "q3": {
+      "question": "Suppose a free tier advertises 100 core hours per month, and you work on a machine with 4 cores. How many real working hours are free for you each month?",
+      "a": "100 hours, because the core count plays no part in the billing.",
+      "b": "400 hours, because more cores mean a correspondingly larger tier.",
+      "c": "25 hours, because core hours are divided by the number of cores.",
+      "d": "50 hours, because core hours are always calculated with 2 cores.",
+      "explanation": "100 divided by 4 is 25. The transferable lesson is not in the number but in the unit: on every free tier, read what is being counted first and how much second."
+    },
+    "q4": {
+      "question": "The version-control buttons in your editor are there, but they do nothing. What is the most likely cause?",
+      "a": "The editor is damaged and has to be reinstalled from scratch.",
+      "b": "git is missing or too old; the editor only operates it.",
+      "c": "The buttons only exist in the paid version of the editor.",
+      "d": "The internet connection is down, which stops version control.",
+      "explanation": "The editor's own documentation says it: the git it drives is the one on your own machine, and it has to be at or above a stated version. That is exactly how you see that there are four separate parts here — one can be missing without the other three noticing."
+    },
+    "q5": {
+      "question": "Two readers stop after four months and come back half a year later. One had installed everything locally, the other had worked exclusively in a rented cloud environment. Who is more likely to find their work still there?",
+      "a": "The local reader, because rented environments are inherently unsafe.",
+      "b": "The cloud reader, because a rented environment backs everything up.",
+      "c": "Both equally, because where the work sits says nothing about its durability.",
+      "d": "Whoever got it into a repository; the environment is the perishable part.",
+      "explanation": "It does not hang on the place but on the repository. One provider deletes a long-untouched home directory, the other blocks usage at the exhausted allowance and itself advises getting the work into a branch first. Local is not automatically safe either: there the same gap is torn open by a failing disk."
+    }
+  }
+}

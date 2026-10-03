@@ -1,0 +1,64 @@
+{
+  "id": "editor-ide",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [
+    "IDE"
+  ],
+  "englishTerm": "Editor / IDE",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Code-Editor",
+      "Entwicklungsumgebung"
+    ],
+    "en": [
+      "Code editor",
+      "Integrated Development Environment"
+    ],
+    "de-easy": [
+      "Programm zum Code-Schreiben"
+    ],
+    "en-easy": [
+      "Program for writing code"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft: Language Server Protocol Specification",
+      "type": "website",
+      "url": "https://microsoft.github.io/language-server-protocol/",
+      "notes": "Offizielle Spezifikation der Sprach-Server, die Editoren IDE-Funktionen liefern (Fehleranzeige, Definitionen, Vervollständigung).",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Red Hat: What is an IDE?",
+      "type": "documentation",
+      "url": "https://www.redhat.com/en/topics/middleware/what-is-ide",
+      "notes": "Cross-Referenz: Bestandteile einer IDE - Editor, Build-Werkzeuge, Debugger."
+    },
+    {
+      "title": "AWS: What is an IDE?",
+      "type": "documentation",
+      "url": "https://aws.amazon.com/what-is/ide/",
+      "notes": "Cross-Referenz: Abgrenzung einfacher Editor vs. integrierte Entwicklungsumgebung."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "cli",
+      "terminal",
+      "agent",
+      "vibe-coding"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11",
+  "release": "published",
+  "publishDate": "2026-09-09"
+}

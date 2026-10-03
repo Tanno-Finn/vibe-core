@@ -1,0 +1,19 @@
+{
+  "draftBadge": "DRAFT",
+  "scheduledBadge": "SCHEDULED",
+  "scheduledFor": "Scheduled for",
+  "copyLink": "Copy link",
+  "shareOnX": "Share on X",
+  "shareOnLinkedIn": "Share on LinkedIn",
+  "shareOnWhatsApp": "Share on WhatsApp",
+  "shareOnFacebook": "Share on Facebook",
+  "shareOnTelegram": "Share on Telegram",
+  "shareOnReddit": "Share on Reddit",
+  "shareViaEmail": "Share via email",
+  "moreShareOptions": "More options",
+  "print": "Print",
+  "tableOfContents": "Table of Contents",
+  "chapters": "lessons",
+  "loading": "Loading lesson...",
+  "readingProgress": "Reading progress"
+}

@@ -1,0 +1,5 @@
+{
+  "term": "Retrieval-Augmented Generation (RAG)",
+  "description": "RAG is a technique for language AI. It makes answers better. Here is how it works: The AI gets a question. First it searches for information. It looks in documents or on the internet. It does not only search for the same words. It searches for texts with the same meaning. For this it uses a special database. Then it reads the matching texts. After that it answers. The answer is more precise. It is also more current. The AI can even say where the information comes from. And the AI makes up fewer false things.",
+  "example": "A company has a computer helper. It answers customer questions. A customer asks: How long is the warranty? The computer first searches for the newest warranty rules. It reads them. Then it answers correctly. Without RAG it might say old rules."
+}

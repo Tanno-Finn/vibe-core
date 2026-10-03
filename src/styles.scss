@@ -1,0 +1,3483 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Import Design Tokens */
+@use 'styles/design-tokens';
+
+/* ==========================================================================
+   GLOBAL REDUCED-MOTION CATCH-ALL / SAFETY NET (accessibility hardening, WCAG 2.3.3)
+   Site-wide switch-off of transitions/animations when the reader's OS sets
+   prefers-reduced-motion: reduce. The more specific @media blocks further
+   down in this file stay — they apply on top; this block catches the rest.
+   The value is 0.01ms (not none) so transitionend events still fire and
+   Optimus UI internals keep working.
+   This is the ONLY copy: keep it that way, so there is one place to change.
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* DSGVO Cookie Consent Styles */
+.cookie-consent {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--surface-card, #ffffff);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1100;
+  padding: 1rem;
+  border-top: 1px solid var(--surface-border, #dee2e6);
+}
+
+.cookie-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cookie-text {
+  flex: 1 1 550px;
+}
+
+/* The banner title is a paragraph, not a heading: the banner floats over every
+   page and must not add an entry to that page's outline. Higher specificity than
+   `.cookie-text p` below, so these values win. */
+.cookie-text .cookie-title {
+  margin: 0 0 0.5rem 0;
+  color: var(--text-color, #495057);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.cookie-text p {
+  margin: 0;
+  color: var(--text-color-secondary, #6b7280);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.cookie-link {
+  color: var(--primary-color-fg, #3b82f6);
+  text-decoration: underline;
+}
+
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cookie-settings-btn {
+  margin-right: auto;
+}
+
+/* Tablet/Mobile: stack buttons vertically, full width */
+@media (max-width: 768px) {
+  .cookie-consent {
+    padding: 1rem 0.75rem;
+  }
+
+  .cookie-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cookie-text {
+    flex-basis: auto;
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cookie-btn {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
+.cookie-btn {
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.cookie-settings-btn {
+  background-color: transparent;
+  border: 1px solid var(--surface-border, #dee2e6);
+  color: var(--text-color, #495057);
+}
+
+.cookie-settings-btn:hover {
+  background-color: var(--surface-hover, #f8f9fa);
+}
+
+.cookie-primary-btn {
+  background-color: var(--primary-color, #3b82f6);
+  color: var(--primary-color-text, #ffffff);
+}
+
+.cookie-primary-btn:hover {
+  background-color: var(--primary-600, #2563eb);
+}
+
+/* Filled with surfaces the contrast gate measures --text-color on, not with
+   --surface-border: a border colour is no text background, and Blaupause's
+   (#64809f light, #6e8fc0 dark) left the label at 3.1:1 and 2.9:1. */
+.cookie-secondary-btn {
+  background-color: var(--surface-section, #e9ecef);
+  color: var(--text-color, #495057);
+}
+
+.cookie-secondary-btn:hover {
+  background-color: var(--surface-hover, #dee2e6);
+}
+
+/* SHELL-13: the cookie buttons' focus ring is the kit ring — see the one
+   focus-ring rule next to the form-field rules below (.cookie-btn,
+   .cookie-close-btn are in its selector list). */
+
+/* Cookie Settings Modal */
+.cookie-settings-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+
+.cookie-settings-content {
+  background-color: var(--surface-card, #ffffff);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cookie-settings-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--surface-border, #dee2e6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-settings-header .cookie-settings-title {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--text-color, #495057);
+}
+
+.cookie-close-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color-secondary, #6b7280);
+  line-height: 1;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cookie-settings-body {
+  padding: 1.5rem;
+}
+
+.cookie-category {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--surface-border, #dee2e6);
+}
+
+.cookie-category:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.cookie-category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* Category names are the fieldset legends for assistive tech; this visible
+   copy is aria-hidden and styled like the former h4. */
+.cookie-category-header .cookie-category-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color, #495057);
+}
+
+.cookie-category-header p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--text-color-secondary, #6b7280);
+  line-height: 1.5;
+}
+
+.cookie-settings-footer {
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--surface-border, #dee2e6);
+  text-align: right;
+}
+
+.cookie-save-btn {
+  background-color: var(--primary-color, #3b82f6);
+  color: var(--primary-color-text, #ffffff);
+}
+
+.cookie-save-btn:hover {
+  background-color: var(--primary-600, #2563eb);
+}
+
+/* Toggle Switch */
+.cookie-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.cookie-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cookie-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+.cookie-slider:before {
+  position: absolute;
+  content: '';
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .cookie-slider {
+  background-color: var(--primary-color, #3b82f6);
+}
+
+input:focus + .cookie-slider {
+  box-shadow: 0 0 1px var(--primary-color, #3b82f6);
+}
+
+input:checked + .cookie-slider:before {
+  transform: translateX(20px);
+}
+
+input:disabled + .cookie-slider {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* Note: Theme CSS is loaded dynamically by ThemeService */
+/* PrimeNG 19 no longer requires global CSS imports - uses CSS-in-JS */
+@import '@openng/icons/openng-icons.css';
+
+/* Fix icon layout shift on initial load caused by font-display: block */
+/* Root cause: OpenNG Icons uses font-display: block which causes layout shift */
+/* Solution: Force layout stability with fixed dimensions and positioning */
+.pi:not(.nav-search-icon) {
+  /* Force reflow on font load to prevent stuck layout */
+  transform: translateZ(0) !important;
+  /* Ensure consistent rendering */
+  backface-visibility: visible !important;
+  -webkit-backface-visibility: visible !important;
+}
+
+.pi::before {
+  /* Prevent rendering issues */
+  backface-visibility: visible !important;
+  -webkit-backface-visibility: visible !important;
+}
+
+/* Critical Optimus UI Design Token Overrides for Dark Theme Support */
+/* These ensure that the dark theme works even if Optimus UI CSS-in-JS fails */
+:root {
+  /* Base Optimus UI Design Tokens */
+  /* --primary-color is set by ThemeService */
+  --primary-color-text: #ffffff;
+  --surface-ground: #fffdf6;
+  --surface-card: #ffffff;
+  --surface-section: #fdf8ec;
+  --surface-border: #e6dcc8;
+  /* Control edges only (inputs, selects, swatches): SC 1.4.11 needs 3:1, which the
+     decorative --surface-border deliberately does not meet. */
+  --control-border: #8a7a68;
+  --surface-hover: #f7efdd;
+  --text-color: #2b2622;
+  --text-color-secondary: #6d645c;
+  --border-radius: 12px;
+  /* Default UI font — settable at runtime by FontService (--font-base is the
+     authoritative token; --font-family is kept as alias for legacy consumers).
+     Default = system stack (zero font fetch on first paint). The multi-script
+     fallback names Noto Sans variants for Hindi, Bengali, Korean and Punjabi,
+     but the kit LOADS none of them — no @font-face, no font host. They resolve
+     only on a machine that already has them; otherwise those scripts fall
+     through to sans-serif. */
+  --font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'Noto Sans KR', 'Noto Sans Devanagari',
+    'Noto Sans Bengali', 'Noto Sans Gurmukhi', sans-serif;
+  /* WCAG 1.4.3: theme-aware dev toggle colors (Job 02 completeness fix).
+     fg uses p-{color}-800 not -700: button bg is color-mix(border 15%, card)
+     not pure white, which lowered green-700/red-700 contrast just under
+     AA (4.4:1). p-green-800/red-800 give ~5.5:1 against the tinted bg. */
+  --dev-toggle-fg: #166534; /* p-green-800 */
+  --dev-toggle-border: #16a34a; /* p-green-600: 3.30:1 on the white card (SC 1.4.11) */
+  --dev-toggle-fg-active: #991b1b; /* p-red-800 */
+  --dev-toggle-border-active: #ef4444; /* p-red-500 */
+
+  /* Brand color foreground variants are set by ThemeService at runtime:
+     buildTokenMaps writes the palette's curated primaryFg / accentFg (or the
+     *Dark pair) from THEME_COLORS in theme.service.ts — no value is derived
+     at runtime; scripts/check-contrast.mjs measures every one. Static
+     fallbacks here only kick in if JS hasn't initialized yet. */
+  --primary-color-fg: var(--primary-color, #f59e0b);
+  --gradient-accent-color-fg: var(--gradient-accent-color, #f97316);
+  --primary-color-icon-fg: var(--primary-color, #f59e0b);
+  --gradient-accent-color-icon-fg: var(--gradient-accent-color, #f97316);
+
+  /* Semantic-color foreground variants — for inline highlights (terms, timeline
+     events, formula tokens). Light mode: 700-shade for contrast on white surface. */
+  --semantic-blue-fg: #1d4ed8;
+  --semantic-orange-fg: #c2410c;
+  --semantic-green-fg: #15803d;
+  --semantic-red-fg: #b91c1c;
+  --semantic-purple-fg: #7e22ce;
+  --semantic-pink-fg: #be185d;
+
+  /* The DEFAULT style's free tokens (lernwerkstatt `extraTokens`, ui-styles.ts),
+     declared statically so the signature block html.style-lernwerkstatt resolves
+     BEFORE any script runs. Without them a first visit and every prerendered
+     page dropped every rule that reads --style-outline or --button-border (an
+     undefined custom property invalidates the whole `border:` shorthand), so
+     the default painted its colours without its sticker outlines and radii,
+     and jumped when ThemeService wrote the inline tokens.
+     Those inline tokens still win here, so a reader on another style is not
+     touched by these values — they only fill the gap before the app boots.
+     `common` lives in this block because :root matches <html> in both modes;
+     `html.dark-theme` below restates only the dark half. Check 1c in
+     scripts/check-contrast.mjs compares every value against ui-styles.ts. */
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 16px;
+  --style-btn-outlined-border: var(--style-outline);
+  --style-btn-outlined-bg:
+    linear-gradient(var(--surface-card), var(--surface-card)), linear-gradient(var(--surface-card), var(--surface-card));
+  --style-outline: #2b2622;
+  --fab-edge: #2b2622;
+  --style-brand-ink: #2b2622;
+  --button-border: 2px solid #2b2622;
+  --style-candy-coral: #f0617a;
+  --style-candy-teal: #23a094;
+  --style-candy-purple: #7c6fe0;
+}
+
+/* `html.`, not a bare `.dark-theme`: ThemeService puts the mode class on <body>
+   too, and a token declared on <body> shadows the inline token on <html> for
+   the whole page. The bare selector painted the default style's dark surfaces,
+   text and outline over every other style. On <html> the inline tokens win and
+   these values only fill what a style does not set. */
+html.dark-theme {
+  /* Dark Theme Optimus UI Design Tokens */
+  /* --primary-color is set by ThemeService */
+  /* --primary-color-text is set by ThemeService — used to be hardcoded
+     here, but that broke the contrast theme by re-applying #ffffff on <body>. */
+  --surface-ground: #201e1b;
+  --surface-card: #292725;
+  --surface-section: #312f2c;
+  --surface-border: #413f3c;
+  --control-border: #969491;
+  /* Placeholder text inside a dark field. The field is repainted to
+     --surface-section below, where Optimus's own placeholder would sit at
+     4.04:1; this one is measured by the contrast gate against that surface. */
+  --control-placeholder: #afacaa;
+  --surface-hover: #373432;
+  --text-color: #f1efec;
+  --text-color-secondary: #afacaa;
+  --border-radius: 12px;
+  /* WCAG 1.4.3: lighter greens/reds for 4.5:1 contrast on dark card */
+  --dev-toggle-fg: #86efac; /* p-green-300 */
+  --dev-toggle-border: #4ade80; /* p-green-400 */
+  --dev-toggle-fg-active: #fca5a5; /* p-red-300 */
+  --dev-toggle-border-active: #f87171; /* p-red-400 */
+
+  /* Brand color foreground variants are set by ThemeService at runtime. */
+
+  /* Semantic-color foreground variants — 300-shade lighter for dark surfaces */
+  --semantic-blue-fg: #93c5fd;
+  --semantic-orange-fg: #fdba74;
+  --semantic-green-fg: #86efac;
+  --semantic-red-fg: #fca5a5;
+  --semantic-purple-fg: #d8b4fe;
+  --semantic-pink-fg: #f9a8d4;
+
+  /* Dark half of the default style's free tokens — see the :root block above. */
+  --style-outline: #969491;
+  --fab-edge: #969491;
+  --style-brand-ink: #2b2622;
+  --button-border: 2px solid #969491;
+  --style-candy-coral: #f889a9;
+  --style-candy-teal: #43c6b9;
+  --style-candy-purple: #a89bf0;
+}
+
+/* Ensure HTML element also gets theme classes for deep CSS selectors */
+html.dark-theme {
+  color-scheme: dark;
+}
+
+html.light-theme {
+  color-scheme: light;
+}
+
+/* Headings follow the active style's heading font (ADR-0016 D4). Until a style
+   sets --font-heading, the token resolves to var(--font-base) in
+   design-tokens.scss, i.e. to the reader's body font — so this rule changes
+   nothing by itself, and an explicit reader font choice still wins everywhere
+   (FontService clears --font-heading in that case). */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Extended Design Tokens for Educational Components */
+:root {
+  /* Spacing Scale */
+  --space-1: 0.25rem; /* 4px */
+  --space-2: 0.5rem; /* 8px */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem; /* 16px */
+  --space-5: 1.25rem; /* 20px */
+  --space-6: 1.5rem; /* 24px */
+  --space-8: 2rem; /* 32px */
+  --space-10: 2.5rem; /* 40px */
+  --space-12: 3rem; /* 48px */
+  --space-16: 4rem; /* 64px */
+  --space-20: 5rem; /* 80px */
+  --space-24: 6rem; /* 96px */
+
+  /* Font Families */
+  /* Default UI font: system stack (zero fetch on first paint). Switchable at
+     runtime via FontService → user-settings font picker (Source Sans 3, Inter,
+     Atkinson Hyperlegible, Lexend, OpenDyslexic, etc.). The multi-script
+     fallback NAMES Noto Sans variants for Korean/Hindi/Bengali/Punjabi; it does
+     not load them — index.html fetches no font and the kit declares no Noto
+     @font-face, so those entries resolve only where the OS provides them. */
+  --font-base:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, 'Noto Sans KR', 'Noto Sans Devanagari',
+    'Noto Sans Bengali', 'Noto Sans Gurmukhi', sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', Consolas, 'Courier New', monospace;
+
+  /* Font Sizes */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
+
+  /* Border Widths */
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-width-accent: 3px;
+
+  /* Border Radius */
+  --radius-none: 0;
+  --radius-sm: 0.125rem; /* 2px */
+  --radius-base: 0.25rem; /* 4px */
+  --radius-md: 0.375rem; /* 6px */
+  --radius-lg: 0.5rem; /* 8px */
+  --radius-xl: 0.75rem; /* 12px */
+  --radius-2xl: 1rem; /* 16px */
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Extended Color Palette */
+  --primary-color-lighter: color-mix(in srgb, var(--primary-color, #3b82f6) 70%, white);
+  --primary-color-darker: color-mix(in srgb, var(--primary-color, #3b82f6) 80%, black);
+
+  /* Semantic Colors - Now handled by design-tokens.scss */
+  /* These legacy definitions have been moved to the design token system */
+
+  /* Info and secondary colors - Now handled by design-tokens.scss */
+
+  /* Learning Level Colors - Light Theme */
+  --beginner-bg: #e6f7ff;
+  --beginner-text: #0077b6;
+  --intermediate-bg: #fff2e6;
+  --intermediate-text: #e76f00;
+  --advanced-bg: #ffdce0;
+  --advanced-text: #d32f2f;
+
+  /* Achievement Rarity Colors */
+  --rarity-epic: #9333ea;
+  --rarity-legendary: #ea580c;
+
+  /* Surface Scale (theme-adaptive — see .dark-theme for dark counterparts).
+     Components using var(--surface-50/100/...) for tinted panels expect these
+     to flip in dark mode. design-tokens.scss only emits the semantic surfaces
+     (--surface-card etc.); these numbered aliases were missing → backgrounds
+     resolved to "" and panels lost their tint. */
+  --surface-0: #f6f5f1;
+  --surface-50: #efede7;
+  --surface-100: #e7e5de;
+  --surface-200: #d5d2c9;
+  --surface-300: #b9b5aa;
+  --surface-400: #93908a;
+  --surface-500: #6f6c66;
+  --surface-600: #55524c;
+  --surface-700: #3d3b37;
+  --surface-800: #262523;
+  --surface-900: #121212;
+
+  /* Red palette — was missing entirely from design-tokens.scss while
+     blue/green/orange/purple/yellow were defined. Components using --red-*
+     rendered no color at all. Fixed (matches Tailwind/Optimus UI red scale). */
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+}
+
+/* Dark Theme Design Tokens — on <html> only, like the block above: on <body>
+   this surface scale overrode the scale each style writes inline. */
+html.dark-theme {
+  /* Extended Color Palette - Dark Theme */
+  --primary-color-lighter: color-mix(in srgb, var(--primary-color, #3b82f6) 60%, white);
+  --primary-color-darker: color-mix(in srgb, var(--primary-color, #3b82f6) 90%, black);
+
+  /* Semantic Colors - Now handled by design-tokens.scss */
+  /* Legacy dark theme definitions have been moved to the design token system */
+
+  /* Learning Level Colors - Dark Theme */
+  --beginner-bg: rgba(0, 119, 182, 0.2);
+  --beginner-text: #4da6d9;
+  --beginner-bg-dark: rgba(0, 119, 182, 0.2);
+  --beginner-text-dark: #4da6d9;
+
+  --intermediate-bg: rgba(231, 111, 0, 0.2);
+  --intermediate-text: #ff9940;
+  --intermediate-bg-dark: rgba(231, 111, 0, 0.2);
+  --intermediate-text-dark: #ff9940;
+
+  --advanced-bg: rgba(211, 47, 47, 0.2);
+  --advanced-text: #f87171;
+  --advanced-bg-dark: rgba(211, 47, 47, 0.2);
+  --advanced-text-dark: #f87171;
+
+  /* Surface Scale — inverted for dark theme so var(--surface-50) is a subtle
+     dark off-tint instead of bright #f8fafc. Components using surface-*
+     for tinted panels now adapt to dark backgrounds correctly. */
+  --surface-0: #141416;
+  --surface-50: #1d1d21;
+  --surface-100: #26262b;
+  --surface-200: #3a3a40;
+  --surface-300: #4f4f57;
+  --surface-400: #6b6b73;
+  --surface-500: #8b8a90;
+  --surface-600: #a5a29b;
+  --surface-700: #c4c2bc;
+  --surface-800: #dedcd6;
+  --surface-900: #f2f1ed;
+
+  /* Color-tint backgrounds — flip from fixed light hex (e.g. --green-50 #ecfdf5)
+     to translucent dark tints so panels using var(--green-100) etc. as
+     background blend with the dark surface instead of looking like stranded
+     light patches. Affects 200+ usages across all 12 demos.
+
+     Text contrast: in light mode --green-700 (#047857) on light tint works.
+     In dark mode that dark-green text would fail contrast on the new dark
+     tint — so we also flip the dark-text shades (-600/-700) to lighter
+     variants of the same hue. Buttons that use --primary-color / semantic
+     tokens are unaffected (they don't sample raw palette). */
+  --green-50: rgba(16, 185, 129, 0.1);
+  --green-100: rgba(16, 185, 129, 0.18);
+  --green-200: rgba(16, 185, 129, 0.3);
+  --green-600: #34d399;
+  --green-700: #6ee7b7;
+
+  --blue-50: rgba(59, 130, 246, 0.1);
+  --blue-100: rgba(59, 130, 246, 0.18);
+  --blue-200: rgba(59, 130, 246, 0.3);
+  --blue-600: #60a5fa;
+  --blue-700: #93c5fd;
+
+  --red-50: rgba(239, 68, 68, 0.1);
+  --red-100: rgba(239, 68, 68, 0.18);
+  --red-200: rgba(239, 68, 68, 0.3);
+  --red-600: #f87171;
+  --red-700: #fca5a5;
+
+  --orange-50: rgba(249, 115, 22, 0.1);
+  --orange-100: rgba(249, 115, 22, 0.18);
+  --orange-200: rgba(249, 115, 22, 0.3);
+  --orange-600: #fb923c;
+  --orange-700: #fdba74;
+
+  --purple-50: rgba(168, 85, 247, 0.1);
+  --purple-100: rgba(168, 85, 247, 0.18);
+  --purple-200: rgba(168, 85, 247, 0.3);
+  --purple-600: #c084fc;
+  --purple-700: #d8b4fe;
+
+  --yellow-50: rgba(245, 158, 11, 0.1);
+  --yellow-100: rgba(245, 158, 11, 0.18);
+  --yellow-200: rgba(245, 158, 11, 0.3);
+  --yellow-600: #fcd34d;
+  --yellow-700: #fde68a;
+
+  /* Teal — dark-mode-adapted variants for the V2 catalogue chip palette
+     (by design). Light mode uses the original --teal-700 from the SASS
+     palette (#0f766e). Same pattern as green/blue/etc.: -700 flips to a
+     lighter shade in dark mode so chip text stays readable. */
+  --teal-50: rgba(20, 184, 166, 0.1);
+  --teal-100: rgba(20, 184, 166, 0.18);
+  --teal-200: rgba(20, 184, 166, 0.3);
+  --teal-600: #2dd4bf;
+  --teal-700: #5eead4;
+}
+
+/* FAB component scope — un-flipped surface scale.
+   2026-09-22: the FAB BUTTONS no longer rely on this. The transparent "glass"
+   it produced put their labels on whatever scrolled behind them (A11Y-004:
+   3.6:1 on the Easy-Language home's orange), so the buttons now paint
+   --surface-card / --surface-hover with a --fab-edge boundary — semantic,
+   mode-aware tokens this block does not touch — and must not read
+   --surface-0…900. The reset below stays for the rest of these components
+   (dialogs, panels) until they are audited; history of why it exists:
+   The FAB CSS reads `background: color-mix(--surface-X 75%, transparent)`
+   + `backdrop-filter: blur(8px)`. The component component file ALSO has
+   a `:host-context(.dark-theme) .fab-button { background: color-mix(
+   --surface-900 75%, transparent) }` rule, plus dark hover/border rules
+   that read --surface-{600,800}. So the FAB depends on the un-flipped
+   surface scale. The global dark-theme override above inverted those
+   (--surface-900 → white) which made the dark-mode FAB go solid white.
+   This block restores the un-inverted (light) scale inside the FAB
+   scope. The original "glass" came from --surface-* being undefined
+   → color-mix invalid → transparent + blur. We reproduce that with
+   `initial` (= guaranteed-invalid value) for ALL surface tokens.
+   Color scale is reverted to the original fixed palette hex. */
+.dark-theme app-fab-container,
+.dark-theme app-fab-stack,
+.dark-theme app-simple-easy-language-fab,
+.dark-theme app-simple-compare-fab,
+.dark-theme app-table-of-contents-fab {
+  --surface-0: initial;
+  --surface-50: initial;
+  --surface-100: initial;
+  --surface-200: initial;
+  --surface-300: initial;
+  --surface-400: initial;
+  --surface-500: initial;
+  --surface-600: initial;
+  --surface-700: initial;
+  --surface-800: initial;
+  --surface-900: initial;
+
+  --green-50: #ecfdf5;
+  --green-100: #d1fae5;
+  --green-200: #a7f3d0;
+  --green-600: #059669;
+  --green-700: #047857;
+
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-200: #bfdbfe;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-600: #ea580c;
+  --orange-700: #c2410c;
+
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-600: #9333ea;
+  --purple-700: #7c3aed;
+
+  --yellow-50: #fefce8;
+  --yellow-100: #fef3c7;
+  --yellow-200: #fde68a;
+  --yellow-600: #d97706;
+  --yellow-700: #b45309;
+}
+
+/* Light-mode FAB — same restoration. The :root added --surface-{0..900}
+   defaults that didn't exist before; for FAB scope we want them empty
+   again so color-mix falls back to transparent (= original glass). */
+app-fab-container,
+app-fab-stack,
+app-simple-easy-language-fab,
+app-simple-compare-fab,
+app-table-of-contents-fab {
+  --surface-0: initial;
+  --surface-50: initial;
+  --surface-100: initial;
+  --surface-200: initial;
+  --surface-300: initial;
+  --surface-400: initial;
+  --surface-500: initial;
+  --surface-600: initial;
+  --surface-700: initial;
+  --surface-800: initial;
+  --surface-900: initial;
+}
+
+/* Collapsible app-standard-container: the chevron toggle stretches its hit
+   area over the whole header (::after, inset 0). Interactive content that a
+   custom header projects into it (app-text-container's info-tooltip buttons,
+   a link) must sit ABOVE that area, or a click on it would toggle the section
+   instead. Global because the content is projected, where the container's
+   emulated styles do not reach. */
+.standard-container
+  > .container-header.clickable
+  :is(button, a, input, select, textarea, [role='button'], [tabindex]):not(.collapse-button) {
+  position: relative;
+  z-index: 1;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--surface-ground);
+  color: var(--text-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Force theme application on Optimus UI components */
+
+/* Scoped tokens, not !important. The three properties below used to be forced,
+   which also overrode the shipped :disabled and .p-invalid rules — a disabled
+   or invalid field in the dark theme looked exactly like a resting one. Setting
+   the tokens on the element instead beats the runtime :root block on the cascade
+   (a custom property on the element wins over an inherited one, whatever the
+   injection order) while the state rules keep reading their own tokens.
+   The placeholder is restated for the same reason: Optimus rests its dark field
+   on surface.950, where its zinc.400 placeholder is 7.76:1, but this kit paints
+   the field --surface-section — the active style's own section tone since
+   ADR-0016 — where zinc.400 falls to 4.19:1 under blaupause (4.88-5.88:1 under
+   the other three). --control-placeholder is per style and gated on that surface
+   (docs/generated/CONTRAST.MD, "field placeholder"). */
+.dark-theme .p-inputtext {
+  --p-inputtext-background: var(--surface-section);
+  --p-inputtext-color: var(--text-color);
+  --p-inputtext-border-color: var(--control-border);
+  --p-inputtext-placeholder-color: var(--control-placeholder);
+}
+
+/* The same finding as .p-inputtext above, and the same fix. The forced background,
+   colour and border-color also beat the shipped `.p-select.p-disabled` and
+   `.p-select.p-invalid` rules, so a disabled or an invalid select in the dark theme
+   rendered exactly like a resting one. Element-scoped tokens win over the runtime
+   :root block without !important, and the state rules go on reading their own tokens.
+   The placeholder is restated for the same reason as on .p-inputtext: Aura rests its
+   dark field on surface.950, where its surface.400 placeholder is fine, but this kit
+   paints the field --surface-section (per style since ADR-0016), against which that
+   grey drops to 4.19:1 under blaupause — below SC 1.4.3. --control-placeholder is
+   gated on the same surface in every style (CONTRAST.MD, "field placeholder").
+   The overlay and option rules keep their !important as well: they flatten no
+   state rule, and the one forced option colour intentionally covers the hover, focus
+   and selected states too, which the option tokens split over four separate values. */
+.dark-theme .p-select {
+  --p-select-background: var(--surface-section);
+  --p-select-color: var(--text-color);
+  --p-select-border-color: var(--control-border);
+  --p-select-placeholder-color: var(--control-placeholder);
+}
+
+/* The remaining field shells take the same dark fill, text and placeholder.
+   Aura rests p-textarea, p-multiselect, p-treeselect and the
+   multiple-mode box of p-autocomplete on {form.field.background} — surface.950
+   in dark — so beside a --surface-section input they were a black slab, and
+   the variant="on" float-label chip (--surface-section, below) showed as a
+   patch cut into them. The gate asserts every field fill equals the chip
+   ("float label") and measures text and placeholder on each fill ("form field
+   text"). */
+.dark-theme .p-textarea {
+  --p-textarea-background: var(--surface-section);
+  --p-textarea-color: var(--text-color);
+  --p-textarea-placeholder-color: var(--control-placeholder);
+}
+.dark-theme .p-multiselect {
+  --p-multiselect-background: var(--surface-section);
+  --p-multiselect-color: var(--text-color);
+  --p-multiselect-placeholder-color: var(--control-placeholder);
+}
+.dark-theme .p-treeselect {
+  --p-treeselect-background: var(--surface-section);
+  --p-treeselect-color: var(--text-color);
+  --p-treeselect-placeholder-color: var(--control-placeholder);
+}
+.dark-theme .p-autocomplete {
+  --p-autocomplete-background: var(--surface-section);
+  --p-autocomplete-color: var(--text-color);
+  --p-autocomplete-placeholder-color: var(--control-placeholder);
+}
+
+/* The `variant="on"` float label sits ON the field's top edge on a small chip
+   that masks the border: Aura paints it {form.field.background} — surface.950
+   (#09090b) in dark — while the kit paints dark fields --surface-section
+   (above), so the chip showed as a darker patch cut into the field. It takes
+   the field's own fill; light mode already agrees (both are surface.0). The
+   label on it is the field's secondary text, like the resting label (Aura's
+   surface.400 was 4.19:1 on the blaupause dark field). The label of the
+   FOCUSED field darkens to --text-color instead of Aura's primary.600 /
+   primary.color, because the ring already says "focused" and the dark accent
+   foreground is gated on ground and card, not on a dark field (blaupause:
+   fire 3.88:1). The label of an INVALID
+   field takes the kit's red, the colour of its invalid edge (Aura's red.400
+   was 3.88:1 on the blaupause dark field). Measured in CONTRAST.MD
+   ("float label"). */
+.p-floatlabel {
+  --p-floatlabel-color: var(--text-color-secondary);
+  --p-floatlabel-active-color: var(--text-color-secondary);
+  --p-floatlabel-focus-color: var(--text-color);
+  --p-floatlabel-invalid-color: var(--semantic-red-fg);
+}
+.dark-theme .p-floatlabel {
+  --p-floatlabel-on-active-background: var(--surface-section);
+}
+/* p-iftaLabel puts the label INSIDE the field, above the value, in the same
+   form.field.float.label.* colours: surface.400 on the dark --surface-section
+   field was 4.19:1 under blaupause (SC 1.4.3). It takes the float label's kit
+   colours — resting and focused, and the red of an invalid field. Measured in
+   CONTRAST.MD ("float label", iftalabel rows). */
+.p-iftalabel {
+  --p-iftalabel-color: var(--text-color-secondary);
+  --p-iftalabel-focus-color: var(--text-color);
+  --p-iftalabel-invalid-color: var(--semantic-red-fg);
+}
+
+/* The token line: the focused SELECTED option keeps the plain selection fill
+   in dark mode. Aura deepens it one step (highlight.focus.background, a 24%
+   primary.400 wash), which over this lighter --surface-card panel took the
+   kit focus ring below 3:1 in some palettes (mystic 2.91:1 on blaupause) —
+   the ring drawn inside the option is what says "focused". Set on
+   the overlay, not on .p-select: the overlay is teleported out of the host.
+   Measured in CONTRAST.MD ("option list focus"). */
+.dark-theme .p-select-overlay {
+  --p-select-option-selected-focus-background: var(--p-select-option-selected-background);
+  background-color: var(--surface-card) !important;
+  border-color: var(--surface-border) !important;
+}
+
+.dark-theme .p-select-option {
+  color: var(--text-color) !important;
+}
+
+.dark-theme .p-select-option:hover {
+  background-color: var(--surface-hover) !important;
+}
+
+/* WCAG 1.4.3 for the light theme, and the counterpart to the dark block above.
+   `.p-select-label` inherits nothing — it sets `color: dt('select.color')` itself
+   (@openng/optimus-ui-styles/dist/select/index.mjs:79) — so the resting label is
+   raised by re-pointing the element token, not by painting the label. Aura's own
+   value is form.field.color = surface.700 (slate.700 #334155 light, surface.0
+   #ffffff dark); the kit's --text-color (per style, ADR-0016) is the text colour
+   the contrast gate measures. Setting the token on the element beats the
+   runtime :root block whatever the injection order, and — unlike the `!important`
+   colour rule this replaced — it leaves the two state rules that key on the SAME
+   element intact: `.p-select.p-disabled .p-select-label` (:94) and
+   `.p-select-label.p-placeholder` (:86). Measured before the change, in both
+   themes a disabled label and a placeholder rendered in the resting colour, pixel
+   for pixel (#495057 light / #f1f5f9 dark). `.p-dropdown-label` went with it: the
+   class map emits `p-select-label` alone (openng-optimus-ui-select.mjs:61-64), so
+   that half of the old selector list had never matched anything. */
+.p-select {
+  --p-select-color: var(--text-color);
+}
+
+/* WCAG 1.4.11 (Non-text Contrast): the resting edge of the form fields Aura
+   leaves on its stock palette. Aura draws them in form.field.border.color —
+   slate.300 in light (1.48:1 on white), zinc.600 in dark (1.70-2.38:1 on the
+   style grounds) — and an unchecked checkbox or radio, a light select and a
+   textarea are identified by that edge alone. The kit's control edge is
+   --control-border (>= 3:1 on every style ground, gated); the dark .p-inputtext
+   and .p-select blocks above already use it. Each component's OWN token is
+   re-pointed: Optimus resolves the chain on :root, so re-pointing
+   --p-form-field-border-color here would change nothing. Element-scoped for the
+   same cascade reason as above; the hover, focus, checked and invalid rules keep
+   their own tokens. Measured by scripts/check-contrast.mjs ("checkbox &
+   radiobutton", "form field edge" in docs/generated/CONTRAST.MD). */
+.p-checkbox {
+  --p-checkbox-border-color: var(--control-border);
+}
+.p-radiobutton {
+  --p-radiobutton-border-color: var(--control-border);
+}
+.p-select {
+  --p-select-border-color: var(--control-border);
+}
+.p-textarea {
+  --p-textarea-border-color: var(--control-border);
+}
+/* The same stock edge on the remaining field shells: p-multiselect, the
+   multiple-mode box of p-autocomplete (`.p-autocomplete-input-multiple` reads
+   autocomplete.border.color) and its dropdown button, and the spin buttons of
+   p-inputnumber in the horizontal / vertical layouts. The spin buttons' icon is
+   the button's only content, so it takes --text-color-secondary instead of
+   Aura's surface.400 (2.56:1 on white). Measured in CONTRAST.MD ("form field
+   edge"). */
+.p-multiselect {
+  --p-multiselect-border-color: var(--control-border);
+}
+/* p-listbox — alone and as the list inside p-orderlist / p-picklist — is a
+   bordered field shell on the same stock edge. */
+.p-listbox {
+  --p-listbox-border-color: var(--control-border);
+}
+.p-autocomplete {
+  --p-autocomplete-border-color: var(--control-border);
+  --p-autocomplete-dropdown-border-color: var(--control-border);
+  --p-autocomplete-dropdown-hover-border-color: var(--control-border);
+  --p-autocomplete-dropdown-active-border-color: var(--control-border);
+}
+.p-inputnumber {
+  --p-inputnumber-button-border-color: var(--control-border);
+  --p-inputnumber-button-hover-border-color: var(--control-border);
+  --p-inputnumber-button-active-border-color: var(--control-border);
+  --p-inputnumber-button-color: var(--text-color-secondary);
+}
+/* p-cascadeselect is a select in all but name, and rested on the same stock
+   edge (slate.300, 1.48:1 on white) with no kit rule at all. It takes the
+   select's resting edge here, the select's dark fill and text below, the
+   invalid token, and the select's focus ring (`.p-cascadeselect.p-focus`). */
+.p-cascadeselect {
+  --p-cascadeselect-border-color: var(--control-border);
+  --p-cascadeselect-color: var(--text-color);
+}
+.dark-theme .p-cascadeselect {
+  --p-cascadeselect-background: var(--surface-section);
+  --p-cascadeselect-placeholder-color: var(--control-placeholder);
+}
+
+/* WCAG 1.4.11: the icons INSIDE a field. Aura paints the dropdown chevron and
+   the clear icon of select, multiselect, cascadeselect and treeselect, the
+   password reveal icon and the datepicker's input icon in form.field.icon.color
+   — surface.400, slate.400 on white 2.56:1 — and the chevron is the one sign
+   that the box opens a list; the password eye is a control of its own. They
+   take the kit's gated secondary text colour, in both modes (the fields are
+   white in light, --surface-section in dark; secondary text is gated on both).
+   The input-group addon (text or icon beside the field) takes it too. Measured
+   in CONTRAST.MD ("form field icon"). */
+.p-select {
+  --p-select-dropdown-color: var(--text-color-secondary);
+  --p-select-clear-icon-color: var(--text-color-secondary);
+}
+.p-multiselect {
+  --p-multiselect-dropdown-color: var(--text-color-secondary);
+  --p-multiselect-clear-icon-color: var(--text-color-secondary);
+}
+.p-cascadeselect {
+  --p-cascadeselect-dropdown-color: var(--text-color-secondary);
+  --p-cascadeselect-clear-icon-color: var(--text-color-secondary);
+}
+.p-treeselect {
+  --p-treeselect-dropdown-color: var(--text-color-secondary);
+  --p-treeselect-clear-icon-color: var(--text-color-secondary);
+}
+.p-password {
+  --p-password-icon-color: var(--text-color-secondary);
+}
+.p-datepicker {
+  --p-datepicker-input-icon-color: var(--text-color-secondary);
+  /* The trigger button (showIcon) is part of the field's edge: Aura draws it
+     in form.field.border.color (slate.300, 1.48:1 on white) in every state.
+     It takes the kit's control edge like the autocomplete dropdown button.
+     Measured in CONTRAST.MD ("form field edge"). */
+  --p-datepicker-dropdown-border-color: var(--control-border);
+  --p-datepicker-dropdown-hover-border-color: var(--control-border);
+  --p-datepicker-dropdown-active-border-color: var(--control-border);
+}
+.p-inputgroup {
+  --p-inputgroup-addon-color: var(--text-color-secondary);
+}
+
+/* WCAG 1.4.11 + 3.3.1: the INVALID edge. Aura draws it red.400 in light
+   (#f87171, 2.77:1 on white) and red.300 in dark, and — worse — every signature
+   block below repaints `input.p-inputtext` with its own border colour at a
+   higher specificity than `.p-inputtext.p-invalid`, so `[invalid]` alone
+   (a server error, validate-on-submit) drew NO red edge on a pInputText field
+   in any style. The kit's semantic red (--semantic-red-fg, >= 4.5:1 on ground
+   and card, gated) takes every field's invalid token, and one rule makes the
+   invalid edge of a text input win over the signature blocks. `!important`
+   because the lernwerkstatt dark rule (`html.style-lernwerkstatt.dark-theme
+   input.p-inputtext`) already spends four selectors; the invalid edge also
+   holds while the field is focused, where the focus ring still draws
+   outside it. Measured in CONTRAST.MD ("form field edge", invalid rows). */
+.p-inputtext {
+  --p-inputtext-invalid-border-color: var(--semantic-red-fg);
+}
+.p-textarea {
+  --p-textarea-invalid-border-color: var(--semantic-red-fg);
+}
+.p-select {
+  --p-select-invalid-border-color: var(--semantic-red-fg);
+}
+.p-multiselect {
+  --p-multiselect-invalid-border-color: var(--semantic-red-fg);
+}
+.p-autocomplete {
+  --p-autocomplete-invalid-border-color: var(--semantic-red-fg);
+}
+.p-checkbox {
+  --p-checkbox-invalid-border-color: var(--semantic-red-fg);
+}
+.p-radiobutton {
+  --p-radiobutton-invalid-border-color: var(--semantic-red-fg);
+}
+.p-cascadeselect {
+  --p-cascadeselect-invalid-border-color: var(--semantic-red-fg);
+}
+/* The toggle switch has no resting border (transparent), so its invalid
+   border IS the invalid signal (Aura's red.400 is 2.77:1 on white). */
+.p-toggleswitch {
+  --p-toggleswitch-invalid-border-color: var(--semantic-red-fg);
+}
+input.p-inputtext.p-invalid {
+  border-color: var(--semantic-red-fg) !important;
+}
+
+/* WCAG 1.4.3: the unpressed label of p-togglebutton (and of p-selectbutton,
+   which renders one per option). Aura paints it surface.500 on surface.100 —
+   slate in light, 4.34:1, under the 4.5:1 a 1rem label needs. The kit's gated
+   secondary text colour takes its place in both modes; hover and pressed keep
+   their own tokens. Measured in CONTRAST.MD, "togglebutton & selectbutton".
+
+   The PRESSED state (WCAG 1.4.11 + 1.4.1). Aura says "pressed" with a white
+   pill (content.checked.background, surface.0) on the surface.100 segment —
+   1.10:1 in light, 1.34:1 in dark (surface.800 on surface.950) — and a darker
+   label, so a selectbutton's current option and a pressed toggle were close to
+   invisible without the aria-pressed a screen reader hears. The pill now fills
+   with --primary-color-fg and the label on it takes --surface-card: the same
+   pair the gate already holds >= 4.5:1 in every accent, style and mode
+   ("brand foreground" on the card), and the pill stands >= 3:1 off the
+   unpressed segment. The segment itself takes the kit's surfaces instead of
+   Aura's slate/zinc (dark surface.950 was a black slab on every style's card):
+   --surface-section at rest, --surface-hover with --text-color hovered. */
+.p-togglebutton {
+  --p-togglebutton-color: var(--text-color-secondary);
+  --p-togglebutton-background: var(--surface-section);
+  --p-togglebutton-border-color: var(--surface-section);
+  --p-togglebutton-hover-background: var(--surface-hover);
+  --p-togglebutton-hover-color: var(--text-color);
+  --p-togglebutton-checked-background: var(--surface-section);
+  --p-togglebutton-checked-border-color: var(--surface-section);
+  --p-togglebutton-checked-color: var(--surface-card);
+  --p-togglebutton-content-checked-background: var(--primary-color-fg);
+  --p-togglebutton-icon-color: var(--text-color-secondary);
+  --p-togglebutton-icon-hover-color: var(--text-color);
+  --p-togglebutton-icon-checked-color: var(--surface-card);
+}
+
+/* The table and the paginator paint Aura's content.background — surface.0 in
+   light, which every style's card equals, but zinc.900 (#18181b) in dark, which
+   no style's card is (werkbund #1d1d21, lernwerkstatt #292725, …): a table on a
+   card showed as a darker slab. The fills that sit where the card would take the
+   style's own --surface-card; striping, hover and selection keep their Aura
+   tints, measured over the card in CONTRAST.MD ("table & paginator"). */
+.p-datatable {
+  --p-datatable-header-background: var(--surface-card);
+  --p-datatable-header-cell-background: var(--surface-card);
+  --p-datatable-row-background: var(--surface-card);
+  --p-datatable-footer-cell-background: var(--surface-card);
+  --p-datatable-footer-background: var(--surface-card);
+}
+/* The SELECTED row (WCAG 1.4.11 + 1.4.1). Aura marks it with the highlight
+   tint alone — primary.50 in light, a 16% primary.400 wash in dark — which is
+   under 1.5:1 against an unselected row in 56 of the 80 accent x style x mode
+   cases, so a table selected by row click (no checkbox column) showed its
+   selection as a barely-there hue. The row now carries a 4px bar in
+   --primary-color-fg on its start edge, gated >= 3:1 against both the tint
+   and an unselected row. A pseudo-element on the first cell, placed with
+   logical properties, so the bar sits on the right in RTL and takes no layout
+   space (no column shift when a row is selected); a frozen first cell is
+   already `position: sticky`, which anchors the bar just as well, so it is not
+   repositioned. Forced colours drop authored backgrounds, so the bar paints the
+   system Highlight there. Measured in CONTRAST.MD ("table & paginator"). */
+.p-datatable-tbody > tr.p-datatable-row-selected > td:first-child:not(.p-datatable-frozen-column) {
+  position: relative;
+}
+.p-datatable-tbody > tr.p-datatable-row-selected > td:first-child::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  inline-size: 4px;
+  background: var(--primary-color-fg);
+  pointer-events: none;
+}
+@media (forced-colors: active) {
+  .p-datatable-tbody > tr.p-datatable-row-selected > td:first-child::before {
+    forced-color-adjust: none;
+    background: Highlight;
+  }
+}
+/* The CURRENT page (WCAG 1.4.11): Aura marks it with the highlight tint,
+   primary.50 on the bar — 1.00-1.10:1 in light mode (fire's 50 step clamps to
+   white) — so the state rested on the label's hue alone. It takes the
+   accent's own pair instead, the one the checked checkbox shows:
+   primary.color (>= 3:1 on the card, gated) with primary.contrast.color on it. */
+.p-paginator {
+  --p-paginator-background: var(--surface-card);
+  --p-paginator-nav-button-selected-background: var(--p-primary-color);
+  --p-paginator-nav-button-selected-color: var(--p-primary-contrast-color);
+}
+
+/* WCAG 1.4.11: p-progressspinner cycles its stroke through red, blue, green
+   and yellow (500 light / 400 dark) — green.500 and yellow.500 reach 2.28:1 and
+   1.92:1 on white, so for part of every cycle the only thing that says
+   "loading" is barely there. The spinner takes the accent foreground
+   (--primary-color-fg, >= 4.5:1 on ground and card, gated) for all four stops,
+   in both modes; app-loading-overlay no longer pins its own colour. Measured in
+   CONTRAST.MD ("progress spinner"). */
+.p-progressspinner {
+  --p-progressspinner-color-one: var(--primary-color-fg);
+  --p-progressspinner-color-two: var(--primary-color-fg);
+  --p-progressspinner-color-three: var(--primary-color-fg);
+  --p-progressspinner-color-four: var(--primary-color-fg);
+}
+
+/* Panel edges: p-popover draws Aura's overlay border (surface.200 light,
+   surface.700 dark — 1.23:1 on white). A popover is a panel like a card or a
+   dialog, and those take the style's outline in every signature block; the
+   popover takes the same --style-outline, so it reads as the same family of
+   surface in each style. Measured in CONTRAST.MD ("panel outline"). */
+.p-popover {
+  --p-popover-border-color: var(--style-outline);
+}
+
+/* WCAG 2.4.7 (Focus Visible): the one focus indicator for p-select, both themes.
+   Measured before this rule: light mode changed only the border tint
+   (#cbd5e1 → #c2410c), dark mode rendered *nothing at all* on focus — no outline,
+   no shadow, unchanged border. Two causes stack up:
+     1. Aura ships `formField.focusRing.width: 0`, so its own focus rule
+        (`.p-select:not(.p-disabled).p-focus`) resolves to a zero-width, transparent
+        outline. Re-declaring the `--p-select-focus-ring-*` tokens does NOT help:
+        Optimus UI writes them onto `:root` from a <style> tag injected at runtime,
+        which lands after this file and wins on equal specificity (verified in the
+        browser — `--p-select-focus-ring-width` still computed to `0`).
+     2. Aura's own focus rule, `.p-select:not(.p-disabled).p-focus`, spends three
+        class selectors where this rule spends two, and ties with the `.dark-theme`
+        variant — so without `!important` the shipped focus border colour wins, on
+        specificity in the light theme and on injection order in the dark one.
+   Hence one explicit rule, `!important` on all three properties so neither the
+   runtime theme injection nor the resting override above can undo it. Ring shape
+   follows the kit standard: 2px primary outline at 2px offset (the one kit ring,
+   below). `--primary-color-fg` is the contrast-adjusted brand
+   colour ThemeService maintains per theme.
+   Note `.p-focus` is Optimus UI's host class on the `.p-select` element — `:focus` on
+   that host never matches, because the focusable node is the inner
+   `<span role="combobox">`. p-cascadeselect has the same shape (inner
+   `role="combobox"` span, `.p-focus` on the host, formField.focusRing width 0),
+   so without this rule its focus drew nothing but a border tint. */
+.p-select.p-focus,
+.dark-theme .p-select.p-focus,
+.p-cascadeselect.p-focus,
+.dark-theme .p-cascadeselect.p-focus {
+  outline: 2px solid var(--primary-color-fg, #f59e0b) !important;
+  outline-offset: 2px !important;
+  border-color: var(--primary-color-fg, #f59e0b) !important;
+}
+
+/* The same gap and the same ring for the two other field shells whose focus
+   lives on a host class: p-multiselect (focusable inner input, `.p-focus` on
+   the `.p-multiselect` host, formField.focusRing width 0) and the multiple-mode
+   box of p-autocomplete (`.p-autocomplete.p-focus .p-autocomplete-input-multiple`,
+   Aura's own rule, likewise zero-width). The single-mode autocomplete is a
+   `.p-inputtext` and already rings on :focus-visible below. */
+.p-multiselect:not(.p-disabled).p-focus,
+.p-autocomplete.p-focus .p-autocomplete-input-multiple:not(.p-disabled) {
+  outline: 2px solid var(--primary-color-fg, #f59e0b) !important;
+  outline-offset: 2px !important;
+  border-color: var(--primary-color-fg, #f59e0b) !important;
+}
+
+/* Same WCAG 2.4.7 gap, generalised beyond p-select: Aura's SHARED formField token
+   group ships `focusRing: { width: 0, style: none, color: transparent }` (read
+   statically from node_modules/@openng/optimus-ui-themes/dist/aura/base/index.mjs,
+   Optimus UI themes 2.0.2), so a text control's own focus rule resolves to nothing. Native
+   text controls (`.p-inputtext` = pInputText inputs, `.p-textarea` = pTextarea) are
+   focusable themselves, so `:focus-visible` matches directly; the checkbox hides its
+   native `.p-checkbox-input`, so the ring goes on the visible `.p-checkbox-box` via
+   `:has()`. The checkbox actually reads the GLOBAL focus-ring tokens (1px primary),
+   not the zeroed formField group — for it this rule is not a rescue but an upgrade
+   to the kit-standard 2px. `!important` for the same reason as above: Optimus UI
+   injects its token block at runtime after this file and wins on equal specificity.
+   Browser-measured 2026-08-23 (PrimeNG 22, /de/feedback, both themes): all three
+   controls render 2px solid var(--primary-color-fg) at 2px offset. Measuring note:
+   Optimus UI rests fields at `outline-color: transparent` and TRANSITIONS it, so the
+   ring fades in — an instant computed-style probe right after focus() reads a
+   transparent ring that is actually there.
+
+   THE ONE KIT RING. The same rule is the focus indicator of
+   every other keyboard-focusable widget the kit ships, so there is one ring,
+   not two: before, buttons, radio buttons, the toggle/select-button segments,
+   the stepper headers and the image preview button drew Aura's 1px
+   `{focus.ring}` in primary.color (the image preview none at all: the library
+   sets `outline: 0 none`), and the cookie buttons a 2px ring in
+   --primary-color, the filled-button colour, which no gate measures on a
+   page surface. Each selector
+   names the node that actually takes focus: the radio button hides its native
+   input like the checkbox (so the ring goes on the box via :has()), the
+   toggle/select-button segment is the p-togglebutton host (tabindex 0), the
+   image preview is `.p-image-preview-mask` — whose library rule sets
+   `outline: 0 none` on :focus-visible, which this rule overrides.
+
+   The list is complete: every other part Aura rings with its
+   1px `{focus.ring}` (grep `focus.ring` in @openng/optimus-ui-styles/dist)
+   is here too — toggle switch, accordion header, chip remove icon, tabs, tree
+   node, paginator buttons, table and tree-table rows / sort headers / row
+   toggler, menubar and megamenu hamburger, slider handle, rating star,
+   breadcrumb link, fieldset toggle, autocomplete and datepicker dropdowns,
+   datepicker cells, carousel indicator, org-chart toggle — plus the tree
+   select, whose host-class focus (`.p-treeselect.p-focus`) reads the zeroed
+   formField ring and drew nothing. Each selector keys on the component's own
+   focus model: `:focus-visible` where the part takes DOM focus, the `.p-focus`
+   / `.p-focus-visible` class where the library marks the active item instead
+   (menus: aria-activedescendant; rating; tree select), `:has()` where a hidden
+   native input takes it (toggle switch). The menu items, which had their own
+   rule, are folded in. Not listed, on purpose: the tree and tree-table node
+   toggles and the menu submenu items are `tabindex="-1"` (never focused), and
+   the galleria and image-compare controls sit on the image itself, where no
+   token pair exists to gate. Parts that sit inside a clipping or tightly
+   packed container ring INSIDE themselves — the next rule moves only their
+   offset, so it is still this one ring.
+
+   The OPTION LISTS: select, multiselect, listbox
+   (alone and inside orderlist / picklist), autocomplete and cascadeselect
+   keep DOM focus on their input or list and mark the active option with
+   `.p-focus` (aria-activedescendant), so `:focus-visible` on an option never
+   matches and Aura showed the keyboard position as list.option.focus.background
+   alone — the same ~1.1:1 tint the menus had. The `.p-focus` option now rings
+   inside itself like a menu item (the list scrolls in an overflow container).
+   Like the menus, the class also follows the pointer (focusOnHover), so the
+   ring marks the option Enter would pick, whichever device moved it. The tree
+   select's panel is a p-tree (DOM focus on the node, ringed above) and the
+   datepicker's month and year cells take DOM focus (ringed above).
+
+   The last `.p-focus` tints are ringed too: the megamenu item (the
+   same aria-activedescendant model as the menubar, rendered by the listbox
+   guide) and the chip of a multiple-mode autocomplete (ArrowLeft from the
+   input walks the chips; `.p-focus` on the chip item), both inside
+   themselves — the chip sits in the field box, which clips (overflow:
+   hidden). Every `.p-focus` / `.p-focus-visible` rule in the Optimus styles
+   is now either ringed here (or by the field rules above) or out of scope
+   with a reason the gate checks: p-dock is a declined component, and the
+   styles package ships p-inputchips rules for a component @openng/optimus-ui
+   does not export.
+
+   Two DOM-focus gaps are closed as well. The panelmenu ROW LINK
+   (`.p-panelmenu-item-link`, tabindex 0 in an open panel) is where Tab
+   lands, and the library's own CSS sets `outline: 0 none` on it; the
+   `.p-focus` class only follows the arrow keys (it is set once when focus
+   enters the list and does not follow a Tab within it), so the row with DOM
+   focus now rings too, on the same content box as the `.p-focus` ring. The
+   virtual scroller's container (`.p-virtualscroller`, tabindex 0, also inside
+   select and table overlays) is a Tab stop whose component CSS removes the
+   outline; it rings inside itself, since it fills a clipping overlay or
+   table wrapper edge to edge.
+   Extend THIS list for a new widget; a second ring rule would drift.
+   scripts/check-contrast.mjs reads the list (KIT_RING_SELECTORS, and
+   KIT_RING_INSET for the next rule) and measures the ring colour on every
+   page surface and every widget fill it meets ("focus ring" in
+   CONTRAST.MD). */
+.p-inputtext:focus-visible,
+.p-textarea:focus-visible,
+.p-checkbox:has(.p-checkbox-input:focus-visible) .p-checkbox-box,
+.p-radiobutton:has(.p-radiobutton-input:focus-visible) .p-radiobutton-box,
+.p-toggleswitch:has(.p-toggleswitch-input:focus-visible) .p-toggleswitch-slider,
+.p-treeselect:not(.p-disabled).p-focus,
+.p-autocomplete-dropdown:focus-visible,
+.p-button:focus-visible,
+.p-togglebutton:focus-visible,
+.p-chip-remove-icon:focus-visible,
+.p-slider-handle:focus-visible,
+.p-rating-option.p-focus-visible,
+.p-step-header:focus-visible,
+.p-steps-item-link:focus-visible,
+.p-breadcrumb-item-link:focus-visible,
+.p-fieldset-toggle-button:focus-visible,
+.p-tabpanel:focus-visible,
+.p-paginator-first:focus-visible,
+.p-paginator-prev:focus-visible,
+.p-paginator-page:focus-visible,
+.p-paginator-next:focus-visible,
+.p-paginator-last:focus-visible,
+.p-datatable-row-toggle-button:focus-visible,
+.p-datepicker-dropdown:focus-visible,
+.p-datepicker-day:focus-visible,
+.p-datepicker-month:focus-visible,
+.p-datepicker-year:focus-visible,
+.p-datepicker-select-month:focus-visible,
+.p-datepicker-select-year:focus-visible,
+.p-carousel-indicator-button:focus-visible,
+.p-organizationchart-node-toggle-button:focus-visible,
+.p-menubar-button:focus-visible,
+.p-megamenu-button:focus-visible,
+.p-image-preview-mask:focus-visible,
+.cookie-btn:focus-visible,
+.cookie-close-btn:focus-visible,
+.p-accordionheader:focus-visible,
+.p-tab:focus-visible,
+.p-tablist-nav-button:focus-visible,
+.p-tree-node:focus-visible > .p-tree-node-content,
+.p-tree-node-content:focus-visible,
+.p-datatable-tbody > tr:focus-visible,
+.p-datatable-sortable-column:focus-visible,
+.p-treetable-tbody > tr:focus-visible,
+.p-treetable .p-sortable-column:focus-visible,
+.p-menubar-item.p-focus > .p-menubar-item-content,
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content,
+.p-contextmenu-item.p-focus > .p-contextmenu-item-content,
+.p-megamenu-item.p-focus > .p-megamenu-item-content,
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content,
+.p-menu-item.p-focus .p-menu-item-content,
+.p-select-option.p-focus,
+.p-multiselect-option.p-focus,
+.p-listbox-option.p-focus,
+.p-autocomplete-option.p-focus,
+.p-autocomplete-chip-item.p-focus .p-autocomplete-chip,
+.p-cascadeselect-option.p-focus > .p-cascadeselect-option-content,
+.p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content,
+.p-panelmenu-item-content:has(> .p-panelmenu-item-link:focus-visible),
+.p-virtualscroller:focus-visible {
+  outline: 2px solid var(--primary-color-fg, #f59e0b) !important;
+  outline-offset: 2px !important;
+}
+/* Where the one ring sits INSIDE the part (offset -2px): the part fills its
+   container edge to edge or sits in one that clips. Tabs scroll in an
+   overflow container, table and tree-table rows and headers in a scrolling
+   table wrapper, tree nodes in the overflow:auto tree root, and a 2px outer
+   ring would be cut off or spill onto the neighbouring row, header or tab.
+   Menu items sit 2px apart in a clipping panel; accordion headers butt
+   against the next panel. Options fill a list that scrolls (overflow: auto)
+   with a 2px gap. An autocomplete chip sits in the multiple-mode field box,
+   which clips (overflow: hidden) a few px from the chip. The virtual scroller
+   fills a select overlay or a table wrapper edge to edge, and its ring lies on
+   the rows it scrolls. Aura insets the same
+   parts (offset -1px for its 1px ring). Inside, the ring meets the part's own
+   fill — content.background, the hover fill, the selection highlight, the
+   focused chip's tint — which the gate measures ("focus ring", inset rows;
+   "option list focus" for the option fills). */
+.p-accordionheader:focus-visible,
+.p-tab:focus-visible,
+.p-tablist-nav-button:focus-visible,
+.p-tree-node:focus-visible > .p-tree-node-content,
+.p-tree-node-content:focus-visible,
+.p-datatable-tbody > tr:focus-visible,
+.p-datatable-sortable-column:focus-visible,
+.p-treetable-tbody > tr:focus-visible,
+.p-treetable .p-sortable-column:focus-visible,
+.p-menubar-item.p-focus > .p-menubar-item-content,
+.p-tieredmenu-item.p-focus > .p-tieredmenu-item-content,
+.p-contextmenu-item.p-focus > .p-contextmenu-item-content,
+.p-megamenu-item.p-focus > .p-megamenu-item-content,
+.p-panelmenu-item.p-focus > .p-panelmenu-item-content,
+.p-menu-item.p-focus .p-menu-item-content,
+.p-select-option.p-focus,
+.p-multiselect-option.p-focus,
+.p-listbox-option.p-focus,
+.p-autocomplete-option.p-focus,
+.p-autocomplete-chip-item.p-focus .p-autocomplete-chip,
+.p-cascadeselect-option.p-focus > .p-cascadeselect-option-content,
+.p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content,
+.p-panelmenu-item-content:has(> .p-panelmenu-item-link:focus-visible),
+.p-virtualscroller:focus-visible {
+  outline-offset: -2px !important;
+}
+/* The same ring on a NOTICE takes the notice's own ink. The close button of a
+   message or toast sits on the severity tint, and the contrast severity
+   inverts it (slate.900 in light, white in dark), where no accent colour holds
+   3:1 in every palette. `currentColor` is the message/toast text colour
+   (the close button inherits it), which the gate holds >= 4.5:1 on each tint
+   ("message & toast") — so this ring clears 3:1 wherever it lands.
+   The image preview's toolbar actions (rotate, zoom, close) take the same
+   ink ring for the same reason: they sit on the near-black toolbar plate in
+   both modes, where the light-mode --primary-color-fg (a dark accent, tuned
+   for light surfaces) cannot hold 3:1. Their ink is image.action.color on
+   that plate, which the gate holds >= 3:1 ("image preview"); the toolbar's
+   0.5rem padding keeps the 2px-offset ring on the plate. */
+.p-message-close-button:focus-visible,
+.p-toast-close-button:focus-visible,
+.p-image-action:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 2px !important;
+}
+
+/* WCAG 2.2 SC 2.5.8 (Target Size, Minimum): Aura ships a 20x20 slider handle,
+   4px under the 24px floor, and the slider has no other pointer target — the
+   3px track is not one. Two tokens fix it; the handle's centering margins are
+   derived from the same tokens (`calc(-1 * height/2)`), so it stays on the track.
+   Declared on `.p-slider` rather than `:root` on purpose: Optimus UI injects its own
+   `:root` token block from a runtime <style> tag that lands after this file and
+   would win on equal specificity. */
+.p-slider {
+  --p-slider-handle-width: 24px;
+  --p-slider-handle-height: 24px;
+}
+
+/* WCAG 1.4.11 (Non-text Contrast): the slider's track and the ring of its
+   handle. Aura draws both in content.border.color (surface.200 light /
+   surface.700 dark), 1.13-1.76:1 on the style grounds, and the handle's
+   position IS the value. Both take the kit's control edge, --control-border
+   (>= 3:1 on every style surface, gated), the same line an unchecked checkbox
+   or a field is drawn with; the handle's centre takes the card colour, so the
+   ring reads as a ring in both modes. Hover darkens (light) / lightens (dark)
+   the ring to --text-color-secondary. Measured in CONTRAST.MD ("progressbar &
+   slider"). Element-scoped for the cascade reason given above. */
+.p-slider {
+  --p-slider-track-background: var(--control-border);
+  --p-slider-handle-background: var(--control-border);
+  --p-slider-handle-hover-background: var(--text-color-secondary);
+  --p-slider-handle-content-background: var(--surface-card);
+  --p-slider-handle-content-hover-background: var(--surface-card);
+}
+
+/* WCAG 1.4.11: the OFF state of p-toggleswitch. Aura gives the switch a
+   transparent border, so its off track (surface.300 light / surface.700 dark,
+   1.26-1.76:1 on the style grounds) is the control's only edge. The track takes
+   --control-border like every other control edge; the handle takes
+   --surface-card, which --control-border is gated against (>= 3:1), so the
+   handle stays visible on the new track in both modes — Aura's stock dark
+   handle (zinc.400) would sit at ~1.3:1 on it. Hover keeps the direction of
+   Aura's hover (a stronger track): --text-color-secondary. The ON state
+   (primary.color track, surface.0 / surface.900 handle) is unchanged.
+   Measured in CONTRAST.MD ("toggleswitch"). */
+.p-toggleswitch {
+  --p-toggleswitch-background: var(--control-border);
+  --p-toggleswitch-hover-background: var(--text-color-secondary);
+  --p-toggleswitch-handle-background: var(--surface-card);
+  --p-toggleswitch-handle-hover-background: var(--surface-card);
+}
+
+/* WCAG 2.4.7 (Focus Visible) + 1.4.11: keyboard focus in the menu family.
+   These components keep DOM focus on the list (menubar, megamenu, menu,
+   tieredmenu, contextmenu) or on the panelmenu's submenu list, and mark the ACTIVE ITEM
+   with the `.p-focus` class on its <li> (the aria-activedescendant model) —
+   `:focus-visible` on the item never matches. Aura shows that item with a
+   background only: navigation.item.focus.background, surface.100 on white
+   (1.10:1) and surface.800 on surface.900 (1.19:1) — no indicator at all by
+   SC 1.4.11. The kit ring goes on the item's content box: the one kit ring
+   (the rule beside the form-field rules above), drawn INSIDE the item
+   (the inset rule there) because the items sit 2px apart in a panel that
+   clips. The panelmenu HEADERS do take DOM focus, so they key on
+   :focus-visible, as Aura's own header rule does; so do the panelmenu ROW
+   LINKS (tabindex 0 in an open panel, where Tab lands): the row whose link
+   has DOM focus rings on the same content box as the `.p-focus` row, which
+   the arrow keys move and Enter picks. `>` where menus nest, so a
+   focused parent does not ring its whole open submenu. Measured in
+   CONTRAST.MD ("menu focus"). */
+
+/* WCAG 1.4.11: the submenu chevron — the only visual cue that an item opens
+   a submenu. Aura draws it surface.400 (slate.400 on white: 2.56:1) at rest
+   and surface.500 focused. The kit's gated secondary text colour takes both,
+   in every menu that nests. The ITEM ICON reads the same
+   navigation.item.icon tokens (surface.400 / .500, 2.56:1 on white) and is
+   the only carrier of an icon-only item's meaning, so it takes the same
+   colour in all six menus (menu and panelmenu have no active step; the
+   panelmenu header icon reads the item token). Component tokens,
+   element-scoped (see above). Measured in CONTRAST.MD ("menu focus"). */
+.p-menubar {
+  --p-menubar-submenu-icon-color: var(--text-color-secondary);
+  --p-menubar-submenu-icon-focus-color: var(--text-color-secondary);
+  --p-menubar-submenu-icon-active-color: var(--text-color-secondary);
+  --p-menubar-item-icon-color: var(--text-color-secondary);
+  --p-menubar-item-icon-focus-color: var(--text-color-secondary);
+  --p-menubar-item-icon-active-color: var(--text-color-secondary);
+}
+.p-megamenu {
+  --p-megamenu-submenu-icon-color: var(--text-color-secondary);
+  --p-megamenu-submenu-icon-focus-color: var(--text-color-secondary);
+  --p-megamenu-submenu-icon-active-color: var(--text-color-secondary);
+  --p-megamenu-item-icon-color: var(--text-color-secondary);
+  --p-megamenu-item-icon-focus-color: var(--text-color-secondary);
+  --p-megamenu-item-icon-active-color: var(--text-color-secondary);
+}
+.p-tieredmenu {
+  --p-tieredmenu-submenu-icon-color: var(--text-color-secondary);
+  --p-tieredmenu-submenu-icon-focus-color: var(--text-color-secondary);
+  --p-tieredmenu-submenu-icon-active-color: var(--text-color-secondary);
+  --p-tieredmenu-item-icon-color: var(--text-color-secondary);
+  --p-tieredmenu-item-icon-focus-color: var(--text-color-secondary);
+  --p-tieredmenu-item-icon-active-color: var(--text-color-secondary);
+}
+.p-contextmenu {
+  --p-contextmenu-submenu-icon-color: var(--text-color-secondary);
+  --p-contextmenu-submenu-icon-focus-color: var(--text-color-secondary);
+  --p-contextmenu-submenu-icon-active-color: var(--text-color-secondary);
+  --p-contextmenu-item-icon-color: var(--text-color-secondary);
+  --p-contextmenu-item-icon-focus-color: var(--text-color-secondary);
+  --p-contextmenu-item-icon-active-color: var(--text-color-secondary);
+}
+.p-panelmenu {
+  --p-panelmenu-submenu-icon-color: var(--text-color-secondary);
+  --p-panelmenu-submenu-icon-focus-color: var(--text-color-secondary);
+  --p-panelmenu-item-icon-color: var(--text-color-secondary);
+  --p-panelmenu-item-icon-focus-color: var(--text-color-secondary);
+}
+.p-menu {
+  --p-menu-item-icon-color: var(--text-color-secondary);
+  --p-menu-item-icon-focus-color: var(--text-color-secondary);
+}
+
+/* Filled severity buttons are painted by ThemeService (the static block in
+   applyButtonGradientStyles, from --gradient-<severity>-*); text severity
+   buttons read the --p-button-text-* tokens further down. Do not add
+   hard-coded --p-button-<severity>-* token blocks or dark
+   `.p-button-<severity>:not(.p-button-outlined)` repaints here: the
+   gradient block overrides them on every filled button, and on TEXT
+   severity buttons in dark mode they would still win — a filled disc with white
+   ink (2.5:1 on the info fill) over the gated text-button colours. */
+
+/* Outlined buttons use the brand-foreground color variant — automatically darkens
+   in light mode and lightens in dark mode for proper contrast against page surface.
+   Components that set their own color (e.g. .interview-button using --green-600)
+   win via specificity, this rule applies only when no override exists. */
+.p-button-outlined {
+  color: var(--primary-color-fg);
+  border-color: var(--primary-color-fg);
+}
+
+.p-button-outlined:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--primary-color-fg) 12%, transparent);
+  border-color: var(--primary-color-fg);
+  color: var(--primary-color-fg);
+}
+
+/* One joint between joined buttons. p-buttongroup and p-splitbutton join
+   their segments by dropping the inner border and radii, but the kit forces
+   every button's border with `!important` — the ThemeService button block
+   (up to eleven classes deep) and the signature blocks (--style-bw / 2px /
+   1.5px outlines) — which beats the library's joining rules, so every style
+   and mode drew a doubled 2-6px seam. This rule re-applies the joint and has
+   to outrank all of those: `:not(#kit-join)` adds one ID column to the
+   specificity (it matches every element, there is no such id), which no
+   class-only selector can reach. Logical properties, so the joint follows the
+   reading direction in RTL. Both shapes of a group are covered: `<button
+   pButton>` children (direct) and `<p-button>` hosts, whose inner button is
+   an only child and never :last-child itself. The selectbutton is not joined
+   here: its segments may wrap with a gap (content hub, narrow screens). */
+.p-buttongroup > .p-button:not(:last-child):not(#kit-join),
+.p-buttongroup > :not(:last-child) > .p-button:not(#kit-join),
+.p-splitbutton-button.p-button:not(#kit-join) {
+  border-inline-end-width: 0 !important;
+  border-start-end-radius: 0 !important;
+  border-end-end-radius: 0 !important;
+}
+.p-buttongroup > .p-button:not(:first-child):not(#kit-join),
+.p-buttongroup > :not(:first-child) > .p-button:not(#kit-join),
+.p-splitbutton-dropdown.p-button:not(#kit-join) {
+  border-start-start-radius: 0 !important;
+  border-end-start-radius: 0 !important;
+}
+
+/* Legacy fallback for --primary-color-text. ThemeService now sets this token
+   deterministically per theme via getOptimalTextColor, so the !important
+   override is gone and the .dark-theme selector is dropped — the latter would
+   re-apply the rule to <body>, breaking the contrast theme where dark text on a
+   light primary-bg is correct. The :root rule remains as boot-time fallback for
+   the brief moment before ThemeService.applyTheme() runs. */
+:root {
+  --primary-color-text: #ffffff;
+}
+
+/* Optimus UI p-tag severity overrides — dark mode default tints are 3.9-4.4:1 (below
+   WCAG AA). Force saturated 700-shade backgrounds with white text in dark mode to
+   reach ≥5:1. Light mode keeps Optimus UI's default tints (already pass on white). */
+.dark-theme .p-tag.p-tag-success {
+  background: #15803d !important;
+  color: #ffffff !important;
+}
+.dark-theme .p-tag.p-tag-info {
+  background: #0369a1 !important;
+  color: #ffffff !important;
+}
+.dark-theme .p-tag.p-tag-warn {
+  background: #c2410c !important;
+  color: #ffffff !important;
+}
+.dark-theme .p-tag.p-tag-danger {
+  background: #b91c1c !important;
+  color: #ffffff !important;
+}
+.dark-theme .p-tag.p-tag-secondary {
+  background: #475569 !important;
+  color: #ffffff !important;
+}
+
+/* WCAG 1.4.3: severity TEXT on the kit's semantic inks. Aura colours the
+   severities of text buttons, badges, messages and toasts from its 500/600
+   palette steps — tuned for icons, not for 12-16px text: in light mode a
+   success text button is green.500 on the werkbund ground (2.09:1), a
+   success/info/warn/danger badge puts white on a 500 fill (2.28-3.76:1), a warn
+   message is yellow.600 on its yellow.50 tint (2.84:1), and in dark the
+   message tints fall to 2.91-3.16:1 under blaupause and skizzenbuch. They take
+   the kit's semantic foregrounds instead — --semantic-<hue>-fg, gated
+   >= 4.5:1 on ground and card in both modes: the same inks the kit already
+   uses for inline highlights, so a severity keeps its hue (warn becomes the
+   orange-amber, danger stays red). The secondary text button and the
+   secondary outlined/simple message take --text-color-secondary (Aura's
+   surface.500 was 4.36:1 on the werkbund ground); contrast and plain take
+   --text-color. The primary text / link button and the primary badge keep
+   Aura's primary.color, the accent ramp's 500 step (>= 4.75:1, gated).
+   Measured in CONTRAST.MD ("text & link button", "badge", "message & toast",
+   "filled button (contrast)"). */
+.p-button {
+  --p-button-text-secondary-color: var(--text-color-secondary);
+  --p-button-text-success-color: var(--semantic-green-fg);
+  --p-button-text-info-color: var(--semantic-blue-fg);
+  --p-button-text-warn-color: var(--semantic-orange-fg);
+  --p-button-text-help-color: var(--semantic-purple-fg);
+  --p-button-text-danger-color: var(--semantic-red-fg);
+  --p-button-text-contrast-color: var(--text-color);
+  --p-button-text-plain-color: var(--text-color);
+}
+
+/* Badges: the fill is the ink, the number sits on it. Light: the 700-step
+   semantic inks under white (>= 5:1); dark: the 300-step inks under the 950
+   step of the same hue (Aura's own dark pairing, one step lighter). */
+.p-badge {
+  --p-badge-success-background: var(--semantic-green-fg);
+  --p-badge-success-color: #ffffff;
+  --p-badge-info-background: var(--semantic-blue-fg);
+  --p-badge-info-color: #ffffff;
+  --p-badge-warn-background: var(--semantic-orange-fg);
+  --p-badge-warn-color: #ffffff;
+  --p-badge-danger-background: var(--semantic-red-fg);
+  --p-badge-danger-color: #ffffff;
+}
+.dark-theme .p-badge {
+  --p-badge-success-color: var(--p-green-950);
+  --p-badge-info-color: var(--p-blue-950);
+  --p-badge-warn-color: var(--p-orange-950);
+  --p-badge-danger-color: var(--p-red-950);
+}
+
+/* Messages and toasts: the severity text (summary, icon, close icon — one
+   token) on the severity's own translucent tint, and the outlined / simple
+   message text on the page. Aura's warn is yellow; its kit ink is the
+   orange-amber --semantic-orange-fg, the nearest gated hue. The toast's detail
+   line keeps Aura's surface.700 / surface.0 (>= 9.4:1). */
+.p-message {
+  --p-message-info-color: var(--semantic-blue-fg);
+  --p-message-info-outlined-color: var(--semantic-blue-fg);
+  --p-message-info-outlined-border-color: var(--semantic-blue-fg);
+  --p-message-info-simple-color: var(--semantic-blue-fg);
+  --p-message-success-color: var(--semantic-green-fg);
+  --p-message-success-outlined-color: var(--semantic-green-fg);
+  --p-message-success-outlined-border-color: var(--semantic-green-fg);
+  --p-message-success-simple-color: var(--semantic-green-fg);
+  --p-message-warn-color: var(--semantic-orange-fg);
+  --p-message-warn-outlined-color: var(--semantic-orange-fg);
+  --p-message-warn-outlined-border-color: var(--semantic-orange-fg);
+  --p-message-warn-simple-color: var(--semantic-orange-fg);
+  --p-message-error-color: var(--semantic-red-fg);
+  --p-message-error-outlined-color: var(--semantic-red-fg);
+  --p-message-error-outlined-border-color: var(--semantic-red-fg);
+  --p-message-error-simple-color: var(--semantic-red-fg);
+  --p-message-secondary-outlined-color: var(--text-color-secondary);
+  --p-message-secondary-outlined-border-color: var(--text-color-secondary);
+  --p-message-secondary-simple-color: var(--text-color-secondary);
+  --p-message-contrast-outlined-color: var(--text-color);
+  --p-message-contrast-outlined-border-color: var(--text-color);
+  --p-message-contrast-simple-color: var(--text-color);
+}
+.p-toast {
+  --p-toast-info-color: var(--semantic-blue-fg);
+  --p-toast-success-color: var(--semantic-green-fg);
+  --p-toast-warn-color: var(--semantic-orange-fg);
+  --p-toast-error-color: var(--semantic-red-fg);
+}
+
+/* WCAG 1.4.11: the image preview toolbar (rotate, zoom, close). Aura floats it
+   on a 10% white glass over the preview mask — the mask is 40% black in
+   light, so over a light page the icons (surface.50) sat at 2.41-2.57:1 on
+   the glass, 2.27:1 hovered. The toolbar takes a 60% black plate instead, in both modes: the
+   icons clear 3:1 whatever page is behind the mask. Set on the toolbar
+   itself because the preview is appended to <body>, outside `.p-image`.
+   Measured in CONTRAST.MD ("image preview"). */
+.p-image-toolbar {
+  --p-image-toolbar-background: rgba(0, 0, 0, 0.6);
+}
+
+/* The dark card shadow is a DEFAULT, not a mandate: without `!important` it
+   still beats Aura's own card shadow (0,2,0 over 0,1,0) but yields to the
+   signature blocks (`html.style-<name> .p-card`, 0,2,1). With `!important` it
+   used to overrule them in dark mode — werkbund and blaupause, whose ADR-0016
+   signature is "no soft shadows", showed one, and lernwerkstatt and skizzenbuch
+   lost their sticker / paper shadows. */
+.dark-theme .p-card {
+  background-color: var(--surface-card) !important;
+  color: var(--text-color) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.dark-theme .p-card .p-card-header {
+  background-color: var(--surface-section) !important;
+  color: var(--text-color) !important;
+  border-bottom-color: var(--surface-border) !important;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Utility classes are now generated automatically in design-tokens.scss */
+/* Individual utility classes removed to avoid duplication */
+
+/* Theme switcher styles */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--surface-card);
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+}
+
+.theme-preview {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid var(--control-border);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.theme-preview:hover {
+  transform: scale(1.1);
+}
+
+.theme-preview.active {
+  border-color: var(--primary-color-fg);
+  box-shadow: 0 0 0 2px var(--primary-color-text);
+}
+
+/* For light/dark mode toggle */
+.mode-toggle {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--surface-section);
+  border-radius: 2rem;
+  padding: 0.25rem;
+  border: 1px solid var(--surface-border);
+}
+
+.mode-toggle-item {
+  padding: 0.5rem 0.75rem;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+}
+
+.mode-toggle-item:hover {
+  background-color: var(--surface-hover);
+}
+
+.mode-toggle-item.active {
+  background-color: var(--primary-color-fg);
+  color: var(--primary-color-text);
+}
+
+/* Glossary highlighting — uses --primary-color-fg (the accent's foreground
+   role, curated per palette and gated against the page surfaces) instead of
+   the raw --primary-color. With a dark brand primary the raw colour's
+   underline would merge with the body text. */
+.glossary-highlight {
+  position: relative;
+  text-decoration: underline solid var(--primary-color-fg);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: text-decoration-thickness 0.2s ease;
+}
+
+.glossary-highlight:hover {
+  text-decoration-thickness: 3px;
+}
+
+.glossary-highlight:focus {
+  outline: 2px solid var(--primary-color-fg);
+  outline-offset: 2px;
+}
+
+/* Different highlight styles for different match types */
+.glossary-highlight[data-match-type='exact'] {
+  text-decoration-thickness: 3px;
+}
+
+.glossary-highlight[data-match-type='abbreviation'] {
+  font-variant: small-caps;
+}
+
+.glossary-highlight[data-match-type='alternative'] {
+  opacity: 0.85;
+}
+
+/* Global text selection: theme-aware and always readable. The browser default
+   is dark or blue depending on the OS and clashes with a blue accent, where
+   selected text would read dark on dark. */
+::selection {
+  background-color: color-mix(in srgb, var(--primary-color-fg, #3b82f6) 30%, transparent);
+  color: var(--text-color);
+}
+
+::-moz-selection {
+  background-color: color-mix(in srgb, var(--primary-color-fg, #3b82f6) 30%, transparent);
+  color: var(--text-color);
+}
+
+.dark-theme ::selection {
+  background-color: color-mix(in srgb, var(--primary-color-fg, #3b82f6) 45%, transparent);
+  color: var(--text-color);
+}
+
+.dark-theme ::-moz-selection {
+  background-color: color-mix(in srgb, var(--primary-color-fg, #3b82f6) 45%, transparent);
+  color: var(--text-color);
+}
+
+/* High contrast mode — thicker solid underline + bold */
+@media (prefers-contrast: high) {
+  .glossary-highlight {
+    text-decoration-thickness: 3px;
+    font-weight: 600;
+  }
+
+  .glossary-highlight:focus {
+    outline-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .glossary-highlight {
+    transition: none;
+  }
+}
+
+/* Mobile — slightly thicker underline for finger-readability */
+@media (max-width: 768px) {
+  .glossary-highlight {
+    text-decoration-thickness: 3px;
+  }
+
+  .glossary-highlight:hover {
+    text-decoration-thickness: 4px;
+  }
+
+  .glossary-highlight:focus {
+    outline-width: 3px;
+    outline-offset: 2px;
+  }
+}
+
+/* Print styles - remove highlighting for print */
+@media print {
+  .glossary-highlight {
+    text-decoration: none;
+    color: inherit;
+    background: transparent;
+  }
+}
+
+/* ============================================
+   Sunrise Glow Background Effect
+   A subtle warm glow from below, like a sunrise
+   just outside the viewport - BEHIND all content
+   ============================================ */
+
+/* Pulse animation for the glow */
+@keyframes sunrise-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scaleY(1.15);
+  }
+}
+
+.app-container::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50vh;
+  pointer-events: none;
+  z-index: -1; /* Behind all content */
+  /* Gradient from primary-color (left) to accent-color (right) */
+  background:
+    radial-gradient(
+      ellipse 120% 100% at 20% 100%,
+      color-mix(in srgb, var(--primary-color) 16%, transparent) 0%,
+      color-mix(in srgb, var(--primary-color) 8%, transparent) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 120% 100% at 80% 100%,
+      color-mix(in srgb, var(--gradient-accent-color, var(--primary-color)) 14%, transparent) 0%,
+      color-mix(in srgb, var(--gradient-accent-color, var(--primary-color)) 6%, transparent) 40%,
+      transparent 70%
+    );
+  /* Subtle pulsing animation */
+  animation: sunrise-pulse 8s ease-in-out infinite;
+  transform-origin: bottom center;
+  /* Smooth transition for theme switching */
+  transition: background 0.3s ease;
+}
+
+/* Dark Theme - slightly higher opacity for visibility */
+.dark-theme .app-container::after {
+  background:
+    radial-gradient(
+      ellipse 120% 100% at 20% 100%,
+      color-mix(in srgb, var(--primary-color) 14%, transparent) 0%,
+      color-mix(in srgb, var(--primary-color) 6%, transparent) 40%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 120% 100% at 80% 100%,
+      color-mix(in srgb, var(--gradient-accent-color, var(--primary-color)) 12%, transparent) 0%,
+      color-mix(in srgb, var(--gradient-accent-color, var(--primary-color)) 5%, transparent) 40%,
+      transparent 70%
+    );
+}
+
+/* Ensure main content area has background to block glow */
+.app-container > main,
+.content-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Reduced motion - disable animation */
+@media (prefers-reduced-motion: reduce) {
+  .app-container::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Print - hide glow effect */
+@media print {
+  .app-container::after {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   BUTTON GRADIENT STYLES
+   Note: Dynamic gradient styles are injected by ThemeService.applyButtonGradientStyles()
+   This ensures colors update correctly when theme changes.
+   Only static/fallback styles remain here.
+   ========================================================================== */
+
+/* Reduced motion - disable transitions */
+@media (prefers-reduced-motion: reduce) {
+  .p-button {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   HEADER PICKER ICON HOVER GRADIENT
+   Ansatz 1: Globale Styles - keine View Encapsulation Probleme
+   ========================================================================== */
+
+/* Language Picker - Gradient auf Icons bei Hover */
+app-language-picker .p-button:hover .globe-icon,
+app-language-picker .p-button:hover .flag-dropdown-icon,
+app-language-picker .p-button:hover .current-lang-name {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--gradient-accent-color, var(--primary-color)) 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Font icons ::before for the language picker */
+app-language-picker .p-button:hover .globe-icon::before,
+app-language-picker .p-button:hover .flag-dropdown-icon::before {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--gradient-accent-color, var(--primary-color)) 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Theme Picker - Gradient auf Icons bei Hover */
+app-theme-picker .p-button:hover .theme-icon,
+app-theme-picker .p-button:hover .theme-dropdown-icon {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--gradient-accent-color, var(--primary-color)) 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+}
+
+/* Font icons ::before for the theme picker */
+app-theme-picker .p-button:hover .theme-icon::before,
+app-theme-picker .p-button:hover .theme-dropdown-icon::before {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color) 0%,
+    var(--gradient-accent-color, var(--primary-color)) 100%
+  ) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* =============================================================================
+   Optimus UI Tabs Component (v18+) - Global Overrides
+   Ensures consistent styling after migration from TabView
+   ============================================================================= */
+
+/* Remove default background from tab panels to match surrounding content */
+.p-tabs .p-tabpanels {
+  background: transparent;
+  padding: 0;
+}
+
+.p-tabs .p-tabpanel {
+  background: transparent;
+  padding: 1rem 0;
+}
+
+/* Tab list styling to match previous TabView appearance */
+.p-tabs .p-tablist {
+  border-bottom: 1px solid var(--surface-border);
+  background: transparent;
+}
+
+/* Individual tab styling */
+.p-tabs .p-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  padding: 0.75rem 1rem;
+  color: var(--text-color-secondary);
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+/* No hover rule here on purpose. `.p-tabs .p-tab:hover` is (0,3,0); Aura ships
+   `.p-tab:not(.p-tab-active):not(.p-disabled):hover` at (0,4,0) and sets both
+   `color` and the `border-color` shorthand, so a rule at this specificity is
+   overwritten in full and never renders. Restyle the hover through the theme
+   tokens, or raise the specificity deliberately - do not re-add a dead rule. */
+
+.p-tabs .p-tab[aria-selected='true'],
+.p-tabs .p-tab.p-tab-active {
+  color: var(--primary-color-fg);
+  border-bottom-color: var(--primary-color-fg);
+  background: transparent;
+}
+
+/* One underline, not two. The active tab already carries this file's 2px
+   `border-bottom`; Aura additionally slides an absolutely positioned 1px
+   `.p-tablist-active-bar` under it, in the widget layer's `primary.color` (the
+   accent ramp's 500 step) rather than the kit's `--primary-color-fg` (the
+   contrast-adjusted foreground) - two underlines in two tones of the accent,
+   1px apart. The kit's border is the marker, so the theme's bar is
+   suppressed. */
+.p-tabs .p-tablist-active-bar {
+  display: none;
+}
+
+/* =============================================================================
+   CURSOR GLOW HOVER EFFECT
+   Applied via CursorGlowDirective ([appCursorGlow] → [data-cursor-glow])
+   Border glow ring (::before) + subtle background fill (::after)
+   Proximity-aware: glows as cursor approaches, no abrupt pop-in/pop-out.
+   Opacity driven by --glow-opacity CSS variable set from JS.
+   ============================================================================= */
+
+[data-cursor-glow] {
+  position: relative;
+}
+
+/* Border glow ring - radial gradient masked to show only as 1px border.
+   Override glow color per-component via --cursor-glow-color CSS variable.
+   Gated on [data-glow-active] so the "Kometenschweif" setting governs the
+   proximity glow too (not just the afterburn trail). */
+[data-cursor-glow][data-glow-active]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    var(--glow-radius, 350px) circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    color-mix(in srgb, var(--cursor-glow-color, var(--primary-color)) 70%, transparent) 0%,
+    color-mix(in srgb, var(--cursor-glow-color, var(--primary-color)) 25%, transparent) 40%,
+    var(--surface-border) 70%
+  );
+  padding: 1px;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+}
+
+/* Background fill - subtle radial glow following cursor */
+[data-cursor-glow][data-glow-active]::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.15s ease;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    calc(var(--glow-radius, 350px) + 50px) circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    color-mix(in srgb, var(--cursor-glow-color, var(--primary-color)) 10%, transparent) 0%,
+    transparent 70%
+  );
+}
+
+/* Ensure child content sits above glow pseudo-elements */
+[data-cursor-glow] > *:not(.cursor-glow-trail-container) {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Afterburn trail: fading glow points along cursor path --- */
+.cursor-glow-trail-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cursor-glow-trail {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--cursor-glow-color, var(--primary-color)) 10%, transparent) 0%,
+    color-mix(in srgb, var(--cursor-glow-color, var(--primary-color)) 4%, transparent) 50%,
+    transparent 70%
+  );
+}
+
+@keyframes cursor-trail-fade {
+  0% {
+    opacity: 0.25;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  60% {
+    opacity: 0.15;
+    transform: translate(-50%, -50%) scale(1.03);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* Unavailable/locked content - hide glow + trail */
+.step-unavailable[data-cursor-glow]::before,
+.step-unavailable[data-cursor-glow]::after,
+.step-unavailable .cursor-glow-trail-container,
+.certificate-tile.locked[data-cursor-glow]::before,
+.certificate-tile.locked[data-cursor-glow]::after,
+.certificate-tile.locked .cursor-glow-trail-container {
+  display: none !important;
+}
+
+/* Reduced motion - hide glow completely */
+@media (prefers-reduced-motion: reduce) {
+  [data-cursor-glow]::before,
+  [data-cursor-glow]::after,
+  .cursor-glow-trail-container {
+    display: none;
+  }
+}
+
+/* Print - hide glow */
+@media print {
+  [data-cursor-glow]::before,
+  [data-cursor-glow]::after,
+  .cursor-glow-trail-container {
+    display: none;
+  }
+}
+
+/* ═══ SCREEN READER ONLY ═══ */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ═══ TOUCH TARGET UTILITIES (WCAG 2.5.5) ═══ */
+.touch-target-44 {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* For elements that should be visually small but have 44px tap area */
+.touch-target-expanded {
+  position: relative;
+}
+.touch-target-expanded::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+/* ═══ GLOBAL PRINT STYLES ═══ */
+@page {
+  margin: 15mm 18mm;
+}
+
+@media print {
+  /* Print is light paper in every mode. The real switch is ThemeService
+     (setupPrintListener): on `beforeprint` it applies the light variant of
+     the reader's style and accent — inline tokens on <html>, the
+     `light-theme` class the Optimus widgets key on — and restores dark on
+     `afterprint`. This block cannot do that alone: the runtime tokens are
+     inline on <html> and beat it there, so it only takes effect through the
+     `.dark-theme` class on <body>, for the tokens it lists. It stays as the
+     fallback for a print path that fires no `beforeprint` (a headless PDF
+     render). */
+  html.dark-theme,
+  .dark-theme {
+    --surface-ground: #ffffff;
+    --surface-0: #ffffff;
+    --surface-50: #f8fafc;
+    --surface-100: #f1f5f9;
+    --surface-200: #e2e8f0;
+    --surface-300: #cbd5e1;
+    --surface-400: #94a3b8;
+    --surface-500: #64748b;
+    --surface-600: #475569;
+    --surface-700: #334155;
+    --surface-800: #1e293b;
+    --surface-900: #0f172a;
+    --surface-card: #ffffff;
+    --surface-overlay: #ffffff;
+    --surface-section: #f8fafc;
+    --surface-hover: #f1f5f9;
+    --surface-border: #e2e8f0;
+    --text-color: #1e293b;
+    --text-color-secondary: #64748b;
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+    color: #1e293b !important;
+  }
+
+  /* Hide all UI chrome */
+  app-root > header,
+  .main-menubar,
+  app-root .sitemap-overlay,
+  app-root .sitemap-backdrop,
+  app-root .skip-link,
+  app-footer,
+  app-fab-container,
+  app-simple-easy-language-fab,
+  app-table-of-contents-fab,
+  app-simple-compare-fab,
+  app-breadcrumb,
+  app-cookie-consent,
+  app-toast-container,
+  .fab-stack-deprecated,
+  app-root .dev-prod-toggle {
+    display: none !important;
+  }
+
+  /* Ensure main content uses full width */
+  app-root main {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* Disable animations in print */
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  /* ─── Typography for print ─── */
+  body {
+    font-size: 11pt !important;
+    line-height: 1.55 !important;
+  }
+
+  h1 {
+    font-size: 20pt !important;
+  }
+  h2 {
+    font-size: 15pt !important;
+    margin-top: 1.2em !important;
+  }
+  h3 {
+    font-size: 12pt !important;
+    margin-top: 1em !important;
+  }
+  h4,
+  h5,
+  h6 {
+    font-size: 11pt !important;
+  }
+
+  /* Prevent orphaned headings at page bottom */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    break-after: avoid;
+    page-break-after: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
+  p,
+  li,
+  blockquote {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* ─── Code blocks ─── */
+  pre,
+  code {
+    font-size: 9pt !important;
+    border: 1px solid #ddd !important;
+    background: #f8f8f8 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  pre {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 0.5em !important;
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+  }
+
+  /* ─── Links: show URL after text ─── */
+  .lesson-main a[href^='http']:not(.link-card):not(.sub-link-chip):not(.tool-action-btn)::after {
+    content: ' (' attr(href) ')';
+    font-size: 8pt;
+    color: #555;
+    font-family: monospace;
+    word-break: break-all;
+  }
+
+  /* ─── Images ─── */
+  img {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    max-width: 100% !important;
+  }
+
+  figure,
+  .figure-block {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ─── Tables ─── */
+  table {
+    font-size: 9pt !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #999 !important;
+    padding: 4px 8px !important;
+    background: transparent !important;
+    color: #1e293b !important;
+  }
+
+  th {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* ─── Glossary highlights: plain text in print ─── */
+  .glossary-highlight {
+    color: inherit !important;
+    border-bottom: none !important;
+    text-decoration: none !important;
+    cursor: text !important;
+    background: none !important;
+  }
+}
+
+/* Conv-filter demo — Play/Reset buttons span full width on smartphones.
+   styleClass is applied to the inner Optimus UI .p-button element, so the rule
+   lives in global styles (component-scoped styles can't reach it without
+   ::ng-deep, which is forbidden project-wide). */
+@media (max-width: 600px) {
+  .conv-anim-btn.p-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Attention-demo action buttons — full-width on smartphones. Same pattern
+   as conv-anim-btn above. */
+@media (max-width: 600px) {
+  .attn-action-btn.p-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Utility: w-full for Optimus UI styleClass. Used by p-select / p-button where
+   styleClass="w-full" appears across the codebase (was a no-op until defined
+   here). Targets the inner element that Optimus UI renders. */
+.w-full {
+  width: 100% !important;
+}
+
+/* Utility: full-width Optimus UI button on phones only. styleClass="btn-mobile-full"
+   targets the inner button Optimus UI renders; no-op above the mobile breakpoint. */
+@media (max-width: 640px) {
+  .btn-mobile-full {
+    width: 100% !important;
+  }
+}
+
+/* =============================================================================
+   VISUAL STYLE SIGNATURES (ADR-0016)
+   One block per visual style, scoped under `html.style-<name>` — the class
+   ThemeService puts on the root element. Every colour in here comes from a
+   token the service writes inline on <html> (`--style-*`, `--primary-*`,
+   `--font-heading`); the blocks are mode-adaptive without their own dark
+   rules because those tokens already differ per mode.
+   Ported from the project this kit was extracted from. Rules whose
+   target does not exist here were dropped on the way in; each drop is noted
+   at its group. Order: lernwerkstatt, skizzenbuch, werkbund, blaupause.
+   ============================================================================= */
+
+/* -----------------------------------------------------------------------------
+   Lernwerkstatt — sticker outlines, confetti ground, round shapes
+   Tokens: --style-outline, --style-candy-teal/-coral/-purple, --primary-500,
+   --font-heading.
+   This is the kit's DEFAULT style (ADR-0016 D3, amended 2026-09-24).
+   -------------------------------------------------------------------------- */
+html.style-lernwerkstatt {
+  /* Confetti on the page ground, as a REPEATING tile — four fixed viewport
+     dots read as dead pixels in a real app. Sits under everything; visible
+     only where the ground shows. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image:
+      radial-gradient(3px 3px at 40px 60px, var(--primary-500) 50%, transparent 51%),
+      radial-gradient(3px 3px at 260px 30px, var(--style-candy-teal) 50%, transparent 51%),
+      radial-gradient(3px 3px at 190px 190px, var(--style-candy-coral) 50%, transparent 51%),
+      radial-gradient(3px 3px at 90px 240px, var(--style-candy-purple) 50%, transparent 51%);
+    background-size: 340px 280px;
+    background-repeat: repeat;
+  }
+
+  /* Sticker cards: hard 2px outline + 3px offset shadow instead of a soft
+     shadow. Dropped from the workshop list: .area-card, .myth-card (no such
+     component here). */
+  .standard-container,
+  .p-card,
+  .content-card,
+  .quick-start-card,
+  .entry-card,
+  .stat-card,
+  .checkpoint,
+  .generic-card,
+  .filter-section,
+  .compare-table-view,
+  .filter-sidebar,
+  .related-refs--card-wrap {
+    border: 2px solid var(--style-outline);
+    box-shadow: 3px 3px 0 var(--style-outline);
+    border-radius: 16px;
+  }
+
+  /* Learning-path tiles: the TOP edge carries path colour / dashed state —
+     outline the other three sides only, radius stays the component's business. */
+  .step-tile,
+  .path-section {
+    border-left: 2px solid var(--style-outline);
+    border-right: 2px solid var(--style-outline);
+    border-bottom: 2px solid var(--style-outline);
+    box-shadow: 3px 3px 0 var(--style-outline);
+  }
+
+  /* Collapsible StandardContainer keeps its 1px header rule even when
+     collapsed — under the sticker outline that reads as a broken double
+     border. Collapsed: no inner line; expanded: outline rule + matching inner
+     radius (16px outer minus the 2px outline). */
+  .standard-container > .container-header {
+    border-bottom-color: var(--style-outline);
+    border-bottom-width: 2px;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .standard-container > .container-header.is-collapsed {
+    border-bottom-width: 0;
+    border-radius: 14px;
+  }
+
+  /* Buttons as stickers: outline + offset shadow, physically pressed in on
+     click. `!important` is deliberate — ThemeService injects its severity
+     button block later in the cascade and sets border/box-shadow with
+     `!important` itself; without it the primary buttons would lose the
+     sticker. Dropped: demo-only buttons of the workshop (.training-btn,
+     .scenario-btn, .btn-back/-next/-reset/-restart/-sample*).
+     The toggle button's pressed rule keys on `[data-p-disabled='false']`:
+     p-togglebutton is a custom element (the segments of p-selectbutton too),
+     and `:enabled` only ever matches form controls, so the former
+     `.p-togglebutton:enabled:active` never pressed in. The library renders
+     the attribute on the host in both states ("true" / "false"). */
+  .p-button:not(.p-button-text):not(.p-button-link),
+  .p-togglebutton,
+  .p-tag,
+  .cookie-btn,
+  .lesson-toolbar-btn,
+  .nav-btn,
+  .cmq-toggle,
+  .related-refs-graph-btn {
+    border: 2px solid var(--style-outline) !important;
+    box-shadow: 2px 2px 0 var(--style-outline) !important;
+  }
+
+  .p-button:not(.p-button-text):not(.p-button-link),
+  .p-togglebutton,
+  .cookie-btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  .p-button:not(.p-button-text):not(.p-button-link):enabled:active,
+  .p-togglebutton[data-p-disabled='false']:active,
+  .cookie-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--style-outline) !important;
+  }
+
+  /* Header: flat band with an outlined bottom edge, no widget rounding. */
+  .main-menubar {
+    border: 0;
+    border-bottom: 2px solid var(--style-outline);
+    border-radius: 0;
+  }
+
+  /* Thicker, offset link underline (only where a link is underlined). */
+  a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+  }
+
+  /* Brand as an amber sticker. The ink comes from --style-brand-ink, which the
+     contrast gate measures against the style's brand-500. */
+  app-root .app-title-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    background: var(--primary-500);
+    color: var(--style-brand-ink);
+    border: 2px solid var(--style-outline);
+    border-radius: 10px;
+    box-shadow: 2px 2px 0 var(--style-outline);
+    padding: 2px 12px;
+    width: fit-content;
+    transform: rotate(-2deg);
+  }
+
+  /* The title span carries a gradient text effect (background-clip: text) by
+     default — unreadable on the amber chip. Solid ink, clip neutralised. */
+  app-root .app-title-link span {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: var(--style-brand-ink);
+    color: var(--style-brand-ink);
+  }
+
+  app-root .app-title-icon {
+    color: var(--style-brand-ink);
+    -webkit-text-fill-color: var(--style-brand-ink);
+  }
+
+  /* FABs: stickers instead of soft-shadow pills. `!important` because
+     component styles (including higher-specificity dark overrides) are
+     injected AFTER styles.scss; the tokens are mode-adaptive, so one rule
+     covers both modes. */
+  .fab-button {
+    border: 2px solid var(--fab-edge) !important;
+    box-shadow: 2px 2px 0 var(--style-outline) !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  .fab-button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--style-outline) !important;
+  }
+
+  /* Remaining chrome in the same outline language. Dropped:
+     .gamification-pill (no element carries it in this kit). */
+  .cookie-consent {
+    border-top: 2px solid var(--style-outline) !important;
+  }
+
+  .p-dialog {
+    border: 2px solid var(--style-outline);
+    box-shadow: 4px 4px 0 var(--style-outline);
+    border-radius: 16px;
+  }
+
+  input.p-inputtext,
+  .omnibar-input {
+    border-width: 2px;
+    border-color: var(--style-outline);
+  }
+
+  /* Fields take the control edge in dark mode, as the FABs take --fab-edge.
+     The sticker outline was near-black (#0e0b12, 1.17:1 on the dark ground)
+     when this rule was written; it now equals the control edge, but the field
+     keeps pointing at the control token, which is the role it plays. */
+  &.dark-theme input.p-inputtext,
+  &.dark-theme .omnibar-input {
+    border-color: var(--control-border);
+  }
+
+  /* Example boxes as post-its: outline + pop + a static hairline rotation.
+     The LEFT edge is left alone — it carries the component's semantic variant
+     colour (good/bad/info/warning). */
+  .example-box {
+    border-top: 2px solid var(--style-outline);
+    border-right: 2px solid var(--style-outline);
+    border-bottom: 2px solid var(--style-outline);
+    box-shadow: 3px 3px 0 var(--style-outline);
+    border-radius: 12px;
+    transform: rotate(0.4deg);
+  }
+
+  /* Detail drawer: flush panel — outline the edge that faces the page only,
+     no card radius (it would clip the flush panel). Per position, with the
+     logical sides Optimus itself uses: a left drawer's outline on its right
+     edge, not on the screen edge. A full-screen drawer faces no page. */
+  .p-drawer-left {
+    border-inline-end: 2px solid var(--style-outline);
+  }
+  .p-drawer-right {
+    border-inline-start: 2px solid var(--style-outline);
+  }
+  .p-drawer-top {
+    border-block-end: 2px solid var(--style-outline);
+  }
+  .p-drawer-bottom {
+    border-block-start: 2px solid var(--style-outline);
+  }
+
+  /* Header settings pill: its inner buttons are deliberately stripped
+     borderless by app.component, so the pill carries the sticker as a unit. */
+  .settings-pill {
+    border: 2px solid var(--style-outline);
+    box-shadow: 2px 2px 0 var(--style-outline);
+    background-image: none;
+  }
+
+  /* Suppress the button offset shadow inside the pill — same specificity as
+     the button group above, but later in the block, so it wins; `!important`
+     because that group carries `!important` itself. */
+  .settings-pill .p-button.p-component {
+    box-shadow: none !important;
+  }
+}
+
+@media print {
+  /* Confetti does not belong on paper. */
+  html.style-lernwerkstatt body::before {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Skizzenbuch — watercolour paper, fineliner outlines, hand-drawn radii
+   Tokens: --style-outline, --style-outline-soft, --style-paper-shadow,
+   --style-paper-shadow-lg, --style-wash-1..4, --primary-400, --font-heading.
+   The large arc values in the hand-drawn radii clamp proportionally in the
+   browser: nothing is clipped, the real corners stay at ~14-16px.
+   -------------------------------------------------------------------------- */
+html.style-skizzenbuch {
+  /* Watercolour washes on the page ground: four very soft radial fields in
+     the corners; the alpha sits in the wash tokens. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+      radial-gradient(38rem 26rem at 6% -4%, var(--style-wash-1), transparent 70%),
+      radial-gradient(30rem 24rem at 98% 12%, var(--style-wash-2), transparent 72%),
+      radial-gradient(34rem 28rem at 88% 92%, var(--style-wash-3), transparent 72%),
+      radial-gradient(26rem 22rem at 2% 78%, var(--style-wash-4), transparent 74%);
+  }
+
+  /* Pasted-in sheets: fineliner outline + soft paper shadow + hand-drawn
+     radius, in three variants ("nothing repeats exactly"). Dropped:
+     .area-card, .myth-card (no such component here). */
+  .standard-container,
+  .p-card,
+  .content-card,
+  .checkpoint {
+    border: 1.5px solid var(--style-outline);
+    box-shadow: var(--style-paper-shadow-lg);
+    border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+  }
+
+  .quick-start-card,
+  .entry-card,
+  .generic-card {
+    border: 1.5px solid var(--style-outline);
+    box-shadow: var(--style-paper-shadow-lg);
+    border-radius: 16px 225px 14px 255px / 255px 14px 225px 16px;
+  }
+
+  .stat-card,
+  .filter-section,
+  .filter-sidebar,
+  .compare-table-view,
+  .related-refs--card-wrap {
+    border: 1.5px solid var(--style-outline);
+    box-shadow: var(--style-paper-shadow);
+    border-radius: 195px 14px 225px 14px / 14px 225px 14px 195px;
+  }
+
+  /* Collapsible StandardContainer: collapsed no inner line, expanded a
+     fineliner rule plus an inner radius that matches the small real corners. */
+  .standard-container > .container-header {
+    border-bottom-color: var(--style-outline);
+    border-bottom-width: 1.5px;
+    border-radius: 13px 13px 0 0;
+  }
+
+  .standard-container > .container-header.is-collapsed {
+    border-bottom-width: 0;
+    border-radius: 13px;
+  }
+
+  /* Buttons as paper chips: fineliner outline + soft shadow, pressed in
+     minimally on click. `!important` for the same cascade reason as in
+     lernwerkstatt (injected severity button block). */
+  .p-button:not(.p-button-text):not(.p-button-link),
+  .p-togglebutton,
+  .p-tag,
+  .cookie-btn,
+  .lesson-toolbar-btn,
+  .nav-btn,
+  .cmq-toggle,
+  .related-refs-graph-btn {
+    border: 1.5px solid var(--style-outline) !important;
+    box-shadow: var(--style-paper-shadow) !important;
+  }
+
+  .p-button:not(.p-button-text):not(.p-button-link):enabled:active,
+  .p-togglebutton[data-p-disabled='false']:active,
+  .cookie-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  /* Hand-drawn radius for the non-Optimus chips (Optimus buttons get theirs
+     through presetOverrides.components.button.root.borderRadius). */
+  .p-togglebutton,
+  .p-tag,
+  .cookie-btn,
+  .lesson-toolbar-btn {
+    border-radius: 14px 88px 12px 80px / 80px 12px 88px 14px;
+  }
+
+  /* Header: flat paper band with a fineliner bottom edge. */
+  .main-menubar {
+    border: 0;
+    border-bottom: 1.5px solid var(--style-outline);
+    border-radius: 0;
+  }
+
+  a {
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 4px;
+  }
+
+  /* Brand as an ochre chip on --primary-400. The ink comes from
+     --style-brand-ink, measured against brand-400 by the contrast gate. */
+  app-root .app-title-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    background: var(--primary-400);
+    color: var(--style-brand-ink);
+    border: 1.5px solid var(--style-outline);
+    border-radius: 195px 20px 225px 16px / 16px 225px 20px 195px;
+    box-shadow: var(--style-paper-shadow);
+    padding: 2px 12px;
+    width: fit-content;
+    transform: rotate(-1.5deg);
+  }
+
+  app-root .app-title-link span {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: var(--style-brand-ink);
+    color: var(--style-brand-ink);
+  }
+
+  app-root .app-title-icon {
+    color: var(--style-brand-ink);
+    -webkit-text-fill-color: var(--style-brand-ink);
+  }
+
+  .fab-button {
+    border: 1.5px solid var(--fab-edge) !important;
+    box-shadow: var(--style-paper-shadow) !important;
+  }
+
+  .fab-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18) !important;
+  }
+
+  /* Remaining chrome in the same fineliner language. Inputs get the soft 60 %
+     ink (--style-outline-soft, at least 3.39:1): full ink on every field
+     would be louder than the style intends. Dropped: .gamification-pill. */
+  .cookie-consent {
+    border-top: 1.5px solid var(--style-outline) !important;
+  }
+
+  .p-dialog {
+    border: 1.5px solid var(--style-outline);
+    box-shadow: var(--style-paper-shadow-lg);
+    border-radius: 20px 110px 18px 96px / 96px 18px 110px 20px;
+  }
+
+  input.p-inputtext,
+  .omnibar-input {
+    border-width: 1.5px;
+    border-color: var(--style-outline-soft);
+  }
+
+  .example-box {
+    border-top: 1.5px solid var(--style-outline);
+    border-right: 1.5px solid var(--style-outline);
+    border-bottom: 1.5px solid var(--style-outline);
+    box-shadow: var(--style-paper-shadow);
+    border-radius: 12px;
+    transform: rotate(-0.4deg);
+  }
+
+  /* Drawer: the page-facing edge only, per position (see lernwerkstatt). */
+  .p-drawer-left {
+    border-inline-end: 1.5px solid var(--style-outline);
+  }
+  .p-drawer-right {
+    border-inline-start: 1.5px solid var(--style-outline);
+  }
+  .p-drawer-top {
+    border-block-end: 1.5px solid var(--style-outline);
+  }
+  .p-drawer-bottom {
+    border-block-start: 1.5px solid var(--style-outline);
+  }
+
+  .settings-pill {
+    border: 1.5px solid var(--style-outline);
+    box-shadow: var(--style-paper-shadow);
+    background-image: none;
+  }
+
+  .settings-pill .p-button.p-component {
+    box-shadow: none !important;
+  }
+}
+
+@media print {
+  /* Watercolour washes do not belong on paper. */
+  html.style-skizzenbuch body::before {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Werkbund — Bauhaus geometry: radius 0, ink outlines, no soft shadows
+   Tokens: --style-outline, --style-bw (outline width per mode), --style-offset,
+   --style-geo-red/-yellow/-blue, --primary-500, --font-heading.
+   -------------------------------------------------------------------------- */
+html.style-werkbund {
+  /* Colour bar along the top viewport edge: red / yellow / blue / ink. Fixed
+     overlay, 4px, purely decorative — no layout effect. */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    pointer-events: none;
+    z-index: 2000;
+    background: linear-gradient(
+      to right,
+      var(--style-geo-red) 0 32%,
+      var(--style-geo-yellow) 32% 64%,
+      var(--style-geo-blue) 64% 92%,
+      var(--style-outline) 92% 100%
+    );
+  }
+
+  /* Cards: hard outline (width via --style-bw), radius 0, NO shadows — depth
+     comes only from the offset colour plane below. Dropped: .area-card,
+     .myth-card. */
+  .standard-container,
+  .p-card,
+  .content-card,
+  .quick-start-card,
+  .entry-card,
+  .stat-card,
+  .checkpoint,
+  .generic-card,
+  .filter-section,
+  .compare-table-view,
+  .filter-sidebar,
+  .related-refs--card-wrap {
+    border: var(--style-bw) solid var(--style-outline);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* 8px offset colour plane — deliberately only on hero surfaces (quick-start
+     cards and dialogs), not on every list card. */
+  .quick-start-card,
+  .p-dialog {
+    box-shadow: 8px 8px 0 var(--style-offset);
+  }
+
+  .standard-container > .container-header {
+    border-bottom-color: var(--style-outline);
+    border-bottom-width: var(--style-bw);
+    border-radius: 0;
+  }
+
+  .standard-container > .container-header.is-collapsed {
+    border-bottom-width: 0;
+  }
+
+  /* Buttons as Werkbund blocks: outline in ink/paper, label in the display
+     font, active state presses in physically — no shadows. `!important` for
+     the injected severity button block, as above. */
+  .p-button:not(.p-button-text):not(.p-button-link),
+  .p-togglebutton,
+  .p-tag,
+  .cookie-btn,
+  .lesson-toolbar-btn,
+  .nav-btn,
+  .cmq-toggle {
+    border: var(--style-bw) solid var(--style-outline) !important;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .p-button:not(.p-button-text):not(.p-button-link),
+  .p-togglebutton,
+  .cookie-btn {
+    font-family: var(--font-heading);
+  }
+
+  .p-button:not(.p-button-text):not(.p-button-link):enabled:active,
+  .p-togglebutton[data-p-disabled='false']:active,
+  .cookie-btn:active {
+    transform: translate(2px, 2px);
+  }
+
+  .main-menubar {
+    border: 0;
+    border-bottom: var(--style-bw) solid var(--style-outline);
+    border-radius: 0;
+  }
+
+  a {
+    text-decoration-thickness: 3px;
+    text-underline-offset: 3px;
+  }
+
+  /* Brand as a red Werkbund sign. The label comes from --style-brand-ink,
+     measured against brand-500 by the contrast gate. */
+  app-root .app-title-link {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    background: var(--primary-500);
+    color: var(--style-brand-ink);
+    border: var(--style-bw) solid var(--style-outline);
+    border-radius: 0;
+    padding: 2px 12px;
+    width: fit-content;
+  }
+
+  app-root .app-title-link span {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: var(--style-brand-ink);
+    color: var(--style-brand-ink);
+  }
+
+  app-root .app-title-icon {
+    color: var(--style-brand-ink);
+    -webkit-text-fill-color: var(--style-brand-ink);
+  }
+
+  /* FABs stay CIRCLES (a Bauhaus primitive) but get a hard outline instead of
+     a soft shadow. The focus ring is untouched. */
+  .fab-button {
+    border: var(--style-bw) solid var(--fab-edge) !important;
+    box-shadow: none !important;
+  }
+
+  .fab-button:active {
+    transform: translate(2px, 2px);
+  }
+
+  /* Remaining chrome, radius 0. Dropped: .gamification-pill. */
+  .cookie-consent {
+    border-top: var(--style-bw) solid var(--style-outline) !important;
+  }
+
+  .p-dialog {
+    border: var(--style-bw) solid var(--style-outline);
+    border-radius: 0;
+  }
+
+  input.p-inputtext,
+  .omnibar-input {
+    border-width: 2px;
+    border-color: var(--style-outline);
+    border-radius: 0;
+  }
+
+  .example-box {
+    border-top: 2px solid var(--style-outline);
+    border-right: 2px solid var(--style-outline);
+    border-bottom: 2px solid var(--style-outline);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  /* Drawer: the page-facing edge only, per position (see lernwerkstatt). */
+  .p-drawer {
+    border-radius: 0;
+  }
+  .p-drawer-left {
+    border-inline-end: var(--style-bw) solid var(--style-outline);
+  }
+  .p-drawer-right {
+    border-inline-start: var(--style-bw) solid var(--style-outline);
+  }
+  .p-drawer-top {
+    border-block-end: var(--style-bw) solid var(--style-outline);
+  }
+  .p-drawer-bottom {
+    border-block-start: var(--style-bw) solid var(--style-outline);
+  }
+
+  /* Related-content chips and the graph button: radius 0 — pills broke the
+     geometry. */
+  .related-refs-tag,
+  .related-refs-expand,
+  .related-refs-graph-btn {
+    border-radius: 0;
+  }
+
+  /* Primitive-shape signature in body-copy lists (non-invasive): bullet = red
+     circle, ordinal = bold blue numeral. Nav/chrome lists carry
+     list-style: none and stay untouched. */
+  ul li::marker {
+    color: var(--style-geo-red);
+  }
+
+  ol li::marker {
+    color: var(--style-geo-blue);
+    font-weight: 700;
+  }
+
+  .settings-pill {
+    border: var(--style-bw) solid var(--style-outline);
+    background-image: none;
+    border-radius: 0;
+  }
+}
+
+@media print {
+  /* The colour bar does not belong on paper. */
+  html.style-werkbund body::before {
+    display: none;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   Blaupause — technical drawing: 1px ink lines, mm grid, cyan corner marks
+   Tokens: --style-outline, --style-accent, --style-grid-fine,
+   --style-grid-bold, --font-heading.
+   Depth comes from lines only — no shadows anywhere in this block.
+   -------------------------------------------------------------------------- */
+html.style-blaupause {
+  /* mm grid on the page ground: a fine line every 8px, a bold one every 40px,
+     horizontally and vertically. Colour and alpha sit in the grid tokens. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      repeating-linear-gradient(to right, var(--style-grid-bold) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(to bottom, var(--style-grid-bold) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(to right, var(--style-grid-fine) 0 1px, transparent 1px 8px),
+      repeating-linear-gradient(to bottom, var(--style-grid-fine) 0 1px, transparent 1px 8px);
+  }
+
+  /* Cards as construction frames: 1px ink line, hard 2px corners, NO shadows.
+     The rule is more specific than .standard-container.elevation-* and
+     switches those soft shadows off too. Dropped: .area-card, .myth-card. */
+  .standard-container,
+  .p-card,
+  .content-card,
+  .quick-start-card,
+  .entry-card,
+  .stat-card,
+  .checkpoint,
+  .generic-card,
+  .filter-section,
+  .compare-table-view,
+  .filter-sidebar,
+  .related-refs--card-wrap {
+    border: 1px solid var(--style-outline);
+    box-shadow: none;
+    border-radius: 2px;
+  }
+
+  /* Corner marks: cyan L-angles in the four corners, inset 3px (no overflow
+     or clipping risk). Only on .standard-container, where position: relative
+     and a free ::after are verified. Decorative, no layout effect. */
+  .standard-container::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    pointer-events: none;
+    background:
+      linear-gradient(var(--style-accent), var(--style-accent)) 0 0 / 10px 1px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 0 0 / 1px 10px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 100% 0 / 10px 1px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 100% 0 / 1px 10px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 0 100% / 10px 1px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 0 100% / 1px 10px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 100% 100% / 10px 1px no-repeat,
+      linear-gradient(var(--style-accent), var(--style-accent)) 100% 100% / 1px 10px no-repeat;
+  }
+
+  .standard-container > .container-header {
+    border-bottom-color: var(--style-outline);
+    border-radius: 1px 1px 0 0;
+  }
+
+  .standard-container > .container-header.is-collapsed {
+    border-bottom-width: 0;
+    border-radius: 1px;
+  }
+
+  /* Buttons as technical labels: display font, letter-spaced uppercase. The
+     outline of the FILLED primary/severity buttons runs through the
+     --button-border token in the injected severity block — no specificity
+     duel needed here. */
+  .p-button:not(.p-button-text):not(.p-button-link),
+  .p-togglebutton,
+  .cookie-btn,
+  .lesson-toolbar-btn,
+  .nav-btn,
+  .cmq-toggle {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .main-menubar {
+    border: 0;
+    border-bottom: 1px solid var(--style-outline);
+    border-radius: 0;
+  }
+
+  /* Brand as the drawing's title box: cyan outline, cyan uppercase in the
+     display font. */
+  app-root .app-title-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--style-accent);
+    border: 1px solid var(--style-accent);
+    border-radius: 2px;
+    padding: 2px 12px;
+    width: fit-content;
+  }
+
+  app-root .app-title-link span {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: var(--style-accent);
+    color: var(--style-accent);
+  }
+
+  app-root .app-title-icon {
+    color: var(--style-accent);
+    -webkit-text-fill-color: var(--style-accent);
+  }
+
+  a {
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  /* Cookie banner: annotation line on the top edge, in the drawing ink — the
+     same edge the workshop paints with --style-outline. `!important` because
+     component styles are injected after styles.scss. */
+  .cookie-consent {
+    border-top: 1px solid var(--style-outline) !important;
+  }
+
+  /* Dialogs: a frame instead of a shadow (the backdrop does the lifting). */
+  .p-dialog {
+    border: 1px solid var(--style-outline);
+    box-shadow: none;
+    border-radius: 2px;
+  }
+
+  input.p-inputtext,
+  .omnibar-input {
+    border-color: var(--style-outline);
+    border-radius: 2px;
+  }
+
+  .related-refs-tag,
+  .related-refs-expand,
+  .related-refs-graph-btn {
+    border-radius: 2px;
+  }
+
+  .fab-button {
+    border: 1px solid var(--fab-edge) !important;
+    box-shadow: none !important;
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .example-box {
+    border-top: 1px solid var(--style-outline);
+    border-right: 1px solid var(--style-outline);
+    border-bottom: 1px solid var(--style-outline);
+    box-shadow: none;
+    border-radius: 2px;
+  }
+
+  /* Drawer: the page-facing edge only, per position (see lernwerkstatt). */
+  .p-drawer {
+    border-radius: 0;
+  }
+  .p-drawer-left {
+    border-inline-end: 1px solid var(--style-outline);
+  }
+  .p-drawer-right {
+    border-inline-start: 1px solid var(--style-outline);
+  }
+  .p-drawer-top {
+    border-block-end: 1px solid var(--style-outline);
+  }
+  .p-drawer-bottom {
+    border-block-start: 1px solid var(--style-outline);
+  }
+
+  .settings-pill {
+    border: 1px solid var(--style-outline);
+    background-image: none;
+    border-radius: 2px;
+  }
+}
+
+@media print {
+  /* The mm grid does not belong on paper. */
+  html.style-blaupause body::before {
+    display: none;
+  }
+}

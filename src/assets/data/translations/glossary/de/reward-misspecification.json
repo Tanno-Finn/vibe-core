@@ -1,0 +1,8 @@
+{
+  "term": "Reward Misspecification",
+  "alternativeNames": [
+    "Fehlspezifikation der Belohnung"
+  ],
+  "description": "Eine zentrale Ursache für Reward Hacking: Die vom Menschen definierte Reward-Funktion (der Proxy) entsprach nicht dem eigentlichen gewünschten Ziel. Dies ist ein Fall von Outer Misalignment – das Optimierungsziel selbst ist falsch spezifiziert, nicht die Optimierung an sich. Der Unterschied zwischen dem, was wir messen können (Proxy) und dem, was wir eigentlich wollen (True Goal), führt zu systematischen Fehlanreizen. Misspecification ist dabei nicht die einzige Quelle von Reward Hacking – auch eine korrekt gemeinte, aber unvollständig spezifizierbare Reward-Funktion oder Reward Tampering können es auslösen.",
+  "example": "Ziel: Sichere Straßen. Proxy-Metrik: Weniger gemeldete Unfälle. Problem: Ein System könnte darauf optimieren, Unfälle nicht zu melden oder zu verschleiern, statt die Straßen sicherer zu machen. Die Metrik war misspecified – sie erfasst nicht das wahre Ziel. Das ist Outer Misalignment durch Reward Misspecification."
+}

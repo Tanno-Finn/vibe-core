@@ -1,0 +1,8 @@
+{
+  "term": "Harness Engineering",
+  "alternativeNames": [
+    "Agent-Harness-Design"
+  ],
+  "description": "Harness Engineering ist ein junger, noch nicht fest etablierter Begriff für die Gestaltung der Umgebung, in der ein KI-Agent arbeitet - seines Harness (englisch für Geschirr). Dazu gehören Werkzeuge und Rechte samt Sandbox, Prüf-Gates wie Tests und Freigaben, Gedächtnis, Journale, Regeln und Direktiven. Wie verlässlich ein Agent arbeitet, hängt nicht nur vom Modell ab, sondern stark von dieser Umgebung. Abgrenzung: Prompt Engineering formuliert die einzelne Anweisung, Context Engineering verwaltet die Information im Kontextfenster - Harness Engineering baut das System, in dem beides stattfindet.",
+  "example": "Stell dir die Werkstatt für einen neuen Mitarbeiter vor: welche Maschinen er bedienen darf, wo der Notaus sitzt, welches Handbuch am Platz liegt, wer die Arbeit abnimmt - alles eingerichtet, bevor er loslegt. Harness Engineering richtet genau so die Werkstatt für einen KI-Agenten ein: Rechte, Prüfungen, Notizen, Regeln."
+}

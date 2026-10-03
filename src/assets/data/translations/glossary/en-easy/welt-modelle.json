@@ -1,0 +1,9 @@
+{
+  "term": "World Models",
+  "alternativeNames": [
+    "World Model",
+    "Environment Model"
+  ],
+  "description": "World Models are internal models of the environment. An AI builds a picture of the world. This picture is stored in the computer. The AI can practice in its thoughts with it. It tries actions without really doing them. It predicts what will happen. Then it chooses the best action. This is like when humans imagine something before they do it.",
+  "example": "A robot should grasp things. It builds a World Model. The model knows how things fall. It knows how things roll. The robot thinks in its mind. It tries different movements. Then it chooses the best movement. Only then does it really move."
+}

@@ -1,0 +1,53 @@
+{
+  "page": {
+    "title": "News",
+    "subtitle": "Releases, corrections, and occasional enthusiasm about small things.",
+    "description": "Latest updates on content, languages, and features on this site."
+  },
+  "search": {
+    "label": "Search news",
+    "placeholder": "Search ...",
+    "clear": "Clear search"
+  },
+  "filters": {
+    "label": "Filter by type",
+    "all": "All",
+    "launch": "Go-live",
+    "feature": "Features",
+    "release": "Releases",
+    "bugfix": "Bug fixes",
+    "article": "Articles",
+    "blog": "Blog",
+    "interview": "Interviews",
+    "demo": "Demos",
+    "glossary": "Glossary",
+    "timeline": "Timeline",
+    "tool": "Tools",
+    "language": "Languages",
+    "quality": "Quality",
+    "maintenance": "Maintenance"
+  },
+  "toc": {
+    "title": "Months"
+  },
+  "pinned": "Pinned",
+  "pinnedSection": "Pinned",
+  "new": {
+    "label": "New",
+    "aria": "New since last visit"
+  },
+  "results": {
+    "allCount": "{n} entries",
+    "filteredCount": "{n} of {total} entries"
+  },
+  "chips": {
+    "more": "more",
+    "less": "Show less"
+  },
+  "empty": {
+    "message": "No entries match this filter.",
+    "reset": "Reset filters",
+    "activeFilter": "Filter",
+    "activeSearch": "Search"
+  }
+}

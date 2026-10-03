@@ -1,0 +1,16 @@
+{
+  "id": "stackoverflow-survey-2025-methodology",
+  "type": "other",
+  "authors": "Stack Overflow",
+  "year": "2025",
+  "publication": "Stack Overflow Developer Survey 2025",
+  "url": "https://survey.stackoverflow.co/2025/methodology",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "survey",
+    "methodology",
+    "sample-size",
+    "fielding-period"
+  ]
+}

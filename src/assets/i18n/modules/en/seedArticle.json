@@ -1,0 +1,39 @@
+{
+  "title": "Example Article: The Template",
+  "subtitle": "A placeholder article that shows and explains how an article page is structured",
+  "description": "Placeholder article with no subject content: it shows the building blocks of a good article page — intro, text sections, definition, example, checkpoint, takeaways.",
+  "intro": {
+    "title": "This is a placeholder template",
+    "text": "This page teaches no subject matter — it shows you the blueprint of an article page. Every section is one building block and explains itself. Use this page as the template to copy for your own articles."
+  },
+  "structure": {
+    "title": "How an article is structured",
+    "text": "An article leads from the intro to the key message: an info box at the top frames the page, followed by a few clearly named sections. Running text lives in text containers like this one — one section per thought, each with its own heading, so the table of contents (FAB at the bottom right) provides orientation. A definition block explains terms, an example box shows something concrete, and at the end a checkpoint and the takeaways consolidate what was learned. At the very bottom the article automatically links related content — here the seed glossary terms and timeline events from its meta file."
+  },
+  "definition": {
+    "title": "Term: article page",
+    "analogy": "An article page is like a well-run museum: a sign at the entrance tells you what to expect. Then you walk through room by room — each room has one theme. At the exit, a panel sums up the essentials.",
+    "precise": "An article page is a standalone Angular component built on <code>app-lesson-template</code>. It declares its metadata (id, title key, reading time, difficulty), projects its sections as child elements, and is reachable via a route with a 4-character short id.",
+    "example": "This very page: component under src/app/pages/articles/seed-article-1/, meta in assets/data/core/articles/seed-article-1.json, route articles/seed-article-1 with short id sda1."
+  },
+  "example": {
+    "title": "Example: the 4-character id",
+    "text": "Every article gets a 4-character id (pageId). It yields a short URL that fits into printed material and QR codes.",
+    "label": "Short URL",
+    "result": "/article/sda1 redirects to /articles/seed-article-1 — try it in the address bar."
+  },
+  "checkpoint": {
+    "title": "Check: got the template?",
+    "item1": "I can name the building blocks of an article: intro, text sections, definition, example, checkpoint, takeaways, and related content."
+  },
+  "takeaways": {
+    "title": "Key takeaways",
+    "text": "1. **An article is a component**: its own page built on app-lesson-template, with metadata in articles/index.json plus its own JSON file.\n\n2. **Building blocks over free text**: text container, definition, example box, and checkpoint give every article the same clear shape.\n\n3. **Connected, not isolated**: through the related refs in its meta file, the article links glossary and timeline automatically — the knowledge net grows from data, not manual work.\n\nThis placeholder is deliberately content-free — replace the content, keep the structure."
+  },
+  "next": {
+    "title": "Write your own article",
+    "text": "This page is the template to copy: replace the sections with your subject content and keep the structure. In development mode, two tools help you:",
+    "designWorkshop": "the design workshop with every kit component to try out",
+    "newContent": "the guided way to scaffold new content pages cleanly"
+  }
+}

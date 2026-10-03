@@ -1,0 +1,9 @@
+{
+  "term": "Repository",
+  "alternativeNames": [
+    "Repo",
+    "Code-Depot"
+  ],
+  "description": "Ein Repository ist allgemein ein zentraler Speicher- und Ablageort für die Artefakte eines Projekts, samt deren Verwaltung. Am bekanntesten sind Repositories in Versionskontrollsystemen (z. B. Git): Sie speichern Dateien, Ordner und die komplette Änderungshistorie eines Projekts. Im KI-Kontext gibt es daneben weitere zentrale Repository-Typen: Modell- und Datensatz-Repositories (etwa ein öffentlicher Modell-Hub) zum Teilen trainierter Modelle und Daten sowie Paket- und Artefakt-Repositories (z. B. PyPI, Maven oder Container-Registries) zum Verteilen von Software-Bibliotheken und Images. In einem Code-Repository liegen typischerweise Quellcode, Trainingsskripte, Modelldateien und Konfigurationen, damit Teams reproduzierbar zusammenarbeiten können.",
+  "example": "Auf GitHub hostet ein KI-Team sein Code-Repository mit Trainingscode, Datenpipelines und Modellkonfigurationen; jedes Teammitglied klont das Repo und arbeitet lokal an seinem Branch. Das fertig trainierte Modell lädt das Team anschließend in ein Modell-Repository auf einem öffentlichen Modell-Hub hoch, damit andere es herunterladen können."
+}

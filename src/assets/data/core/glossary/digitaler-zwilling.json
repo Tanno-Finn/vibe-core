@@ -1,0 +1,54 @@
+{
+  "id": "digitaler-zwilling",
+  "category": "applications",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Digital Twin",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Digital Twin",
+      "Digitales Abbild"
+    ],
+    "en": [
+      "Virtual Replica"
+    ],
+    "de-easy": [
+      "Digital Twin"
+    ],
+    "en-easy": [
+      "Computer model of a real thing"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "Grieves, Michael: Digital Twin - Manufacturing Excellence through Virtual Factory Replication. White Paper, 2014",
+      "url": "https://www.researchgate.net/publication/275211047_Digital_Twin_Manufacturing_Excellence_through_Virtual_Factory_Replication",
+      "notes": "Grundlagen-Whitepaper: Konzept aus dem Product Lifecycle Management mit physischem Objekt, virtuellem Modell und Datenverbindung dazwischen."
+    },
+    {
+      "type": "paper",
+      "citation": "Glaessgen, Edward; Stargel, David: The Digital Twin Paradigm for Future NASA and U.S. Air Force Vehicles. 53rd AIAA Structures Conference, 2012",
+      "url": "https://ntrs.nasa.gov/api/citations/20120008178/downloads/20120008178.pdf",
+      "notes": "NASA-Definition: Integration von hochaufgelöster Simulation, Sensordaten und Wartungshistorie, um das reale Fluggerät zu spiegeln."
+    },
+    {
+      "type": "documentation",
+      "citation": "IBM: What Is a Digital Twin?",
+      "url": "https://www.ibm.com/think/topics/digital-twin",
+      "notes": "Industrie-Definition als Cross-Referenz: virtuelles Abbild, laufend mit Echtzeitdaten synchronisiert; Komponenten Sensorik, Datenpipeline, Modell."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "second-brain",
+      "api",
+      "context"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

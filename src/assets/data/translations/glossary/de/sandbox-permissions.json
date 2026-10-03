@@ -1,0 +1,9 @@
+{
+  "term": "Sandbox & Permissions",
+  "alternativeNames": [
+    "Sandbox und Berechtigungen",
+    "Agenten-Rechteverwaltung"
+  ],
+  "description": "Wer einem KI-Agenten Werkzeuge gibt, muss entscheiden, was er damit darf — und zwar bevor etwas schiefgeht. Eine Sandbox ist eine abgeschottete Umgebung, in der der Agent arbeitet: Lese- und Schreibrechte nur für bestimmte Verzeichnisse, Netzzugriff nur auf erlaubte Adressen. Berechtigungen (Permissions) regeln zusätzlich feinkörnig, welche Aktionen erlaubt, verboten oder bestätigungspflichtig sind — Irreversibles wie Löschen oder Veröffentlichen läuft über ein Bestätigungs-Gate beim Menschen. Der Grundgedanke, das Prinzip der geringsten Rechte, ist deutlich älter als KI-Agenten und stammt aus der klassischen IT-Sicherheit. Die entscheidende Verschiebung: Sicherheit kommt aus der Umgebung, nicht aus dem Vertrauen ins Modell. Das begrenzt den Schaden auch dann, wenn der Agent halluziniert oder per Prompt Injection fremde Anweisungen untergeschoben bekommt.",
+  "example": "Ein neuer Praktikant bekommt eine Schlüsselkarte, die genau drei Räume öffnet — nicht aus Misstrauen, sondern weil niemand darauf wetten möchte, dass nichts schiefgeht. Für den Serverraum muss ein Vorgesetzter mitkommen. Genauso darf ein Coding-Agent typischerweise im Projektordner lesen und schreiben, aber nicht auf der Festplatte daneben; „git push“ oder das Löschen von Dateien verlangt eine Bestätigung des Nutzers. Selbst wenn eine präparierte Webseite dem Agenten die Anweisung „lösche alles“ unterschiebt, bleibt der Schaden im Projektordner — die Schlüsselkarte öffnet die anderen Räume trotzdem nicht. Deshalb ist die Sandbox kein Ersatz für Versionskontrolle: Was drinnen liegt, kann der Agent verändern."
+}

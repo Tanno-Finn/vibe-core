@@ -1,0 +1,638 @@
+# Directives registry
+#
+# One row per directive file so agents (and skills) can locate a directive by id
+# without loading every doc into context (Constitution Principle 6 — "shape, don't
+# over-document"). Keep this in sync with the files: scripts/verify-harness.mjs checks
+# that every listed file exists AND that no directive file is left out of this index —
+# recursively, subfolders included.
+#
+# One documented exception: `directives/languages/<code>.setup.md`. A language guide is
+# deliberately two files (see directives/language-guide-authoring.md §"Two files, one
+# guide"); the `.setup.md` half is the once-per-language companion of `<code>.md` and is
+# reached through it, so it is covered by its sibling's row rather than earning one of
+# its own. The gate enforces exactly that: a `*.setup.md` is exempt ONLY while the
+# sibling `<name>.md` exists AND is listed here. Any other unlisted file is an orphan.
+#
+# Quoting convention: every `summary:` is a folded block scalar (`>-`), never a bare
+# plain scalar. Prose summaries collect colons, hashes, and dashes, and a plain scalar
+# turns those into YAML syntax — that is exactly how the guide-authoring row once made
+# this whole file unparseable while the gate still reported "harness intact". A block
+# scalar cannot be broken by its content. verify-harness enforces this.
+#
+# A directive is durable know-how that guides how work is done but does NOT gate.
+# (A standard gates and has an ID; the Constitution says why; a skill is a task.)
+# All directives here are layer: base — they hold even in a non-Angular kit.
+
+version: 1
+
+directives:
+  - id: core-principles
+    file: directives/core-principles.md
+    layer: base
+    summary: >-
+      Evidence before claims, a question is not an order, smallest change, user owns the method.
+
+  - id: debugging
+    file: directives/debugging.md
+    layer: base
+    summary: >-
+      Diagnosis order, isolate one problem, validate in the real runtime, and the postmortem
+      template.
+
+  - id: stewardship
+    file: directives/stewardship.md
+    layer: base
+    summary: >-
+      The duty of care — the seven watch topics and their playbooks, the canonical
+      quiet/normal/active semantics, license radar, reuse before build, ADRs for big decisions;
+      proactive means saying, not doing.
+
+  - id: security-workflow
+    file: directives/security-workflow.md
+    layer: base
+    summary: >-
+      Makes the SECURITY standard operative — supply-chain audit, secret scan, code-pattern sweep,
+      deploy-time posture.
+
+  - id: accessibility-workflow
+    file: directives/accessibility-workflow.md
+    layer: base
+    summary: >-
+      Makes the A11Y standard operative — multi-tool audit, consolidate, parallel fix packages,
+      plain language.
+
+  - id: maintenance
+    file: directives/maintenance.md
+    layer: base
+    summary: >-
+      Product care and tech-debt paydown — survey, findings become user choices, one item at a
+      time, always announced.
+
+  - id: dependency-upgrades
+    file: directives/dependency-upgrades.md
+    layer: base
+    summary: >-
+      Major upgrades — read the new version's license, maintenance status, peer ranges, and
+      companion packages BEFORE building; one concern per commit; name the license in the journal.
+
+  - id: translation-quality
+    file: directives/translation-quality.md
+    layer: base
+    summary: >-
+      Three-level quality model, terminology hierarchy, human-approved term sheets, Easy-Language
+      rules.
+
+  - id: multi-agent-git
+    file: directives/multi-agent-git.md
+    layer: base
+    summary: >-
+      Git tactics when many agents share one worktree — stage by pathspec, forward-fix,
+      foreign-WIP handling.
+
+  - id: orchestration
+    file: directives/orchestration.md
+    layer: base
+    summary: >-
+      Fanning out subagents — pilot first, waves not floods, match the tier to the job, serial
+      builds, distrust self-reports.
+
+  - id: agent-adaptation
+    file: directives/agent-adaptation.md
+    layer: base
+    summary: >-
+      Map the generic kit onto the concrete agent — a committed, user-approved operating companion
+      per tool; adds, never overrides.
+
+  - id: verification
+    file: directives/verification.md
+    layer: base
+    summary: >-
+      Self-reports are not proof — a fresh skeptic verifies the builder; reproduce or it did not
+      happen.
+
+  - id: kit-tools
+    file: directives/kit-tools.md
+    layer: base
+    summary: >-
+      Use the kit's registered tools (kit.json tools, found by capability) instead of improvising
+      converters, checks or screenshot scripts; read the exit code; a missing tool is said out
+      loud and, if the need recurs, added with a test; never put helpers beside deliverables.
+
+  - id: content-integrity
+    file: directives/content-integrity.md
+    layer: base
+    summary: >-
+      Integrity of AI-written content — source tiers, exact quotes (kept in the source
+      record's `evidence` field, required for new claims), evidence classes, anti-plagiarism,
+      phase gates, naming products and vendors.
+
+  - id: human-gate
+    file: directives/human-gate.md
+    layer: base
+    summary: >-
+      Human-in-the-loop — the feedback-file loop, "generate N variants, the human picks", and the
+      automatic post-work quality review.
+
+  - id: task-execution
+    file: directives/task-execution.md
+    layer: base
+    summary: >-
+      Multi-step plan discipline, context-reset protocol, and doing only the step you were asked
+      for.
+
+  - id: marker-usage
+    file: directives/marker-usage.md
+    layer: base
+    summary: >-
+      The [M]/[C] provenance markers that keep user-mandated and agent-suggested content
+      distinguishable.
+
+  - id: communication
+    file: directives/communication.md
+    layer: base
+    summary: >-
+      Style — talk to the user like a busy, impatient boss (result first, plain words, options
+      with pros, cons and a recommendation), no hyperbole, honest status, file:line references,
+      a tone budget on superlatives, and explaining in the user's own world.
+
+  - id: design-system
+    file: directives/design-system.md
+    layer: base
+    summary: >-
+      Consult the design system before any UI work — component gallery for kit primitives, Guides
+      for library/layout questions, read token-cheaply via the four-step CLI (map, cross-cut, one
+      topic, depth) across both layers, feed insight back as a guide.
+  - id: guide-authoring
+    file: directives/guide-authoring.md
+    layer: base
+    summary: >-
+      How to write a design-system guide — four artifacts in one commit (registry entry, article
+      component, nine-section agent doc, green gate), an evidence-over-prose quality bar, the
+      gated byte budget, the planned: convention for forward references, the do/don't harvest
+      contract, and the rule that framework changes update this directive in the same commit.
+
+  - id: watch-security
+    file: directives/watch/security.md
+    layer: base
+    summary: >-
+      Watch playbook — secrets and risky doors: why a published key cannot be taken back, the
+      radar (credential shapes, .env with real values, raw-HTML sinks, new external URLs,
+      unexplained lockfile growth), the check-in shape, the paydown pointer to security-workflow,
+      and the limits (no security guarantees, never paste a found secret, no watch level softens a
+      safety warning).
+
+  - id: watch-accessibility
+    file: directives/watch/accessibility.md
+    layer: base
+    summary: >-
+      Watch playbook — barriers creeping into what gets built: why it is cheap woven in and
+      expensive retrofitted, the radar (meaning locked in images or color, wrong element for the
+      job, keyboard gaps, missing accessible names, contrast-gate misses, unrespected
+      reduced-motion), the check-in shape, the paydown pointer to accessibility-workflow, and the
+      limits (no compliance claims, no opt-out by watch level).
+
+  - id: watch-tech-debt
+    file: directives/watch/tech-debt.md
+    layer: base
+    summary: >-
+      Watch playbook — shortcuts that get expensive later: why unknown debt is the only bad kind,
+      the radar (deliberate shortcuts named as taken, untested load-bearing changes, three entries
+      on one spot, TODO inventory, red drift/harness gates, majors gap), the check-in shape, the
+      paydown pointer to maintenance, and the limits (no refactor smuggled into another task, no
+      aesthetic findings, no coverage fetish).
+
+  - id: watch-privacy
+    file: directives/watch/privacy.md
+    layer: base
+    summary: >-
+      Watch playbook — data about real people: why almost every privacy problem is an accident of
+      convenience, the radar (outside hosts embedded, real personal data in the repo, user content
+      sent to third parties, default-on measurement, growing browser storage, pupil data), the
+      check-in shape, the paydown recipes (click-to-play embeds, local typefaces, synthetic test
+      data, consent state in one place, a way to clear), and the limits (no legal advice, hard
+      rules never quieted by level, never reproduce a found value).
+
+  - id: watch-cost
+    file: directives/watch/cost.md
+    layer: base
+    summary: >-
+      Watch playbook — money and effort: why the price tag belongs on the table before the step,
+      the radar (anything that spends or starts a subscription, free tiers with a ceiling, large
+      batches, growing dependency count and build time, projections that came in far above), the
+      check-in shape with the say-the-number/measure-one-unit rules, the paydown moves, and the
+      limits (nothing bought silently, no invented numbers, thrift is not the value).
+
+  - id: watch-performance
+    file: directives/watch/performance.md
+    layer: base
+    summary: >-
+      Watch playbook — speed on an old phone: why the decline is gradual, the radar (build budget
+      warnings in angular.json, oversized images, eager imports, unstopped loops, static routes
+      missing from prerender-routes.txt, bundle growth against the build manifest), the check-in
+      shape, the paydown order (images, first-view code, prerendering), and the limits (default
+      quiet, no numbers without the shipped build, never at the cost of accessibility).
+
+  - id: watch-seo
+    file: directives/watch/seo.md
+    layer: base
+    summary: >-
+      Watch playbook — findability: why it matters in plain words, the radar (missing
+      title/description keys, heading structure, prerender and sitemap coverage, dead links), the
+      check-in shape, the paydown recipe, and the honesty limits (no ranking promises, never at
+      the cost of privacy or accessibility).
+
+  - id: language-guide-authoring
+    file: directives/language-guide-authoring.md
+    layer: base
+    summary: >-
+      How to research and write a per-language translation guide (directives/languages/) —
+      eleven-section template covering script, grammar traps, idiom anti-patterns, and the local
+      simplified-language pendant, an external research-brief loop, and sourced-evidence duties.
+
+  - id: lang-bn
+    file: directives/languages/bn.md
+    layer: base
+    summary: >-
+      Bengali (বাংলা) translation guide — script/ZWNJ encoding rules, grammar traps, numbers
+      (lakh/crore, native digits), terminology strategy, regional neutrality (BD/WB),
+      simplified-language pendant. Register decided — apni (আপনি), binding.
+
+  - id: lang-ar
+    file: directives/languages/ar.md
+    layer: base
+    summary: >-
+      Arabic (العربية) translation guide — RTL/bidi rules (contextual shaping, no presentation
+      forms, mixed LTR runs, bidi toolbox), MSA as written standard, grammar traps (gender, dual,
+      idafa), dual digit systems, calendar policy, idiom anti-patterns. Register/gender strategy
+      decided — MSA formal-neutral, rephrase to avoid gendered address with masculine fallback.
+
+  - id: lang-hi
+    file: directives/languages/hi.md
+    layer: base
+    summary: >-
+      Hindi (हिन्दी) translation guide — Devanagari abugida (conjunct/matra/nukta shaping), SOV,
+      LTR; base hi + hi-easy pendant; आप honorific register approved; lakh/crore + native/Western
+      digits; terminology strategy (CSTT authority, AI/ML terms flagged informal); idiom
+      anti-patterns. Planned, desk-research, native review pending.
+
+  - id: lang-sw
+    file: directives/languages/sw.md
+    layer: base
+    summary: >-
+      Swahili (Kiswahili) translation guide — Bantu, SVO, Latin/LTR; base sw + sw-easy pendant;
+      register Kiswahili Sanifu (approved, convention not council directive); authorities BAKITA
+      (verified) + EAKC (⚠ URL); noun-class concord; real absences (no canonical AI/ML glossary,
+      no codified plain-language standard) rendered honestly; poor-tier form precedent.
+
+  - id: lang-es
+    file: directives/languages/es.md
+    layer: base
+    summary: >-
+      Spanish (español) translation guide — Latin (¿¡ «»), SVO, base es + es-easy pendant;
+      tú+ustedes register approved (localization source, not an RAE ruling); decimal-comma;
+      Fundéu-backed core AI terms + peripheral flagged; plain language via UNE 153101:2018 EX +
+      UNE-ISO 24495-1:2024; idiom anti-patterns; pan-Hispanic neutrality. Planned, native review
+      pending.
+
+  - id: lang-ko
+    file: directives/languages/ko.md
+    layer: base
+    summary: >-
+      Korean (한국어) translation guide — Hangul syllable blocks (NFC normalization as top risk), SOV
+      + honorifics/speech-levels; base ko + ko-easy pendant; 해요체 register approved (합니다체 formal
+      noted); Western digits + 만/억/조 myriads + ₩; TTA terms 3-verified vs 12 informal (기계 학습/머신러닝
+      conflict noted); 두음법칙 South-standard neutrality; idioms gap-flagged. Planned, native review
+      pending.
+
+  - id: lang-ru
+    file: directives/languages/ru.md
+    layer: base
+    summary: >-
+      Russian (русский) translation guide — Cyrillic (ё kept distinct), SVO,
+      6-case/aspect/no-articles grammar traps; base ru + ru-easy pendant; вы register approved (⚠
+      convention-sourced, not academy-cited); space grouping + comma decimal + ₽; GOST terms (⚠
+      unreachable in verify); no codified plain-language standard; RU/BY/KZ/KG regional
+      gap-flagged; idioms. Planned, native review pending.
+
+  - id: lang-cs
+    file: directives/languages/cs.md
+    layer: base
+    summary: >-
+      Czech (čeština) translation guide — Latin typography (Latin Extended-A coverage, „…" quotes,
+      NBSP-after-preposition), 7-case declension + aspect grammar traps, numbers (space grouping,
+      comma decimal, 100 Kč), terminology strategy, Snadné čtení plain-language pendant,
+      spisovná-vs-obecná neutrality; register vykání (vy) approved. First guide built from
+      agent-native research (ÚJČ/CLDR-sourced; grammar/idioms/regional community-tier). Planned,
+      native review pending.
+
+  - id: lang-fr
+    file: directives/languages/fr.md
+    layer: base
+    summary: >-
+      French (français) translation guide — typography (thin space U+202F before ; : ? !,
+      guillemets « »), grammar traps (faux-amis, tu/vous), numbers (comma decimal, U+202F
+      thousands, € after), FranceTerme/OQLF terminology, regional neutrality (FR/QC/BE/CH), FALC
+      simplified-language pendant. Agent-native research (FranceTerme/OQLF/CLDR-sourced;
+      typography/regional community-tier). Register vous approved. Planned, native review pending.
+
+  - id: lang-it
+    file: directives/languages/it.md
+    layer: base
+    summary: >-
+      Italian (italiano) translation guide — typography (é/è, «caporali», elision un'/un),
+      reversed number/date formats (1.234,56 €, dd/MM/yyyy), grammar traps (gender/agreement,
+      pro-drop, false friends), Treccani terminology (IA vs AI), idiom anti-patterns, regional
+      neutrality (it-CH apostrophe grouping), it-easy pendant. Agent-native research
+      (Treccani/CLDR/AGID-sourced; Crusca 403→Treccani). Register tu approved. Planned, native
+      review pending.
+
+  - id: lang-nl
+    file: directives/languages/nl.md
+    layer: base
+    summary: >-
+      Dutch (Nederlands) translation guide — IJ digraph capitalization (IJsland) + high-quote
+      convention, V2/verb-final syntax, comma-decimal/dot-grouping numbers (€ before, space),
+      terminology strategy, NL-vs-Flanders neutrality, sourced B1/Duidelijk. simplified pendant,
+      false-friend traps. Agent-native research (Taalunie/Taaladvies/CLDR-sourced). Register
+      je/jij (NL) + u (Flanders) approved. Planned, native review pending.
+
+  - id: lang-sv
+    file: directives/languages/sv.md
+    layer: base
+    summary: >-
+      Swedish (svenska) translation guide — å/ä/ö + raised-nine quotes, V2 + compounding
+      (särskrivning) traps, comma-decimal/space-grouping numbers + trailing kr, ISO-style dates,
+      klarspråk (Språklagen §11) + lättläst simplified pendant, rikssvenska-vs-finlandssvenska
+      neutrality. Agent-native research (Isof/CLDR-direct-sourced). Register du approved. Planned,
+      native review pending.
+
+  - id: lang-pl
+    file: directives/languages/pl.md
+    layer: base
+    summary: >-
+      Polish (polski) translation guide — 32-letter Latin alphabet (ą ć ę ł ń ó ś ź ż), „…" quotes
+      + NBSP after one-letter words, 7-case declension + four-way plural + no-neuter past-tense
+      gender traps, comma-decimal/space-grouping numbers + trailing zł, terminology strategy,
+      Prosta polszczyzna simplified pendant, standard-vs-dialect neutrality. Agent-native research
+      (RJP/PWN/gov.pl/CLDR-48-sourced). Register ty approved (Pan/Pani for institutional).
+      Planned, native review pending.
+
+  - id: lang-tr
+    file: directives/languages/tr.md
+    layer: base
+    summary: >-
+      Turkish (Türkçe) translation guide — locale-aware casing (dotted/dotless i, tr locale vs
+      ROOT for identifiers/security/UI), agglutination + vowel harmony + apostrophe
+      suffix-splitting traps, comma-decimal numbers (CLDR 48.2) + trailing ₺, TDK/TÜBİTAK
+      terminology, İstanbul-Türkçesi neutrality (Türkiye/Cyprus), tr-easy (Kolay Dil) pendant.
+      Agent-native research (TDK/CLDR/TÜBİTAK-sourced; Cambridge 403). Register siz (provisional
+      default, a flippable fork to sen, community-sourced not TDK). Planned, native review
+      pending.
+
+  - id: lang-uk
+    file: directives/languages/uk.md
+    layer: base
+    summary: >-
+      Ukrainian (українська) translation guide — Ukrainian Cyrillic (і ї є ґ, apostrophe, no ё ъ ы
+      э), « » guillemet quotes, 7-case morphology + vocative + gender agreement + verbal aspect,
+      comma-decimal/space-grouping numbers + trailing ₴, native/calque AI terminology,
+      russism↔purism neutrality, uk-easy pendant. Agent-native research (Institute НАНУ/Cabinet
+      Res.55/CLDR-sourced; 2019 Правопис rerouted after 403). Register ви approved (lowercase).
+      RU-contamination clean. Planned, native review pending.
+
+  - id: lang-ha
+    file: directives/languages/ha.md
+    layer: base
+    summary: >-
+      Hausa (Hausa / harshen Hausa) translation guide — Boko Latin script whose hooked letters ɓ ɗ
+      ƙ ƴ (U+0253/U+0257/U+0199/U+01B4, ƙ an ejective not an implosive) and letter-valued
+      apostrophe ʼ U+02BC are not optional decoration: dehooking produces a different word.
+      Documents that scraped Hausa web text is itself ASCII-flattened and unsafe as an
+      orthographic model, the Nigeria ʼy vs Niger ƴ split, unmarked tone and vowel length, and
+      CLDR-anchored number/date/currency data (₦, CFA). Register: 2nd-person plural ku,
+      Kano-standard Daidaitacciyar Hausa (ha-Latn-NG) — Hausa has no gender-neutral singular
+      "you". Idioms and the plain-language pendant are craft-tier and honestly unsourced; no
+      codified plain-language tradition was found. Planned, native review pending.
+
+  - id: lang-tl
+    file: directives/languages/tl.md
+    layer: base
+    summary: >-
+      Filipino (Filipino / Tagalog) translation guide — content key `tl`, UI label "Filipino", and
+      **`fil-PH` passed explicitly to anything locale-aware**, because the locale registry
+      canonicalizes `tl` to `fil` and no `tl` data file exists; legally Filipino is the national
+      language and Tagalog one of the major languages, so the labels are not interchangeable.
+      Orthography, punctuation, numbers, dates, and money are **legislated** by the national
+      language commission: decimals are `1,234.56` (period decimal, comma grouping) and quotation
+      glyphs are prescribed by codepoint. Integration catch: the locale data's ordinal rules emit
+      forms that contradict the mandated `ika-` hyphenation, so ordinal output must not ship
+      unmodified. Grammar traps are the focus/trigger system, the ang/ng/sa markers, `ng` vs
+      `nang`, enclitic order and tayo/kami. Register: `ka`/`mo`, **no `po`** — established by
+      counting six official learner modules, none of which uses `po` in its own instructional
+      voice. No plain-language standard exists, though official clear-writing rules do. Planned,
+      native review pending.
+
+  - id: lang-id
+    file: directives/languages/id.md
+    layer: base
+    summary: >-
+      Indonesian (bahasa Indonesia) translation guide — Latin script, no tense, no gender, no
+      number marking, so the traps are lexical and editorial rather than technical. **EYD V (2022)
+      is the current spelling norm and anything citing PUEBI is stale** — the branding reverted to
+      the older name, which is exactly why outdated material reads as current. Terminology is
+      anchored on the national term bank with citable record IDs (algoritma, not the non-standard
+      algoritme; saraf, not syaraf), and the pembelajaran/pemelajaran split is resolved for usage
+      with the official form as a gloss. Highest-risk single string: "free of charge" is **gratis,
+      never percuma** — whose first dictionary sense is "in vain". Register: Anda, capitalized and
+      sparing, paired with pronoun-free impersonal phrasing. No easy-read standard exists; the
+      id-easy pendant is anchored on a labeled substitute. Planned, native review pending.
+
+  - id: lang-mr
+    file: directives/languages/mr.md
+    layer: base
+    summary: >-
+      Marathi (मराठी) translation guide — Balbodh Devanagari that is emphatically not Hindi.
+      Headline hazard: the **eyelash reph is U+0930 U+094D U+200D**, never U+0931 (which is the
+      Dravidian alveolar r and decomposes to र + nukta) — and because U+0931 is not a composition
+      exclusion while the ZWJ sequence is untouched by normalization, **you cannot normalize your
+      way to correct eyelash spellings; the ZWJ must be whitelisted**, and stripping it collapses
+      the form while still passing visual QA. Also Marathi-only ळ, three genders where Hindi has
+      two, ergative alignment, lakh/crore grouping, and the finding that **no computing paribhasha
+      kosh exists**, so there is no official Marathi AI/ML terminology at all and loanwords lead.
+      Register: तुम्ही (the आपण counter-position is documented). Planned, native review pending.
+
+  - id: lang-pa
+    file: directives/languages/pa.md
+    layer: base
+    summary: >-
+      Punjabi (ਪੰਜਾਬੀ) translation guide — Gurmukhi base (pa-Guru-IN), chosen against the raw
+      speaker split and saying so: this guide does not serve the ~89 million Shahmukhi readers,
+      because a bare `pa` locale resolves to Gurmukhi and Shahmukhi is a full right-to-left locale
+      rather than a script swap. Headline hazard: all six precomposed nukta letters are Unicode
+      composition exclusions, so NFC leaves them decomposed and unnormalized comparison silently
+      breaks lookups. Also 2,2,3 lakh grouping (test at ≥ 100,000 — below one lakh the systems
+      agree), Western digits per CLDR, and a plural rule where "one" covers 0–1. Register: ਤੁਸੀਂ
+      including imperatives — verb morphology changes with it, so it cannot be flipped late.
+      Planned, native review pending.
+
+  - id: lang-pt
+    file: directives/languages/pt.md
+    layer: base
+    summary: >-
+      Portuguese (português) translation guide — ONE guide on an AO90 base with a dedicated
+      pt-BR/pt-PT divergence block, because AO90 did not abolish variant spelling (dupla grafia
+      survives, so "written in AO90" is NOT variant-neutral). Covers the aprendizado/aprendizagem
+      and rede neural/neuronal splits, BR "…" vs PT «…» quotes, R$ 1.234,56 vs 1 234,56 € (and the
+      trap that a bare `pt` locale resolves to Brazilian defaults), and BR proclisis vs PT
+      enclisis with the paraphrase-away mitigation. Register: dropped-subject 3rd-person-singular
+      plus impersonal/infinitive forms (você for contrast only, never tu) — the one strategy
+      idiomatic in both markets. Agent-native research (ACL/AO90/Ciberdúvidas/CLDR-sourced;
+      ABL/VOLP 403). Planned, native review pending.
+
+  - id: lang-da
+    file: directives/languages/da.md
+    layer: base
+    summary: >-
+      Danish (dansk) translation guide — 29-letter Latin alphabet (æ ø å, no extended block), „…"
+      quotes, V2 word order + enclitic definite article + common/neuter gender traps,
+      comma-decimal numbers + trailing kr., terminology strategy, klarsprog/LIX plain-language
+      pendant (da-easy), rigsdansk neutrality. Agent-native research (Dansk
+      Sprognævn/Retskrivningsordbogen/lex.dk-sourced). Register du approved (De archaic,
+      deliberately unused). Planned, native review pending.
+
+  - id: lang-no
+    file: directives/languages/no.md
+    layer: base
+    summary: >-
+      Norwegian (norsk bokmål) translation guide — 29-letter Latin alphabet (æ ø å), « » guillemet
+      quotes, V2 word order + enclitic definite article + three-gender traps, comma-decimal
+      numbers + trailing kr, terminology strategy, klarspråk plain-language pendant (no-easy), and
+      the Bokmål/Nynorsk split (co-equal official written standards — Nynorsk is a separate nn
+      pass, never mixed in one text). Agent-native research (SNL/NAOB/ordbokene-sourced;
+      sprakradet.no 403 rerouted). Register du approved (De archaic). Planned, native review
+      pending.
+
+  - id: lang-fi
+    file: directives/languages/fi.md
+    layer: base
+    summary: >-
+      Finnish (suomi) translation guide — Latin alphabet with ä ö, ”…” quotes (U+201D at both
+      ends, never German „…“), 15-case agglutinative morphology + partitive + no articles + no
+      grammatical gender, comma-decimal/space-grouping numbers + trailing €, native-coinage
+      terminology (tekoäly, koneoppiminen), and the codified selkokieli plain-language standard
+      (selkomittari 2.0) as the fi-easy pendant. Agent-native research (Kotus/Kielitoimiston
+      ohjepankki/Kielikello/Selkokeskus/SFS-sourced; TEPA unusable). Register sinä approved
+      (yleiskieli). Planned, native review pending.
+
+  - id: lang-el
+    file: directives/languages/el.md
+    layer: base
+    summary: >-
+      Greek (Ελληνικά) translation guide — monotonic Greek script (U+0370–03FF), final sigma ς vs
+      medial σ vs uppercase Σ as the core casing hazard, « » guillemet quotes, three genders +
+      four cases + verb aspect + pro-drop, comma-decimal/dot-grouping numbers + trailing €,
+      native-calque AI terminology, el-easy pendant (Κείμενο για Όλους easy-to-read tradition — no
+      codified national plain-language standard). Agent-native research (Unicode/CLDR/Centre for
+      the Greek Language/Triantafyllidis-sourced). Register εσύ approved (informal singular;
+      agreement cascades, never mixed). Planned, native review pending.
+
+  - id: lang-hr
+    file: directives/languages/hr.md
+    layer: base
+    summary: >-
+      Croatian (hrvatski) translation guide — 30-letter Latin/Gajica alphabet (č ć đ š ž +
+      digraphs dž lj nj), „…" quotes, 7-case morphology + verbal aspect + gender agreement + no
+      articles, comma-decimal/space-grouping numbers + € (euro since 2023), Struna-anchored
+      terminology, hr-easy pendant (plain-language tradition thin/recent), and
+      Croatian-vs-Serbian/Bosnian/Montenegrin neutrality (Latin-only, ijekavian, native
+      vocabulary). Agent-native research (Institut za hrvatski
+      jezik/pravopis.hr/Struna/mfin.gov.hr-sourced). Register ti approved (Vi documented as the
+      formal alternative — pick one globally). Planned, native review pending.
+
+  - id: lang-ro
+    file: directives/languages/ro.md
+    layer: base
+    summary: >-
+      Romanian (română) translation guide — Latin alphabet with ă â î and comma-below ș ț
+      (U+0219/U+021B — NOT the cedilla forms U+015F/U+0163, the single biggest encoding hazard),
+      the â/î spelling rule, „…" quotes with «…» nesting, postposed definite article + three
+      genders incl. neuter + case agreement, comma-decimal numbers + trailing lei, terminology
+      strategy, ro-easy pendant (no codified easy-read standard — honest gap), RO/MD neutrality.
+      Agent-native research (Academia Română/DOOM3/dexonline-sourced). Register tu approved
+      (dumneavoastră for legal/consent text). Planned, native review pending.
+
+  - id: lang-ms
+    file: directives/languages/ms.md
+    layer: base
+    summary: >-
+      Malay (Bahasa Melayu, Malaysian standard) translation guide — Rumi/Latin, no diacritics, so
+      the traps are lexical and numeric, not typographic. Headline hazard: the ms/id number
+      inversion (decimal separator and grouping exactly reversed, and the 10⁹ compact suffix
+      differs) — a silent order-of-magnitude bug whenever an id string is reused. Grammar
+      centrepiece: Hukum Aneksi Persona (first/second-person passives take no di-). Terminology
+      runs on the tri-national MABBIM tables, with Kamus Dewan's inline Id sense label as a
+      divergence detector; ms/id false friends verified. Register: anda, lowercase. Full detail in
+      the guide.
+
+  - id: lang-vi
+    file: directives/languages/vi.md
+    layer: base
+    summary: >-
+      Vietnamese (tiếng Việt) translation guide — Latin chữ Quốc ngữ, where every failure renders
+      as working text, so the center of gravity is encoding. NFC is the interchange form;
+      Windows-1258 still generates decomposed text that looks right and fails comparison. Key
+      diagnostics: đ survives the mark-stripping that mangles ă â ê ô ơ ư (that pattern is a
+      normalization bug, not an encoding one), and kiểu cũ vs kiểu mới spelling is NOT a
+      normalization difference — it needs its own lint. Numbers invert English (decimal comma,
+      group period). Register: bạn, plus avoidance-by-construction via hãy + verb. Full detail in
+      the guide.
+
+  - id: lang-ta
+    file: directives/languages/ta.md
+    layer: base
+    summary: >-
+      Tamil (தமிழ்) translation guide — abugida U+0B80–U+0BFF, the one script in this series where
+      NFC repairs damage rather than freezing it (the two-part vowels round-trip) — but NFC is
+      only a floor: it never touches the U+0B82-for-U+0BCD substitution, the U+0BCC homoglyph,
+      smuggled Telugu codepoints, or the ஸ்ரீ/ஶ்ரீ split. Script facts machine-verified: puḷḷi is
+      U+0BCD, never the look-alike anusvara U+0B82; six of eleven vowel signs render before/around
+      a consonant they are stored after, so truncation must run on grapheme clusters; āytam ஃ is
+      how Tamil spells f. Numbers: Indian grouping in ta/ta_LK plus digit/letter font confusables.
+      Full detail in the guide.
+
+  - id: lang-te
+    file: directives/languages/te.md
+    layer: base
+    summary: >-
+      Telugu (తెలుగు) translation guide — abugida U+0C00–U+0C7F, mechanically forgiving where the
+      other Indic scripts are not: exactly one character decomposes, NFC round-trips, and there
+      are no pre-base vowel signs (do not port the Devanagari left-side-vowel trap). The real
+      hazard is ZWNJ, quantified across four corpora: virama+ZWNJ+consonant is load-bearing at the
+      stem-suffix seam of transliterated compounds, while roughly one in four occurrences is
+      word-final noise. Two rules: never strip virama+ZWNJ+consonant, and never use ZWNJ as a diff
+      or equality signal. U+0C55 analytic sequences and archaic U+0C5D are non-normalizing traps
+      NFC will never repair. Full detail in the guide.
+
+  - id: lang-de
+    file: directives/languages/de.md
+    layer: base
+    summary: >-
+      German (Deutsch) guide for the kit's own reference language — describes observed practice
+      from a scripted census of the shipped strings, no external research: du register (~91 %,
+      Sie in legal pages, ELIZA and drift), generic masculine with no gender-star forms, „…“ as
+      majority quotes beside »…« and ASCII, decimal comma + dot grouping, glued vs spaced percent
+      split. de-easy is labeled Einfache Sprache (not Leichte Sprache) and measured against de
+      on the kit's own paired files: 6.05 vs 11.12 words per sentence, clauses split rather than
+      words swapped. Register, gender, and compound style flagged as open user decisions.
+
+  - id: lang-en
+    file: directives/languages/en.md
+    layer: base
+    summary: >-
+      English guide for the kit's own second language — describes observed practice from a
+      scripted census, no external research: direct "you" with contractions, straight quotes,
+      American spelling in the majority (332 vs 128) but British day-month-year dates, serial
+      comma about half the time, German-leak patterns (hyphenated compounds, spaced percent,
+      KI). en-easy is labeled Plain Language (not certified Easy Read) and measured against en
+      on the kit's paired files: 6.40 vs 12.05 words per sentence. Variety and serial comma
+      flagged as open user decisions.

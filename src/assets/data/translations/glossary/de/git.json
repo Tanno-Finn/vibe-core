@@ -1,0 +1,9 @@
+{
+  "term": "Git",
+  "alternativeNames": [
+    "Git-Versionsverwaltung",
+    "Git-VCS"
+  ],
+  "description": "Git ist ein verteiltes Versionskontrollsystem, bei dem jeder Entwickler ein vollständiges Repository mit kompletter Historie lokal besitzt. Das ermöglicht verzweigtes Arbeiten, gemeinsames Entwickeln und sicheres Nachvollziehen von Änderungen an KI-Code, Notebooks und Konfigurationsdateien.",
+  "example": "Ein ML-Team nutzt Git-Branches: ein Branch für das neue Modell, einer für die Datenaufbereitung. Per Merge werden die Arbeiten zusammengeführt, und die Git-Historie zeigt exakt, welche Änderung welches Ergebnis beeinflusst hat."
+}

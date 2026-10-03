@@ -1,0 +1,5 @@
+{
+  "term": "Human-in-the-Loop",
+  "description": "Human-in-the-Loop. Das bedeutet Mensch in der Schleife. Man sagt auch HITL. Das ist ein Arbeits·system. Eine KI macht die meiste Arbeit alleine. Aber an wichtigen Stellen kommt ein Mensch dazu. Dafür gibt es verschiedene Wege. Manchmal muss ein Mensch eine Entscheidung erst prüfen und freigeben. Das ist bei wichtigen oder gefährlichen Sachen so. Manche Gesetze schreiben das vor. Dann lernt die KI nicht unbedingt dazu. Der Mensch passt nur auf. Manchmal ist die KI unsicher. Dann fragt sie einen Menschen. Der Mensch trifft die Entscheidung. Und die KI kann daraus lernen. So wird das System mit der Zeit besser. Der Mensch muss vor allem die schwierigen Fälle bearbeiten. Das spart Zeit. Und es ist sicherer. Human-in-the-Loop wird oft benutzt. Zum Beispiel in der Medizin. Oder bei der Überwachung von Inhalten.",
+  "example": "Eine KI prüft Röntgen·bilder. Sie ist sich zu 95 Prozent sicher. Dann macht sie die Diagnose selbst. Bei weniger Sicherheit fragt sie einen Arzt. Der Arzt schaut sich das Bild an. Seine Meinung hilft der KI zu lernen."
+}

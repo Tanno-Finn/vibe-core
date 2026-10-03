@@ -1,0 +1,74 @@
+{
+  "title": "Sources",
+  "intro": "Here you find all the sources. For reading yourself.",
+  "scope": {
+    "all": "All",
+    "portal": "From Site",
+    "label": "Source scope"
+  },
+  "types": {
+    "paper": "Research",
+    "book": "Book",
+    "website": "Web Page",
+    "wikipedia": "Wikipedia",
+    "video": "Video",
+    "interview": "Interview",
+    "article": "Article",
+    "database": "Data Collection",
+    "documentation": "Guide",
+    "report": "Report",
+    "thesis": "Study Paper",
+    "other": "Other"
+  },
+  "chapters": {
+    "unknown": "Sources without a chapter"
+  },
+  "noDate": "no date",
+  "filter": {
+    "searchPlaceholder": "Type your search...",
+    "chapterLabel": "Filter by chapter",
+    "typeLabel": "Filter by type",
+    "allChapters": "All Chapters",
+    "allTypes": "All Types",
+    "clearAll": "Clear All",
+    "clearAllTooltip": "Remove all filters",
+    "activeFilters": "Active Filters",
+    "searchChip": "Search",
+    "title": "Search Sources"
+  },
+  "results": {
+    "showing": "Showing",
+    "of": "of",
+    "sources": "sources"
+  },
+  "noResults": {
+    "title": "Nothing found",
+    "message": "We found nothing. Try a different search."
+  },
+  "export": {
+    "success": "{count} sources saved",
+    "fabLabel": "Save Sources",
+    "dialogTitle": "Save sources",
+    "dialogSubtitle": "Pick a format",
+    "sourceSelection": "Which sources?",
+    "filteredSources": "Only these",
+    "allSources": "All",
+    "citationFormat": "Writing style",
+    "selectCitationFormat": "Pick one",
+    "fileFormat": "File type",
+    "selectFileFormat": "Pick one",
+    "downloadButton": "Save",
+    "pdfPrintHint": "Print window opens",
+    "bookCitationFilter": "Book Sources (DEV)",
+    "allSourcesLabel": "All sources",
+    "bookCitationOnly": "From book only"
+  },
+  "portalGroups": {
+    "articles": "Articles",
+    "guides": "Guides",
+    "demos": "Demos",
+    "glossary": "Glossary",
+    "timeline": "Timeline"
+  },
+  "tableOfContents": "Contents"
+}

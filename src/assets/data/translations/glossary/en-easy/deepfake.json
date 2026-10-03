@@ -1,0 +1,9 @@
+{
+  "term": "Deepfake",
+  "alternativeNames": [
+    "AI Fake Video",
+    "AI-generated synthetic media"
+  ],
+  "description": "Deepfake means: an AI creates a fake video or image. It shows a real person. But the scene never happened. The word comes from English. Deep stands for deep learning. Fake means forgery. Deepfakes can look very real. They can be dangerous. For example they can show a person saying things they never said.",
+  "example": "Someone uses AI to make a video. The video shows a well-known person doing something bad. But the video is a lie. The person never did that. Still, many people believe the video."
+}

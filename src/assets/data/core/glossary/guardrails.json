@@ -1,0 +1,60 @@
+{
+  "id": "guardrails",
+  "category": "ai-safety",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Guardrails",
+  "childConcepts": [],
+  "parentConcepts": [
+    "ai-safety"
+  ],
+  "alternativeNames": {
+    "de": [
+      "Leitplanken",
+      "Guardrails",
+      "Sicherheitsfilter"
+    ],
+    "en": [
+      "Guardrails",
+      "Safety Rails",
+      "Safety Filters"
+    ],
+    "de-easy": [
+      "Leitplanken",
+      "Sicherheitsregeln",
+      "Guardrails"
+    ],
+    "en-easy": [
+      "Guardrails",
+      "Safety Rules"
+    ]
+  },
+  "sources": [
+    {
+      "title": "NVIDIA. (2023). NeMo Guardrails: A Toolkit for Controllable and Safe LLM Applications. GitHub / arXiv:2310.10501",
+      "type": "documentation",
+      "url": "https://arxiv.org/abs/2310.10501",
+      "notes": "Definiert Guardrails als programmatische Kontrollschicht für LLM-Eingaben und -Ausgaben; unterscheidet topical, safety und dialog rails"
+    },
+    {
+      "title": "Inan, H., Upasani, K., Chi, J., et al. (2023). Llama Guard: LLM-based Input-Output Safeguard for Human-AI Conversations. arXiv:2312.06674",
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2312.06674",
+      "notes": "Repräsentatives Beispiel für modellbasierte Guardrails: ein dediziertes Klassifikationsmodell prüft Ein- und Ausgaben auf Richtlinienkonformität"
+    },
+    {
+      "title": "Anthropic. (2022). Constitutional AI: Harmlessness from AI Feedback. arXiv:2212.08073",
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "notes": "Constitutional AI als Architekturprinzip für in das Modell eingebettete Guardrails via RLHF — Alternative zu rein externen Filterschichten"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "hallucination"
+    ]
+  },
+  "createdAt": "2026-06-22",
+  "updatedAt": "2026-06-22"
+}

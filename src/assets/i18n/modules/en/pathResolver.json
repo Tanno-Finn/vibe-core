@@ -1,0 +1,41 @@
+{
+  "label": {
+    "workingDirectory": "Where you are standing (pwd)",
+    "path": "The path you type",
+    "placeholder": "e.g. data/file.csv"
+  },
+  "action": {
+    "reset": "Reset"
+  },
+  "kind": {
+    "absolute": "Absolute path",
+    "relative": "Relative path",
+    "home": "Home-relative path"
+  },
+  "hint": {
+    "absolute": "It starts with /, so where you are standing makes no difference.",
+    "relative": "It starts from the directory you are standing in.",
+    "home": "~ stands for the home directory."
+  },
+  "result": {
+    "landsAt": "Lands at"
+  },
+  "target": {
+    "dir": "A folder is there",
+    "file": "A file is there",
+    "missing": "Nothing is there — no such file or directory"
+  },
+  "trace": {
+    "title": "Step by step",
+    "start": "start here",
+    "up": "one level up",
+    "stay": "stay here",
+    "down": "go into it"
+  },
+  "tree": {
+    "title": "The file tree",
+    "here": "you are here",
+    "target": "the path lands here"
+  },
+  "summary": "{{kind}}, resolves to {{absolute}}. {{target}}."
+}

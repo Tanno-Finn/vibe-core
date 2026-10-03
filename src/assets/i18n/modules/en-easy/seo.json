@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "aiTimeline": {
+      "description": "How your subject grew, from the start to today. With the most important moments.",
+      "keywords": "Timeline, History, Milestones, Developments",
+      "title": "Timeline"
+    },
+    "default": {
+      "description": "{siteName} is a learning platform for your subject. It has demos to try, useful tools, and learning materials.",
+      "keywords": "learning, tutorial, interactive learning, education, demos",
+      "title": "{siteName} - Your Gateway to Learning"
+    },
+    "exampleDemo": {
+      "description": "A template demo. It shows how a demo is built.",
+      "keywords": "example demo, template",
+      "title": "Example Demo"
+    },
+    "glossary": {
+      "description": "The glossary explains the technical words of your subject. A glossary is a list of words with their meaning.",
+      "keywords": "Glossary, Terms, Dictionary, Definitions",
+      "title": "Glossary"
+    },
+    "home": {
+      "description": "Get to know your subject. With demos to try, exercises, and useful tools.",
+      "keywords": "Homepage, Tutorial, Demos, Learning",
+      "title": "Home"
+    },
+    "impressum": {
+      "description": "Legal notice and legal information about {siteName}.",
+      "keywords": "Legal Notice, Imprint, Contact",
+      "title": "Legal Notice"
+    },
+    "userSettings": {
+      "description": "Set up {siteName} the way you like it. For example the language, the colors, and how you want to learn.",
+      "keywords": "User Settings, {siteName} Configuration, Learning Preferences",
+      "title": "Settings"
+    }
+  }
+}

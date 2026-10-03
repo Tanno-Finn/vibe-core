@@ -1,0 +1,16 @@
+{
+  "id": "anthropic-reasoning-modelle-2025",
+  "type": "article",
+  "authors": "Anthropic",
+  "year": "2025",
+  "publication": "Anthropic",
+  "url": "https://www.anthropic.com/research/reasoning-models-dont-say-think",
+  "doi": "",
+  "accessed": "2025-12-02",
+  "tags": [
+    "reasoning",
+    "chain-of-thought",
+    "unfaithful-explanations",
+    "safety"
+  ]
+}

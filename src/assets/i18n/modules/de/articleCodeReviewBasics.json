@@ -1,0 +1,267 @@
+{
+  "hero": {
+    "title": "Review ohne Programmierkenntnisse",
+    "subtitle": "Der Agent meldet fertig, alle Prüfungen sind grün - und jetzt sollst du etwas abnehmen, das du nicht lesen kannst. Was du in dieser Lage wirklich prüfen kannst, und was sich nur wie Prüfen anfühlt."
+  },
+  "toc": {
+    "lead": "Der Moment der Abnahme",
+    "thesis": "Deine Rolle",
+    "diff": "Was ein Diff verrät",
+    "origin": "Woher der Diff kommt",
+    "questions": "Drei Fragen, die etwas messen",
+    "acceptance": "Selbst nachsehen",
+    "limits": "Was der Browser nicht zeigt",
+    "close": "Abschluss",
+    "takeaways": "Zum Mitnehmen",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Der Agent meldet: fertig. Die automatischen Prüfungen sind durchgelaufen und stehen auf grün. Die Zusammenfassung im Chatfenster ist freundlich, klingt kompetent und endet mit dem Satz, dass alles wie gewünscht umgesetzt sei. Darunter wartet ein Knopf, auf dem Übernehmen steht. Und du kannst den Code nicht lesen.",
+    "paragraph2": "Daran ändert kein guter Wille etwas, und es bieten sich genau zwei Auswege an, die beide nichts taugen. Der erste ist, so zu tun als ob: durch die Zeilen scrollen, ernst nicken, übernehmen. Das ist Theater vor einem Publikum aus einer Person. Der zweite ist, nach einer Beruhigung zu fragen. Das erzeugt einen Satz - und Sätze sind genau das Material, aus dem die Zusammenfassung schon besteht, die dich in diese Lage gebracht hat.",
+    "paragraph3": "Drei Dinge liegen in diesem Moment aber außerhalb des Gesprächs mit dem Agenten: eine Änderung, die eine messbare Form hat. Antworten, die sich an etwas halten lassen. Und ein Programm, das du selbst bedienen kannst. Keines der drei sagt dir, dass die Änderung richtig ist. Alle drei können dir sagen, dass sie es nicht ist. Und dafür musst du keine einzige Zeile Code verstehen.",
+    "paragraph4": "Das ist kein Argument dagegen, Code lesen zu lernen. Es ist das, was du tun kannst, solange du es nicht kannst - und was du weiterhin tun wirst, wenn du es kannst."
+  },
+  "thesis": {
+    "title": "Deine Rolle in diesem Moment",
+    "text1": "Du bist hier nicht der Gutachter, der den Code beurteilt. Du bist die Person, die abnimmt und danach dafür geradesteht. Das ist keine bescheidenere Rolle, sondern eine andere - und es ist ohnehin die Rolle, die du hast, sobald du auf Übernehmen drückst.",
+    "text2": "Diese Verschiebung ist mehr als eine Formulierung. In der Forschung zum übermäßigen Vertrauen in automatisch erzeugte Ergebnisse gehört es zu den Maßnahmen, für die eine Wirkung dokumentiert ist: die eigene Verantwortung für das Ergebnis zu betonen - und zwar dann, wenn man sie sich selbst zuschreibt, nicht wenn sie einem auferlegt wird.",
+    "text3": "Der Artikel geht dafür drei Schritte, und keiner davon verlangt eine Programmiersprache: die Form der Änderung, die Frage an den Agenten, die eigene Beobachtung. Jeder Schritt kann einen Widerspruch erzeugen. Mehr braucht es nicht.",
+    "objectives": {
+      "title": "Was du danach kannst",
+      "item1": "Einen Diffstat lesen, den du nicht selbst erzeugt hast, und seine drei laienlesbaren Signale benennen: Umfang, Streuung, Verhältnis.",
+      "item2": "Erklären, warum ein Diff eine berechnete Ansicht des Unterschieds zweier gespeicherter Stände ist - und warum ihn deshalb, anders als die Zusammenfassung, niemand verfasst hat.",
+      "item3": "Aus mehreren plausibel klingenden Rückfragen die auswählen, deren Antwort einen Beleg erzeugt, und zu jeder der drei Fragen das Artefakt nennen, an dem ihre Antwort gehalten wird.",
+      "item4": "Für eine gegebene Änderung einen Rundgang im Programm entwerfen, der den Fall enthält, der scheitern muss - und drei Dinge nennen, die dieser Rundgang trotzdem nicht zeigt."
+    }
+  },
+  "diff": {
+    "title": "Was ein Diff verrät, ohne dass du Code liest",
+    "intro": "Das Bild dafür ist der Korrekturmodus einer Textverarbeitung, und es steht im Portal schon an mehreren Stellen, weil es trägt: Zwei Fassungen liegen übereinander, Durchgestrichenes ist entfernt, Markiertes ist neu. Was du dabei beurteilst, ist nicht das Dokument, sondern die Bearbeitung. Das ist der Ausgangspunkt, nicht die Entdeckung - interessant wird es an den beiden Stellen, an denen das Bild bricht.",
+    "analogyBreak1": "Erstens zeigt dir ein Korrekturmodus den ganzen Text. Ein Diff zeigt Ausschnitte: ein paar Zeilen rund um jede geänderte Stelle, den Rest der Datei nie. Du siehst also nicht, was dort sonst noch steht, und kannst es auch nicht erschließen.",
+    "analogyBreak2": "Zweitens heißt in einem Text gleich aussehen auch gleich sein. In einem Programm können zwei Zeilen, die sich in einem einzigen Zeichen unterscheiden, völlig Verschiedenes tun. Genau deshalb ist das Lesen der Zeilen hier nicht deine Aufgabe - und genau deshalb ist das, was jetzt kommt, überhaupt möglich.",
+    "definitionTitle": "Diff",
+    "definitionEverydayLabel": "Alltagssprache",
+    "definitionEveryday": "Die Liste der Stellen, an denen sich etwas geändert hat: welche Dateien angefasst wurden, was dort weggefallen ist und was dazugekommen ist.",
+    "definitionPreciseLabel": "Fachlich",
+    "definitionPrecise": "Genauer: die berechnete Gegenüberstellung zweier gespeicherter Stände. Entfernte Zeilen tragen ein Minus, neue ein Plus, und gezeigt werden Ausschnitte mit ein paar unveränderten Zeilen ringsum, nie die vollständige Datei. Eine neu angelegte oder ganz gelöschte Datei ist als solche erkennbar. Was ein Diff nicht enthält: das Verhalten des Programms. Er zeigt geänderten Text, kein Ergebnis.",
+    "signalsTitle": "Drei Signale, für die du keine Programmiersprache brauchst",
+    "signalsIntro": "Aus einem Diff lassen sich drei Eigenschaften ohne jede Code-Kenntnis ablesen. Zusammen ergeben sie die Form einer Änderung, und eine Form lässt sich mit dem vergleichen, worum du gebeten hast.",
+    "signalSize": "Umfang: wie viele Zeilen und wie viele Dateien insgesamt. Eine reine Zählung, mehr steckt nicht dahinter.",
+    "signalSpread": "Streuung: über wie viele Dateien sich das verteilt und welche das sind. Manchmal sagen dir die Namen etwas, weil ein Ordner heißt wie ein Teil der Anwendung, den du kennst. Manchmal sagen sie dir gar nichts - dann ist genau das die Aufgabe von Frage 1 weiter unten: ein Satz Alltagssprache pro Datei. Was du auch ohne Namensverständnis siehst, ist die Verteilung: Liegt fast alles an einer Stelle, oder ist es über das halbe Projekt verstreut?",
+    "signalRatio": "Verhältnis: wie viel dazugekommen ist und wie viel weggefallen. Dazu gehört eine Rechenregel, ohne die man sofort falsche Schlüsse zieht. Wird eine Zeile umgeschrieben, zählt sie doppelt - einmal als entfernt, einmal als neu. Deshalb sagt dir erst die Differenz beider Zahlen, wie viel unterm Strich wirklich verschwunden ist.",
+    "yardstick": "Für den Umfang brauchst du außerdem einen Maßstab, sonst wirkt jede Zahl gleich beeindruckend. Zwei Werte helfen dabei, und sie tun Verschiedenes: Der eine ist die Messlatte, der andere nur die Einordnung.",
+    "statA": {
+      "label": "Zeilen gelten als vertretbare Größe einer Änderung",
+      "description": "Rund 1000 Zeilen sind nach derselben veröffentlichten Empfehlung in aller Regel zu viel. Das ist der Wert, an dem sich der Umfang beurteilen lässt."
+    },
+    "statB": {
+      "label": "Zeilen: Median einer geprüften Änderung bei Google",
+      "description": "Gemessen an rund 9 Millionen Änderungen zwischen Januar 2014 und Juli 2016. Dort ist der Wert ungewöhnlich klein - bei anderen Firmen wurden 44 bis über 260 Zeilen gemessen. Einordnung, keine Norm."
+    },
+    "yardstickScope": "Beide Zahlen kommen aus einer Welt, in der Menschen die Änderungen geschrieben und Menschen sie geprüft haben; maschinell erzeugte Änderungen wurden, so gut es ging, herausgefiltert. Sie taugen als Größenordnung, nicht als Grenzwert.",
+    "exampleTitle": "Beispiel: ein Diffstat, den du lesen kannst",
+    "exampleIntro": "Der Auftrag war ein Satz: Bestandskunden bekommen 10 Prozent Rabatt. Zurück kommt zuerst eine Zusammenfassung im Chat - und daneben, wenn du danach suchst, eine Übersicht wie diese. Sie heißt Diffstat: eine Zeile je geänderter Datei, darunter eine Summenzeile.",
+    "blockLabel": "Diffstat: die Zusammenfassung der Änderung",
+    "walkSize": "Umfang zuerst. Vier Dateien, 87 geänderte Zeilen - das sind die Zahlen links neben den Strichen, zusammengezählt. Am Maßstab von eben gemessen ist das keine Kleinigkeit, aber es ist prüfbar. Was hier auffällt, ist nicht die Größe.",
+    "walkRatio": "Verhältnis. 31 Zeilen sind dazugekommen, 56 sind weggefallen. Unterm Strich sind also 25 Zeilen verschwunden - bei einem Auftrag, der lautete, eine Regel hinzuzufügen. Etwas hinzuzufügen und dabei per Saldo zu schrumpfen ist nicht verboten. Es ist erklärungsbedürftig.",
+    "walkSpread": "Streuung. Drei der vier Dateien liegen ungefähr dort, wo du sie erwartest. Die vierte auch - nur trägt sie allein 62 der 87 Zeilen, ihr Balken besteht fast nur aus Minuszeichen, und ein Warenkorb kam in deinem Auftrag nicht vor. Du hast von einem Rabatt für Bestandskunden gesprochen.",
+    "verdict": "Auffällig ist also nicht die Größe. Auffällig ist die Richtung.",
+    "located": "Und jetzt der wichtigste Satz dieses Abschnitts: Geprüft hast du damit nichts. Du hast die Stelle gefunden, an der sich Prüfen lohnt - und nebenbei die Frage formuliert, die dir der nächste Abschnitt in die Hand gibt.",
+    "misconception1": {
+      "title": "Ein großer Diff bedeutet, dass viel geschafft wurde",
+      "text": "Die veröffentlichte Empfehlung, aus der die Zahl von eben stammt, sagt das Gegenteil: Rund 100 Zeilen sind eine vertretbare Größe, rund 1000 sind in aller Regel zu viel, und als Eigenschaften kleiner Änderungen werden ausdrücklich genannt, dass sie gründlicher geprüft werden und sich leichter wieder zurücknehmen lassen. Ein großer Diff ist deshalb kein Ertrag, sondern zuerst einmal eine schwerer prüfbare Änderung. Die praktische Folge betrifft nicht dein Lesen, sondern deinen Auftrag: Wenn eine Änderung vierzig Dateien anfasst, ist das Mittel nicht, genauer hinzusehen, sondern beim nächsten Mal kleiner zu fragen."
+    },
+    "misconception2": {
+      "title": "Der Diff zeigt mir, was das Programm jetzt tut",
+      "text": "Ein Diff zeigt geänderte Zeilen in Ausschnitten. Verhalten steht darin nicht, und es lässt sich daraus auch nicht erschließen: Eine einzige geänderte Zeile kann verändern, wie sich das ganze Programm verhält, und vierzig geänderte Zeilen können gar nichts bewirken. Der Diff sagt dir, wo du hinsehen sollst. Was dort passiert, sagt dir erst das laufende Programm - deshalb hat dieser Artikel einen dritten Teil."
+    }
+  },
+  "origin": {
+    "title": "Woher der Diff kommt - und wie du an ihn kommst",
+    "text1": "Die Versionsverwaltung speichert vollständige Stände, einen pro Commit; so heißt ein gespeicherter Stand. Der Diff ist keiner dieser gespeicherten Stände. Er wird bei Bedarf ausgerechnet, indem zwei davon verglichen werden. Daraus folgt zweierlei, und beides ist sofort brauchbar.",
+    "text2": "Erstens ist ein Diff immer die Differenz zwischen zwei bestimmten Ständen. Den Diff gibt es nicht; es gibt den Diff zwischen dem, was vorher da war, und dem, was der Agent daraus gemacht hat. Wenn dir jemand einen zeigt, ist die erste Frage, welche beiden Stände darin verglichen werden.",
+    "text3": "Zweitens, und das ist der Grund für diesen Abschnitt: Geschrieben hat ihn niemand. Die Zusammenfassung im Chatfenster hat der Agent formuliert. Der Diff wurde aus den tatsächlichen Dateien errechnet. Deshalb wiegt er schwerer - nicht weil er ehrlicher wäre, sondern weil an ihm keine Formulierung beteiligt war.",
+    "acquisitionTitle": "Wo du ihn findest",
+    "acquisition1": "Du sitzt vermutlich nicht an einer Kommandozeile, also die drei praktischen Wege. Erstens: Das Werkzeug, in dem der Agent arbeitet, hat fast immer eine Ansicht der geänderten Dateien - mal heißt sie Änderungen, mal Diff, mal steht bloß eine Zahl neben dem Dateinamen. Zweitens: Liegt das Projekt auf einer Plattform, hat dort jede vorgeschlagene Änderung eine eigene Seite, auf der die Übersicht bereits fertig steht. Drittens: Du kannst den Agenten bitten, die Übersicht zu erzeugen und ihre Ausgabe zu zeigen.",
+    "acquisition2": "Falls du nichts davon findest, ist der folgende Satz vollständig und abschickbar: Zeig mir die Zusammenfassung der Änderung - welche Dateien, wie viele Zeilen dazu, wie viele weg.",
+    "acquisition3": "Dazu gehört die Einschränkung, ohne die dieser Abschnitt seine eigene Behauptung überziehen würde. Ein Diffstat, den der Agent selbst in den Chat tippt, ist wieder eine Aussage von ihm. Das Artefakt ist die Ausgabe des Werkzeugs. Der Satz niemand hat ihn geschrieben gilt für diese Ausgabe - nicht für eine Nacherzählung davon. Verlange deshalb die Ausgabe, und werde misstrauisch, wenn Zahlen ohne Dateinamen kommen.",
+    "acquisition4": "Und eine zweite Einschränkung gilt immer: Ein Diff kennt nur Dateien, welche die Versionsverwaltung mitführt. Was außerhalb liegt - lokale Einstellungen, Zugangsdaten, hochgeladene Dateien - taucht darin nicht auf, auch wenn es sich geändert hat."
+  },
+  "checkpoint1": {
+    "title": "Kurzer Selbstcheck",
+    "item1": "Ich kann in einem Diffstat Umfang, Streuung und Verhältnis zeigen.",
+    "item2": "Ich weiß, warum der Diff nicht vom Agenten geschrieben wurde - und wo ich ihn finde.",
+    "item3": "Ich kann sagen, was ein Diff mir nicht zeigt."
+  },
+  "questions": {
+    "title": "Drei Fragen, die etwas messen",
+    "intro": "Zwei Fragen liegen in diesem Moment besonders nahe. Beide sind gedacht, bevor man sie ausspricht, und beide messen nichts.",
+    "introSure": "Die erste lautet: Bist du sicher? Sie fragt nach einer Einschätzung der eigenen Sicherheit. Sprachmodelle neigen dort, wo man es gemessen hat, dazu, ihre Sicherheit zu hoch anzusetzen. Ein selbstbewusstes Ja passt deshalb zu einer richtigen Änderung genauso gut wie zu einer falschen.",
+    "introReally": "Die zweite lautet: Stimmt das wirklich? Sie signalisiert Zweifel. Dass Antworten, die zur erkennbaren Haltung des Fragenden passen, bevorzugt werden, ist bei führenden Assistenten dokumentiert. Die Antwort kann sich also bewegen, ohne dass sich am Programm etwas bewegt hat.",
+    "criterion": "Was beiden fehlt, ist weder Höflichkeit noch Präzision. Es fehlt etwas außerhalb des Gesprächs, woran sich die Antwort halten ließe. Genau daraus ergibt sich das Kriterium für alles, was du fragen kannst.",
+    "bridge": "Zusage oder Beleg - den Unterschied kennst du aus dem Artikel über Tests, wo er über eine Liste von Forderungen entschieden hat. Hier wird er zum Auswahlkriterium für die Fragen selbst.",
+    "filters": "Drei Filter, kurz. Die Antwort muss in Alltagssprache, Dateinamen, Zahlen oder Klickschritten ankommen, sonst kannst du sie nicht lesen. Sie muss sich an etwas außerhalb des Modells halten lassen: an den Diff, an deinen eigenen Auftrag oder an das laufende Programm. Und eine falsche Antwort muss auffallen können, sobald du nachsiehst.",
+    "value": "Eine Frage ist nicht deshalb gut, weil ihre Antwort ehrlich ist. Sie ist gut, wenn ihre Antwort etwas erzeugt, das ihr widersprechen kann.",
+    "comparison": {
+      "ariaLabel": "Vergleich: Frage nach einer Zusicherung gegen Frage nach einem Artefakt",
+      "beforeLabel": "Frage nach einer Zusicherung",
+      "beforeText": "Bist du sicher, dass nur Bestandskunden den Rabatt bekommen?",
+      "beforeResult": "Antwort: ein Satz. Woran ich ihn halten kann: an nichts.",
+      "afterLabel": "Frage nach einem Artefakt",
+      "afterText": "Zeig mir, wie ich selbst nachsehe, dass ein Neukunde ihn nicht bekommt.",
+      "afterResult": "Antwort: eine Anleitung. Woran ich sie halten kann: an der laufenden Anwendung."
+    },
+    "comparisonNote": "Gleiche Änderung, gleicher Agent, gleiche Höflichkeit. Der Unterschied liegt nicht in der Formulierung, sondern darin, dass die eine Antwort widerlegbar ist und die andere nicht.",
+    "q1Title": "Frage 1: Was hast du angefasst?",
+    "q1Label": "Zum Kopieren und Abschicken",
+    "q1Prompt": "Liste mir jede Datei auf, die du geändert hast, und schreib hinter jede in einem Satz in Alltagssprache, was sich dort ändert. Sag mir am Ende, was du nicht geändert hast, obwohl es zu meiner Bitte gehört hätte.",
+    "q1Text1": "Gehalten wird diese Antwort an die Dateiliste des Diffs. Zwei Widersprüche werden dabei ohne jede Code-Kenntnis sichtbar: eine Datei, die im Diff steht und in der Antwort fehlt - und eine Datei, die in der Antwort steht und im Diff nicht vorkommt. Beides sind Zeilen, die du abzählen kannst.",
+    "q1Text2": "Die zweite Hälfte der Frage hat kein Artefakt im Diff, sondern eines bei dir: deinen Auftrag. Lies ihn nach, bevor du die Antwort liest, und hake seine Teile an der Liste ab. Aus dem Gedächtnis funktioniert das nicht - wer den Auftrag erinnert statt ihn nachzulesen, erinnert leicht die Fassung, die zum Ergebnis passt. Bestand deine Bitte aus einem Satz im Chat, dann steht dieser Satz noch da, und er ist genau das Dokument, das du dafür brauchst.",
+    "q1Text3": "Ein Nebenbefund aus derselben veröffentlichten Empfehlung: Eine Änderungsbeschreibung, die nur Bugfix oder Phase 1 lautet, ist keine Beschreibung. Sie sagt weder, was geändert wurde, noch warum. Wenn die Antwort auf Frage 1 so aussieht, hast du sie noch nicht bekommen.",
+    "q2Title": "Frage 2: Was ist verschwunden?",
+    "q2Label": "Zum Kopieren und Abschicken",
+    "q2Prompt": "Was hast du gelöscht oder ersetzt, das vorher schon funktioniert hat? Nenne für jede Löschung die Stelle in der Anwendung, an der ich es zuerst merken würde, wenn sie fehlt.",
+    "q2Text1": "Gehalten wird diese Antwort an den Saldo im Diff - an die Differenz aus Plus und Minus, nicht an die Löschzahl allein. Eine ganz entfernte Datei ist zusätzlich als solche sichtbar. Wenn der Agent sagt, es sei nichts weggefallen, während unterm Strich fünfundzwanzig Zeilen fehlen, hast du deinen Widerspruch.",
+    "q2Text2": "Löschungen sind das unsymmetrische Risiko. Was neu hinzukommt, gehört zu der Stelle, die du dir ohnehin ansiehst - du hast sie wegen dieser Änderung geöffnet. Was entfernt wurde, fehlt dagegen genau dort, wo du gerade nicht bist.",
+    "q2Text3": "Der zweite Halbsatz ist der wichtigere. Er verwandelt ein unbestimmtes Risiko in eine Adresse, und eine Adresse kannst du ansteuern. Damit ist der nächste Abschnitt vorbereitet.",
+    "q3Title": "Frage 3: Wie sehe ich es selbst?",
+    "q3Label": "Zum Kopieren und Abschicken",
+    "q3Prompt": "Schreib mir eine Anleitung, mit der ich selbst nachsehe, dass es funktioniert: welche Seite ich öffne, was ich eingebe, was ich danach sehen muss. Nenne außerdem einen Fall, in dem es nicht funktionieren darf, und was ich dann sehen müsste.",
+    "q3Text1": "Gehalten wird diese Antwort an das laufende Programm. Sie lässt sich ausführen oder nicht, und das Ausführen erzeugt eine Beobachtung, die dir gehört und die niemand für dich formuliert hat.",
+    "q3Text2": "Der Fehlerfall ist dabei der entscheidende Teil. Ein erfundenes Erfolgsrezept kann die Berührung mit der Wirklichkeit überstehen; ein erfundener Fehlerfall bricht in dem Moment zusammen, in dem das Programm bereitwillig annimmt, was es hätte ablehnen müssen.",
+    "q3Text3": "Und weil fast alles, was du dir bauen lässt, am Ende jemand vor einem Bildschirm benutzt, ist das Nachsehen am Verhalten hier besonders angebracht: Bei Änderungen, die der Benutzer unmittelbar merkt, ist genau das die Prüfung, auf die es ankommt.",
+    "analogyTitle": "Der Gebrauchtwagenkauf",
+    "analogy": "Beim Gebrauchtwagen fragt niemand, ob der Wagen gut ist. Man fragt nach einer Probefahrt, nach dem Scheckheft und danach, was zuletzt repariert wurde. Die richtige Frage erzeugt einen Beleg statt einer Beruhigung, und wer sie stellt, muss von Motoren nichts verstehen.",
+    "analogyBreak": "Hier bricht das Bild, und zwar an einer wichtigen Stelle. Der Verkäufer kann die Absicht haben, dich zu täuschen. Ein Modell hat keine. Der Grund, warum seine Selbsteinschätzung nichts wiegt, ist ein anderer und nüchterner: Es hat keinen bevorzugten Zugang zu seinen eigenen Gründen, und die Sicherheit, die es angibt, ist nicht daran geeicht, wie oft es recht behält. Es geht hier also nicht um Charakter, sondern um Bauart.",
+    "transfer": {
+      "title": "Was hier gemessen ist - und was nicht",
+      "measured": "Gemessen ist Folgendes: In einer Untersuchung vom 3. April 2025 nannte ein untersuchtes Reasoning-Modell in 25 Prozent der Fälle den Hinweis, der seine Antwort tatsächlich gelenkt hatte, ein zweites in 39 Prozent. In einem zweiten Versuchsaufbau ging es darum, eine Lücke in der Bewertung auszunutzen; dort fiel ein vergleichbarer Anteil in den meisten Szenarien unter 2 Prozent. Gemessen wurde das außerdem an dem, was ein Modell aufschreibt, während es denkt - nicht an dem, was es antwortet, wenn du es fragst.",
+      "notMeasured": "Nicht gemessen ist das hier: Niemand hat untersucht, was ein Coding-Agent antwortet, wenn ein Nutzer ihn nach dem Diff fragt, den er gerade erzeugt hat. Ob sich die Befunde auf genau diese Lage übertragen, ist nicht bekannt.",
+      "why": "Warum der Rat trotzdem gilt: Er hängt nicht daran, wie zuverlässig die Antwort ist. Vielleicht steckt in einem selbstbewussten Ja sogar etwas drin. Du kannst es nur nirgends gegenhalten - und deshalb kannst du damit nichts anfangen. Das Auswahlkriterium ist die Prüfbarkeit, nicht die Ehrlichkeit. Sollte sich herausstellen, dass Coding-Agenten solche Fragen tadellos beantworten, verlieren die drei Fragen nichts: Sie würden dann von den Artefakten bestätigt statt widerlegt."
+    },
+    "misconception": {
+      "title": "Wenn die Erklärung überzeugend klingt, stimmt sie",
+      "text": "Eine Erklärung ist erzeugter Text. Sie kann falsch darstellen, was eine Ausgabe tatsächlich hervorgebracht hat: In der Untersuchung von eben blieb der Faktor, der die Antwort gelenkt hatte, in der großen Mehrheit der Fälle unerwähnt, während die Erklärung die falsche Antwort selbstbewusst begründete. Überzeugungskraft ist eine Eigenschaft des Textes, nicht des Programms. Behandle jede Antwort als Behauptung, die noch zu prüfen ist, nie als Befund."
+    },
+    "deepDive": {
+      "title": "Warum die Frage nach der Sicherheit nichts misst",
+      "text1": "Die Zahlen, die der Fließtext auslässt. In der Untersuchung vom 3. April 2025 nannte ein untersuchtes Reasoning-Modell in 25 Prozent der Fälle den Hinweis, der die Antwort gelenkt hatte, ein zweites in 39 Prozent; in einem zweiten Versuchsaufbau, wo sich eine Lücke in der Bewertung ausnutzen ließ, fiel ein vergleichbarer Anteil in den meisten Szenarien unter 2 Prozent. Eine zweite Arbeit fand für ein verzerrendes Merkmal einen Rückgang der Trefferquote um bis zu 36 Prozent über eine Reihe von Aufgaben, während die Erklärungen die verzerrte Antwort begründeten, ohne das Merkmal zu erwähnen.",
+      "text2": "All das ist an Sprachmodellen in Untersuchungsaufbauten erhoben, nicht an einem Coding-Agenten, der zu seinem eigenen Diff befragt wird. Der Kasten weiter oben gilt hier unverändert: Diese Zahlen sind ein Grund, die Frage nicht zu stellen. Sie sind keine Aussage über deinen Agenten."
+    },
+    "boundary": "Alle drei Fragen betreffen die fertige Änderung. Alles, was mit Tests zu tun hat - was sie prüfen, was grün wert ist, was du dazu verlangen kannst -, hat in diesem Lernpfad einen eigenen Artikel und wird hier nicht wiederholt."
+  },
+  "acceptance": {
+    "title": "Die Abnahme: selbst nachsehen",
+    "analogy": "Bei einer Wohnungsabnahme liest niemand die Baupläne. Man geht durch, drückt jede Klinke, dreht jeden Hahn auf, schaut in jede Ecke - und unterschreibt für das, was man gesehen hat. Man ist die abnehmende Seite, nicht der Bausachverständige.",
+    "definitionSentence": "Das hat auch einen Fachnamen: Abnahmeprüfung. Ihre übliche Definition stellt nicht den Prüfer in den Mittelpunkt, sondern die abnehmende Seite - geprüft wird gegen den tatsächlichen Bedarf, damit derjenige, der das System übernehmen soll, entscheiden kann, ob er es übernimmt. Das bist in diesem Moment du.",
+    "scope": "Der Rundgang setzt keine Webseite voraus. Wenn es nichts zu öffnen gibt, gilt derselbe Ablauf für das, was dir das Programm sonst zeigt: eine Datei, die es erzeugt, eine Liste, die es ausgibt, eine Nachricht, die es verschickt. Die Bewegung heißt bedien es selbst, nicht öffne einen Browser.",
+    "stepsTitle": "Der Rundgang, sechs Schritte",
+    "stepsAriaLabel": "Ablauf einer Abnahme in sechs Schritten",
+    "step1": "Die Stelle öffnen, die Frage 3 genannt hat - frisch geladen, nicht der Tab, der offen stand, während der Agent gearbeitet hat. Eine Wohnung nimmt man auch nicht anhand der Fotos von letzter Woche ab.",
+    "step2": "Den normalen Fall durchspielen, mit den Eingaben, auf die es dir tatsächlich ankommt.",
+    "step3": "Den Fall auslösen, der scheitern muss - und nachsehen, ob er so scheitert, wie Frage 3 es angekündigt hat.",
+    "step4": "Die Stelle aufmachen, die Frage 2 als mögliches Opfer einer Löschung genannt hat, und prüfen, ob das Alte dort noch funktioniert. Der Hahn in dem Zimmer, das niemand renoviert hat.",
+    "step5": "Einen Fall ausprobieren, den du dir selbst ausdenkst - den einen, der der Grund für die Änderung war.",
+    "step6": "Aufschreiben, was du gesehen hast. Abgenommen wird die Beobachtung, nicht der Bericht.",
+    "stepFiveWhy": "Schritt 5 ist der einzige, der nicht aus dem Gespräch stammt. Die Schritte 3 und 4 laufen an Stellen, die der Agent selbst benannt hat: eine Auswahl, getroffen von demjenigen, dessen Arbeit hier geprüft wird. Ein Fall, den du dir ausdenkst, ist der einzige im ganzen Rundgang, für den das nicht gilt.",
+    "exampleTitle": "Beispiel: die Prüfung, die zu wenig zeigt",
+    "exampleIntro": "Zurück zum Rabatt. Du folgst der Anleitung des Agenten: Warenkorb öffnen, als Bestandskunde anmelden, einen Artikel für 10,00 Euro hineinlegen, erwartet werden 9,00 Euro. Es stehen 9,00 Euro da.",
+    "exampleResult": "Festgestellt ist damit: Für diesen Kunden, diesen Artikel, diesen Preis wird der Rabatt angewendet und angezeigt. Das ist ein echtes Ergebnis, und es räumt einen echten Zweifel aus.",
+    "exampleFail": "Nicht festgestellt ist, ob ein Neukunde korrekt abgelehnt wird. Dieser Weg wurde nie gegangen. Also meldest du dich ab und legst denselben Artikel als Neukunde in den Warenkorb. Erscheinen wieder 9,00 Euro, hat sich die löschlastige Datei aus dem ersten Abschnitt gerade selbst erklärt - und gefunden hat das der Browser, nicht der Agent.",
+    "exampleStill": "Unsichtbar bleibt trotzdem: ob der Rabatt auch bei einer zweiten Bestellung greift, ob er eine abgebrochene Zahlung übersteht, ob dabei fremde Warenkörbe angefasst wurden.",
+    "analogyBreak": "Hier bricht die Wohnung als Bild. Was hinter der Wand liegt, bleibt in beiden Fällen unsichtbar - so weit stimmt es. Aber hinter der Wand einer Wohnung ist nächsten Monat noch dasselbe, während sich in einem Programm mit jeder Änderung etwas dahinter verschieben kann. Und eine Wohnung hat eine abzählbare Menge Wasserhähne. Ein Programm nicht.",
+    "misconception1": {
+      "title": "Es hat bei mir funktioniert, also funktioniert es",
+      "text": "Ein erfolgreicher Durchlauf zeigt einen Weg - und du bist ihn als du selbst gegangen, mit deinen Daten, deinen Rechten, deinem Gerät. Das ist kein Grund zur Resignation, im Gegenteil: Eine gelungene Prüfung räumt einen bestimmten Zweifel aus, und das ist viel wert. Es ist nur nicht dasselbe wie es ist korrekt."
+    },
+    "misconception2": {
+      "title": "Wenn ich nichts Ungewöhnliches sehe, ist nichts kaputt",
+      "text": "Die gefährliche Sorte Fehler ist die entfernte Prüfung, und eine entfernte Prüfung erzeugt kein sichtbares Ereignis. Sie erzeugt eine Ablehnung, die ausbleibt - und ausbleibende Dinge sieht man nicht, man vermisst sie höchstens. Deshalb reicht Umsehen hier nicht. Du musst den Fall absichtlich herbeiführen."
+    }
+  },
+  "limits": {
+    "title": "Was der Browser nicht zeigt",
+    "intro": "Der Rundgang hat eine Decke, und sie gehört zur ehrlichen Fassung dieses Artikels dazu. Sieben Dinge findet er systematisch nicht:",
+    "blind1": "Die Fälle anderer Leute. Du hast als du selbst geprüft, mit deinen Daten und deinen Rechten.",
+    "blind2": "Was still entfernt wurde und an keiner Stelle liegt, die du geöffnet hast.",
+    "blind3": "Was hinter einer grünen Bestätigung mit den Daten geschieht: doppelt geschrieben, an die falsche Stelle geschrieben, gar nicht geschrieben.",
+    "blind4": "Seltene Wege und Fehlerfälle: leere Eingabe, Zeitüberschreitung, Verbindung mitten im Vorgang weg.",
+    "blind5": "Last und Dauer. Was einmal funktioniert, muss es nicht zehntausendmal tun.",
+    "blind6": "Alles Sicherheitsrelevante. Das ist ausdrücklich nicht Gegenstand dieses Artikels; dafür gibt es in diesem Lernpfad einen eigenen.",
+    "blind7": "Und alles, was der Agent nicht als Prüfstelle genannt hat. Seine Anleitung ist eine Auswahl, und die hat er getroffen.",
+    "dijkstraIntro": "Dazu gibt es einen Satz, der älter ist als fast alles, worauf er heute angewendet wird. Edsger W. Dijkstra schrieb ihn 1969 in seinen Notes on Structured Programming, in einem Abschnitt über die Zuverlässigkeit von Mechanismen - zu einer Zeit, als Testen im Wesentlichen die Methode war, überhaupt herauszufinden, ob etwas lief:",
+    "dijkstraQuote": "Program testing can be used to show the presence of bugs, but never to show their absence!",
+    "dijkstraSource": "Edsger W. Dijkstra, Notes on Structured Programming (EWD 249), 1969",
+    "dijkstraTranslation": "Auf deinen Rundgang übersetzt: Alles, was du gefunden hast, ist echt. Alles, was du nicht gefunden hast, ist deshalb nicht abwesend. Der Satz hat jede Technik überlebt, für die er geschrieben wurde, und er gilt für sechs Schritte im Browser genauso wie für alles andere.",
+    "quality": "Ein zweites, unabhängiges Argument für diese Decke, ganz ohne Zahlen: Das Prüfen durch die fertige Oberfläche ist langsam, es lässt sich von allem Möglichen aus der Umgebung stören, und wenn es tatsächlich etwas findet, sagt es dir nicht, welcher Teil kaputt ist. Es sagt dir nur, dass etwas nicht stimmt.",
+    "handover": "Was hier unsichtbar bleibt, ist genau das, wofür die automatischen Prüfungen da sind. Die haben in diesem Lernpfad ihren eigenen Artikel, und dieser hier empfiehlt dazu nichts.",
+    "deepDive": {
+      "title": "Und wenn ein zweiter Agent den ersten prüft?",
+      "text1": "Selbstkorrektur an der eigenen Ausgabe, ohne Rückmeldung von außen, verbessert das Ergebnis nicht zuverlässig und kann es sogar verschlechtern. Ein zweites Modell, das nur den Text des ersten liest, ist deshalb immer noch eine Selbstauskunft - bloß eine längere.",
+      "text2": "Nützlich wird der zweite Leser in dem Moment, in dem er Belege von außerhalb des Gesprächs bekommt: den Diff, die Ausgabe der automatischen Prüfungen, das laufende Programm. Dann ist es kein Nacherzählen mehr, sondern ein Abgleich, und in dieser Form ist es eine gute Idee. Ein Beispiel dafür: Ein zweiter Agent sieht den Diff und merkt an, dass ein Passwort im Klartext im Protokoll landet. Entschieden und verantwortet hast trotzdem du."
+    }
+  },
+  "checkpoint2": {
+    "title": "Kurzer Selbstcheck",
+    "item1": "Ich kann zu jeder der drei Fragen sagen, wogegen ich die Antwort halte.",
+    "item2": "Ich kann für eine eigene Änderung den Fall benennen, der scheitern muss.",
+    "item3": "Ich kann drei Dinge nennen, die mein Rundgang nicht zeigt."
+  },
+  "close": {
+    "title": "Der Widerspruch, den du suchst",
+    "text1": "Der Knopf heißt immer noch Übernehmen, und der Code ist immer noch nicht lesbar. Daran hat sich nichts geändert. Geändert hat sich, was du in der Hand hast: eine Form, die du gegen deinen eigenen Auftrag gehalten hast, drei Antworten, die du gegen drei Artefakte gehalten hast, und eine Sache, die du mit eigenen Augen gesehen hast - einschließlich des Falls, der scheitern sollte.",
+    "text2": "Was das wert ist, lässt sich genau sagen: kein Nachweis, sondern drei ausgeräumte Zweifel und eine Stelle, an der ein Widerspruch aufgefallen wäre, wenn es einen gegeben hätte.",
+    "text3": "Dass ein Review eine Prüfung ist und keine Garantie, ist keine Neuigkeit dieses Artikels. Neu ist nur die praktische Hälfte davon: Auch wer den Code nicht liest, kann prüfen. Und wer abnimmt, steht dafür gerade - keine Last, die hier erfunden worden wäre, sondern die Stelle, an der die Verantwortung ohnehin liegt. Sie ernst zu nehmen gehört zu den Dingen, für die eine Wirkung gegen das übermäßige Vertrauen in eine automatisch erzeugte Antwort dokumentiert ist."
+  },
+  "takeaways": {
+    "containerTitle": "Zum Mitnehmen",
+    "item1": "Ein Diff ist eine Änderung, kein Programm. Du beurteilst seine Form - wie groß, wie verstreut, wie viel unterm Strich verschwunden - und hältst diese Form gegen den Umfang dessen, worum du gebeten hast.",
+    "item2": "Der Diff wird aus den tatsächlichen Dateien berechnet und nicht vom Agenten geschrieben. Genau deshalb wiegt er schwerer als die freundlichste Zusammenfassung - solange du die Ausgabe des Werkzeugs siehst und nicht deren Nacherzählung.",
+    "item3": "Eine gute Frage ist keine ehrliche Frage, sondern eine prüfbare. Jede der drei Fragen ist mit etwas außerhalb des Modells gepaart: mit der Dateiliste, mit deinem eigenen Auftrag, mit dem laufenden Programm.",
+    "item4": "Der Fehlerfall ist der Punkt. Eine Prüfung, die immer nur den guten Weg bestätigt, kann nichts widerlegen - und eine entfernte Regel erzeugt kein Ereignis, sondern nur eine ausbleibende Ablehnung.",
+    "item5": "Drei beantwortete Fragen und ein erfolgreicher Rundgang beweisen nicht, dass die Änderung richtig ist. Sie räumen bestimmte Zweifel aus - und schaffen eine Stelle, an der ein Widerspruch aufgefallen wäre. Das ist viel, und es ist nicht dasselbe."
+  },
+  "quiz": {
+    "boxTitle": "Prüfe dein Verständnis",
+    "q1": {
+      "question": "Du öffnest den Diff zu einer Änderung, die du selbst nicht schreiben könntest. Was steht darin - und was nicht?",
+      "a": "Die vollständigen Dateien so, wie sie nach der Änderung aussehen, sodass dir der fertige Stand des Programms komplett vorliegt",
+      "b": "Die geänderten Zeilen als Ausschnitte mit etwas Umgebung, dazu Dateinamen und Zahlen - aber nicht, wie sich das Programm verhält",
+      "c": "Eine vom Agenten verfasste Zusammenfassung der Änderung, ergänzt um seine eigene Einschätzung, wie riskant sie geworden ist",
+      "d": "Eine Liste sämtlicher Funktionen, die nach der Änderung anders reagieren, samt Hinweis auf die jeweils dafür verantwortliche Stelle",
+      "explanation": "Ein Diff zeigt Ausschnitte rund um jede geänderte Stelle, nie die vollständige Datei - und Verhalten steht nicht darin. Das Artefakt, an dem du eine Antwort halten kannst, ist die Dateiliste mit ihren Zahlen. Was das Programm tut, sagt dir erst das laufende Programm."
+    },
+    "q2": {
+      "question": "Warum wiegt der Diff schwerer als die freundliche Zusammenfassung, die der Agent dazu schreibt?",
+      "a": "Weil er deutlich länger ausfällt und deshalb zwangsläufig mehr Einzelheiten über die Änderung enthält als eine Zusammenfassung",
+      "b": "Weil er aus den tatsächlichen Dateien berechnet wird und damit das einzige Stück ist, das niemand für dich formuliert hat",
+      "c": "Weil Zusammenfassungen von Agenten grundsätzlich falsch sind und man ihnen deshalb bei keiner Gelegenheit vertrauen sollte",
+      "d": "Weil er zusätzlich anzeigt, welche automatischen Prüfungen zu dieser Änderung gelaufen sind und ob sie am Ende grün waren",
+      "explanation": "Den Unterschied macht nicht Ehrlichkeit, sondern Urheberschaft: Die Zusammenfassung ist formuliert, der Diff ist gerechnet. Deshalb gilt der Vorrang nur für die Ausgabe des Werkzeugs - ein Diffstat, den der Agent in den Chat tippt, ist wieder eine Aussage von ihm."
+    },
+    "q3": {
+      "question": "Dein Auftrag war ein Satz: Kunden sollen ihre Rechnung als PDF herunterladen können. Der Diffstat zeigt neun geänderte Dateien, 210 hinzugefügte und 14 entfernte Zeilen - 150 davon in einem Ordner, den du nie erwähnt hast. Welche Rückfrage bringt dich weiter?",
+      "a": "Ob der geschriebene Code sauber genug geworden ist, um ihn in einem halben Jahr noch guten Gewissens weiterzupflegen",
+      "b": "Ob er sich sicher ist, dass wirklich alle 210 neuen Zeilen für den Download der Rechnung tatsächlich gebraucht werden",
+      "c": "Was in diesem einen Ordner passiert - ein Satz Alltagssprache pro Datei, und was davon zu meinem Auftrag gehört hat",
+      "d": "Ob er die technischen Auswirkungen der geänderten Zeilen in diesem einen Ordner einmal ausführlich erklären könnte",
+      "explanation": "Auffällig ist hier die Streuung, nicht das Verhältnis: Entfernt wurde fast nichts, aber ein Ordner, den dein Auftrag nie erwähnt hat, trägt den größten Teil. Dagegen hilft genau eine Antwort - ein Satz Alltagssprache pro Datei, den du gegen deine eigene Bitte halten kannst. Die anderen drei erzeugen eine Zusicherung oder etwas, das du ohne Code-Kenntnis nicht lesen kannst."
+    },
+    "q4": {
+      "question": "Der Agent sollte dafür sorgen, dass Uploads über 5 MB abgelehnt werden. Du lädst eine Datei mit 2 MB hoch, sie geht durch, und alles sieht richtig aus. Welcher Handgriff kommt jetzt?",
+      "a": "Dieselbe Datei mit 2 MB ein zweites Mal hochladen, um auszuschließen, dass die Anzeige beim ersten Mal nur zufällig gestimmt hat",
+      "b": "Eine Datei mit 8 MB hochladen und nachsehen, ob die Ablehnung wirklich kommt - und ob sie so aussieht, wie sie angekündigt war",
+      "c": "Den Agenten fragen, ob er die Grenze von 5 MB an allen Stellen der Anwendung zuverlässig und vollständig eingebaut hat",
+      "d": "Die Seite in einem zweiten Browser öffnen, um auszuschließen, dass eine alte gespeicherte Ansicht dir etwas Falsches anzeigt",
+      "explanation": "Diese Änderung sollte etwas verbieten. Fehlt die Regel, erzeugt das kein sichtbares Ereignis, sondern eine Ablehnung, die ausbleibt. Deshalb zeigt nur der Fall, der scheitern muss, ob die Regel überhaupt da ist. Ein gelungener Upload mit 2 MB zeigt das nicht, egal wie oft du ihn wiederholst."
+    },
+    "q5": {
+      "question": "Zwei Rückfragen an denselben Agenten, beide selbstbewusst beantwortet: (a) Bist du sicher, dass Neukunden den Rabatt nicht bekommen? (b) Schreib mir eine Anleitung, wie ich selbst nachsehe, dass ein Neukunde ihn nicht bekommt. Worin genau unterscheidet sich der Wert der beiden Antworten?",
+      "a": "Antwort (a) ist wertlos, weil in Untersuchungen gemessen wurde, dass Coding-Agenten bei Rückfragen zu ihrem eigenen Diff unehrlich antworten",
+      "b": "Antwort (b) ist besser, weil sie konkreter formuliert ist - je präziser die Frage, desto zuverlässiger fällt die Antwort eines Agenten aus",
+      "c": "Beide sind gleichwertig, solange der Agent die Änderung selbst geschrieben hat und deshalb am besten weiß, was er dabei verändert hat",
+      "d": "Nur (b) erzeugt etwas außerhalb des Modells, dem die Antwort widersprechen kann - (a) liefert eine weitere Aussage desselben Absenders",
+      "explanation": "Bei (a) stimmt die Schlussfolgerung, aber die Begründung nicht. Antwort (a) ist tatsächlich wertlos - nur nicht, weil das gemessen worden wäre: Was ein Coding-Agent auf Rückfragen zu seinem eigenen Diff antwortet, hat niemand untersucht. Genau diesen Unterschied macht der Kasten zur Transfergrenze: Der Rat hängt an der Prüfbarkeit, nicht an einem Messwert über Ehrlichkeit."
+    }
+  }
+}

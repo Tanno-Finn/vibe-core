@@ -1,0 +1,8 @@
+{
+  "term": "Vibe Coding",
+  "alternativeNames": [
+    "Prompt-driven programming"
+  ],
+  "description": "Vibe coding is programming through natural language: you describe what the software should do, and an AI agent writes the code. Your attention shifts from lines of code to the result - you check whether the program does what you wanted instead of writing every line yourself. In its narrow, original sense it even means not reading the generated code at all; the common, more careful practice keeps testing and course-correcting in human hands. That sets it apart from classic programming, where you write the code, and from code completion, which merely suggests snippets. Direction, checking, and responsibility stay with you.",
+  "example": "You type: 'Build me a shopping list app that sorts items by supermarket aisle.' The agent writes the app, you try it out and reply: 'Frozen goods still end up in the wrong section.' Like working with a carpenter: you describe the shelf, he builds it - but whether it fits and holds is something you check yourself. And beware: a shelf that visibly stands is not proof that it carries weight - flaws often hide in the invisible parts, such as security or edge cases."
+}

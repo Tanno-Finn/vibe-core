@@ -1,0 +1,58 @@
+{
+  "id": "vibe-coding",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Vibe Coding",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Programmieren per Zuruf"
+    ],
+    "en": [
+      "Prompt-driven programming"
+    ],
+    "de-easy": [
+      "Programmieren mit KI"
+    ],
+    "en-easy": [
+      "Coding with AI"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "Andrej Karpathy, X-Post, Februar 2025 (Ursprung des Begriffs)",
+      "url": "https://x.com/karpathy/status/1886192184808149383",
+      "notes": "Original-Post; Wortlaut und Zuschreibung über Sekundärquellen (Hacker News, CodeRabbit-Begriffsgeschichte) verifiziert, da X Direktabrufe blockt."
+    },
+    {
+      "type": "documentation",
+      "citation": "GitHub Resources: What is vibe coding?",
+      "url": "https://github.com/resources/articles/what-is-vibe-coding",
+      "notes": "Definition und Abgrenzung zu klassischem Entwickeln (Kontrolle/Vorhersagbarkeit vs. schnelle Iteration)."
+    },
+    {
+      "type": "paper",
+      "citation": "Sapkota, Roumeliotis, Karkee: Vibe Coding vs. Agentic Coding - Fundamentals and Practical Implications of Agentic AI (arXiv:2505.19443)",
+      "url": "https://arxiv.org/abs/2505.19443",
+      "notes": "Wissenschaftliche Einordnung: konversationaler, prompt-basierter Workflow mit Mensch in der Schleife."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent",
+      "prompt",
+      "prompt-engineering",
+      "agentic-ai",
+      "cli"
+    ],
+    "articles": [
+      "art-vibecoding"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

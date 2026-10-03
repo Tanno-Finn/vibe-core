@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "title": "Schnittstellen nutzen: APIs & MCP",
+    "subtitle": "Wenn Software mit Modellen spricht, braucht jemand die Vokabeln — APIs und MCP machen das."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "apiSection": "Vom Chatfenster zum Code",
+    "mcpSection": "Ein Stecker für alles — MCP",
+    "agentSection": "Anatomie eines Agenten",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "checkpoint": "Selbstcheck"
+  },
+  "lead": {
+    "paragraph1": "Du hast gesehen, was ein Sprachmodell kann, wenn du in ein Chatfenster tippst. Aber Software tippt nicht — sie sendet strukturierte Anfragen über eine API.",
+    "paragraph2": "Dieser Artikel führt dich von deinem ersten API-Aufruf bis zum Protokoll, das standardisieren könnte, wie alle KI-Werkzeuge sich verbinden: MCP. Unterwegs erfährst du, was diese Aufrufe kosten, warum 50 individuelle Integrationen ein Problem sind und wie vier Bausteine aus einem einzelnen Modell einen handelnden Agenten machen."
+  },
+  "apiSection": {
+    "title": "Vom Chatfenster zum Code",
+    "intro": "Sobald du vom Chat-Interface zum Code wechselst, wird das Modell zu einem Dienst, den du aufrufst — wie jede andere Web-API auch.",
+    "definitionTitle": "LLM-API",
+    "analogy": "Stell dir eine Bestelltheke in einem Restaurant vor. Du füllst ein Bestellformular aus (die JSON-Anfrage), das genau angibt, was du möchtest: Modell, Nachrichten, Temperatur. Du gibst es zusammen mit deiner Mitgliedskarte (API-Key) an der Theke ab. Die Küche (das Modell) verarbeitet deine Bestellung und schickt ein Tablett zurück (JSON-Antwort). Du zahlst pro Gericht auf dem Tablett, nicht pro Besuch.",
+    "scientific": "Ein HTTP-Endpunkt, der eine strukturierte JSON-Anfrage entgegennimmt (Modellname, Nachrichtenverlauf, Parameter) und die Modellantwort als JSON zurückgibt. Die Authentifizierung erfolgt über einen API-Key — ein geheimer Token, der an ein Abrechnungskonto gebunden ist.",
+    "analogyNote": "Wichtig: Du wählst dabei nicht die Zutaten aus — du hast keinen Zugriff auf die internen Abläufe des Modells.",
+    "codeIntro": "Ein minimaler Python-Aufruf sieht so aus:",
+    "pricingTitle": "Was kostet ein API-Aufruf?",
+    "pricingIntro": "Die Abrechnung erfolgt getrennt nach Input- und Output-Tokens.",
+    "pricingExample": "Beispielrechnung mit gerundeten Listenpreisen eines mittelgroßen Modells: 30 Input-Tokens × 2,50 USD pro Million = 0,000075 USD. 100 Output-Tokens × 10,00 USD pro Million = 0,001 USD. Gesamt: etwa 0,001 USD — rund ein Zehntel Cent.",
+    "pricingScale": "Bei 1.000 Aufrufen pro Tag: circa 1,08 USD. Bei 100.000 Aufrufen pro Tag: circa 107 USD.",
+    "stats": {
+      "costPerCall": {
+        "value": "~0,1",
+        "suffix": " Cent",
+        "label": "Pro Aufruf",
+        "description": "Kosten eines einzelnen Aufrufs in der Beispielrechnung"
+      },
+      "costAtScale": {
+        "value": "~107",
+        "suffix": " USD",
+        "label": "Bei 100k Aufrufen/Tag",
+        "description": "Tägliche Kosten bei hohem Volumen"
+      },
+      "mcpReduction": {
+        "value": "70",
+        "suffix": " %",
+        "label": "Weniger Integrationen",
+        "description": "Einsparung durch MCP (N+M statt N×M)"
+      }
+    },
+    "misconceptionTitle": "Häufiger Irrtum: APIs sind teuer",
+    "misconception": "Einzelne Aufrufe kosten Bruchteile eines Cents. Das Kostenrisiko liegt im Volumen und in langen Kontextfenstern — nicht im einzelnen Request. Denk an API-Kosten wie an eine Wasserrechnung: Der Literpreis ist winzig, aber den Hahn offen zu lassen, leert das Budget."
+  },
+  "mcpSection": {
+    "title": "Ein Stecker für alles — MCP",
+    "intro": "Du hast gerade gesehen, wie eine App mit einem Modell spricht. Stell dir jetzt fünf Apps vor, die jeweils zehn verschiedene Werkzeuge brauchen. Ohne Standard sind das 50 Integrationen. Das ist das N×M-Problem.",
+    "definitionTitle": "Model Context Protocol (MCP)",
+    "analogy": "USB-C für KI. Vor USB-C hatte jedes Gerät seinen eigenen Stecker — Handy-Ladegerät, Kamerakabel, Festplattenanschluss. Bei 5 Geräten und 10 Zubehörteilen brauchtest du bis zu 50 verschiedene Kabel. USB-C reduziert das auf einen Standardstecker: Jedes Gerät und jedes Zubehörteil braucht nur einen USB-C-Anschluss. MCP macht dasselbe für KI-Integrationen.",
+    "scientific": "Ein offenes Protokoll (2024 veröffentlicht) zur Standardisierung bidirektionaler Verbindungen zwischen KI-Anwendungen und externen Werkzeugen. Ein MCP-Server stellt Werkzeuge bereit, ein MCP-Client verwaltet die Verbindung, und das LLM entscheidet, welches Werkzeug wann aufgerufen wird.",
+    "analogyLimit": "Wichtiger Unterschied: USB-C ist ein ausgereifter, universeller Standard. MCP ist jung (2024) und noch nicht universell verbreitet.",
+    "comparison": {
+      "withoutLabel": "Ohne MCP",
+      "withoutResult": "5 Apps × 10 Tools = 50 individuelle Integrationen, die gebaut und gewartet werden müssen.",
+      "withLabel": "Mit MCP",
+      "withResult": "5 MCP-Clients + 10 MCP-Server = 15 Implementierungen. Das ist eine Reduktion um 70 %."
+    },
+    "architecture": "Architektonisch bildet MCP ein Dreieck: Der MCP-Server bietet Werkzeuge an, der Client verwaltet die Verbindung, und das LLM entscheidet, wann welches Werkzeug sinnvoll ist. Konkretes Beispiel: Eine Desktop-KI-Anwendung verbindet sich über drei MCP-Server mit dem Dateisystem, einer lokalen Datenbank und der Versionsverwaltung — ein Protokoll, drei Fähigkeiten.",
+    "warningTitle": "Wichtig: MCP ist kein Universalersatz",
+    "warning": "MCP ersetzt nicht alle APIs. Direkte Anbindungen bleiben notwendig für spezialisierte SaaS-Dienste, bei denen noch kein MCP-Server existiert. MCP standardisiert, wie KI Werkzeuge entdeckt und aufruft — nicht wie das Werkzeug intern funktioniert.",
+    "originTitle": "Stand 11.08.2026 — diese Box altert, der Rest nicht",
+    "origin": "Das Model Context Protocol wurde im November 2024 von Anthropic als offener Standard veröffentlicht; seitdem haben weitere Anbieter und Werkzeuge es übernommen. Wer das Protokoll herausgegeben hat, ist ein historisches Datum — der Rest dieses Artikels hängt nicht davon ab. Wenn du diese Box löschst, bleibt alles andere richtig."
+  },
+  "agentSection": {
+    "title": "Anatomie eines Agenten",
+    "intro": "Ein API-Aufruf ist eine Frage mit einer Antwort. Ein Agent ist eine Schleife — er plant, handelt, beobachtet und entscheidet, ob er weitermacht. Diese Schleife braucht vier Bausteine.",
+    "iconGrid": {
+      "llm": {
+        "label": "Gehirn (LLM)",
+        "description": "Plant und interpretiert — entscheidet, welches Werkzeug wann zum Einsatz kommt"
+      },
+      "tools": {
+        "label": "Hände (Tools)",
+        "description": "Führen Aktionen aus — jedes Werkzeug hat eine spezifische Funktion"
+      },
+      "context": {
+        "label": "Gedächtnis (Kontext)",
+        "description": "Speichert Verlauf, Dokumente und Zwischenergebnisse über Schritte hinweg"
+      },
+      "orchestration": {
+        "label": "Dirigent (Orchestrierung)",
+        "description": "Steuert den Ablauf, behandelt Fehler und bestimmt Abbruchbedingungen"
+      }
+    },
+    "analogyIntro": "Stell dir einen Küchenchef beim Abendservice vor.",
+    "analogy": "Das Gehirn des Chefs ist das LLM — er liest Bestellungen, entscheidet, was gekocht wird, und priorisiert. Seine Hände sind die Werkzeuge — Messer, Herd, Ofen, jedes mit einer spezifischen Funktion. Die Bestellzettel über der Durchreiche sind der Kontext — sie verfolgen, was bestellt, in Arbeit und fertig ist. Der Küchenablauf ist die Orchestrierung: Vorspeisen zuerst, dann Hauptgerichte, dann Desserts, Timing prüfen.",
+    "analogyNote": "Wie ein echter Chef kann auch ein Agent Fehler machen — das falsche Werkzeug wählen oder eine Bestellung falsch lesen.",
+    "steps": {
+      "receive": "Aufgabe empfangen",
+      "plan": "Planen (LLM wählt Werkzeug)",
+      "execute": "Ausführen (Tool läuft)",
+      "observe": "Beobachten (Ergebnis zurück)",
+      "decide": "Entscheiden (weiter oder stopp)"
+    },
+    "exampleTitle": "Beispiel: Ein Reisebuchungs-Agent",
+    "example": "Schritt 1: Der Nutzer sagt: Buche mir einen Flug nach Berlin nächsten Dienstag. Schritt 2: Das LLM liest den Kalender (Kontext) — Dienstag ist der 24. März. Schritt 3: Das LLM ruft die Flugsuche auf — drei Optionen gefunden. Schritt 4: Das LLM vergleicht Preise und Zeiten, wählt den günstigsten Morgenflug. Schritt 5: Das LLM fragt den Nutzer um Bestätigung (Sicherheitstor). Schritt 6: Nutzer bestätigt. Schritt 7: Das LLM ruft das Buchungstool auf. Schritt 8: Die Orchestrierung prüft das Ergebnis — Buchung bestätigt — Schleife endet.",
+    "misconceptionTitle": "Häufiger Irrtum: Agenten sind autonome KI",
+    "misconception": "Heutige Agenten sind nur so leistungsfähig wie ihre Werkzeuge, Berechtigungen und Sicherheitsgrenzen. Sie improvisieren nicht — sie folgen einer Plan-Ausführen-Beobachten-Schleife innerhalb definierter Leitplanken. Ein Agent ohne Werkzeuge ist ein Chatbot. Ein Agent ohne Leitplanken ist ein Risiko.",
+    "frameworkTitle": "Überblick: Worin sich Agent-Frameworks unterscheiden",
+    "frameworks": {
+      "broad": "Breites Integrationsökosystem: viele fertige Konnektoren zu Datenquellen und Diensten. Schneller Start, dafür viel Oberfläche, die man kennen muss.",
+      "retrieval": "Retrieval-Schwerpunkt: Dokumentenverarbeitung und Wissensabfrage als Kernstärke. Passend, wenn der Agent vor allem lesen und finden soll.",
+      "multiAgent": "Multi-Agent-Kollaboration: mehrere Agenten mit definierten Rollen arbeiten zusammen. Mächtig, aber deutlich schwerer nachzuvollziehen, wenn etwas schiefgeht.",
+      "minimal": "Protokoll-nativ und schlank: minimaler Overhead, Werkzeuge kommen über einen offenen Standard statt über hauseigene Adapter."
+    },
+    "frameworkNote": "Das sind Schwerpunkte, keine Produktempfehlungen. Die Namen am Markt wechseln alle paar Monate, die vier Schwerpunkte bleiben — prüfe bei jedem Framework, welchem es am nächsten kommt."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste",
+    "item1": "Ein API-Aufruf ist ein HTTP-POST mit JSON — dasselbe Denkmodell, das du aus der Webentwicklung kennst, angewandt auf Sprachmodelle.",
+    "item2": "MCP verwandelt das Integrationschaos von N×M (viele Modelle mal viele Tools) in eine handhabbare N+M-Struktur, indem es standardisiert, wie Werkzeuge ihre Fähigkeiten bereitstellen.",
+    "item3": "Ein Agent ist keine Magie — er ist eine Schleife aus vier Komponenten (LLM, Tools, Kontext, Orchestrierung), die sich wiederholt, bis eine Abbruchbedingung erfüllt ist."
+  },
+  "quiz": {
+    "boxTitle": "Wissenscheck: APIs & MCP",
+    "q1": {
+      "question": "Was ist die Hauptaufgabe eines API-Keys beim Aufruf einer LLM-API?",
+      "a": "Er bestimmt, in welcher Sprache das Modell antwortet.",
+      "b": "Er authentifiziert deine Anwendung und verknüpft die Nutzung mit einem Abrechnungskonto.",
+      "c": "Er verschlüsselt den Inhalt deines Prompts, damit niemand ihn lesen kann.",
+      "d": "Er wählt die spezifische GPU aus, die deinen Request verarbeitet.",
+      "explanation": "Ein API-Key ist ein geheimer Token, der deine Anwendung identifiziert und die Nutzung mit deinem Abrechnungskonto verknüpft. Er steuert nicht die Sprache, verschlüsselt keine Inhalte und wählt keine Hardware aus."
+    },
+    "q2": {
+      "question": "Welche Aussage beschreibt am besten, was MCP standardisiert?",
+      "a": "Die interne Architektur von Sprachmodellen.",
+      "b": "Die Preisstruktur verschiedener KI-Anbieter.",
+      "c": "Wie KI-Anwendungen externe Werkzeuge über ein gemeinsames Protokoll entdecken und aufrufen.",
+      "d": "Wie Trainingsdaten für Feinabstimmung gesammelt und gelabelt werden.",
+      "explanation": "MCP standardisiert die Kommunikation zwischen KI-Anwendungen und externen Werkzeugen. Es definiert nicht, wie Modelle intern funktionieren, wie Anbieter ihre Preise gestalten oder wie Trainingsdaten verarbeitet werden."
+    },
+    "q3": {
+      "question": "Ein Startup führt 50.000 API-Aufrufe pro Tag durch. Jeder Aufruf nutzt 200 Input-Tokens und 500 Output-Tokens. Der Anbieter berechnet 3,00 USD pro Million Input-Tokens und 15,00 USD pro Million Output-Tokens. Wie hoch sind die ungefähren täglichen Kosten?",
+      "a": "Etwa 4 USD",
+      "b": "Etwa 40 USD",
+      "c": "Etwa 405 USD",
+      "d": "Etwa 4.050 USD",
+      "explanation": "Rechnung: 50.000 × 200 = 10 Mio. Input-Tokens × 3,00 USD/Mio. = 30 USD. 50.000 × 500 = 25 Mio. Output-Tokens × 15,00 USD/Mio. = 375 USD. Gesamt: 405 USD."
+    },
+    "q4": {
+      "question": "Ein Unternehmen hat 3 KI-Anwendungen, die jeweils mit 8 verschiedenen Tools arbeiten müssen. Wie viele Integrationen braucht man ohne MCP — und wie viele mit MCP?",
+      "a": "Ohne: 11, Mit: 24",
+      "b": "Ohne: 24, Mit: 11",
+      "c": "Ohne: 24, Mit: 8",
+      "d": "Ohne: 11, Mit: 3",
+      "explanation": "Ohne MCP: 3 × 8 = 24 individuelle Integrationen. Mit MCP: 3 Clients + 8 Server = 11 Implementierungen. Die Formel ist N×M ohne Standard vs. N+M mit Standard."
+    },
+    "q5": {
+      "question": "Ein KI-Agent soll ein 200-seitiges PDF zusammenfassen, produziert aber immer unvollständige Zusammenfassungen. Welche Komponente der Agentenarchitektur ist am wahrscheinlichsten das Problem?",
+      "a": "Orchestrierung — die Schleife bricht zu früh ab.",
+      "b": "Tools — der PDF-Reader kann keine großen Dateien verarbeiten.",
+      "c": "LLM — das Kontextfenster fasst nicht alle Seiten.",
+      "d": "Jede der genannten Komponenten könnte die Ursache sein — die Diagnose erfordert eine Prüfung jeder einzelnen.",
+      "explanation": "Alle drei Komponenten könnten das Problem verursachen: Die Orchestrierung könnte zu früh stoppen, das Tool könnte limitiert sein, oder das Kontextfenster des LLM könnte zu klein sein. Systematische Fehlersuche prüft jede Komponente einzeln."
+    },
+    "q6": {
+      "question": "Ein Entwickler argumentiert: Wir brauchen kein MCP — direkte API-Integrationen reichen. In welchem Szenario ist dieses Argument am stärksten?",
+      "a": "Das Team hat 2 Apps, die je 2 stabile, selten wechselnde Tools nutzen.",
+      "b": "Das Team hat 10 Apps, die 15 gemeinsame Tools nutzen.",
+      "c": "Das Team fügt jedes Quartal neue Tools über mehrere Apps hinweg hinzu.",
+      "d": "Das Team baut Open-Source-KI-Tools für breite Community-Nutzung.",
+      "explanation": "Bei nur 2 × 2 = 4 Integrationen überwiegt der Aufwand für eine MCP-Infrastruktur den Nutzen. In allen anderen Szenarien wird der N+M-Vorteil von MCP signifikant."
+    }
+  },
+  "checkpoint": {
+    "title": "Selbstcheck: APIs & MCP",
+    "item1": "Kannst du erklären, was technisch passiert, wenn Software einen Prompt an ein LLM sendet — vom Request bis zur Antwort?",
+    "item2": "Warum reduziert MCP die Anzahl der Integrationen von 50 auf 15 bei fünf Apps und zehn Tools?",
+    "item3": "Benenne die vier Bausteine eines Agenten und erkläre, warum das Entfernen eines einzelnen Bausteins das System bricht."
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: HTTP-Anfrage",
+    "sectionTitle": "Interaktiv: Was passiert bei einem API-Aufruf?",
+    "introText": "Klicke auf Play und beobachte Schritt für Schritt, was hinter den Kulissen passiert, wenn dein Code eine API aufruft — vom Browser über DNS und TLS bis zur JSON-Antwort.",
+    "intro": {
+      "title": "Der Weg einer HTTP-Anfrage",
+      "description": "Diese Animation zeigt die sechs Stationen, die jeder API-Aufruf durchläuft — vom Klick im Browser bis zur JSON-Antwort."
+    },
+    "edu": {
+      "title": "Warum ist das wichtig?",
+      "description": "Jeder API-Aufruf — ob an einen Modell-Anbieter oder an deine eigene REST-API — durchläuft exakt diese Schritte. Wenn du verstehst, was passiert, kannst du Fehler (Timeouts, 404, CORS) schneller diagnostizieren."
+    },
+    "stage": {
+      "browser": "Browser / Client",
+      "dns": "DNS-Auflösung",
+      "tls": "TCP/TLS-Handshake",
+      "request": "HTTP-Request",
+      "server": "Server verarbeitet",
+      "response": "HTTP-Response"
+    },
+    "stageDesc": {
+      "browser": "Dein Code sendet eine Anfrage — z.B. ein POST auf /v1/chat/completions. Der Browser oder die Library baut daraus eine HTTP-Nachricht.",
+      "dns": "Der Domainname (api.example.com) wird in eine IP-Adresse übersetzt. Ohne DNS wüsste dein Computer nicht, welchen Server er kontaktieren soll.",
+      "tls": "Eine verschlüsselte Verbindung wird aufgebaut. TLS stellt sicher, dass niemand deine API-Keys oder Daten mitlesen kann.",
+      "request": "Die eigentliche Anfrage wird gesendet: HTTP-Methode (POST), Header (Authorization: Bearer …) und Body (dein Prompt als JSON).",
+      "server": "Der Server empfängt die Anfrage, verarbeitet sie (bei einer LLM-API: Inferenz) und erzeugt eine Antwort.",
+      "response": "Der Server sendet die Antwort zurück: Statuscode (200 OK), Header und Body (die generierte Antwort als JSON)."
+    }
+  }
+}

@@ -1,0 +1,44 @@
+# Base standards registry
+#
+# One row per standard file so skills can locate a standard by ID without loading
+# every doc into context ("locate standards without bloating context"). Keep this in
+# sync with the files — scripts/verify-harness.mjs checks that every listed file exists.
+#
+# tags: hard         = never overridable (SECURITY is hard in its entirety)
+#       overridable  = may be relaxed via an overrides/ file -> gate becomes advisory, never off
+#
+# Quoting convention: every `summary:` is a folded block scalar (`>-`), never a bare
+# plain scalar. Prose summaries collect colons, hashes, and dashes, and a plain scalar
+# turns those into YAML syntax — one such summary silently broke directives/index.yml.
+# A block scalar cannot be broken by its content. verify-harness enforces this.
+
+version: 1
+
+standards:
+  - id: SECURITY
+    file: base/standards/SECURITY.md
+    summary: >-
+      Non-negotiable core — secrets, history, user data, Red-action gate.
+    default_tag: hard
+    overridable: false
+
+  - id: A11Y
+    file: base/standards/A11Y.md
+    summary: >-
+      Accessibility — keyboard, alt text, contrast, Easy-Language, reduced motion.
+    default_tag: mixed
+    overridable: true
+
+  - id: PRIVACY
+    file: base/standards/PRIVACY.md
+    summary: >-
+      Data minimization, consent-gated analytics, pupil-data hard stop.
+    default_tag: mixed
+    overridable: true
+
+  - id: QUALITY
+    file: base/standards/QUALITY.md
+    summary: >-
+      Definition of Done — green build/tests, docs same commit, second review.
+    default_tag: mixed
+    overridable: true

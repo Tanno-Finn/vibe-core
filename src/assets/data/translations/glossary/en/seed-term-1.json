@@ -1,0 +1,6 @@
+{
+  "term": "Example Term 1",
+  "alternativeNames": [],
+  "description": "An example entry so the glossary does not start out empty. Tell your AI agent “/new-content” and this becomes a real term from your topic.",
+  "example": "An example sentence shows the term in action — just like this one."
+}

@@ -1,0 +1,14 @@
+{
+  "label": {
+    "inputSize": "Eingabegröße n ="
+  },
+  "ratio": {
+    "title": "Im Verhältnis zur Referenz",
+    "curve": "Kurve",
+    "operations": "Aufwand",
+    "factor": "Faktor",
+    "reference": "Referenz",
+    "cheaper": "günstiger",
+    "costlier": "teurer"
+  }
+}

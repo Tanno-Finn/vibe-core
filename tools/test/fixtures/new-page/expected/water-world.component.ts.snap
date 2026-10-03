@@ -1,0 +1,63 @@
+/**
+ * Water world (/water-world)
+ *
+ * Scaffolded by tools/new-page.mjs. Replace this comment with what the page is for and how
+ * it is built.
+ *
+ * All copy lives in the `waterWorld.*` i18n namespace
+ * (src/assets/i18n/modules/<lang>/waterWorld.json, one module per language and Easy variant).
+ *
+ * SSR-safe: the page is rendered under Node too. Anything that touches window, document,
+ * localStorage or navigator goes behind `isBrowser`.
+ */
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, PLATFORM_ID, computed, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+
+import { TranslationService } from '../../services/translation.service';
+import { ArticleComponent } from '../../components/shared/article.component';
+import { PageHeaderComponent } from '../../components/shared/page-header.component';
+
+@Component({
+  selector: 'app-water-world',
+  standalone: true,
+  imports: [ArticleComponent, PageHeaderComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <app-article width="page" [transparentBackground]="true">
+      <app-page-header titleKey="waterWorld.title" />
+      <p class="page-lead">{{ t('waterWorld.description') }}</p>
+      @if (isBrowser) {
+        <!-- Browser-only parts (canvas, animation, stored state) go here. -->
+      }
+    </app-article>
+  `,
+  styles: [
+    `
+      .page-lead {
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+    `,
+  ],
+})
+export class WaterWorldComponent {
+  private readonly translationService = inject(TranslationService);
+  private readonly cdr = inject(ChangeDetectorRef);
+
+  /** False while the page is prerendered under Node: guard every browser global behind it. */
+  readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
+  // Track the current language so computed() and t() re-evaluate on a language change.
+  private readonly currentLanguage = computed(() => this.translationService.currentLanguage);
+
+  constructor() {
+    this.translationService.languageChanged.pipe(takeUntilDestroyed()).subscribe(() => this.cdr.detectChanges());
+  }
+
+  /** Reactive translate helper — reads currentLanguage so the value tracks language switches. */
+  t(key: string): string {
+    this.currentLanguage();
+    return this.translationService.translate(key);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Reward Misspecification",
+  "alternativeNames": [
+    "Fehlspezifikation der Belohnung"
+  ],
+  "description": "A central cause of reward hacking: the reward function defined by humans (the proxy) did not match the actual desired goal. This is a case of outer misalignment — the optimization objective itself is incorrectly specified, not the optimization process as such. The gap between what we can measure (proxy) and what we actually want (true goal) creates systematic misaligned incentives. Misspecification is not the only source of reward hacking — an incompletely specifiable reward function or reward tampering can also trigger it.",
+  "example": "Goal: safer roads. Proxy metric: fewer reported accidents. Problem: a system could optimize for not reporting or concealing accidents rather than making roads safer. The metric was misspecified — it does not capture the true objective. That is outer misalignment through reward misspecification."
+}

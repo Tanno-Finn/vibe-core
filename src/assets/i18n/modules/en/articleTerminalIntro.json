@@ -1,0 +1,253 @@
+{
+  "hero": {
+    "title": "The Terminal",
+    "subtitle": "An introductory conversation with the tool many consider outdated — and nobody has truly replaced."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "guiCli": "GUI vs. CLI",
+    "paths": "Paths",
+    "commands": "First Commands",
+    "flags": "Flags & Options",
+    "aiTerminal": "Terminal & AI",
+    "takeaways": "Summary",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Behind every app, every website, and every AI chatbot lies a world of text commands that make everything work. This article introduces the terminal — the text-based interface that professionals use to control computers with surgical precision.",
+    "paragraph2": "No prior experience required: by the end, you will understand why both visual and text interfaces exist, how file addresses work, and you will know enough commands to build your first project folder from scratch."
+  },
+  "guiCli": {
+    "title": "Two Ways to Talk to Your Computer — GUI vs. CLI",
+    "definitionTitle": "GUI, CLI, Terminal & Shell",
+    "analogy": "Imagine navigating a city. A GUI is like a map with landmarks — you tap on places and get guided there. Intuitive and visual, but you can only go where the map shows you. A CLI is like giving a taxi driver a precise street address — you need to know the address, but you can reach any destination, describe complex routes, and give the same instructions to a hundred taxis at once.",
+    "scientific": "A GUI (Graphical User Interface) presents visual elements — windows, icons, menus, buttons — that you interact with via mouse and touch. A CLI (Command-Line Interface) presents a text prompt where you type commands and receive text output. The terminal is the program that provides the text window. The shell (e.g. Bash, Zsh, PowerShell) is the interpreter inside it that processes your commands.",
+    "analogyBreak": "The map-vs.-address analogy has limits: a typo in an address sends you to the wrong place, but a typo in a command like rm -rf / can destroy your entire system. Also, a GUI deliberately hides advanced functionality behind menus, while a CLI exposes everything equally.",
+    "history": "Historical context: Unix shells emerged in the late 1960s and 70s. Graphical interfaces arrived in the 1980s (Macintosh 1984, Windows 1985). GUIs were built ON TOP of existing CLI systems — the terminal was there first.",
+    "renameExample": "Concrete example: renaming 500 photos from IMG_0001.jpg to vacation_001.jpg. In a GUI, you would right-click each file individually — tedious for 500 files. In a CLI, a single line renames all of them in seconds. This illustrates the automation advantage.",
+    "comparison": {
+      "guiLabel": "GUI — Graphical Interface",
+      "guiResult": "Visual and intuitive. Easy to discover, undo available. Great for image editing, web design, and casual use. Higher resource usage, hard to automate.",
+      "cliLabel": "CLI — Command Line",
+      "cliResult": "Precise and repeatable. Scriptable, remote-capable, low resource usage. Great for automation, server management, and development. Requires learned vocabulary, no visual feedback."
+    },
+    "terminalChoice": {
+      "title": "Which Terminal to Use?",
+      "text": "macOS and Linux: The built-in Terminal is ready to go. Windows: Use Windows Terminal or WSL (Windows Subsystem for Linux) for a full Unix environment. Tip: Most code editors like VS Code have an integrated terminal — you can start right there."
+    },
+    "noUndo": {
+      "title": "The Terminal Has No Undo",
+      "text": "Unlike graphical programs, the terminal has no \"Undo\" button and no recycle bin. When you execute a command, it takes effect immediately. Start with safe, read-only commands like pwd, ls, and cat before modifying or deleting files."
+    }
+  },
+  "paths": {
+    "title": "Paths — Where Am I? Where Do I Want to Go?",
+    "definitionTitle": "Absolute Path, Relative Path & Working Directory",
+    "analogy": "A file system is like an office building. The absolute path is the full postal address (Building, Floor 3, Room 312, Desk 2). The relative path is directions from where you are now (\"go one door to the left\"). The working directory is the room you are currently standing in.",
+    "scientific": "A path is the address of a file or folder in the hierarchical file system. An absolute path starts from the root (/ on Unix/macOS, C:\\ on Windows) and specifies the complete route, e.g. /home/user/project/data.csv. A relative path starts from the current working directory. The shorthand . means \"here\" and .. means \"one level up.\"",
+    "analogyBreak": "The office building analogy has limits: file systems can contain symbolic links (symlinks) that act like teleporters — stepping through a door lands you in a completely different part of the building. Also, the root directory / has no \"floor above\" — cd .. from / stays at /.",
+    "crossPlatform": "Platform differences: Unix uses / as the path separator, Windows uses \\. Case sensitivity also differs — Linux is case-sensitive, macOS and Windows are not. Most modern tools accept both separators.",
+    "walkthrough": {
+      "title": "Navigation Exercise: Step by Step",
+      "step1": "pwd → Shows /home/user — now you know where you are",
+      "step2": "mkdir project → Creates a new folder called \"project\"",
+      "step3": "cd project → Moves into the folder. pwd now shows /home/user/project",
+      "step4": "mkdir data src → Creates two subfolders at once",
+      "step5": "cd data → Moves to /home/user/project/data",
+      "step6": "cd .. → Goes one level back to /home/user/project"
+    },
+    "pitfalls": {
+      "title": "Common Path Pitfalls",
+      "text": "Spaces in path names require quotes: cd \"My Folder\". Never lose track of your working directory — use pwd frequently. Don't confuse absolute and relative paths: /data/file.csv is something entirely different from data/file.csv."
+    },
+    "resolver": {
+      "title": "Try it: where does this path land?",
+      "intro": "Two things decide where a path points: where you are standing, and what you type. Change either one below and watch the answer move. Start by deleting the leading slash — or adding one."
+    }
+  },
+  "commands": {
+    "title": "Your First Commands — The Starter Toolkit",
+    "intro": "These 9 commands are like learning 9 words in a foreign language before a trip: you won't be fluent, but you can ask for directions, look around, build a shelf, leave a note, read a note, photocopy a document, move boxes, and shred a document. Nine words, and you can handle most daily situations.",
+    "grid": {
+      "pwd": {
+        "label": "pwd",
+        "description": "Shows the current directory"
+      },
+      "ls": {
+        "label": "ls",
+        "description": "Lists the contents of a folder"
+      },
+      "cd": {
+        "label": "cd",
+        "description": "Changes to a different folder"
+      },
+      "mkdir": {
+        "label": "mkdir",
+        "description": "Creates a new folder"
+      },
+      "touch": {
+        "label": "touch",
+        "description": "Creates an empty file"
+      },
+      "cat": {
+        "label": "cat",
+        "description": "Displays the contents of a file"
+      },
+      "cp": {
+        "label": "cp",
+        "description": "Copies files or folders"
+      },
+      "mv": {
+        "label": "mv",
+        "description": "Moves or renames"
+      },
+      "rm": {
+        "label": "rm",
+        "description": "Deletes files permanently"
+      }
+    },
+    "tabCompletion": "Tab completion is your best friend: type the first few letters of a file or folder name and press Tab — the shell completes the name automatically. This prevents typos, speeds up input, and shows you what files and commands are available.",
+    "miniProject": {
+      "title": "Mini Project: Build an AI Project Folder",
+      "step1": "mkdir ai-project → Creates the main folder",
+      "step2": "cd ai-project → Moves into it",
+      "step3": "mkdir data src docs → Creates three subfolders",
+      "step4": "touch requirements.txt README.md → Creates two empty files",
+      "step5": "ls → Shows: data/ docs/ src/ requirements.txt README.md",
+      "step6": "cp requirements.txt requirements-backup.txt → Creates a backup copy",
+      "step7": "mv README.md docs/ → Moves README.md into the docs folder"
+    },
+    "rmWarning": {
+      "title": "Danger Zone: rm Deletes Permanently",
+      "text": "The rm command has no recycle bin. What you delete is gone — no confirmation, no recovery. The command rm -rf can wipe entire directory trees in seconds.",
+      "tip": "Tip: Use rm -i to get a confirmation prompt before each deletion. Always check with pwd and ls that you are in the correct directory before using rm."
+    },
+    "forwardLink": "In the next article you will set up your development environment — the place where these commands, your code, and soon Git come together."
+  },
+  "flags": {
+    "title": "Deep Dive: Flags and Options — Teaching Commands New Tricks",
+    "intro": "Commands accept flags (also called options) that modify their behavior. Short flags start with a single dash (-l), long flags with two (--long-name). You can combine short flags: ls -la shows hidden files and detailed information at the same time.",
+    "examples": "Example: ls without flags shows only file names. ls -l shows file size, permissions, and modification date. ls -a also shows hidden files (those starting with a dot, like .gitignore).",
+    "help": "Most commands explain themselves: type --help after a command (e.g. ls --help) to see an overview of all options. On Unix/macOS, man ls shows the full documentation."
+  },
+  "aiTerminal": {
+    "title": "Deep Dive: Why AI Practitioners Live in the Terminal",
+    "intro": "The terminal is not optional for professional AI work — it is the primary tool. Most GPU servers where AI models are trained have no graphical interface. You connect via SSH (Secure Shell) through the terminal.",
+    "useCases": "You manage Python packages with pip and conda in the terminal. Training runs are launched with commands like python train.py --epochs 50 --lr 0.001. CI/CD pipelines — automated testing and deployment processes — run entirely in the terminal. If you want to work with AI professionally, there is no way around the terminal."
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "items": {
+      "guiCli": "A GUI lets you point and click; a CLI lets you type precise, repeatable, scriptable instructions — both exist because they solve different problems.",
+      "paths": "Every file on your computer has an address (path). Absolute paths start from the root (/ or C:\\), relative paths start from wherever you currently are.",
+      "commands": "Nine commands (pwd, ls, cd, mkdir, touch, cat, cp, mv, rm) cover most everyday file operations in the terminal.",
+      "tabCompletion": "Tab completion prevents typos, speeds up input, and teaches you what files and commands exist.",
+      "noUndo": "The terminal has no undo button and no trash can — rm deletes permanently. Always double-check your path before pressing Enter."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint: Test Your Knowledge",
+    "item1": "Name two situations where a graphical interface (GUI) is better suited, and two where the command line (CLI) is the better choice.",
+    "item2": "You are in the directory /home/user/project. What is the relative path to /home/user/data/file.csv?",
+    "item3": "Create a folder called \"experiment\" in the terminal, place an empty file \"notes.txt\" inside it, and verify it exists. Which three commands do you need?"
+  },
+  "quiz": {
+    "boxTitle": "Quiz: The Terminal",
+    "q1": {
+      "question": "What is the main difference between GUI and CLI?",
+      "a": "A GUI is faster than a CLI",
+      "b": "A GUI uses visual elements like windows and buttons, a CLI uses text commands",
+      "c": "A CLI only works on Linux",
+      "d": "A GUI is for professionals, a CLI is for beginners",
+      "explanation": "A GUI (Graphical User Interface) presents windows, icons, and buttons. A CLI (Command-Line Interface) works with text commands. Both approaches have advantages and disadvantages — neither is universally better."
+    },
+    "q2": {
+      "question": "You are in the directory /home/user/project/data. What does the command cd .. do?",
+      "a": "It deletes the folder data",
+      "b": "It moves to /home/user/project",
+      "c": "It moves to /home/user",
+      "d": "It shows the folder contents",
+      "explanation": "The two dots .. mean: one level up. From /home/user/project/data, cd .. goes one level up to /home/user/project."
+    },
+    "q3": {
+      "question": "You want to create a folder \"test\", create a file \"log.txt\" inside it, and verify the file exists. Which sequence is correct?",
+      "a": "touch log.txt, mkdir test, ls",
+      "b": "mkdir test, cd test, touch log.txt, ls",
+      "c": "cd test, mkdir test, touch log.txt",
+      "d": "touch test/log.txt, ls test",
+      "explanation": "First the folder must exist (mkdir test), then you move into it (cd test), create the file (touch log.txt) and verify with ls. You cannot enter a folder that does not exist yet."
+    },
+    "q4": {
+      "question": "Why is the command line better suited than a GUI for renaming 500 files?",
+      "a": "The command line displays files faster",
+      "b": "A single command can process all 500 files automatically",
+      "c": "A GUI cannot rename files",
+      "d": "The command line has a built-in undo function",
+      "explanation": "The strength of the command line is automation: a single command with a pattern can rename all 500 files in seconds. In a GUI, you would have to click each file individually."
+    }
+  },
+  "enrichment": {
+    "tocLabel": "Practice Commands",
+    "sectionTitle": "Interactive: Command Flashcards",
+    "intro": "Test your knowledge of the most important terminal commands. Click a card to reveal the explanation with syntax and example. Shuffle the deck and try to describe each command from memory before flipping.",
+    "cards": {
+      "1": {
+        "front": "pwd",
+        "frontSub": "Where am I right now?",
+        "back": "Prints the absolute path of your current working directory. Essential for orientation — especially before deleting or moving files.",
+        "backFormula": "pwd\n→ /home/user/project",
+        "backExample": "Always check pwd before rm so you don't delete in the wrong folder."
+      },
+      "2": {
+        "front": "ls",
+        "frontSub": "What's in here?",
+        "back": "Lists files and folders in the current directory. Customizable with flags like -l (details) and -a (hidden files).",
+        "backFormula": "ls -la\n→ drwxr-xr-x  .git/\n   -rw-r--r--  README.md",
+        "backExample": "ls -la also shows .gitignore and other hidden files."
+      },
+      "3": {
+        "front": "cd",
+        "frontSub": "Where do you want to go?",
+        "back": "Changes the working directory. Accepts absolute and relative paths. cd .. goes one level up, cd ~ goes to the home directory.",
+        "backFormula": "cd project/data\ncd ..\ncd ~",
+        "backExample": "cd without an argument takes you back to your home directory."
+      },
+      "4": {
+        "front": "mkdir",
+        "frontSub": "Create a new folder",
+        "back": "Creates one or more new directories. Can create multiple folders at once.",
+        "backFormula": "mkdir data src docs\nmkdir -p parent/child/grandchild",
+        "backExample": "mkdir -p also creates missing parent directories automatically."
+      },
+      "5": {
+        "front": "cat",
+        "frontSub": "Display file contents",
+        "back": "Outputs the entire contents of a file to the terminal. Useful for short files like config files or requirements.txt.",
+        "backFormula": "cat requirements.txt\n→ numpy==1.24.4\n   transformers==4.37.0",
+        "backExample": "For long files, use less instead of cat."
+      },
+      "6": {
+        "front": "cp",
+        "frontSub": "Copy",
+        "back": "Copies files or folders. For folders with contents, the -r (recursive) flag is required.",
+        "backFormula": "cp file.txt backup.txt\ncp -r folder/ copy/",
+        "backExample": "Create a backup copy before making risky changes."
+      },
+      "7": {
+        "front": "mv",
+        "frontSub": "Move or rename",
+        "back": "Moves files/folders to a new location OR renames them. Works for both — the command just changes the path entry.",
+        "backFormula": "mv old.txt new.txt\nmv file.txt folder/",
+        "backExample": "Rename 500 photos? A loop with mv does it in seconds."
+      },
+      "8": {
+        "front": "rm",
+        "frontSub": "Delete permanently",
+        "back": "Deletes files permanently — no recycle bin, no undo. With -r, it deletes folders and their contents. Always use with caution!",
+        "backFormula": "rm file.txt\nrm -r folder/\nrm -i file.txt  # asks first",
+        "backExample": "Tip: rm -i asks before each deletion — safer than rm alone."
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "seed-resource-1",
+  "mediaType": "document",
+  "topic": "general",
+  "difficulty": "beginner",
+  "language": "en",
+  "url": "https://example.com",
+  "rating": 4,
+  "isFreeBehindPaywall": false,
+  "requiresRegistration": false,
+  "publishedDate": "2020-01-01",
+  "lastUpdated": "2020-01-01",
+  "estimatedTime": "varies",
+  "author": "Placeholder Author",
+  "source": "Placeholder Source"
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Code-Review",
+  "alternativeNames": [
+    "Code-Durchsicht",
+    "Quellcode-Prüfung"
+  ],
+  "description": "Code-Review ist die Durchsicht von Code-Änderungen durch jemanden, der sie nicht selbst geschrieben hat - bevor sie ins Projekt übernommen werden. Geprüft wird auf Fehler, Verständlichkeit und Nebenwirkungen, meist entlang des Diffs. Wie das Vier-Augen-Prinzip in der Buchhaltung: Ein zweites Paar Augen findet, was das erste übersehen hat. Neu ist die Rollenverteilung: Heute reviewt oft ein Mensch den Code eines KI-Agenten, und Agenten prüfen als zusätzliche Instanz vor. Eines bleibt: Die Verantwortung für das, was übernommen wird, liegt beim Menschen - ein Review ist eine Prüfung, keine Garantie.",
+  "example": "Ein Agent liefert eine neue Login-Funktion. Ein zweiter Agent merkt beim Vorprüfen an: Das Passwort landet im Klartext im Protokoll. Du liest daraufhin das Diff, bestätigst das Problem und lässt es beheben, bevor die Änderung ins Projekt kommt. Der Hinweis kam von der Maschine - entschieden und verantwortet hast du."
+}

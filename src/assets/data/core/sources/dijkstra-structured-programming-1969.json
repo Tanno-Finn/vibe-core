@@ -1,0 +1,17 @@
+{
+  "id": "dijkstra-structured-programming-1969",
+  "type": "paper",
+  "authors": "Edsger W. Dijkstra",
+  "year": "1969",
+  "publication": "E. W. Dijkstra Archive, University of Texas (EWD 249)",
+  "url": "https://www.cs.utexas.edu/~EWD/transcriptions/EWD02xx/EWD249/EWD249.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "testing",
+    "software-engineering",
+    "history",
+    "reliability",
+    "dijkstra"
+  ]
+}

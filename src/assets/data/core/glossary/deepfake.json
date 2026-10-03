@@ -1,0 +1,62 @@
+{
+  "id": "deepfake",
+  "category": "ethics",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Deepfake",
+  "parentConcepts": [
+    "generative-ai",
+    "gan"
+  ],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Deepfake",
+      "KI-Fälschung",
+      "synthetisches Medienprodukt",
+      "Face-Swap"
+    ],
+    "en": [
+      "Deepfake",
+      "AI-generated synthetic media",
+      "Face Swap",
+      "Neural Fake"
+    ],
+    "de-easy": [
+      "Deepfake",
+      "Gefälschtes KI-Video"
+    ],
+    "en-easy": [
+      "Deepfake",
+      "AI Fake Video"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Tolosana, R., et al. (2020). Deepfakes and Beyond: A Survey of Face Manipulation and Fake Detection. Information Fusion, 64, 131-148.",
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2001.00179",
+      "notes": "Umfassender Survey zu Deepfake-Technologien, GAN-basierten und Diffusionsmodell-basierten Ansaetzen sowie Erkennungsmethoden"
+    },
+    {
+      "title": "Vaccari, C., & Chadwick, A. (2020). Deepfakes and Disinformation. Social Media + Society, 6(1).",
+      "type": "paper",
+      "url": "https://doi.org/10.1177/2056305120903408",
+      "notes": "Empirische Studie zu politischen Auswirkungen von Deepfakes; zeigt Vertrauensverlust auch bei erkannten Faelschungen"
+    },
+    {
+      "title": "European Parliament. (2021). AI Act Article 50 -- Obligations for providers of certain AI systems.",
+      "type": "documentation",
+      "url": "https://artificialintelligenceact.eu/article/50/",
+      "notes": "EU AI Act Art. 50 schreibt Kennzeichnungspflicht fuer KI-generierte Inhalte vor, einschliesslich Deepfakes"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "hallucination"
+    ]
+  },
+  "createdAt": "2026-06-22",
+  "updatedAt": "2026-06-22"
+}

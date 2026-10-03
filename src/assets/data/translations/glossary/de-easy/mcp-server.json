@@ -1,0 +1,6 @@
+{
+  "term": "MCP-Server",
+  "alternativeNames": ["Model-Context-Protocol-Server"],
+  "description": "Ein MCP-Server ist ein Programm. Es stellt Werkzeuge und Daten bereit. Ein KI-Assistent kann diese Werkzeuge benutzen. Zum Beispiel: Dateien lesen, Datenbanken abfragen oder Funktionen ausführen. Der MCP-Server und der KI-Assistent sprechen über das Model Context Protocol miteinander. Das ist ein einheitlicher Standard. Viele Firmen haben eigene MCP-Server gebaut. Zum Beispiel: GitHub, Slack und Notion. So kann ein KI-Assistent viele verschiedene Dienste nutzen, ohne dass jeder Dienst extra angepasst werden muss.",
+  "example": "Eine Firma baut einen MCP-Server für ihre Datenbank. Der KI-Assistent verbindet sich mit dem Server. Jetzt kann der Nutzer Fragen in normaler Sprache stellen. Der MCP-Server übersetzt die Fragen in Datenbankabfragen."
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Digital Twin",
+  "alternativeNames": [
+    "Computer model of a real thing"
+  ],
+  "description": "Digital Twin. This is a computer model of a real thing. For example, a model of a machine. The model gets real measurement data all the time. So it almost always shows how the real thing is doing. You can test things on the model without danger. That is cheaper and safer. Some people say: AI twin of a person. But that is something different. It has no real measurement data.",
+  "example": "A company builds wind turbines. Each turbine has a computer model. The model shows: one part gets too hot. The company replaces the part. The real turbine does not break."
+}

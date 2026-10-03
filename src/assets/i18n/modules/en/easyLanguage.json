@@ -1,0 +1,312 @@
+{
+  "content": {
+    "aiTimeline": {
+      "title": "The timeline",
+      "blocks": [
+        {
+          "title": "What is the timeline?",
+          "content": "Here you see the timeline. A timeline orders events by date. It shows the history of your subject."
+        },
+        {
+          "title": "What you find here",
+          "content": "There are 96 events on this timeline. They start in 1950. They go until today. Important people like Alan Turing shaped AI history."
+        },
+        {
+          "title": "How you can search",
+          "content": "You can pick a time range. You can filter by category. You can also enter search terms. This is how you find a specific topic fast."
+        }
+      ]
+    },
+    "aiToolsCatalog": {
+      "title": "Tools and resources",
+      "blocks": [
+        {
+          "title": "What do you find here?",
+          "content": "Here you find many learning materials about AI. There are videos and online courses. There are also books and tools. All together, there are over 340 entries."
+        },
+        {
+          "title": "How you use the page",
+          "content": "You can filter entries. For example, show only videos. Or only courses. You can also select free content in German."
+        },
+        {
+          "title": "External content",
+          "content": "All entries lead to external websites. You leave this page when you click. The content comes from known providers. Many are available for free."
+        }
+      ]
+    },
+    "artApisMcp": {
+      "title": "Interfaces and AI tools",
+      "blocks": [
+        {
+          "title": "What is an API?",
+          "content": "An API is an interface. Interface means: a connection point between programs. You send a request to the program. The program sends an answer back. This is how AI programs speak with other programs."
+        },
+        {
+          "title": "MCP connects all tools",
+          "content": "Many AI programs need many connections. MCP makes this easier. MCP means: a standard for AI connections. It is like a USB-C cable for AI. All programs use the same cable."
+        },
+        {
+          "title": "What is an AI agent?",
+          "content": "An agent is an AI program. It does tasks by itself. It plans a step. Then it performs it. Then it checks the result. This is how it works step by step."
+        }
+      ]
+    },
+    "artContextEngineering": {
+      "title": "Context engineering for AI tasks",
+      "blocks": [
+        {
+          "title": "What context engineering is",
+          "content": "An AI does not know your project. It needs information about it. Context engineering means: you explain the project environment to the AI. This goes further than prompt engineering. Prompt engineering only improves a single question."
+        },
+        {
+          "title": "The rule file",
+          "content": "You can create a rule file. The AI reads it for every task. The most important things about your project are in there. So the AI does not have to start from scratch every time."
+        },
+        {
+          "title": "Less is often more",
+          "content": "More information does not always help. Too much context can confuse the AI. What is more important: which information is really relevant? Only the essentials give the AI the best focus."
+        }
+      ]
+    },
+    "artGitIntro": {
+      "title": "Version control with Git",
+      "blocks": [
+        {
+          "title": "What is Git?",
+          "content": "Git is a program for version control. Version control means: the program remembers all old versions. You can go back to an old version at any time. This is very useful when errors occur."
+        },
+        {
+          "title": "Commits are snapshots",
+          "content": "A commit is like a photo of your project. You save the current state of the work. Every commit has a short description. You can look at all commits. This is how you see: what changed and when? A repository is a folder with all commits."
+        },
+        {
+          "title": "GitHub for teamwork",
+          "content": "GitHub is a website. You can upload your repository there. Others can then work with you. GitHub is cloud storage for code. Cloud means: it is on a server on the internet."
+        }
+      ]
+    },
+    "artNetworkingApis": {
+      "title": "How computers speak with each other",
+      "blocks": [
+        {
+          "title": "Client and server",
+          "content": "You open a website. Your computer sends a request. Another computer answers. Your computer is called a client. The other computer is called a server. This happens in less than a second."
+        },
+        {
+          "title": "DNS: the internet phone book",
+          "content": "Every website has an IP address. IP address means: a number like 142.250.1.1. Humans remember numbers poorly. That is why there are names like google.com. DNS translates the name into a number. DNS means: Domain Name System."
+        },
+        {
+          "title": "API: interface for programs",
+          "content": "An API is an interface. This means: a connection point between programs. Programs can exchange information through it. Your mobile phone uses many APIs. The weather widget asks a weather API. AI assistants also use APIs."
+        }
+      ]
+    },
+    "artTerminalIntro": {
+      "title": "Controlling the computer with text",
+      "blocks": [
+        {
+          "title": "What is the terminal?",
+          "content": "The terminal is a text window. You type commands. The computer executes them immediately. This way, you can control everything. For example: copying files or creating folders."
+        },
+        {
+          "title": "File paths: the address of a file",
+          "content": "Every file has an address. This address is called a path. A path shows where the file lies. For example: /home/user/project/file.txt."
+        },
+        {
+          "title": "Important commands",
+          "content": "There are nine basic commands. pwd shows where you are. ls shows files in the folder. rm deletes files immediately and permanently. Deleted files are gone."
+        }
+      ]
+    },
+    "artVibecoding": {
+      "title": "Programming with AI",
+      "blocks": [
+        {
+          "title": "What is vibecoding?",
+          "content": "You describe your goal in normal words. Then an AI writes the code. This is called vibecoding. Vibecoding is a new form of programming."
+        },
+        {
+          "title": "Your new role",
+          "content": "In the past, you wrote code line by line. Now the AI writes the code. You check the code afterwards. That is your new task. You cannot do this without programming knowledge."
+        },
+        {
+          "title": "Risks with vibecoding",
+          "content": "AI sometimes makes errors in code. You must always check the code yourself. AI sometimes forgets important details. Some vibecoders no longer understand the code. That is dangerous."
+        }
+      ]
+    },
+    "glossary": {
+      "title": "Dictionary of terms",
+      "blocks": [
+        {
+          "title": "What is the glossary?",
+          "content": "The glossary is a dictionary. It explains terms from AI. There are 305 entries. Each term has a clear explanation."
+        },
+        {
+          "title": "How you use the glossary",
+          "content": "Scroll through all terms. Or search for a term directly. You can also filter by letter. Each entry shows you related topics."
+        },
+        {
+          "title": "Tip for beginners",
+          "content": "Do you not know a term? Look it up here. The explanations are understandable for everyone. Many terms also have examples."
+        }
+      ]
+    },
+    "home": {
+      "title": "The learning platform",
+      "blocks": [
+        {
+          "title": "What you find here",
+          "content": "Here you learn everything about your subject. There are lessons and a dictionary with terms. There are also interactive demos. In a demo, you can try something out yourself."
+        },
+        {
+          "title": "How you can start",
+          "content": "You can start a learning path. A learning path leads you step by step through the topics. You can try out demos yourself. You can look up terms. Each page has a short code. These codes lead directly to a page here."
+        },
+        {
+          "title": "Good to know",
+          "content": "This platform is free. It is available in German and English. It is accessible. Accessible means: all people can use it well."
+        }
+      ]
+    },
+    "impressum": {
+      "title": "Website info",
+      "blocks": [
+        {
+          "title": "Contact and purpose",
+          "content": "This website is called {siteName}. It belongs to {operator}."
+        },
+        {
+          "title": "License",
+          "content": "Most website content can be used freely. The license is called CC BY 4.0. CC BY 4.0 means: you must name the source. And you must say if you changed something. Content from others is excluded from this."
+        }
+      ]
+    },
+    "lernbereich": {
+      "title": "The learning area",
+      "blocks": [
+        {
+          "title": "What is here",
+          "content": "Here you find learning paths about AI. A learning path is a series of articles on a topic. You learn step by step."
+        },
+        {
+          "title": "How you learn",
+          "content": "Each path has a difficulty level. Some paths build on others. In the end, you get a certificate."
+        },
+        {
+          "title": "What awaits you",
+          "content": "There are paths for beginners. There are paths for advanced learners. Many paths have interactive demos. Demos are small programs in the browser. You can try things out yourself there."
+        }
+      ]
+    },
+    "news": {
+      "title": "News",
+      "blocks": [
+        {
+          "title": "What do you find here?",
+          "content": "All news is here. You see what is new. New articles, new languages, new features."
+        },
+        {
+          "title": "How you use the page",
+          "content": "The news is sorted by date. The newest one comes first. You can filter by topic. For example: only new features or only corrections."
+        }
+      ]
+    },
+    "notFound": {
+      "title": "Page not found",
+      "blocks": [
+        {
+          "title": "What happened?",
+          "content": "This page does not exist. You may have entered a wrong address. The page no longer exists."
+        },
+        {
+          "title": "What you can do",
+          "content": "Go back to the previous page. Or go to the home page. There you find all content."
+        }
+      ]
+    },
+    "exampleDemo": {
+      "title": "The blueprint of a demo",
+      "blocks": [
+        {
+          "title": "What is this demo?",
+          "content": "This demo has no subject. It shows the blueprint. A blueprint shows: this is how a demo is built."
+        },
+        {
+          "title": "How you use the demo",
+          "content": "Move the slider. Pick a pattern. Press start. Look: the dots change right away."
+        },
+        {
+          "title": "What you learn",
+          "content": "Every demo has four building blocks: controls, picture, observing, understanding. With this blueprint you build your own demo."
+        }
+      ]
+    },
+    "preview": {
+      "sampleTitle": "Example title",
+      "sampleContent": "This is what content in Plain Language looks like.<br>Short sentences.<br>Simple words.<br>Clear structure.",
+      "title": "Preview"
+    },
+    "roadmap": {
+      "title": "The learning path roadmap",
+      "blocks": [
+        {
+          "title": "What is here?",
+          "content": "Here you see all learning paths. Learning paths are ordered collections of articles. Some paths are already available. Other paths are coming soon."
+        },
+        {
+          "title": "How is it built?",
+          "content": "There are four sectors. Sector 0 is called foundation. Foundation means basics. Sector 1 is theory and science. Sector 2 is practice. Sector 3 shows AI in everyday life."
+        },
+        {
+          "title": "How you use the page",
+          "content": "Each path has a difficulty level. There are beginner paths. There are paths for advanced learners. And paths for experts. New paths appear every two weeks."
+        }
+      ]
+    },
+    "userSettings": {
+      "title": "Your settings",
+      "blocks": [
+        {
+          "title": "What you find here",
+          "content": "On this page, you can customize the app. You can change how it looks. For example, light or dark design. You can also choose the language."
+        },
+        {
+          "title": "Your learning progress",
+          "content": "Here you see your points and achievements. You can save them as a file. This is called export. Export means: saving data on your device."
+        },
+        {
+          "title": "Your privacy",
+          "content": "Your data stays on your device. No server gets your data. You can delete all data at any time. This way, you keep control."
+        }
+      ]
+    },
+    "seedArticle1": {
+      "title": "How an article is built",
+      "blocks": [
+        {
+          "title": "What is this page?",
+          "content": "This page is a template. It has no subject topic. It shows: this is how an article is built."
+        },
+        {
+          "title": "The building blocks",
+          "content": "An article has fixed building blocks: intro, text sections, definition, example, check, and takeaways. Related content sits at the bottom."
+        },
+        {
+          "title": "What you do with it",
+          "content": "Use the page as a template. Swap the texts for your topic. Keep the structure."
+        }
+      ]
+    }
+  },
+  "dialog": {
+    "preview": "Preview",
+    "title": "Plain Language",
+    "fullPortalNotice": "This preview is in Plain Language. The whole platform is also available in Plain Language. You can change the language at the top. Or use the button below. Our Plain Language texts are AI-assisted; a person has read them through, but they are not editorially reviewed. They follow the core principles of easy-to-read language, but they are not certified Easy Read: a review panel of people with learning difficulties does not test them.",
+    "switchToEasyLanguage": "Switch to Plain Language"
+  },
+  "fab": {
+    "label": "Plain Language"
+  }
+}

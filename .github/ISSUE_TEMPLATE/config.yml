@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Question or discussion
+    url: https://github.com/Tanno-Finn/vibe-core/discussions
+    about: For questions and open-ended discussion, please start a discussion thread rather than opening an issue.
+  - name: Security vulnerability
+    url: https://github.com/Tanno-Finn/vibe-core/security
+    about: Do not open a public issue. See SECURITY.md and use private vulnerability reporting under the Security tab.

@@ -1,0 +1,14 @@
+{
+  "label": {
+    "inputSize": "Menge der Eingaben n ="
+  },
+  "ratio": {
+    "title": "Vergleich mit der Referenz",
+    "curve": "Kurve",
+    "operations": "Arbeits·schritte",
+    "factor": "Faktor",
+    "reference": "Referenz",
+    "cheaper": "weniger Arbeit",
+    "costlier": "mehr Arbeit"
+  }
+}

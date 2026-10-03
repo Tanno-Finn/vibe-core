@@ -1,0 +1,20 @@
+{
+  "id": "seed-event-2",
+  "year": "2001",
+  "date": "2001",
+  "category": "papers",
+  "importance": "minor",
+  "icon": "pi pi-star",
+  "color": "#888888",
+  "detailIds": [],
+  "sources": [],
+  "people": [],
+  "organizations": [],
+  "createdAt": "2020-01-01",
+  "updatedAt": "2020-01-01",
+  "related": {
+    "timeline": [
+      "seed-event-3"
+    ]
+  }
+}

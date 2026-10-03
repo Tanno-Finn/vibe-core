@@ -1,0 +1,39 @@
+{
+  "title": "Beispiel-Artikel: Die Vorlage",
+  "subtitle": "Ein Platzhalter-Artikel, der zeigt und erklärt, wie eine Artikel-Seite aufgebaut ist",
+  "description": "Platzhalter-Artikel ohne Fachinhalt: Er zeigt die Bausteine einer guten Artikel-Seite — Einstieg, Textsektionen, Definition, Beispiel, Checkpoint, Kernaussagen.",
+  "intro": {
+    "title": "Das hier ist eine Platzhalter-Vorlage",
+    "text": "Diese Seite erklärt keinen Fachinhalt — sie zeigt dir den Bauplan einer Artikel-Seite. Jede Sektion ist ein Baustein und erklärt sich selbst. Nutze die Seite als Kopiervorlage für deine eigenen Artikel."
+  },
+  "structure": {
+    "title": "So ist ein Artikel aufgebaut",
+    "text": "Ein Artikel führt vom Einstieg zur Kernaussage: Oben ordnet eine Info-Box die Seite ein, danach folgen wenige, klar benannte Sektionen. Fließtext lebt in Text-Containern wie diesem — eine Sektion pro Gedanke, mit eigener Überschrift, damit das Inhaltsverzeichnis (FAB unten rechts) Orientierung bietet. Begriffe erklärt ein Definitions-Block, Konkretes zeigt eine Beispiel-Box, und am Ende sichern Checkpoint und Kernaussagen das Gelernte. Ganz unten verlinkt der Artikel automatisch verwandte Inhalte — hier die Seed-Glossarbegriffe und Timeline-Ereignisse aus seiner Meta-Datei."
+  },
+  "definition": {
+    "title": "Begriff: Artikel-Seite",
+    "analogy": "Eine Artikel-Seite ist wie ein gut geführtes Museum: Am Eingang sagt dir ein Schild, was dich erwartet. Dann gehst du Raum für Raum durch — jeder Raum hat ein Thema. Am Ausgang fasst eine Tafel das Wichtigste zusammen.",
+    "precise": "Eine Artikel-Seite ist eine eigenständige Angular-Komponente auf Basis von <code>app-lesson-template</code>. Sie deklariert ihre Metadaten (id, Titel-Key, Lesezeit, Schwierigkeit), projiziert ihre Sektionen als Kind-Elemente und ist über eine Route mit 4-Zeichen-Kurz-ID erreichbar.",
+    "example": "Genau diese Seite: Komponente unter src/app/pages/articles/seed-article-1/, Meta in assets/data/core/articles/seed-article-1.json, Route articles/seed-article-1 mit Kurz-ID sda1."
+  },
+  "example": {
+    "title": "Beispiel: Die 4-Zeichen-ID",
+    "text": "Jeder Artikel bekommt eine 4-Zeichen-ID (pageId). Aus ihr entsteht eine Kurz-URL, die in gedruckte Materialien und QR-Codes passt.",
+    "label": "Kurz-URL",
+    "result": "/article/sda1 leitet auf /articles/seed-article-1 weiter — probiere es in der Adresszeile aus."
+  },
+  "checkpoint": {
+    "title": "Check: Hast du die Vorlage?",
+    "item1": "Ich kann die Bausteine eines Artikels nennen: Einstieg, Textsektionen, Definition, Beispiel, Checkpoint, Kernaussagen und verwandte Inhalte."
+  },
+  "takeaways": {
+    "title": "Das Wichtigste in Kürze",
+    "text": "1. **Ein Artikel ist eine Komponente**: eine eigene Seite auf Basis von app-lesson-template, mit Meta-Daten in articles/index.json und einer eigenen JSON-Datei.\n\n2. **Bausteine statt Freitext**: Text-Container, Definition, Beispiel-Box und Checkpoint geben jedem Artikel dieselbe klare Form.\n\n3. **Vernetzt statt isoliert**: Über die related-Refs in der Meta-Datei verlinkt der Artikel Glossar und Timeline automatisch — das Wissensnetz entsteht aus Daten, nicht aus Handarbeit.\n\nDieser Platzhalter ist bewusst fachfrei — ersetze die Inhalte und behalte die Struktur."
+  },
+  "next": {
+    "title": "Schreib deinen eigenen Artikel",
+    "text": "Diese Seite ist die Kopiervorlage: Ersetze die Sektionen durch deinen Fachinhalt und behalte die Struktur bei. Im Entwicklungsmodus helfen dir zwei Werkzeuge:",
+    "designWorkshop": "die Design-Werkstatt mit allen Komponenten des Kits zum Ausprobieren",
+    "newContent": "der geführte Weg, neue Inhaltsseiten sauber anzulegen"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "category": {
+    "fundamentals": "Grundlagen",
+    "architecture": "Technik",
+    "concepts": "Ideen"
+  },
+  "difficulty": {
+    "beginner": "Leicht",
+    "intermediate": "Mittel"
+  },
+  "relatedTools": "Passende Werkzeuge",
+  "relatedResources": "Mehr zum Lesen",
+  "openExternal": "Seite öffnen",
+  "viewInCatalog": "In der Liste zeigen",
+  "citedSources": "Benutzte Quellen",
+  "referencedInArticles": "In Artikeln genannt"
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Linter",
+  "alternativeNames": [
+    "Lint-Tool",
+    "Statische Code-Analyse"
+  ],
+  "description": "Ein Linter liest Quellcode, ohne ihn auszuführen, und meldet verdächtige Stellen: die Variable, die nirgends benutzt wird; der Vergleich, der immer dasselbe ergibt; der Tippfehler im Funktionsnamen. Diese statische Analyse fängt ganze Fehlerklassen ab, bevor das Programm überhaupt startet. Der Name kommt von „lint“, englisch für Fussel — das Werkzeug sammelt die Fusseln aus dem Code. Zwei Abgrenzungen lohnen sich: Ein Test führt den Code aus und prüft sein Verhalten (dynamisch), der Linter urteilt allein aus dem Text (statisch) — beide finden unterschiedliche Fehler und ersetzen einander nicht. Und ein Formatter kümmert sich nur um die Optik (Einrückung, Zeilenumbrüche), ohne inhaltliche Urteile zu fällen. In der Praxis laufen Linter meist automatisch im Editor oder als Prüfschritt im Build.",
+  "example": "Ein Korrekturleser prüft ein Kochbuch, ohne ein einziges Gericht zu kochen: Er findet das fehlende Komma, die doppelt vergebene Rezeptnummer und die Zutat, die in der Liste steht, aber im Text nirgends vorkommt. Ob das Gericht schmeckt, weiß er damit nicht — dafür müsste jemand kochen, das wäre der Test. Genauso meldet ESLint in einem JavaScript-Projekt eine deklarierte, aber nirgends verwendete Variable, noch bevor das Programm ein einziges Mal gelaufen ist."
+}

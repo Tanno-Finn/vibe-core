@@ -1,0 +1,8 @@
+{
+  "term": "Code·review",
+  "alternativeNames": [
+    "Code·prüfung"
+  ],
+  "description": "Code·review. Das spricht man Kohd-Riwju aus. Das heißt: Jemand prüft neuen Code. Der Prüfer hat den Code nicht selbst geschrieben. Er sucht nach Fehlern. Er fragt: Ist der Code klar und sicher? Erst nach der Prüfung kommt der Code ins Projekt. Heute schreibt oft eine KI den Code. Dann prüft ein Mensch die Änderungen. Auch eine KI kann beim Prüfen helfen. Aber die Verantwortung bleibt beim Menschen.",
+  "example": "Die KI baut ein Anmelde·formular. Eine zweite KI prüft den Code. Sie findet ein Problem: Das Passwort steht lesbar in der Protokoll·datei. Du siehst dir das an. Du lässt den Fehler beheben. Erst dann kommt der Code ins Projekt."
+}

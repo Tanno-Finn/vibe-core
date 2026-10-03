@@ -1,0 +1,235 @@
+{
+  "hero": {
+    "title": "Deine Entwicklungs·umgebung",
+    "subtitle": "4 Teile. 4 Fragen. Und ein Weg ohne Installieren."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "thesis": "Der Kern·gedanke",
+    "parts": "Die 4 Teile",
+    "comfort": "Komfort",
+    "cloud": "Der Weg über die Cloud",
+    "notNeeded": "Was du nicht brauchst",
+    "close": "Und jetzt?",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Verständnis·check",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "In der letzten Lektion hast du ein Terminal geöffnet. Du hast einen Befehl getippt. In der nächsten Lektion tippst du git init. Aber was muss dafür auf deinem Rechner liegen? Das hat dir noch niemand gesagt.",
+    "paragraph2": "Die Antwort ist kein großes Programm. Es sind 4 kleine Teile. Frag nicht: Was lade ich herunter? Frag lieber: Welche Frage beantwortet dieses Teil?",
+    "paragraph3": "Dein Agent benutzt die gleichen 4 Teile. Er läuft im Terminal. Oder er läuft im Editor. Er benutzt die gleiche Laufzeit·umgebung wie du. Und das gleiche git. Darum kannst du seine Arbeit prüfen.",
+    "paragraph4": "Hier steht keine Anleitung zum Installieren. Die ist auf jedem Rechner anders. Und sie ist bald veraltet. Sie steht auf den Seiten unten."
+  },
+  "thesis": {
+    "title": "Was eine Entwicklungs·umgebung ist",
+    "text1": "Eine Entwicklungs·umgebung ist kein Produkt. Sie besteht aus 4 Teilen. Ein Ort zum Lesen. Ein Ort zum Befehlen. Etwas, das den Code ausführt. Und ein Weg zurück. Kein Teil enthält die anderen Teile.",
+    "text2": "Das hilft dir 2 Mal. Du siehst schnell, was dir fehlt. Und du siehst, was du nicht brauchst.",
+    "objectives": {
+      "title": "Das lernst du hier",
+      "item1": "Du kannst die 4 Teile nennen. Und die Frage dazu.",
+      "item2": "Du weißt: Welche Laufzeit·umgebung braucht ein fremdes Projekt?",
+      "item3": "Du weißt: Warum arbeiten git-Knöpfe ohne git nicht?",
+      "item4": "Du kannst Kern·stunden in echte Stunden umrechnen.",
+      "item5": "Du weißt: Warum brauchst du keinen neuen Rechner?"
+    }
+  },
+  "parts": {
+    "title": "4 Teile, 4 Fragen",
+    "grid": {
+      "editor": {
+        "label": "Editor",
+        "description": "Wo lese und prüfe ich den Code?"
+      },
+      "terminal": {
+        "label": "Terminal",
+        "description": "Wie gebe ich einen Befehl?"
+      },
+      "runtime": {
+        "label": "Laufzeit·umgebung",
+        "description": "Was führt den Code aus?"
+      },
+      "versioning": {
+        "label": "Versions·kontrolle (git)",
+        "description": "Wie komme ich zurück?"
+      }
+    },
+    "editorText": "Der Editor ist ein Fenster mit Text. Der Text ist bunt. Du kannst darin suchen. Hier liest und prüfst du. Ein Agent schreibt oft den Code. Dann ist Prüfen deine wichtigste Arbeit.",
+    "terminalText": "Das Terminal kennst du schon. Neu ist nur eine Sache. Es gehört zur Grund·ausstattung. Du musst keins installieren. Jeder Rechner hat schon eins.",
+    "runtimeIntro": "Das dritte Teil sieht man nie. Der Editor zeigt nur Text. Das Terminal nimmt nur Befehle. Keiner von beiden führt den Code aus.",
+    "definitionTitle": "Laufzeit·umgebung",
+    "definitionEverydayLabel": "Einfach gesagt",
+    "definitionEveryday": "Laufzeit·umgebung. Das ist ein Programm. Es führt den Code aus. Ohne sie ist Code nur Text. Der Text macht dann gar nichts.",
+    "definitionPreciseLabel": "Genauer",
+    "definitionPrecise": "Die Laufzeit·umgebung gehört zur Sprache vom Projekt. Sie gehört nicht zu dir. Für ein JavaScript·projekt brauchst du Node. Für ein Python·projekt brauchst du Python. Frag also immer das Projekt. Frag nicht das Tutorial. Und merk dir noch eine Sache: Die Laufzeit·umgebung ist oft nicht da. Von den 4 Teilen fehlt sie am häufigsten.",
+    "runtimeNotOnlyJs": "Das gilt auch ohne eigenen Code. Die Werkzeuge vom Projekt brauchen die Laufzeit·umgebung. Ein großes Web·framework verlangt sie in seiner Anleitung. Sonst startet das Projekt gar nicht.",
+    "packageManager": "Paket·manager. Das ist ein Helfer für Zusatz·programme. Du musst ihn meistens nicht extra laden. Er kommt mit der Laufzeit·umgebung. Auf manchen Systemen kommt er getrennt. Wie du ihn installierst, steht auf der offiziellen Seite.",
+    "gitText": "Das vierte Teil heißt git. Es ist dein Weg zurück. Was git macht, lernst du in der nächsten Lektion. Hier ist nur eines wichtig: git ist ein eigenes Programm. Du installierst es extra. Danach trägst du 2 Zeilen ein. Deinen Namen. Und deine E-Mail. Einmal pro Rechner.",
+    "exampleTitle": "Beispiel: 4 Fragen, 4 Antworten",
+    "exampleIntro": "Du kannst dein Setup selbst prüfen. Das dauert unter 1 Minute. Tipp die 4 Abfragen in ein Terminal.",
+    "stepsAriaLabel": "4 Abfragen. Damit prüfst du, welches Teil fehlt.",
+    "steps": {
+      "step1": {
+        "label": "Frag die Laufzeit·umgebung",
+        "description": "Kommt eine Nummer? Dann ist Teil 3 da."
+      },
+      "step2": {
+        "label": "Frag den Paket·manager",
+        "description": "Er antwortet meist nur nach Schritt 1."
+      },
+      "step3": {
+        "label": "Frag git",
+        "description": "Kommt keine Nummer? Dann fehlt Teil 4."
+      },
+      "step4": {
+        "label": "Öffne das Terminal im Editor",
+        "description": "Klappt das? Dann sind alle 4 Teile da."
+      }
+    },
+    "exampleResult": "Eine Antwort heißt: Befehl nicht gefunden. Dafür gibt es 2 Gründe. Grund 1: Das Teil ist nicht installiert. Grund 2: Das Teil ist da. Aber der Rechner findet es nicht. Halte die 2 Gründe auseinander. Dann installierst du nichts doppelt.",
+    "misconception": {
+      "title": "Falsch: Der Editor bringt git mit",
+      "text": "Der Editor hat Knöpfe für git. Aber er hat kein git. Er benutzt das git von deinem Rechner. Das steht in seiner Anleitung. Fehlt git, dann tun die Knöpfe nichts. Genau daran siehst du: Es sind 4 getrennte Teile."
+    },
+    "dated": {
+      "title": "Zahlen mit Haltbarkeits·datum (Stand: 18. August 2026)",
+      "runtime": "Node hat 2 Linien. Eine Linie heißt LTS. LTS heißt: lange gepflegt. Eine LTS-Linie wird rund 30 Monate lang gepflegt.",
+      "git": "git braucht mindestens Version 2.0.0. Sonst arbeiten die git-Knöpfe im Editor nicht.",
+      "hardware": "Dein Rechner braucht wenig. 1,6 GHz reichen. 1 GB Arbeits·speicher reicht. Fast jeder Rechner schafft das.",
+      "python": "Bei Python ändert sich der Weg zum Installieren. Schau auf der offiziellen Seite nach.",
+      "survey": "Der am meisten genutzte Editor ist kostenlos. Das zeigt eine große Umfrage von 2025.",
+      "closing": "Genaue Zahlen altern schnell. Die Seiten unten sind immer aktuell."
+    },
+    "deepDive": {
+      "title": "Vertiefung: Der Beweis in 2 Browser·tabs",
+      "text1": "Mach einen Test. Du musst nichts installieren. Öffne die Seite vscode.dev. Dort läuft ein Editor im Browser. Er ist kostenlos. Er zeigt dir Dateien und Text.",
+      "text2": "Was fehlt dort? Ein Terminal. Das steht so in der Anleitung. Und eine Laufzeit·umgebung fehlt auch. Du kannst dort lesen. Du kannst nichts ausführen. Mach jetzt einen zweiten Tab auf. Öffne eine gemietete Umgebung. Dort ist beides da."
+    }
+  },
+  "comfort": {
+    "title": "Komfort, der wirklich hilft",
+    "intro": "Der Editor hat 3 nützliche Sachen. In einer davon steckt eine Falle.",
+    "autosave": "Automatisch Speichern gibt es. Aber es ist am Anfang aus. Du kannst es anschalten. Vorher gilt eine Regel. Text im Editor ist noch nicht gespeichert. Das sind 2 verschiedene Sachen. Mit git kommt eine dritte dazu. Warum Text nach einem Absturz weg ist, weißt du schon.",
+    "diff": "Die Diff·ansicht zeigt alt und neu nebeneinander. Das hilft dir sehr. Vor allem, wenn ein Agent Dateien geändert hat.",
+    "terminal": "Das Terminal im Editor ist kein anderes Terminal. Alle Befehle aus der Terminal·lektion gehen dort."
+  },
+  "cloud": {
+    "title": "Der kurze Weg: eine Umgebung mieten",
+    "what": "Es gibt einen Weg ohne Installieren. Du mietest einen Rechner in der Cloud. Du erreichst ihn im Browser. Alle 4 Teile sind schon drauf.",
+    "scope": "Die Cloud nimmt dir das Installieren ab. Mehr nicht. Die 4 Teile sind weiter da. Du bedienst sie nur woanders.",
+    "analogy": "Denk an eine Miet·werkstatt. Du mietest Zeit an einer fremden Werkbank. Die Uhr läuft, während du arbeitest. Ist die Zeit um, musst du gehen.",
+    "exampleTitle": "Beispiel: Die Rechnung beim Gratis·kontingent",
+    "example1": "Ein Anbieter rechnet in Kern·stunden. Kern·stunden sind nicht gleich Stunden. So geht die Rechnung. Zeile 1: Du hast 120 Kern·stunden. Zeile 2: Deine Maschine hat 2 Kerne. Zeile 3: 120 geteilt durch 2 sind 60 Stunden.",
+    "example2": "Der zweite Anbieter ist anders herum. Er gibt mehr Stunden pro Woche. Er gibt weniger Speicher. Das ist keine Rangliste. Das ist eine Wahl.",
+    "comparison": {
+      "title": "2 Gratis·tarife (Stand: 18. August 2026)",
+      "ariaLabel": "Vergleich von 2 kostenlosen Tarifen für Umgebungen in der Cloud",
+      "beforeLabel": "GitHub Codespaces (GitHub Free)",
+      "beforeResult": "Wenig Zeit, viel Speicher",
+      "beforeText": "120 Kern·stunden pro Monat. Auf 2 Kernen sind das 60 Stunden. 15 GB Speicher pro Monat. Ist das Kontingent leer, wird gesperrt.",
+      "afterLabel": "Google Cloud Shell",
+      "afterResult": "Viel Zeit, wenig Speicher",
+      "afterText": "50 Stunden pro Woche. 5 GB Speicher. Eine Sitzung endet nach 12 Stunden. Ohne Aufsicht endet sie nach 40 Minuten. Nach 120 Tagen ohne Besuch wird gelöscht."
+    },
+    "stat": {
+      "label": "Kern·stunden geteilt durch Kerne",
+      "value": "120 ÷ 4 = 30",
+      "description": "Gleiches Kontingent, aber 4 Kerne: Aus 60 Stunden werden 30. Stand: 18. August 2026."
+    },
+    "rule": "Merk dir keine Zahl. Merk dir eine Rechnung. Teile die Kern·stunden durch die Kerne.",
+    "misconception": {
+      "title": "Falsch: So viele Stunden gratis",
+      "text": "Die Einheit heißt Kern·stunden. Sie heißt nicht Stunden. Manche Tabellen kürzen ab. Dann liest man es falsch. Lies bei jedem Gratis·tarif zuerst die Einheit."
+    },
+    "nothingNeeded": "Manche sagen: In der Cloud brauche ich nichts. Das stimmt nicht ganz. Du brauchst einen Browser. Und du brauchst ein Konto. Der reine Browser·editor ist keine Umgebung. Dort fehlt das Terminal.",
+    "forgetting": "Manche sagen: In der Cloud bleibt alles. Das stimmt auch nicht. Ein Anbieter löscht nach einer langen Pause ohne Besuch. Die Frist steht oben im Kasten. Der andere sperrt bei leerem Kontingent. Er rät: Bring deine Arbeit vorher in einen Branch.",
+    "analogyBreak": "Hier bricht der Vergleich. In einer Werkstatt nimmst du dein Werkstück mit. Hier ist es anders. Die gemietete Umgebung ist irgendwann weg. Deine Arbeit im Repository bleibt."
+  },
+  "notNeeded": {
+    "title": "Was du NICHT brauchst",
+    "framing": "Das hier ist keine Meinung. Das hier ist eine Zählung.",
+    "inventoryTitle": "Beispiel: Was die Anleitungen wirklich verlangen",
+    "inventory1": "Schau in die offiziellen Anleitungen. Ein großes Web·framework verlangt 3 Sachen. Eine Laufzeit·umgebung. Einen Texteditor. Ein Terminal. Es nennt noch einen 4. Punkt. Das ist ein Zusatz für den Editor. Den empfiehlt es nur. Eine Empfehlung ist keine Pflicht. Ein zweites Framework verlangt nur 2 Sachen. Das Handbuch von git verlangt 2 Zeilen.",
+    "inventory2": "Jetzt zähl noch einmal. Was steht in keiner Liste? Eine teure Voll·ausstattung. Ein grafisches git-Programm. Ein neuer Rechner. Diese Liste ist länger. Diese Sachen haben sich die Leute selbst gekauft.",
+    "analogy": "Die Packliste schreibt das Ziel. Nicht der Laden. Was du mitnimmst, hängt von der Reise ab. Es hängt nicht von deinem Gefühl ab.",
+    "analogyBreak": "Eine Packliste hat eine Grenze. Sie nennt nur das Nötigste. Und sie gilt pro Ziel. Ein Beispiel ist der Linux·unterbau bei Windows. Der Hersteller rät dazu unter 2 Bedingungen. Bedingung 1: Du arbeitest mit Linux·servern. Bedingung 2: Du benutzt Linux·werkzeuge. Trifft beides nicht zu? Dann ist er nur eine Möglichkeit.",
+    "misconception": {
+      "title": "Falsch: Profi·werkzeug macht mich zum Profi",
+      "text": "Fang unten an. Auf jedem Rechner liegt ein einfacher Notizblock. Er kann Text öffnen und speichern. Für den Notfall geht das. Aber er kann sehr wenig. Ganz oben steht die volle Ausstattung. Die ist für den Anfang zu kompliziert. Das sagt eine große Webdoku. Sie empfiehlt etwas dazwischen. Nimm einen richtigen Codeeditor. Der Preis entscheidet das nicht. Notepad++ kostet nichts. Er läuft nur auf Windows. Sublime Text kostet Geld. Beide stehen in derselben Liste."
+    },
+    "hardware": "Manche sagen: Ich brauche einen neuen Rechner. Das stimmt nicht. Die Zahlen stehen oben im Kasten. Sie sind sehr niedrig.",
+    "gitGui": "Manche sagen: Ohne Bild·programm verstehe ich git nicht. Das Handbuch von git sagt etwas anderes. Solche Programme können nichts extra. Die nützliche Ansicht hast du im Editor.",
+    "agentEditors": "Es gibt Editoren mit eingebautem Agenten. Für den Anfang brauchst du die nicht. Ein Editor und ein Terminal reichen.",
+    "departureTitle": "Wir sind anderer Meinung",
+    "departure": "Eine Doku sagt: Installier erst, wenn du es brauchst. Das finden wir richtig. Die gleiche Doku sagt: git kann warten. Da sind wir anderer Meinung. Und wir sagen das offen. Ihr Rat gilt für Menschen, die alles selbst tippen. Du arbeitest mit einem Agenten. Der ändert Dateien, die du nicht gelesen hast.",
+    "deepDive": {
+      "title": "Vertiefung: Gratis ist nicht gleich frei",
+      "text1": "Der am meisten genutzte Editor kostet kein Geld. Sein Quellcode ist frei. Aber der Download mit dem Logo ist anders. Er hat eine eigene Lizenz vom Hersteller.",
+      "text2": "Gratis und frei sind 2 verschiedene Sachen. Es gibt einen Nachbau. Er heißt VSCodium. Der hat eine freie Lizenz. Mehr zu Lizenzen steht im Artikel über Open Source."
+    }
+  },
+  "close": {
+    "title": "Und jetzt?",
+    "text1": "4 Fragen. 4 Teile. Wo lese ich? Wie befehle ich? Was führt aus? Wie komme ich zurück? 3 davon hast du jetzt.",
+    "text2": "Das vierte Teil bekommt eine eigene Lektion. Der Anbieter rät: Bring deine Arbeit in einen Branch. Aber was ist ein Branch?",
+    "text3": "Genau darum geht es im nächsten Artikel."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste in 5 Sätzen",
+    "item1": "4 Teile, 4 Fragen. Der Editor: Wo lese ich? Das Terminal: Wie befehle ich? Die Laufzeit·umgebung: Was führt aus? git: Wie komme ich zurück?",
+    "item2": "Die Laufzeit·umgebung gehört zur Sprache vom Projekt. Sie gehört nicht zu dir.",
+    "item3": "Der Editor enthält die anderen 3 Teile nicht. Er leiht sie sich von deinem Rechner.",
+    "item4": "Die Cloud spart dir das Installieren. Die 4 Teile bleiben. Die gemietete Umgebung ist irgendwann weg. Deine Arbeit im Repository bleibt.",
+    "item5": "Was in keiner Liste steht, hast du dir selbst gekauft."
+  },
+  "checkpoint": {
+    "title": "Verständnis·check",
+    "item1": "Ich kann die 4 Teile nennen. Und die Frage dazu.",
+    "item2": "Ich weiß: Welche Laufzeit·umgebung braucht ein fremdes Projekt?",
+    "item3": "Ich weiß: Was nimmt mir eine gemietete Umgebung ab?",
+    "item4": "Ich weiß: Was steht in keiner offiziellen Liste?"
+  },
+  "quiz": {
+    "boxTitle": "Teste dein Wissen",
+    "q1": {
+      "question": "Welche Frage beantwortet die Laufzeit·umgebung?",
+      "a": "Wo lese und prüfe ich den Code?",
+      "b": "Wie komme ich zu einem alten Stand zurück?",
+      "c": "Was führt den Code wirklich aus?",
+      "d": "Wie gebe ich Dateien an andere Leute?",
+      "explanation": "Der Editor zeigt Text. Das Terminal nimmt Befehle. git führt zurück. Die Laufzeit·umgebung führt den Code aus."
+    },
+    "q2": {
+      "question": "Du bekommst ein Projekt in Python. Du tippst keinen Code. Der Agent macht das. Was brauchst du trotzdem?",
+      "a": "Node, denn Node ist die Umgebung für alle Projekte.",
+      "b": "Python, denn die Umgebung gehört zur Sprache im Projekt.",
+      "c": "Nichts weiter, denn der Agent macht die ganze Arbeit.",
+      "d": "Ein teures Programm, denn Python startet sonst gar nicht.",
+      "explanation": "Die Laufzeit·umgebung hängt an der Sprache. Sie hängt nicht daran, wer tippt. Ein Python·projekt braucht Python."
+    },
+    "q3": {
+      "question": "Ein Gratis·tarif nennt 100 Kern·stunden pro Monat. Deine Maschine hat 4 Kerne. Wie viele echte Stunden hast du?",
+      "a": "100 Stunden, denn die Kerne zählen hier nicht mit.",
+      "b": "400 Stunden, denn mehr Kerne geben auch mehr Zeit.",
+      "c": "25 Stunden, denn du teilst durch die Zahl der Kerne.",
+      "d": "50 Stunden, denn bei Kern·stunden gelten immer 2 Kerne.",
+      "explanation": "100 geteilt durch 4 sind 25. Wichtig ist die Einheit. Lies bei jedem Tarif zuerst die Einheit."
+    },
+    "q4": {
+      "question": "Im Editor sind git-Knöpfe. Aber sie tun nichts. Woran liegt das wahrscheinlich?",
+      "a": "Der Editor ist kaputt und muss neu installiert werden.",
+      "b": "git fehlt oder ist zu alt. Der Editor benutzt es nur.",
+      "c": "Die Knöpfe gibt es nur in der teuren Version.",
+      "d": "Das Internet fehlt. Ohne Internet arbeitet git nicht.",
+      "explanation": "Der Editor bringt kein git mit. Er benutzt das git von deinem Rechner. Fehlt git, dann tun die Knöpfe nichts."
+    },
+    "q5": {
+      "question": "2 Leser hören nach 4 Monaten auf. Ein halbes Jahr später kommen sie zurück. Einer hat alles lokal installiert. Der andere hat in der Cloud gearbeitet. Wer findet seine Arbeit eher wieder?",
+      "a": "Der lokale Leser, denn die Cloud ist immer unsicher.",
+      "b": "Der Cloud·leser, denn die Cloud sichert alles von allein.",
+      "c": "Beide gleich, denn der Ort sagt nichts über die Haltbarkeit.",
+      "d": "Wer die Arbeit im Repository hat. Die Umgebung geht weg.",
+      "explanation": "Es kommt nicht auf den Ort an. Es kommt auf das Repository an. Ein Anbieter löscht nach langer Pause. Der andere sperrt bei leerem Kontingent. Auch lokal kann eine Platte kaputt gehen."
+    }
+  }
+}

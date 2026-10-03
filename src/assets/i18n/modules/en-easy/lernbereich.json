@@ -1,0 +1,23 @@
+{
+  "title": "Learning Area",
+  "subtitle": "Here you find everything for learning. With a plan or for browsing.",
+  "viewPaths": "Learning Paths",
+  "viewContent": "Content",
+  "viewLabel": "View",
+  "filterAll": "All",
+  "filterDemos": "Demos",
+  "filterLessons": "Texts",
+  "filterType": "Type of content",
+  "filterDifficulty": "Difficulty",
+  "searchPlaceholder": "Search content...",
+  "difficultyAll": "All Levels",
+  "group": {
+    "examples": "Examples"
+  },
+  "emptyState": "Nothing found",
+  "clearFilters": "Clear filters",
+  "backToLernbereich": "Back to Learning Area",
+  "badgeDemo": "Demo",
+  "badgeLesson": "Text",
+  "emptyStateHint": "There is nothing here yet. You want new content? Tell your AI agent: /new-content"
+}

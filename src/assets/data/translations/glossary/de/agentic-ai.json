@@ -1,0 +1,8 @@
+{
+  "term": "Agentic AI",
+  "alternativeNames": [
+    "Agentische KI"
+  ],
+  "description": "Agentic AI - agentische KI - bezeichnet KI-Systeme, die selbstständig mehrschrittig auf ein Ziel hinarbeiten: Sie zerlegen die Aufgabe, rufen Werkzeuge auf, prüfen die Zwischenergebnisse und wählen den nächsten Schritt - bis das Ziel erreicht ist oder ein Mensch eingreift. Oft arbeiten dabei mehrere Agenten mit eigenem, dauerhaftem Gedächtnis zusammen. Zur Einordnung: Der Agent ist die handelnde Einheit, der agentische Workflow das Ablaufmuster, Agentic AI die Systemklasse als Ganzes. Der Chatbot liefert dagegen pro Eingabe eine Antwort und wartet. Und Vorsicht beim Wort Autonomie: Gemeint ist die selbstständige Schrittwahl innerhalb eines gesetzten Auftrags - nicht ein System mit eigenen Zielen.",
+  "example": "Ein Chatbot beantwortet deine Frage nach einer guten Zugverbindung. Ein agentisches System plant dir die Reise: Es sucht Verbindungen, vergleicht Preise, merkt beim Prüfen, dass ein Umstieg zu knapp ist, und plant um - mehrere Schritte, Werkzeuge und Kontrollen, ohne dass du jeden Schritt einzeln anstoßen musst."
+}

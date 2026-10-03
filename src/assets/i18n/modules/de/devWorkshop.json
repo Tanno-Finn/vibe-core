@@ -1,0 +1,148 @@
+{
+  "common": {
+    "devOnlyBadge": "Nur Dev - im Produktions-Build entfernt"
+  },
+  "hub": {
+    "title": "Werkstatt",
+    "subtitle": "Internes Werkzeug zum Bauen und Dokumentieren dieses Kits. Nichts unter /dev erreicht die Nutzer.",
+    "designTitle": "Designsystem",
+    "designDesc": "Galerie der wiederverwendbaren Komponenten - mit Live-Demo, Verwendungshinweisen und dem kanonischen Agenten-Dokument zu jeder Komponente. Dazu die Guides: ausführliche Artikel zu Bibliotheks- und Layout-Bausteinen.",
+    "agentsTitle": "Agenten-Leitfaden",
+    "agentsDesc": "Wann welches Designsystem-Dokument zu lesen ist, plus die Schleife zum sauberen Anlegen einer neuen Komponente."
+  },
+  "gallery": {
+    "title": "Designsystem",
+    "subtitle": "Wiederverwendbare Komponenten in diesem Kit. Jede Kachel führt zu Live-Demo, Verwendungshinweisen und dem kanonischen Agenten-Dokument.",
+    "filterLabel": "Komponenten filtern",
+    "filterPlaceholder": "Nach Name, Selektor oder Tag suchen ...",
+    "countOf": "von",
+    "countComponents": "Komponenten",
+    "noMatches": "Keine Komponenten passen zu"
+  },
+  "detail": {
+    "backToGallery": "Zur Galerie",
+    "sourceLabel": "Quelle",
+    "liveDemo": "Live-Demo",
+    "docsAriaLabel": "Komponenten-Dokumentation",
+    "tabExample": "Beispiel",
+    "tabUsage": "Verwendung",
+    "tabAgent": "Agenten-Anweisungen",
+    "exampleNote": "Genau dieses Markup rendert die Live-Demo oben.",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "codeRegion": "Codebeispiel",
+    "tableRegion": "Tabelle",
+    "loading": "Wird geladen ...",
+    "noUsageSections": "Dieses Dokument hat noch keine Verwendungs-Abschnitte. Der Tab Agenten-Anweisungen zeigt das vollständige Dokument.",
+    "docError": "Dokument konnte nicht geladen werden:",
+    "notFoundTitle": "Nicht in der Registry",
+    "notFoundNote": "Es gibt keine Designsystem-Komponente mit diesem Slug:",
+    "quickSwitchLabel": "Komponente oder Guide wechseln",
+    "quickSwitchPlaceholder": "Eintrag wählen ...",
+    "quickSwitchFilterPlaceholder": "Nach Name, Selektor oder Tag suchen ...",
+    "quickSwitchEmpty": "Kein Eintrag passt."
+  },
+  "groups": {
+    "scaffolding": {
+      "title": "Eine Seite aufbauen",
+      "hint": "Grundgerüst, Lesespalte, Titel, Orientierung",
+      "chip": "Seitengerüst"
+    },
+    "content": {
+      "title": "Erklärende Inhalte ergänzen",
+      "hint": "Hinweiskästen, Beispiele, Definitionen, Prompts, Formeln, Zusammenfassungen",
+      "chip": "Inhalt"
+    },
+    "inlineHelp": {
+      "title": "Einen Begriff im Text erklären",
+      "hint": "eine Hilfe-Blase neben einem Wort (Hover/Tipp)",
+      "chip": "Inline-Hilfe"
+    },
+    "quiz": {
+      "title": "Quiz oder Selbst-Check bauen",
+      "hint": "bewertete Fragen oder eine Abschluss-Checkliste",
+      "chip": "Quiz & Check"
+    },
+    "progress": {
+      "title": "Fortschritt, Kennzahlen oder Schritte zeigen",
+      "hint": "eine Kennzahl, ein Verhältnis, ein Prozentwert, eine Abfolge",
+      "chip": "Fortschritt"
+    },
+    "cards": {
+      "title": "Eine generische klickbare Karte",
+      "hint": "Titel, Beschreibung, Chips, Aktionen auf einer Fläche",
+      "chip": "Karten"
+    },
+    "other": {
+      "title": "Weitere Komponenten",
+      "hint": "neu registriert, noch keiner Aufgaben-Gruppe zugeordnet",
+      "chip": "Weitere"
+    }
+  },
+  "agents": {
+    "title": "Agenten-Leitfaden",
+    "subtitle": "So arbeiten Agenten an diesem Kit: erst das richtige Dokument lesen, dann UI bauen - die meisten Anforderungen deckt bereits eine wiederverwendbare Komponente ab.",
+    "orientationTitle": "Orientierung",
+    "orientationP1": "Das Designsystem ist die Menge der wirklich wiederverwendbaren UI-Bausteine dieses Kits - Container, Boxen, Karten, Fortschrittsanzeigen, ein Quiz, ein Tooltip. Jede Komponente hat genau ein kanonisches Dokument, das Menschen und Agenten aus derselben Quelle lesen; die Galerie zeigt exakt diese Datei, sodass Dokument auf der Festplatte und Dokument in der App nie auseinanderlaufen.",
+    "factDocs": "Kanonische Dokumente",
+    "factRegistry": "Maschinelle Wahrheitsquelle",
+    "factGate": "Selbstwartungs-Gate",
+    "factHub": "Konventions-Hub",
+    "factGuides": "Guide-Artikel (Agenten-Dokumente)",
+    "factScript": "Agenten-CLI für die Guides",
+    "englishNote": "Die Komponenten-Dokumente sind bewusst englisch: eine kanonische Quelle für Menschen und Agenten zugleich, ohne Übersetzungs-Drift.",
+    "indexTitle": "Wann welches Dokument lesen",
+    "indexLede": "Finde deine Aufgabe und öffne zuerst die verlinkten Dokumente. Diese Tabelle wird live aus der Registry abgeleitet - jede registrierte Komponente erscheint in genau einer Zeile.",
+    "thTask": "Deine Aufgabe",
+    "thDocs": "Diese Dokumente lesen",
+    "indexSummary": "{count} Komponenten in {groups} Aufgaben-Gruppen, automatisch aus der Registry abgeleitet. Das vollständige filterbare Raster liegt in der Galerie.",
+    "loopTitle": "Eine neue Komponente anlegen",
+    "loopLede": "Das Selbstwartungs-Gate erzwingt für jede neue Komponente eine bewusste Entscheidung. Folge dieser Schleife - der /new-component-Skill führt dich hindurch und legt alles in einem Durchgang an.",
+    "step1Title": "Zuerst die Galerie prüfen.",
+    "step1Body": "Deckt eine bestehende Komponente deinen Bedarf zu etwa 80% oder mehr ab: stopp - nutze oder erweitere sie, statt ein Beinahe-Duplikat zu bauen.",
+    "step2Title": "Fragen: Ist sie wiederverwendbar?",
+    "step2Body": "Ein wirklich wiederverwendbarer Baustein bekommt einen Registry-Eintrag. Ein Einzelfall bleibt draußen - baue ihn und trage ihn mit einer einzeiligen Begründung in die Ausschluss-Datei ein.",
+    "step3Title": "Vier Artefakte zusammen anlegen.",
+    "step3Body": "Die Komponenten-Datei, den Registry-Eintrag, das kanonische Dokument und einen Live-Demo-Fall. Sobald der Registry-Eintrag existiert, erscheint die Komponente automatisch in der Galerie und in der Tabelle oben.",
+    "step4Title": "Grün beweisen.",
+    "step4Body": "Beide Prüfungen ausführen; sie müssen mit dem neuen Eintrag bestehen:",
+    "ctaBody": "Führe /new-component aus, um all das sauber zu erledigen. Der Schreib-Vertrag für Dokumente steht in docs/DESIGN-SYSTEM.MD."
+  },
+  "guideTabs": {
+    "examples": "Beispiele",
+    "usage": "Verwendung",
+    "design": "Design",
+    "development": "Entwicklung",
+    "i18n": "Internationalisierung (i18n)",
+    "history": "Verlauf",
+    "agent": "Agenten-Anweisungen"
+  },
+  "guides": {
+    "sectionTitle": "Guides",
+    "sectionHint": "Ausführliche Artikel dazu, wie man mit Bibliotheks-Bausteinen und Layout-Mustern UI baut - ergänzend zu den wiederverwendbaren Komponenten oben.",
+    "category": {
+      "library": "Bibliotheks-Komponenten (Optimus UI)",
+      "foundations": "Grundlagen",
+      "layouts": "Layouts & Muster"
+    },
+    "notFoundTitle": "Guide nicht gefunden",
+    "notFoundNote": "Es gibt keinen Guide-Artikel mit dieser ID:",
+    "relatedTitle": "Verwandte Guides",
+    "agentTabHint": "Denselben Inhalt bekommen Agenten token-sparsam über die CLI:",
+    "agentsTitle": "Guides für Bibliotheks- und Layout-Fragen",
+    "agentsLede": "Für Fragen zu Optimus-UI-Bausteinen, Grundlagen oder Layout-Mustern liefern die Guides ausführliche Artikel - mit einem kanonischen Agenten-Dokument je Guide. Lies token-sparsam: erst den Index, dann eine Sektion, dann bei Bedarf das ganze Dokument.",
+    "cliTopicsNote": "Abdeckungskarte: was es überhaupt gibt, beide Schichten",
+    "cliListNote": "kompakter Index: ID, Kategorie, Tags, Essenz",
+    "cliJsonNote": "maschinenlesbarer Index als JSON",
+    "cliSectionNote": "genau eine Sektion (z. B. bei der Komponenten-Wahl)",
+    "cliSectionsNote": "eine Sektion über alle Dokumente — ein einziger Aufruf",
+    "cliBlocksNote": "alle Do/Don't-Paare aller Artikel in einer Ernte",
+    "cliBundleNote": "ein Guide samt seiner Related-Nachbarschaft",
+    "cliTabNote": "ein Artikel-Tab, Platzhalter aufgelöst",
+    "cliShowNote": "das vollständige Agenten-Dokument beim Bauen",
+    "cliSearchNote": "Volltextsuche über Agenten-Docs, Artikel-Tabs und Kit-Docs",
+    "thGuide": "Guide",
+    "thGuideCat": "Kategorie",
+    "thGuideDoc": "Dokument"
+  }
+}

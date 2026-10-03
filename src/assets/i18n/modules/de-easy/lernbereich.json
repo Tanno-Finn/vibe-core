@@ -1,0 +1,23 @@
+{
+  "title": "Lern·bereich",
+  "subtitle": "Hier findest du alles zum Lernen. Mit Plan oder zum Stöbern.",
+  "viewPaths": "Lernpfade",
+  "viewContent": "Inhalte",
+  "viewLabel": "Ansicht",
+  "filterAll": "Alle",
+  "filterDemos": "Demos",
+  "filterLessons": "Texte",
+  "filterType": "Art der Inhalte",
+  "filterDifficulty": "Schwierigkeit",
+  "searchPlaceholder": "Inhalte suchen...",
+  "difficultyAll": "Alle Stufen",
+  "group": {
+    "examples": "Beispiele"
+  },
+  "emptyState": "Nichts gefunden",
+  "clearFilters": "Filter löschen",
+  "backToLernbereich": "Zurück zum Lern·bereich",
+  "badgeDemo": "Demo",
+  "badgeLesson": "Text",
+  "emptyStateHint": "Hier ist noch nichts. Du willst neuen Inhalt? Schreibe deinem KI-Agenten: /new-content"
+}

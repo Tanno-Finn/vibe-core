@@ -1,0 +1,55 @@
+{
+  "id": "art-second-brain",
+  "path": "articles/art-second-brain",
+  "titleKey": "articleSecondBrain.hero.title",
+  "descriptionKey": "articleSecondBrain.hero.subtitle",
+  "category": "concepts",
+  "estimatedTime": "11min",
+  "difficulty": "beginner",
+  "featured": false,
+  "pageId": "sbrn",
+  "created": "2026-08-18",
+  "updated": "2026-09-05",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "forte-basb-overview-2023",
+    "forte-basb-ten-year-vision-2022",
+    "forte-para-2023",
+    "forte-ai-second-brain-2026",
+    "bush-as-we-may-think-1945",
+    "luhmann-zettelkaesten-1981",
+    "risko-cognitive-offloading-2016",
+    "fisher-searching-explanations-2015",
+    "roediger-test-enhanced-learning-2006",
+    "karpicke-retrieval-learning-2008",
+    "sparrow-google-effects-2011",
+    "camerer-replicability-2018",
+    "hesselmann-google-stroop-2020",
+    "tietze-collectors-fallacy-2014",
+    "matuschak-note-writing-n.d.",
+    "lee-critical-thinking-2025",
+    "publishers-weekly-gershon-1997",
+    "anthropic-harnesses-2025",
+    "anthropic-mcp-dokumentation-2024",
+    "eu-dsgvo-2016"
+  ],
+  "related": {
+    "articles": [
+      "art-context-engineering",
+      "art-harness-engineering",
+      "art-digital-twins"
+    ],
+    "glossary": [
+      "second-brain",
+      "agenten-gedaechtnis",
+      "digitaler-zwilling",
+      "session",
+      "retrieval-augmented-generation-rag",
+      "model-context-protocol",
+      "context-engineering",
+      "harness-engineering"
+    ],
+    "timeline": []
+  }
+}

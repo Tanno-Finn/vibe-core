@@ -1,0 +1,55 @@
+{
+  "id": "diff",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Diff",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Änderungsübersicht",
+      "Differenzanzeige"
+    ],
+    "en": [
+      "Difference view",
+      "Patch"
+    ],
+    "de-easy": [
+      "Liste der Änderungen"
+    ],
+    "en-easy": [
+      "List of changes"
+    ]
+  },
+  "sources": [
+    {
+      "title": "James W. Hunt, M. Douglas McIlroy: An Algorithm for Differential File Comparison, Bell Laboratories Computing Science Technical Report 41, 1976",
+      "type": "paper",
+      "url": "https://www.cs.dartmouth.edu/~doug/diff.pdf",
+      "notes": "Ursprüngliches Paper zum Unix-Werkzeug diff; Grundlage des zeilenweisen Datei-Vergleichs."
+    },
+    {
+      "title": "Offizielle Git-Referenz: git-diff",
+      "type": "documentation",
+      "url": "https://git-scm.com/docs/git-diff",
+      "notes": "Diff zwischen Arbeitsstand, Index und Commits im heute verbreitetsten Alltagswerkzeug."
+    },
+    {
+      "title": "GNU Diffutils Manual: Comparing and Merging Files",
+      "type": "documentation",
+      "url": "https://www.gnu.org/software/diffutils/manual/diffutils.html",
+      "notes": "Cross-Referenz: Formate (u.a. Unified Diff) und Semantik von Änderungslisten."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "git",
+      "commit",
+      "code-review"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

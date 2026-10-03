@@ -1,0 +1,17 @@
+{
+  "id": "boeckeler-harness-2026",
+  "type": "article",
+  "authors": "Birgitta Böckeler",
+  "year": "2026",
+  "publication": "martinfowler.com",
+  "url": "https://martinfowler.com/articles/harness-engineering.html",
+  "doi": "",
+  "accessed": "2026-08-11",
+  "tags": [
+    "harness-engineering",
+    "coding-agent",
+    "controls",
+    "guardrails",
+    "thoughtworks"
+  ]
+}

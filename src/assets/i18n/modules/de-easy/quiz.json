@@ -1,0 +1,32 @@
+{
+  "answerKey": "Lösung",
+  "completed": "Quiz fertig",
+  "explanation": "Erklärung",
+  "finalScore": "End·ergebnis",
+  "finish": "Quiz beenden",
+  "hint": "Hinweis",
+  "next": "Weiter",
+  "nextQuestionAnnouncement": "Zur Frage {current} von {total} gewechselt",
+  "percentage": "{percent} Prozent",
+  "previous": "Zurück",
+  "previousQuestionAnnouncement": "Zur Frage {current} von {total} zurückgekehrt",
+  "progressLabel": "Quiz·fortschritt",
+  "question": "Frage",
+  "questionAriaLabel": "Frage {current} von {total}",
+  "quizCompletedAnnouncement": "Quiz fertig! {score} von {total} Punkten erreicht.",
+  "resultsSection": "Quiz·ergebnisse",
+  "retake": "Quiz wiederholen",
+  "review": {
+    "correct": "Richtig",
+    "correctAnswer": "Richtige Antwort",
+    "incorrect": "Falsch",
+    "yourAnswer": "Deine Antwort"
+  },
+  "reviewAnswers": "Antworten prüfen",
+  "scoreAriaLabel": "{score} von {total} Punkten erreicht. Das sind {percentage} Prozent",
+  "scoreOf": "{score} von {total} Punkten",
+  "selectMultiple": "Wähle alle richtigen Antworten",
+  "selectOne": "Wähle eine Antwort",
+  "statusCompleted": "Fertig",
+  "statusOpen": "Noch offen"
+}

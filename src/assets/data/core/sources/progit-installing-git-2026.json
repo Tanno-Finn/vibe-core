@@ -1,0 +1,16 @@
+{
+  "id": "progit-installing-git-2026",
+  "type": "book",
+  "authors": "Scott Chacon, Ben Straub",
+  "year": "2026",
+  "publication": "Pro Git (2nd edition), chapter 1.5",
+  "url": "https://git-scm.com/book/en/v2/Getting-Started-Installing-Git",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "git",
+    "installation",
+    "version-control",
+    "setup"
+  ]
+}

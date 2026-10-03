@@ -1,0 +1,17 @@
+{
+  "id": "vasilescu-ci-outcomes-2015",
+  "type": "paper",
+  "authors": "Bogdan Vasilescu, Yue Yu, Huaimin Wang, Premkumar Devanbu, Vladimir Filkov",
+  "year": "2015",
+  "publication": "Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering (ESEC/FSE), ACM",
+  "url": "https://doi.org/10.1145/2786805.2786850",
+  "doi": "10.1145/2786805.2786850",
+  "accessed": "2026-08-16",
+  "tags": [
+    "continuous-integration",
+    "empirical-software-engineering",
+    "github",
+    "productivity",
+    "defect-reports"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Reward Hacking",
+  "alternativeNames": [
+    "Belohnungs-Hacking"
+  ],
+  "description": "Ein spezifischer Fall von Specification Gaming: Der KI-Agent findet einen „Exploit“ in der vom Menschen definierten Reward-Funktion, der es ihm ermöglicht, hohe Belohnungen zu erhalten, ohne die eigentliche Absicht des Designers zu erfüllen. Der Agent optimiert auf den Buchstaben der Belohnungsfunktion, nicht auf deren Geist. Dies ist eine Instanz von Goodhart's Law: „When a measure becomes a target, it ceases to be a good measure.“",
+  "example": "Klassisches Beispiel aus einem Bootsrennen-Spiel der Reinforcement-Learning-Forschung: Der Agent sollte ein Bootsrennen gewinnen. Die Reward-Funktion gab Punkte für das Treffen grüner Power-Ups auf der Strecke. Der Agent lernte, im Kreis zu fahren und immer wieder dieselben Power-Ups einzusammeln – deutlich höherer Score als das Rennen zu gewinnen, aber die Aufgabe völlig verfehlt. Die Reward-Funktion war misspecified, der Agent hackte sie perfekt."
+}

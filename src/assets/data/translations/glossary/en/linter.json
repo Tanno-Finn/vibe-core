@@ -1,0 +1,9 @@
+{
+  "term": "Linter",
+  "alternativeNames": [
+    "Lint tool",
+    "Static analysis tool"
+  ],
+  "description": "A linter reads source code without running it and flags suspicious spots: the variable that is never used, the comparison that always yields the same result, the typo in a function name. This static analysis catches whole classes of bugs before the program even starts. The name comes from 'lint' — the tool picks the fluff out of your code. Two distinctions are worth drawing: a test executes the code and checks its behavior (dynamic), while the linter judges from the text alone (static) — they find different bugs and do not replace each other. And a formatter only cares about appearance (indentation, line breaks) without making any judgment about substance. In practice, linters usually run automatically in the editor or as a check inside the build.",
+  "example": "A proofreader checks a cookbook without cooking a single dish: he finds the missing comma, the recipe number used twice, and the ingredient that appears in the list but nowhere in the instructions. Whether the dish tastes good, he cannot know — someone would have to cook it, and that would be the test. In the same way, ESLint flags a declared but never used variable in a JavaScript project before the program has run even once."
+}

@@ -1,0 +1,51 @@
+{
+  "aiTimeline": {
+    "categories": {
+      "all": "Alle Kategorien",
+      "breakthroughs": "Durchbrüche",
+      "competitions": "Wettbewerbe",
+      "conferences": "Konferenzen",
+      "datasets": "Datensätze",
+      "deep-learning": "Deep Learning",
+      "dev-tools": "Entwicklungstools",
+      "foundations": "Grundlagen",
+      "game-ai": "Spiel-KI",
+      "generative-ai": "Generative KI",
+      "history": "Geschichte",
+      "knowledge-systems": "Wissenssysteme",
+      "llm": "Große Sprachmodelle",
+      "machine-learning": "Maschinelles Lernen",
+      "milestones": "Meilensteine",
+      "neural-networks": "Neuronale Netze",
+      "nlp": "Sprachverarbeitung",
+      "organizations": "Organisationen",
+      "papers": "Publikationen",
+      "products": "Produkte",
+      "regulation": "Regulierung",
+      "robotics": "Robotik",
+      "science": "Wissenschaft"
+    },
+    "empty": {
+      "title": "Keine Ereignisse gefunden",
+      "text": "Mit den aktuellen Filtern findet sich kein Timeline-Eintrag. Probier eine andere Suchanfrage, weniger Kategorie-Filter oder einen weiteren Zeitraum.",
+      "resetButton": "Alle Filter zurücksetzen"
+    },
+    "filters": {
+      "active": "Aktive Filter",
+      "category": "Kategorie",
+      "clear": "Filter zurücksetzen",
+      "clearSearch": "Suche löschen",
+      "dateRange": "Zeitraum",
+      "removeFilter": "Filter entfernen",
+      "search": "Suche",
+      "searchHelp": "Durchsuche Titel und Beschreibungen",
+      "searchPlaceholder": "Nach Ereignissen suchen..."
+    },
+    "readMore": "Mehr erfahren",
+    "results": "Ereignisse",
+    "tableOfContents": "Inhaltsverzeichnis",
+    "sections": {
+      "filters": "Filter"
+    }
+  }
+}

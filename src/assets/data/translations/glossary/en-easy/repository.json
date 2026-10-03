@@ -1,0 +1,9 @@
+{
+  "term": "Repository",
+  "alternativeNames": [
+    "Repo",
+    "Code Storage"
+  ],
+  "description": "Repository. You say it like re-poz-it-or-ee. The short form is repo. A repository is a storage place for a project. It often holds the code of a project. With all the files. And the full history of changes. There are also repositories for finished AI models. Or for software packages. Teams work together on a repository.",
+  "example": "A team has a repository on GitHub. All the code is there. Everyone can see it and change it."
+}

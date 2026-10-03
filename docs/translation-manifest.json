@@ -1,0 +1,318 @@
+{
+  "$comment": "The curated set of user-facing docs that ship in two languages. Each entry pairs a canonical source with its translated mirror. See docs/DOC-TRANSLATION.MD. check-doc-drift.mjs reads this file and enforces it in BOTH directions: every declared pair must be in sync, and every doc under the user-facing paths must be either declared here or listed under \"exempt\" (one file) or \"exemptGlobs\" (a group) with a reason. A source under a \"siblingMirrorRoots\" entry (the packs) mirrors to a sibling <name>.<mirror-lang>.<ext> instead of docs/<mirror-lang>/…, so a pack carries its own translations. Adding a bilingual doc = add an entry here AND create the mirror (with a PLACEHOLDER marker), or the gate fails.",
+  "userFacingPaths": {
+    "$comment": "Where the gate looks for docs that must be declared. `roots` are scanned recursively; `files` are single documents outside them.",
+    "roots": ["docs/tutorial", "docs/how-to", "docs/explanation", "packs"],
+    "files": [
+      "README.md",
+      "CONTRIBUTING.md",
+      "CODE_OF_CONDUCT.md",
+      "SECURITY.md",
+      "LICENSING.md",
+      "CHANGELOG.md",
+      "JOURNAL.md",
+      "OPEN-QUESTIONS.md",
+      "profile/USER-MANIFEST.template.md",
+      ".github/PULL_REQUEST_TEMPLATE.md",
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/ISSUE_TEMPLATE/feature_request.md"
+    ],
+    "topLevelDocsDir": "docs"
+  },
+  "siblingMirrorRoots": ["packs"],
+  "exemptGlobs": [
+    {
+      "glob": "packs/*/skills/**",
+      "reason": "Pack job-skills: agent-facing, and skills stay English (DOC-TRANSLATION.MD, first rule)."
+    },
+    {
+      "glob": "packs/*/assets/**",
+      "reason": "Output scaffolds (*.vorlage.md): a job fills them and writes the result in the manifest language (packs/teacher/README.md). A second-language copy would be a second scaffold to keep in step, not a document anyone reads."
+    },
+    {
+      "glob": "packs/*/examples/**",
+      "reason": "Worked sample outputs of the jobs: they show what a job produces, and the shipped samples are German by the packs' design. Each examples/README.md, the part a person reads to understand them, is declared and bilingual."
+    },
+    {
+      "glob": "packs/*/presets/**",
+      "reason": "Agent-facing: the agent reads the preset during /onboarding and proposes its fields; the person answers the interview in their own language."
+    }
+  ],
+  "exempt": [
+    {
+      "path": "docs/STATUS.md",
+      "optional": true,
+      "reason": "A status file a project may keep for itself, written in its own language and overwritten at each pause; not part of the kit."
+    },
+    {
+      "path": "CHANGELOG.md",
+      "reason": "The books (base/BOOKKEEPING.md): written at /ship in the user's language and appended with every change; a mirror would double every entry and drift daily."
+    },
+    {
+      "path": "JOURNAL.md",
+      "reason": "Agent-facing under DOC-TRANSLATION.MD's first rule: the running history log, appended every session and never shortened (base/BOOKKEEPING.md)."
+    },
+    {
+      "path": "OPEN-QUESTIONS.md",
+      "reason": "The books (base/BOOKKEEPING.md): decisions parked for the user, written in the user's language as they come up, not a translated document."
+    },
+    {
+      "path": "profile/USER-MANIFEST.template.md",
+      "reason": "Output scaffold: /onboarding copies it and fills it in with the person, in their language; the filled copy is gitignored. The template's guidance is for the agent."
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "reason": "GitHub form template: GitHub pre-fills it into every pull request, so a second-language copy cannot be offered beside it."
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+      "reason": "GitHub form template: every file in ISSUE_TEMPLATE shows up as its own choice, so a mirror would appear as a duplicate form."
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.md",
+      "reason": "GitHub form template: every file in ISSUE_TEMPLATE shows up as its own choice, so a mirror would appear as a duplicate form."
+    },
+    {
+      "path": "docs/onboarding.html",
+      "reason": "Self-contained bilingual: ships an inline de/en dictionary and a live language toggle. A live interactive form is better kept in one file than forked into two."
+    },
+    {
+      "path": "docs/CONSTITUTION.MD",
+      "reason": "Agent-facing artifact — English-canonical, not mirrored (DOC-TRANSLATION.MD, first rule)."
+    },
+    {
+      "path": "docs/DESIGN-SYSTEM.MD",
+      "reason": "Agent-facing artifact — English-canonical, not mirrored (DOC-TRANSLATION.MD, first rule)."
+    },
+    {
+      "path": "docs/DOC-TRANSLATION.MD",
+      "reason": "Agent-facing: the convention document itself, read by whoever maintains the mirrors, not by someone learning the kit."
+    },
+    {
+      "path": "docs/LANGUAGE-GUIDE-BACKLOG.MD",
+      "reason": "Agent-facing work backlog for directives/languages/*.md — written for an agent picking the work up cold."
+    },
+    {
+      "path": "docs/THIRD-PARTY-FONTS.md",
+      "reason": "Maintainer-facing license and provenance reference (font packages, build-time asset copying, OFL obligations) rather than a document read to learn or use the kit."
+    }
+  ],
+  "mirrors": [
+    {
+      "source": "docs/explanation/choosing-an-ai-agent.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/explanation/choosing-an-ai-agent.md"
+    },
+    {
+      "source": "README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/README.md"
+    },
+    {
+      "source": "docs/tutorial/getting-started.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/tutorial/getting-started.md"
+    },
+    {
+      "source": "docs/tutorial/first-session.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/tutorial/first-session.md"
+    },
+    {
+      "source": "docs/explanation/repo-map.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/explanation/repo-map.md"
+    },
+    {
+      "source": "docs/how-to/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/README.md"
+    },
+    {
+      "source": "docs/how-to/add-a-backend.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/add-a-backend.md"
+    },
+    {
+      "source": "docs/how-to/add-a-language.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/add-a-language.md"
+    },
+    {
+      "source": "docs/how-to/add-a-page.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/add-a-page.md"
+    },
+    {
+      "source": "docs/how-to/add-a-source.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/add-a-source.md"
+    },
+    {
+      "source": "docs/how-to/deploy.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/deploy.md"
+    },
+    {
+      "source": "docs/how-to/make-it-yours.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/make-it-yours.md"
+    },
+    {
+      "source": "docs/how-to/use-the-kit-tools.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/how-to/use-the-kit-tools.md"
+    },
+    {
+      "source": "docs/explanation/directives-and-skills.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/explanation/directives-and-skills.md"
+    },
+    {
+      "source": "docs/explanation/the-pack-layer.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/explanation/the-pack-layer.md"
+    },
+    {
+      "source": "docs/explanation/what-is-git.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/explanation/what-is-git.md"
+    },
+    {
+      "source": "CONTRIBUTING.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/CONTRIBUTING.md"
+    },
+    {
+      "source": "CODE_OF_CONDUCT.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/CODE_OF_CONDUCT.md"
+    },
+    {
+      "source": "SECURITY.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/SECURITY.md"
+    },
+    {
+      "source": "LICENSING.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "docs/de/LICENSING.md"
+    },
+    {
+      "source": "packs/editor/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/editor/README.de.md"
+    },
+    {
+      "source": "packs/editor/GUARDRAILS.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/editor/GUARDRAILS.de.md"
+    },
+    {
+      "source": "packs/editor/examples/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/editor/examples/README.de.md"
+    },
+    {
+      "source": "packs/researcher/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/researcher/README.de.md"
+    },
+    {
+      "source": "packs/researcher/GUARDRAILS.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/researcher/GUARDRAILS.de.md"
+    },
+    {
+      "source": "packs/researcher/examples/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/researcher/examples/README.de.md"
+    },
+    {
+      "source": "packs/teacher/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/teacher/README.de.md"
+    },
+    {
+      "source": "packs/teacher/GUARDRAILS.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/teacher/GUARDRAILS.de.md"
+    },
+    {
+      "source": "packs/teacher/examples/README.md",
+      "canonical": "en",
+      "mirror-lang": "de",
+      "mirror": "packs/teacher/examples/README.de.md"
+    },
+    {
+      "source": "packs/teacher/pilot/README.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/README.en.md"
+    },
+    {
+      "source": "packs/teacher/pilot/LEITFADEN.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/LEITFADEN.en.md"
+    },
+    {
+      "source": "packs/teacher/pilot/EINWILLIGUNG.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/EINWILLIGUNG.en.md"
+    },
+    {
+      "source": "packs/teacher/pilot/FRAGEBOGEN-VORHER.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/FRAGEBOGEN-VORHER.en.md"
+    },
+    {
+      "source": "packs/teacher/pilot/FRAGEBOGEN-NACHHER.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/FRAGEBOGEN-NACHHER.en.md"
+    },
+    {
+      "source": "packs/teacher/pilot/BEOBACHTUNGSBOGEN.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/BEOBACHTUNGSBOGEN.en.md"
+    },
+    {
+      "source": "packs/teacher/pilot/AUSWERTUNG.md",
+      "canonical": "de",
+      "mirror-lang": "en",
+      "mirror": "packs/teacher/pilot/AUSWERTUNG.en.md"
+    }
+  ]
+}

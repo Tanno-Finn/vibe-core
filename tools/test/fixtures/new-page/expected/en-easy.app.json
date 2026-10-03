@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "home": "Home (en-easy)",
+    "group": {
+      "portal": "Portal (en-easy)",
+      "interaktiveDemos": "Demos (en-easy)"
+    },
+    "waterWorld": "Water world"
+  }
+}

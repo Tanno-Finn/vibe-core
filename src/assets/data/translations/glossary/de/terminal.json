@@ -1,0 +1,9 @@
+{
+  "term": "Terminal",
+  "alternativeNames": [
+    "Konsole",
+    "Terminal-Fenster"
+  ],
+  "description": "Ein Terminal ist das Programm - heute meist ein Fenster -, in dem du deinen Computer per Text steuerst: Befehl tippen, Enter drücken, Antwort lesen. Es ähnelt einem Chat-Fenster, nur erwartet das Gegenüber exakte Befehle statt Alltagssprache. Historisch war das Terminal ein echtes Gerät am Großrechner; die Hardware wurde zum Fenster, der Name blieb. Zur Abgrenzung: CLI bezeichnet das Bedien-Prinzip „Steuern per Textbefehl“; das Terminal ist der Ort dafür - das Fenster, in dem eine Shell deine Befehle entgegennimmt. KI-Agenten machen daraus einen echten Chat: Du schreibst Alltagssprache, der Agent tippt die Befehle.",
+  "example": "Du öffnest das Terminal, startest einen KI-Agenten und schreibst: „Zeig mir, welche Dateien sich seit gestern geändert haben.“ Der Agent führt die passenden Befehle aus und fasst das Ergebnis zusammen. Es ist dasselbe Fenster, in dem Administratoren seit Jahrzehnten Befehle tippen - nur sitzt jetzt jemand mit drin, der die Befehle für dich kennt."
+}

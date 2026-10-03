@@ -1,0 +1,47 @@
+{
+  "id": "art-digital-twins",
+  "path": "articles/art-digital-twins",
+  "titleKey": "articleDigitalTwins.hero.title",
+  "descriptionKey": "articleDigitalTwins.hero.subtitle",
+  "category": "concepts",
+  "estimatedTime": "11min",
+  "difficulty": "intermediate",
+  "featured": false,
+  "pageId": "dtwn",
+  "created": "2026-08-18",
+  "updated": "2026-09-05",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "grieves-digital-twin-white-paper-2014",
+    "glaessgen-digital-twin-paradigm-2012",
+    "nasa-ta11-human-digital-twin-2015",
+    "shao-digital-twins-standardized-2024",
+    "dtc-glossary-digital-twin-2026",
+    "national-academies-digital-twins-2024",
+    "kritzinger-digital-twin-classification-2018",
+    "wright-davidson-model-vs-twin-2020",
+    "ec-virtual-human-twins-2025",
+    "destination-earth-2026",
+    "ecmwf-destine-climate-dt-2026",
+    "park-llm-agents-self-reports-2024",
+    "du-twinvoice-2025",
+    "nngroup-digital-twins-2025",
+    "geekwire-read-ai-digital-twin-2026",
+    "eu-dsgvo-2016",
+    "eu-ki-verordnung-2024",
+    "bgh-marlene-dietrich-1999"
+  ],
+  "related": {
+    "articles": [
+      "art-second-brain"
+    ],
+    "glossary": [
+      "digitaler-zwilling",
+      "welt-modelle",
+      "deepfake",
+      "second-brain"
+    ],
+    "timeline": []
+  }
+}

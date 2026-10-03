@@ -1,0 +1,8 @@
+{
+  "readingTime": "Min Reading Time",
+  "readingTimeShort": "Min",
+  "readingTimeTooltip": "Estimated reading time at average reading speed",
+  "wordCount": "Words",
+  "wordCountTooltip": "Number of words in text",
+  "moreInfo": "More information"
+}

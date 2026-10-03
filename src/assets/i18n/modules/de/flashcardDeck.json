@@ -1,0 +1,21 @@
+{
+  "badge": {
+    "term": "Begriff",
+    "explanation": "Erklärung"
+  },
+  "hint": {
+    "flip": "Klicken zum Umdrehen",
+    "flipBack": "Klicken zum Zurückdrehen"
+  },
+  "label": {
+    "syntax": "Syntax",
+    "example": "Beispiel"
+  },
+  "nav": {
+    "prev": "← Zurück",
+    "shuffle": "Mischen",
+    "next": "Weiter →",
+    "cardAriaLabel": "Karte {{num}}"
+  },
+  "progress": "Karte {{current}} von {{total}}"
+}

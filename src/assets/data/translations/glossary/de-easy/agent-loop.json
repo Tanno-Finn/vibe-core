@@ -1,0 +1,8 @@
+{
+  "term": "Agenten·schleife",
+  "alternativeNames": [
+    "KI-Schleife"
+  ],
+  "description": "Eine Agenten·schleife ist ein Wiederholungs·ablauf für eine KI. Die KI macht immer wieder diese Schritte: Erst beobachtet sie etwas. Dann denkt sie nach. Dann handelt sie mit einem Werkzeug. Dann schaut sie, was das Werkzeug geliefert hat. Dann beginnt sie von vorn. Die Schleife hört auf, wenn die Aufgabe fertig ist.",
+  "example": "Die KI soll eine Zahl aus dem Internet holen und den Mittelwert berechnen. Zuerst sucht sie die Webseite. Dann liest sie die Zahlen. Dann rechnet sie den Mittelwert. Dann gibt sie das Ergebnis aus. Das sind vier Schritte in der Schleife."
+}

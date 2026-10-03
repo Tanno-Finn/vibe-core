@@ -1,0 +1,69 @@
+{
+  "difficulty": {
+    "advanced": "Hard",
+    "beginner": "For beginners",
+    "expert": "For experts",
+    "intermediate": "For advanced",
+    "Anfänger": "Beginner",
+    "Fortgeschritten": "Advanced",
+    "Experte": "Expert",
+    "Schwierig": "Difficult"
+  },
+  "disclaimer": "These sites are from other companies. Use them at your own responsibility.",
+  "filter": {
+    "access": "Access",
+    "active": "Selected filters",
+    "clear": "Clear Filters",
+    "clearAll": "Clear Filters",
+    "difficulty": "Level",
+    "hideAdvanced": "Hide more filters",
+    "language": "Language",
+    "notSelected": "Not selected",
+    "onlyFree": "Only free",
+    "removeFilter": "Delete this filter",
+    "search": "Search",
+    "selected": "Selected",
+    "showAdvanced": "Show more filters",
+    "topic": "Topic"
+  },
+  "language": {
+    "en": "English",
+    "english": "English",
+    "german": "German",
+    "multilingual": "Many languages"
+  },
+  "mediaType": {
+    "all": "All media types",
+    "blog": "Blog",
+    "conference": "Conference",
+    "course": "Course",
+    "document": "Document",
+    "guideline": "Rule",
+    "infographic": "Picture with info",
+    "paper": "Research paper",
+    "podcast": "Audio",
+    "research-paper": "Research paper",
+    "researchPaper": "Research text",
+    "textbook": "Textbook",
+    "toolGuide": "Tool help",
+    "tutorial": "Guide",
+    "video": "Video"
+  },
+  "search": {
+    "placeholder": "Search learning sites..."
+  },
+  "topic": {
+    "business": "Business",
+    "career": "Job",
+    "deep_learning": "Deep learning",
+    "education": "Learning",
+    "ethics": "What is right",
+    "regulation": "Laws",
+    "research": "Research",
+    "society": "Society",
+    "statistics": "Numbers",
+    "technology": "Technology",
+    "tools": "Tools",
+    "general": "General"
+  }
+}

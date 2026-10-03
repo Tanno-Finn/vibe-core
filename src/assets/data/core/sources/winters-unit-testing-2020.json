@@ -1,0 +1,17 @@
+{
+  "id": "winters-unit-testing-2020",
+  "type": "book",
+  "authors": "Erik Kuefler",
+  "year": "2020",
+  "publication": "Software Engineering at Google, Kapitel 12 (O'Reilly)",
+  "url": "https://abseil.io/resources/swe-book/html/ch12.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "unit-test",
+    "test-naming",
+    "canonical",
+    "google",
+    "brittle-tests"
+  ]
+}

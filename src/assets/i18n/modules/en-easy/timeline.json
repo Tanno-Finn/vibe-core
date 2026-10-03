@@ -1,0 +1,51 @@
+{
+  "aiTimeline": {
+    "categories": {
+      "all": "All Types",
+      "breakthroughs": "Big Discoveries",
+      "competitions": "Contests",
+      "conferences": "Meetings",
+      "datasets": "Data Collections",
+      "deep-learning": "Deep Learning",
+      "dev-tools": "Building Tools",
+      "foundations": "AI Beginnings",
+      "game-ai": "Game Computers",
+      "generative-ai": "Creating AI",
+      "history": "AI History",
+      "knowledge-systems": "Knowledge Computers",
+      "llm": "Big Language Computers",
+      "machine-learning": "Computer Learning",
+      "milestones": "Important Events",
+      "neural-networks": "Computer Brains",
+      "nlp": "Language Computers",
+      "organizations": "Organizations",
+      "papers": "Books and Articles",
+      "products": "Products",
+      "regulation": "Rules",
+      "robotics": "Robots",
+      "science": "Research"
+    },
+    "filters": {
+      "active": "Active filters",
+      "category": "Type",
+      "clear": "Clear all",
+      "clearSearch": "Clear search",
+      "dateRange": "Time Range",
+      "removeFilter": "Remove filter",
+      "search": "Search",
+      "searchHelp": "You can search in the texts",
+      "searchPlaceholder": "Search here..."
+    },
+    "readMore": "Read more",
+    "tableOfContents": "Contents",
+    "sections": {
+      "filters": "Filters"
+    },
+    "empty": {
+      "title": "No Events Found",
+      "text": "No entry matches your filters. Try a different search or fewer filters.",
+      "resetButton": "Clear all filters"
+    },
+    "results": "events"
+  }
+}

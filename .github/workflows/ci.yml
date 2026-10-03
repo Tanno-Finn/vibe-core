@@ -1,0 +1,124 @@
+name: CI
+
+# Runs on every push and PR. `actions/checkout` gives each job a fresh clone, so a green
+# run here is also the kit's "fresh clone builds" proof (the init path a new user takes).
+#
+# Both default-branch names are listed on purpose: this repo's default branch is `master`,
+# and for a year the list said `main` only — so every push to the default branch, the
+# September 2026 release commit included, skipped CI entirely while the badge looked fine. A fork
+# that renames its default branch to `main` is covered by the same list.
+#
+# The weekly `schedule` exists for the secret scan alone. gitleaks-action scans only the
+# pushed commit range on `push` and `pull_request`, so a secret that predates the range
+# (or arrived before CI existed) would never be seen; on `schedule` and
+# `workflow_dispatch` it scans the whole history, which is what base/standards/SECURITY.md
+# promises. The build and lint jobs skip the scheduled run — nothing changed since the last
+# push.
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  schedule:
+    - cron: '17 4 * * 1' # Mondays 04:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Third-party actions are pinned to a commit SHA, not to a moving tag. A tag like `v4`
+# is a pointer its owner can repoint at any time, so "@v4" means "whatever that repo
+# publishes next" — a supply-chain hole for anything running with repo credentials.
+# The comment after each SHA records which tag it was at the time of pinning; bump it
+# deliberately (re-resolve the tag, read what changed) rather than automatically.
+# .github/dependabot.yml proposes those bumps weekly as a PR; a human still reads and merges.
+#
+# Every checkout sets `persist-credentials: false`: no step pushes, so the job token has
+# no reason to stay in .git/config where any later step (or dependency script) can read it.
+# `timeout-minutes` caps each job well above its normal run time, so a hung step costs
+# minutes, not the six-hour default.
+
+jobs:
+  secrets:
+    # push/PR: the commit range; schedule/workflow_dispatch: the full history (see `on:`).
+    name: Secret scan (gitleaks)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: gitleaks
+        uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  verify:
+    name: Build & verify (fresh clone)
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      # NOT --ignore-scripts, deliberately. esbuild (via Angular's builder and Vitest)
+      # relies on its install script to place the platform binary, so the build and the
+      # test step would fail without it. This job also runs the PR's own build and tests
+      # by design, so blocking dependency lifecycle scripts here buys little: the untrusted
+      # code executes either way. The containment that matters for a fork PR is that this
+      # workflow triggers on `pull_request` (fork runs get a read-only token and no
+      # repository secrets) and that `permissions:` above is contents:read.
+      - name: Install (clean)
+        run: npm ci
+      # Runs here as well as inside `build:prod`, deliberately: this invocation is the
+      # cheap one (seconds, no compile) and it runs the full set, while the one inside
+      # the build passes `--skip` for the three gates the build chain runs itself. A
+      # broken agent system therefore fails in under a minute instead of after the build.
+      - name: Agent-system integrity (verify-harness)
+        run: node scripts/verify-harness.mjs
+      # The kit tools (tools/*.mjs) against synthetic fixtures; needs no build, only the
+      # browser `npm ci` installed. A browser that cannot start fails the step.
+      - name: Kit tools (test:tools)
+        run: npm run test:tools
+      - name: Safety hook self-test
+        run: node .claude/hooks/guard-red-actions.test.mjs
+      - name: Unit tests (Vitest subset, baseline gate)
+        run: npm run test:baseline
+      - name: Production build (includes design-system + build integrity gates)
+        run: npm run build:prod
+      # Reads the dist/ the step above produced: axe-core in headless Chrome over the
+      # prerendered pages; a violation of a [hard] A11Y rule fails the job. Chrome comes
+      # from Puppeteer's install script, which `npm ci` above runs. `CI` is set on every
+      # runner, so the script starts Chrome without its sandbox (see the script header).
+      - name: Accessibility pass on the built pages (check:a11y)
+        run: npm run check:a11y
+
+  lint:
+    name: Lint and format
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # Blocking gate: the Q.1 quality pass cleared the imported source to 0 ESLint
+    # findings, so any new lint error now fails CI.
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      # Lint parses the source, it never executes it and never touches a native binary,
+      # so this job has no reason to run dependency install scripts at all.
+      - run: npm ci --ignore-scripts
+      - run: npm run lint
+      # `format:check` was never enforced anywhere, and 511 files had drifted out of
+      # Prettier style by September 2026 while the kit told people to run it. Checked here so the
+      # promise stays true; runs on Linux, where the checkout is LF and `.gitattributes`
+      # keeps it that way.
+      - run: npm run format:check

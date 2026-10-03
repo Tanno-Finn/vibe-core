@@ -1,0 +1,83 @@
+{
+  "button": "Feedback",
+  "dialog": {
+    "title": "Give Feedback"
+  },
+  "intro": "We'd love to hear from you! Whether it's praise, suggestions, or ideas - everything helps us improve this site.",
+  "message": "Your message",
+  "messagePlaceholder": "What would you like to tell us?",
+  "email": "Email (optional)",
+  "emailPlaceholder": "you@example.com",
+  "emailHint": "This email doesn't look quite right. A typo perhaps?",
+  "privacyNote": "Your email is only used to reply and is not stored. For troubleshooting, we automatically collect page, language, browser, and screen size.",
+  "privacyNoteLink": "Privacy details in the imprint",
+  "send": "Send",
+  "sending": "Sending...",
+  "sent": "Sent!",
+  "sentDetail": "Thank you for your feedback!",
+  "error": "Error",
+  "errorDetail": "Could not send feedback. Please try again later.",
+  "errorRateLimit": "You have already sent several messages. Please try again later.",
+  "category": {
+    "label": "Category",
+    "general": "General Feedback",
+    "bug": "Report a Bug",
+    "feature": "Suggest a Feature",
+    "content": "Improve Content",
+    "praise": "Give Praise",
+    "accessibility": "Report a Barrier"
+  },
+  "rating": {
+    "label": "How do you like this site?"
+  },
+  "placeholder": {
+    "bug": "Describe the bug: What did you do? What happened? What did you expect?",
+    "praise": "What do you like most? (optional)",
+    "content": "What should be improved? Where did you find the error?",
+    "feature": "Describe the feature you'd like to see.",
+    "accessibility": "Which barrier did you encounter? What didn't work?"
+  },
+  "a11y": {
+    "pageLabel": "Affected page",
+    "techLabel": "Assistive technology (optional)",
+    "techPlaceholder": "e.g. screen reader, magnification, keyboard",
+    "anonymNote": "You can report anonymously. An email address only helps if you'd like a reply."
+  },
+  "page": {
+    "title": "Feedback",
+    "subtitle": "Tell us what works and what doesn't — here, unhurried and with room to write.",
+    "formTitle": "Your message",
+    "nameLabel": "Name (optional)",
+    "namePlaceholder": "What should we call you?",
+    "emailLabel": "Email (optional)",
+    "messageLabel": "Message",
+    "messageHint": "At least 20 characters — the more concrete, the better.",
+    "charCounterLabel": "Characters used",
+    "consentLabel": "I agree that what I enter here may be stored with this feedback.",
+    "requiredMark": "Required",
+    "submit": "Send feedback",
+    "submitting": "Submitting …",
+    "successTitle": "Received",
+    "successText": "Thank you for writing! Your message is now in this browser's inbox.",
+    "successAgain": "Write another message",
+    "privacyTitle": "Where does this go?",
+    "privacyText": "This portal has no feedback server: your message never leaves this browser. It is stored locally so you can find it again below — and you can delete it yourself at any time.",
+    "errorTitle": "That didn't work",
+    "error": {
+      "emailInvalid": "This email address looks incomplete. A typo perhaps?",
+      "messageTooShort": "Please write at least 20 characters.",
+      "messageTooLong": "The message is too long. Please shorten it to 2000 characters or fewer.",
+      "consentRequired": "Please confirm your consent before sending.",
+      "storage": "Your message could not be stored. This browser is not releasing any storage here — in private mode that is normal."
+    },
+    "inboxTitle": "Stored in this browser",
+    "inboxNote": "Only you see this list. It lives in this browser and is never transmitted anywhere.",
+    "inboxEmpty": "Nothing stored yet. Your first message will appear here.",
+    "clear": "Delete all messages",
+    "clearConfirmLabel": "Really delete all of them?",
+    "clearCancel": "Cancel",
+    "cleared": "All stored messages have been deleted.",
+    "entryDateLabel": "Written on",
+    "anonymous": "No name given"
+  }
+}

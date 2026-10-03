@@ -1,0 +1,9 @@
+{
+  "term": "Repository",
+  "alternativeNames": [
+    "Repo",
+    "Code·speicher"
+  ],
+  "description": "Repository. Das spricht man Reposetorie aus. Kurz sagt man Repo. Ein Repository ist ein Speicher·ort für ein Projekt. Oft liegt dort der Code von einem Projekt. Mit allen Dateien. Und der ganzen Änderungs·geschichte. Es gibt auch Repositorys für fertige KI-Modelle. Oder für Programm·pakete. Teams arbeiten gemeinsam an einem Repository.",
+  "example": "Ein Team hat ein Repository auf GitHub. Dort liegt der gesamte Code. Alle können ihn sehen und ändern."
+}

@@ -1,0 +1,632 @@
+[
+  {
+    "id": "seed-article-1",
+    "path": "articles/seed-article-1",
+    "titleKey": "seedArticle.title",
+    "descriptionKey": "seedArticle.description",
+    "category": "fundamentals",
+    "estimatedTime": "5min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "sda1",
+    "draft": false,
+    "related": {
+      "articles": [],
+      "glossary": [
+        "seed-term-1",
+        "seed-term-2",
+        "seed-term-3",
+        "seed-term-4",
+        "seed-term-5"
+      ],
+      "timeline": [
+        "seed-event-1",
+        "seed-event-2",
+        "seed-event-3"
+      ]
+    },
+    "milestones": [
+      {
+        "type": "checkpoint",
+        "storageKey": "seed-article-1-checkpoints",
+        "checkpointId": "structure"
+      }
+    ]
+  },
+  {
+    "id": "art-git-intro",
+    "path": "articles/art-git-intro",
+    "titleKey": "articleGitIntro.hero.title",
+    "descriptionKey": "articleGitIntro.hero.subtitle",
+    "category": "fundamentals",
+    "estimatedTime": "12min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "giti",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-terminal-intro",
+        "art-networking-apis"
+      ],
+      "glossary": [
+        "git",
+        "repository",
+        "cli",
+        "api"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-git-intro-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-git-intro-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-terminal-intro",
+    "path": "articles/art-terminal-intro",
+    "titleKey": "articleTerminalIntro.hero.title",
+    "descriptionKey": "articleTerminalIntro.hero.subtitle",
+    "category": "fundamentals",
+    "estimatedTime": "13min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "trml",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-git-intro",
+        "art-networking-apis"
+      ],
+      "glossary": [
+        "cli",
+        "git",
+        "api",
+        "prompt"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-terminal-intro-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-terminal-intro-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-networking-apis",
+    "path": "articles/art-networking-apis",
+    "titleKey": "articleNetworkingApis.hero.title",
+    "descriptionKey": "articleNetworkingApis.hero.subtitle",
+    "category": "fundamentals",
+    "estimatedTime": "14min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "napi",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-apis-mcp",
+        "art-terminal-intro",
+        "art-git-intro"
+      ],
+      "glossary": [
+        "api",
+        "cli",
+        "prompt",
+        "function-calling"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-networking-apis-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-networking-apis-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-vibecoding",
+    "path": "articles/art-vibecoding",
+    "titleKey": "articleVibecoding.hero.title",
+    "descriptionKey": "articleVibecoding.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "10min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "vibe",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-context-engineering",
+        "art-apis-mcp"
+      ],
+      "glossary": [
+        "vibe-coding",
+        "agent",
+        "prompt",
+        "prompt-engineering",
+        "agentic-ai",
+        "api"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-vibecoding-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-vibecoding-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-context-engineering",
+    "path": "articles/art-context-engineering",
+    "titleKey": "articleContextEngineering.hero.title",
+    "descriptionKey": "articleContextEngineering.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "5min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "ctxe",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-vibecoding",
+        "art-apis-mcp"
+      ],
+      "glossary": [
+        "context-engineering",
+        "context",
+        "context-window",
+        "prompt",
+        "prompt-engineering",
+        "agent"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-context-engineering-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-context-engineering-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-apis-mcp",
+    "path": "articles/art-apis-mcp",
+    "titleKey": "articleApisMcp.hero.title",
+    "descriptionKey": "articleApisMcp.hero.subtitle",
+    "category": "architecture",
+    "estimatedTime": "10min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "amcp",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-networking-apis",
+        "art-vibecoding",
+        "art-context-engineering"
+      ],
+      "glossary": [
+        "api",
+        "model-context-protocol",
+        "mcp-server",
+        "function-calling",
+        "agent-loop",
+        "agent"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-apis-mcp-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-apis-mcp-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-harness-engineering",
+    "path": "articles/art-harness-engineering",
+    "titleKey": "articleHarnessEngineering.hero.title",
+    "descriptionKey": "articleHarnessEngineering.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "11min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "harn",
+    "draft": false,
+    "related": {
+      "articles": [
+        "art-context-engineering",
+        "art-vibecoding"
+      ],
+      "glossary": [
+        "harness-engineering",
+        "sandbox-permissions",
+        "guardrails",
+        "context-engineering",
+        "agent-loop",
+        "prompt-injection",
+        "human-in-the-loop",
+        "instruktions-datei",
+        "agenten-gedaechtnis"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-harness-engineering-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-harness-engineering-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-dev-environment",
+    "path": "articles/art-dev-environment",
+    "titleKey": "articleDevEnvironment.hero.title",
+    "descriptionKey": "articleDevEnvironment.hero.subtitle",
+    "category": "fundamentals",
+    "estimatedTime": "15min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "edtr",
+    "created": "2026-08-18",
+    "related": {
+      "articles": [
+        "art-terminal-intro",
+        "art-git-intro"
+      ],
+      "glossary": [
+        "cli",
+        "git",
+        "repository",
+        "editor-ide",
+        "terminal"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-dev-environment-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-dev-environment-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-agent-tests",
+    "path": "articles/art-agent-tests",
+    "titleKey": "articleAgentTests.hero.title",
+    "descriptionKey": "articleAgentTests.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "14min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "tsts",
+    "created": "2026-08-16",
+    "related": {
+      "articles": [
+        "art-harness-engineering",
+        "art-vibecoding"
+      ],
+      "glossary": [
+        "test",
+        "specification-gaming",
+        "reward-hacking",
+        "agent",
+        "code-review",
+        "build",
+        "ci-cd",
+        "linter",
+        "harness-engineering",
+        "reward-misspecification"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-agent-tests-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-agent-tests-checkpoint",
+        "checkpointId": "main"
+      }
+    ]
+  },
+  {
+    "id": "art-quality-gates",
+    "path": "articles/art-quality-gates",
+    "titleKey": "articleQualityGates.hero.title",
+    "descriptionKey": "articleQualityGates.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "18min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "gate",
+    "created": "2026-08-16",
+    "related": {
+      "articles": [
+        "art-agent-tests",
+        "art-harness-engineering",
+        "art-git-intro"
+      ],
+      "glossary": [
+        "ci-cd",
+        "build",
+        "linter",
+        "test",
+        "git",
+        "code-review",
+        "commit"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-quality-gates-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-quality-gates-checkpoint-1",
+        "checkpointId": "checks"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-quality-gates-checkpoint-2",
+        "checkpointId": "exception"
+      }
+    ]
+  },
+  {
+    "id": "art-code-review-basics",
+    "path": "articles/art-code-review-basics",
+    "titleKey": "articleCodeReviewBasics.hero.title",
+    "descriptionKey": "articleCodeReviewBasics.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "19min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "revw",
+    "created": "2026-08-16",
+    "related": {
+      "articles": [
+        "art-agent-tests",
+        "art-quality-gates",
+        "art-git-intro"
+      ],
+      "glossary": [
+        "code-review",
+        "diff",
+        "commit",
+        "agent",
+        "human-in-the-loop"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-code-review-basics-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-code-review-basics-checkpoint-1",
+        "checkpointId": "diff-origin"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-code-review-basics-checkpoint-2",
+        "checkpointId": "questions-acceptance"
+      }
+    ]
+  },
+  {
+    "id": "art-secrets-security",
+    "path": "articles/art-secrets-security",
+    "titleKey": "articleSecretsSecurity.hero.title",
+    "descriptionKey": "articleSecretsSecurity.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "12min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "secr",
+    "created": "2026-08-16",
+    "related": {
+      "articles": [
+        "art-git-intro",
+        "art-agent-tests",
+        "art-quality-gates",
+        "art-harness-engineering",
+        "art-code-review-basics"
+      ],
+      "glossary": [
+        "git",
+        "repository",
+        "commit",
+        "api",
+        "agent",
+        "model-context-protocol",
+        "human-in-the-loop"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-secrets-security-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-secrets-security-checkpoint-1",
+        "checkpointId": "chain"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-secrets-security-checkpoint-2",
+        "checkpointId": "sort"
+      }
+    ]
+  },
+  {
+    "id": "art-second-brain",
+    "path": "articles/art-second-brain",
+    "titleKey": "articleSecondBrain.hero.title",
+    "descriptionKey": "articleSecondBrain.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "11min",
+    "difficulty": "beginner",
+    "featured": false,
+    "pageId": "sbrn",
+    "created": "2026-08-18",
+    "related": {
+      "articles": [
+        "art-context-engineering",
+        "art-harness-engineering",
+        "art-digital-twins"
+      ],
+      "glossary": [
+        "second-brain",
+        "agenten-gedaechtnis",
+        "digitaler-zwilling",
+        "session",
+        "retrieval-augmented-generation-rag",
+        "model-context-protocol",
+        "context-engineering",
+        "harness-engineering"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-second-brain-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-second-brain-checkpoint",
+        "checkpointId": "second-brain"
+      }
+    ]
+  },
+  {
+    "id": "art-digital-twins",
+    "path": "articles/art-digital-twins",
+    "titleKey": "articleDigitalTwins.hero.title",
+    "descriptionKey": "articleDigitalTwins.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "11min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "dtwn",
+    "created": "2026-08-18",
+    "related": {
+      "articles": [
+        "art-second-brain"
+      ],
+      "glossary": [
+        "digitaler-zwilling",
+        "welt-modelle",
+        "deepfake",
+        "second-brain"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-digital-twins-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-digital-twins-checkpoint",
+        "checkpointId": "digital-twins"
+      }
+    ]
+  },
+  {
+    "id": "art-tour",
+    "path": "articles/art-tour",
+    "titleKey": "articleTour.hero.title",
+    "descriptionKey": "articleTour.hero.subtitle",
+    "category": "concepts",
+    "estimatedTime": "12min",
+    "difficulty": "intermediate",
+    "featured": false,
+    "pageId": "tour",
+    "created": "2026-09-07",
+    "related": {
+      "articles": [
+        "art-harness-engineering",
+        "art-quality-gates",
+        "art-code-review-basics"
+      ],
+      "glossary": [
+        "harness-engineering",
+        "instruktions-datei",
+        "guardrails",
+        "human-in-the-loop",
+        "agenten-gedaechtnis",
+        "commit",
+        "build",
+        "test"
+      ],
+      "timeline": []
+    },
+    "milestones": [
+      {
+        "type": "quiz",
+        "quizId": "art-tour-quiz"
+      },
+      {
+        "type": "checkpoint",
+        "storageKey": "art-tour-checkpoint",
+        "checkpointId": "tour"
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "seed-demo",
+    "path": "example-demo",
+    "titleKey": "exampleDemo.title",
+    "descriptionKey": "exampleDemo.description",
+    "category": "ml",
+    "estimatedTime": "10min",
+    "difficulty": "beginner",
+    "featured": false,
+    "icon": "pi pi-play",
+    "pageId": "sdmo",
+    "tags": [],
+    "related": {}
+  }
+]

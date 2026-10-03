@@ -1,0 +1,12 @@
+{
+  "_comment": "How scripts/build-i18n-bundles.ts splits src/assets/i18n/modules/<lang>/*.json. Every namespace goes into the up-front CORE bundle (i18n.<lang>.json) unless it matches `lazyNamespaces`; a lazy namespace becomes a CHUNK (i18n/chunks/<lang>/<ns>.json) that TranslationService loads when a route needs it (translationReadyGuard derives the namespaces from the route's titleKey/descriptionKey and its `i18n` list) or when a key from it is first looked up. `splitChildren` names objects whose children each become a chunk of their own (e.g. one Easy-Language preview per page). Entries are exact names or, between slashes, a regular expression.",
+
+  "_lazyNamespaces": "Page-sized namespaces no shell component reads: the article namespaces (convention: article<Name>) and the dev workshop.",
+  "lazyNamespaces": ["/^article[A-Z]/", "devWorkshop"],
+
+  "_coreKeys": "Paths that stay in the core bundle even inside a lazy namespace, because other pages read them: an article's title and subtitle appear on home tiles, in related-reference lists and in search (titleKey/descriptionKey in src/assets/data/core/articles/index.json).",
+  "coreKeys": ["hero.title", "hero.subtitle"],
+
+  "_splitChildren": "easyLanguage.content holds one Easy-Language preview per page; only the open FAB dialog reads the current page's one.",
+  "splitChildren": ["easyLanguage.content"]
+}

@@ -1,0 +1,46 @@
+{
+  "id": "reward-misspecification",
+  "category": "ml",
+  "difficulty": "advanced",
+  "popularity": "low",
+  "abbreviations": [],
+  "englishTerm": "Reward Misspecification",
+  "childConcepts": [],
+  "parentConcepts": [
+    "ai-alignment"
+  ],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "Fehlspezifikation der Belohnung",
+      "Proxy Misalignment"
+    ],
+    "en": [
+      "Reward Misspecification",
+      "Proxy Misalignment"
+    ],
+    "de-easy": [
+      "Falsche Belohnungs-Regeln"
+    ],
+    "en-easy": [
+      "Wrong Reward Rules"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Russell, S. (2019). Human Compatible. Viking",
+      "type": "book",
+      "notes": "Discussion of outer misalignment and reward specification problems",
+      "tags": [
+        "origin-type:textbook"
+      ]
+    }
+  ],
+  "related": {
+    "glossary": [
+      "reward-hacking",
+      "specification-gaming"
+    ]
+  }
+}

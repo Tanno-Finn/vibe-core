@@ -1,0 +1,58 @@
+{
+  "id": "art-dev-environment",
+  "path": "articles/art-dev-environment",
+  "titleKey": "articleDevEnvironment.hero.title",
+  "descriptionKey": "articleDevEnvironment.hero.subtitle",
+  "category": "fundamentals",
+  "estimatedTime": "15min",
+  "difficulty": "beginner",
+  "featured": false,
+  "pageId": "edtr",
+  "created": "2026-08-18",
+  "updated": "2026-09-04",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "angular-installation-2026",
+    "nextjs-installation-2026",
+    "nodejs-download-2026",
+    "nodejs-release-policy-2026",
+    "npm-install-node-npm-2026",
+    "progit-installing-git-2026",
+    "progit-first-time-setup-2026",
+    "progit-graphical-interfaces-2026",
+    "git-install-windows-2026",
+    "vscode-codebasics-2026",
+    "vscode-terminal-basics-2026",
+    "vscode-source-control-2026",
+    "vscode-requirements-2026",
+    "vscode-web-2026",
+    "vscode-faq-2026",
+    "vscodium-2026",
+    "mdn-code-editors-2026",
+    "mdn-installing-software-2026",
+    "github-what-are-codespaces-2026",
+    "github-codespaces-billing-2026",
+    "github-plans-2026",
+    "github-codespaces-product-2026",
+    "microsoft-nodejs-windows-2026",
+    "google-cloud-shell-quotas-2026",
+    "python-using-windows-2026",
+    "stackoverflow-survey-2025-technology",
+    "stackoverflow-survey-2025-methodology"
+  ],
+  "related": {
+    "articles": [
+      "art-terminal-intro",
+      "art-git-intro"
+    ],
+    "glossary": [
+      "cli",
+      "git",
+      "repository",
+      "editor-ide",
+      "terminal"
+    ],
+    "timeline": []
+  }
+}

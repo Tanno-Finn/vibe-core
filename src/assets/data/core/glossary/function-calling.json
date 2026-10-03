@@ -1,0 +1,47 @@
+{
+  "id": "function-calling",
+  "category": "nlp",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Function Calling",
+  "childConcepts": [],
+  "parentConcepts": [
+    "prompt-engineering"
+  ],
+  "createdAt": "2025-01-16",
+  "updatedAt": "2025-11-17",
+  "alternativeNames": {
+    "de": [
+      "Funktionsaufrufe",
+      "Tool-Nutzung"
+    ],
+    "en": [
+      "Tool Use",
+      "Function Invocation"
+    ],
+    "de-easy": [
+      "Werkzeug-Nutzung"
+    ],
+    "en-easy": [
+      "Tool Usage"
+    ]
+  },
+  "sources": [
+    {
+      "type": "documentation",
+      "citation": "OpenAI Function Calling Documentation (2023)",
+      "notes": "Official documentation for GPT function calling capabilities"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "api",
+      "agent",
+      "mcp-server",
+      "model-context-protocol",
+      "agent-loop",
+      "agentic-ai"
+    ]
+  }
+}

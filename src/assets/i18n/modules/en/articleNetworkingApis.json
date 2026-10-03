@@ -1,0 +1,185 @@
+{
+  "hero": {
+    "title": "The Internet & APIs",
+    "subtitle": "How programs exchange data without ever meeting in person."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "clientServer": "Client and Server",
+    "dns": "Addresses: IP and DNS",
+    "apis": "APIs: The Interface",
+    "takeaways": "Summary",
+    "checkpoint": "Comprehension Check",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Every time you open a website, your computer sends a precisely formatted letter to another computer that might be sitting in a data center thousands of kilometers away — and gets a reply in under a second. How does your browser know where to send that letter? And how does the response find its way back?",
+    "paragraph2": "The answer lies in three ideas that power every app, every cloud service, and every AI chatbot. By the end of this article, you will understand what happens between pressing Enter and seeing a web page — and why the exact same mechanism also powers AI services."
+  },
+  "clientServer": {
+    "title": "Client and Server: The Restaurant Model",
+    "definitionTitle": "Client, Server, and HTTP",
+    "analogy": "Imagine a restaurant: you (the client) order from the menu, the waiter (the network) carries the order to the kitchen (the server), and the kitchen prepares a dish and sends it back via the waiter. Client and server are not specific devices — they are roles. Your smartphone is a client when it loads a web page, but it could also act as a server.",
+    "scientific": "In the client-server model, the client initiates a request, and the server processes it and sends back a response. The web uses HTTP (Hypertext Transfer Protocol) as its communication protocol. An HTTP request contains a method (GET, POST, etc.), a URL, and optionally data. The response contains a status code (200, 404, 500) and the requested data.",
+    "analogyBreak": "Where the restaurant analogy breaks: a web server handles thousands of clients simultaneously — no physical restaurant can do that. A server can itself become a client when it fetches data from other servers (microservices). And the network is unreliable: data packets can be lost, delayed, or arrive out of order — a human waiter rarely drops the plate.",
+    "walkthrough": {
+      "title": "What happens when you type google.com?",
+      "step1": "DNS resolution: your browser asks for the IP address of google.com (~50 ms)",
+      "step2": "TCP connection: browser and server establish a reliable connection (~30 ms handshake)",
+      "step3": "HTTP request: the browser sends a GET request to the server",
+      "step4": "Server processing: Google's server generates the response page (~200 ms)",
+      "step5": "HTTP response: the server sends back HTML, CSS, and JavaScript",
+      "step6": "Rendering: the browser assembles the page and displays it — all in under 500 ms"
+    },
+    "misconception": {
+      "title": "Common Misconception: Internet = Web",
+      "text": "The internet and the web are not the same thing. The internet is the global network infrastructure — cables, routers, protocols. The web (World Wide Web) is just one of many applications running on the internet, alongside email, file transfer (FTP), streaming, and much more."
+    }
+  },
+  "dns": {
+    "title": "Addresses: IP and DNS",
+    "definitionTitle": "IP Address, DNS, and Port",
+    "analogy": "DNS works like a chain of phone books. Instead of one giant directory, there is a tree: the root directory knows which regional directory to ask (.com, .de), the regional directory points to the company directory (google.com), and the company directory has the actual extension number (IP address).",
+    "scientific": "Every internet-connected device has a numeric IP address. IPv4 uses 32-bit addresses (about 4.3 billion total, written as four numbers like 192.168.0.1). IPv6 extends this to 128 bits for a practically unlimited supply. DNS (Domain Name System) is a distributed, hierarchical system that translates human-readable domain names into IP addresses. Ports (0-65535) identify specific services on a single device.",
+    "stats": {
+      "ipv4": {
+        "label": "IPv4 Addresses",
+        "value": "4.3",
+        "suffix": " B",
+        "description": "Sounds like a lot — but not enough for every device on Earth"
+      },
+      "dnsTime": {
+        "label": "DNS Lookup",
+        "description": "Time for a full name resolution without cache"
+      },
+      "port": {
+        "label": "HTTPS Port",
+        "description": "The standard port for encrypted websites"
+      }
+    },
+    "phoneBookAnalogy": "Think of DNS as a phone book chain: your browser first checks its local cache, then asks your internet provider, which asks a root server, which points to the .com server, which knows the IP address of google.com. The result is cached so the next lookup is faster.",
+    "analogyBreak": "Where the analogy breaks: real phone books are static publications updated yearly. DNS records can change within minutes (controlled via Time-to-Live, or TTL). Also, DNS queries are active network requests to live servers — not passive lookups in a printed book.",
+    "resolution": {
+      "title": "DNS Resolution: Step by Step",
+      "step1": "Browser checks the local DNS cache — maybe this site was visited before",
+      "step2": "If not cached: request goes to the ISP's recursive resolver",
+      "step3": "The resolver asks a root server: who handles .com?",
+      "step4": "The .com TLD server responds: Google uses these nameservers",
+      "step5": "Google's authoritative nameserver returns the IP address (e.g., 142.250.x.x)",
+      "step6": "The resolver caches the result with TTL and forwards it to the browser"
+    },
+    "portsExplanation": "Ports are like extension numbers in a phone system: the IP address is the building's main number, the port is the extension to the right desk. Port 80 is HTTP, port 443 is HTTPS (encrypted), port 22 is SSH (secure remote access). A server can offer many services simultaneously — each listens on a different port.",
+    "misconception": {
+      "title": "Common Misconception: My IP address identifies me personally",
+      "text": "Most home internet connections have a dynamic IP address that changes regularly. Additionally, many devices often share a single public IP address (via NAT). Your IP address is neither permanent nor personally identifiable — it is more like the current phone number of a hotel room."
+    }
+  },
+  "apis": {
+    "title": "APIs: The Menu for Machines",
+    "definitionTitle": "API, REST, and JSON",
+    "analogy": "An API is like a standardized menu at a restaurant counter. The menu lists exactly what you can order (endpoints), what options are available (parameters), and what you will receive (response format). As long as you follow the ordering protocol, you get your result — regardless of whether you are a web app, a mobile app, or a server process.",
+    "scientific": "An API (Application Programming Interface) is a defined interface that lets one program use functions of another program without knowing its internal implementation. Web APIs (especially REST APIs) use HTTP as transport and JSON as data format. Unlike websites that return HTML for browsers to render, APIs return structured data (JSON) for programs to process.",
+    "analogyBreak": "Where the menu analogy breaks: API responses can be deeply nested data structures with hundreds of fields — far more complex than a single dish. APIs often require authentication (API keys, tokens) — no restaurant demands an ID check before ordering. And APIs enforce rate limits (e.g., 100 requests per minute) — a concept with no dining equivalent.",
+    "comparison": {
+      "websiteLabel": "Website (Browser)",
+      "websiteResult": "The server delivers HTML code with colors, images, and layout. The browser renders the visible page. Optimized for human eyes.",
+      "apiLabel": "API (Program)",
+      "apiResult": "The server delivers structured JSON data: {\"temp\": 18, \"condition\": \"cloudy\"}. A program processes the data further. Optimized for machines."
+    },
+    "weatherExample": "A concrete example: a weather API call looks like this: GET https://api.example-weather.com/current?city=Berlin with an API key in the header. The response comes as JSON: {\"temp\": 18, \"unit\": \"celsius\", \"condition\": \"cloudy\"}. No colors, no images — just the raw data that any program can process.",
+    "aiForwardLink": "Here is the exciting part: an AI API call follows the exact same pattern. Instead of a city, you send a prompt: POST https://api.example-ai.com/chat with {\"prompt\": \"What is DNS?\"} — and the response comes as {\"response\": \"DNS stands for...\"}. Same HTTP, same JSON, different kitchen: instead of a database, a neural network processes the request.",
+    "misconception": {
+      "title": "Common Misconception: APIs are only for programmers",
+      "text": "Every app on your smartphone uses APIs behind the scenes, even if you never see them. The weather widget calls a weather API, the transit app queries a transportation API, and chat notifications arrive via a messaging API. APIs are the invisible infrastructure on which most digital services are built."
+    }
+  },
+  "deepDive": {
+    "httpMethods": {
+      "title": "HTTP Methods and Status Codes",
+      "text": "HTTP speaks a small vocabulary: GET means 'read something', POST means 'send/create something', PUT means 'replace something', DELETE means 'remove something'. These four cover the fundamental operations (read, create, update, delete).",
+      "statusCodes": "Status codes are the server's short answers: 2xx means success (200 OK = all good), 4xx means 'you made a mistake' (404 Not Found = page does not exist, 403 Forbidden = no access), 5xx means 'the server has a problem' (500 Internal Server Error). Next time you see '404', you will know exactly what that number means."
+    },
+    "aiApis": {
+      "title": "From Weather APIs to AI APIs: Same Pattern, Different Kitchen",
+      "text": "A weather API works like this: the client sends a city name, the server queries its database, and returns the temperature as JSON. An AI API works identically: the client sends a prompt text, the server runs a neural network, and returns the generated text as JSON.",
+      "samePattern": "The HTTP layer is identical in both cases — only the server-side processing differs. Whether it is a database query or a neural network: to your code, it looks the same. You will encounter this pattern again and again in later articles when you fetch models from a model hub or use AI tools via their APIs."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "items": {
+      "clientServer": "The internet follows a simple pattern: a client sends a request, a server sends back a response — this is true for websites, weather apps, and AI chatbots alike.",
+      "dns": "DNS is the internet's phone book: it translates human-readable names like google.com into numeric IP addresses that routers use to deliver data packets.",
+      "api": "An API is a standardized interface that lets programs talk to other programs. Every app on your phone uses APIs behind the scenes.",
+      "json": "JSON is the universal packaging format for API data: structured, human-readable, and understood by every programming language.",
+      "cloud": "The cloud is not a mystical place — it is data centers full of servers that expose APIs, following the same client-server principles as any website."
+    }
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Internet & APIs",
+    "q1": {
+      "question": "What is the role of DNS on the internet?",
+      "a": "DNS encrypts data while browsing",
+      "b": "DNS translates domain names into IP addresses",
+      "c": "DNS stores websites on the server",
+      "d": "DNS protects against viruses",
+      "explanation": "DNS (Domain Name System) translates human-readable names like google.com into numeric IP addresses. Without DNS, we would have to memorize the numbers ourselves."
+    },
+    "q2": {
+      "question": "You type google.com in the browser but get the error message \"DNS resolution failed.\" What does this mean?",
+      "a": "Google's server has crashed",
+      "b": "Your browser could not translate google.com into an IP address",
+      "c": "The website has been deleted",
+      "d": "Your internet speed is too slow",
+      "explanation": "A DNS error means the browser could not resolve the domain name into an IP address. This can be caused by the DNS server, an internet connection issue, or a typo in the name."
+    },
+    "q3": {
+      "question": "A weather app shows the current temperature for Berlin. What is most likely happening behind the scenes?",
+      "a": "The app has all weather data stored locally",
+      "b": "The app opens google.com and reads the temperature",
+      "c": "The app sends an API request and receives JSON data with the temperature",
+      "d": "The app takes a screenshot of a weather website",
+      "explanation": "Apps use APIs behind the scenes. The weather app sends an HTTP request to a weather API and receives structured JSON data in return — not an HTML web page."
+    },
+    "q4": {
+      "question": "Both websites and APIs use HTTP. What is the key difference?",
+      "a": "APIs are faster than websites",
+      "b": "Websites use GET, APIs use POST",
+      "c": "Websites return HTML for browsers, APIs return structured JSON data for programs",
+      "d": "APIs can only be accessed by smartphones",
+      "explanation": "The difference is in the response format: websites deliver HTML with layout and images (for humans). APIs deliver structured JSON data (for programs). Both use HTTP as the transport protocol."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension Check",
+    "item1": "You type google.com, but the page does not load. A friend asks: \"What does the browser actually do before it can show the page?\" Explain the steps.",
+    "item2": "Someone says: \"DNS is like a phone book.\" Explain why this analogy works in principle — and where it breaks down.",
+    "item3": "Your weather widget shows the temperature for Berlin. A friend asks: \"Where does the app get the data?\" Explain the difference compared to a regular website."
+  },
+  "enrichment": {
+    "tocLabel": "HTTP Animation",
+    "sectionTitle": "Interactive: The Journey of an HTTP Request",
+    "intro": {
+      "title": "HTTP Request: From Browser to Server",
+      "description": "Click \"Play\" and follow step by step what happens when your browser calls an API — from entering the URL to receiving the JSON response."
+    },
+    "edu": {
+      "title": "Why does this matter?",
+      "description": "Every website, every app, and every AI application uses HTTP requests in the background. Once you understand how a request is structured and what steps it goes through, you can use APIs deliberately, find errors more quickly, and understand how modern software communicates."
+    },
+    "stage": {
+      "title1": "Browser (Client)",
+      "title2": "DNS Resolution",
+      "title3": "TCP/TLS Connection",
+      "title4": "Send HTTP Request",
+      "title5": "Server Processing",
+      "title6": "Receive HTTP Response",
+      "desc1": "You enter a URL (e.g., api.example-weather.com). The browser is the client — it initiates the request.",
+      "desc2": "The browser needs to translate the domain into an IP address. It asks the DNS server: what number does api.example-weather.com have?",
+      "desc3": "With the IP address, the browser establishes a TCP connection. For HTTPS, a TLS handshake follows for encryption.",
+      "desc4": "The browser sends the HTTP request: GET /current?city=Berlin with header information (API key, Accept: application/json).",
+      "desc5": "The server receives the request, queries its database, and prepares the response.",
+      "desc6": "The server sends the HTTP response back: status code 200 OK and the data as JSON."
+    }
+  }
+}

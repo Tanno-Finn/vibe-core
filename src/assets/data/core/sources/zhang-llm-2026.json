@@ -1,0 +1,17 @@
+{
+  "id": "zhang-llm-2026",
+  "type": "paper",
+  "authors": "Yunbei Zhang, Janet Wang, Yingqiang Ge, Weijie Xu, Jihun Hamm, Chandan K. Reddy",
+  "year": "2026",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2605.23950",
+  "doi": "10.48550/arXiv.2605.23950",
+  "accessed": "2026-08-11",
+  "tags": [
+    "agent-evaluation",
+    "harness",
+    "benchmark",
+    "reproducibility",
+    "binding-constraint"
+  ]
+}

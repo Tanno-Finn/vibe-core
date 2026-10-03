@@ -1,0 +1,29 @@
+{
+  "buttons": {
+    "compare": "Add to Compare"
+  },
+  "categories": {
+    "audioVideo": "Audio & Video",
+    "coding": "Programming",
+    "imageGeneration": "Image Generation",
+    "productivity": "Productivity",
+    "textAi": "Text AI",
+    "general": "General"
+  },
+  "deployment": {
+    "cloud": "Cloud",
+    "hybrid": "Hybrid",
+    "onPremise": "On-Premise"
+  },
+  "difficulty": {
+    "advanced": "Advanced",
+    "beginner": "Beginner",
+    "expert": "Expert"
+  },
+  "pricing": {
+    "enterprise": "Enterprise",
+    "free": "Free",
+    "freemium": "Freemium",
+    "premium": "Premium"
+  }
+}

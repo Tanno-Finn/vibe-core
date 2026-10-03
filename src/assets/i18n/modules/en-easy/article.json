@@ -1,0 +1,8 @@
+{
+  "readingTime": "Time to Read",
+  "readingTimeShort": "Time",
+  "readingTimeTooltip": "How long it takes to read this",
+  "wordCount": "How Many Words",
+  "wordCountTooltip": "How many words are in this text",
+  "moreInfo": "More information"
+}

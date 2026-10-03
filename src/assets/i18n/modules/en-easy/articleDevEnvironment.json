@@ -1,0 +1,235 @@
+{
+  "hero": {
+    "title": "Your Development Environment",
+    "subtitle": "4 parts. 4 questions. And a way without installing."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "thesis": "The core idea",
+    "parts": "The 4 parts",
+    "comfort": "Comfort",
+    "cloud": "The way through the cloud",
+    "notNeeded": "What you do not need",
+    "close": "What now?",
+    "takeaways": "Summary",
+    "checkpoint": "Understanding check",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "In the last lesson you opened a terminal. You typed a command. In the next lesson you type git init. But what has to be on your computer for that? Nobody has told you yet.",
+    "paragraph2": "The answer is not one big program. It is 4 small parts. Do not ask: What do I download? Ask instead: Which question does this part answer?",
+    "paragraph3": "Your agent uses the same 4 parts. It runs in the terminal. Or it runs in the editor. It uses the same runtime as you. And the same git. That is why you can check its work.",
+    "paragraph4": "There is no install guide here. It looks different on every computer. And it gets old fast. It is on the pages below."
+  },
+  "thesis": {
+    "title": "What a development environment is",
+    "text1": "A development environment is not a product. It has 4 parts. A place to read. A place to command. Something that runs the code. And a way back. No part contains the other parts.",
+    "text2": "That helps you 2 times. You quickly see what is missing. And you see what you do not need.",
+    "objectives": {
+      "title": "This is what you learn here",
+      "item1": "You can name the 4 parts. And the question for each.",
+      "item2": "You know: Which runtime does a project from someone else need?",
+      "item3": "You know: Why do git buttons fail without git?",
+      "item4": "You can turn core hours into real hours.",
+      "item5": "You know: Why do you not need a new computer?"
+    }
+  },
+  "parts": {
+    "title": "4 parts, 4 questions",
+    "grid": {
+      "editor": {
+        "label": "Editor",
+        "description": "Where do I read and check the code?"
+      },
+      "terminal": {
+        "label": "Terminal",
+        "description": "How do I give a command?"
+      },
+      "runtime": {
+        "label": "Runtime",
+        "description": "What runs the code?"
+      },
+      "versioning": {
+        "label": "Version control (git)",
+        "description": "How do I get back?"
+      }
+    },
+    "editorText": "The editor is a window with text. The text has colors. You can search in it. Here you read and check. An agent often writes the code. Then checking is your most important work.",
+    "terminalText": "You already know the terminal. Only one thing is new. It belongs to the basic kit. You do not install one. Every computer already has one.",
+    "runtimeIntro": "You never see the third part. The editor only shows text. The terminal only takes commands. Neither of them runs the code.",
+    "definitionTitle": "Runtime",
+    "definitionEverydayLabel": "In simple words",
+    "definitionEveryday": "Runtime. This is a program. It runs the code. Without it, code is only text. Then the text does nothing.",
+    "definitionPreciseLabel": "More exactly",
+    "definitionPrecise": "The runtime belongs to the language of the project. It does not belong to you. For a JavaScript project you need Node. For a Python project you need Python. So always ask the project. Do not ask the tutorial. And remember one more thing: The runtime is often not there. Of the 4 parts it is missing most often.",
+    "runtimeNotOnlyJs": "This is true even without your own code. The tools of the project need the runtime. A big web framework asks for it in its guide. Otherwise the project does not start.",
+    "packageManager": "Package manager. This is a helper for extra programs. Mostly you do not download it separately. It comes with the runtime. On some systems it comes separately. The official page says how you install it.",
+    "gitText": "The fourth part is called git. It is your way back. You learn what git does in the next lesson. Only one thing matters here: git is its own program. You install it separately. Then you enter 2 lines. Your name. And your email. Once for each computer.",
+    "exampleTitle": "Example: 4 questions, 4 answers",
+    "exampleIntro": "You can check your setup yourself. It takes under 1 minute. Type the 4 questions into a terminal.",
+    "stepsAriaLabel": "4 questions. With them you check which part is missing.",
+    "steps": {
+      "step1": {
+        "label": "Ask the runtime",
+        "description": "Does a number come back? Then part 3 is there."
+      },
+      "step2": {
+        "label": "Ask the package manager",
+        "description": "It mostly answers only after step 1."
+      },
+      "step3": {
+        "label": "Ask git",
+        "description": "No number coming back? Then part 4 is missing."
+      },
+      "step4": {
+        "label": "Open the terminal in the editor",
+        "description": "Does that work? Then all 4 parts are there."
+      }
+    },
+    "exampleResult": "One answer says: command not found. There are 2 reasons for this. Reason 1: The part is not installed. Reason 2: The part is there. But the computer cannot find it. Keep the 2 reasons apart. Then you do not install anything twice.",
+    "misconception": {
+      "title": "Wrong: The editor brings git with it",
+      "text": "The editor has buttons for git. But it has no git. It uses the git on your computer. That is in its own guide. If git is missing, the buttons do nothing. That is exactly how you see it: There are 4 separate parts."
+    },
+    "dated": {
+      "title": "Numbers with a shelf life (as of August 18, 2026)",
+      "runtime": "Node has 2 lines. One line is called LTS. LTS means: cared for a long time. An LTS line is cared for about 30 months.",
+      "git": "git needs at least version 2.0.0. Otherwise the git buttons in the editor do nothing.",
+      "hardware": "Your computer needs very little. 1.6 GHz is enough. 1 GB of memory is enough. Almost every computer can do that.",
+      "python": "For Python the way to install is changing. Look it up on the official page.",
+      "survey": "The most used editor is free. A big survey from 2025 shows this.",
+      "closing": "Exact numbers get old fast. The pages below are always current."
+    },
+    "deepDive": {
+      "title": "Deep dive: The proof in 2 browser tabs",
+      "text1": "Make a test. You do not have to install anything. Open the page vscode.dev. An editor runs there in the browser. It is free. It shows you files and text.",
+      "text2": "What is missing there? A terminal. That is what the guide says. And a runtime is missing too. You can read there. You cannot run anything. Now open a second tab. Open a rented environment. Both are there."
+    }
+  },
+  "comfort": {
+    "title": "Comfort that really helps",
+    "intro": "The editor has 3 useful things. One of them hides a trap.",
+    "autosave": "Auto save exists. But at the start it is off. You can switch it on. Before that one rule holds. Text in the editor is not saved yet. These are 2 different things. With git a third one comes along. You already know why text is gone after a crash.",
+    "diff": "The diff view shows old and new side by side. That helps you a lot. Above all when an agent has changed files.",
+    "terminal": "The terminal in the editor is not a different terminal. All commands from the terminal lesson work there."
+  },
+  "cloud": {
+    "title": "The short way: renting an environment",
+    "what": "There is a way without installing. You rent a computer in the cloud. You reach it in the browser. All 4 parts are already on it.",
+    "scope": "The cloud takes the installing off your hands. Nothing more. The 4 parts are still there. You only use them somewhere else.",
+    "analogy": "Think of a rented workshop. You rent time at someone else's workbench. The clock runs while you work. When the time is up, you leave.",
+    "exampleTitle": "Example: The math behind the free tier",
+    "example1": "One provider counts in core hours. Core hours are not the same as hours. This is how the math works. Line 1: You have 120 core hours. Line 2: Your machine has 2 cores. Line 3: 120 divided by 2 is 60 hours.",
+    "example2": "The second provider is the other way round. It gives more hours per week. It gives less storage. This is not a ranking. This is a choice.",
+    "comparison": {
+      "title": "2 free tiers (as of August 18, 2026)",
+      "ariaLabel": "Comparison of 2 free tiers for environments in the cloud",
+      "beforeLabel": "GitHub Codespaces (GitHub Free)",
+      "beforeResult": "Little time, much storage",
+      "beforeText": "120 core hours per month. On 2 cores that is 60 hours. 15 GB of storage per month. When the tier is empty, use is blocked.",
+      "afterLabel": "Google Cloud Shell",
+      "afterResult": "Much time, little storage",
+      "afterText": "50 hours per week. 5 GB of storage. A session ends after 12 hours. Without you it ends after 40 minutes. After 120 days without a visit it is deleted."
+    },
+    "stat": {
+      "label": "Core hours divided by cores",
+      "value": "120 ÷ 4 = 30",
+      "description": "Same tier, but 4 cores: 60 hours become 30 hours. As of August 18, 2026."
+    },
+    "rule": "Do not remember a number. Remember a calculation. Divide the core hours by the cores.",
+    "misconception": {
+      "title": "Wrong: So many hours for free",
+      "text": "The unit is called core hours. It is not called hours. Some tables use a short form. Then people read it wrongly. On every free tier, read the unit first."
+    },
+    "nothingNeeded": "Some people say: In the cloud I need nothing. That is not quite true. You need a browser. And you need an account. The browser editor alone is not an environment. The terminal is missing there.",
+    "forgetting": "Some people say: In the cloud everything stays. That is not true either. One provider deletes after a long break without a visit. The time limit is in the box above. The other blocks you when the tier is empty. It says: Put your work into a branch first.",
+    "analogyBreak": "Here the comparison breaks. In a workshop you take your piece home. Here it is different. The rented environment is gone one day. Your work in the repository stays."
+  },
+  "notNeeded": {
+    "title": "What you do NOT need",
+    "framing": "This is not an opinion. This is a count.",
+    "inventoryTitle": "Example: What the guides really ask for",
+    "inventory1": "Look into the official guides. A big web framework asks for 3 things. A runtime. A text editor. A terminal. It names a 4th point too. That is an add-on for the editor. It only recommends that one. A recommendation is not a rule. A second framework asks for only 2 things. The git book asks for 2 lines.",
+    "inventory2": "Now count a second time. What is on no list? An expensive full kit. A graphical git program. A new computer. This list is longer. People bought these things themselves.",
+    "analogy": "The packing list is written by the trip. Not by the shop. What you take depends on the journey. It does not depend on your feelings.",
+    "analogyBreak": "A packing list has a limit. It names only the minimum. And it is written for one trip. One example is the Linux layer on Windows. The maker advises it under 2 conditions. Condition 1: You work with Linux servers. Condition 2: You use Linux tools. Does neither apply? Then it is only an option.",
+    "misconception": {
+      "title": "Wrong: A pro tool makes me a pro",
+      "text": "Start at the bottom. Every computer has a simple notepad. It can open text and save it. In an emergency that works. But it can do very little. At the top is the full kit. That is too complex for the start. A big web documentation says so. It recommends something in between. Take a proper code editor. The price does not decide this. Notepad++ costs nothing. It only runs on Windows. Sublime Text costs money. Both are in the same list."
+    },
+    "hardware": "Some people say: I need a new computer. That is not true. The numbers are in the box above. They are very low.",
+    "gitGui": "Some people say: Without a picture program I will not understand git. The git book says something else. Such programs can do nothing extra. You already have the useful view in the editor.",
+    "agentEditors": "There are editors with a built-in agent. For the start you do not need them. An editor and a terminal are enough.",
+    "departureTitle": "We see this differently",
+    "departure": "One documentation says: Install it when you need it. We think that is right. The same documentation says: git can wait. Here we see it differently. And we say so openly. Their advice is for people who type everything themselves. You work with an agent. It changes files you have not read.",
+    "deepDive": {
+      "title": "Deep dive: Free of charge is not the same as free",
+      "text1": "The most used editor costs no money. Its source code is free. But the download with the logo is different. It has its own license from the maker.",
+      "text2": "Free of charge and free are 2 different things. There is a rebuild. It is called VSCodium. That one has a free license. More about licenses is in the open source article."
+    }
+  },
+  "close": {
+    "title": "What now?",
+    "text1": "4 questions. 4 parts. Where do I read? How do I command? What runs the code? How do I get back? You have 3 of them now.",
+    "text2": "The fourth part gets its own lesson. The provider says: Put your work into a branch. But what is a branch?",
+    "text3": "That is exactly what the next article is about."
+  },
+  "takeaways": {
+    "containerTitle": "The most important things in 5 sentences",
+    "item1": "4 parts, 4 questions. The editor: Where do I read? The terminal: How do I command? The runtime: What runs the code? git: How do I get back?",
+    "item2": "The runtime belongs to the language of the project. It does not belong to you.",
+    "item3": "The editor does not contain the other 3 parts. It borrows them from your computer.",
+    "item4": "The cloud saves you the installing. The 4 parts stay. The rented environment is gone one day. Your work in the repository stays.",
+    "item5": "What is on no official list, you bought yourself."
+  },
+  "checkpoint": {
+    "title": "Understanding check",
+    "item1": "I can name the 4 parts. And the question for each.",
+    "item2": "I know: Which runtime does a project from someone else need?",
+    "item3": "I know: What does a rented environment take off my hands?",
+    "item4": "I know: What is on no official list?"
+  },
+  "quiz": {
+    "boxTitle": "Test your knowledge",
+    "q1": {
+      "question": "Which question does the runtime answer?",
+      "a": "Where do I read and check the code?",
+      "b": "How do I get back to an old state?",
+      "c": "What really runs the code?",
+      "d": "How do I give files to other people?",
+      "explanation": "The editor shows text. The terminal takes commands. git leads back. The runtime runs the code."
+    },
+    "q2": {
+      "question": "You get a project in Python. You type no code. The agent does that. What do you still need?",
+      "a": "Node, because Node is the runtime for all projects.",
+      "b": "Python, because the runtime belongs to the language.",
+      "c": "Nothing more, because the agent does all of the work.",
+      "d": "An expensive program, because Python will not start.",
+      "explanation": "The runtime depends on the language. It does not depend on who types. A Python project needs Python."
+    },
+    "q3": {
+      "question": "A free tier says 100 core hours per month. Your machine has 4 cores. How many real hours do you have?",
+      "a": "100 hours, because the cores do not count here.",
+      "b": "400 hours, because more cores also give more time.",
+      "c": "25 hours, because you divide by the number of cores.",
+      "d": "50 hours, because core hours always mean exactly 2 cores.",
+      "explanation": "100 divided by 4 is 25. The unit is the important part. On every tier, read the unit first."
+    },
+    "q4": {
+      "question": "There are git buttons in your editor. But they do nothing. What is the likely reason?",
+      "a": "The editor is broken and has to be installed again.",
+      "b": "git is missing or too old. The editor only uses it.",
+      "c": "The buttons only exist in the expensive version.",
+      "d": "The internet is down. Without internet git does not work.",
+      "explanation": "The editor does not bring git with it. It uses the git on your computer. If git is missing, the buttons do nothing."
+    },
+    "q5": {
+      "question": "2 readers stop after 4 months. Half a year later they come back. One installed everything locally. The other worked in the cloud. Who is more likely to find their work?",
+      "a": "The local reader, because the cloud is always unsafe.",
+      "b": "The cloud reader, because the cloud saves everything.",
+      "c": "Both the same, because where you work says nothing about this.",
+      "d": "Whoever has the work in a repository. Environments go away.",
+      "explanation": "It does not depend on the place. It depends on the repository. One provider deletes after a long break. The other blocks you when the tier is empty. A local disk can break too."
+    }
+  }
+}

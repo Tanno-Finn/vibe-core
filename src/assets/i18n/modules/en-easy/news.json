@@ -1,0 +1,53 @@
+{
+  "page": {
+    "title": "Latest News",
+    "subtitle": "What's new on the site: new things, fixed errors, and updates.",
+    "description": "Here you find all the new updates. For example about new texts, new languages, or new features."
+  },
+  "filters": {
+    "label": "Filter by type",
+    "all": "All",
+    "language": "Languages",
+    "article": "Texts",
+    "feature": "Features",
+    "release": "Releases",
+    "bugfix": "Bug fixes",
+    "quality": "Quality",
+    "maintenance": "Maintenance",
+    "launch": "Go-live",
+    "blog": "Blog",
+    "interview": "Interviews",
+    "demo": "Demos",
+    "glossary": "Glossary",
+    "timeline": "Timeline",
+    "tool": "Tools"
+  },
+  "pinnedSection": "Important messages",
+  "new": {
+    "label": "New",
+    "aria": "New since you were last here"
+  },
+  "results": {
+    "allCount": "{n} entries",
+    "filteredCount": "{n} of {total} entries"
+  },
+  "chips": {
+    "more": "more",
+    "less": "Show less"
+  },
+  "empty": {
+    "message": "No entries.",
+    "reset": "Remove all filters",
+    "activeFilter": "Filter",
+    "activeSearch": "Search"
+  },
+  "search": {
+    "label": "Search news",
+    "placeholder": "Search ...",
+    "clear": "Clear search"
+  },
+  "toc": {
+    "title": "Months"
+  },
+  "pinned": "Pinned"
+}

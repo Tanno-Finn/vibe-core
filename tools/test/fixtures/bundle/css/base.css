@@ -1,0 +1,9 @@
+/* Imported by style.css: the font file is copied in by the test (tools/test/bundle.test.mjs). */
+@font-face {
+  font-family: 'Fixture Sans';
+  src: url('../font.woff2') format('woff2');
+}
+body {
+  font-family: 'Fixture Sans', sans-serif;
+  margin: 2rem;
+}

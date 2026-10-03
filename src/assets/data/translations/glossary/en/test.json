@@ -1,0 +1,10 @@
+{
+  "term": "Test (Software)",
+  "alternativeNames": [
+    "Software test",
+    "Automated test",
+    "Test suite"
+  ],
+  "description": "Testing means deliberately running a program to find errors. Usually a test is itself a small program: it calls a piece of code with known inputs and compares the result against what was expected. A green test suite is reassuring — but it is not proof. Tests only check what they check; Edsger Dijkstra put it this way: testing can show the presence of bugs, not their absence. For code written by AI agents, tests are the most important safety net: an agent that has to run its change against a solid test suite catches many of its own mistakes immediately — and the human does not have to re-verify every line by hand. Watch out for two false friends: the test set is a data split in machine learning, and A/B testing is an experiment on real users — neither is a software test.",
+  "example": "Picture a pilot's pre-flight checklist: before every takeoff the same items get checked — controls free, tanks full, flaps set. The list reliably catches the known failures, but only the ones written on it. A test suite works the same way: the test 'add(2, 3) must return 5' raises the alarm the moment a change breaks addition. The bug with negative numbers, for which nobody wrote a test, goes unnoticed."
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Diff",
+  "alternativeNames": [
+    "Difference view",
+    "Patch"
+  ],
+  "description": "A diff is a comparison of two states of a file or project: a list showing what changed - lines added and removed, plus a few unchanged lines around them so you can see where you are. Like tracked changes in a word processor: you do not reread the whole document, only the marked passages. That is exactly what makes diffs the main inspection tool when working with AI agents: instead of reading every file in full, you see at a glance what the agent actually touched - including places where you expected no change at all.",
+  "example": "You ask an agent to fix a typo. The diff shows one changed line in the text - and, surprisingly, a second one in the configuration. That is precisely what it is for. One thing a diff does not show is the effect: a single changed line can alter the behavior of the whole program - so reading the diff does not replace trying the result."
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Leitplanken",
+  "alternativeNames": [
+    "Guardrails",
+    "Sicherheits·regeln"
+  ],
+  "description": "Guardrails ist ein englisches Wort. Es bedeutet: Leitplanken. Leitplanken halten Autos auf der Straße. Bei einer KI machen Guardrails dasselbe. Sie sorgen dafür, dass die KI bestimmte Regeln einhält. Zum Beispiel: Die KI soll keine gefährlichen Inhalte ausgeben. Die Guardrails prüfen jede Frage und jede Antwort. Wenn etwas nicht erlaubt ist, wird es geblockt. So bleibt die KI in sicheren Grenzen.",
+  "example": "Ein Chatbot hat Guardrails. Jemand fragt nach gefährlichen Informationen. Die Guardrails erkennen das. Der Chatbot antwortet nicht mit diesen Informationen. Er sagt stattdessen: Das kann ich nicht beantworten."
+}

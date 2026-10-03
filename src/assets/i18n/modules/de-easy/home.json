@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "subtitle": "Ein Lern·begleiter für dein Thema. Mit Spielen zum Mitmachen, einem Wörterbuch und einer Zeitleiste."
+  },
+  "marquee": {
+    "title": "Schau dir alle Inhalte an",
+    "ariaLabel": "Band mit allen Inhalten",
+    "pause": "Band anhalten",
+    "play": "Band wieder starten",
+    "expand": "Alle Inhalte als Raster zeigen",
+    "collapse": "Zurück zum laufenden Band",
+    "announceExpanded": "Jetzt siehst du alle Inhalte als Raster.",
+    "announceCollapsed": "Zurück zum laufenden Band."
+  },
+  "navigation": {
+    "bookIntegration": "Jede Seite hat eine besondere 4-Zeichen-ID. Damit kannst du von einem QR-Code oder von Papier direkt zur passenden Seite kommen.",
+    "examples": {
+      "exampleDemo": "Ein Beispiel: So ist eine Demo zum Mitmachen aufgebaut",
+      "tools": "Ein Katalog mit allen Inhalten"
+    },
+    "examplesTitle": "Beispiele für Navigation:",
+    "searchFeature": "Du kannst eine ID direkt in das Suchfeld oben rechts eingeben. So kommst du schnell zu einer bestimmten Seite.",
+    "title": "Schnell navigieren"
+  },
+  "quickStart": {
+    "title": "Direkt loslegen",
+    "subtitle": "Vier Wege in die Inhalte. Wähle aus, was dich anspricht.",
+    "evolution": {
+      "title": "Beispiel·demo testen",
+      "description": "Das ist eine Vorlage. Deine eigenen Demos sehen später so aus.",
+      "cta": "Jetzt testen"
+    },
+    "glossary": {
+      "title": "Ein Begriff, einfach erklärt",
+      "description": "Ein Fachwort mit Erklärung, Beispiel und Zusammenhang. Im Wörterbuch gibt es viele weitere.",
+      "cta": "Begriff ansehen"
+    },
+    "timeline": {
+      "title": "Wie alles begann",
+      "description": "Ein wichtiger Punkt auf der Zeitleiste. Hier fängt die Geschichte an.",
+      "cta": "Zum Anfang"
+    },
+    "prompting": {
+      "title": "Beispiel·artikel lesen",
+      "description": "Das ist die Vorlage für deine Texte. Mit allen Bausteinen.",
+      "cta": "Jetzt lesen"
+    }
+  },
+  "showcase": {
+    "title": "Was du hier findest",
+    "learningPaths": {
+      "title": "Schritt für Schritt verstehen",
+      "description": "Lernpfade führen dich von einfach nach schwer. Du siehst deinen Fortschritt. Die Lektionen bauen aufeinander auf.",
+      "cta": "Lernpfade ansehen"
+    },
+    "lessons": {
+      "title": "Gründlich lernen",
+      "description": "Ausführliche Lektionen mit Erklärungen, Beispielen und Tests. Von einfachen Anleitungen bis zu Fach·artikeln.",
+      "cta": "Lektionen ansehen"
+    },
+    "demos": {
+      "title": "Selbst ausprobieren",
+      "description": "Demos zum Mitmachen. Du stellst die Werte selbst ein. Du siehst sofort, was passiert. Verstehen durch Tun.",
+      "cta": "Demos starten"
+    },
+    "tools": {
+      "title": "Dein Werkzeug·kasten",
+      "description": "Ausgewählte Programme und Lern·materialien. Mit Bewertungen. Von einfachen Helfern bis zu Entwickler·programmen.",
+      "cta": "Programme ansehen"
+    },
+    "timeline": {
+      "title": "Geschichte auf einen Blick",
+      "description": "Die wichtigsten Ereignisse deines Themas. Nach Zeit geordnet. Von früher bis heute.",
+      "cta": "Zeitleiste ansehen"
+    },
+    "glossary": {
+      "title": "Begriffe einfach erklärt",
+      "description": "Jeder Begriff mit Erklärung, Beispiel und Zusammenhang. Dein Wörterbuch für dein Thema.",
+      "cta": "Wörterbuch öffnen"
+    },
+    "sources": {
+      "title": "Quellen zum Nachprüfen",
+      "description": "Alle Quellen und weiterführende Literatur. Du kannst suchen und filtern. Jede Aussage hat eine Quelle.",
+      "cta": "Quellen durchsuchen"
+    },
+    "roadmap": {
+      "title": "Was passiert gerade? Der Fahrplan",
+      "description": "Neue Lernpfade, bessere Übersetzungen und Neuigkeiten. Alles auf einen Blick.",
+      "cta": "Fahrplan ansehen"
+    }
+  },
+  "tableOfContents": "Inhalts·verzeichnis",
+  "toc": {
+    "hero": "Willkommen",
+    "quickStart": "Direkt loslegen",
+    "showcase": "Entdecken",
+    "navigation": "Navigation"
+  },
+  "translationNotice": {
+    "title": "Hinweis zur Übersetzung",
+    "text": "Dieser Hinweis wird auf Deutsch nicht angezeigt. Deutsch ist die Original·sprache. Diese Keys sind hier für alle Sprachen gleich."
+  },
+  "templateBridge": {
+    "text": "Diese Seite ist eine Vorlage. Alle Inhalte sind nur Beispiele. Du willst dein eigenes Thema? Öffne deinen KI-Agenten. Schreibe: onboarding. Der Agent hilft dir dann."
+  }
+}

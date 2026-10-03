@@ -1,0 +1,255 @@
+{
+  "hero": {
+    "title": "Vibecoding: KI schreibt deinen Code",
+    "subtitle": "Wenn du der KI sagst, was du willst — und sie schreibt den Code."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "paradigm": "Die große Veränderung",
+    "tools": "Die Werkzeuge",
+    "risks": "Die Gefahren",
+    "takeaways": "Das Wichtigste",
+    "quiz": "Quiz",
+    "checkpoint": "Checkpoint",
+    "enrichment": "Prompt·baukasten"
+  },
+  "lead": {
+    "paragraph1": "2025 hat Andrej Karpathy ein neues Wort erfunden: Vibecoding. Karpathy ist KI-Forscher. Vibecoding bedeutet: Du sagst der KI, was du willst. Die KI schreibt den Code für dich.",
+    "paragraph2": "Früher hat ein Programm zwei Stunden gedauert. Heute: zehn Minuten beschreiben, dann 30 Minuten prüfen. Aber Achtung: Es gibt drei gefährliche Fallen."
+  },
+  "paradigm": {
+    "title": "Die große Veränderung",
+    "definitionTitle": "Was ist Vibecoding?",
+    "analogy": "Stell dir einen Architekten vor. Früher hat er jede Mauer selbst gebaut. Jetzt hat er Arbeiter (die KI). Er macht den Bauplan (Prompt). Die Arbeiter bauen danach. Der Architekt prüft die Arbeit.",
+    "scientific": "Vibecoding bedeutet: Du schreibst in normaler Sprache, was das Programm tun soll. Die KI macht daraus echten Code. Das ist der neueste Schritt: Von Maschinen·code zu normaler Sprache.",
+    "analogyBreak": "Aber: Echte Arbeiter lernen dazu. Die KI vergisst alles nach jeder Sitzung. Und: Ein Haus prüfen ist einfach. Code prüfen ist schwer.",
+    "abstractionTitle": "Immer einfacher",
+    "roleShift": "Deine Aufgabe ändert sich: Du schreibst keinen Code mehr. Du prüfst Code. Du sagst der KI, was sie ändern soll. Das ist wie ein Gespräch.",
+    "eightTwenty": "Die KI macht etwa 80 Prozent der Arbeit. Du machst die wichtigen 20 Prozent: Die Planung. Die schwierigen Sonderfälle. Die Sicherheit."
+  },
+  "steps": {
+    "machineCode": "Maschinen·code",
+    "assembler": "Assembler",
+    "highlevel": "C / Java",
+    "scripting": "Python",
+    "naturalLanguage": "Normale Sprache"
+  },
+  "comparison": {
+    "traditionalLabel": "Früher",
+    "vibecodingLabel": "Mit Vibecoding",
+    "traditionalResult": "2 Stunden: Alles von Hand schreiben.",
+    "vibecodingResult": "40 Minuten: 10 Min. beschreiben, 30 Min. prüfen."
+  },
+  "tools": {
+    "title": "Die Werkzeuge",
+    "intro": "Es gibt verschiedene KI-Werkzeuge. Manche helfen wenig. Andere machen fast alles allein. Du wählst, wie viel die KI machen soll.",
+    "gridTitle": "Vier Stufen"
+  },
+  "toolGrid": {
+    "completion": {
+      "label": "Zeilen vorschlagen",
+      "description": "Schlägt einzelne Zeilen vor. Wie ein Navi im Auto."
+    },
+    "editor": {
+      "label": "Editor mit Projekt·wissen",
+      "description": "Ändert mehrere Dateien auf einmal. Wie ein Beifahrer, der die Karte liest."
+    },
+    "supervised": {
+      "label": "Agent unter Aufsicht",
+      "description": "Plant und arbeitet selbst. Du schaust zu. Wie ein Fahrschüler."
+    },
+    "autonomous": {
+      "label": "Agent ohne Aufsicht",
+      "description": "Macht alles allein. Du sagst nur das Ziel. Wie ein Taxi."
+    }
+  },
+  "deepDive": {
+    "literacy": {
+      "title": "Wichtig: Mehr lesen, weniger schreiben",
+      "text": "Vibecoding hat eine Überraschung: Du schreibst weniger Code. Aber du musst mehr Code lesen. KI-Code verstehen ist schwerer als eigenen Code verstehen.",
+      "insight": "Lesen wird wichtiger als Schreiben. Wer KI-Code nicht prüft, bekommt später Probleme."
+    }
+  },
+  "risks": {
+    "title": "Die Gefahren",
+    "intro": "Vibecoding hat drei große Gefahren. Dazu kommt: Die KI baut gerne Sicherheits·lücken ein.",
+    "warningTitle": "Drei Gefahren",
+    "hallucination": {
+      "title": "1. Falscher Code:",
+      "text": "Der Code startet. Aber er hat versteckte Fehler. Die KI übersieht Sonderfälle."
+    },
+    "contextLoss": {
+      "title": "2. Vergesslichkeit:",
+      "text": "Bei großen Projekten vergisst die KI Regeln. Sie macht Fehler, die schon behoben waren."
+    },
+    "cargoCult": {
+      "title": "3. Blindes Akzeptieren:",
+      "text": "Wenn du Code nimmst, den du nicht verstehst: Später kann niemand mehr reparieren."
+    },
+    "failScenario": {
+      "title": "Beispiel: Alles geht schief",
+      "text": "Ein Anfänger baut einen Chatbot. Auf seinem Computer funktioniert alles. Im Internet: Passwörter sichtbar. Riesige Kosten. Abstürze.",
+      "consequences": "Alles hat funktioniert — bis echte Nutzer kamen."
+    },
+    "bottomLine": "Erfahrene Entwickler nutzen Vibecoding am besten. Sie wissen, was guter Code ist."
+  },
+  "misconceptions": {
+    "obsolete": {
+      "title": "Fehler: Programmierer werden nicht mehr gebraucht",
+      "text": "Falsch. Programmierer prüfen jetzt den Code. Ohne Wissen kannst du Fehler nicht finden."
+    },
+    "autonomy": {
+      "title": "Fehler: Das selbstständigste Tool ist immer das beste",
+      "text": "Falsch. Bei wichtigem Code (Sicherheit, Geld) brauchst du mehr Kontrolle. Wähle das passende Tool für die Aufgabe."
+    },
+    "safe": {
+      "title": "Fehler: Wenn der Code läuft, ist alles sicher",
+      "text": "Falsch. KI-Code läuft oft. Aber er hat versteckte Probleme. Prüfen ist Pflicht."
+    }
+  },
+  "takeaways": {
+    "title": "Das Wichtigste",
+    "point1": "Vibecoding: Du sagst WAS. Die KI macht WIE.",
+    "point2": "Deine neue Aufgabe: Code prüfen statt Code schreiben.",
+    "point3": "Es gibt vier Stufen: Von Vorschlägen bis zur vollen Automatik. Wähle passend.",
+    "point4": "Drei Gefahren: Falscher Code, Vergesslichkeit, blindes Akzeptieren. Immer prüfen!"
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Vibecoding",
+    "q1": {
+      "question": "Was ist Vibecoding?",
+      "a": "Eine Programmier·sprache",
+      "b": "Du sagst der KI, was du willst. Sie schreibt den Code.",
+      "c": "Eine Technik für die Fehler·suche",
+      "d": "Eine KI, die Programmierer ersetzt",
+      "explanation": "Vibecoding bedeutet: Du beschreibst in normaler Sprache. Die KI schreibt den Code."
+    },
+    "q2": {
+      "question": "Dein Programm braucht ein sicheres Login. Welches Tool passt am besten?",
+      "a": "Das selbstständigste Tool — schnell fertig",
+      "b": "Ein einfaches Tool mit viel eigener Kontrolle — Sicherheit ist wichtig",
+      "c": "Gar kein KI-Tool",
+      "d": "Ein mittleres Tool — die KI macht das meiste",
+      "explanation": "Bei Sicherheits·code brauchst du mehr Kontrolle. Ein einfaches Tool ist sicherer."
+    },
+    "q3": {
+      "question": "Die KI baut ein Login. Es funktioniert. Aber die Passwörter sind nicht verschlüsselt. Welches Problem ist das?",
+      "a": "Die KI hat etwas vergessen",
+      "b": "Der Programmierer hat den Code nicht verstanden",
+      "c": "Falscher Code — sieht gut aus, hat aber einen Fehler",
+      "d": "Das Tool war falsch eingestellt",
+      "explanation": "Das ist falscher Code: Er läuft, hat aber einen gefährlichen Fehler."
+    },
+    "q4": {
+      "question": "Ein Anfänger sagt: Ich muss keinen Code lesen lernen. Die KI schreibt alles. Was ist falsch?",
+      "a": "Er hat recht",
+      "b": "Man muss den KI-Code prüfen können — dafür muss man lesen können",
+      "c": "Er sollte mehr Tests schreiben",
+      "d": "Nur Profis müssen Code lesen",
+      "explanation": "Man schreibt weniger Code. Aber man muss mehr Code lesen und prüfen."
+    },
+    "q5": {
+      "question": "Was sind die wichtigen 20 Prozent, die der Mensch machen muss?",
+      "a": "Standard·code schreiben",
+      "b": "Planung, Sonderfälle, Sicherheit und Prüfung",
+      "c": "Tests starten und Code hochladen",
+      "d": "Alles der KI überlassen",
+      "explanation": "Die wichtigen 20 Prozent: Planung, Sonderfälle, Sicherheit. Hier liegt der Wert."
+    },
+    "q6": {
+      "question": "Ein Team baut eine App mit Vibecoding. Nach sechs Monaten versteht niemand mehr den Code. Was ist das Problem?",
+      "a": "Normale technische Schulden",
+      "b": "Vibecoding·schulden: Das Team hat Code akzeptiert, den es nicht versteht",
+      "c": "Kosten von KI-Tools",
+      "d": "Das Projekt wurde zu groß",
+      "explanation": "Wenn niemand den Code versteht, kann niemand Fehler reparieren. Das sind Vibecoding·schulden."
+    }
+  },
+  "checkpoint": {
+    "title": "Hast du verstanden?",
+    "q1": "Warum prüfen Programmierer jetzt Code, statt ihn zu schreiben?",
+    "q2": "Welche der vier Stufen passt für wichtigen Code?",
+    "q3": "Was sind die drei Gefahren von Vibecoding?"
+  },
+  "enrichment": {
+    "sectionTitle": "Interaktiv: Vibecoding ausprobieren",
+    "intro": "Sieh, wie Vibecoding funktioniert. Du beschreibst in Worten, die KI schreibt den Code.",
+    "instruction": "Klicke in jeder Gruppe einen Baustein an. Unten entsteht dein Prompt.",
+    "hint": {
+      "title": "Warum ein Baukasten?",
+      "description": "Gute Prompts haben immer 4 Teile: die Rolle, den Tech·stack, die Aufgabe und die Qualität. Im Baukasten siehst du diese 4 Teile. Und du siehst sofort, wenn ein Teil fehlt."
+    },
+    "category": {
+      "role": {
+        "label": "Rolle",
+        "quality": "Rolle ist gewählt",
+        "missing": "eine Rolle"
+      },
+      "expertise": {
+        "label": "Tech·stack",
+        "quality": "Tech·stack ist gewählt",
+        "missing": "einen Tech·stack"
+      },
+      "task": {
+        "label": "Aufgabe",
+        "quality": "Aufgabe ist gewählt",
+        "missing": "eine Aufgabe"
+      },
+      "format": {
+        "label": "Qualität",
+        "quality": "Qualität ist gewählt",
+        "missing": "eine Qualitäts·regel"
+      }
+    },
+    "block": {
+      "vc_r1": {
+        "label": "Senior Developer",
+        "text": "Du bist ein erfahrener Senior Developer. Dir ist sauberer Code wichtig. Der Code soll leicht zu pflegen sein."
+      },
+      "vc_r2": {
+        "label": "Software·architekt",
+        "text": "Du bist ein Software·architekt. Erkläre deine Entscheidungen zum Aufbau. Und schlage andere Wege vor."
+      },
+      "vc_r3": {
+        "label": "Pair Programmer",
+        "text": "Du bist mein Partner beim Pair Programming. Denke laut mit. Stelle mir Fragen. Und erkläre deine Entscheidungen."
+      },
+      "vc_e1": {
+        "label": "React + TypeScript",
+        "text": "Das Projekt nutzt React und TypeScript. Dazu kommen Tailwind CSS und Vite."
+      },
+      "vc_e2": {
+        "label": "Python + FastAPI",
+        "text": "Das Projekt ist ein Backend in Python. Es nutzt FastAPI, SQLAlchemy und PostgreSQL."
+      },
+      "vc_e3": {
+        "label": "Angular + Optimus UI",
+        "text": "Das Projekt nutzt Angular mit Optimus-UI-Komponenten. Den State steuern Signals."
+      },
+      "vc_t1": {
+        "label": "Feature bauen",
+        "text": "Baue das folgende Feature ganz fertig. Lege alle nötigen Dateien an. Passe auch die alten Dateien an."
+      },
+      "vc_t2": {
+        "label": "Bug fixen",
+        "text": "Finde den folgenden Bug und behebe ihn. Erkläre die Ursache. Und erkläre: Warum löst dein Fix das Problem?"
+      },
+      "vc_t3": {
+        "label": "Refactoring",
+        "text": "Mach den Code leichter lesbar und leichter zu pflegen. Das nennt man Refactoring. Der Code soll danach genau das Gleiche tun."
+      },
+      "vc_f1": {
+        "label": "Mit Tests",
+        "text": "Schreibe Unit·tests für jede neue Funktion. Nimm das Test·framework aus dem Projekt."
+      },
+      "vc_f2": {
+        "label": "Schrittweise erklären",
+        "text": "Erkläre jeden Schritt. Sag kurz, warum du den Code so aufbaust."
+      },
+      "vc_f3": {
+        "label": "Clean Code",
+        "text": "Halte dich an Clean Code. Das heißt: klare Namen, kleine Funktionen, keine versteckten Tricks."
+      }
+    }
+  }
+}

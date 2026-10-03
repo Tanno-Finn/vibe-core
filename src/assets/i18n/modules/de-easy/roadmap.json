@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Fahrplan",
+    "description": "Was schon fertig ist und was noch kommt. Hier siehst du den Plan."
+  },
+  "timeline": {
+    "title": "Content·fahrplan",
+    "description": "Es kommen immer mehr Inhalte dazu. Neue Lernpfade und neue Demos. Alles ist kostenlos.",
+    "released": "Verfügbar",
+    "upcoming": "Kommt bald",
+    "planned": "Geplant",
+    "articles": "Artikel",
+    "paths": "Lernpfade",
+    "phaseSprint": "jede Woche",
+    "difficulty": {
+      "beginner": "Einsteiger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Experte"
+    },
+    "updates": "Erweiterungen"
+  },
+  "languages": {
+    "title": "Übersetzungen",
+    "description": "Alle Übersetzungen wurden mit KI gemacht.\nSie werden Schritt für Schritt geprüft.\nHier siehst du den Stand für jede Sprache.",
+    "statusComplete": "Prüfung fertig",
+    "statusPending": "Prüfung geplant",
+    "statusReference": "Haupt·sprache",
+    "languageNames": {
+      "de": "Deutsch",
+      "en": "Englisch",
+      "tr": "Türkisch",
+      "bn": "Bengali",
+      "ru": "Russisch",
+      "uk": "Ukrainisch",
+      "pl": "Polnisch",
+      "el": "Griechisch",
+      "hi": "Hindi",
+      "mr": "Marathi",
+      "pa": "Punjabi",
+      "es": "Spanisch",
+      "fr": "Französisch",
+      "ko": "Koreanisch",
+      "hr": "Kroatisch",
+      "it": "Italienisch",
+      "nl": "Niederländisch",
+      "pt-br": "Portugiesisch (BR)",
+      "ro": "Rumänisch",
+      "cs": "Tschechisch",
+      "vi": "Vietnamesisch",
+      "id": "Indonesisch",
+      "ms": "Malaiisch",
+      "sv": "Schwedisch",
+      "da": "Dänisch",
+      "no": "Norwegisch",
+      "sw": "Swahili",
+      "tl": "Tagalog"
+    },
+    "scripts": {
+      "latin": "Lateinisch",
+      "cyrillic": "Kyrillisch",
+      "devanagari": "Devanagari",
+      "bengali": "Bengalisch",
+      "hangul": "Hangul",
+      "greek": "Griechisch",
+      "gurmukhi": "Gurmukhi"
+    }
+  },
+  "mystery": {
+    "title": "Bonus·inhalt",
+    "description": "Es gibt bald Bonus·inhalt. Was genau, das sagen wir noch nicht."
+  }
+}

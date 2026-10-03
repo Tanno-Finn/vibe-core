@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-21T00:00:00.000Z",
+  "nodeCount": 8,
+  "positions": {
+    "glossary:seed-term-1": { "x": -200, "y": -120 },
+    "glossary:seed-term-2": { "x": -80, "y": -200 },
+    "glossary:seed-term-3": { "x": 60, "y": -140 },
+    "glossary:seed-term-4": { "x": 180, "y": -40 },
+    "glossary:seed-term-5": { "x": 240, "y": 100 },
+    "timeline:seed-event-1": { "x": -160, "y": 120 },
+    "timeline:seed-event-2": { "x": 0, "y": 180 },
+    "timeline:seed-event-3": { "x": 140, "y": 200 }
+  }
+}

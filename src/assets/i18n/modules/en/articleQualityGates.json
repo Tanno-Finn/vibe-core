@@ -1,0 +1,280 @@
+{
+  "hero": {
+    "title": "Gates: The Safety Net Made of Machine Checks",
+    "subtitle": "Why a red board is the cheapest place your problem can ever show up - and why the way past it runs through a note with a name and a date rather than through a switch."
+  },
+  "toc": {
+    "lead": "The red board",
+    "thesis": "Core thesis",
+    "checks": "Five questions, five kinds of red",
+    "cheap": "Red is the cheap failure",
+    "limits": "Limits",
+    "exception": "The written exception",
+    "agents": "With agents",
+    "close": "Closing",
+    "takeaways": "Takeaways",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "The agent reports back: done. You look at the board, and it is red. Nothing moves - no button, no accept, just a message that was plainly written for somebody else. The first thought is nearly always the same one: something is standing in my way.",
+    "paragraph2": "You already know the safety-net picture. In the previous step of this path it fell apart, because the one who ties the net is the one who falls into it. For the machines in this article it breaks a second time, in a different place: a net catches you once you have already fallen. These refuse to let you fall at all. They say no.",
+    "paragraph3": "The previous article on this path took a test apart for you: a name that states a claim, and a line that states the value it wants back. But a claim nobody ever runs leaves the world exactly as it found it. This article is about the machinery that runs claims and then enforces the verdict. Which makes the question here not how to get past that red board, but three others: which machine spoke up, what does that particular red tell you, and what does a permitted route around it consist of?"
+  },
+  "thesis": {
+    "title": "What sits between finished and in",
+    "text1": "Between the moment the agent considers itself finished and the moment your change is genuinely part of the project, there is a row of machines. They work through a fixed list. They are set off by the change itself. They run somewhere you cannot reach. And they are able to refuse.",
+    "text2": "Their authority has nothing to do with strictness. It comes from who controls the place where the check runs, and from whether slipping past it leaves a trace. That is precisely why an exception to such a check is not a switch but a written entry.",
+    "objectives": {
+      "title": "What you will be able to do",
+      "item1": "Name the five questions that get checked before a change goes in - and say, for a red message, which of them was just answered with no.",
+      "item2": "Say why a check counts as a warning in one location and as a closed door in another.",
+      "item3": "Report the measured outcome of such checks correctly: as an observed relationship, not as a demonstrated cause.",
+      "item4": "Hold a real request for an exception up against the two refusal grounds that settle most cases.",
+      "item5": "Say what an exception changes and what it never changes."
+    }
+  },
+  "checks": {
+    "title": "Five questions, five kinds of red",
+    "intro": "Red is not a state your program is in. Red is the answer to a question. Which question that was is rarely in the message, and that is exactly why it reads like an insult. So we start with the questions and not with the tools.",
+    "definitionTitle": "Gate",
+    "definitionEverydayLabel": "In plain words",
+    "definitionEveryday": "A check that stands between finished and in. It speaks up on its own as soon as you hand something over, and it can block the way.",
+    "definitionPreciseLabel": "Technically",
+    "definitionPrecise": "More precisely, three properties. First, it is set off by the change itself and not by somebody deciding to take a look. Second, it runs on a machine you do not own, one that has never seen your desk and holds none of your local settings. Third, it can refuse to accept. What it explicitly is not: a person, a judgment, or a seal of quality. It holds no opinion about your plans. It holds a list.",
+    "questions": "Five questions stand between a change and the project. One: can a running program be produced from this text in the first place? Two: do two places in the program agree about what a particular value actually is? Three: was a rule broken that somebody wrote down? Four: does the result match the appearance this project settled on? And five: does a claim about the behavior still hold?",
+    "grid": {
+      "build": {
+        "label": "Build",
+        "description": "Can a running program be produced from this in the first place? Red here means: so far there is no program."
+      },
+      "types": {
+        "label": "Type check",
+        "description": "Do two places agree about what a value is? Red here means: two places contradict each other."
+      },
+      "linter": {
+        "label": "Linter",
+        "description": "Was a rule broken that somebody wrote down? Red here means: an expectation set by people was not met. It says nothing about function."
+      },
+      "format": {
+        "label": "Format check",
+        "description": "Does the result match the appearance this project settled on? Red here means: it differs on the surface."
+      },
+      "tests": {
+        "label": "Tests",
+        "description": "Does a claim about the behavior hold? Red here means: a named claim turned out false."
+      }
+    },
+    "overlap": "Five questions, not necessarily five programs. Depending on the language, a single run answers several of them at once: in a great many projects the type check sits inside the build and reports together with it - including in the portal you are reading right now. So the number of tools is not the interesting quantity. What is interesting is which of the five questions has just been answered with no.",
+    "handover": "The fifth question is the entire subject of the previous article on this path. The other four are new ground - and they are the reason a red board is nowhere near a statement that your program behaves wrongly.",
+    "analogyTitle": "The security check at the airport",
+    "analogy": "Everybody walks through. Nobody is asked whether today happens to suit them. The machine works through a published list, not an assessment of you as a person. Your identity is invisible to it, a dangerous traveler and a harmless one look alike to it, and your intentions lie outside its reach entirely. Red there means: an item on the list registered. Red does not mean: there is something wrong with you.",
+    "analogyBreak1": "That the traveler at the airport did not write the list, while here the same team owns both the program and the list of checks, you already know - the previous article showed exactly that. What is new is the consequence once the list is a machine: whoever goes around it has to write that down. Otherwise nobody on the outside can still tell whether a person decided something on purpose or whether something quietly broke.",
+    "analogyBreak2": "A second and smaller breaking point: the check at the airport happens once per journey. These run on every single change, often several times a day.",
+    "exampleTitle": "An example: 09:14",
+    "exampleIntro": "The agent has changed three files. At 09:14 the change is handed over. Nobody decided to check anything just now; the handover itself sets the run going. The example is meant to make three properties visible at once - what sets it off, where it runs, and why the response time decides how much effect it has.",
+    "stepsTitle": "What happens after the handover",
+    "stepsAriaLabel": "Sequence of a check after a change is handed over",
+    "step1": "09:14: the change is handed over. No human being takes part in this step.",
+    "step2": "A fresh copy of the project lands on a machine that is not yours. Nothing from your computer travels along.",
+    "step3": "The checks run one after another. Format takes 0:05, the linter 0:20, the type check 0:50, the build 3:10, and the tests 5:30. Together that is 9:55.",
+    "step4": "09:24: the verdict exists. It falls inside the ten minutes that count as a reasonable ceiling for most projects.",
+    "step5": "If red: repair it immediately or take the change back, so that everybody else can carry on working.",
+    "exampleCounter": "Now run the same arithmetic with a test suite that needs 25 minutes. The total climbs to 29:25 and the verdict arrives at 09:44, by which point you are already three steps into something else. Nobody reads a check that answers that late; they simply sit it out. Speed here is therefore not a comfort feature. It is the condition under which the check gets used at all.",
+    "placeTitle": "Warning or door - the place decides",
+    "placeIntro": "The same check can be installed in two places, and the two places have little in common.",
+    "comparison": {
+      "ariaLabel": "Comparison: the same check in two different places",
+      "beforeLabel": "On your own computer",
+      "beforeText": "It runs before you record your change, that is, before your commit. One extra switch skips it. Nobody else ever hears about it.",
+      "beforeResult": "Result: a warning you can walk past.",
+      "afterLabel": "On the machine that accepts the change",
+      "afterText": "It runs after you have handed the change over. It decides whether the change is accepted. A no from it turns the whole handover away, not merely the disputed part of it.",
+      "afterResult": "Result: a door that stays shut."
+    },
+    "platform": "On the most widely used platform the same idea is built in as a setting: certain checks have to have finished successfully before a protected branch will accept a change at all; a check that was deliberately skipped counts as passed as well.",
+    "authority": "A check does not get its authority from being strict. It gets it from who controls the place where it runs - and from whether slipping past it leaves a trace. On your own computer that is you, alone and silently. On the accepting machine it is somebody else, and going around it there is an act that belongs to a person.",
+    "severityForward": "One more thing belongs here, because it will be needed later. Whether a red actually blocks the way or merely lands in a log is not a property of the check. It is something the project decides. That is why the format check stands hard in the way in one project and sits beside the work as a note in the next. And it is why cosmetic does not automatically mean harmless.",
+    "misconception1": {
+      "title": "Common error: build, type check, linter, format, and tests are all saying the same thing",
+      "text": "Five questions, five reasons to fail, five different messages. A red build says there is no runnable program yet. A type error says two places disagree about a value. A linter finding says a rule that people set up was broken. A red format check says something looks different from what was agreed. Behavior is the subject of the tests alone. So a red format carries other news than a red build, and lumping both together as error throws away exactly the information that would help."
+    },
+    "misconception2": {
+      "title": "Common error: it runs here, so the check must be broken",
+      "text": "It runs elsewhere on purpose: on a fresh copy, on hardware that has never seen your desk. That it runs for you and fails there is therefore not a defect of the check but its most valuable output. As a rule it means something exists on your computer which is written down nowhere. The complaint that it works perfectly well at home is proverbial among developers for exactly this reason."
+    }
+  },
+  "checkpoint1": {
+    "title": "Quick self-check",
+    "item1": "I can name the five questions that get checked before a change goes in.",
+    "item2": "I can say which of those questions the previous article on this path dealt with.",
+    "item3": "I can explain why the same check carries less weight on my computer than on the accepting machine."
+  },
+  "cheap": {
+    "title": "Red is the cheap failure",
+    "intro": "A red board feels like a setback. It is the same defect you would have met later on, caught at the cheapest possible moment: no person has spent time on it yet, it has not entered the project, and nobody outside has run into it.",
+    "claimNot": "What matters is which claim is not being made here. Machine checks do not cause fewer defects to exist. The canonical text on the subject says so itself, and bluntly: they do not remove defects from the world, they make them far easier to track down. That text is no snapshot of the moment: its original version is dated September 10, 2000, and the practice behind it came out of the Extreme Programming movement of the nineties - not, as is often claimed, out of a textbook on object-oriented design, where the phrase merely falls in passing.",
+    "claimIs": "The claim that can actually be supported is a different one: such checks shift where and when defects are found. And for that there is a measurement.",
+    "exampleTitle": "An example: a hundred changes a month",
+    "exampleSetup": "Take an invented but proportionally faithful project without machine checks. Each month a hundred changes from the core team go into the project. The developers themselves file 25 defect reports. From people outside the core team come 30 reports. Onto that we now lay the values observed in a study of 246 projects after those projects had introduced machine checks. The example is meant to show what shifts and what does not.",
+    "exampleMerged": "First, throughput. The number of changes taken in was about a fifth higher; a hundred becomes roughly a hundred and twenty. Roughly is deliberate: the value is an average across many projects, and a decimal place would fake a precision that is not there. What can be held on to is that more went through, not less.",
+    "exampleFound": "Second, the defects the developers reported themselves. That number was 48 percent higher, which turns 25 into 37. Twelve further defects surfaced, and they surfaced in front of the people able to repair them.",
+    "exampleOutside": "Third, the reports from outside the core team - the closest approximation to what reached the users that this study has to offer. Here no measurable difference showed up. That sentence means exactly what it says: no measurable difference is not zero. It says the study did not find one. Turning that into the statement that not a single extra defect reached anybody says considerably more than the number supports. What was counted, moreover, was reports and not defects: whatever nobody files appears in neither figure.",
+    "statA": {
+      "label": "Defects the developers reported themselves",
+      "description": "Observed across 246 projects. Not proof of cause."
+    },
+    "statB": {
+      "label": "No measurable difference in reports from outside the core team",
+      "description": "The value did not reach statistical significance. That is a missing finding, not a zero."
+    },
+    "exampleResult": "More changes went through, twelve further defects landed in front of the people who can repair them, and outside the core team nothing measurable turned up. No defects were manufactured by the checks. Twelve discoveries simply changed sides, from the expensive one to the cheap one.",
+    "caveat": "How solid is that? It is 246 observed projects, not an experiment. The authors call their own work preliminary and point out that introducing such checks may itself change how a team behaves, which cannot be cleanly separated from any effect on the software. So the wording here is consistently: in the projects that were studied, this was observed. Never: machine checks cause.",
+    "analogyTitle": "The smoke alarm at three in the morning",
+    "analogy": "Nobody is glad to hear it. The whole point of the thing is the timing of the noise it makes. And the single genuinely expensive move on offer is removing its battery. The fire is not the alarm's doing, which is precisely what the measurement demonstrates: those defects existed already and merely surfaced sooner. Finding it irritating is therefore not an argument against it.",
+    "analogyBreak1": "The breaking point matters more than the picture. A smoke alarm reacts to actual smoke. A check, by contrast, is capable of being plain wrong. The warning about that was printed in 1978 already, in the text of the earliest tool of this family: messages of the sort something here might be off are worth only as much as the share of real defects they uncover. If that share is too small, they lose their credibility and merely clog the output. Everybody knows what happens to an alarm that shrieks whenever you make toast: sooner or later a towel hangs over it. That is why checks have to be fast - and why an exception to them has to be a written act rather than a quiet one.",
+    "analogyBreak2": "And the other direction, so the picture does not promise more than it can deliver: a silent alarm proves only that no smoke reached it.",
+    "misconception1": {
+      "title": "Common error: red throws us back, the agent was finished after all",
+      "text": "A red board does not replace a state in which there is no problem. It replaces a state in which the same problem shows up later, in front of somebody outside. And the reflex that such checks slow everything down does not survive the measurement: throughput in the studied projects rose. Nor was the agent finished. It considered itself finished, and a machine can tell those two apart."
+    },
+    "misconception2": {
+      "title": "Common error: this checker never stops nagging, so get rid of it",
+      "text": "Half of that is right, and the right half was written down 48 years ago: a checker that misfires too often really does lose its authority. Switching it off is not what follows. The rule can be corrected, and the exception can be written down. The difference is not convenience but visibility: nobody outside sees a switch-off, whereas a written exception is there to be seen. Which brings us to the third part of this article."
+    }
+  },
+  "limits": {
+    "title": "What no check can decide",
+    "text1": "Green means: nothing that was checked objected. That is a floor, not a ceiling. How far that floor carries, and why a coverage figure says less about it than it promises, is the subject of the previous article on this path. Here it stays at this one sentence.",
+    "text2": "What this article can add is a limit of a different kind. Form is all a check ever reads; intent is out of reach. Whether the thing that got built matches your order is not a question any machine can settle. It can test whether a claim about behavior holds. Whether that was the right claim to make is another matter entirely, and no checker has an opinion on it.",
+    "deepDive": {
+      "title": "Going deeper: the limit no check can cross",
+      "text1": "The origin is well dated. On July 26, 1978, S. C. Johnson at Bell Laboratories described a separate checking program for the language C. The reason a second, separate tool was needed is an uncomfortable one: the translators of the day bought their speed by checking less thoroughly. So a slower, more careful reader was needed alongside them.",
+      "text2": "In a section he called a word about philosophy, Johnson set down two things this article still lives on. First: a tool like this needs facts that may be impossible to obtain. Take the question of whether some part of a program is ever reached at all; the answer can hinge on the input, and settling it for the general case amounts to a problem that has been proven impossible to settle. Second, and following from that: his procedures were a compromise. So the oldest tool in this family arrived in the world with the honest small print already attached."
+    }
+  },
+  "exception": {
+    "title": "The written exception",
+    "intro": "Nobody who has looked at this seriously demands checks that cannot be passed. What is demanded is something else: that the way past leaves a trace, names an owner, and stays visible.",
+    "severity": "It starts with a grading, and it is exactly the decision that already came up in the first section. A safety-critical industry standard distinguishes three levels. There are rules that admit no exception at all. There are rules that may be departed from, but only with an entry naming restrictions, requirements, and precautions. And there are rules whose violation is merely reported, without anybody having to fill anything in. Which check belongs at which level is decided by the project and not by the checker.",
+    "recordTitle": "The entry it takes",
+    "recordIntro": "This is where attitude ends and a form begins. The same standard prescribes what has to appear on such an entry, and an agent toolkit from 2026 arrives at almost the same list - a safety standard from the automotive world and a toolbox for AI agents end up at the same piece of paper.",
+    "cards": {
+      "rule": {
+        "title": "Which rule",
+        "description": "By name, not the checker in general. Whoever reads this later has to be able to find the rule again."
+      },
+      "when": {
+        "title": "When it is acceptable",
+        "description": "The circumstances under which the departure is all right - and only those."
+      },
+      "why": {
+        "title": "Why it is necessary",
+        "description": "The reason. Being in a hurry is not one, and it cannot be turned into one either."
+      },
+      "background": {
+        "title": "Background",
+        "description": "What somebody needs to know who runs into this in six months without knowing the context."
+      },
+      "conditions": {
+        "title": "Conditions",
+        "description": "Under which conditions the exception holds - and when it gets looked at again."
+      },
+      "owner": {
+        "title": "Name",
+        "description": "Who carries the decision. A name, not the team. The standard calls it the consent of a designated technical authority."
+      }
+    },
+    "refusals": "Two grounds for refusal settle most real cases. Inconvenience is never enough to earn an exception. And no exception counts until a designated technical authority has signed off on it - somebody named, in other words. Put briefly: the person who wants it is not the person who grants it.",
+    "alone": "And if you work alone? The separation is between roles, not necessarily between people. On your own it becomes a separation in time and in artifact: you write the entry, and the entry with its date for a fresh look is the second party. Because the version of you that reads it in six months is not the version that was in a hurry. That is exactly what the field is for. It is not bureaucracy but the only counterpart you get in that situation.",
+    "exampleTitle": "An example: three requests",
+    "exampleIntro": "The checker is red on one spot. Three different justifications are offered. Which one survives? The example is meant to show what that turns on.",
+    "exampleA": "The first request runs: I am in a hurry and the rule is a nuisance here. It fails on the first of the two grounds outright: convenience. And the standard names a further objection that applies here - a sensible alternative would make the departure unnecessary. So it is refused, and not out of strictness. The reason field would have to read: it was inconvenient. Nobody signs that.",
+    "exampleB": "The second request runs: the checker holds a place to be unreachable, but a callback it cannot see leads straight there. This is exactly the situation that earned the first tool of this kind its exception mechanism back in 1978 - the human is occasionally correct, and the checker occasionally blind. Granted, with an entry: a single line that names the rule, gives the reason, and points at where the genuine path runs.",
+    "recurring": "And when the same false alarm turns up in thirty places, nobody writes thirty justifications. The recurring case is approved once, in advance, and the individual places refer to it. The standard has its own form for this, because many departures belong to known situations that occur widely.",
+    "exampleC": "The third request runs: delivery is at a standstill, the repair has to go out immediately, and of all things an unreliable check is reporting red. That is the emergency. Granted, and watched. Such emergency access is closely monitored, tightly restricted, and rehearsed regularly so that it works when it is needed. And it is honest with itself: a named way past, not a quiet push by whoever happens to hold the rights. Worth knowing: on the most widely used platform an account with administrative rights is exempt from a protection rule, unless somebody deliberately turns that exemption off.",
+    "point": "What separates the first request from the second is not how much work went into it, and not who made it. It is whether the fields can be filled in truthfully. And that is testable, by a machine too: an entry with a field missing is not a weaker exception, it is none at all.",
+    "overrideDoes": "An exception changes the consequence of a check, never its observation. The check keeps running, keeps reporting, and the decision stays visible.",
+    "companion": "The smaller picture is the note taped beside the switch. Back in 1978 an exception took the shape of a comment in the source text, put down at the spot where the next reader would be standing. Today it is a single line carrying a reason behind a separator. Two gestures, forty-eight years apart, doing the identical job: keeping the excuse in the same room as the thing excused. The emergency key behind glass holds up about as far - reaching it is deliberately possible, but the pane makes noise, leaves fragments, and invites a question afterwards. Where the picture stops holding: it makes every exception sound like a drama. Most are routine.",
+    "misconception1": {
+      "title": "Common error: an exception means switching the check off",
+      "text": "Nothing gets switched off. And the difference is not cosmetic: a switched-off check cannot be told from a broken one by anybody on the outside. A check moved to advisory with an entry beside it is a decision anyone can follow."
+    },
+    "misconception2": {
+      "title": "Common error: whoever needs an exception may grant it to themselves",
+      "text": "Writing an exception and owning one are two separate roles. They stay apart not out of distrust, but because the check would otherwise be supervising itself. The same separation turns up again one level higher, in a moment, when agents come into it."
+    },
+    "deepDive": {
+      "title": "Going deeper: when the exception is checked too",
+      "text1": "The recurring exception has its own form in the standard: a use case approved in advance, which later entries may refer to instead of arguing it out every time. So the answer to the question of whether you now have to write an essay for every false alarm is: no.",
+      "text2": "More interesting is that the exceptions themselves are watched. The widely used checking tool reports an exception nobody needs any more as noise, and it does so by default; the note does not quietly vanish into the wall. A project can also close the self-service route altogether, so that comments in the source text lose their effect and permission to grant an exception turns from a private decision into a setting somebody configured."
+    }
+  },
+  "checkpoint2": {
+    "title": "Quick self-check",
+    "item1": "I can say what a red board means and what it does not mean.",
+    "item2": "I know what has to appear on an entry for an exception.",
+    "item3": "I can name the two grounds on which an exception gets refused."
+  },
+  "agents": {
+    "title": "Why this counts for more with agents",
+    "text1": "A research report on software development with AI assistance, published on September 23, 2025, and based on close to five thousand responses, finds a positive relationship between the use of AI and throughput - and at the same time a negative one between the use of AI and the stability of delivery. The report names the counterweights explicitly: automated testing, dependable version control, and fast feedback.",
+    "text2": "Carelessness on the agent's part is not the problem. The problem is that changes pile up faster than the checking around them can keep up. And two of the three counterweights named are the subject of this article. What that looks like in practice was written down by a platform on May 19, 2025, for its own coding agent. Four points: the agent may only write to branches it created itself. Its workflows do not start without human approval. Existing protection rules apply to it exactly as they do to everybody else. And whoever asked the agent for a change may not approve that change themselves.",
+    "text3": "That answers the question of why the thing keeps blocking one's own agent: it is not the agent being blocked. The agent is a participant like any other, held to the same checks, and expressly barred from waving its own work through. Same separation as in the entry for an exception, one level up."
+  },
+  "close": {
+    "title": "Back to the red board",
+    "text1": "What actually happened: one of five questions came back with a no, on hardware belonging to somebody else, triggered by nothing but your own change. Three questions follow, in this order. Which of the five spoke up? What does that particular red mean? And if the check really has it wrong: who puts that in writing, and who owns the decision? Nowhere on that list is the question of where the switch is.",
+    "text2": "An exception that is written down nowhere is indistinguishable, to anybody who runs into it later, from an accident."
+  },
+  "takeaways": {
+    "containerTitle": "Takeaways",
+    "item1": "Five questions stand between a change and the project: whether there is a runnable program at all, whether the parts agree, whether a written rule was broken, whether it looks the way it was agreed to look, and whether a claim about behavior still holds. Facing a red board, the opening question is always the same one: which of them?",
+    "item2": "A check gets its authority from who controls the place where it runs, and from whether slipping past it leaves a trace. Anything you can skip alone and silently is a warning.",
+    "item3": "Red is the failure at its cheapest. Across the projects that were studied, developers turned up noticeably more defects themselves, no difference could be measured outside the core team, and throughput went up rather than down. The defects moved; they were not created.",
+    "item4": "Green means: nothing that was checked objected. No check can decide whether what was built is what was ordered, because it reads form and not intent.",
+    "item5": "An exception is not a switch. What it alters is the consequence of the check, never the fact that the check runs, reports, and stays in sight - and it calls for a named rule, the circumstances it holds under, a reason, the background, the conditions attached, and somebody willing to be named."
+  },
+  "quiz": {
+    "boxTitle": "Check your understanding",
+    "q1": {
+      "question": "The same check is installed in two places: once with you, before you record your change, and once where the change is accepted. What is the difference between them?",
+      "a": "The one on your computer is more thorough, because it knows more about the state of the project.",
+      "b": "The one with you can be skipped alone and unnoticed, while the other decides on acceptance.",
+      "c": "They are equivalent; all that differs is how quickly each machine delivers its result to you.",
+      "d": "The accepting side only issues a warning, whereas on your computer the operation truly aborts.",
+      "explanation": "Both columns of the comparison describe the same check. All that differs is the place, and with it who controls it. The local one can be skipped with one extra switch without anybody hearing about it."
+    },
+    "q2": {
+      "question": "The board is red. The message names a rule the project set up against a construction known to be risky. What does that tell you about the program itself?",
+      "a": "That it currently cannot be translated into a runnable program at all and has to be repaired.",
+      "b": "That two places in the program disagree about what a particular value is actually meant to be.",
+      "c": "That a named claim about its behavior has demonstrably stopped holding and needs checking.",
+      "d": "That a rule set up by people was broken, which says nothing about how the program works.",
+      "explanation": "A rule against a construction known to be risky is the linter's business. Its red means an expectation somebody wrote down was not met. Whether the program runs at all, and whether it does what it should, are two other questions with two other checks."
+    },
+    "q3": {
+      "question": "After machine checks are introduced, the developers on a team report noticeably more defects three months later than before. Management reads this as a loss of quality. What can you hold against that, and what can you not?",
+      "a": "That exact number rose there too, without any difference becoming measurable outside the team.",
+      "b": "None of it helps: the study found the same rise and also read it as a deterioration in quality.",
+      "c": "The rise contradicts the study, because there the number of such reports from the team fell.",
+      "d": "The study says nothing about it, since it recorded only throughput and no reports whatsoever.",
+      "explanation": "More reports from inside the team are exactly the observed pattern: the defects became visible sooner, not more numerous. What you cannot claim is that nothing reached the users. No difference was measured, and that is not proof that there is none."
+    },
+    "q4": {
+      "question": "Three requests to get past a red check. First: I am in a hurry and the rule is a nuisance here. Second: a place counts as never reachable to the checker, but in fact a callback leads there. Third: the matter is urgent, I let it through and add the justification once there is time. Which of them is a written exception?",
+      "a": "The first, since time pressure is understandable as long as the check blocks again afterwards.",
+      "b": "The third, since the justification appears anyway and the process holds nobody up needlessly.",
+      "c": "The second, since only there can every field be filled truthfully and the decision has a name.",
+      "d": "All three, since an exception stays an exception; only the quality of the reasons differs here.",
+      "explanation": "The first fails on convenience. The third is not an exception but one without an entry: until it is added, the spot cannot be told from an accident, and an entry with something missing counts as none. Only the second names a rule, a testable reason, and somebody who carries the decision."
+    },
+    "q5": {
+      "question": "A checker frequently reports the same thing; roughly every fourth message is a real problem and the rest are false alarms. What changes if that same rule is entered in the project not as advisory but as a blocking level?",
+      "a": "Nothing essential, since the hit rate of a rule does not depend on the level a project gives it.",
+      "b": "Every false alarm now halts the work, putting the level itself up for debate, not just the checker.",
+      "c": "The rule becomes more reliable, because a blocking level gets scrutinized more closely than advice.",
+      "d": "The checker should be switched off, since three in four of its messages cost time and uncover nothing.",
+      "explanation": "The hit rate does not change, but its consequences do. As advice a false alarm costs attention; as a blocking level it costs an entry or a standstill. That price is precisely the argument for changing the level or correcting the rule instead of switching it off quietly."
+    }
+  }
+}

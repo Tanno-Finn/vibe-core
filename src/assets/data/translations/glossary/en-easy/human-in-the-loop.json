@@ -1,0 +1,5 @@
+{
+  "term": "Human-in-the-Loop",
+  "description": "Human-in-the-Loop. That means a human in the loop. You also say HITL. This is a work system. An AI does most of the work on its own. But at important steps a human gets involved. There are different ways for this. Sometimes a human must check and approve a decision first. This is the case for important or dangerous tasks. Some laws require this. Then the AI does not necessarily learn from it. The human only supervises. Sometimes the AI is unsure. Then the AI asks a human. The human makes the decision. And the AI can learn from it. This way the system gets better over time. The human mostly handles the difficult cases. This saves time. And it is safer. Human-in-the-Loop is often used. For example in medicine. Or for checking content.",
+  "example": "An AI checks X-ray pictures. The AI is 95 percent sure. Then the AI makes the diagnosis on its own. If the AI is less sure it asks a doctor. The doctor looks at the picture. The opinion of the doctor helps the AI to learn."
+}

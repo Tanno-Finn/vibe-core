@@ -1,0 +1,8 @@
+{
+  "term": "Context Window",
+  "alternativeNames": [
+    "Kontextfenster"
+  ],
+  "description": "Context Window – die maximale Textlänge, die ein Sprachmodell auf einmal verarbeiten kann. Gemessen in Tokens umfasst das Fenster sowohl Input als auch Output: Ein 8K-Context-Window bedeutet maximal 8.000 Tokens für Prompt und Antwort zusammen. Die Begrenzung entsteht durch die quadratische Komplexität des Attention-Mechanismus in Transformern – verdoppelt man den Context, vervierfacht sich der Attention-Aufwand. Die Entwicklung geht rasant: von 2K bei frühen Sprachmodellen über 8K und 200K bis zu 1M Tokens bei aktuellen Spitzenmodellen. Praktisch relevant: Bei langen Gesprächen oder umfangreichen Dokumenten stößt man schnell an Grenzen.",
+  "example": "Ein Nutzer füttert ein 100-Seiten-Dokument (ca. 75K Tokens) in ein Modell mit 8K Context Window – das funktioniert nicht. Bei einem 128K-Modell passt das Dokument rein, und es bleiben noch 53K Tokens für die Analyse übrig."
+}

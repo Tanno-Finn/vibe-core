@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vertretungsstunde — Der Wasserkreislauf</title>
+    <!-- DRY-RUN OUTPUT of the `cover-lesson` job on _input-wasserkreislauf.md.
+     The <style> below is packs/teacher/assets/print.css inlined VERBATIM (self-contained).
+     Teacher sheet + pupil sheet on separate pages, each stamped. -->
+    <style>
+      :root {
+        --ink: #111;
+        --muted: #555;
+        --rule: #999;
+        --box: #bbb;
+        --band: #f2f2f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: 'Segoe UI', Arial, 'Helvetica Neue', sans-serif;
+        color: var(--ink);
+        line-height: 1.45;
+        font-size: 12pt;
+        margin: 0;
+        background: #fff;
+      }
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+      .sheet {
+        max-width: 180mm;
+        margin: 0 auto;
+        padding: 0 4mm;
+      }
+      .draft-stamp {
+        display: block;
+        border: 2px solid var(--ink);
+        border-radius: 4px;
+        padding: 3px 10px;
+        margin: 0 0 12px;
+        font-weight: 700;
+        font-size: 11pt;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .handout-head {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 6px;
+        margin-bottom: 14px;
+      }
+      .handout-head h1 {
+        font-size: 18pt;
+        margin: 0 0 2px;
+      }
+      .handout-head .meta {
+        font-size: 10.5pt;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 18px;
+      }
+      .name-date {
+        display: flex;
+        gap: 24px;
+        margin: 6px 0 0;
+        font-size: 11pt;
+      }
+      .name-date .field {
+        flex: 1;
+        border-bottom: 1px solid var(--ink);
+        min-height: 1.6em;
+      }
+      .name-date .label {
+        color: var(--muted);
+      }
+      h2 {
+        font-size: 13.5pt;
+        margin: 18px 0 6px;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 2px;
+      }
+      h3 {
+        font-size: 12pt;
+        margin: 12px 0 4px;
+      }
+      .input-box {
+        background: var(--band);
+        border: 1px solid var(--box);
+        border-radius: 4px;
+        padding: 8px 12px;
+        margin: 8px 0;
+      }
+      ol.tasks {
+        padding-left: 1.4em;
+      }
+      ol.tasks > li {
+        margin: 0 0 12px;
+      }
+      .answer-lines {
+        border-bottom: 1px solid var(--rule);
+        height: 1.9em;
+        margin: 6px 0;
+      }
+      .answer-lines.tall {
+        height: 5.8em;
+        background: repeating-linear-gradient(#fff, #fff 1.85em, var(--rule) 1.85em, var(--rule) calc(1.85em + 1px));
+        border-bottom: none;
+      }
+      .ab-tag {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 9.5pt;
+        border: 1px solid var(--muted);
+        border-radius: 3px;
+        padding: 0 5px;
+        margin-right: 4px;
+        white-space: nowrap;
+      }
+      .q {
+        margin: 12px 0;
+      }
+      .q .stem {
+        font-weight: 600;
+      }
+      .q .tag {
+        font-weight: 400;
+        color: var(--muted);
+        font-size: 10pt;
+      }
+      .opt {
+        margin: 3px 0 3px 1.2em;
+      }
+      table.terms,
+      table.grid {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0;
+      }
+      table.terms th,
+      table.terms td,
+      table.grid th,
+      table.grid td {
+        border: 1px solid var(--box);
+        padding: 6px 8px;
+        vertical-align: top;
+        text-align: left;
+        font-size: 11pt;
+      }
+      table.terms th,
+      table.grid th {
+        background: var(--band);
+      }
+      table.terms td.def {
+        min-height: 2.2em;
+      }
+      .answer-key {
+        border: 1px dashed var(--muted);
+        border-radius: 4px;
+        padding: 8px 12px;
+        margin-top: 10px;
+      }
+      .answer-key h2 {
+        border: none;
+        margin-top: 0;
+      }
+      .teacher-note {
+        color: var(--muted);
+        font-size: 10.5pt;
+        font-style: italic;
+      }
+      .ablauf {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0;
+      }
+      .ablauf > li {
+        display: flex;
+        gap: 10px;
+        margin: 0 0 6px;
+      }
+      .ablauf .t {
+        flex: 0 0 6.5em;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      .handout-foot {
+        margin-top: 16px;
+        padding-top: 6px;
+        border-top: 1px solid var(--rule);
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      .page-break {
+        break-before: page;
+        page-break-before: always;
+      }
+      ol.tasks > li,
+      table.terms tr,
+      .input-box,
+      .ablauf > li,
+      .q {
+        break-inside: avoid;
+      }
+      @media screen {
+        body {
+          background: #e9e9e9;
+          padding: 16px 0;
+        }
+        .sheet {
+          background: #fff;
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+          padding: 16mm;
+          border-radius: 2px;
+        }
+      }
+      @media print {
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <!-- Teil A — für die Vertretung -->
+      <p class="draft-stamp">Entwurf, ungeprüft</p>
+      <header class="handout-head">
+        <h1>Vertretungsstunde: Der Wasserkreislauf</h1>
+        <div class="meta">
+          <span>Fach: Biologie / Sachunterricht</span><span>Klasse: 5–6</span><span>Dauer: 45 min</span
+          ><span>Teil A — für die Vertretung</span>
+        </div>
+      </header>
+
+      <p>
+        <strong>Stundenziel:</strong> Die Klasse wiederholt die vier Schritte des Wasserkreislaufs selbstständig — es
+        wird kein neuer Stoff eingeführt, kein Fachwissen der Vertretung nötig.
+      </p>
+
+      <h2>Ablauf</h2>
+      <ul class="ablauf">
+        <li>
+          <span class="t">0–5 min</span
+          ><span><strong>Einstieg:</strong> Schülerblatt (Teil B) austeilen, Ansage vorlesen.</span>
+        </li>
+        <li>
+          <span class="t">5–30 min</span
+          ><span
+            ><strong>Arbeitsphase:</strong> Die Schüler lesen den Text und bearbeiten die Aufgaben in
+            <em>Einzelarbeit, leise</em>.</span
+          >
+        </li>
+        <li>
+          <span class="t">30–40 min</span
+          ><span><strong>Sicherung:</strong> Lösungen (unten) vorlesen, die Schüler korrigieren selbst.</span>
+        </li>
+        <li>
+          <span class="t">40–45 min</span><span><strong>Puffer:</strong> Zusatzaufgabe für früh Fertige (unten).</span>
+        </li>
+      </ul>
+
+      <h2>Ansage (wörtlich)</h2>
+      <div class="input-box">
+        „Ihr bekommt ein Arbeitsblatt zum Wasserkreislauf. Lest zuerst den Text und bearbeitet dann die Aufgaben allein
+        und leise. Wer fertig ist, macht die Zusatzaufgabe.“
+      </div>
+
+      <h3>Material-Check</h3>
+      <p>Nur das gedruckte Schülerblatt und ein Stift. Kein Aufbau, keine Geräte nötig.</p>
+
+      <h3>Regeln</h3>
+      <p>Einzelarbeit, leise; bei Fragen melden. Keine Handynutzung.</p>
+
+      <h3>Lösungen (nur für die Vertretung)</h3>
+      <p>
+        1) 1 Verdunstung – 2 Kondensation – 3 Niederschlag – 4 zurück ins Meer. &nbsp; 2) Sonne. &nbsp; 3) Die
+        Wassertröpfchen in der Wolke werden zu schwer und fallen als Regen (Niederschlag) herab.
+      </p>
+
+      <footer class="handout-foot">
+        Vertretungsstunde · Teil A — Entwurf, ungeprüft. Mit KI-Unterstützung erstellt — vor Weitergabe an Kollegen
+        prüfen.
+      </footer>
+
+      <!-- Teil B — für die Klasse (eigene Seite) -->
+      <div class="page-break"></div>
+      <p class="draft-stamp">Entwurf, ungeprüft</p>
+      <header class="handout-head">
+        <h1>Der Wasserkreislauf</h1>
+        <div class="meta"><span>Name: ____________________</span><span>Datum: __________</span></div>
+      </header>
+
+      <div class="input-box">
+        <p>
+          Wasser wandert immer wieder zwischen Erde, Luft und Meer — das ist der <strong>Wasserkreislauf</strong>. Die
+          Sonne erwärmt das Wasser, es <strong>verdunstet</strong> und steigt als Dampf auf. Oben kühlt es ab und wird
+          zu Wolken (<strong>Kondensation</strong>). Werden die Tröpfchen zu schwer, fallen sie als
+          <strong>Niederschlag</strong> (Regen, Schnee) herab und fließen zurück ins Meer.
+        </p>
+      </div>
+
+      <h2>Aufgaben</h2>
+      <ol class="tasks">
+        <li>
+          Nummeriere die Schritte richtig (1–4): ___ Niederschlag &nbsp; ___ Verdunstung &nbsp; ___ zurück ins Meer
+          &nbsp; ___ Kondensation
+        </li>
+        <li>
+          Was erwärmt das Wasser am Anfang?
+          <div class="answer-lines"></div>
+        </li>
+        <li>
+          Erkläre in einem Satz, warum es regnet.
+          <div class="answer-lines"></div>
+        </li>
+      </ol>
+
+      <h3>Fertig? Zusatzaufgabe</h3>
+      <p>Zeichne den Wasserkreislauf mit Pfeilen und beschrifte die vier Schritte.</p>
+
+      <footer class="handout-foot">
+        Schülerblatt · Wasserkreislauf · Klasse 5–6 — Entwurf, ungeprüft. Mit KI-Unterstützung erstellt — vor dem
+        Einsatz prüfen.
+      </footer>
+    </div>
+  </body>
+</html>

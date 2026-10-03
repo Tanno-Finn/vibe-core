@@ -1,0 +1,45 @@
+{
+  "id": "api",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [
+    "API"
+  ],
+  "englishTerm": "API",
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2025-08-26",
+  "updatedAt": "2025-08-26",
+  "alternativeNames": {
+    "de": [
+      "Programmierschnittstelle",
+      "Application Programming Interface",
+      "Schnittstelle"
+    ],
+    "en": [
+      "Application Programming Interface",
+      "Programming Interface",
+      "Interface"
+    ],
+    "de-easy": [
+      "Programm-Verbindung",
+      "Computer-Schnittstelle"
+    ],
+    "en-easy": [
+      "Program Connection",
+      "Computer Interface"
+    ]
+  },
+  "related": {
+    "glossary": [
+      "function-calling",
+      "mcp-server",
+      "model-context-protocol",
+      "cli"
+    ],
+    "articles": [
+      "art-networking-apis"
+    ]
+  }
+}

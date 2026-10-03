@@ -1,0 +1,11 @@
+# Normalize line endings to LF for every text file, on every platform and regardless of
+# local `core.autocrlf`. Without this, git's common Windows default (`core.autocrlf=true`)
+# checks text files out as CRLF even though the committed blobs are LF (as
+# `.prettierrc.json`'s `"endOfLine": "lf"` expects), which makes `npm run format:check`
+# report the whole tree as unformatted on Windows.
+* text=auto eol=lf
+
+# Binary assets — never touched by line-ending normalization, never diffed as text.
+*.png binary
+*.webp binary
+*.woff2 binary

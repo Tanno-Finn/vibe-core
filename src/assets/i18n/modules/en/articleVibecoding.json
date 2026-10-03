@@ -1,0 +1,255 @@
+{
+  "hero": {
+    "title": "Natural Language Programming (Vibecoding)",
+    "subtitle": "Natural Language Programming: what works, what doesn't, and where humans are still needed."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "paradigm": "The Paradigm Shift",
+    "tools": "The Tool Spectrum",
+    "risks": "Risks and Limits",
+    "takeaways": "Key Takeaways",
+    "quiz": "Quiz",
+    "checkpoint": "Checkpoint",
+    "enrichment": "Prompt Builder"
+  },
+  "lead": {
+    "paragraph1": "In 2025, AI researcher Andrej Karpathy coined a term that shook the developer world: vibecoding. Instead of typing code line by line, you describe your intent in plain language and let AI do the implementation. A REST API that used to take two hours? Ten minutes of prompting plus thirty minutes of review.",
+    "paragraph2": "But this new power comes with a paradox and three dangerous traps. This article explains what vibecoding is, how the tools work, and why the developers who use it best are the ones who could code without it."
+  },
+  "paradigm": {
+    "title": "The Paradigm Shift",
+    "definitionTitle": "What Is Vibecoding?",
+    "analogy": "Think of an architect who used to personally lay every brick. With vibecoding, the architect now has a construction crew (AI) that builds from blueprints (prompts). The architect's value shifts from bricklaying to planning — designing the right structure, inspecting the work, and catching flaws before the building opens.",
+    "scientific": "Vibecoding is intent-based programming: you express your programming intent in natural language, and AI translates it into executable code. It is the latest step in the ongoing abstraction of programming — from machine code to assembler to high-level languages to natural language.",
+    "analogyBreak": "Where the analogy breaks: An architect's construction crew learns from project experience and improves. AI retains no knowledge between sessions — unless context is deliberately engineered. Also, evaluating physical construction is visual, while evaluating code requires abstract reasoning skills.",
+    "abstractionTitle": "The Next Abstraction Step",
+    "roleShift": "Your role shifts: from code writer to code reviewer. The development cycle becomes an iterative dialogue: Prompt → Code → Test → Feedback → Repeat. Development as conversation, not dictation.",
+    "eightTwenty": "Roughly speaking: AI handles about 80% of implementation (boilerplate, standard patterns). You handle the critical 20%: architecture decisions, edge cases, security, and review. The real value lives in that 20%."
+  },
+  "steps": {
+    "machineCode": "Machine Code",
+    "assembler": "Assembler",
+    "highlevel": "C / Java",
+    "scripting": "Python",
+    "naturalLanguage": "Natural Language"
+  },
+  "comparison": {
+    "traditionalLabel": "Traditional Development",
+    "vibecodingLabel": "Vibecoding",
+    "traditionalResult": "2 hours: writing routes, controllers, models, validation, and error handling by hand.",
+    "vibecodingResult": "40 minutes: 10 min prompt iteration for a working draft, then 30 min critical review and architecture adjustment."
+  },
+  "tools": {
+    "title": "The Tool Spectrum",
+    "intro": "AI coding tools operate at different autonomy levels — from line-level autocomplete to fully autonomous agents. The choice depends on the task, project size, and desired control.",
+    "gridTitle": "Four Levels of Autonomy"
+  },
+  "toolGrid": {
+    "completion": {
+      "label": "Line-level completion",
+      "description": "Suggests the next line as you type. You drive, the tool suggests turns — like a GPS navigator."
+    },
+    "editor": {
+      "label": "Codebase-aware editor",
+      "description": "Edits several files and knows the rest of the project. You steer, the tool reads the map — like a rally co-driver."
+    },
+    "supervised": {
+      "label": "Supervised agent",
+      "description": "Plans first, then acts, with access to the terminal and the files — and asks before risky steps. The AI drives under your supervision — like a driving student."
+    },
+    "autonomous": {
+      "label": "Autonomous agent",
+      "description": "Analyzes, plans, implements, and tests in one pass. You state the destination — like calling a taxi."
+    }
+  },
+  "deepDive": {
+    "literacy": {
+      "title": "Deep Dive: The Code Literacy Paradox",
+      "text": "Vibecoding has a surprising consequence: you write less code but must read more code — and read it more critically than ever. Understanding AI-generated code is harder than understanding your own, because you lack the mental model of how it was created.",
+      "insight": "Code reading becomes the core skill. Accepting AI code blindly builds technical debt that becomes expensive later. The paradox: vibecoding doesn't make programming skills obsolete — it makes them more important."
+    }
+  },
+  "risks": {
+    "title": "Risks and Limits",
+    "intro": "Vibecoding carries three critical risks that demand constant vigilance. On top of that, a security dimension: AI happily implements SQL injections, missing input validation, and exposed secrets.",
+    "warningTitle": "Three Critical Risks",
+    "hallucination": {
+      "title": "1. Hallucinated Code:",
+      "text": "Compiles correctly but contains subtle bugs. Edge cases are ignored, false assumptions baked in. AI code has similar error rates to blind StackOverflow copying."
+    },
+    "contextLoss": {
+      "title": "2. Context Loss:",
+      "text": "On large projects, AI loses track. It forgets internal conventions, misses hidden dependencies, and repeats errors that were previously fixed."
+    },
+    "cargoCult": {
+      "title": "3. Cargo-Cult Programming:",
+      "text": "Accepting code you don't understand creates \"vibecoding debt\" — a codebase nobody can maintain. The longer review is skipped, the higher the invisible debt."
+    },
+    "failScenario": {
+      "title": "Real-World Example: When Everything Goes Wrong",
+      "text": "A beginner generates a chatbot app. The local demo works perfectly. In production: hardcoded API keys in frontend code (security breach), no rate limiting (cost explosion), no error handling (crashes on network issues).",
+      "consequences": "Everything compiled. Everything \"worked\" — until real-world conditions exposed the missing fundamentals. The METR study shows: overconfident developers who blindly trust AI tools can actually lose productivity."
+    },
+    "bottomLine": "The bottom line: the best vibecoders are experienced developers who know what excellent code looks like. Vibecoding amplifies skill — it doesn't replace it."
+  },
+  "misconceptions": {
+    "obsolete": {
+      "title": "Misconception: Vibecoding Makes Programmers Obsolete",
+      "text": "Vibecoding shifts the core task from writing to reviewing, architecture, and requirements engineering. Without programming knowledge, you can't evaluate whether AI code is correct, secure, and maintainable."
+    },
+    "autonomy": {
+      "title": "Misconception: The Most Autonomous Tool Is Always Best",
+      "text": "For security-critical code, complex state management, or performance-sensitive paths, lower autonomy with tighter human control is often safer. Match tool autonomy to task risk."
+    },
+    "safe": {
+      "title": "Misconception: If the Code Runs and Tests Pass, It's Safe",
+      "text": "AI-generated code often compiles and passes basic tests but ignores edge cases, security requirements, and architectural best practices. Testing and review are non-negotiable."
+    }
+  },
+  "takeaways": {
+    "title": "Key Takeaways",
+    "point1": "Vibecoding is intent-based programming: you describe WHAT, AI delivers HOW. It's the next abstraction layer after high-level languages.",
+    "point2": "Your role shifts from code writer to code reviewer and architect. The roughly 80% that AI handles frees you for the 20% that creates real value.",
+    "point3": "AI coding tools span a spectrum from autocomplete to autonomous agents. Match the tool's autonomy to your task and desired control level.",
+    "point4": "Three risks demand constant vigilance: hallucinated code, context loss, and cargo-cult programming. The paradox: vibecoding makes you write less code but requires you to read more code."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Vibecoding",
+    "q1": {
+      "question": "What does the term \"vibecoding,\" coined by Andrej Karpathy, describe?",
+      "a": "A specific programming language for AI applications",
+      "b": "Programming by expressing intent in natural language while AI generates the code",
+      "c": "A debugging technique for machine learning models",
+      "d": "An AI that replaces developers entirely",
+      "explanation": "Vibecoding means expressing your programming intent in natural language and having AI generate the code. It shifts the role, not eliminates it."
+    },
+    "q2": {
+      "question": "A developer needs to add authentication to a large enterprise application. Which tool autonomy level is most appropriate?",
+      "a": "Maximum autonomy (autonomous agent) — let the AI handle everything for speed",
+      "b": "Low autonomy (assistant/autocomplete) — for security-critical code, tight human control is essential",
+      "c": "No AI tools at all — security code should never involve AI",
+      "d": "Medium autonomy (partner) — the AI should handle most of the implementation",
+      "explanation": "For security-critical code like authentication, lower autonomy with tighter human control is safer. Match autonomy to risk level."
+    },
+    "q3": {
+      "question": "An AI coding tool generates a login form that compiles, renders correctly, and passes basic tests. A senior developer discovers passwords are stored in plain text. Which vibecoding risk does this illustrate?",
+      "a": "Context loss — the AI forgot the project's security requirements",
+      "b": "Cargo-cult programming — the developer didn't understand the generated code",
+      "c": "Hallucinated code — the code appears functional but contains a critical security flaw",
+      "d": "Tool misconfiguration — the AI was not set up correctly",
+      "explanation": "This is hallucinated code: it compiles and passes tests but contains a critical security flaw (plain-text passwords instead of hashing)."
+    },
+    "q4": {
+      "question": "A junior developer argues: \"Since AI writes all my code now, I don't need to learn to read code anymore.\" What is the fundamental flaw?",
+      "a": "Better prompts are indeed sufficient — the developer is correct",
+      "b": "AI-generated code must be critically reviewed for correctness, security, and maintainability — which requires code literacy",
+      "c": "The developer should use more automated tests instead of reading code",
+      "d": "Only senior developers need code literacy — juniors can rely on AI",
+      "explanation": "The Code Literacy Paradox: you write less code but must read more and review it critically. Code reading is the new core skill."
+    },
+    "q5": {
+      "question": "Which tasks fall into the critical 20% that humans must handle in vibecoding?",
+      "a": "Writing boilerplate code, implementing standard patterns, generating templates",
+      "b": "Architecture decisions, edge case handling, code review, and security evaluation",
+      "c": "Running tests, deploying code, and version control",
+      "d": "All tasks should be handled by AI to maximize efficiency",
+      "explanation": "The critical 20% includes architecture, edge cases, security, and review. That's where the real value lies — AI handles the remaining 80% (boilerplate, standard patterns)."
+    },
+    "q6": {
+      "question": "A startup builds its entire MVP using vibecoding. Six months later, no team member can explain how the authentication module works. What is this situation called?",
+      "a": "Technical debt — common in all startups and easily resolved by refactoring",
+      "b": "Vibecoding debt / cargo-cult programming — the codebase is unmaintainable because the team accepted code they don't understand",
+      "c": "Automation overhead — the natural cost of using AI tools",
+      "d": "Scope creep — the project grew beyond its original specifications",
+      "explanation": "This is vibecoding debt through cargo-cult programming: the team accepted code they don't understand. The codebase becomes unmaintainable."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension Check",
+    "q1": "Why does vibecoding shift the developer role from implementer to reviewer?",
+    "q2": "Which of the four tool autonomy levels would you choose for security-critical code — and why?",
+    "q3": "Name the three critical risks of vibecoding and explain why each is dangerous."
+  },
+  "enrichment": {
+    "sectionTitle": "Interactive: Build a Vibe-Coding Prompt",
+    "intro": "Assemble a typical vibe-coding prompt from building blocks. Select a role, tech stack, task, and quality requirements — and watch how a structured prompt emerges that gives your AI tool clear guidance.",
+    "instruction": "Pick one block per category. Your blocks assemble into a complete prompt below.",
+    "hint": {
+      "title": "Why a builder?",
+      "description": "Good prompts follow a pattern: set a role, name the tech stack, describe the task, state a quality requirement. The builder makes that pattern visible — and shows you immediately what the tool is missing when a part is left out."
+    },
+    "category": {
+      "role": {
+        "label": "Role",
+        "quality": "Role defined",
+        "missing": "a role"
+      },
+      "expertise": {
+        "label": "Tech stack",
+        "quality": "Tech stack named",
+        "missing": "the tech stack"
+      },
+      "task": {
+        "label": "Task",
+        "quality": "Task described",
+        "missing": "a task"
+      },
+      "format": {
+        "label": "Quality requirement",
+        "quality": "Quality requirement set",
+        "missing": "a quality requirement"
+      }
+    },
+    "block": {
+      "vc_r1": {
+        "label": "Senior Developer",
+        "text": "You are an experienced senior developer focused on clean, maintainable code."
+      },
+      "vc_r2": {
+        "label": "Software Architect",
+        "text": "You are a software architect. Explain architectural decisions and suggest alternatives."
+      },
+      "vc_r3": {
+        "label": "Pair Programmer",
+        "text": "You are my pair programming partner. Think aloud, ask clarifying questions, and explain your decisions."
+      },
+      "vc_e1": {
+        "label": "React + TypeScript",
+        "text": "The project uses React with TypeScript, Tailwind CSS, and Vite."
+      },
+      "vc_e2": {
+        "label": "Python + FastAPI",
+        "text": "The project is a Python backend with FastAPI, SQLAlchemy, and PostgreSQL."
+      },
+      "vc_e3": {
+        "label": "Angular + Optimus UI",
+        "text": "The project uses Angular with Optimus UI components and signal-based state."
+      },
+      "vc_t1": {
+        "label": "Build Feature",
+        "text": "Implement the following feature completely. Create all necessary files and update existing ones."
+      },
+      "vc_t2": {
+        "label": "Fix Bug",
+        "text": "Find and fix the following bug. Explain the root cause and why your fix resolves it."
+      },
+      "vc_t3": {
+        "label": "Refactoring",
+        "text": "Refactor the code for better readability and maintainability. Preserve the existing behavior exactly."
+      },
+      "vc_f1": {
+        "label": "With Tests",
+        "text": "Write unit tests for all new functions. Use the existing test framework."
+      },
+      "vc_f2": {
+        "label": "Explain Steps",
+        "text": "Explain each implementation step. Briefly justify architectural decisions."
+      },
+      "vc_f3": {
+        "label": "Clean Code",
+        "text": "Follow clean code principles: descriptive names, small functions, no magic."
+      }
+    }
+  }
+}

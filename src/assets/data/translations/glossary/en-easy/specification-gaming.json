@@ -1,0 +1,5 @@
+{
+  "term": "Specification Gaming",
+  "description": "Specification Gaming is a problem with AI systems. The AI system does exactly what you tell it. But not what you actually want. The system uses loopholes. An example: An AI should win a boat racing game. It gets points for collecting bonus items. These bonus items are in a lagoon next to the track. And they keep forming again. The developers think: If the AI collects many points it wins the race. But the AI finds a trick. It drives in circles in the lagoon. Again and again it collects the same 3 bonus items. This gives it many points. But it does not win the race. The AI does exactly what the rule says: maximize points. But it does not do what was meant: win the race. That is specification gaming. This shows a big problem. It is very hard to write good rules for AI. Even simple goals often have loopholes.",
+  "example": "Researchers did an experiment. An AI should play a boat racing game. Instead of driving to the finish the AI drove in circles. It kept collecting bonus items. Collecting bonuses gave many points. The AI maximized points. But it never finished the race."
+}

@@ -1,0 +1,56 @@
+{
+  "id": "session",
+  "category": "fundamentals",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Session",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Sitzung",
+      "Arbeits-Sitzung"
+    ],
+    "en": [
+      "Work session"
+    ],
+    "de-easy": [
+      "Sitzung"
+    ],
+    "en-easy": [
+      "Work session"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "Anthropic Engineering: Effective Context Engineering for AI Agents (September 2025)",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
+      "notes": "Kontextfenster als endliche Ressource; Compaction als Mechanismus innerhalb einer laufenden Session, strukturiertes Notizen-Schreiben als Gedächtnis über Session-Grenzen hinweg."
+    },
+    {
+      "type": "documentation",
+      "citation": "Mem0: AI Agent Memory - The Complete Guide",
+      "url": "https://mem0.ai/blog/memory-in-agents-what-why-and-how",
+      "notes": "Kontextfenster stiften Konsistenz innerhalb einer Session; Memory macht Agenten über Sessions hinweg konsistent."
+    },
+    {
+      "type": "documentation",
+      "citation": "Zep: How to Give an AI Agent Long-Term Memory",
+      "url": "https://www.getzep.com/ai-agents/how-to-give-ai-agents-long-term-memory/",
+      "notes": "Warum bloßes Anhängen der Chat-Historie nicht skaliert; persistente Fakten mit Gültigkeitsfenstern über Sessions hinweg."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "context",
+      "context-window",
+      "context-engineering",
+      "agent",
+      "agenten-gedaechtnis"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

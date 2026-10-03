@@ -1,0 +1,69 @@
+{
+  "difficulty": {
+    "advanced": "Advanced",
+    "beginner": "Beginner",
+    "expert": "Expert",
+    "intermediate": "Intermediate",
+    "Anfänger": "Beginner",
+    "Fortgeschritten": "Advanced",
+    "Experte": "Expert",
+    "Schwierig": "Difficult"
+  },
+  "disclaimer": "External resources - use at your own responsibility",
+  "filter": {
+    "access": "Access",
+    "active": "Active Filters",
+    "clear": "Clear Filters",
+    "clearAll": "Clear Filters",
+    "difficulty": "Difficulty",
+    "hideAdvanced": "Hide Advanced Filters",
+    "language": "Language",
+    "notSelected": "Not selected",
+    "onlyFree": "Only Free",
+    "removeFilter": "Remove filter",
+    "search": "Search",
+    "selected": "Selected",
+    "showAdvanced": "Show Advanced Filters",
+    "topic": "Topic"
+  },
+  "language": {
+    "en": "English",
+    "english": "English",
+    "german": "German",
+    "multilingual": "Multilingual"
+  },
+  "mediaType": {
+    "all": "All media types",
+    "blog": "Blog",
+    "conference": "Conference",
+    "course": "Course",
+    "document": "Document",
+    "guideline": "Guideline",
+    "infographic": "Infographic",
+    "paper": "Research Paper",
+    "podcast": "Podcast",
+    "research-paper": "Research Paper",
+    "researchPaper": "Research Paper",
+    "textbook": "Textbook",
+    "toolGuide": "Tool Guide",
+    "tutorial": "Tutorial",
+    "video": "Video"
+  },
+  "search": {
+    "placeholder": "Search resources..."
+  },
+  "topic": {
+    "business": "Business",
+    "career": "Career",
+    "deep_learning": "Deep Learning",
+    "education": "Education",
+    "ethics": "Ethics",
+    "regulation": "Regulation",
+    "research": "Research",
+    "society": "Society",
+    "statistics": "Statistics",
+    "technology": "Technology",
+    "tools": "Tools",
+    "general": "General"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "page": {
+    "title": "Neue Nachrichten",
+    "subtitle": "Was es Neues im Portal gibt: neue Sachen, behobene Fehler und Updates.",
+    "description": "Hier findest du alle neuen Nachrichten. Zum Beispiel über neue Texte, neue Sprachen oder neue Funktionen."
+  },
+  "search": {
+    "label": "Nachrichten suchen",
+    "placeholder": "Suchen ...",
+    "clear": "Suche löschen"
+  },
+  "filters": {
+    "label": "Nach Art filtern",
+    "all": "Alle",
+    "launch": "Start",
+    "feature": "Funktionen",
+    "release": "Veröffentlichungen",
+    "bugfix": "Fehler behoben",
+    "article": "Texte",
+    "blog": "Blog",
+    "interview": "Interviews",
+    "demo": "Demos",
+    "glossary": "Wörterbuch",
+    "timeline": "Zeitstrahl",
+    "tool": "Werkzeuge",
+    "language": "Sprachen",
+    "quality": "Qualität",
+    "maintenance": "Wartung"
+  },
+  "toc": {
+    "title": "Monate"
+  },
+  "pinned": "Wichtig",
+  "pinnedSection": "Wichtige Nachrichten",
+  "new": {
+    "label": "Neu",
+    "aria": "Neu seit deinem letzten Besuch"
+  },
+  "results": {
+    "allCount": "{n} Einträge",
+    "filteredCount": "{n} von {total} Einträgen"
+  },
+  "chips": {
+    "more": "weitere",
+    "less": "Weniger zeigen"
+  },
+  "empty": {
+    "message": "Keine Einträge.",
+    "reset": "Alle Filter aufheben",
+    "activeFilter": "Filter",
+    "activeSearch": "Suche"
+  }
+}

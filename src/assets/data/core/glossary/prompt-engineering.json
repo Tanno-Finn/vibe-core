@@ -1,0 +1,45 @@
+{
+  "id": "prompt-engineering",
+  "category": "nlp",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [
+    "PE"
+  ],
+  "englishTerm": "Prompt Engineering",
+  "childConcepts": [],
+  "parentConcepts": [
+    "prompt"
+  ],
+  "createdAt": "2025-08-26",
+  "updatedAt": "2025-08-26",
+  "alternativeNames": {
+    "de": [
+      "Prompt-Design",
+      "Eingabeaufforderungs-Engineering",
+      "Anweisungsoptimierung"
+    ],
+    "en": [
+      "Prompt Design",
+      "Prompt Optimization",
+      "Instruction Engineering"
+    ],
+    "de-easy": [
+      "Prompt Engineering",
+      "KI-Anweisungen schreiben"
+    ],
+    "en-easy": [
+      "Prompt Engineering",
+      "Writing AI instructions"
+    ]
+  },
+  "related": {
+    "glossary": [
+      "prompt",
+      "system-prompt",
+      "context-engineering",
+      "prompt-injection",
+      "instruktions-datei"
+    ]
+  }
+}

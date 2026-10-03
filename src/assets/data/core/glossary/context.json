@@ -1,0 +1,66 @@
+{
+  "id": "context",
+  "category": "nlp",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Context",
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2026-06-21",
+  "updatedAt": "2026-06-21",
+  "alternativeNames": {
+    "de": [
+      "Kontext",
+      "Context",
+      "Kontextinformation"
+    ],
+    "en": [
+      "Context",
+      "Contextual Information",
+      "Input Context"
+    ],
+    "de-easy": [
+      "Kontext",
+      "Context"
+    ],
+    "en-easy": [
+      "Context"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "Brown, T., Mann, B., Ryder, N., et al. (2020). Language Models are Few-Shot Learners. NeurIPS 2020",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "notes": "Etabliert In-Context Learning: das Modell konditioniert auf die im Prompt gegebene Information, ohne dass Gewichte angepasst werden"
+    },
+    {
+      "type": "paper",
+      "citation": "Vaswani, A., Shazeer, N., Parmar, N., et al. (2017). Attention Is All You Need. NeurIPS 2017",
+      "url": "https://arxiv.org/abs/1706.03762",
+      "notes": "Transformer-Architektur: verarbeitet die gesamte Token-Sequenz des Kontexts in einem einzigen Vorwaertsdurchlauf pro Anfrage"
+    },
+    {
+      "type": "paper",
+      "citation": "Liu, N.F., Lin, K., Hewitt, J., et al. (2024). Lost in the Middle: How Language Models Use Long Contexts. TACL, 12:157-173",
+      "url": "https://arxiv.org/abs/2307.03172",
+      "notes": "Empirie dazu, wie Modelle Information je nach Position im Kontext unterschiedlich stark nutzen"
+    },
+    {
+      "type": "textbook",
+      "citation": "Jurafsky, D., & Martin, J.H. (2024). Speech and Language Processing (3rd ed. draft), chapters on Transformers and Large Language Models",
+      "url": "https://web.stanford.edu/~jurafsky/slp3/",
+      "notes": "Lehrbuch-Referenz zu Kontext-Konditionierung sowie parametrischem (Gewichte) vs. nicht-parametrischem (Kontext) Wissen"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "context-window",
+      "context-engineering",
+      "prompt",
+      "system-prompt",
+      "session"
+    ]
+  }
+}

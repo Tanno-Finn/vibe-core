@@ -1,0 +1,8 @@
+{
+  "term": "Reward Misspecification",
+  "alternativeNames": [
+    "Wrong Reward Rules"
+  ],
+  "description": "Reward Misspecification is a problem. The reward rules were made wrong. They do not match the real goal. The program does what the rules say. But not what people really want. The rules measure the wrong thing.",
+  "example": "Goal: Safe roads. Rule: Fewer reported accidents are good. Problem: A program could hide accidents. Then fewer are reported. But roads are not safer. The rule was wrong. That is Reward Misspecification."
+}

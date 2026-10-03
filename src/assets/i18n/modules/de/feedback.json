@@ -1,0 +1,83 @@
+{
+  "button": "Feedback",
+  "dialog": {
+    "title": "Feedback geben"
+  },
+  "intro": "Wir freuen uns über deine Rückmeldung! Egal ob Lob, Kritik oder Ideen - alles hilft uns, das Portal besser zu machen.",
+  "message": "Deine Nachricht",
+  "messagePlaceholder": "Was möchtest du uns mitteilen?",
+  "email": "E-Mail (optional)",
+  "emailPlaceholder": "du@example.org",
+  "emailHint": "Diese E-Mail sieht nicht ganz richtig aus. Ein Tippfehler vielleicht?",
+  "privacyNote": "Die E-Mail wird nur zur Beantwortung deiner Anfrage genutzt, nicht in der Datenbank gespeichert und nach Bearbeitung gelöscht. Zur Fehleranalyse erfassen wir automatisch Seite, Sprache, Browser und Bildschirmgröße.",
+  "privacyNoteLink": "Datenschutz-Hinweise im Impressum",
+  "send": "Absenden",
+  "sending": "Wird gesendet...",
+  "sent": "Gesendet!",
+  "sentDetail": "Vielen Dank für dein Feedback!",
+  "error": "Fehler",
+  "errorDetail": "Das Feedback konnte nicht gesendet werden. Bitte versuche es später erneut.",
+  "errorRateLimit": "Du hast bereits mehrere Nachrichten gesendet. Bitte versuche es später erneut.",
+  "category": {
+    "label": "Kategorie",
+    "general": "Allgemeines Feedback",
+    "bug": "Fehler melden",
+    "feature": "Funktion vorschlagen",
+    "content": "Inhalt verbessern",
+    "praise": "Lob aussprechen",
+    "accessibility": "Barriere melden"
+  },
+  "rating": {
+    "label": "Wie gefällt dir das Portal?"
+  },
+  "placeholder": {
+    "bug": "Beschreibe den Fehler: Was hast du gemacht? Was ist passiert? Was hättest du erwartet?",
+    "praise": "Was gefällt dir besonders gut? (optional)",
+    "content": "Was sollte verbessert werden? Wo hast du den Fehler gefunden?",
+    "feature": "Beschreibe die Funktion, die du dir wünschst.",
+    "accessibility": "Welche Barriere ist dir begegnet? Was hat nicht funktioniert?"
+  },
+  "a11y": {
+    "pageLabel": "Betroffene Seite",
+    "techLabel": "Hilfstechnologie (optional)",
+    "techPlaceholder": "z. B. Screenreader, Vergrößerung, Tastatur",
+    "anonymNote": "Du kannst anonym melden. Eine E-Mail-Adresse hilft nur, wenn du eine Antwort möchtest."
+  },
+  "page": {
+    "title": "Feedback",
+    "subtitle": "Erzähl uns, was gut läuft und was nicht — hier in Ruhe und mit Platz zum Schreiben.",
+    "formTitle": "Deine Nachricht",
+    "nameLabel": "Name (optional)",
+    "namePlaceholder": "Wie sollen wir dich ansprechen?",
+    "emailLabel": "E-Mail (optional)",
+    "messageLabel": "Nachricht",
+    "messageHint": "Mindestens 20 Zeichen — je konkreter, desto besser.",
+    "charCounterLabel": "Verwendete Zeichen",
+    "consentLabel": "Ich bin einverstanden, dass meine Angaben zu dieser Rückmeldung gespeichert werden.",
+    "requiredMark": "Pflichtfeld",
+    "submit": "Feedback absenden",
+    "submitting": "Wird übermittelt …",
+    "successTitle": "Angekommen",
+    "successText": "Danke für deine Rückmeldung! Sie liegt jetzt im Postfach dieses Browsers.",
+    "successAgain": "Noch eine Nachricht schreiben",
+    "privacyTitle": "Wohin geht das?",
+    "privacyText": "Dieses Portal hat keinen Server für Rückmeldungen: Deine Nachricht verlässt diesen Browser nicht. Sie wird nur lokal gespeichert, damit du sie unten wiederfindest — und du kannst sie jederzeit selbst löschen.",
+    "errorTitle": "Das hat nicht geklappt",
+    "error": {
+      "emailInvalid": "Diese E-Mail-Adresse sieht nicht vollständig aus. Ein Tippfehler vielleicht?",
+      "messageTooShort": "Bitte schreibe mindestens 20 Zeichen.",
+      "messageTooLong": "Die Nachricht ist zu lang. Bitte kürze sie auf höchstens 2000 Zeichen.",
+      "consentRequired": "Bitte bestätige das Einverständnis, bevor du absendest.",
+      "storage": "Deine Nachricht konnte nicht gespeichert werden. Dieser Browser gibt hier keinen Speicherplatz frei — im privaten Modus ist das normal."
+    },
+    "inboxTitle": "In diesem Browser gespeichert",
+    "inboxNote": "Nur du siehst diese Liste. Sie liegt in diesem Browser und wird nirgendwohin übertragen.",
+    "inboxEmpty": "Noch nichts gespeichert. Deine erste Nachricht erscheint hier.",
+    "clear": "Alle Nachrichten löschen",
+    "clearConfirmLabel": "Wirklich alle löschen?",
+    "clearCancel": "Abbrechen",
+    "cleared": "Alle gespeicherten Nachrichten wurden gelöscht.",
+    "entryDateLabel": "Geschrieben am",
+    "anonymous": "Ohne Namen"
+  }
+}

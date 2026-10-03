@@ -1,0 +1,5 @@
+{
+  "term": "Prompt Engineering",
+  "description": "Prompt Engineering bedeutet: Gute Anweisungen für KI schreiben. Es ist wie eine Kunst. Man muss wissen, wie man mit KI spricht. Es gibt verschiedene Methoden. Zero-Shot heißt: Direkte Frage ohne Beispiele. Few-Shot heißt: Frage mit Beispielen. Chain-of-Thought heißt: KI soll Schritt für Schritt denken. Gute Prompts sind genau, aber nicht zu starr. Sie sollen klare Antworten geben, aber auch Kreativität erlauben. Prompt Engineering ändert sich schnell. Was heute gut ist, kann morgen schlecht sein.",
+  "example": "Schlechter Prompt: „Schreibe über KI“. Das ist zu ungenau. Guter Prompt: „Schreibe 300 Wörter über Machine Learning für Anfänger. Erkläre 3 wichtige Ideen mit Beispielen. Schreib·stil: freundlich.“ Das gibt bessere Ergebnisse."
+}

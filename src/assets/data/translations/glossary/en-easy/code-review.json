@@ -1,0 +1,8 @@
+{
+  "term": "Code Review",
+  "alternativeNames": [
+    "Code check"
+  ],
+  "description": "Code review. This means: someone checks new code. The checker did not write the code. He looks for mistakes. He asks: is the code clear and safe? Only after the check does the code join the project. Today an AI often writes the code. Then a human checks the changes. An AI can also help with checking. But the responsibility stays with the human.",
+  "example": "The AI builds a login form. A second AI checks the code. It finds a problem: the password can be read in the log file. You look at it. You have the mistake fixed. Only then does the code join the project."
+}

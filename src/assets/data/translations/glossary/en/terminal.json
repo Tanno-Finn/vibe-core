@@ -1,0 +1,9 @@
+{
+  "term": "Terminal",
+  "alternativeNames": [
+    "Console",
+    "Terminal emulator"
+  ],
+  "description": "A terminal is the program - today usually a window - in which you drive your computer by text: type a command, press Enter, read the reply. It resembles a chat window, only the other side expects exact commands instead of everyday language. Historically the terminal was a real device attached to a mainframe; the hardware became a window, the name stayed. The distinction: CLI names the interaction principle 'control by typed command'; the terminal is the place where that happens - the window in which a shell receives your commands. AI agents turn it into an actual chat: you write everyday language, the agent types the commands.",
+  "example": "You open the terminal, start an AI agent, and write: 'Show me which files changed since yesterday.' The agent runs the right commands and summarizes the result. It is the same window in which administrators have typed commands for decades - only now someone sits in it who knows the commands for you."
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Diff",
+  "alternativeNames": [
+    "Liste der Änderungen"
+  ],
+  "description": "Diff. Ein Diff ist eine Liste mit Änderungen. Es vergleicht zwei Stände von deinem Code. Die Liste zeigt: Diese Zeilen sind neu. Diese Zeilen sind weg. Mehr zeigt die Liste nicht. So musst du nicht alle Dateien lesen. Du siehst nur die Unterschiede. Das ist wichtig bei der Arbeit mit KI. Die KI ändert deinen Code. Mit dem Diff prüfst du jede Änderung.",
+  "example": "Die KI soll ein falsches Wort verbessern. Du schaust in das Diff. Es zeigt zwei geänderte Zeilen. Eine Zeile hast du erwartet. Die andere Zeile nicht. Gut, dass du nachgesehen hast."
+}

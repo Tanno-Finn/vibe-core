@@ -1,0 +1,16 @@
+{
+  "id": "du-twinvoice-2025",
+  "type": "paper",
+  "authors": "Bangde Du, Minghao Guo, Songming He, Ziyi Ye, Xi Zhu, Weihang Su, Shuqi Zhu, Yujia Zhou, Yongfeng Zhang, Qingyao Ai, Yiqun Liu",
+  "year": "2025",
+  "publication": "TwinVoice: A Multi-dimensional Benchmark Towards Digital Twins via LLM Persona Simulation. arXiv:2510.25536, eingereicht 29.10.2025",
+  "url": "https://arxiv.org/abs/2510.25536",
+  "doi": "10.48550/arXiv.2510.25536",
+  "accessed": "2026-08-18",
+  "tags": [
+    "digital-twin",
+    "persona-simulation",
+    "benchmark",
+    "llm"
+  ]
+}

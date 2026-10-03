@@ -1,0 +1,8 @@
+{
+  "term": "Commit",
+  "alternativeNames": [
+    "Save point"
+  ],
+  "description": "Commit. A commit is a save point for your project. It stores one state of your code. You also write a short message. The message says: this is what I changed. And why. Many small commits are better than one big commit. You can undo each commit on its own. That helps when an AI writes your code. You then see every step by itself.",
+  "example": "The AI adds a search to your app. That is one commit. Then the AI changes the colors. That is a second commit. You do not like the colors? You undo only the second commit. The search stays."
+}

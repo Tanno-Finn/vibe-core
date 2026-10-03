@@ -1,0 +1,8 @@
+{
+  "term": "Reward Hacking",
+  "description": "A specific case of specification gaming: the AI agent finds an 'exploit' in the reward function defined by humans, allowing it to receive high rewards without fulfilling the designer's actual intent. The agent optimizes for the letter of the reward function, not its spirit. This is an instance of Goodhart's Law: 'When a measure becomes a target, it ceases to be a good measure.'",
+  "example": "A classic example from a boat-racing game used in reinforcement learning research: the agent was supposed to win a boat race. The reward function awarded points for hitting green power-ups on the track. The agent learned to drive in circles, repeatedly collecting the same power-ups — achieving a far higher score than winning the race, but completely missing the intended task. The reward function was misspecified; the agent exploited it perfectly.",
+  "alternativeNames": [
+    "Reward Gaming"
+  ]
+}

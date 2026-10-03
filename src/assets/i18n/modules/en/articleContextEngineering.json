@@ -1,0 +1,175 @@
+{
+  "hero": {
+    "title": "Context Engineering",
+    "subtitle": "The practice of giving AI the surrounding context it cannot sense on its own."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "promptVsContext": "From Prompt to Context",
+    "ruleFile": "The Rule File",
+    "contextHierarchy": "Context Hierarchy",
+    "takeaways": "Summary",
+    "quiz": "Quiz",
+    "enrichment": "Interactive: Context Budget Scaling",
+    "checkpoint": "Checkpoint"
+  },
+  "lead": {
+    "paragraph1": "You ask the AI to write a login endpoint (the function that logs users in). It delivers generic boilerplate — wrong framework, wrong folder, wrong error format. The AI is not stupid. It simply does not know your project.",
+    "paragraph2": "Context Engineering is the discipline of giving the AI exactly the right information so it produces code that fits your codebase — not just any code that runs without errors. By the end of this article, you will understand how Context Engineering differs from Prompt Engineering, what belongs in a rule file, and how to decide which information the agent needs and when."
+  },
+  "promptVsContext": {
+    "title": "From Prompt to Context",
+    "definitionTitle": "Context Engineering — Shaping the AI's Working Environment",
+    "analogy": "Context Engineering is like onboarding a new team member. A good prompt is a well-asked question. Good Context Engineering is a complete onboarding package — architecture diagram, team conventions, build commands, typical workflows. Without onboarding, even a brilliant hire will make mistakes that any team member would have avoided.",
+    "scientific": "Context Engineering curates the entire set of information an AI model receives during a session — system instructions, tools, external data, conversation history. It is widely seen as the natural evolution of Prompt Engineering because modern agents do not just answer a single prompt; they work across many interactions with growing context.",
+    "analogyBreak": "The onboarding analogy has a limit: a new hire learns and remembers permanently. An AI agent has a finite context window and may lose information when it overflows. The analogy does not capture the forgetting problem.",
+    "comparison": {
+      "promptLabel": "Prompt Engineering",
+      "promptResult": "You optimize the individual question. \"Write a login endpoint\" becomes \"Write a login endpoint with NestJS in src/modules/auth/ using absolute imports.\" Quality depends on how detailed you are each time.",
+      "contextLabel": "Context Engineering",
+      "contextResult": "You optimize the working environment. Through a rule file, the AI already knows your project uses NestJS, where services belong, and which error conventions apply. \"Write a login endpoint\" is enough — the context provides the rest."
+    },
+    "misconception": {
+      "title": "Common Misconception",
+      "text": "\"A better prompt fixes everything.\" — Even a perfect prompt cannot compensate for missing project context. You could write \"use NestJS, absolute imports, put it in src/modules/auth/\" every single time — but that means repeating your entire project setup in every conversation. Context Engineering externalizes this into a persistent file so the agent starts informed without you repeating yourself."
+    }
+  },
+  "ruleFile": {
+    "title": "The Rule File — Persistent Project Context",
+    "intro": "A rule file is a project-level configuration that your AI coding tool reads automatically on every interaction. The content is natural language: architecture overview, coding standards, build commands, anti-patterns, workflows. The consistent recommendation is to keep it concise and well-structured — not a dump of everything, but a curated set of what the agent needs most. This kit itself uses a file called AGENTS.md for exactly that.",
+    "checklistIntro": "Like a cockpit checklist for pilots: the rule file does not teach the AI to fly — it ensures it consistently runs the same checks and avoids errors from carelessness.",
+    "deepDive": {
+      "title": "What Belongs in a Rule File?",
+      "good": "Good content: Architecture overview (framework, folder structure), coding conventions (import style, error handling, naming conventions), build and test commands (npm run dev, npm test), anti-patterns (things the agent should never do), git workflow (commit format, branch strategy).",
+      "bad": "Bad content: Passwords, API keys, or credentials (security risk), the entire codebase (floods the context), information that changes constantly (belongs in task-specific files)."
+    },
+    "codeExampleTitle": "Example: excerpt from a rule file (AGENTS.md)",
+    "codeExample": "## Architecture\n- Framework: NestJS 10\n- All imports: absolute (never relative)\n- Folder: src/modules/[domain]/\n\n## Coding Standards\n- Error responses: always use AppException class\n- Tests: Jest, one spec file per service\n- Never use console.log — use LoggerService\n\n## Build & Run\n- npm run dev (port 3000)\n- npm test (all specs)",
+    "misconception": {
+      "title": "Common Misconception",
+      "text": "\"Write it once and forget about it.\" — A rule file is an ongoing practice, not a one-off document. When the AI repeatedly makes the same mistake — placing services in the wrong directory, using the wrong test command, leaving unwanted comments — that mistake becomes a new rule. The file improves over time through real friction, not upfront planning alone."
+    }
+  },
+  "contextHierarchy": {
+    "title": "Context Hierarchy — Less Is More",
+    "intro": "LLMs have a finite attention budget. As context grows, precision when retrieving and connecting information tends to decrease. The central question is therefore not \"How do I fit everything in?\" but \"How do I load the right information at the right time?\"",
+    "analogyText": "Think of a surgeon's instrument tray. The operating room has thousands of instruments available, but only a small tray with the instruments needed for the current step is within reach. More instruments on the tray means more clutter, slower decisions, higher error risk. The surgeon asks for specific instruments when needed — just in time.",
+    "analogyBreak": "The analogy has a limit: a surgeon knows exactly which instrument they need. An AI agent must often discover what it needs during execution, using search and reading tools.",
+    "example": "An example: a codebase with 50,000 lines. Bad approach: paste everything into the prompt. Good approach: the rule file provides the architecture overview, and the agent uses search tools to find the specific files for the current task. Result: the agent works with 200 highly relevant lines instead of drowning in 50,000 lines of mixed relevance.",
+    "feedbackLoop": {
+      "title": "The Feedback Loop",
+      "text": "A good rule file is not written in one go but grows iteratively. The process: you start a task. You observe where the agent makes mistakes. You add a rule that corrects the error. Next time, the agent works closer to your project style. Example: the AI keeps placing services in src/services/ instead of src/modules/[domain]/. You add \"Folder: src/modules/[domain]/\" to the rule file. From now on, the agent uses the correct structure."
+    },
+    "misconception": {
+      "title": "Common Misconception",
+      "text": "\"The AI reads everything automatically.\" — It does not. Even models with large context windows lose focus when overloaded; a model’s attention degrades as the context grows. The discipline of Context Engineering is therefore about selection — choosing what goes in and what stays out — not about maximizing input size."
+    }
+  },
+  "hierarchy": {
+    "step1": {
+      "label": "Permanent Project Rules",
+      "description": "The project’s rule file — architecture, standards, workflows. Always loaded."
+    },
+    "step2": {
+      "label": "Task-Specific Files",
+      "description": "Relevant source files, examples, documentation for the current task."
+    },
+    "step3": {
+      "label": "Conversation History",
+      "description": "The conversation so far with the agent — decisions, results, feedback."
+    },
+    "step4": {
+      "label": "Tool Results",
+      "description": "Search results, file contents, test outputs — loaded on demand, just in time."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "point1": "Context Engineering shifts the bottleneck from prompt phrasing to information curation. Not how you ask, but what the agent already knows determines the quality.",
+    "point2": "A rule file — named differently by every tool — is the agent’s onboarding package: architecture, conventions, commands, so it starts informed rather than from scratch.",
+    "point3": "More context is not better context. The agent needs the smallest relevant set at the right time — permanent rules on top, task-specific files in the middle, tool results at the bottom."
+  },
+  "quiz": {
+    "boxTitle": "Knowledge Check: Context Engineering",
+    "q1": {
+      "question": "What is the main difference between Prompt Engineering and Context Engineering?",
+      "a": "Prompt Engineering uses longer prompts, Context Engineering uses shorter ones.",
+      "b": "Prompt Engineering optimizes a single question; Context Engineering curates the agent's entire information environment.",
+      "c": "Context Engineering only works with very large models, not with small ones.",
+      "d": "Prompt Engineering is for beginners, Context Engineering is for experts.",
+      "explanation": "Context Engineering goes beyond optimizing a single question: it curates the entire context — system instructions, tools, project data, history — so the agent works informed in every interaction."
+    },
+    "q2": {
+      "question": "A developer notices their AI assistant always creates files in the wrong directory. What is the Context Engineering solution?",
+      "a": "Write a more detailed prompt each time specifying the directory.",
+      "b": "Switch to a different AI model.",
+      "c": "Add a rule to the project's rule file specifying the correct directory structure.",
+      "d": "Disable the AI assistant's file creation capability.",
+      "explanation": "The project’s rule file solves recurring problems permanently: the directory structure is defined once and automatically applied in every session, without you having to repeat it."
+    },
+    "q3": {
+      "question": "You have a 30,000-line codebase and want the AI to refactor a single service. Which approach follows the context hierarchy principle?",
+      "a": "Paste the entire codebase into the prompt for maximum context.",
+      "b": "Give the agent a rule file with architecture overview and let it use search tools to find the relevant files.",
+      "c": "Only provide the single file without any project context.",
+      "d": "Summarize the entire codebase in 500 words and paste that.",
+      "explanation": "The context hierarchy prioritizes relevant information: permanent rules (architecture overview) plus targeted search (loading only the relevant files) beats both too much and too little context."
+    },
+    "q4": {
+      "question": "A team’s rule file contains the database password, the full API key, and a list of all 200 microservice endpoints. Which statement best evaluates this setup?",
+      "a": "This is ideal because the AI has maximum information available.",
+      "b": "The credentials are a security risk, and the endpoint list probably exceeds useful context — the file should hold architecture patterns and conventions, not secrets or exhaustive lists.",
+      "c": "Only the API key is problematic; the endpoint list is fine.",
+      "d": "The file is too short; it should also include the full database schema.",
+      "explanation": "Rule files should be curated and secure. Passwords and API keys are a security risk. A complete endpoint list floods the context — architecture patterns that show the agent where and how to find the right endpoints are better."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint: Context Engineering",
+    "item1": "Explain the difference between Prompt Engineering and Context Engineering using the onboarding analogy.",
+    "item2": "What belongs in a rule file — and what should never be in one?",
+    "item3": "Why is it often worse to give the AI your entire codebase as context instead of only the relevant files?"
+  },
+  "enrichment": {
+    "tocLabel": "Interactive: context budget scaling",
+    "sectionTitle": "Interactive: why more context does not always help",
+    "intro": "The article explains that precision decreases as context grows. Move the slider and watch the work scale: loading the rule file is constant (green). Reading the entire context grows linearly (blue). But cross-referencing information — the agent’s core job — grows quadratically (red).",
+    "curve": {
+      "constant": "Load the rule file (constant)",
+      "linear": "Read the context (linear)",
+      "quadratic": "Cross-reference information (quadratic)"
+    },
+    "insight": {
+      "small": {
+        "title": "Small context",
+        "description": "At {{n}} units of information the difference barely shows: cross-referencing costs {{worst}} steps, reading {{reference}}. At this size you can afford to be generous."
+      },
+      "moderate": {
+        "title": "Moderate context",
+        "description": "At {{n}} units the gap becomes visible: {{worst}} steps for cross-referencing against {{reference}} for reading — a factor of {{factor}}."
+      },
+      "large": {
+        "title": "Large context",
+        "description": "At {{n}} units cross-referencing costs {{worst}} steps, {{factor}} times as much as merely reading. This is where precision starts to suffer."
+      },
+      "veryLarge": {
+        "title": "Very large context",
+        "description": "At {{n}} units it is {{worst}} cross-referencing steps against {{reference}} reading steps — a factor of {{factor}}. This is exactly why little relevant context beats much total context."
+      }
+    }
+  },
+  "ruleFileTraits": {
+    "fileName": {
+      "label": "Name and location",
+      "description": "Every tool expects the rule file under its own name — usually a Markdown file in the project root. Your tool’s documentation states which one."
+    },
+    "scope": {
+      "label": "Scope",
+      "description": "Some rule files apply to the whole repository, others only to a subdirectory. In large projects the finer split pays off."
+    },
+    "loading": {
+      "label": "When it loads",
+      "description": "Rules are either always loaded, attached automatically for matching files, or pulled in only when the agent asks. Only the always-loaded ones can be taken for granted."
+    }
+  }
+}

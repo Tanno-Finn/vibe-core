@@ -1,0 +1,10 @@
+{
+  "term": "API",
+  "alternativeNames": [
+    "Application Programming Interface",
+    "Programmierschnittstelle",
+    "Schnittstelle"
+  ],
+  "description": "An API (Application Programming Interface) is a defined interface between software components — essentially a contract that specifies how one component can use the services of another without knowing its internal structures. This applies in general: program libraries, operating systems, and the standard library of a programming language also provide APIs that run entirely in-process and have nothing to do with networks or servers. A common and particularly important subtype in the AI context is the web or REST API, which is accessed over a network. Here the image of the waiter in the restaurant of programming fits: you order a dish (send a request), the waiter (API) conveys your order to the kitchen (server) and brings you the finished meal (response) back. REST APIs have become the standard: they use HTTP methods such as GET, POST, PUT, and DELETE, and transmit data mostly in JSON format. In the AI world, such APIs have become especially important: they allow developers to integrate powerful AI services such as large language models into their own applications without having to operate the complex models themselves. A well-designed API is like an elegant hotel lobby — it makes complex background processes effortlessly accessible to visitors.",
+  "example": "A model provider's API allows developers to integrate a large language model into their apps. A simple HTTP request with a text prompt is sent to the API, which internally addresses the large language model and returns an AI-generated response — as if it were a normal web service call."
+}

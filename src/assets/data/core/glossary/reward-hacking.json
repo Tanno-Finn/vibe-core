@@ -1,0 +1,55 @@
+{
+  "id": "reward-hacking",
+  "category": "ml",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Reward Hacking",
+  "childConcepts": [],
+  "parentConcepts": [
+    "reinforcement-learning-rl"
+  ],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "Belohnungs-Hacking",
+      "Specification Gaming"
+    ],
+    "en": [
+      "Reward Hacking",
+      "Specification Gaming"
+    ],
+    "de-easy": [
+      "Punkte-Tricks",
+      "Belohnungs-Tricks"
+    ],
+    "en-easy": [
+      "Reward Tricks",
+      "Point Tricks"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Skalse, J., et al. (2022). Defining and Characterizing Reward Hacking. NeurIPS 2022",
+      "type": "paper",
+      "url": "https://arxiv.org/abs/2209.13085",
+      "notes": "Formal definition and characterization of reward hacking"
+    },
+    {
+      "title": "OpenAI et al. (2016). Faulty Reward Functions in the Wild. OpenAI Blog",
+      "type": "website",
+      "notes": "Collection of reward hacking examples from DeepMind and OpenAI",
+      "tags": [
+        "verification",
+        "origin-type:verification"
+      ]
+    }
+  ],
+  "related": {
+    "glossary": [
+      "reward-misspecification",
+      "specification-gaming"
+    ]
+  }
+}

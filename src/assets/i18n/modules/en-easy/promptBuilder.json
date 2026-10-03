@@ -1,0 +1,17 @@
+{
+  "label": {
+    "yourPrompt": "Your prompt",
+    "blocks": "blocks",
+    "reset": "Reset",
+    "emptyState": "Click on blocks above. Your prompt appears here.",
+    "copied": "Copied!",
+    "copyPrompt": "Copy prompt",
+    "characters": "characters"
+  },
+  "quality": {
+    "title": "Is the prompt complete?",
+    "tipComplete": "You picked every block. The model now knows exactly what to do.",
+    "tipIncomplete": "Tip: also pick {{missing}}. Then the model has less to guess.",
+    "tipJoin": " and "
+  }
+}

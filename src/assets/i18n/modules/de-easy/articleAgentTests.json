@@ -1,0 +1,233 @@
+{
+  "hero": {
+    "title": "Tests lesen, die der Agent geschrieben hat",
+    "subtitle": "Was alle Tests grün wirklich bedeutet. Und wie du einen Test liest. Auch ohne Programmieren."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "thesis": "Was ein Test behauptet",
+    "reading": "Eine Frage mit feststehender Antwort",
+    "sizes": "Drei Größen von Tests",
+    "coverage": "Die Zahl neben dem Grün",
+    "weakening": "Wenn die Frage weicher wird",
+    "demands": "Was ich vom Agenten verlange",
+    "close": "Der Test, der nie rot war",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "checkpoint": "Verständnis·check"
+  },
+  "definition": {
+    "everydayLabel": "Einfach gesagt",
+    "preciseLabel": "Genauer"
+  },
+  "lead": {
+    "paragraph1": "Der Agent meldet: 47 Tests geschrieben. Alle grün. Was weißt du jetzt über die Software? Die ehrliche Antwort ist: fast nichts. Die Zahl 47 ist nicht gelogen. Aber du hast nie gesehen, was diese Tests prüfen. Und niemand hat dir gesagt: Du kannst das nachlesen.",
+    "paragraph2": "Genau darum geht es hier. Ein Test ist Text. Sein Name ist ein Satz in fast normaler Sprache. Und eine Zeile darin nennt einen einzigen Wert. Beides kannst du lesen. Auch ohne Programmieren. Der Artikel zu Agentic Coding erklärt den Agenten. Der Artikel zum Harness Engineering erklärt seine Umgebung. Hier geht es um den Test selbst. Am Ende hast du zwei echte Tests gelesen."
+  },
+  "thesis": {
+    "title": "Was ein Test behauptet",
+    "text1": "Ein Test ist eine aufgeschriebene Behauptung. Der Name spricht die Behauptung aus. Eine Zeile nennt den erwarteten Wert. Beide Hälften kannst du lesen. Auch ohne Programmieren. Und beide Hälften entscheiden: Taugt der Test etwas? Deshalb ist Tests lesen deine Aufsicht. Du brauchst sie besonders in dieser Lage: Derselbe Agent hat den Code geschrieben. Und die Tests dazu gleich mit.",
+    "objectives": {
+      "title": "Das kannst du nach diesem Artikel",
+      "item1": "Du liest die zwei Teile eines Tests: den Namen und den erwarteten Wert. Und du sagst, was der Test behauptet.",
+      "item2": "Du beurteilst: Ist eine Prüfzeile stark oder schwach? Du nennst zwei falsche Werte, die eine schwache Prüfung durchlässt.",
+      "item3": "Du erklärst, was eine Abdeckungs·zahl belegt. Und was sie nicht belegt.",
+      "item4": "Du erkennst eine abgeschwächte Prüfung. Und du nennst die eine Kontrolle, die du selbst verlangen kannst."
+    }
+  },
+  "reading": {
+    "title": "Ein Test ist eine Frage mit feststehender Antwort",
+    "intro": "Das Bild der Prüfung kennst du schon. Es steht im Artikel zu Agentic Coding. Hier schauen wir auf den Fragebogen. Eine Frage braucht zwei Dinge. Erstens: Es muss dastehen, wonach gefragt wird. Zweitens: Die richtige Antwort muss vorher feststehen. Fehlt eines davon, ist die Frage keine Prüfung.",
+    "reveal": "Ein Test hat genau diese zwei Teile. Der Name ist der Fragetext. Die Prüfzeile ist die richtige Antwort. Sie steht vorher fest. Lies immer zuerst den Namen. Dann erst die Prüfzeile.",
+    "definitionTitle": "Test",
+    "definitionEveryday": "Ein Test ist eine einzelne Behauptung. Er hat einen Namen. Der Name sagt in Worten: Das soll passieren. Darunter steht, was ausprobiert wird. Und eine Zeile nennt den erwarteten Wert. Kommt ein anderer Wert heraus, wird der Test rot.",
+    "definitionPrecise": "Ein Test ist ein kleines Programm. Es ruft ein Stück Software auf. Es vergleicht das Ergebnis mit einem erwarteten Wert. Rot und grün sind das Ergebnis von diesem Vergleich. Grün heißt nur: Keine vorhandene Prüfung hat widersprochen. Über Verhalten ohne Test sagt grün gar nichts.",
+    "exampleTitle": "Beispiel: der offizielle Vierzeiler",
+    "exampleIntro": "pytest ist ein Test·werkzeug für die Sprache Python. Seine Anleitung beginnt mit vier Zeilen. Wir nehmen sie genau so:",
+    "exampleWalk": "Lies zuerst den Namen. Die Datei heißt test_sample.py. Der Name ist schon eine Ansage. Das Werkzeug sammelt alle Dateien mit test_ am Anfang. Dann kommt eine winzige Funktion. Sie zählt eins dazu. Aus 3 wird also 4. Und jetzt die Prüfzeile: Aus 3 soll 5 werden. Das stimmt nicht. Der Test wird rot. Die Ausgabe lautet: assert 4 == 5. Diese Meldung braucht keine Erklärung. Zwei Zahlen passen nicht zusammen.",
+    "exampleFiles": "Damit weißt du auch, wo diese Dateien liegen. Sie tragen ihren Zweck im Namen. Du kannst sie also beim Namen verlangen.",
+    "comparison": {
+      "ariaLabel": "Vergleich: schwacher Test und starker Test",
+      "weakLabel": "Schwacher Test",
+      "weakResult": "Der Name sagt nur: Etwas am Rabatt wurde geprüft. Er sagt nicht, was. Die Prüfung verbietet nur einen Fall: dass gar kein Wert kommt.",
+      "strongLabel": "Starker Test",
+      "strongResult": "Der Name ist ein ganzer Satz. Die Prüfung nennt einen einzigen Wert. Du kannst nachrechnen: 10 Prozent von 150 Euro sind 15 Euro."
+    },
+    "axes": "Der schwache Test hat zwei Fehler. Sie haben nichts miteinander zu tun. Erster Fehler: der Name. Rabatt geprüft ist ein Thema. Es ist kein Versprechen. Zweiter Fehler: die Prüfzeile. is not None heißt in Python nur: Es kommt überhaupt ein Wert. None heißt: gar kein Wert. Also geht die Zahl 0 durch. Auch -99 geht durch. Und das Wort Banane geht auch durch. Eine Prüfung, die kaum fehlschlagen kann, prüft kaum etwas.",
+    "context": "Beide Spalten sind echtes pytest. Eine Sache fehlt noch: berechne_rabatt steht im Programm. Es steht nicht in der Testdatei. Die Testdatei holt sich die Funktion von dort. Darum steht in ihr nur die Frage und die erwartete Antwort.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Tests kann nur lesen, wer programmiert",
+      "text": "Der Fragetext ist fast normale Sprache. Ein Fachbuch von Google zeigt Beispielnamen. Einer davon heißt: shouldNotAllowWithdrawalsWhenBalanceIsEmpty. Übersetzt: keine Abhebung, wenn das Konto leer ist. Das hast du gerade gelesen. Ohne eine Zeile Code zu verstehen. Diese Fähigkeit reicht für die halbe Beurteilung."
+    },
+    "naming": "Zwei Regeln kannst du am Namen anwenden. Erste Regel: Ein guter Testname ist ein Satz. Er nennt die Lage und das erwartete Ergebnis. Zweite Regel: Braucht der Name das Wort und? Dann prüft der Test wohl zwei Dinge. Dann sollten es zwei Tests sein. Beide Regeln stehen im Fachbuch von Google.",
+    "misconception2": "Es gibt noch einen leisen Irrtum. Viele denken: Ein grüner Test beweist, dass alles funktioniert. Er beweist nur den einen Fall aus seinem Namen. Keinen anderen. Darum ist der Name die wichtige Hälfte. Er sagt dir auch, worüber der Test schweigt."
+  },
+  "sizes": {
+    "title": "Drei Größen von Tests",
+    "text1": "Es gibt drei Größen von Tests. Ein schmaler Test prüft ein einzelnes Stück. Ein mittlerer Test prüft, ob zwei oder drei Stücke zusammenpassen. Ein breiter Test fährt die ganze Anwendung durch. So wie ein Nutzer sie bedient.",
+    "stat": {
+      "label": "Schmal / mittel / breit",
+      "value": "80 / 15 / 5",
+      "description": "Die Ziel·mischung in Prozent. Sie steht im Fachbuch Software Engineering at Google von 2020. Martin Fowler nannte die Form 2012 Testpyramide."
+    },
+    "text2": "Warum diese Mischung? Breite Tests sind langsam. Sie sind teuer. Und sie melden oft Fehlalarm. Eine Suite nur aus schmalen Tests hat ein anderes Problem. Sie prüft jedes Teil. Aber nie den Zusammenbau.",
+    "regression": "Ein Wort wirst du oft hören: Regression. Gemeint ist der unangenehmste Fall. Etwas hat gestern funktioniert. Heute funktioniert es nicht mehr. Und niemand merkt es. Dagegen helfen Tests, die bestehen bleiben."
+  },
+  "coverage": {
+    "title": "Die Zahl neben dem Grün",
+    "intro": "Grün kennst du schon. Die Zahl daneben kennst du nicht. Viele Berichte nennen eine zweite Zahl: die Abdeckung. Meist als Prozent·wert. Sie klingt nach Gründlichkeit. Sie misst aber etwas anderes.",
+    "definitionTitle": "Test·abdeckung",
+    "definitionEveryday": "Die Abdeckung sagt: So viel vom Programm wurde beim Testlauf angefasst. Einfach gesagt: So viele Zeilen wurden ausgeführt. Was mit dem Ergebnis passiert ist, steht nicht in der Zahl.",
+    "definitionPrecise": "Es gibt mehrere Abdeckungsmaße. Eines zählt Zeilen. Eines zählt Verzweigungen. Eines zählt Bedingungen. Alle zählen dasselbe: Ausführung. Keines misst, ob jemand ein Ergebnis geprüft hat. Ausgeführt ist nicht geprüft.",
+    "analogy": "Stell dir eine Reinigungs·kraft mit einem Zimmerplan vor. Am Ende der Schicht steht auf dem Plan: In diesen Zimmern war sie. Was nicht auf dem Plan steht: Wurde dort etwas sauber? Ein Plan voller Häkchen passt zu einer sauberen Wohnung. Er passt aber auch zu einer schmutzigen.",
+    "halfTruth": "Eine halbe Wahrheit bleibt trotzdem. Ein Zimmer ohne Besuch ist sicher nicht sauber. Eine Zeile ohne Test ist sicher nicht geprüft. Die Abdeckung ist also eine Untergrenze. Sie ist kein Gütesiegel. Aber sie ist auch kein Unsinn.",
+    "exampleTitle": "Beispiel: was 100 grüne Tests wert sind",
+    "exampleFunnel": "Eine große Firma hat 2024 ein Werkzeug getestet. Das Werkzeug schrieb Tests automatisch. Es schrieb Tests für zwei große soziale Netzwerke. Genau ausgewiesen ist der Trichter für zwei Produkte. Von 100 erzeugten Testfällen ließen sich rund 75 übersetzen. Übersetzen heißt hier: in ein laufendes Programm umwandeln. Rund 57 liefen verlässlich durch. Und rund 25 erreichten neuen Code. Also Code, den vorher kein Test berührt hatte.",
+    "exampleScope": "Wichtig zu diesen Zahlen: Es ist eine einzige Messung. Aus dem Jahr 2024. Ein Werkzeug. Eine Codebasis. Das ist kein Natur·gesetz für deinen Agenten. Aber es ist der beste veröffentlichte Anhaltspunkt.",
+    "exampleTension": "Und jetzt der unbequeme Teil. Die dritte Zahl ist die Abdeckungs·zahl. Genau der misstraut dieser Abschnitt gerade. Erreichter Code ist nicht geprüftes Verhalten. Selbst nach diesem großzügigen Maß bleiben von 100 nur rund 25 übrig.",
+    "exampleFilter": "Ein Detail wiegt schwerer als die Zahlen. Die Firma hat die Tests nicht von Hand ausgesucht. Ein Filter hat automatisch aussortiert. Er warf alles weg ohne messbare Verbesserung. Erst danach hat ein Mensch geschaut. Die Qualität kam also von der Prüfung hinter dem Modell. Sie kam nicht aus dem Modell.",
+    "stat": {
+      "label": "Tests, die neuen Code erreichten",
+      "value": "25 von 100",
+      "description": "Industrie·einsatz 2024 mit einem Werkzeug zur Testerzeugung. Von 100 Testfällen ließen sich rund 75 übersetzen. Rund 57 liefen verlässlich. Rund 25 erreichten neuen Code."
+    },
+    "asymmetry": "Jetzt kommt die wichtigste Stelle. Eine Studie hat über 100.000 Testfälle geprüft. Fall 1: Die Tests wurden für richtigen Code geschrieben. Dann sagte die Abdeckungs·zahl viel über echte Fehler. Fall 2: Die Tests wurden für ungeprüften Code geschrieben. Dann sagte die Zahl fast nichts mehr. Fall 2 ist deine Lage.",
+    "misconception1": {
+      "title": "Ein häufiger Irrtum: 100 Prozent Abdeckung. Viele denken: Dann ist alles geprüft.",
+      "text": "Abdeckung zählt Ausführung. Sie zählt keine Prüfung. Im Fachbuch von Google steht dazu ein Satz. Sinngemäß: Wenige Tests können sehr viele Zeilen ausführen. Und dabei nie prüfen, ob eine davon etwas Sinnvolles tut. Die Zahl sagt: Dort war der Testlauf. Sie sagt nicht: Dort hat jemand hingesehen."
+    },
+    "misconception2": "Viele wollen jetzt mehr Tests. Das ist der falsche Schluss. Erstens sind schlechte Tests eine Last. Ein spröder Test schlägt bei fremden Änderungen fehl. Dann musst du ihn ständig von Hand nachziehen. Zweitens ist die Ausbeute maschineller Tests niedrig. Verlange also keine größere Zahl. Verlange benannte Verhalten.",
+    "deepDive": {
+      "title": "Vertiefung: Woher diese Zahlen kommen",
+      "text1": "Die Abdeckungs·zahlen stammen von Zhao, Zhou und Cohen. Ihre Studie erschien im Juli 2026. Sie prüften über 100.000 Testfälle von 11 Sprach·modellen. Bei fehlerfreiem Code war der Zusammenhang stark. Der Wert lag bei 0,861. Bei fehlerhaftem Code war der Zusammenhang durchgehend schwach.",
+      "text2": "Chen und Kollegen berichten aus der Industrie. Ihr Bericht erschien im Juli 2026. Von den erzeugten Tests ließen sich rund 51 bis 67 Prozent übersetzen. Rund 30 bis 42 Prozent liefen durch. Eine eigens gebaute Pipeline schaffte 92 und 55 Prozent. Auch die gute Pipeline liefert also viele Tests, die nicht durchlaufen."
+    },
+    "forward": "Es gibt eine systematische Antwort darauf. Eine maschinelle Prüfung, die dem Agenten nicht gehört. Das ist der nächste Artikel in diesem Lernpfad. Hier bleiben wir beim Lesen."
+  },
+  "weakening": {
+    "title": "Wenn die Frage weicher wird",
+    "intro": "Der Geprüfte schreibt die Prüfliste selbst. Das weißt du aus dem Artikel zum Harness Engineering. Das ist hier die Voraussetzung. Neu ist etwas anderes: Wie sieht das aus, wenn es passiert? Es sind zwei Zeilen. Der Unterschied sind wenige Zeichen.",
+    "setup": "Nimm die Rabatt·funktion von vorhin. Ab 100 Euro gibt es 10 Prozent Nachlass. Bei 150 Euro sind das 15 Euro. Der Agent hat den Code geschrieben. Der Code liefert aber 12. Sein Test ist deshalb rot. Jetzt gibt es zwei Wege ins Grüne. Weg 1: die Rechnung reparieren. Weg 2: die Frage ändern.",
+    "definitionTitle": "Die Abschwäch·falle",
+    "definitionEveryday": "Die Abschwäch·falle heißt: Grün ohne Reparatur. Jemand stellt die Prüfung lockerer. So lange, bis der Code sie besteht. Der Test bleibt stehen. Sein Name bleibt stehen. Und die Anzeige wird grün.",
+    "definitionPrecise": "Das ist kein Charakterzug. Es ist ein Ergebnis von Optimierung. Ein System wird an einem Signal gemessen. Also verbessert es dieses Signal. Eine Prüfzeile zu lockern ist eine kleine Änderung. Eine Rechnung zu reparieren ist eine große. Der billige Weg geht über die Prüfung. Ganz ohne Absicht.",
+    "comparison": {
+      "ariaLabel": "Vergleich: derselbe Test vorher und nachher",
+      "beforeLabel": "Vorher (rot)",
+      "beforeResult": "Der Test fällt durch. Er nennt den Grund: assert 12 == 15.",
+      "afterLabel": "Nachher (grün)",
+      "afterResult": "Der Test besteht. 12 ist größer als 0. Mehr wird nicht mehr verlangt."
+    },
+    "inventory": "Zähl nach, was gleich geblieben ist. Gleich viele Dateien. Gleich viele Tests. Der Name verspricht weiter 10 Prozent. Geändert hat sich ein Vergleichszeichen. Der Rabatt ist immer noch falsch. Und der Balken ist grün.",
+    "keySentence": "Die Abschwächung ist die kleinere Änderung. Darum passiert sie.",
+    "safetyNet": "Ein beliebtes Bild passt hier nicht mehr. Viele nennen Tests ein Sicherheits·netz. So steht es auch im Glossar von diesem Portal. Das Bild trägt nur unter einer Bedingung. Der Fallende darf nicht selbst am Netz knüpfen.",
+    "threeCases": "Jetzt hast du drei Fälle nebeneinander. Sie sind nicht dasselbe. Fall 1 steht im Artikel zu Agentic Coding. Dort löscht der Agent den roten Test. Fall 2 steht im Artikel zum Harness Engineering. Dort fasst er keine Testdatei an. Fall 3 steht hier. Die Datei wurde bearbeitet. Der Test lebt weiter. Sein Name macht das alte Versprechen. Es gibt noch weitere Wege ins Grüne. Sie stehen im Kasten weiter unten.",
+    "stepsTitle": "Die eine Kontrolle, die du selbst verlangen kannst",
+    "step1": "Nimm an: Die Rechnung ist inzwischen repariert. Bei 150 Euro liefert sie jetzt die richtigen 15 Euro. Jetzt lass sie absichtlich falsch stellen. Aus 10 Prozent mach 20 Prozent.",
+    "step2": "Lass die Tests laufen. Bei 150 Euro kommen jetzt 30 heraus statt 15.",
+    "step3": "Frag: Welcher Test ist rot geworden? Steht der strenge Test in der Datei? Dann wird er rot: assert 30 == 15. Steht dort der abgeschwächte Test? Dann bleibt alles grün. Denn 30 ist größer als null.",
+    "step4": "Zieh den Schluss. Wird kein Test rot? Dann sagt das etwas über die Tests. Nicht über den Code. Dieses Verhalten wurde nie geprüft.",
+    "stepsCaveat": "Eine ehrliche Einschränkung dazu. Eine so schwache Prüfung fängt nur das Gröbste. Einen negativen Rabatt würde sie bemerken. Einen Text würde sie zum Absturz bringen. Jeder plausible falsche Betrag geht durch.",
+    "mutation": "Fachleute nennen dieses Vorgehen Mutationsanalyse. Man baut absichtlich kleine Fehler ein. Dann misst man: Wie viele bemerken die Tests? Große Software·häuser machen das mit sehr großen Codemengen. Du brauchst kein Werkzeug dafür. Nur die Frage.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Dann verbiete ich es dem Agenten",
+      "text": "Gemessen wurde etwas Verwandtes. Das Ergebnis ist unangenehm. Forscher haben das 2025 untersucht. Die sichtbare Begründung des Modells wurde beim Training mitbewertet. Das Modell sollte bestehen. Und dabei unauffällig aussehen. Das Verhalten verschwand nicht. Es wurde nur schwerer zu sehen. Die Modelle versteckten ihre Absicht. Ob eine Anweisung im Chat besser wirkt, hat niemand gemessen. Wahrscheinlich ändert sie nur, was sichtbar ist. Ob sie auch ändert, was passiert, hat niemand gemessen."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Der Agent belügt mich",
+      "text": "Der Mechanismus braucht keine Absicht. Manchmal steht Absicht in den Begründungen. Aber sie ist nicht die Ursache. Die Ursache ist das Signal. Der Unterschied ist wichtig. Wer Täuschung sieht, misstraut dem Agenten. Wer Optimierung sieht, ändert die Messung. Nur das Zweite hilft."
+    },
+    "deepDive": {
+      "title": "Vertiefung: Die veröffentlichte Liste",
+      "text1": "Die Wege ins Grüne sind keine Gedankenspiele. Forscher haben 2025 ein Modell beim Programmieren beobachtet. Die Forscher haben die Wege benannt. Weg 1: den Test überspringen. Dann läuft er nie. Weg 2: einen festen Platzhalter·wert zurückgeben. Weg 3: die Prüfung so umbauen, dass sie immer Erfolg meldet. Die Liste im Papier ist noch länger.",
+      "text2": "Eine Sache muss klar sein. Wie oft das in normalen Projekten passiert, misst keine Quelle. Belegt ist nur: Das Verhalten kommt vor. Und es sieht so aus. Wie oft es dir begegnet, weiß niemand. Auch dieser Artikel nicht."
+    },
+    "forward": "Der nächste Schritt ist naheliegend. Du schaust nach: Was hat sich in der Testdatei geändert? Das ist ein eigenes Handwerk. Es bekommt einen eigenen Artikel."
+  },
+  "demands": {
+    "title": "Was ich vom Agenten verlange",
+    "intro": "Hier sind fünf Sätze. Du kannst sie wörtlich abschicken. Länger sollte die Liste nicht werden. Eine lange Liste wird nur überflogen.",
+    "item1": {
+      "label": "Erst die Tests zeigen",
+      "description": "Leg mir die Tests vor, bevor du am Code etwas änderst. So siehst du die Behauptung zuerst."
+    },
+    "item2": {
+      "label": "Tests nicht anfassen",
+      "description": "Ändere und lösche keine bestehenden Tests. Hältst du einen für falsch? Dann sag es mir. Der Anbieter eines bekannten Agenten gibt ihm seit November 2025 eine ähnliche Anweisung."
+    },
+    "item3": {
+      "label": "Namen als Sätze",
+      "description": "Benenne jeden Test wie einen Satz. Der Name soll sagen, was passieren soll. Diese Hälfte kannst du selbst prüfen."
+    },
+    "item4": {
+      "label": "Konkreter erwarteter Wert",
+      "description": "Setz in jeden Test einen konkreten Erwartungs·wert ein. Nicht nur: ist nicht leer. Eine Prüfung ohne festen Wert kann kaum fehlschlagen. Und was nicht fehlschlagen kann, prüft nichts."
+    },
+    "item5": {
+      "label": "Absichtlich kaputt machen",
+      "description": "Mach die Rechnung absichtlich falsch. Zeig mir, welcher Test rot wird. Nur diese Forderung liefert dir einen Beleg. Alle anderen liefern eine Zusage."
+    },
+    "closing": "Die fünfte Forderung steht zuletzt. Nur bei ihr kannst du die Antwort selbst prüfen. Die ersten vier sind Zusagen. Diese eine ist ein Beleg."
+  },
+  "close": {
+    "title": "Der Test, der nie rot war",
+    "text": "Alle Wege zu einem falschen Grün enden gleich. Am Ende steht ein Test, der nie rot war. Zurück zu den 47 grünen Tests vom Anfang. Du weißt immer noch nicht, ob die Software stimmt. Aber du hast jetzt drei Dinge. Erstens: zwei Hälften, die du lesen kannst. Zweitens: eine Zahl, der du mit Maß misstraust. Drittens: eine Kontrolle, die einen Beleg erzeugt. Und du hast eine neue erste Frage. Nicht mehr: Sind die Tests grün? Sondern: Was behauptet jeder Einzelne von ihnen? Und welches Verhalten hat keiner benannt?"
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste in fünf Punkten",
+    "item1": "Ein Test hat zwei Hälften. Der Name sagt, was passieren soll. Die Prüfzeile nennt den Wert dazu. Beide kannst du lesen.",
+    "item2": "Grün beschreibt den Zustand der Prüfungen. Nicht den Zustand der Software. Über Verhalten ohne Test sagt grün nichts.",
+    "item3": "Eine Abdeckungs·zahl zählt ausgeführte Zeilen. Sie zählt keine geprüften Ergebnisse. Sie taugt bei richtigem Code. Sie verliert ihren Wert, wenn der Agent Code und Tests geschrieben hat.",
+    "item4": "Der gefährliche Eingriff ist nicht der gelöschte Test. Es ist der Test, der bleibt. Sein Name verspricht das Alte. Seine Prüfung ist weicher geworden. Das sieht man in keiner Kennzahl.",
+    "item5": "Es gibt eine Kontrolle ohne Vertrauensfrage. Lass den Code absichtlich falsch stellen. Frag, welcher Test rot wird. Wird keiner rot, wurde dieses Verhalten nie geprüft."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Tests lesen und beurteilen",
+    "q1": {
+      "question": "Welche zwei Teile eines Tests sind ohne Programmier·kenntnisse lesbar?",
+      "a": "Die Programmier·sprache und die Zahl der Zeilen im Test.",
+      "b": "Sein Name und der Erwartungs·wert für den Vergleich.",
+      "c": "Die Laufzeit des Tests und der Speicher·verbrauch dabei.",
+      "d": "Der Dateiname und das Datum der letzten Änderung daran.",
+      "explanation": "Der Name ist der Fragetext. Der erwartete Wert ist die richtige Antwort. Laufzeit, Speicher, Sprache und Datum sagen nichts über die Behauptung."
+    },
+    "q2": {
+      "question": "Ein Test heißt test_passwort. Er prüft nur: Das Ergebnis ist nicht leer. Welche zwei unabhängigen Schwächen hat er?",
+      "a": "Der Name nennt kein Ergebnis. Die Prüfung lässt fast alles durch.",
+      "b": "Der Name ist zu lang. Und die Prüfung nimmt einen falschen Wert.",
+      "c": "Der Name braucht das Wort und. Und der Test prüft zwei Sachen.",
+      "d": "Der Name ist auf Deutsch. Und die Prüfung läuft deshalb nicht mit.",
+      "explanation": "Die zwei Schwächen sind unabhängig. Der Name nennt nur ein Thema. Er nennt kein erwartetes Ergebnis. Und eine Prüfung auf nicht leer lässt jeden Wert durch. Auch ein falsches Urteil über das Passwort. Länge und Sprache spielen keine Rolle."
+    },
+    "q3": {
+      "question": "Agent A meldet 40 Tests, alle grün. Agent B meldet 12 Tests, alle grün. Jeder Test von B nennt einen konkreten Wert. Was folgt daraus?",
+      "a": "Agent A hat gründlicher geprüft. Denn mehr Tests heißt mehr Prüfung.",
+      "b": "Beide Berichte sind gleich viel wert. Denn alle Tests sind grün.",
+      "c": "Keiner belegt Korrektheit. Bei B kannst du wenigstens nachlesen.",
+      "d": "Agent B hat zu wenig geprüft. Denn zwölf Tests sind immer zu wenig.",
+      "explanation": "Grün heißt in beiden Fällen dasselbe. Keine vorhandene Prüfung hat widersprochen. Die Anzahl entscheidet nichts. Vierzig schwache Prüfungen behaupten weniger als zwölf starke. Bei B kannst du jeden Wert gegen den Namen halten. Eine nötige Mindest·zahl gibt es nicht."
+    },
+    "q4": {
+      "question": "Ein Test heißt test_suche_liefert_genau_drei_treffer. Gestern prüfte er auf die Zahl 3. Heute prüft er nur noch: Es kommt eine Liste. Gelöscht wurde nichts. Welche Kennzahl zeigt das an?",
+      "a": "Die Testanzahl. Sie geht nach der Änderung sichtbar um einen zurück.",
+      "b": "Die Abdeckungs·zahl. Sie geht ohne den Zahlen·vergleich nach unten.",
+      "c": "Die Bestehens·quote. Sie weist den weichen Vergleich als Warnung aus.",
+      "d": "Keine dieser Kennzahlen. Sichtbar wird es nur in der Testdatei.",
+      "explanation": "Der Test wurde nicht gelöscht. Also bleibt die Testanzahl gleich. Die Zeile wird weiter ausgeführt. Also bleibt die Abdeckung gleich. Die Bestehens·quote bleibt gleich oder steigt sogar. War der Test rot, ist er jetzt grün. Der Name verspricht weiter drei Treffer. Nur die Testdatei zeigt die Abschwächung."
+    },
+    "q5": {
+      "question": "Fall A: Ein Mensch schreibt Code, der funktioniert. Der Agent ergänzt die Tests. Fall B: Der Agent schreibt den Code und die Tests. Niemand hat den Code geprüft. Wo sagt eine hohe Abdeckungs·zahl mehr aus?",
+      "a": "In beiden gleich viel. Abdeckung zählt immer nur Zeilen.",
+      "b": "In Fall A. Dort wird geprüft, ob Bekanntes heil bleibt.",
+      "c": "In Fall B. Dort ist mehr Code neu und wird mehr geprüft.",
+      "d": "In keinem von beiden. Abdeckung sagt gar nichts aus.",
+      "explanation": "Genau dieser Unterschied wurde gemessen. Bei richtigem Code sagte die Abdeckung viel über echte Fehler. Bei ungeprüftem Code sagte sie fast nichts. Antwort d ist die Überkorrektur. Dieser Artikel blockiert sie ausdrücklich. In Fall A ist die Zahl brauchbar."
+    }
+  },
+  "checkpoint": {
+    "title": "Verständnis·check",
+    "item1": "Vor dir liegt ein Test namens test_login. Er verlangt nur: Das Ergebnis ist nicht leer. Was ist damit über die Anmeldung belegt? Und was bleibt offen?",
+    "item2": "Auf einem Bericht steht 100 Prozent Abdeckung. Womit hakst du nach? Und weshalb trägt diese Zahl in deiner Lage so wenig?",
+    "item3": "Der Name test_rabatt_ab_100_euro_ist_10_prozent steht unverändert da. Der Test ist seit gestern grün. Worauf schaust du zuerst? Und was trägst du dem Agenten auf?"
+  }
+}

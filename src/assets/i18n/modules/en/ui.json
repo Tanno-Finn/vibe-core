@@ -1,0 +1,9 @@
+{
+  "actions": "Actions",
+  "cancel": "Cancel",
+  "close": "Close",
+  "collapse": "Collapse",
+  "expand": "Expand",
+  "toggleSection": "Show or hide section",
+  "ratingLabel": "Rating: {{rating}} of 5 stars"
+}

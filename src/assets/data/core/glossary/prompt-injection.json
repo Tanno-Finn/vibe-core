@@ -1,0 +1,53 @@
+{
+  "id": "prompt-injection",
+  "category": "ethics",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Prompt Injection",
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "Prompt-Angriff",
+      "Prompt-Manipulation"
+    ],
+    "en": [
+      "Prompt Attack",
+      "Prompt Manipulation"
+    ],
+    "de-easy": [
+      "Prompt-Trick"
+    ],
+    "en-easy": [
+      "Prompt Trick"
+    ]
+  },
+  "sources": [
+    {
+      "type": "paper",
+      "citation": "Perez, F., & Ribeiro, I. (2022). Ignore Previous Prompt: Attack Techniques For Language Models. arXiv:2211.09527",
+      "notes": "Systematic study of prompt injection attack vectors"
+    },
+    {
+      "type": "paper",
+      "citation": "Greshake, K., et al. (2023). Not what you've signed up for: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection. arXiv:2302.12173",
+      "notes": "Demonstrates indirect prompt injection attacks in real applications"
+    },
+    {
+      "type": "verification",
+      "citation": "OWASP Top 10 for LLM Applications. https://owasp.org/www-project-top-10-for-large-language-model-applications/",
+      "notes": "Industry standard security framework listing prompt injection as #1 vulnerability"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "prompt",
+      "system-prompt",
+      "agent",
+      "human-in-the-loop"
+    ]
+  }
+}

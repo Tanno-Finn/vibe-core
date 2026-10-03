@@ -1,0 +1,62 @@
+{
+  "categories": {
+    "all": "All Areas",
+    "applications": "Uses",
+    "cv": "Computer Seeing",
+    "dl": "Deep Learning",
+    "ethics": "Right and Wrong",
+    "fundamentals": "Basics",
+    "ml": "Computer Learning",
+    "nlp": "Understanding Language",
+    "rl": "Reward Learning",
+    "ai-safety": "AI Safety",
+    "ai-fundamentals": "AI Fundamentals",
+    "generative-ai": "Generative AI",
+    "ai-application": "AI in Daily Life",
+    "regulation": "Rules and Laws",
+    "security": "Internet Safety",
+    "tools": "Tools",
+    "general": "General"
+  },
+  "description": "Important words from your subject. Simply explained.",
+  "entry": {
+    "alsoKnownAs": "Also called",
+    "example": "Example"
+  },
+  "filters": {
+    "active": "Active filters",
+    "all": "All",
+    "alphabetNavigation": "ABC Navigation",
+    "category": "Area",
+    "categoryPlaceholder": "Choose area",
+    "clearAll": "Clear Filters",
+    "clearSearch": "Clear search",
+    "letter": "Letter",
+    "removeFilter": "Remove filter",
+    "search": "Search",
+    "searchPlaceholder": "Search term...",
+    "letterButton": "Show terms starting with letter",
+    "showAllLetters": "Show all letters",
+    "sort": "Sort",
+    "sortPlaceholder": "Choose sorting",
+    "title": "Filters"
+  },
+  "popover": {
+    "definition": "What it means",
+    "goToGlossary": "Go to dictionary"
+  },
+  "results": {
+    "noResults": "No terms found.",
+    "of": "of",
+    "terms": "terms"
+  },
+  "sort": {
+    "alphabetical": "A to Z",
+    "category": "Area"
+  },
+  "tableOfContents": "Contents",
+  "title": "Dictionary",
+  "toc": {
+    "filters": "Filters"
+  }
+}

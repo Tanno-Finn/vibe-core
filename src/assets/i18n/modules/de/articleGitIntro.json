@@ -1,0 +1,184 @@
+{
+  "hero": {
+    "title": "Versionskontrolle mit Git",
+    "subtitle": "Wie man Projekten ein Gedächtnis gibt, das jede Änderung kennt — und nichts vergisst."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "repository": "Repository",
+    "commit": "Commit",
+    "github": "GitHub",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "checkpoint": "Verständnischeck"
+  },
+  "lead": {
+    "paragraph1": "Du arbeitest seit Stunden an einem Bericht. Eine Änderung macht alles kaputt, und Strg+Z reicht nur so weit zurück. Was wäre, wenn dein Computer sich an jede Version jeder Datei erinnern könnte - und dich in einer Sekunde zu jeder davon zurückspringen lassen würde? Genau das macht Git.",
+    "paragraph2": "Git ist das Werkzeug, das hinter praktisch jedem Softwareprojekt und jedem KI-Modell der Welt steckt. Am Ende dieses Artikels verstehst du drei Kernkonzepte - Repositories, Commits und GitHub - und weißt, wie sie zusammenspielen."
+  },
+  "repository": {
+    "title": "Dein Projekt bekommt ein Gedächtnis",
+    "definitionTitle": "Repository",
+    "analogy": "Ein Repository ist wie ein Notizbuch, das sich an jeden Zustand jeder Seite erinnert. In einem normalen Notizbuch ist ausradiertes unwiederbringlich weg. In einem Git-Repository wird jede Version jeder Seite aufbewahrt - du kannst jederzeit zu jedem vergangenen Zustand zurückblättern. Und jedes Teammitglied hat eine eigene vollständige Kopie dieses Notizbuchs.",
+    "scientific": "Ein Git-Repository ist ein Projektverzeichnis, das ein verstecktes .git-Unterverzeichnis enthält. Darin speichert Git die komplette Versionsgeschichte als Datenbank aus Objekten: Blobs für Dateiinhalte, Trees für Verzeichnisstrukturen und Commit-Objekte für Snapshots. Weil Git verteilt arbeitet, enthält jeder lokale Klon die vollständige Historie - es gibt keinen technisch privilegierten Hauptserver.",
+    "analogyBreak": "Wo die Notizbuch-Analogie bricht: Ein physisches Notizbuch kann nicht in parallele Versionen aufgespalten werden (Branches), und das Zusammenführen zweier Notizbücher (Merge) hat kein physisches Äquivalent. Außerdem bedeutet die verteilte Natur von Git, dass es keine einzige „Wahrheit“ gibt - jeder Klon ist gleich vollständig.",
+    "walkthrough": {
+      "title": "git init: Aus einem Ordner wird ein Repository",
+      "step1": "Erstelle einen neuen Ordner mit mkdir projekt und wechsle hinein",
+      "step2": "Führe git init aus - Git erstellt das versteckte .git-Verzeichnis",
+      "step3": "ls -a zeigt jetzt den .git-Ordner an - vorher war er nicht da",
+      "step4": "git status bestätigt: Git überwacht jetzt diesen Ordner. Dateien erscheinen als „untracked“"
+    },
+    "comparison": {
+      "centralizedLabel": "Zentralisiert (z. B. SVN)",
+      "centralizedResult": "Der Server besitzt die komplette Historie. Clients haben nur die aktuelle Arbeitskopie. Ohne Server kein Zugriff auf vergangene Versionen. Ein einzelner Ausfallpunkt.",
+      "distributedLabel": "Verteilt (Git)",
+      "distributedResult": "Jeder Klon enthält die vollständige Historie. Du kannst offline arbeiten, committen und Versionen vergleichen. Es gibt keinen technisch übergeordneten Server - nur Konventionen."
+    },
+    "misconception": {
+      "title": "Häufiger Irrtum: Commits gehen automatisch auf den Server",
+      "text": "git commit speichert nur lokal auf deinem Rechner. Niemand anderes sieht deine Änderungen, bis du explizit git push ausführst. Und: „Der zentrale Server ist das echte Repo“ stimmt nicht - alle Kopien sind technisch gleich vollständig. Der Server ist nur der vereinbarte Treffpunkt."
+    }
+  },
+  "commit": {
+    "title": "Speichern mit Absicht",
+    "definitionTitle": "Commit",
+    "analogy": "Ein Commit ist wie ein Foto deines Schreibtischs. Bevor du auf den Auslöser drückst, ordnest du genau an, was sichtbar sein soll - das ist der Staging-Schritt (git add). Du fotografierst nicht alles im Raum, nur was auf dem Schreibtisch liegt. Beim Auslösen (git commit) wird das Foto aufgenommen, mit einem Label und Zeitstempel versehen. Später kannst du durch alle Fotos blättern und sehen, wie der Schreibtisch zu jedem Zeitpunkt aussah.",
+    "scientific": "Ein Commit ist ein Snapshot des gesamten Projektzustands zu einem bestimmten Zeitpunkt, plus Metadaten (Autor, Zeitstempel, Nachricht, Hash des Vorgänger-Commits). Zwischen dem Arbeitsverzeichnis und dem Repository liegt die Staging Area (Index): eine Vorbereitungszone, in der du genau auswählst, welche Änderungen in den nächsten Commit einfließen. Jeder Commit wird durch einen SHA-1-Hash identifiziert, der ihn einzigartig und fälschungssicher macht.",
+    "analogyBreak": "Wo die Schreibtisch-Foto-Analogie bricht: Ein echtes Foto speichert keinen Verweis auf das vorherige Foto (Parent-Commit). Und du kannst deinen physischen Schreibtisch nicht aus einem Foto wiederherstellen - aus einem Commit aber schon, denn er enthält den vollständigen Projektzustand.",
+    "workflow": {
+      "title": "Der Drei-Zonen-Workflow",
+      "step1": "Arbeitsverzeichnis: Du bearbeitest Dateien ganz normal. Änderungen existieren nur lokal, Git weiß noch nichts davon.",
+      "step2": "Staging Area (git add): Du wählst gezielt aus, welche Änderungen in den nächsten Commit sollen. Wie das Anordnen auf dem Schreibtisch vor dem Foto.",
+      "step3": "Repository (git commit): Der Snapshot wird dauerhaft gespeichert - mit Nachricht, Zeitstempel und eindeutigem Hash. Selbst wenn du die Datei danach löschst, überlebt die committete Version."
+    },
+    "example": "Ein konkretes Beispiel: Du bearbeitest buch.txt. git status zeigt die Datei als „modified“. git add buch.txt verschiebt die Änderung in die Staging Area. git commit -m \"Tippfehler in Kapitel 3 korrigiert\" erstellt den Snapshot. git log --oneline zeigt jetzt einen Eintrag: einen kurzen Hash und deine Nachricht.",
+    "misconception": {
+      "title": "Drei häufige Irrtümer beim Committen",
+      "text": "Erstens: git add ist NICHT git commit. git add bereitet vor, git commit speichert. Zweitens: Git speichert Snapshots, keine Diffs - jeder Commit enthält den kompletten Projektzustand. Drittens: Commits sind lokal, bis du sie explizit mit git push hochlädst. Dein Teamkollege sieht sie erst dann."
+    }
+  },
+  "deepDive": {
+    "gitInternals": {
+      "title": "Inside .git: Was Git wirklich speichert",
+      "text": "Im .git-Verzeichnis liegen drei Arten von Objekten. Blobs speichern den Inhalt einzelner Dateien (ohne Dateinamen - nur den Inhalt). Trees speichern die Verzeichnisstruktur (welcher Blob gehört zu welchem Dateinamen). Commit-Objekte bündeln einen Tree mit Metadaten: Autor, Zeitstempel, Commit-Nachricht und ein Verweis auf den Vorgänger-Commit.",
+      "hashing": "Jedes Objekt wird durch seinen SHA-1-Hash identifiziert - eine 40-stellige Hexadezimalzahl, berechnet aus dem Inhalt. Identischer Inhalt ergibt immer denselben Hash. Dadurch kann Git sofort erkennen, ob sich eine Datei geändert hat, und jeder Commit ist fälschungssicher: Ändert sich auch nur ein Bit, ändert sich der gesamte Hash."
+    },
+    "mergeConflicts": {
+      "title": "Was passiert, wenn zwei Leute dieselbe Datei bearbeiten?",
+      "text": "Branches sind benannte Zeiger auf Commits und ermöglichen paralleles Arbeiten. Du kannst einen Branch erstellen, unabhängig Änderungen vornehmen und sie später wieder zusammenführen (merge). Solange verschiedene Dateien oder verschiedene Stellen in derselben Datei geändert werden, erledigt Git das automatisch.",
+      "branches": "Konflikte entstehen nur, wenn zwei Branches dieselbe Zeile unterschiedlich ändern. Git markiert dann die Konfliktstelle und du entscheidest, welche Version bleiben soll. Das klingt einschüchternd, ist aber im Alltag selten und gut lösbar. Branches und Merge-Strategien sind ein eigenes Thema für spätere Artikel."
+    }
+  },
+  "github": {
+    "title": "Dein Projekt in der Cloud",
+    "comparison": {
+      "gitLabel": "Git (lokales Werkzeug)",
+      "gitResult": "Kommandozeilen-Tool, funktioniert komplett offline. Open Source, erstellt 2005 von Linus Torvalds für die Linux-Kernel-Entwicklung. Speichert die komplette Historie lokal. Kein Account nötig.",
+      "githubLabel": "GitHub (Cloud-Plattform)",
+      "githubResult": "Web-Plattform mit grafischer Oberfläche. Braucht Internetzugang. Bietet Pull Requests, Issue-Tracking und CI/CD. Gegründet 2008, seit 2018 Teil von Microsoft."
+    },
+    "cameraAlbumAnalogy": "Wenn Git eine Kamera ist, die Snapshots (Commits) aufnimmt, dann ist GitHub ein Cloud-Fotoalbum, in das du deine Fotos hochlädst. Die Kamera funktioniert ohne das Album - du kannst lokal committen, so lange du willst. Aber das Album ermöglicht es anderen, deine Fotos zu sehen, zu kommentieren und eigene beizutragen. Wo die Analogie bricht: GitHub bietet aktive Zusammenarbeit (Pull Requests, Code-Reviews, CI/CD) - weit mehr als ein passives Album.",
+    "stats": {
+      "founded": {
+        "label": "Gründung",
+        "description": "GitHub wurde 2008 gegründet und wurde schnell zum Zentrum der Open-Source-Welt"
+      },
+      "acquisition": {
+        "label": "Übernahme durch Microsoft",
+        "value": "7,5",
+        "suffix": " Mrd. $",
+        "description": "2018 erwarb Microsoft GitHub - ein Zeichen für die Bedeutung der Plattform"
+      },
+      "users": {
+        "label": "Nutzer weltweit",
+        "value": "100",
+        "suffix": " Mio.+",
+        "description": "Über 100 Millionen Entwickler nutzen GitHub für ihre Projekte"
+      }
+    },
+    "clonePushPull": "Die drei wichtigsten Befehle für die Zusammenarbeit: git clone lädt ein komplettes Repository herunter - inklusive der gesamten Historie. git push origin main lädt deine lokalen Commits auf GitHub hoch. git pull holt die Änderungen deiner Teamkollegen ab. Wichtig: Das Repository auf GitHub ist nicht „echter“ als deine lokale Kopie - es ist einfach der vereinbarte Treffpunkt.",
+    "largeFiles": {
+      "title": "Vorsicht: Große Dateien und Geheimnisse",
+      "text": "Git ist für Textdateien optimiert. Große Binärdateien wie Videos, KI-Modelle oder Datensätze blähen das Repository auf, weil jede Version vollständig gespeichert wird. Die Lösung: Git LFS (Large File Storage) für große Dateien. Noch gefährlicher: Versehentlich committete API-Schlüssel oder Passwörter bleiben in der Git-Historie gespeichert, selbst wenn du die Datei später löschst. Prävention ist hier der Schlüssel - nutze .gitignore und überprüfe vor jedem Commit, was du eincheckst."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste auf einen Blick",
+    "items": {
+      "repository": "Ein Git-Repository ist ein Ordner mit einem versteckten .git-Verzeichnis, das die komplette Historie jeder Datei speichert - nicht nur die letzte Version.",
+      "distributed": "Git ist verteilt: Jede lokale Kopie enthält die vollständige Historie. Du kannst offline arbeiten, und kein einzelner Server ist der „Master“.",
+      "staging": "Die Staging Area lässt dich genau auswählen, welche Änderungen in einen Commit fließen - wie das Anordnen auf einem Tablett, bevor du es fotografierst.",
+      "commit": "Ein Commit ist ein beschrifteter Snapshot deines Projekts zu einem bestimmten Zeitpunkt, identifiziert durch einen eindeutigen Hash.",
+      "github": "GitHub ist eine Cloud-Plattform, die Git-Repositories hostet und Zusammenarbeit ermöglicht - aber Git selbst funktioniert vollständig ohne GitHub."
+    }
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Versionskontrolle mit Git",
+    "q1": {
+      "question": "Was bewirkt der Befehl git init in einem Ordner?",
+      "a": "Er lädt ein Projekt von GitHub herunter",
+      "b": "Er erstellt ein verstecktes .git-Verzeichnis und macht den Ordner zu einem Git-Repository",
+      "c": "Er lädt den Ordner ins Internet hoch",
+      "d": "Er löscht alle Dateien im Ordner",
+      "explanation": "git init erstellt das versteckte .git-Verzeichnis, in dem Git die komplette Versionsgeschichte speichert. Ab diesem Moment kann Git Änderungen in diesem Ordner verfolgen."
+    },
+    "q2": {
+      "question": "Du hast drei Dateien bearbeitet (app.py, test.py, README.md), willst aber nur app.py committen. Welche Befehle führst du aus?",
+      "a": "git add . && git commit -m \"update\"",
+      "b": "git commit app.py -m \"update\"",
+      "c": "git add app.py && git commit -m \"update app\"",
+      "d": "git push app.py",
+      "explanation": "git add app.py stagt nur diese eine Datei. git commit speichert dann nur die gestagten Änderungen. git add . würde alle drei Dateien stagen — das will man hier nicht."
+    },
+    "q3": {
+      "question": "Ein Kollege sagt: „Ich habe meinen Code auf Git gepusht.“ Was ist technisch nicht korrekt?",
+      "a": "Nichts, die Aussage stimmt",
+      "b": "Man pusht auf GitHub oder einen anderen Remote-Server, nicht auf Git — Git ist das lokale Werkzeug",
+      "c": "Man kann Code gar nicht pushen",
+      "d": "Git hat keinen Push-Befehl",
+      "explanation": "Git ist das lokale Versionskontroll-Werkzeug. GitHub (oder GitLab, Bitbucket etc.) ist die Cloud-Plattform. Man pusht auf einen Remote-Server wie GitHub, nicht auf Git selbst."
+    },
+    "q4": {
+      "question": "Warum speichert Git komplette Snapshots statt nur die Unterschiede (Diffs)?",
+      "a": "Snapshots brauchen weniger Speicherplatz",
+      "b": "Jeder Commit ist eigenständig und kann wiederhergestellt werden, ohne Unterschiede berechnen zu müssen",
+      "c": "Git kann keine Unterschiede berechnen",
+      "d": "Diffs funktionieren nicht mit Textdateien",
+      "explanation": "Weil jeder Commit den kompletten Projektzustand enthält, kann Git jeden beliebigen Zustand direkt wiederherstellen. Git optimiert intern zwar den Speicherplatz, aber konzeptionell ist jeder Commit ein vollständiger Snapshot."
+    }
+  },
+  "checkpoint": {
+    "title": "Verständnischeck",
+    "item1": "Dein Freund hat einen Ordner mit Programmcode. Du empfiehlst ihm, git init auszuführen. Was ändert sich im Ordner, und was kann er danach tun, was vorher nicht möglich war?",
+    "item2": "Du bearbeitest drei Dateien, willst aber nur die Änderungen an zweien davon committen. Beschreibe, wie du mit der Staging Area vorgehst.",
+    "item3": "Ein Kollege sagt: „Ich habe meinen Code auf Git gepusht.“ Was ist an dieser Aussage technisch nicht korrekt?"
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: Git-Workflow",
+    "sectionTitle": "Interaktiv: Der Git-Workflow Schritt für Schritt",
+    "intro": "Klicke dich durch die vier Schritte des Git-Workflows. Achte darauf, wie jeder Schritt auf dem vorherigen aufbaut: Erst ein Repository erstellen, dann Änderungen vorbereiten, einen Snapshot speichern und schließlich mit anderen teilen.",
+    "event": {
+      "init": {
+        "title": "git init",
+        "description": "Der erste Schritt: Mit git init wird ein normaler Ordner zu einem Git-Repository. Git erstellt das versteckte .git-Verzeichnis, in dem ab jetzt die gesamte Versionsgeschichte gespeichert wird.",
+        "significance": "Ohne init kein Git. Dieser Befehl schaltet die Versionskontrolle für den Ordner ein. Dateien erscheinen als „untracked“ — Git kennt sie, überwacht sie aber noch nicht."
+      },
+      "add": {
+        "title": "git add",
+        "description": "Auswählen, was gespeichert werden soll: git add verschiebt Änderungen in die Staging Area. Du entscheidest genau, welche Dateien in den nächsten Snapshot einfließen.",
+        "significance": "Die Staging Area ist das Besondere an Git. Statt alles blind zu speichern, wählst du gezielt aus — wie das Anordnen auf dem Schreibtisch vor dem Foto."
+      },
+      "commit": {
+        "title": "git commit",
+        "description": "Den Snapshot aufnehmen: git commit speichert den aktuellen Zustand aller gestagten Dateien dauerhaft — mit Zeitstempel, Nachricht und eindeutigem Hash.",
+        "significance": "Jeder Commit ist ein Rettungspunkt. Selbst wenn du danach Dateien löschst oder überschreibst, kannst du zu jedem früheren Commit zurückkehren."
+      },
+      "push": {
+        "title": "git push",
+        "description": "Mit anderen teilen: git push lädt deine lokalen Commits auf einen Remote-Server wie GitHub hoch. Erst jetzt können andere deine Arbeit sehen.",
+        "significance": "Push ist optional — Git funktioniert vollständig lokal. Aber für Teamarbeit und Backups ist der Push auf GitHub der Standardweg."
+      }
+    }
+  }
+}

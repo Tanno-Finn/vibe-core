@@ -1,0 +1,229 @@
+{
+  "hero": {
+    "title": "Second Brain: Your Memory Outside Your Head",
+    "subtitle": "One half of the work feels good. The other half brings the benefit."
+  },
+  "toc": {
+    "lead": "Start",
+    "brain": "What a Second Brain is",
+    "origin": "The idea is old",
+    "code": "The lopsided half",
+    "limit": "Collecting is not understanding",
+    "ai": "When the AI reads along",
+    "mirror": "Two memories",
+    "close": "Where the lever is",
+    "takeaways": "Summary",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Imagine this: You save 5 things every day. An article. A picture. A sentence. A link. A voice message. That is quite normal. Count 5 days a week. And 50 weeks a year. That is 1,250 things a year. Now comes the important question. How many of them did you ever use?",
+    "paragraph2": "The numbers are only an example. They are not a measurement. You can use your own numbers. The result stays similar. It does not matter how much you collect. It matters what comes back out.",
+    "paragraph3": "One more note. How to learn with an AI is in another article. It is called \"Learning with AI\". This article asks a different question. What do you keep? And what do you get from it?"
+  },
+  "brain": {
+    "title": "What a Second Brain is",
+    "build1": "Do you know 10 phone numbers by heart? Probably not. That is normal. But you know where the numbers are. For a phone number that is enough.",
+    "build2": "Researchers call this offloading. Offloading means: You do something outside your head. An alarm on your phone is offloading. Offloading is a good strategy. It is not a mistake.",
+    "definitionTitle": "Second Brain",
+    "definitionEverydayLabel": "In short",
+    "definitionEveryday": "A Second Brain has 2 parts. Part 1 is a store. It holds written things outside your head. You can find them again. Part 2 is a habit. You work with the store often.",
+    "definitionPreciseLabel": "More precisely",
+    "definitionPrecise": "Part 1 is quickly made. After that it costs you almost nothing. Part 2 costs effort every time. But only Part 2 makes something new. Do you only have Part 1? Then you have a storage room.",
+    "notAnApp": "Many people think: A Second Brain is an app. That is not true. Part 2 is a habit. You cannot install a habit. A note app is only the usual place. A good notebook beats a messy app.",
+    "example": "An example: In February you hear something about electricity contracts. In October you have to sign a contract. Do you still know that you saved something? Then your Second Brain helps you. Have you forgotten it? Then it does not help. But you have not processed it yet.",
+    "misconception": {
+      "title": "Wrong idea: offloading makes you dumb",
+      "text": "Many people are afraid of this. Research says something else. Offloading is normal. It often helps. The real question is: What do you offload? The filing: yes. The understanding: no."
+    },
+    "analogyBreak": "But careful. A phone number is only looked up. A thought is different. When you think, it must be in your head. You cannot look it up during a talk. You can offload the filing. You cannot offload the thinking."
+  },
+  "origin": {
+    "title": "The idea is old",
+    "event1": {
+      "date": "1945",
+      "title": "The memex",
+      "description": "Vannevar Bush describes a machine. It stores everything you read. It brings it back very fast."
+    },
+    "event2": {
+      "date": "1981",
+      "title": "Luhmann's Zweitgedächtnis",
+      "description": "Niklas Luhmann was a sociologist. He calls his slip-box a Zweitgedächtnis."
+    },
+    "event3": {
+      "date": "1998",
+      "title": "A different second brain",
+      "description": "A book is called \"The Second Brain\". It is about the gut. Same word, different topic."
+    },
+    "event4": {
+      "date": "2017",
+      "title": "The first course",
+      "description": "Tiago Forte teaches his course in January. The course is called \"Building a Second Brain\"."
+    },
+    "event5": {
+      "date": "2022",
+      "title": "The book",
+      "description": "The book comes out. Now many people know the term."
+    },
+    "text1": "Tiago Forte made the method known. But he did not invent the term. Two different things speak against that.",
+    "text2": "First the word. In 1998 there was already a book \"The Second Brain\". It was about the gut. Same word, different topic.",
+    "text3": "Second the idea. In 1981 Luhmann said \"Zweitgedächtnis\". That is a German word. It is not a translation of \"Second Brain\". Zweitgedächtnis means: second memory. It does not mean: second brain. So the idea was there 36 years earlier.",
+    "useful": "This is useful to know. The idea is about 80 years old. Then you stop believing one sentence: The new app changes everything."
+  },
+  "code": {
+    "title": "The lopsided half",
+    "intro": "The best known method is called CODE. CODE has 4 steps. Capture means: hold on to it. Organize means: file it. Distill means: cut it down to the core. Express means: make something from it. The 4 steps are not equally important.",
+    "kitchen1": "Think about cooking. First you shop. Then you put things away. Then you chop. Then you cook. A full fridge is not dinner. Only chopping and cooking feed you.",
+    "kitchen2": "Two things do not fit in this picture. Food goes bad. Notes do not go bad. That is why notes pile up so easily. And cooking has an end. CODE goes on and on.",
+    "funnelIntro": "Back to the 1,250 things. Let us do the math:",
+    "stepsTitle": "The funnel. All assumptions are shown.",
+    "stepsAriaLabel": "4 steps from collecting to result",
+    "step1": {
+      "label": "Capture: 1,250",
+      "description": "5 things a day. 5 days a week. 50 weeks."
+    },
+    "step2": {
+      "label": "Organize: 125",
+      "description": "You open every 10th thing again."
+    },
+    "step3": {
+      "label": "Distill: 25",
+      "description": "You cut every 5th of those into your own words. That takes effort."
+    },
+    "step4": {
+      "label": "Express: 5",
+      "description": "5 things become something new."
+    },
+    "statLabel": "Collected to used",
+    "statValue": "250 : 1",
+    "statDescription": "An example calculation. Not a measurement.",
+    "secondCalc": "Now change one single number. You still collect 5 things a day. Look at the things you open again. Of those you now cut every 3rd instead of every 5th. Then 25 becomes about 40. And at the end about 8 come out instead of 5. That is two thirds more.",
+    "lever": "The lever is not at the top of the funnel. A faster app brings you almost nothing.",
+    "para": "CODE also has a way to sort things. It is called PARA. The rule is: Sort by your current tasks. Do not sort by topics. PARA belongs to the cheap half.",
+    "retrievalTitle": "A second way to the same result",
+    "retrieval1": "Recalling works better than reading again. That is already in the article about learning with AI. Only the evidence is new here.",
+    "retrieval2": "In one study people read a text. One group read it several times. The other group recalled it from memory. Right after that, reading was better. One week later, recalling was better. A second study showed: Reading again did not help at all. But recalling helped a lot.",
+    "retrieval3": "This matters for CODE. Cutting something into your own words is a recall. Saving it again is like reading again.",
+    "misconception": {
+      "title": "Wrong idea: it felt productive, so it worked",
+      "text": "The feeling is not evidence. In that study people said before: This is how well I will do. Their guess was simply wrong. Collecting feels like work. Whether anything sticks is a different question."
+    },
+    "deepDive": {
+      "title": "Why collecting feels so good",
+      "text1": "There is one more reason. You do not notice the mistake. A bad note system never fails loudly. Nothing breaks. Nothing is visibly missing.",
+      "text2": "Andy Matuschak explains it like this: Without feedback nobody changes anything. People stay at the same level for years. And they feel fine about it."
+    }
+  },
+  "limit": {
+    "title": "Collecting is not understanding",
+    "intro": "This sounds like a warning. But it is a measured result. So this part starts with an experiment.",
+    "experiment1": "About 200 people got simple questions. For example: How does a zipper work? One group could search online. The other group was not allowed to. Then everybody rated themselves. On a scale from 1 to 7.",
+    "experiment2": "Then came the important part. Everybody got questions from 6 other areas. For example weather, American history, or food. These questions had nothing to do with the start. Nobody had searched for them.",
+    "experiment3": "The search group still rated itself higher. It had learned nothing about these topics. Only one thing was different: It had searched before. In another version people even picked pictures of more active brains. There are 9 experiments about this illusion. The transfer effect comes from the first experiment. The others test the illusion from other sides.",
+    "experiment4": "One later experiment is even more surprising. The search gave no answer at all. The illusion stayed anyway. So searching alone is enough.",
+    "comparison": {
+      "ariaLabel": "Access and understanding compared",
+      "beforeLabel": "Access",
+      "beforeResult": "An archive can take this over",
+      "afterLabel": "Understanding",
+      "afterResult": "This only happens in your head",
+      "beforeText": "Access is outside of you. Access helps you find things. Access feels like ability. An AI can take access off your hands.",
+      "afterText": "Understanding is inside you. Understanding helps you think. Understanding also feels like ability. That is why people mix them up. An AI cannot take understanding off your hands."
+    },
+    "misconception": {
+      "title": "Wrong idea: I saved it, so I know it",
+      "text": "Access and understanding are 2 different things. An archive can only give you access. Both feel almost the same. That is why you notice the difference late. One sentence from 2014 says it well: Knowing about something is not knowing it."
+    },
+    "luhmannContext": "The best sentence about this is old. It comes from Niklas Luhmann. He had the most famous slip-box. In 1981 he wrote about a slip-box without links:",
+    "luhmannQuote": "\"Bis dahin arbeitet er nur als Behälter, aus dem man herausholt, was man hineingetan hat.\" That means: You only get back what you put in.",
+    "analogyBreak": "The sentence describes a state. It does not describe the whole thing. A good archive is not passive. It also shows you new links. So systems are not useless.",
+    "deepDive": {
+      "title": "How sure is this?",
+      "text1": "One famous result is from 2011. It says: We remember where something is. We do not remember what it says. Later the first part could not be confirmed. Two times not, in one big project. That project confirmed 13 of 21 studies. Another study also found nothing.",
+      "text2": "Only one part of the work is affected. Still, this article uses a different result. The lesson is simple: Often quoted does not mean correct."
+    }
+  },
+  "ai": {
+    "title": "When the AI reads along",
+    "text1": "An AI can read your files today. There is an open standard for this. It is called Model Context Protocol. How this works is in the article about RAG.",
+    "text2": "One thing changes because of this. Finding costs almost nothing now. Good notes become more valuable. But 3,000 unread links are worth exactly what they were.",
+    "text3": "Tiago Forte wrote this himself in 2026. He says: The problem is not the AI any more. The problem is: You must give it the right thing. He also says: It is never as easy as promised.",
+    "survey": "There is not much safe data about your own thinking. There is one survey with 319 people. Some people trust the AI a lot. They say they think less. Some people trust themselves a lot. They say they think more. Thinking also moves towards checking the answer. These are self-reports. Nobody measured what people can do.",
+    "bottleneck": "This article draws one conclusion. Forte does not say this sentence himself. The bottleneck is now at Distill. The machine gets the looking up. You get the understanding."
+  },
+  "privacy": {
+    "title": "Careful: Where Do Your Notes Go?",
+    "text1": "Many note apps have AI features. For example: the AI summarizes your notes. To do that, the app often sends your notes to another company. This happens over the internet. Some companies may also use your notes to train their AI. This is not written in the app. It is written in the terms of service. Better read them first.",
+    "text2": "Remember this with private notes. You can often turn the AI features off. The rule is: do not write secrets into a program with cloud AI.",
+    "text3": "Your second brain rarely holds only things about you. Colleagues, clients, and family show up in it too. For example in a photo of a chat. Does all of this stay strictly private? Then the GDPR does not apply to you. But it does apply to the cloud company (Art. 2(2)(c) and Recital 18 GDPR). At work it is different. Notes about clients, patients, or staff are data about other people. You or your employer are answerable for them. An AI feature sends such notes to an outside company. That is a transfer. As a rule it needs a contract (Art. 28 GDPR). Sort this out first. Not afterwards."
+  },
+  "mirror": {
+    "title": "Two memories, one principle",
+    "text1": "This learning portal is also a second memory. Somebody else has kept it for you. But one thing it cannot do for you. That is what the checkpoint and the quiz are for.",
+    "text2": "A machine needs the same thing. An AI agent knows nothing on Monday about Friday. That is written in the maker's own guide. Imagine 10 sessions. Without a file it learns the same thing 10 times. With a file only once. More about this is in the article about harness engineering. And in the glossary under agent memory.",
+    "text3": "The reason is the same for both. What your head does not keep must sit outside. This is true for people and for machines.",
+    "forward": "One more difference. You build a second memory yourself. The work on it changes you. A digital twin is something else. It is measured against a real thing. And it acts back on that thing."
+  },
+  "close": {
+    "title": "Where the lever is",
+    "text1": "Think about the math from the start. The number at the top is not important. So \"which app?\" is almost never the first question. There is a better question.",
+    "text2": "Where does processing really happen here? And what would be the smallest change for it? A full store does not help you. One note in your own words does help."
+  },
+  "takeaways": {
+    "containerTitle": "The 5 most important points",
+    "item1": "A Second Brain has 2 parts. Part 1 is a store. Part 2 is a habit. Only Part 2 brings the benefit.",
+    "item2": "Offloading does not make you dumb. It is normal and well studied. Offload the filing. Do not offload the understanding.",
+    "item3": "CODE has a cheap half and a valuable half. Collecting and filing bring little. Cutting and expressing bring a lot.",
+    "item4": "Access and understanding are 2 different things. But access feels like understanding. That is an effect, not your fault.",
+    "item5": "An AI helps with good notes. With bad notes it does not help. The problem is now the wording, not the finding."
+  },
+  "checkpoint": {
+    "title": "Checkpoint",
+    "item1": "I can say: Which second part belongs to a store of notes?",
+    "item2": "I can say: Which half of CODE brings the benefit? And why is that so?",
+    "item3": "I can name my own example. In it, access and understanding are not the same."
+  },
+  "quiz": {
+    "boxTitle": "Test your knowledge",
+    "q1": {
+      "question": "What do the 4 steps of CODE stand for?",
+      "a": "Collect, Order, Deliver, Evaluate",
+      "b": "Capture, Organize, Distill, Express",
+      "c": "Copy, Optimize, Download, Export",
+      "d": "Create, Observe, Decide, Execute",
+      "explanation": "Capture means hold on to it. Organize means file it. Distill means cut it down. Express means make something from it. The last 2 steps bring the benefit."
+    },
+    "q2": {
+      "question": "The article says: Forte made the method known. He did not invent the term. What speaks against inventing it?",
+      "a": "Nothing. The article is just being very careful at this point.",
+      "b": "Two things: The word existed in 1998. The idea existed in 1981.",
+      "c": "Forte made the method only in 2022. Not already in the 2017 course.",
+      "d": "The word comes from brain research. There it means something else.",
+      "explanation": "In 1998 a book about the gut was called \"The Second Brain\". Same word, different topic. In 1981 Luhmann said \"Zweitgedächtnis\". That is the same idea with a German word."
+    },
+    "q3": {
+      "question": "Somebody collects 1,000 things a year. He opens 100 of them again. He cuts 20 into his own words. From that he makes 4 things. He wants more benefit. Plan A: a faster app for 2,000 things. Plan B: cut 40 instead of 20. What happens?",
+      "a": "Plan A works better. More material always means more ideas.",
+      "b": "Both plans work the same. Both of them double a number.",
+      "c": "Plan B works. Plan A hardly. A doubles the wrong step.",
+      "d": "No plan works. The benefit here only depends on luck.",
+      "explanation": "Plan A makes the top number bigger. That number is not the problem. Plan B makes the cutting bigger. Only the cutting brings the benefit."
+    },
+    "q4": {
+      "question": "Two people prepare for the same talk. Person A saved 40 articles. She skimmed them the evening before. She feels well prepared. Person B read 3 articles. She cut them into her own words. Who is more likely to be surprised in the talk?",
+      "a": "Person B. Three articles are simply too few for a real talk.",
+      "b": "Person A. Access to a lot of material feels like knowing.",
+      "c": "Nobody. Preparation only works with a large amount of material.",
+      "d": "Person A. But only because she started much too late.",
+      "explanation": "The experiment shows it: People who search feel smarter. Even about topics they never searched. That is not laziness. Person B did the important step: cutting into her own words."
+    },
+    "q5": {
+      "question": "Two people point an AI at their notes. A has 3,000 saved links. A never opened them again. B has 300 notes. B cut every note into her own words. What does the AI change?",
+      "a": "The AI finds and cuts. So A catches up with B.",
+      "b": "The AI changes nothing. It searches the same in both.",
+      "c": "The AI takes over the finding. Only B did the cutting.",
+      "d": "The AI helps B more. Small archives are simply faster.",
+      "explanation": "The AI searches well in both archives. But it does not cut for you. That is why it helps B more. The problem is now the wording."
+    }
+  }
+}

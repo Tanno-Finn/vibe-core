@@ -1,0 +1,10 @@
+{
+  "term": "Deepfake",
+  "alternativeNames": [
+    "AI-generated synthetic media",
+    "Face Swap",
+    "Neural Fake"
+  ],
+  "description": "Deepfake is an AI-generated or AI-manipulated piece of media that depicts a real person in a situation that never occurred. The term emerged in 2017 from a Reddit username that spread autoencoder-based face-swap videos; it combines “deep learning” and “fake”. The technical basis today consists mainly of generative adversarial networks (GANs), diffusion models, and specialized encoder-decoder architectures capable of convincingly substituting a person's face, voice, or entire body movements. Deepfakes must be distinguished from synthetic media in general: synthetic media covers any AI-generated image or video (including cartoon characters or CGI landscapes), while deepfakes specifically target the deceptively realistic portrayal of real, identifiable people. The societal danger lies less in perfect forgery than in what researchers call the liar's dividend: the mere existence of convincing deepfakes undermines trust in authentic video and audio recordings, since any piece of evidence can be dismissed as a potential fake. The EU AI Act (Art. 50) mandates disclosure labeling for AI-generated content.",
+  "example": "A video circulates on social media showing a politician apparently receiving a bribe. The video is a deepfake -- the scene was never filmed. Even after the forgery is exposed, distrust towards the person persists: the liar's dividend has done its work."
+}

@@ -1,0 +1,83 @@
+{
+  "button": "Feedback",
+  "dialog": {
+    "title": "Give Feedback"
+  },
+  "intro": "Tell us what you think! Your opinion matters to us.",
+  "message": "Your message",
+  "messagePlaceholder": "Write here...",
+  "email": "Your email (if you want)",
+  "emailPlaceholder": "you@example.com",
+  "emailHint": "This email doesn't look right. Did you make a typo?",
+  "privacyNote": "We only need your email to write back to you. We do not save it. We also see which page you are on and which browser you use.",
+  "privacyNoteLink": "More info in the imprint",
+  "send": "Send",
+  "sending": "Sending...",
+  "sent": "Done!",
+  "sentDetail": "Thank you for your message!",
+  "error": "Error",
+  "errorDetail": "That did not work. Please try again later.",
+  "errorRateLimit": "You already sent many messages. Please try again later.",
+  "category": {
+    "label": "What do you want to tell us?",
+    "general": "Something General",
+    "bug": "Report a Problem",
+    "feature": "Make a Wish",
+    "content": "Fix Something",
+    "praise": "Say Something Nice",
+    "accessibility": "Report a Barrier"
+  },
+  "rating": {
+    "label": "How much do you like this site?"
+  },
+  "placeholder": {
+    "bug": "What is broken? What did you do?",
+    "praise": "What do you like? (You don't have to write anything)",
+    "content": "What is wrong? Where did you see it?",
+    "feature": "What do you wish for?",
+    "accessibility": "Which barrier did you have? What did not work?"
+  },
+  "a11y": {
+    "pageLabel": "Which page?",
+    "techLabel": "Special tools (if you want)",
+    "techPlaceholder": "For example: screen reader, magnifier, keyboard",
+    "anonymNote": "You can report without a name. We only need your email if you want an answer."
+  },
+  "page": {
+    "title": "Feedback",
+    "subtitle": "Tell us what you think. Here you have a lot of room to write.",
+    "formTitle": "Your message",
+    "nameLabel": "Your name (if you want)",
+    "namePlaceholder": "What is your name?",
+    "emailLabel": "Your email (if you want)",
+    "messageLabel": "Your message",
+    "messageHint": "Please write at least 20 characters.",
+    "charCounterLabel": "This many characters you have written",
+    "consentLabel": "I agree. What I write may be stored.",
+    "requiredMark": "You must fill this in",
+    "submit": "Send message",
+    "submitting": "The message is being sent …",
+    "successTitle": "Done",
+    "successText": "Thank you for your message! It is saved now.",
+    "successAgain": "Write another message",
+    "privacyTitle": "Where does your message go?",
+    "privacyText": "Your message stays in this browser. It is not sent to the internet. You can delete it any time.",
+    "errorTitle": "That did not work",
+    "error": {
+      "emailInvalid": "This email does not look right. Did you make a typo?",
+      "messageTooShort": "Your message is too short. Please write more.",
+      "messageTooLong": "Your message is too long. Please write less.",
+      "consentRequired": "Please tick the box. Then you can send.",
+      "storage": "The browser could not save anything. This happens in private mode."
+    },
+    "inboxTitle": "Your saved messages",
+    "inboxNote": "Only you see this list. It is saved in this browser.",
+    "inboxEmpty": "There is nothing here yet. Your first message will come here.",
+    "clear": "Delete all messages",
+    "clearConfirmLabel": "Really delete everything?",
+    "clearCancel": "Cancel",
+    "cleared": "All messages are deleted.",
+    "entryDateLabel": "Written on",
+    "anonymous": "No name"
+  }
+}

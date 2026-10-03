@@ -1,0 +1,8 @@
+{
+  "hal": {
+    "cantDoThat": "I cannot do that.",
+    "discovered": "You found a hidden thing! You got a success!",
+    "justKidding": "Just a joke! 🤖",
+    "sorryDave": "Sorry Dave."
+  }
+}

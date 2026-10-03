@@ -1,0 +1,9 @@
+{
+  "term": "Context",
+  "alternativeNames": [
+    "Contextual Information",
+    "Input Context"
+  ],
+  "description": "Context – all the information a language model actually has in front of it at the moment it answers. This includes the system prompt, the conversation so far, the current question, and anything else handed in: inserted documents, search results, or tool outputs. The crucial, often-overlooked point: an LLM is memoryless between requests. It remembers nothing – the entire relevant history is resent with every single request, otherwise it simply does not exist for the model. Context is therefore the working memory at runtime, clearly distinct from the training knowledge baked into the weights. How much of it fits at once is set by the context window; how to fill it skillfully is the discipline of context engineering.",
+  "example": "You ask a chatbot 'And how old was he?' two messages after talking about Einstein. It only works because the entire earlier conversation is sent along in the context again – open a fresh chat and Einstein is gone, leaving the question meaningless."
+}

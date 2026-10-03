@@ -1,0 +1,8 @@
+{
+  "term": "Weltmodelle",
+  "alternativeNames": [
+    "World Models"
+  ],
+  "description": "Weltmodelle sind innere Modelle von der Umgebung. Eine KI baut sich ein Bild von der Welt. Dieses Bild ist im Computer gespeichert. Die KI kann damit in Gedanken üben. Sie probiert Aktionen aus, ohne sie wirklich zu machen. Sie sagt vorher, was passieren wird. Dann wählt sie die beste Aktion. Menschen machen das auch. Sie stellen sich etwas vor, bevor sie es tun.",
+  "example": "Ein Roboter soll Dinge greifen. Er baut ein Weltmodell. Das Modell weiß, wie Dinge fallen. Es weiß, wie Dinge rollen. Der Roboter überlegt in Gedanken. Er probiert verschiedene Bewegungen aus. Dann wählt er die beste Bewegung. Erst dann bewegt er sich wirklich."
+}

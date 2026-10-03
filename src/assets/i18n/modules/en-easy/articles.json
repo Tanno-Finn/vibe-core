@@ -1,0 +1,17 @@
+{
+  "category": {
+    "fundamentals": "Basics",
+    "architecture": "Technology",
+    "concepts": "Ideas"
+  },
+  "difficulty": {
+    "beginner": "Easy",
+    "intermediate": "Medium"
+  },
+  "relatedTools": "Useful Tools",
+  "relatedResources": "More to Read",
+  "openExternal": "Open page",
+  "viewInCatalog": "Show in list",
+  "citedSources": "Sources Used",
+  "referencedInArticles": "Used in Articles"
+}

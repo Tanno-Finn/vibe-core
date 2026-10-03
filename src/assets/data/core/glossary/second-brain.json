@@ -1,0 +1,54 @@
+{
+  "id": "second-brain",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Second Brain",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Zweites Gehirn"
+    ],
+    "en": [
+      "External Brain"
+    ],
+    "de-easy": [
+      "Zweites Gehirn"
+    ],
+    "en-easy": [
+      "Second Memory"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "Forte, Tiago: Building a Second Brain - The Definitive Introductory Guide. Forte Labs",
+      "url": "https://fortelabs.com/blog/basboverview/",
+      "notes": "Einführung des Autors selbst; definiert die CODE-Methode (Capture, Organize, Distill, Express) und das Second-Brain-Konzept."
+    },
+    {
+      "type": "documentation",
+      "citation": "mmapped.blog: Book summary - Building a Second Brain",
+      "url": "https://mmapped.blog/posts/16-building-a-second-brain",
+      "notes": "Unabhängige Zusammenfassung des Buchs; Cross-Check der CODE-Schritte und der PARA-Organisation."
+    },
+    {
+      "type": "documentation",
+      "citation": "Wikipedia: Personal knowledge management",
+      "url": "https://en.wikipedia.org/wiki/Personal_knowledge_management",
+      "notes": "Cross-Referenz zur Einordnung in das ältere Feld des persönlichen Wissensmanagements (PKM); nicht als alleinige Primärquelle verwendet."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agenten-gedaechtnis",
+      "context",
+      "context-engineering",
+      "digitaler-zwilling"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

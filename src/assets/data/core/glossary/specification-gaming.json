@@ -1,0 +1,38 @@
+{
+  "id": "specification-gaming",
+  "category": "ai-safety",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Specification Gaming",
+  "childConcepts": [],
+  "parentConcepts": [
+    "ai-alignment"
+  ],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "Ausnutzen der Spezifikation",
+      "Reward Hacking",
+      "Gaming the System"
+    ],
+    "en": [
+      "Reward Hacking",
+      "Gaming the System",
+      "Exploiting Specifications"
+    ],
+    "de-easy": [
+      "Specification Gaming"
+    ],
+    "en-easy": [
+      "Specification Gaming"
+    ]
+  },
+  "related": {
+    "glossary": [
+      "reward-hacking",
+      "reward-misspecification"
+    ]
+  }
+}

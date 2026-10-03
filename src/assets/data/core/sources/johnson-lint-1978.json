@@ -1,0 +1,17 @@
+{
+  "id": "johnson-lint-1978",
+  "type": "paper",
+  "authors": "S. C. Johnson",
+  "year": "1978",
+  "publication": "Bell Laboratories, Computing Science Technical Report",
+  "url": "https://wolfram.schneider.org/bsd/7thEdManVol2/lint/lint.pdf",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "lint",
+    "static-analysis",
+    "undecidability",
+    "software-history",
+    "false-positives"
+  ]
+}

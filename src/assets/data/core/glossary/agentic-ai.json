@@ -1,0 +1,55 @@
+{
+  "id": "agentic-ai",
+  "category": "fundamentals",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Agentic AI",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Agentische KI"
+    ],
+    "en": [
+      "Agent-based AI systems"
+    ],
+    "de-easy": [
+      "Agentische KI"
+    ],
+    "en-easy": [
+      "Goal-driven AI"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "Anthropic Engineering: Building Effective AI Agents (Dezember 2024)",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "notes": "Kernunterscheidung: Workflows folgen vordefinierten Pfaden, Agenten steuern Prozess und Werkzeugnutzung dynamisch selbst."
+    },
+    {
+      "type": "documentation",
+      "citation": "NVIDIA Glossary: Autonomous AI Agents",
+      "url": "https://www.nvidia.com/en-us/glossary/ai-agents/",
+      "notes": "Definition als zielgerichtete Systeme, die mehrschrittige Aufgaben planen und ausführen; Abgrenzung zum Request-and-Respond-Muster."
+    },
+    {
+      "type": "paper",
+      "citation": "Sapkota, Roumeliotis, Karkee: AI Agents vs. Agentic AI - A Conceptual Taxonomy, Applications and Challenges (arXiv:2505.10468)",
+      "url": "https://arxiv.org/abs/2505.10468",
+      "notes": "Taxonomie: agentische Systeme mit Aufgaben-Zerlegung, persistentem Gedächtnis und koordinierter Autonomie."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent",
+      "agent-loop",
+      "agentic-workflow",
+      "function-calling",
+      "human-in-the-loop"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

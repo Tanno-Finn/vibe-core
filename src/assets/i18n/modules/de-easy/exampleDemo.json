@@ -1,0 +1,76 @@
+{
+  "title": "Beispiel·demo: Der Bauplan",
+  "subtitle": "Diese Demo ist ein Muster. Sie zeigt: So ist eine Demo aufgebaut.",
+  "description": "Diese Demo hat kein Fachthema. Sie zeigt den Bauplan einer Demo: Regler, Bild, Beobachten, Verstehen.",
+  "intro": {
+    "title": "Das ist eine Musterdemo",
+    "text": "Diese Seite erklärt kein Fachthema. Sie zeigt dir den Bauplan. Jeder Teil der Seite ist ein Baustein. Jeder Teil erklärt sich selbst. Du kannst die Seite als Vorlage nehmen. So baust du deine eigene Demo."
+  },
+  "demo": {
+    "title": "Der interaktive Teil",
+    "lead": "Der interaktive Teil ist das Herz der Demo. Du bedienst die Regler. Das Bild ändert sich sofort. Hier sind es nur bunte Punkte. Das ist Absicht: Es geht um den Aufbau, nicht um ein Thema.",
+    "canvasAria": "Bildfläche mit bunten Punkten. Die Punkte reagieren auf die Regler.",
+    "summary": "{n} Punkte im Muster {pattern}. {state}"
+  },
+  "controls": {
+    "points": "Anzahl Punkte",
+    "pointsAria": "Anzahl Punkte: {n}",
+    "pattern": "Muster",
+    "patterns": {
+      "scatter": "Verstreut",
+      "ring": "Ring",
+      "grid": "Gitter",
+      "wave": "Welle"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Demo zurücksetzen",
+    "reducedMotion": "Dein Gerät möchte wenig Bewegung. Darum ist die Animation aus. Die Regler gehen trotzdem."
+  },
+  "status": {
+    "points": "Jetzt sind es {n} Punkte.",
+    "pattern": "Neues Muster: {pattern}.",
+    "running": "Die Animation läuft.",
+    "paused": "Die Animation ist angehalten.",
+    "reset": "Die Demo ist wieder wie am Anfang."
+  },
+  "tooltip": {
+    "points": "So viele Punkte siehst du im Bild. Ein Schiebe·regler ist gut für Zahlen.",
+    "pattern": "So liegen die Punkte im Bild. Eine Auswahl·liste ist gut für wenige Möglichkeiten.",
+    "moreInfo": "Mehr Informationen"
+  },
+  "structure": {
+    "title": "So ist eine Demo aufgebaut",
+    "intro": "Fast jede gute Demo hat die gleichen vier Bausteine. Du erlebst sie in dieser Reihenfolge.",
+    "controls": {
+      "title": "Regler",
+      "text": "Wenige Regler mit klaren Namen. Ein Schiebe·regler für Zahlen. Eine Auswahl für Muster. Start, Pause und Zurücksetzen. Jeder Regler hat eine Beschriftung."
+    },
+    "viz": {
+      "title": "Bild",
+      "text": "Eine Fläche, die sofort reagiert. Es gibt auch einen Text statt Bild. Der Text ist für Menschen mit hohem Kontrast oder Vorlese·programm."
+    },
+    "observe": {
+      "title": "Beobachten",
+      "text": "Du spielst mit den Reglern. Du siehst sofort, was passiert. Probiere: Was ändert das Muster? Was ändert der Schiebe·regler?"
+    },
+    "understand": {
+      "title": "Verstehen",
+      "text": "Am Ende kommt die Erklärung. Dazu ein kleiner Test und die wichtigsten Sätze. Erst dann wird aus Spielen Lernen."
+    }
+  },
+  "checkpoint": {
+    "title": "Test: Kennst du den Bauplan?",
+    "item1": "Ich kann die vier Bausteine nennen: Regler, Bild, Beobachten, Verstehen."
+  },
+  "takeaways": {
+    "title": "Das Wichtigste in Kürze",
+    "text": "1. **Vier Bausteine**: Regler, Bild, Beobachten, Verstehen. Jede Demo folgt dieser Reihenfolge.\n\n2. **Sofortige Antwort**: Du bedienst einen Regler. Das Bild ändert sich sofort.\n\n3. **Für alle Menschen**: Beschriftungen, Vorlese·hinweise und wenig Bewegung gehören von Anfang an dazu.\n\nDiese Demo hat kein Thema. Tausche die Punkte gegen dein Thema. Behalte den Aufbau."
+  },
+  "build": {
+    "title": "Bau deine eigene Demo",
+    "text": "Diese Seite ist deine Vorlage. Tausche den interaktiven Teil gegen dein Thema. Behalte den Aufbau. Im Entwickler·modus helfen dir zwei Werkzeuge:",
+    "designWorkshop": "die Design·werkstatt: Dort probierst du alle Bausteine aus",
+    "newComponent": "der geführte Weg für einen neuen Baustein"
+  }
+}

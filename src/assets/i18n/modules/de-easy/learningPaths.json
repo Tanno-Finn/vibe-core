@@ -1,0 +1,157 @@
+{
+  "completedBadge": "Erledigt",
+  "progressOf": "von",
+  "optional": "Optional",
+  "comingSoon": "Demnächst verfügbar",
+  "downloadCertificate": "Zertifikat herunterladen",
+  "difficulty": {
+    "beginner": "Einsteiger",
+    "intermediate": "Fortgeschritten",
+    "advanced": "Experte"
+  },
+  "stepType": {
+    "demo": "Demo",
+    "article": "Artikel",
+    "guide": "Guide"
+  },
+  "certificate": {
+    "title": "ZERTIFIKAT",
+    "seal": "LERNEN",
+    "subtitle": "Grund·wissen zu deinem Thema",
+    "hasCompleted": "Hat diesen Lernpfad geschafft:",
+    "dialogTitle": "Zertifikat erstellen",
+    "nameLabel": "Dein Name",
+    "nameRequired": "Bitte gib deinen Namen ein",
+    "namePlaceholder": "Name eingeben",
+    "privacyHint": "Dein Name steht nur im PDF. Er wird nicht gespeichert.",
+    "download": "Als PDF speichern",
+    "cancel": "Abbrechen",
+    "statusTitle": "Zertifikat·status",
+    "lockedHint": "Klicke hier, um den Status zu sehen",
+    "stepCompleted": "Erledigt",
+    "stepPending": "Offen",
+    "stepUnavailable": "Noch nicht verfügbar",
+    "completedStepsLabel": "Erledigte Schritte:",
+    "stepsRemaining": "{{count}} Schritte noch offen",
+    "stepsUnavailable": "{{count}} Schritte noch nicht verfügbar"
+  },
+  "sectors": {
+    "foundation": "Das Fundament",
+    "foundationDesc": "Für alle ohne Vorwissen. Wer einen Computer bedienen kann, startet hier.",
+    "workshop": "Die Werkstatt",
+    "workshopDesc": "Hier wird es praktisch. Du lernst Werkzeuge und Arbeits·abläufe kennen.",
+    "academy": "Die Akademie",
+    "academyDesc": "Der tiefe Fach·bereich. Wie an der Uni, aber für alle verständlich.",
+    "society": "Gesellschaft & Teilhabe",
+    "societyDesc": "Was KI für die Gesellschaft und das Recht bedeutet.",
+    "misc": "Sammelsurium",
+    "miscDesc": "Hier sind Demos, die zu keinem anderen Lernpfad passen. Du kannst sie einfach ausprobieren."
+  },
+  "availableFrom": "Kommt am",
+  "prerequisiteLabel": "Voraussetzung",
+  "seedPath1": {
+    "title": "Erste Schritte",
+    "description": "Dieser Pfad zeigt dir die Grundlagen von deinem Thema. Was ist es? Warum ist es wichtig?",
+    "learningPromise": "Nach diesem Pfad kannst du sagen, worum es bei deinem Thema geht.",
+    "targetAudience": "Für Anfänger. Du brauchst kein Vorwissen.",
+    "duration": "Etwa 30 Minuten",
+    "prerequisites": "Keine",
+    "steps": {
+      "intro": "Worum geht es?",
+      "introDesc": "Lerne die Grundidee von deinem Thema."
+    }
+  },
+  "seedPath2": {
+    "title": "Dein Thema im Alltag",
+    "description": "Sieh, wo dein Thema um dich herum ist. Zum Beispiel bei der Suche oder bei Tipps.",
+    "learningPromise": "Nach diesem Pfad findest du dein Thema in Alltags·werkzeugen.",
+    "targetAudience": "Für neugierige Anfänger.",
+    "duration": "Etwa 30 Minuten",
+    "prerequisites": "Keine",
+    "steps": {
+      "intro": "Dein Thema um dich herum",
+      "introDesc": "Finde Alltags·dinge, in denen dein Thema steckt."
+    }
+  },
+  "computerBasics": {
+    "title": "Computer verstehen",
+    "description": "Vier Grundlagen: die Kommando·zeile. Die Entwicklungs·umgebung. Die Versions·kontrolle. Und Verbindungen zwischen Programmen.",
+    "learningPromise": "Nach diesem Lernpfad kannst du ein Terminal öffnen. Du weißt, was ein Repository ist. Und du verstehst, wie Programme miteinander reden.",
+    "targetAudience": "Anfänger ohne Vorwissen",
+    "duration": "4 Artikel. Etwa 55 Minuten.",
+    "prerequisites": "Keine",
+    "steps": {
+      "terminal": "Die Kommando·zeile",
+      "terminalDesc": "Ein Terminal ist ein Fenster für Befehle. Du tippst einen Befehl. Der Computer führt ihn aus.",
+      "devEnvironment": "Deine Entwicklungs·umgebung",
+      "devEnvironmentDesc": "Hier schreibst du Programme. Du lernst: So richtest du alles ein.",
+      "versioning": "Versionen verwalten",
+      "versioningDesc": "Ein Repository merkt sich jede Änderung. So kannst du nichts kaputt machen.",
+      "network": "Netz und Verbindungen",
+      "networkDesc": "Wie eine Anfrage durch das Internet läuft. Und wie zwei Programme sich verbinden."
+    }
+  },
+  "agentsBasics": {
+    "title": "Mit KI-Agenten arbeiten",
+    "description": "Du schreibst eine Anweisung in normaler Sprache. Ein KI-Agent macht die Arbeit. Dieser Pfad zeigt, wie das geht.",
+    "learningPromise": "Nach diesem Lernpfad gibst du einem KI-Agenten gute Anweisungen. Du weißt, was in seinen Kontext gehört. Und du verstehst, wie ein Agent Werkzeuge benutzt.",
+    "targetAudience": "Alle, die mit KI-Agenten arbeiten wollen",
+    "duration": "4 Artikel. Etwa 36 Minuten.",
+    "prerequisites": "Computer verstehen",
+    "steps": {
+      "naturalLanguage": "In normaler Sprache programmieren",
+      "naturalLanguageDesc": "Du schreibst, was du willst. Die KI schreibt den Code. Das hat Vorteile. Und Grenzen.",
+      "context": "Den Kontext gestalten",
+      "contextDesc": "Eine KI kann nur wenig Text auf einmal lesen. Du lernst, was da hineingehört.",
+      "interfaces": "Verbindungen und Werkzeuge",
+      "interfacesDesc": "Wie ein Programm ein KI-Modell anspricht. Und wie ein Agent Werkzeuge benutzt.",
+      "harnessEngineering": "Harness Engineering (klare Regeln statt Hoffnung)",
+      "harnessEngineeringDesc": "Die Umgebung um den Agenten bauen. Mit Prüf·stationen, Sandbox und Gedächtnis."
+    }
+  },
+  "quality": {
+    "title": "Software·qualität und Testen",
+    "description": "Du lernst: Was ist ein Test? Was prüfen Maschinen? Und was darf nie ins Repository?",
+    "learningPromise": "Du liest einen Test. Du verstehst, was er prüft. Du erkennst, wann Grün nichts bedeutet. Und du weißt, was geheim bleiben muss.",
+    "targetAudience": "Alle, die mit KI Programme bauen",
+    "duration": "4 Artikel",
+    "prerequisites": "Mit KI-Agenten arbeiten",
+    "steps": {
+      "agentTests": "Tests verstehen, wenn die KI sie schreibt",
+      "agentTestsDesc": "Grün heißt nicht: alles ist richtig. Du lernst, einen Test zu lesen.",
+      "qualityGates": "Gates: Prüfungen von Maschinen",
+      "qualityGatesDesc": "Du lernst die 5 Fragen hinter Rot. Und du lernst den erlaubten Weg vorbei.",
+      "codeReview": "Prüfen, ohne programmieren zu können",
+      "codeReviewDesc": "Du lernst die Form eines Diffs. Und du lernst 3 prüfbare Fragen.",
+      "secretsSecurity": "Geheimnisse: Was nie ins Repository darf",
+      "secretsSecurityDesc": "Du lernst, was ein Geheimnis ist. Und was du tust, wenn eins raus ist."
+    }
+  },
+  "knowledgeConcepts": {
+    "title": "Second Brain & Digitale Zwillinge",
+    "description": "Wissen aufschreiben und verbinden. Digitale Abbilder von echten Dingen verstehen.",
+    "learningPromise": "Du baust dir ein Second Brain. Das ist ein Speicher für dein Wissen. Und du verstehst digitale Zwillinge.",
+    "targetAudience": "Alle. Du brauchst kein Vorwissen.",
+    "duration": "2 Artikel",
+    "prerequisites": "Keine",
+    "steps": {
+      "secondBrain": "Second Brain: Dein Gedächtnis außerhalb vom Kopf",
+      "secondBrainDesc": "Du schreibst dein Wissen auf. Du verbindest die Notizen. So hilft dir dein Wissen beim Denken.",
+      "digitalTwins": "Digitale Zwillinge",
+      "digitalTwinsDesc": "Ein digitaler Zwilling ist ein Computer·abbild von einem echten Ding. Du lernst: Das kann er. Und das kann er nicht."
+    }
+  },
+  "underTheHood": {
+    "title": "Unter der Haube",
+    "description": "Ein echtes Projekt mit KI-Agenten von innen. Mit Regeln, Prüfungen und den Stellen, an denen Fehler erwartet werden.",
+    "learningPromise": "Du siehst an einem echten Projekt: Welche Regeln prüft eine Maschine? Welche Regeln sind nur Text? Und warum laufen die Tests im Build?",
+    "targetAudience": "Alle, die selbst mit KI-Agenten arbeiten wollen",
+    "duration": "1 Artikel, etwa 12 Minuten",
+    "prerequisites": "Arbeiten mit KI-Agenten",
+    "steps": {
+      "tour": "Die Tour: Wie dieses Projekt mit Agenten gebaut wird",
+      "tourDesc": "10 Stationen durch ein echtes Projekt. Jede Station nennt eine Datei. Du kannst sie selbst öffnen."
+    }
+  },
+  "draftSrOnly": "Entwurf. Das gibt es noch nicht in allen Sprachen."
+}

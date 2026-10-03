@@ -1,0 +1,76 @@
+{
+  "title": "Example Demo: The Blueprint",
+  "subtitle": "This demo is a template. It shows: this is how a demo is built.",
+  "description": "This demo has no subject. It shows the blueprint of a demo: controls, picture, observing, understanding.",
+  "intro": {
+    "title": "This is a template demo",
+    "text": "This page teaches no subject. It shows you the blueprint. Every part of the page is one building block. Every part explains itself. You can use this page as a template. This is how you build your own demo."
+  },
+  "demo": {
+    "title": "The interactive part",
+    "lead": "The interactive part is the heart of the demo. You use the controls. The picture changes right away. Here it is only colored dots. That is on purpose: it is about the structure, not about a subject.",
+    "canvasAria": "Picture area with colored dots. The dots react to the controls.",
+    "summary": "{n} dots in the {pattern} pattern. {state}"
+  },
+  "controls": {
+    "points": "Number of dots",
+    "pointsAria": "Number of dots: {n}",
+    "pattern": "Pattern",
+    "patterns": {
+      "scatter": "Scatter",
+      "ring": "Ring",
+      "grid": "Grid",
+      "wave": "Wave"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset demo",
+    "reducedMotion": "Your device wants little motion. So the animation is off. The controls still work."
+  },
+  "status": {
+    "points": "Now there are {n} dots.",
+    "pattern": "New pattern: {pattern}.",
+    "running": "The animation is running.",
+    "paused": "The animation is paused.",
+    "reset": "The demo is like at the start again."
+  },
+  "tooltip": {
+    "points": "This many dots are in the picture. A slider is good for numbers.",
+    "pattern": "This is how the dots are placed. A select list is good for a few options.",
+    "moreInfo": "More information"
+  },
+  "structure": {
+    "title": "How a demo is built",
+    "intro": "Almost every good demo has the same four building blocks. You experience them in this order.",
+    "controls": {
+      "title": "Controls",
+      "text": "Few controls with clear names. A slider for numbers. A select for patterns. Start, pause, and reset. Every control has a label."
+    },
+    "viz": {
+      "title": "Picture",
+      "text": "An area that reacts right away. There is also text instead of the picture. The text is for people with high contrast or a screen reader."
+    },
+    "observe": {
+      "title": "Observe",
+      "text": "You play with the controls. You see right away what happens. Try it: what does the pattern change? What does the slider change?"
+    },
+    "understand": {
+      "title": "Understand",
+      "text": "The explanation comes at the end. Also a small test and the most important sentences. Only then playing becomes learning."
+    }
+  },
+  "checkpoint": {
+    "title": "Test: Do you know the blueprint?",
+    "item1": "I can name the four building blocks: controls, picture, observing, understanding."
+  },
+  "takeaways": {
+    "title": "Key takeaways",
+    "text": "1. **Four building blocks**: controls, picture, observing, understanding. Every demo follows this order.\n\n2. **Instant answer**: you use a control. The picture changes right away.\n\n3. **For all people**: labels, screen reader hints, and little motion belong in from the start.\n\nThis demo has no subject. Swap the dots for your subject. Keep the structure."
+  },
+  "build": {
+    "title": "Build your own demo",
+    "text": "This page is your template. Swap the interactive part for your subject. Keep the structure. In developer mode two tools help you:",
+    "designWorkshop": "the design workshop: there you try out all building blocks",
+    "newComponent": "the guided way to add a new building block"
+  }
+}

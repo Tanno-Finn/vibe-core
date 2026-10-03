@@ -1,0 +1,28 @@
+{
+  "bell": {
+    "label": "Updates",
+    "labelWithCount": "Updates: {count} new",
+    "ariaLiveUpdate": "There is a new update.",
+    "empty": "No updates.",
+    "viewAll": "See all updates"
+  },
+  "welcome": {
+    "title": "Welcome!",
+    "description": "Here you will see new updates. For example, about new texts or new languages."
+  },
+  "cta": {
+    "open": "Open"
+  },
+  "clientUpdate": {
+    "title": "A new version is here",
+    "description": "Please reload the page. Then you see the new version."
+  },
+  "seedNotification1": {
+    "title": "Example notification 1",
+    "description": "This is an example of a news item. You can add your own. Put them in the folder assets/data/notifications."
+  },
+  "seedNotification2": {
+    "title": "Example notification 2",
+    "description": "Old items go to the archive. Like this one."
+  }
+}

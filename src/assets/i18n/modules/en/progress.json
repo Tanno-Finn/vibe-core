@@ -1,0 +1,30 @@
+{
+  "title": "My progress",
+  "subtitle": "How far you have got through the content on this portal.",
+  "overviewTitle": "Overview",
+  "topicsTitle": "Topic by topic",
+  "emptyTitle": "No content yet",
+  "emptyText": "As soon as this portal holds articles or demos, each one gets a row here.",
+  "storageNote": "Saved progress stays in this browser only and is never sent anywhere. You can delete it at any time in Settings.",
+  "summary": {
+    "overall": "Overall progress"
+  },
+  "table": {
+    "caption": "Topics with their status and the steps finished",
+    "topic": "Topic",
+    "status": "Status",
+    "steps": "Steps"
+  },
+  "status": {
+    "notStarted": "Not started",
+    "inProgress": "In progress",
+    "done": "Done"
+  },
+  "kind": {
+    "article": "Article",
+    "demo": "Demo"
+  },
+  "trackingOffNote": "Your progress isn't saved — you chose not to store it. The numbers here count this visit only and start from zero next time. You can allow saving at any time in the cookie settings at the bottom of the page.",
+  "settingsLink": "Go to Settings",
+  "trackingUndecidedNote": "Your progress isn't saved yet — you haven't decided whether it may be stored. The numbers here count this visit only. You can allow saving in the cookie banner or in the cookie settings at the bottom of the page."
+}

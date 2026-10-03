@@ -1,0 +1,8 @@
+{
+  "term": "Agenten·gedächtnis",
+  "alternativeNames": [
+    "Agent Memory"
+  ],
+  "description": "Agenten·gedächtnis. Auf Englisch: Agent Memory. Ein KI-Agent vergisst normalerweise viel. Nach einer Sitzung ist sein Arbeits·speicher leer. Der Arbeits·speicher heißt Kontext·fenster. Das Agenten·gedächtnis hilft gegen das Vergessen. Der Agent schreibt wichtige Dinge auf. Zum Beispiel in eine Datei mit Notizen. In der nächsten Sitzung liest er die Notizen. So weiß er wieder Bescheid. Das ist anders als sein Training. Das Training kann man nicht einfach ändern.",
+  "example": "Ein Agent lernt: Dieser Test braucht eine Einstellung. Er schreibt das in seine Notizdatei. Wochen später arbeitet er wieder. Er liest die Notiz. Er macht den Fehler nicht noch mal."
+}

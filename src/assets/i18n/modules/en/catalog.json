@@ -1,0 +1,82 @@
+{
+  "title": "Catalog",
+  "subtitle": "Curated overview of tools, resources, and starting points for your subject.",
+  "disclaimer": "External content – use at your own discretion",
+  "entryType": {
+    "tool": "Tool",
+    "resource": "Resource"
+  },
+  "sort": {
+    "label": "Sort by",
+    "rating": "Rating",
+    "alphabetical": "Alphabetical",
+    "newest": "Newest"
+  },
+  "filter": {
+    "search": "Search..."
+  },
+  "quickFilters": {
+    "topRated": "Top rated",
+    "freeAndGerman": "Free & German",
+    "onlyFavorites": "Favorites only"
+  },
+  "noResults": {
+    "title": "No results",
+    "subtitle": "Try different filter settings or a different search term."
+  },
+  "loadMore": "Load more",
+  "loadingMore": "Loading...",
+  "results": {
+    "showing": "Showing",
+    "of": "of",
+    "entries": "entries"
+  },
+  "details": {
+    "source": "Source",
+    "author": "Author",
+    "estimatedTime": "Estimated time",
+    "language": "Language",
+    "access": "Access",
+    "accessInfo": "Access information",
+    "category": "Category",
+    "features": "Features",
+    "useCases": "Use cases",
+    "pros": "Pros",
+    "cons": "Cons",
+    "alternatives": "Alternatives",
+    "paywall": "Paywall",
+    "registration": "Registration",
+    "required": "required",
+    "published": "Published",
+    "similarResources": "Similar resources",
+    "noSimilarResources": "No similar resources found",
+    "similarTools": "Similar tools",
+    "noSimilarTools": "No similar tools found"
+  },
+  "tags": {
+    "more": "more"
+  },
+  "actions": {
+    "favorite": "Add to favorites",
+    "removeFavorite": "Remove from favorites",
+    "compare": "Compare",
+    "removeCompare": "Remove from comparison"
+  },
+  "compare": {
+    "title": "Tool Comparison",
+    "feature": "Feature",
+    "rating": "Rating",
+    "pricing": "Pricing",
+    "difficulty": "Difficulty",
+    "deployment": "Deployment",
+    "features": "Features",
+    "useCases": "Use Cases"
+  },
+  "buttons": {
+    "share": "Share",
+    "visitSource": "Visit source",
+    "close": "Close",
+    "clearAll": "Clear all",
+    "startCompare": "Start comparison"
+  }
+}

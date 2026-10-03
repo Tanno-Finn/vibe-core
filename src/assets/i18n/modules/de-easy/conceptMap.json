@@ -1,0 +1,35 @@
+{
+  "dialog": {
+    "openFullMap": "Große Wissens·karte öffnen"
+  },
+  "map": {
+    "nodes": "Knoten",
+    "edges": "Verbindungen",
+    "focus": "Im Fokus",
+    "toggleGraph": "Karte",
+    "toggleTable": "Liste",
+    "loading": "Karte lädt …",
+    "empty": "Keine Verbindungen gefunden.",
+    "tableHeadType": "Typ",
+    "tableHeadNode": "Knoten",
+    "tableHeadConnections": "Verbindungen",
+    "tableHeadNeighbors": "Wichtige Nachbarn",
+    "tableEmpty": "Kein Knoten passt zur Suche.",
+    "openNeighbor": "Nachbar öffnen",
+    "ariaSummary": "Wissens·karte mit {{count}} Knoten und {{edges}} Verbindungen.",
+    "ariaSummaryFocus": "Im Fokus ist {{type}}/{{id}}.",
+    "ariaSummaryTableHint": "Mit dem Schalter „Liste“ kannst du die Verbindungen Schritt für Schritt anschauen.",
+    "ariaEmpty": "Wissens·karte — leer.",
+    "searchResultLive": "{{count}} von {{total}} Knoten passen zu deiner Suche.",
+    "type": {
+      "article": "Artikel",
+      "demo": "Demo",
+      "glossary": "Wörterbuch",
+      "timeline": "Zeitstrahl",
+      "source": "Quelle",
+      "sources": "Quellen"
+    },
+    "legendLabel": "Was die Farben bedeuten",
+    "cameraReadoutInit": "Die Kamera·anzeige startet."
+  }
+}

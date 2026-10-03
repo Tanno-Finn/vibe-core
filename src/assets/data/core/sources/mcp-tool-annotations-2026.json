@@ -1,0 +1,17 @@
+{
+  "id": "mcp-tool-annotations-2026",
+  "type": "article",
+  "authors": "Ola Hungerford, Sam Morrow, Luca Chang",
+  "year": "2026",
+  "publication": "Model Context Protocol Blog",
+  "url": "https://blog.modelcontextprotocol.io/posts/2026-03-16-tool-annotations/",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "mcp",
+    "tool-annotations",
+    "destructive-hint",
+    "reversibility",
+    "hints"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "hero": {
+    "title": "Context Engineering",
+    "subtitle": "Die Praxis, einer KI das Drumherum mitzugeben, das sie nicht selbst riechen kann."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "promptVsContext": "Vom Prompt zum Kontext",
+    "ruleFile": "Die Regeldatei",
+    "contextHierarchy": "Kontext-Hierarchie",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "enrichment": "Interaktiv: Kontextbudget-Skalierung",
+    "checkpoint": "Checkpoint"
+  },
+  "lead": {
+    "paragraph1": "Du bittest die KI, einen Login-Endpunkt (die Funktion, die Benutzer anmeldet) zu schreiben. Sie liefert generischen Standardcode — falsches Framework, falscher Ordner, falsches Fehlerformat. Die KI ist nicht dumm. Sie kennt dein Projekt einfach nicht.",
+    "paragraph2": "Context Engineering ist die Disziplin, der KI genau die richtigen Informationen zu geben, damit sie Code produziert, der zu deiner Codebasis passt — nicht nur irgendeinen Code, der fehlerfrei durchläuft. Am Ende dieses Artikels verstehst du, was Context Engineering von Prompt Engineering unterscheidet, was in eine Regeldatei gehört und wie du entscheidest, welche Informationen der Agent wann braucht."
+  },
+  "promptVsContext": {
+    "title": "Vom Prompt zum Kontext",
+    "definitionTitle": "Context Engineering — Das Arbeitsumfeld der KI gestalten",
+    "analogy": "Context Engineering ist wie das Onboarding eines neuen Mitarbeiters. Ein guter Prompt ist eine gut gestellte Frage. Gutes Context Engineering ist ein vollständiges Onboarding-Paket — Architekturdiagramm, Teamkonventionen, Build-Kommandos, typische Arbeitsabläufe. Ohne Onboarding macht selbst ein brillanter Neuzugang Fehler, die jedes Teammitglied vermieden hätte.",
+    "scientific": "Context Engineering kuratiert den gesamten Satz an Informationen, den ein KI-Modell während einer Sitzung erhält — Systemanweisungen, Werkzeuge, externe Daten, Konversationsverlauf. Es gilt als natürliche Weiterentwicklung des Prompt Engineerings, weil moderne Agenten nicht nur einen einzelnen Prompt beantworten, sondern über viele Interaktionen mit wachsendem Kontext arbeiten.",
+    "analogyBreak": "Die Onboarding-Analogie hat eine Grenze: Ein neuer Mitarbeiter lernt dauerhaft. Ein KI-Agent hat ein begrenztes Kontextfenster und kann Informationen verlieren, wenn es überläuft. Die Analogie erfasst das Problem des Vergessens nicht.",
+    "comparison": {
+      "promptLabel": "Prompt Engineering",
+      "promptResult": "Du optimierst die einzelne Frage. „Schreibe einen Login-Endpunkt“ wird zu „Schreibe einen Login-Endpunkt mit NestJS in src/modules/auth/ mit absoluten Imports.“ Die Qualität hängt davon ab, wie detailliert du jedes Mal formulierst.",
+      "contextLabel": "Context Engineering",
+      "contextResult": "Du optimierst das Arbeitsumfeld. Die KI weiß bereits durch eine Regeldatei, dass dein Projekt NestJS nutzt, wo Services liegen und welche Fehlerkonventionen gelten. „Schreibe einen Login-Endpunkt“ reicht — der Kontext liefert den Rest."
+    },
+    "misconception": {
+      "title": "Häufiger Irrtum",
+      "text": "„Ein besserer Prompt löst alles.“ — Selbst ein perfekter Prompt kann fehlenden Projektkontext nicht ersetzen. Du könntest jedes Mal „nutze NestJS, absolute Imports, lege es in src/modules/auth/ ab“ schreiben — aber das bedeutet, dein gesamtes Projekt-Setup in jeder Konversation zu wiederholen. Context Engineering lagert das in eine dauerhafte Datei aus, damit der Agent informiert startet, ohne dass du dich wiederholst."
+    }
+  },
+  "ruleFile": {
+    "title": "Die Regeldatei — Dauerhafter Projektkontext",
+    "intro": "Eine Regeldatei ist eine Projektkonfiguration, die dein KI-Coding-Werkzeug bei jeder Interaktion automatisch liest. Der Inhalt ist natürliche Sprache: Architekturübersicht, Coding-Standards, Build-Kommandos, Anti-Patterns, Workflows. Die durchgehende Empfehlung lautet, die Datei knapp und gut strukturiert zu halten — kein Dump von allem, sondern eine kuratierte Auswahl dessen, was der Agent am meisten braucht. Dieses Kit selbst nutzt dafür eine Datei namens AGENTS.md.",
+    "checklistIntro": "Wie bei einer Cockpit-Checkliste für Piloten: Die Regeldatei sorgt nicht dafür, dass die KI fliegen lernt — sie stellt sicher, dass sie konsistent die gleichen Prüfungen durchführt und keine Fehler aus Unachtsamkeit macht.",
+    "deepDive": {
+      "title": "Was gehört in eine Regeldatei?",
+      "good": "Gute Inhalte: Architektur-Übersicht (Framework, Ordnerstruktur), Coding-Konventionen (Import-Stil, Fehlerbehandlung, Namenskonventionen), Build- und Test-Kommandos (npm run dev, npm test), Anti-Patterns (was der Agent nie tun soll), Git-Workflow (Commit-Format, Branch-Strategie).",
+      "bad": "Schlechte Inhalte: Passwörter, API-Keys oder Zugangsdaten (Sicherheitsrisiko), die gesamte Codebasis (überflutet den Kontext), Informationen die sich ständig ändern (gehören in aufgabenspezifische Dateien)."
+    },
+    "codeExampleTitle": "Beispiel: Auszug aus einer Regeldatei (AGENTS.md)",
+    "codeExample": "## Architecture\n- Framework: NestJS 10\n- All imports: absolute (never relative)\n- Folder: src/modules/[domain]/\n\n## Coding Standards\n- Error responses: always use AppException class\n- Tests: Jest, one spec file per service\n- Never use console.log — use LoggerService\n\n## Build & Run\n- npm run dev (port 3000)\n- npm test (all specs)",
+    "misconception": {
+      "title": "Häufiger Irrtum",
+      "text": "„Einmal schreiben und vergessen.“ — Eine Regeldatei ist eine fortlaufende Praxis, kein einmaliges Dokument. Wenn die KI wiederholt denselben Fehler macht — Services im falschen Verzeichnis ablegt, den falschen Testbefehl ausführt, ungewollte Kommentare hinterlässt — wird dieser Fehler zur neuen Regel. Die Datei verbessert sich mit der Zeit durch echte Reibungspunkte, nicht nur durch Vorausplanung."
+    }
+  },
+  "contextHierarchy": {
+    "title": "Kontext-Hierarchie — Weniger ist mehr",
+    "intro": "LLMs haben ein begrenztes Aufmerksamkeitsbudget. Mit wachsendem Kontext nimmt die Präzision beim Wiederfinden und Verknüpfen von Informationen tendenziell ab. Die zentrale Frage ist deshalb nicht „Wie bekomme ich alles hinein?“, sondern „Wie lade ich die richtige Information zur richtigen Zeit?“",
+    "analogyText": "Stell dir den OP-Tisch eines Chirurgen vor. Im Operationssaal sind tausende Instrumente verfügbar, aber auf dem Tablett liegen nur die Instrumente für den aktuellen Schritt. Mehr Instrumente auf dem Tablett bedeuten mehr Durcheinander, langsamere Entscheidungen, höheres Fehlerrisiko. Der Chirurg fordert spezifische Instrumente an, wenn er sie braucht — just in time.",
+    "analogyBreak": "Die Analogie hat eine Grenze: Ein Chirurg weiß genau, welches Instrument er braucht. Ein KI-Agent muss oft erst während der Arbeit herausfinden, was er braucht, indem er Such- und Lesewerkzeuge einsetzt.",
+    "example": "Ein Beispiel: Eine Codebasis mit 50.000 Zeilen. Schlechter Ansatz: Alles in den Prompt kopieren. Guter Ansatz: Die Regeldatei liefert die Architekturübersicht, der Agent nutzt Suchwerkzeuge, um die spezifischen Dateien für die aktuelle Aufgabe zu finden. Ergebnis: Der Agent arbeitet mit 200 hochrelevanten Zeilen statt in 50.000 Zeilen gemischter Relevanz unterzugehen.",
+    "feedbackLoop": {
+      "title": "Der Feedback-Loop",
+      "text": "Eine gute Regeldatei entsteht nicht in einem Wurf, sondern wächst iterativ. Der Prozess: Du startest eine Aufgabe. Du beobachtest, wo der Agent Fehler macht. Du fügst eine Regel hinzu, die den Fehler korrigiert. Beim nächsten Mal arbeitet der Agent näher an deinem Projektstil. Beispiel: Die KI legt Services immer in src/services/ statt in src/modules/[domain]/ ab. Du fügst „Folder: src/modules/[domain]/“ zur Regeldatei hinzu. Ab jetzt nutzt der Agent die korrekte Struktur."
+    },
+    "misconception": {
+      "title": "Häufiger Irrtum",
+      "text": "„Die KI liest automatisch alles.“ — Tut sie nicht. Selbst Modelle mit großen Kontextfenstern verlieren den Fokus bei Überladung; die Aufmerksamkeit des Modells lässt mit wachsendem Kontext nach. Die Disziplin des Context Engineerings besteht deshalb in der Auswahl — entscheiden, was hineinkommt und was draußen bleibt — nicht im Maximieren der Eingabemenge."
+    }
+  },
+  "hierarchy": {
+    "step1": {
+      "label": "Dauerhafte Projektregeln",
+      "description": "Die Regeldatei des Projekts — Architektur, Standards, Workflows. Immer geladen."
+    },
+    "step2": {
+      "label": "Aufgabenspezifische Dateien",
+      "description": "Relevante Quelldateien, Beispiele, Dokumentation für die aktuelle Aufgabe."
+    },
+    "step3": {
+      "label": "Konversationsverlauf",
+      "description": "Die bisherige Unterhaltung mit dem Agenten — Entscheidungen, Ergebnisse, Feedback."
+    },
+    "step4": {
+      "label": "Werkzeugergebnisse",
+      "description": "Suchergebnisse, Dateiinhalte, Test-Outputs — geladen bei Bedarf, just in time."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste auf einen Blick",
+    "point1": "Context Engineering verschiebt den Engpass von der Prompt-Formulierung zur Informationskuration. Nicht wie du fragst, sondern was der Agent schon weiß, bestimmt die Qualität.",
+    "point2": "Eine Regeldatei — je nach Werkzeug anders benannt — ist das Onboarding-Paket des Agenten: Architektur, Konventionen, Kommandos, damit er informiert startet statt bei null.",
+    "point3": "Mehr Kontext ist nicht besserer Kontext. Der Agent braucht den kleinsten relevanten Satz zur richtigen Zeit — dauerhafte Regeln oben, aufgabenspezifische Dateien in der Mitte, Werkzeugergebnisse unten."
+  },
+  "quiz": {
+    "boxTitle": "Wissenstest: Context Engineering",
+    "q1": {
+      "question": "Was ist der Hauptunterschied zwischen Prompt Engineering und Context Engineering?",
+      "a": "Prompt Engineering verwendet längere Prompts, Context Engineering kürzere.",
+      "b": "Prompt Engineering optimiert eine einzelne Frage; Context Engineering kuratiert das gesamte Informationsumfeld des Agenten.",
+      "c": "Context Engineering funktioniert nur bei sehr großen Modellen, nicht bei kleinen.",
+      "d": "Prompt Engineering ist für Anfänger, Context Engineering für Experten.",
+      "explanation": "Context Engineering geht über die Optimierung einer einzelnen Frage hinaus: Es kuratiert den gesamten Kontext — Systemanweisungen, Werkzeuge, Projektdaten, Verlauf — damit der Agent in jeder Interaktion informiert arbeitet."
+    },
+    "q2": {
+      "question": "Ein Entwickler stellt fest, dass sein KI-Assistent Dateien immer im falschen Verzeichnis erstellt. Was ist die Context-Engineering-Lösung?",
+      "a": "Jedes Mal einen detaillierteren Prompt schreiben, der das Verzeichnis angibt.",
+      "b": "Zu einem anderen KI-Modell wechseln.",
+      "c": "Eine Regel zur Regeldatei des Projekts hinzufügen, die die korrekte Verzeichnisstruktur festlegt.",
+      "d": "Die Dateierstellungsfunktion des KI-Assistenten deaktivieren.",
+      "explanation": "Die Regeldatei des Projekts löst wiederkehrende Probleme dauerhaft: Die Verzeichnisstruktur wird einmal festgelegt und bei jeder Sitzung automatisch berücksichtigt, ohne dass du es wiederholen musst."
+    },
+    "q3": {
+      "question": "Du hast eine 30.000-Zeilen-Codebasis und möchtest, dass die KI einen einzelnen Service refaktorisiert. Welcher Ansatz folgt dem Prinzip der Kontext-Hierarchie?",
+      "a": "Die gesamte Codebasis in den Prompt kopieren für maximalen Kontext.",
+      "b": "Dem Agenten eine Regeldatei mit Architekturübersicht geben und ihn Suchwerkzeuge nutzen lassen, um die relevanten Dateien zu finden.",
+      "c": "Nur die einzelne Datei ohne jeglichen Projektkontext übergeben.",
+      "d": "Die gesamte Codebasis in 500 Wörtern zusammenfassen und einfügen.",
+      "explanation": "Die Kontext-Hierarchie priorisiert relevante Informationen: Dauerhafte Regeln (Architektur-Übersicht) plus gezielte Suche (nur die relevanten Dateien laden) schlägt sowohl zu viel als auch zu wenig Kontext."
+    },
+    "q4": {
+      "question": "Die Regeldatei eines Teams enthält das Datenbankpasswort, den vollständigen API-Key und eine Liste aller 200 Microservice-Endpunkte. Welche Aussage bewertet dieses Setup am besten?",
+      "a": "Das ist ideal, weil die KI maximale Informationen zur Verfügung hat.",
+      "b": "Die Zugangsdaten sind ein Sicherheitsrisiko, und die Endpunkt-Liste überschreitet wahrscheinlich den nützlichen Kontext — die Datei sollte Architekturmuster und Konventionen enthalten, keine Geheimnisse oder erschöpfende Listen.",
+      "c": "Nur der API-Key ist problematisch; die Endpunkt-Liste ist in Ordnung.",
+      "d": "Die Datei ist zu kurz; sie sollte auch das vollständige Datenbankschema enthalten.",
+      "explanation": "Regeldateien sollen kuratiert und sicher sein. Passwörter und API-Keys sind ein Sicherheitsrisiko. Eine vollständige Endpunkt-Liste überflutet den Kontext — besser sind Architekturmuster, die dem Agenten zeigen, wo und wie er die richtigen Endpunkte findet."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint: Context Engineering",
+    "item1": "Erkläre den Unterschied zwischen Prompt Engineering und Context Engineering anhand der Onboarding-Analogie.",
+    "item2": "Was gehört in eine Regeldatei — und was sollte auf keinen Fall darin stehen?",
+    "item3": "Warum ist es oft schlechter, der KI die komplette Codebasis in den Kontext zu geben, statt nur die relevanten Dateien?"
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: Kontextbudget-Skalierung",
+    "sectionTitle": "Interaktiv: Warum mehr Kontext nicht immer hilft",
+    "intro": "Der Artikel erklärt, dass Präzision mit wachsendem Kontext abnimmt. Bewege den Regler und beobachte, wie der Aufwand skaliert: Die Regeldatei zu laden ist konstant (grün). Den gesamten Kontext zu lesen wächst linear (blau). Aber Informationen zu verknüpfen — das Kerngeschäft eines Agenten — wächst quadratisch (rot).",
+    "curve": {
+      "constant": "Regeldatei laden (konstant)",
+      "linear": "Kontext lesen (linear)",
+      "quadratic": "Informationen verknüpfen (quadratisch)"
+    },
+    "insight": {
+      "small": {
+        "title": "Kleiner Kontext",
+        "description": "Bei {{n}} Informationseinheiten fällt der Unterschied kaum auf: Verknüpfen kostet {{worst}} Schritte, Lesen {{reference}}. In dieser Größenordnung darfst du großzügig sein."
+      },
+      "moderate": {
+        "title": "Mittlerer Kontext",
+        "description": "Bei {{n}} Einheiten wird der Abstand sichtbar: {{worst}} Schritte fürs Verknüpfen gegenüber {{reference}} fürs Lesen — Faktor {{factor}}."
+      },
+      "large": {
+        "title": "Großer Kontext",
+        "description": "Bei {{n}} Einheiten kostet das Verknüpfen {{worst}} Schritte, {{factor}}-mal so viel wie das bloße Lesen. Ab hier beginnt die Präzision zu leiden."
+      },
+      "veryLarge": {
+        "title": "Sehr großer Kontext",
+        "description": "Bei {{n}} Einheiten stehen {{worst}} Verknüpfungsschritte gegen {{reference}} Leseschritte — Faktor {{factor}}. Genau deshalb schlägt wenig relevanter Kontext viel Gesamtkontext."
+      }
+    }
+  },
+  "ruleFileTraits": {
+    "fileName": {
+      "label": "Name und Ort",
+      "description": "Jedes Werkzeug erwartet die Regeldatei unter einem eigenen Namen — meist eine Markdown-Datei im Wurzelverzeichnis des Projekts. Der Name steht in der Dokumentation deines Werkzeugs."
+    },
+    "scope": {
+      "label": "Geltungsbereich",
+      "description": "Manche Regeldateien gelten für das ganze Repository, andere nur für ein Unterverzeichnis. In großen Projekten lohnt sich die feinere Aufteilung."
+    },
+    "loading": {
+      "label": "Ladezeitpunkt",
+      "description": "Regeln werden entweder immer geladen, automatisch bei passenden Dateien oder erst auf Anforderung des Agenten. Wirklich voraussetzen kannst du nur die immer geladenen."
+    }
+  }
+}

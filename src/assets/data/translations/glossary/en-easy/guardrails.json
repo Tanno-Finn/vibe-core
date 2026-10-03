@@ -1,0 +1,8 @@
+{
+  "term": "Guardrails",
+  "alternativeNames": [
+    "Safety Rules"
+  ],
+  "description": "Guardrails are rules that keep an AI safe. On a road, guardrails stop cars from going off the edge. For an AI, guardrails work the same way. They check every question and every answer. If something is not allowed, the AI is stopped. This keeps the AI within safe limits.",
+  "example": "A chatbot has guardrails. Someone asks for dangerous information. The guardrails detect this. The chatbot does not give that information. It says instead: I cannot answer that."
+}

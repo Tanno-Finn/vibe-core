@@ -1,0 +1,9 @@
+{
+  "actions": "Knöpfe",
+  "cancel": "Abbrechen",
+  "close": "Schließen",
+  "collapse": "Schließen",
+  "expand": "Öffnen",
+  "toggleSection": "Teil zeigen oder verstecken",
+  "ratingLabel": "{{rating}} von 5 Sternen"
+}

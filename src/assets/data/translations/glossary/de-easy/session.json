@@ -1,0 +1,8 @@
+{
+  "term": "Session",
+  "alternativeNames": [
+    "Sitzung"
+  ],
+  "description": "Session. Das spricht man Seschen aus. Das deutsche Wort ist: Sitzung. Eine Session ist eine Arbeits·zeit mit einer KI. Alles in dieser Zeit gehört zusammen. Die KI merkt sich das ganze Gespräch. Aber nur während der Session. Der Platz dafür ist begrenzt. Dieser Platz heißt Kontext·fenster. Endet die Session, vergisst die KI das Gespräch. Wichtige Dinge kann die KI vorher aufschreiben. Zum Beispiel in Notizen. Die Notizen bleiben erhalten. So weiß die KI beim nächsten Mal Bescheid.",
+  "example": "Denk an einen Termin bei einem Berater. Im Termin weiß er alles aus dem Gespräch. Danach vergisst er es wieder. Nur seine Notizen bleiben. Beim nächsten Termin liest er die Notizen."
+}

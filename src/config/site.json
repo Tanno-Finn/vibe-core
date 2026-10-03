@@ -1,0 +1,28 @@
+{
+  "_comment": "YOUR SITE in one file: its name, its start page, which kit features it uses and who runs it. Read by the app (src/config/site.ts) and by the build scripts (scripts/lib/site-config.mjs); the rules that check it live in src/config/site-rules.mts, the gate is scripts/check-site-config.mjs. The site DESCRIPTION is prose and stays per language in src/assets/i18n/modules/<lang>/meta.json (`meta.description`).",
+
+  "_name": "The site's name: header logo, footer, print header and footer, every page title (\"Glossary - <name>\"), the home page heading, search-engine data. src/index.html (<title>, og:site_name, twitter:title) and src/assets/images/og-image.svg must carry the same name; check-site-config.mjs fails when they drift.",
+  "name": "vibecore",
+
+  "_shortName": "Optional. A shorter name for the header logo when the full name is too long for a phone screen. Leave it out to show the full name.",
+
+  "_logoIcon": "Optional. The PrimeIcons class of the logo icon in the header, e.g. \"pi pi-book\". Leave it out for the kit's \"pi pi-box\".",
+
+  "_startPage": "The route a visitor lands on at the site root (without the language prefix, e.g. \"home\" or \"glossary\"). Must be a routed page of src/app/app.routes.ts.",
+  "startPage": "home",
+
+  "_features": "Kit features switched on (true) or off (false), by feature id. Empty = every feature on, as the kit ships.",
+  "features": {},
+
+  "_operator": "Who runs the site: the facts the imprint (Impressum, § 5 DDG) and the privacy notice (Art. 13 DSGVO/GDPR) publish, the same in every language. The kit ships PLACEHOLDERS; replace every value before you deploy. `npm run build:prod` refuses a build for a real domain while any of them is still in place (scripts/check-imprint.mjs, docs/how-to/deploy.md). `name` is the person or organisation responsible; `address` a full postal address that can receive mail (a P.O. box is not enough); `email` the contact for the imprint and for data-subject requests; `supervisoryAuthority` the data-protection authority responsible for the operator (Art. 13 (2) (d) DSGVO).",
+  "operator": {
+    "name": "[NAME]",
+    "address": "Your Street 1, 12345 Your City, Germany",
+    "email": "you@example.com",
+    "supervisoryAuthority": {
+      "name": "[Your competent data protection supervisory authority]",
+      "address": "Authority Street 1, 12345 Authority City, Germany",
+      "website": "https://example.com"
+    }
+  }
+}

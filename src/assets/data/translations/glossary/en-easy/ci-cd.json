@@ -1,0 +1,8 @@
+{
+  "term": "CI/CD",
+  "alternativeNames": [
+    "Automatic checking pipeline"
+  ],
+  "description": "CI/CD. This is an English abbreviation. CI means Continuous Integration. CD means Continuous Delivery or Continuous Deployment. The idea behind it is simple. Every code change is checked right away. The checking runs fully automatically. It is equally strict for all changes. First the build runs. Then the linter checks. Then the tests run. Is everything green? Then the change is ready. With Delivery, a human presses the last button. With Deployment, the change goes live automatically. This way teams find their mistakes very early.",
+  "example": "Think of a factory with an assembly line. Every part passes the same checking stations. At the end the part is ready at the ramp. A human says: the truck leaves now. Sometimes the truck also leaves on its own."
+}

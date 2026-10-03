@@ -1,0 +1,6 @@
+{
+  "term": "Beispiel·begriff 1",
+  "alternativeNames": [],
+  "description": "Das ist ein Beispiel·eintrag. Er ist nur ein Platzhalter. So ist das Glossar am Anfang nicht leer. Ein Glossar ist eine Liste mit Begriffen und Erklärungen. Sag deinem KI-Agenten: „/new-content“. Dann macht der KI-Agent aus diesem Eintrag einen echten Begriff. Der Begriff kommt dann aus deinem Thema.",
+  "example": "Ein Beispiel·satz zeigt den Begriff 1 Mal bei der Arbeit. So wie dieser Satz hier."
+}

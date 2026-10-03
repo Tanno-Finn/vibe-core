@@ -1,0 +1,57 @@
+{
+  "id": "system-prompt",
+  "category": "nlp",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "System Prompt",
+  "childConcepts": [],
+  "parentConcepts": [
+    "prompt-engineering"
+  ],
+  "createdAt": "2025-01-16",
+  "updatedAt": "2025-01-16",
+  "alternativeNames": {
+    "de": [
+      "System-Instruktion",
+      "System-Nachricht",
+      "Basis-Prompt"
+    ],
+    "en": [
+      "System message",
+      "System instruction",
+      "Base prompt"
+    ],
+    "de-easy": [
+      "System-Anweisung",
+      "Grund-Regel"
+    ],
+    "en-easy": [
+      "System instruction",
+      "Base rule"
+    ]
+  },
+  "sources": [
+    {
+      "type": "documentation",
+      "citation": "OpenAI API Documentation: Chat Completions - System Messages",
+      "url": "https://platform.openai.com/docs/guides/text-generation",
+      "notes": "Official documentation on system message role in LLM API"
+    },
+    {
+      "type": "verification",
+      "citation": "PromptHub: The Difference Between System Messages and User Messages",
+      "url": "https://www.prompthub.us/blog/the-difference-between-system-messages-and-user-messages-in-prompt-engineering",
+      "notes": "Cross-reference for system vs user prompt distinction"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "prompt",
+      "prompt-engineering",
+      "prompt-injection",
+      "instruktions-datei",
+      "context"
+    ]
+  }
+}

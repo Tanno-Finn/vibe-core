@@ -1,0 +1,10 @@
+{
+  "term": "CLI",
+  "alternativeNames": [
+    "Kommandozeile",
+    "Konsolenoberfläche",
+    "Terminal"
+  ],
+  "description": "CLI (Command Line Interface) ist eine textbasierte Benutzeroberfläche, über die du Programme und Betriebssystemfunktionen durch getippte Befehle steuerst. Im Gegensatz zu einer grafischen Oberfläche (GUI) bietet eine CLI präzise, skriptbare Kontrolle und wird besonders von Entwicklern und Administratoren genutzt.",
+  "example": "Mit dem Befehl „python train.py --epochs 50“ startest du ein KI-Training direkt aus der Kommandozeile, ohne eine grafische Oberfläche öffnen zu müssen."
+}

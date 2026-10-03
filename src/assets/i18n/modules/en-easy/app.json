@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "aiTimeline": "History",
+    "aiTools": "Tools",
+    "catalog": "Catalog",
+    "controls": "Top buttons",
+    "emptyTitle": "No page found",
+    "emptyHint": "Try another word. Or type the page number with 4 characters.",
+    "emptyClearAction": "Clear search",
+    "glossary": "Word Book",
+    "group": {
+      "development": "Workshop (only in dev mode)",
+      "interaktiveDemos": "Games to Try",
+      "knowledge": "Knowledge",
+      "learningPaths": "Learning Paths",
+      "lessons": "Learning Texts",
+      "portal": "Start Area",
+      "misc": "More"
+    },
+    "home": "Home",
+    "invalidPageId": "No page found with that ID",
+    "main": "Main menu",
+    "pageNotFound": "Page Not Found",
+    "progress": "My Progress",
+    "search": "Find a page...",
+    "searchHelp": "Type to find pages. Use arrow keys to move around.",
+    "searchPages": "Search pages",
+    "showMore": "More...",
+    "sitemap": "See All Pages",
+    "userSettings": "Settings",
+    "skipToContent": "Skip to content",
+    "devWorkshop": "Workshop",
+    "devDesign": "Design System",
+    "devAgents": "Agent Help",
+    "breadcrumb": "You are here"
+  },
+  "footer": {
+    "impressum": "Legal Info",
+    "accessibility": "Accessibility",
+    "licenseLink": "License info - CC BY 4.0",
+    "printLicense": "License: CC BY 4.0 — name the source",
+    "cookieSettings": "Cookie settings"
+  }
+}

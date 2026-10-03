@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "subtitle": "A learning companion for your subject. With games to try out, a dictionary, and a timeline."
+  },
+  "marquee": {
+    "title": "Look at all content",
+    "ariaLabel": "Band with all content of the website",
+    "pause": "Stop the band",
+    "play": "Start the band again",
+    "expand": "Show all content as a grid",
+    "collapse": "Back to the moving band",
+    "announceExpanded": "Now showing all content as a grid.",
+    "announceCollapsed": "Back to the moving band."
+  },
+  "navigation": {
+    "bookIntegration": "Every page has a special 4-character ID. This is useful for printed pages or QR codes.",
+    "examples": {
+      "exampleDemo": "An example: how a hands-on demo is built",
+      "tools": "A catalog with all content"
+    },
+    "examplesTitle": "Examples for navigation:",
+    "searchFeature": "You can also type an ID directly into the search box at the top right. This way you get quickly to a specific page.",
+    "title": "Quick navigation"
+  },
+  "quickStart": {
+    "title": "Start right away",
+    "subtitle": "Four ways to start. Pick what speaks to you.",
+    "evolution": {
+      "title": "Try the example demo",
+      "description": "This is a template. Your own demos will look like this.",
+      "cta": "Try it now"
+    },
+    "glossary": {
+      "title": "A term, simply explained",
+      "description": "One term with an explanation, an example, and context. The dictionary has many more.",
+      "cta": "See the term"
+    },
+    "timeline": {
+      "title": "How it all began",
+      "description": "An important point on the timeline. This is where the story starts.",
+      "cta": "Go to the start"
+    },
+    "prompting": {
+      "title": "Read the example article",
+      "description": "This is the template for your texts. It has all the building blocks.",
+      "cta": "Read now"
+    }
+  },
+  "showcase": {
+    "title": "What you will find here",
+    "learningPaths": {
+      "title": "Step by step to understand",
+      "description": "Learning paths guide you from simple to difficult. You see your progress. The lessons build on each other.",
+      "cta": "View learning paths"
+    },
+    "lessons": {
+      "title": "Learn thoroughly",
+      "description": "Detailed lessons with explanations, examples, and tests. From simple guides to expert articles.",
+      "cta": "View lessons"
+    },
+    "demos": {
+      "title": "Try it yourself",
+      "description": "Demos to try out. You set the values yourself. You see right away what happens. Understand by doing.",
+      "cta": "Start demos"
+    },
+    "tools": {
+      "title": "Your toolbox",
+      "description": "Selected programs and learning materials. With ratings. From simple helpers to developer programs.",
+      "cta": "View programs"
+    },
+    "timeline": {
+      "title": "History at a glance",
+      "description": "The most important events of your subject. Sorted by time.",
+      "cta": "View timeline"
+    },
+    "glossary": {
+      "title": "Terms simply explained",
+      "description": "Every term with explanation, example, and context. Your dictionary for the whole subject.",
+      "cta": "Open dictionary"
+    },
+    "sources": {
+      "title": "Sources to check",
+      "description": "All sources and further reading. You can search and filter. Every claim has a source.",
+      "cta": "Search sources"
+    },
+    "roadmap": {
+      "title": "What is new? The plan",
+      "description": "New lessons, better translations, and news. All in one place.",
+      "cta": "View plan"
+    }
+  },
+  "tableOfContents": "Contents",
+  "toc": {
+    "hero": "Welcome",
+    "quickStart": "Start right away",
+    "showcase": "Discover",
+    "navigation": "Navigation"
+  },
+  "translationNotice": {
+    "title": "Translation Notice",
+    "text": "This notice is not shown in English. English is a main language. These keys are here so all languages have the same keys."
+  },
+  "templateBridge": {
+    "text": "This page is a template. All content here is just an example. You want your own topic? Open your AI agent. Type: onboarding. The agent will help you."
+  }
+}

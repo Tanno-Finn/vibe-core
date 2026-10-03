@@ -1,0 +1,17 @@
+{
+  "id": "anthropic-sandboxing-2025",
+  "type": "article",
+  "authors": "David Dworken, Oliver Weller-Davies",
+  "year": "2025",
+  "publication": "Anthropic Engineering, 20.10.2025",
+  "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+  "doi": "",
+  "accessed": "2026-08-11",
+  "tags": [
+    "sandbox",
+    "permissions",
+    "network-isolation",
+    "prompt-injection",
+    "claude-code"
+  ]
+}

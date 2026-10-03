@@ -1,0 +1,255 @@
+{
+  "hero": {
+    "title": "Natural Language Programming (Vibecoding)",
+    "subtitle": "Natural Language Programming: was funktioniert, was nicht, und wo man als Mensch noch gebraucht wird."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "paradigm": "Der Paradigmenwechsel",
+    "tools": "Das Tool-Spektrum",
+    "risks": "Risiken und Grenzen",
+    "takeaways": "Kernaussagen",
+    "quiz": "Quiz",
+    "checkpoint": "Checkpoint",
+    "enrichment": "Prompt-Baukasten"
+  },
+  "lead": {
+    "paragraph1": "2025 prägte der KI-Forscher Andrej Karpathy einen Begriff, der die Entwicklerwelt erschütterte: Vibecoding. Statt Code Zeile für Zeile zu tippen, beschreibst du deine Absicht in natürlicher Sprache und lässt die KI die Implementierung übernehmen. Eine REST-API, die früher zwei Stunden dauerte? Zehn Minuten Prompting plus dreißig Minuten Review.",
+    "paragraph2": "Aber diese neue Kraft bringt ein Paradox und drei gefährliche Fallen mit sich. Dieser Artikel erklärt, was Vibecoding ist, wie die Tools funktionieren und warum die Entwickler, die es am besten nutzen, diejenigen sind, die auch ohne es programmieren könnten."
+  },
+  "paradigm": {
+    "title": "Der Paradigmenwechsel",
+    "definitionTitle": "Was ist Vibecoding?",
+    "analogy": "Stell dir einen Architekten vor, der früher jeden Stein selbst gelegt hat. Mit Vibecoding hat der Architekt jetzt eine Bautruppe (die KI), die nach Bauplänen (Prompts) arbeitet. Der Wert des Architekten verschiebt sich vom Mauern zum Planen — die richtige Struktur entwerfen, die Arbeit inspizieren und Fehler erkennen, bevor das Gebäude eröffnet wird.",
+    "scientific": "Vibecoding ist absichtsbasiertes Programmieren: Du drückst deine Programmierabsicht in natürlicher Sprache aus, und die KI übersetzt sie in ausführbaren Code. Es ist der neueste Schritt in der fortlaufenden Abstraktion der Programmierung — von Maschinencode über Assembler und Hochsprachen bis hin zu natürlicher Sprache.",
+    "analogyBreak": "Wo die Analogie bricht: Die Bautruppe eines Architekten lernt aus Projekterfahrung und verbessert sich. KI behält kein Wissen zwischen Sitzungen — es sei denn, der Kontext wird bewusst gestaltet (Context Engineering). Außerdem ist Baukörper-Bewertung visuell, während Code-Bewertung abstraktes Denkvermögen erfordert.",
+    "abstractionTitle": "Der nächste Abstraktionsschritt",
+    "roleShift": "Deine Rolle verschiebt sich: vom Code-Schreiber zum Code-Reviewer. Der Entwicklungszyklus wird zum iterativen Dialog: Prompt → Code → Test → Feedback → Wiederholen. Entwicklung als Gespräch, nicht als Diktat.",
+    "eightTwenty": "Grob geschätzt: Die KI übernimmt rund 80% der Implementierung (Boilerplate, Standardmuster). Du übernimmst die kritischen 20%: Architekturentscheidungen, Edge Cases, Sicherheit und Review. In diesen 20% liegt der eigentliche Wert."
+  },
+  "steps": {
+    "machineCode": "Maschinencode",
+    "assembler": "Assembler",
+    "highlevel": "C / Java",
+    "scripting": "Python",
+    "naturalLanguage": "Natürliche Sprache"
+  },
+  "comparison": {
+    "traditionalLabel": "Traditionelle Entwicklung",
+    "vibecodingLabel": "Vibecoding",
+    "traditionalResult": "2 Stunden: Routen, Controller, Models, Validierung und Fehlerbehandlung von Hand schreiben.",
+    "vibecodingResult": "40 Minuten: 10 Min. Prompt-Iteration für einen funktionierenden Entwurf, dann 30 Min. kritisches Review und Architekturanpassung."
+  },
+  "tools": {
+    "title": "Das Tool-Spektrum",
+    "intro": "KI-Coding-Tools arbeiten auf verschiedenen Autonomiestufen — von zeilenweiser Autovervollständigung bis hin zu vollständig autonomen Agenten. Die Wahl hängt von der Aufgabe, der Projektgröße und dem gewünschten Kontrollgrad ab.",
+    "gridTitle": "Vier Stufen der Autonomie"
+  },
+  "toolGrid": {
+    "completion": {
+      "label": "Zeilenweise Vervollständigung",
+      "description": "Schlägt beim Tippen die nächste Zeile vor. Du fährst, das Werkzeug schlägt Abbiegungen vor — wie ein Navigationsgerät."
+    },
+    "editor": {
+      "label": "Codebasis-bewusster Editor",
+      "description": "Ändert mehrere Dateien und kennt den Rest des Projekts. Du steuerst, das Werkzeug liest die Karte — wie ein Rallye-Beifahrer."
+    },
+    "supervised": {
+      "label": "Beaufsichtigter Agent",
+      "description": "Plant erst, handelt dann, mit Zugriff auf Terminal und Dateien — und fragt vor heiklen Schritten nach. Die KI fährt unter deiner Aufsicht — wie ein Fahrschüler."
+    },
+    "autonomous": {
+      "label": "Autonomer Agent",
+      "description": "Analysiert, plant, implementiert und testet in einem Durchgang. Du nennst nur das Ziel — wie bei einem Taxi."
+    }
+  },
+  "deepDive": {
+    "literacy": {
+      "title": "Deep Dive: Das Code-Literacy-Paradox",
+      "text": "Vibecoding hat eine überraschende Konsequenz: Du schreibst weniger Code, musst aber mehr Code lesen — und zwar kritischer als je zuvor. KI-generierten Code zu verstehen ist schwieriger, als eigenen Code zu verstehen, weil dir das mentale Modell fehlt, wie er entstanden ist.",
+      "insight": "Code-Lesen wird zur Kernkompetenz. Wer KI-Code blind akzeptiert, baut technische Schulden auf, die später teuer werden. Das Paradox: Vibecoding macht Programmierkenntnisse nicht überflüssig — es macht sie wichtiger."
+    }
+  },
+  "risks": {
+    "title": "Risiken und Grenzen",
+    "intro": "Vibecoding bringt drei kritische Risiken mit sich, die ständige Wachsamkeit erfordern. Dazu kommt eine Sicherheitsdimension: KI implementiert bereitwillig SQL-Injections, fehlende Eingabevalidierung und offengelegte Geheimnisse.",
+    "warningTitle": "Drei kritische Risiken",
+    "hallucination": {
+      "title": "1. Halluzinierter Code:",
+      "text": "Kompiliert korrekt, enthält aber subtile Fehler. Edge Cases werden ignoriert, falsche Annahmen eingebacken. KI-Code hat ähnliche Fehlerraten wie blindes StackOverflow-Kopieren."
+    },
+    "contextLoss": {
+      "title": "2. Kontextverlust:",
+      "text": "Bei großen Projekten verliert die KI den Überblick. Sie vergisst interne Konventionen, übersieht versteckte Abhängigkeiten und wiederholt Fehler, die früher bereits behoben wurden."
+    },
+    "cargoCult": {
+      "title": "3. Cargo-Cult-Programmierung:",
+      "text": "Code akzeptieren, den man nicht versteht, erzeugt „Vibecoding-Schulden“ — eine Codebasis, die niemand mehr warten kann. Je länger das Review ausbleibt, desto höher die unsichtbaren Schulden."
+    },
+    "failScenario": {
+      "title": "Praxisbeispiel: Wenn alles schief geht",
+      "text": "Ein Einsteiger generiert eine Chatbot-App. Die lokale Demo funktioniert perfekt. In Produktion: Hardcoded API-Keys im Frontend-Code (Sicherheitslücke), kein Rate Limiting (Kostenexplosion), keine Fehlerbehandlung (Abstürze bei Netzwerkproblemen).",
+      "consequences": "Alles hat kompiliert. Alles hat „funktioniert“ — bis reale Bedingungen die fehlenden Grundlagen offenlegten. Die METR-Studie zeigt: Übermäßig selbstsichere Entwickler, die KI-Tools blind vertrauen, können tatsächlich Produktivität verlieren."
+    },
+    "bottomLine": "Das Fazit: Die besten Vibecoder sind erfahrene Entwickler, die wissen, wie exzellenter Code aussieht. Vibecoding verstärkt Kompetenz — es ersetzt sie nicht."
+  },
+  "misconceptions": {
+    "obsolete": {
+      "title": "Irrtum: Vibecoding macht Programmierer überflüssig",
+      "text": "Vibecoding verschiebt die Kernaufgabe vom Schreiben zum Reviewen, zur Architektur und zum Requirements Engineering. Ohne Programmierkenntnisse kannst du nicht beurteilen, ob der KI-Code korrekt, sicher und wartbar ist."
+    },
+    "autonomy": {
+      "title": "Irrtum: Das autonomste Tool ist immer die beste Wahl",
+      "text": "Für sicherheitskritischen Code, komplexes State-Management oder performance-sensitive Pfade ist niedrigere Autonomie mit engerer menschlicher Kontrolle oft sicherer. Passe die Tool-Autonomie an das Aufgabenrisiko an."
+    },
+    "safe": {
+      "title": "Irrtum: Wenn der Code läuft und Tests bestehen, ist er sicher",
+      "text": "KI-generierter Code kompiliert oft und besteht Basistests, ignoriert aber Edge Cases, Sicherheitsanforderungen und architektonische Best Practices. Test und Review sind nicht verhandelbar."
+    }
+  },
+  "takeaways": {
+    "title": "Kernaussagen",
+    "point1": "Vibecoding ist absichtsbasiertes Programmieren: Du beschreibst WAS, die KI liefert WIE. Es ist die nächste Abstraktionsebene nach Hochsprachen.",
+    "point2": "Deine Rolle verschiebt sich vom Code-Schreiber zum Code-Reviewer und Architekten. Die rund 80%, die die KI übernimmt, befreien dich für die 20%, die echten Wert schaffen.",
+    "point3": "KI-Coding-Tools umfassen ein Spektrum von Autovervollständigung bis zum autonomen Agenten. Passe die Autonomie des Tools an deine Aufgabe und den gewünschten Kontrollgrad an.",
+    "point4": "Drei Risiken erfordern ständige Wachsamkeit: halluzinierter Code, Kontextverlust und Cargo-Cult-Programmierung. Das Paradox: Vibecoding lässt dich weniger Code schreiben, erfordert aber, dass du mehr Code liest."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Vibecoding",
+    "q1": {
+      "question": "Was beschreibt der von Andrej Karpathy geprägte Begriff „Vibecoding“?",
+      "a": "Eine spezielle Programmiersprache für KI-Anwendungen",
+      "b": "Programmieren durch Formulierung der Absicht in natürlicher Sprache, während die KI den Code generiert",
+      "c": "Eine Debugging-Technik für Machine-Learning-Modelle",
+      "d": "Eine KI, die Entwickler vollständig ersetzt",
+      "explanation": "Vibecoding bedeutet, deine Programmierabsicht in natürlicher Sprache auszudrücken und die KI den Code generieren zu lassen. Es verschiebt die Rolle, eliminiert sie aber nicht."
+    },
+    "q2": {
+      "question": "Ein Entwickler muss einer großen Enterprise-Anwendung Authentifizierung hinzufügen. Welche Tool-Autonomiestufe ist am geeignetsten?",
+      "a": "Maximale Autonomie (autonomer Agent) — die KI soll alles für Geschwindigkeit übernehmen",
+      "b": "Niedrige Autonomie (Assistent/Autovervollständigung) — für sicherheitskritischen Code ist enge menschliche Kontrolle essenziell",
+      "c": "Gar keine KI-Tools — Sicherheitscode sollte niemals KI involvieren",
+      "d": "Mittlere Autonomie (Partner) — die KI sollte den Großteil der Implementierung übernehmen",
+      "explanation": "Für sicherheitskritischen Code wie Authentifizierung ist niedrigere Autonomie mit engerer menschlicher Kontrolle sicherer. Passe die Autonomie an das Risiko an."
+    },
+    "q3": {
+      "question": "Ein KI-Coding-Tool generiert ein Login-Formular, das kompiliert, korrekt rendert und Basistests besteht. Ein Senior-Entwickler entdeckt, dass Passwörter im Klartext gespeichert werden. Welches Vibecoding-Risiko illustriert das?",
+      "a": "Kontextverlust — die KI hat die Sicherheitsanforderungen des Projekts vergessen",
+      "b": "Cargo-Cult-Programmierung — der Entwickler hat den generierten Code nicht verstanden",
+      "c": "Halluzinierter Code — der Code erscheint funktional, enthält aber eine kritische Sicherheitslücke",
+      "d": "Fehlkonfiguration des Tools — die KI wurde nicht korrekt eingerichtet",
+      "explanation": "Dies ist halluzinierter Code: Er kompiliert und besteht Tests, enthält aber einen kritischen Sicherheitsfehler (Klartext-Passwörter statt Hashing)."
+    },
+    "q4": {
+      "question": "Ein Junior-Entwickler argumentiert: „Da KI jetzt meinen ganzen Code schreibt, muss ich nicht mehr lernen, Code zu lesen.“ Was ist der grundlegende Fehler?",
+      "a": "Bessere Prompts reichen tatsächlich aus — der Entwickler hat recht",
+      "b": "KI-generierter Code muss kritisch auf Korrektheit, Sicherheit und Wartbarkeit geprüft werden — das erfordert Code-Lesekompetenz",
+      "c": "Der Entwickler sollte stattdessen mehr automatisierte Tests verwenden",
+      "d": "Nur Senior-Entwickler brauchen Code-Lesekompetenz — Juniors können sich auf KI verlassen",
+      "explanation": "Das Code-Literacy-Paradox: Man schreibt weniger Code, muss aber mehr Code lesen und kritisch prüfen. Code-Lesen ist die neue Kernkompetenz."
+    },
+    "q5": {
+      "question": "Welche Aufgaben fallen in die kritischen 20%, die Menschen bei Vibecoding übernehmen müssen?",
+      "a": "Boilerplate-Code schreiben, Standardmuster implementieren, Templates generieren",
+      "b": "Architekturentscheidungen, Edge-Case-Behandlung, Code-Review und Sicherheitsbewertung",
+      "c": "Tests ausführen, Code deployen und Versionskontrolle",
+      "d": "Alle Aufgaben sollten von der KI übernommen werden, um maximale Effizienz zu erreichen",
+      "explanation": "Die kritischen 20% umfassen Architektur, Edge Cases, Sicherheit und Review. Hier liegt der eigentliche Wert — die KI übernimmt die restlichen 80% (Boilerplate, Standardmuster)."
+    },
+    "q6": {
+      "question": "Ein Startup baut sein gesamtes MVP per Vibecoding. Sechs Monate später kann kein Teammitglied erklären, wie das Authentifizierungsmodul funktioniert. Wie nennt man diese Situation?",
+      "a": "Technische Schulden — in allen Startups üblich und leicht durch Refactoring lösbar",
+      "b": "Vibecoding-Schulden / Cargo-Cult-Programmierung — die Codebasis ist unwartbar, weil das Team Code akzeptierte, den es nicht versteht",
+      "c": "Automatisierungs-Overhead — die natürlichen Kosten von KI-Tools",
+      "d": "Scope Creep — das Projekt wuchs über die ursprünglichen Spezifikationen hinaus",
+      "explanation": "Dies sind Vibecoding-Schulden durch Cargo-Cult-Programmierung: Das Team akzeptierte Code, den es nicht versteht. Die Codebasis wird unwartbar."
+    }
+  },
+  "checkpoint": {
+    "title": "Verständnisprüfung",
+    "q1": "Warum verschiebt Vibecoding die Entwicklerrolle vom Implementierer zum Reviewer?",
+    "q2": "Welche der vier Tool-Autonomiestufen würdest du für sicherheitskritischen Code wählen — und warum?",
+    "q3": "Nenne die drei kritischen Risiken von Vibecoding und erkläre, warum jedes gefährlich ist."
+  },
+  "enrichment": {
+    "sectionTitle": "Interaktiv: Vibe-Coding-Prompt bauen",
+    "intro": "Stelle dir einen typischen Vibe-Coding-Prompt aus Bausteinen zusammen. Wähle Rolle, Tech-Stack, Aufgabe und Qualitätsanforderungen — und beobachte, wie ein strukturierter Prompt entsteht, der dem KI-Tool klare Orientierung gibt.",
+    "instruction": "Klicke pro Kategorie einen Baustein an. Aus deinen Bausteinen entsteht unten ein vollständiger Prompt.",
+    "hint": {
+      "title": "Warum ein Baukasten?",
+      "description": "Gute Prompts folgen einem Muster: Rolle festlegen, Tech-Stack nennen, Aufgabe beschreiben, Qualitätsanforderung setzen. Im Baukasten wird dieses Muster sichtbar — und du siehst sofort, was dem Werkzeug fehlt, wenn ein Teil weggelassen wird."
+    },
+    "category": {
+      "role": {
+        "label": "Rolle",
+        "quality": "Rolle definiert",
+        "missing": "eine Rolle"
+      },
+      "expertise": {
+        "label": "Tech-Stack",
+        "quality": "Tech-Stack genannt",
+        "missing": "den Tech-Stack"
+      },
+      "task": {
+        "label": "Aufgabe",
+        "quality": "Aufgabe beschrieben",
+        "missing": "eine Aufgabe"
+      },
+      "format": {
+        "label": "Qualitätsanforderung",
+        "quality": "Qualitätsanforderung gesetzt",
+        "missing": "eine Qualitätsanforderung"
+      }
+    },
+    "block": {
+      "vc_r1": {
+        "label": "Senior Developer",
+        "text": "Du bist ein erfahrener Senior Developer mit Fokus auf sauberen, wartbaren Code."
+      },
+      "vc_r2": {
+        "label": "Software-Architekt",
+        "text": "Du bist ein Software-Architekt. Erkläre Architekturentscheidungen und schlage Alternativen vor."
+      },
+      "vc_r3": {
+        "label": "Pair Programmer",
+        "text": "Du bist mein Pair-Programming-Partner. Denke laut mit, stelle Rückfragen und erkläre deine Entscheidungen."
+      },
+      "vc_e1": {
+        "label": "React + TypeScript",
+        "text": "Das Projekt verwendet React mit TypeScript, Tailwind CSS und Vite."
+      },
+      "vc_e2": {
+        "label": "Python + FastAPI",
+        "text": "Das Projekt ist ein Python-Backend mit FastAPI, SQLAlchemy und PostgreSQL."
+      },
+      "vc_e3": {
+        "label": "Angular + Optimus UI",
+        "text": "Das Projekt verwendet Angular mit Optimus-UI-Komponenten und Signal-basiertem State."
+      },
+      "vc_t1": {
+        "label": "Feature bauen",
+        "text": "Implementiere das folgende Feature komplett. Erstelle alle nötigen Dateien und aktualisiere bestehende."
+      },
+      "vc_t2": {
+        "label": "Bug fixen",
+        "text": "Finde und behebe den folgenden Bug. Erkläre die Ursache und warum dein Fix das Problem löst."
+      },
+      "vc_t3": {
+        "label": "Refactoring",
+        "text": "Refactore den Code für bessere Lesbarkeit und Wartbarkeit. Bewahre das bestehende Verhalten exakt."
+      },
+      "vc_f1": {
+        "label": "Mit Tests",
+        "text": "Schreibe Unit-Tests für alle neuen Funktionen. Verwende das vorhandene Test-Framework."
+      },
+      "vc_f2": {
+        "label": "Schrittweise erklären",
+        "text": "Erkläre jeden Implementierungsschritt. Begründe Architekturentscheidungen kurz."
+      },
+      "vc_f3": {
+        "label": "Clean Code",
+        "text": "Befolge Clean-Code-Prinzipien: sprechende Namen, kleine Funktionen, keine Magie."
+      }
+    }
+  }
+}

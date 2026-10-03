@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "title": "The Tour: How This Project Is Built with Agents",
+    "subtitle": "A walk through the project that shows this page. Every stop names a file. You can open it in your own copy."
+  },
+  "toc": {
+    "lead": "Before the first stop",
+    "map": "The map and its guard",
+    "constitution": "The constitution",
+    "standards": "Standards and exceptions",
+    "directives": "Directives and skills",
+    "books": "The books",
+    "gates": "The gates",
+    "specs": "Shape before build",
+    "human": "Where the human decides",
+    "wave": "4 stages of checking",
+    "epilogue": "What this tour cannot do",
+    "takeaways": "Summary",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "This kit has a learning path about AI agents. It is called Working with AI Agents. It has 4 articles. They say how the work should go. This article is different. It shows a real project. And it shows real files in it. Every stop names a file. Is there no file named? Then it is only an opinion. This rule holds for every agent in the project. It is in the file directives/core-principles.md.",
+    "paragraph2": "2 notes first. This tour shows the kit as it is delivered. Then you work in your copy. The files change. This article does not. Do they disagree? Then the files win. Stop 2 says why. So the tour names files and folders. It does not name line numbers or counts. Those go stale first.",
+    "paragraph3": "And this: the interesting part is not where the method works. The interesting part is where it expects mistakes. Some checks exist because an agent can be wrong and feel sure. At other places there is no check. There only the instruction helps. You do not have to trust this article. The last stop names 3 commands. They check what a machine can check."
+  },
+  "map": {
+    "title": "Stop 1 — The map has a limit",
+    "text1": "An agent opens the project. It reads the file AGENTS.md first. This file may not have more than 150 lines. That is not a wish. A script counts the lines. The script is scripts/verify-harness.mjs. Does the file get too long? Then the script reports an error. The file CLAUDE.md is checked too. It is very short. It points to AGENTS.md. So no tool gets a secret second rulebook. The script also checks every link in AGENTS.md.",
+    "text2": "The important part is this: AGENTS.md is a map. It is not the rulebook. It links to the other files. Then it stops.",
+    "text3": "Why is that good? Nobody reads a very long file all the way. And nobody keeps it up to date. A short file gets read every time. The line limit is what keeps it short.",
+    "statLabel": "AGENTS.md",
+    "statValue": "150",
+    "statDescription": "The most lines the file may have"
+  },
+  "constitution": {
+    "title": "Stop 2 — The constitution has a version number",
+    "text1": "The file docs/CONSTITUTION.MD has 7 principles. It has a version number, like a program. Does somebody change the constitution? Then they must say what changes. They must also change every file that depends on it. And in the same step.",
+    "text2": "2 principles matter for this article. Principle 1 says: the human decides everything that cannot be taken back. The agent only makes suggestions. Principle 6 says: if a text and the data disagree, the data wins. This article is such a text too. The files are the data."
+  },
+  "standards": {
+    "title": "Stop 3 — Standards are a table",
+    "text1": "The folder base/standards/ holds 4 files. They are A11Y, PRIVACY, SECURITY, and QUALITY. Each one is a table. Each row has a number, a rule, and a reason. Some rules are hard. The rule QUAL-001 is hard. It says: nothing is done without a green build and green tests.",
+    "text2": "You cannot get around a hard rule. A script checks that. Softer rules can have an exception. The exception is a file in the project. Not a switch and not a setting. The file says who decided. And it says when to check again. After that date the exception ends. The exception does not turn the check off. The check still runs. It still reports. It only stops blocking.",
+    "footnoteTitle": "How a new copy starts",
+    "footnoteText": "In a new copy there is no exception file. You can run the check yourself. It says: no exception files. Every check blocks. That is how it should start. Your first exception will be your own decision. With your name and a date."
+  },
+  "directives": {
+    "title": "Stop 4 — Directives and skills",
+    "text1": "There are 2 kinds of instruction. A directive is knowledge. The agent takes it into every task. A skill is a job. You call it by name. The directives are in the folder directives/. The skills are in the folder .claude/skills/.",
+    "text2": "Both have a list. A script checks the list of directives in 2 directions. Every file in the list must exist. And every file on disk must be in the list. Otherwise an agent will not find it.",
+    "text3": "One directive matters most for stop 9. It is directives/verification.md. It says: the one who builds keeps their knowledge. The one who checks starts fresh every time. And the checker should try to disprove. Not to confirm.",
+    "driftTitle": "2 mistakes no list check finds",
+    "drift1": "A sentence can get old. The script checks: does the file exist? It does not check: is the text still true? Example: a skill says a folder does not exist yet. But the folder exists. Nothing breaks. So nothing reports the mistake.",
+    "drift2": "A short description can leave something out. The list describes every directive in one line. Agents choose by these lines. One directive has 3 parts. What if the line names only 2 parts? Then agents do not know the third part. And the list check is still green.",
+    "driftClose": "That is exactly what principle 6 says. Texts go stale. The data wins. Only reading helps. You compare every description with its source. That is slow. So here is the rule: do you change a file? Then fix its description in the same step."
+  },
+  "books": {
+    "title": "Stop 5 — The books are the memory",
+    "text1": "An AI agent forgets everything after the work. It has no memory across sessions. So there are 3 files. JOURNAL.md is a diary. It says what was done. And why. OPEN-QUESTIONS.md collects open questions. The human decides those. Every question also has a suggestion. So nothing stalls if nobody answers. CHANGELOG.md is a short list of changes.",
+    "text2": "The kit delivers the diary and the question list empty. They belong to your project. Your copy starts its own story. The diary has an example entry. It says: also write down what broke. And why. That helps more later than only the successes.",
+    "text3": "The rule says: a short section per session. There is no fixed number of lines. Write what the next reader needs. The diary is never shortened. It grows with the project.",
+    "text4": "The books are only as good as the day they were written. A skill reads the diary to tell you the state. Was a day of work never written down? Then the diary says too little. So look at the git history now and then. Is work missing from the diary? Then write the entry later. And say that it is late."
+  },
+  "gates": {
+    "title": "Stop 6 — The gates",
+    "text1": "A gate is a machine check. A build is the step that turns the code into the finished app. The project has several health checks. They ask for example: is the rule system intact? Are the exceptions valid? Is the build green? Is the code clean? Are the tests green? Each check has an explanation in plain words.",
+    "text2": "One script checks the agent system itself. It is scripts/verify-harness.mjs. 2 of its checks show the idea. First: a test file must be in the test list. Otherwise it never runs. The suite stays green anyway. That looks like safety. It is not. Second: some invisible characters make a file look broken to search tools. The script forbids them. Both mistakes are easy to miss. So a machine checks them.",
+    "text3": "There is also a gate on the agent's hands. It is a hook. A hook is a small program. It runs before every command of the agent. The hook blocks dangerous commands. For example: deleting data. Or rewriting the project history. A script checks that the hook is switched on. For every tool, also on Windows.",
+    "text4": "What the hook cannot do is written next to it. A table says it rule by rule. For example: no gate checks which data leaves the project. And the hook belongs to one single tool. Other AI tools only have the instruction. So the instruction is the layer that carries the weight.",
+    "storyTitle": "Why the tests run in the build",
+    "text5": "Now the most important gate. The build has some checks. They read files. None of them starts a test. What if the tests run only on request? Then a build can be green. And the tests can be broken at the same time. The report says: the build is green. That is true. And it is useless.",
+    "text6": "So the tests run at the end of every production build. Before the build report is written. The test result goes into the build report. The result belongs to exactly this build. A result from another build does not count.",
+    "text7": "So broken tests stop the whole build. That is on purpose. A warning only would allow the wrong report again. There is one way around it. You must ask for it on purpose. And the build report says so.",
+    "text8": "The rule QUAL-001 says: no green tests, not done. The rule alone does not do that. The wire to the machine does it. A standard nobody measures is only a sentence.",
+    "statTestsLabel": "Tests",
+    "statTestsValue": "build:prod",
+    "statTestsDescription": "The tests run in every production build",
+    "statSilentLabel": "Way around",
+    "statSilentValue": "SKIP_TEST_GATE=1",
+    "statSilentDescription": "Only on purpose. The build report says so."
+  },
+  "specs": {
+    "title": "Stop 7 — Shape it first, then build it",
+    "text1": "Big work gets described first. That description is called a spec. A spec is not a manual. It only describes the shape of the work. Otherwise it goes stale too fast. Open points get a marker. More than 3 open points are not allowed.",
+    "text2": "There is one big example. A library was replaced. The spec sets the order. First write down the decision. Then save the sources. Then build. Keep the books at the end. There is also a rule for big jobs with many agents. First do one small test run. Then plan the big run from it.",
+    "text3": "Now the expensive lesson. Why did the library have to go? The new version had a different license. Universities and public bodies were not allowed to use it. Nobody had read that during the update. The build was green. The tests were green. But a build cannot read a license.",
+    "text4": "Today there is a rule for it. It says: read the license before the update. Has the license changed? Then stop. A human decides. The method did not prevent the mistake. It wrote the mistake down. And it turned the mistake into a rule."
+  },
+  "human": {
+    "title": "Stop 8 — Where the human decides",
+    "text1": "There are 3 levels for actions. Green is harmless. The agent just does it. Yellow is a short stop. The agent says one sentence and goes on. Red always needs a yes from the human. Red is for example: publishing, deleting data, spending money. The agent may not hand red to another agent.",
+    "text2": "The file OPEN-QUESTIONS.md collects open questions. The kit ships it almost empty. You fill it with your own questions. The agent writes each question down. It also writes its suggestion next to it. Then it keeps working with that suggestion. So nothing stalls. Later your answer goes into the file too. The suggestion stays there. So you can count later: How often did I agree? Where did I decide differently?",
+    "text3": "There are more places where the human decides. Some choices have no single right answer. For example: wording or design. There your taste decides. The agent shows you several options. Other things must be correct. For example: facts. There the agent shows you its findings. It does not just change them. And a big decision with a new license waits for your yes."
+  },
+  "wave": {
+    "title": "Stop 9 — 4 stages of checking",
+    "text1": "This is the most important part of the article. How do you check the work of agents? The project uses 4 stages.",
+    "stagesTitle": "4 stages and what each one is for",
+    "step1Label": "Built",
+    "step1Description": "One agent builds the work. It remembers its own decisions.",
+    "step2Label": "Reviewed",
+    "step2Description": "Other agents look for mistakes. Each finding says: this is wrong, and this is better.",
+    "step3Label": "Repaired",
+    "step3Description": "One pass answers every finding.",
+    "step4Label": "Checked again",
+    "step4Description": "A new check tries to disprove the repair. Not sure? Then it says: not checked.",
+    "text2": "The worst mistakes are often in example code. That is exactly where readers copy from.",
+    "text3": "After stage 3 many projects would say done. 2 stages agree. But a directive warns about that. If everybody agrees, the mistake can still be there. Everybody can share the same blind spot. So a 4th check runs. Nobody orders this stage gladly. It arrives when the work already feels finished.",
+    "findingsTitle": "What a 4th check often finds",
+    "finding1": "A wrong sentence was repaired. Now the new sentence is wrong too. It says the opposite.",
+    "finding2": "A line number was corrected. The new number is off by 1.",
+    "finding3": "One unclear spot was fixed. But the fix made a new unclear spot.",
+    "text4": "The 4th check can be wrong too. It sorts its findings. Some count as less important. Look at those too. Some of them can still matter.",
+    "text5": "There is no stage without mistakes. There is only a stage where the mistakes are small enough. The person who decides that reads the texts themselves. A green tick is not enough. And writing a correct sentence is harder than finding a wrong one.",
+    "text6": "This also holds for a single measurement. Check your measuring tool first. An example: an agent measures colors in the app. But the app never started. Every value is wrong. The agent should say so out loud. Then repair the measuring tool. Not the number.",
+    "text7": "This article does not say what checking costs. Costs change with the tool and the day. The 4 stages stay the same. You can use them in your own work."
+  },
+  "epilogue": {
+    "title": "Stop 10 — What this tour cannot do",
+    "text1": "This article is only a picture of the project. The data matters more than the article. And in your copy the data changes. Stop 4 showed it: a sentence can get old. And every check stays green. This article is made of such sentences.",
+    "text2": "So do not just believe it. Open your copy. And run 3 commands. They check the rule system, the exceptions, and the tests. What they say is the true state. Not this article."
+  },
+  "takeaways": {
+    "containerTitle": "The main points",
+    "item1": "Rules hold when a machine checks them. The line limit, the lists, the tags: behind every sentence there is a script.",
+    "item2": "A standard nobody measures is only a sentence. The tests count because every production build runs them.",
+    "item3": "An exception is a file. Not a switch. It never turns a check off.",
+    "item4": "Finding a mistake and repairing a mistake are 2 different skills. That is why you check again after a repair.",
+    "item5": "The books make the work checkable later. But only if somebody writes them. In your copy they start empty."
+  },
+  "checkpoint": {
+    "title": "Did you get it?",
+    "item1": "I can say why an exception is a file and not a switch.",
+    "item2": "I can explain why the tests run in the production build.",
+    "item3": "I can say why a 4th check runs after the repair."
+  },
+  "quiz": {
+    "boxTitle": "Quiz",
+    "q1": {
+      "question": "What does an exception file do to a check?",
+      "a": "It turns the check off.",
+      "b": "The check still runs and still reports. It only stops blocking.",
+      "c": "It deletes the standard from the table.",
+      "d": "It hides the check from the report.",
+      "explanation": "An exception is a file in the project. It has 5 required fields. The check still runs and still reports. It only stops blocking. With hard rules this is not possible at all."
+    },
+    "q2": {
+      "question": "Why do the tests run in the production build?",
+      "a": "The other checks already run the tests.",
+      "b": "The build report needs a number for the website.",
+      "c": "The other checks start no test. Without this step a build can be green over broken tests.",
+      "d": "The tests are too slow for daily work.",
+      "explanation": "The other checks only read files. They never start a test. So the tests run at the end of every production build. The result goes into the build report."
+    },
+    "q3": {
+      "question": "Why is a check after a repair worth it?",
+      "a": "It is only a formality.",
+      "b": "A repair can create new mistakes.",
+      "c": "The earlier reviewers are unreliable.",
+      "d": "It spreads the cost over more agents.",
+      "explanation": "The findings can all be right. And the repair can still be wrong. A new check tries to disprove the repair. So it finds the new mistakes."
+    },
+    "q4": {
+      "question": "What does the agent write next to each open question?",
+      "a": "Nothing. It stops and waits.",
+      "b": "Its suggestion. It keeps working with it.",
+      "c": "Its final decision.",
+      "d": "That is written nowhere.",
+      "explanation": "Next to every question there is a suggestion. The agent keeps working with it. So nothing stalls. Later you can see where you decided differently."
+    },
+    "q5": {
+      "question": "A text disagrees with the code. Which one wins?",
+      "a": "The text wins.",
+      "b": "Both count the same.",
+      "c": "The data wins. The text is only a picture of it.",
+      "d": "A human must decide right away.",
+      "explanation": "That is principle 6 of the constitution. A text about the code is only a picture of it. If they disagree, the data wins."
+    }
+  }
+}

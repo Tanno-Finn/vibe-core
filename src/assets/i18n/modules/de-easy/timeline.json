@@ -1,0 +1,51 @@
+{
+  "aiTimeline": {
+    "categories": {
+      "all": "Alle Arten",
+      "breakthroughs": "Durchbrüche",
+      "competitions": "Wettkämpfe",
+      "conferences": "Treffen",
+      "datasets": "Daten·sammlungen",
+      "deep-learning": "Tiefes Lernen",
+      "dev-tools": "Bau·werkzeuge",
+      "foundations": "Anfänge",
+      "game-ai": "Spiel·computer",
+      "generative-ai": "Erschaffende KI",
+      "history": "Geschichte",
+      "knowledge-systems": "Wissens·computer",
+      "llm": "Große Sprach·computer",
+      "machine-learning": "Computer lernt",
+      "milestones": "Wichtige Ereignisse",
+      "neural-networks": "Computer·gehirne",
+      "nlp": "Sprach·computer",
+      "organizations": "Organisationen",
+      "papers": "Bücher und Artikel",
+      "products": "Produkte",
+      "regulation": "Gesetze",
+      "robotics": "Roboter",
+      "science": "Forschung"
+    },
+    "filters": {
+      "active": "Aktive Filter",
+      "category": "Art",
+      "clear": "Alles löschen",
+      "clearSearch": "Suche löschen",
+      "dateRange": "Zeit·bereich",
+      "removeFilter": "Filter entfernen",
+      "search": "Suchen",
+      "searchHelp": "Du kannst in den Texten suchen",
+      "searchPlaceholder": "Hier suchen..."
+    },
+    "readMore": "Mehr lesen",
+    "tableOfContents": "Inhalts·verzeichnis",
+    "sections": {
+      "filters": "Filter"
+    },
+    "empty": {
+      "title": "Keine Ereignisse gefunden",
+      "text": "Kein Eintrag passt zu deinen Filtern. Probier eine andere Suche oder weniger Filter.",
+      "resetButton": "Alle Filter löschen"
+    },
+    "results": "Ereignisse"
+  }
+}

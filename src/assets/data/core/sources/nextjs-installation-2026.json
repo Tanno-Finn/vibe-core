@@ -1,0 +1,17 @@
+{
+  "id": "nextjs-installation-2026",
+  "type": "article",
+  "authors": "Vercel",
+  "year": "2026",
+  "publication": "Next.js Documentation",
+  "url": "https://nextjs.org/docs/app/getting-started/installation",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "nextjs",
+    "installation",
+    "system-requirements",
+    "nodejs",
+    "wsl"
+  ]
+}

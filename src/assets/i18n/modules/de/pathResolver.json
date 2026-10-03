@@ -1,0 +1,41 @@
+{
+  "label": {
+    "workingDirectory": "Wo du gerade stehst (pwd)",
+    "path": "Der Pfad, den du tippst",
+    "placeholder": "z. B. data/file.csv"
+  },
+  "action": {
+    "reset": "Zurücksetzen"
+  },
+  "kind": {
+    "absolute": "Absoluter Pfad",
+    "relative": "Relativer Pfad",
+    "home": "Pfad ab dem Home-Verzeichnis"
+  },
+  "hint": {
+    "absolute": "Er beginnt mit /, deshalb spielt dein Arbeitsverzeichnis keine Rolle.",
+    "relative": "Er beginnt in dem Verzeichnis, in dem du gerade stehst.",
+    "home": "~ steht für das Home-Verzeichnis."
+  },
+  "result": {
+    "landsAt": "Landet bei"
+  },
+  "target": {
+    "dir": "Dort liegt ein Ordner",
+    "file": "Dort liegt eine Datei",
+    "missing": "Dort liegt nichts — Datei oder Verzeichnis nicht gefunden"
+  },
+  "trace": {
+    "title": "Schritt für Schritt",
+    "start": "hier starten",
+    "up": "eine Ebene hoch",
+    "stay": "hier bleiben",
+    "down": "hineingehen"
+  },
+  "tree": {
+    "title": "Der Dateibaum",
+    "here": "du bist hier",
+    "target": "hier landet der Pfad"
+  },
+  "summary": "{{kind}}, führt zu {{absolute}}. {{target}}."
+}

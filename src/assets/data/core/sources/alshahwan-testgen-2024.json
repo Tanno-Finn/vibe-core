@@ -1,0 +1,17 @@
+{
+  "id": "alshahwan-testgen-2024",
+  "type": "paper",
+  "authors": "Nadia Alshahwan, Jubin Chheda, Anastasia Finegenova, Beliz Gokkaya, Mark Harman, Inna Harper, Alexandru Marginean, Shubho Sengupta, Eddy Wang",
+  "year": "2024",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2402.09171",
+  "doi": "10.48550/arXiv.2402.09171",
+  "accessed": "2026-08-16",
+  "tags": [
+    "test-generation",
+    "llm",
+    "industrial-deployment",
+    "coverage",
+    "meta"
+  ]
+}

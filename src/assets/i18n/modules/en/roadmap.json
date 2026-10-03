@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Roadmap",
+    "description": "What's running, what's planned, and what quietly shifted — the current state of this site."
+  },
+  "timeline": {
+    "title": "Content Roadmap",
+    "description": "This site keeps growing — fresh learning paths and interactive demos, all free.",
+    "released": "Available",
+    "upcoming": "Next Release",
+    "planned": "Planned",
+    "articles": "Articles",
+    "paths": "Learning Paths",
+    "phaseSprint": "weekly",
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "updates": "Extensions"
+  },
+  "mystery": {
+    "title": "Bonus content",
+    "description": "Bonus content is in the works — exactly what stays our little secret for now."
+  },
+  "languages": {
+    "title": "Translation Quality",
+    "description": "All translations were created using AI and undergo a systematic quality review. Here you can see the current status per language.",
+    "statusComplete": "Review complete",
+    "statusPending": "Review planned",
+    "statusReference": "Reference language",
+    "languageNames": {
+      "de": "German",
+      "en": "English",
+      "tr": "Turkish",
+      "bn": "Bengali",
+      "ru": "Russian",
+      "uk": "Ukrainian",
+      "pl": "Polish",
+      "el": "Greek",
+      "hi": "Hindi",
+      "mr": "Marathi",
+      "pa": "Punjabi",
+      "es": "Spanish",
+      "fr": "French",
+      "ko": "Korean",
+      "hr": "Croatian",
+      "it": "Italian",
+      "nl": "Dutch",
+      "pt-br": "Portuguese (BR)",
+      "ro": "Romanian",
+      "cs": "Czech",
+      "vi": "Vietnamese",
+      "id": "Indonesian",
+      "ms": "Malay",
+      "sv": "Swedish",
+      "da": "Danish",
+      "no": "Norwegian",
+      "sw": "Swahili",
+      "tl": "Tagalog"
+    },
+    "scripts": {
+      "latin": "Latin",
+      "cyrillic": "Cyrillic",
+      "devanagari": "Devanagari",
+      "bengali": "Bengali",
+      "hangul": "Hangul",
+      "greek": "Greek",
+      "gurmukhi": "Gurmukhi"
+    }
+  }
+}

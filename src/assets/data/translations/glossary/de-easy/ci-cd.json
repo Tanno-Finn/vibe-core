@@ -1,0 +1,8 @@
+{
+  "term": "CI/CD",
+  "alternativeNames": [
+    "Automatische Prüf·strecke für Code"
+  ],
+  "description": "CI/CD. Das ist eine englische Abkürzung. CI heißt Continuous Integration. CD heißt Continuous Delivery oder Continuous Deployment. Die Idee dahinter ist einfach. Jede Änderung am Code wird sofort geprüft. Die Prüfung läuft ganz automatisch. Sie ist für alle Änderungen gleich streng. Zuerst läuft der Build. Dann prüft der Linter. Dann laufen die Tests. Ist alles grün? Dann ist die Änderung bereit. Bei Delivery drückt ein Mensch den letzten Knopf. Bei Deployment geht die Änderung automatisch online. So finden Teams ihre Fehler sehr früh.",
+  "example": "Denk an eine Fabrik mit einem Fließband. Jedes Teil fährt durch die gleichen Prüf·stationen. Am Ende steht das Teil fertig an der Rampe. Ein Mensch sagt: Der Lastwagen fährt jetzt los. Manchmal fährt der Lastwagen auch von allein."
+}

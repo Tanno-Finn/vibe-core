@@ -1,0 +1,9 @@
+{
+  "term": "Git",
+  "alternativeNames": [
+    "distributed VCS",
+    "Git version control"
+  ],
+  "description": "Git is a distributed version control system where every developer has a full local copy of the repository and its history. It supports branching, merging, and collaboration, making it a standard tool for managing AI code, experiments, and deployment pipelines.",
+  "example": "An ML team uses Git branches: one branch for the new model, another for data preprocessing. Merging combines the work, and the Git history shows exactly which change affected which result."
+}

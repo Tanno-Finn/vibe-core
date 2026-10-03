@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "vibecore": {
+      "architect": {
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "include": [
+              "src/app/components/shared/example.component.spec.ts",
+              "src/app/pages/home/home.component.spec.ts"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

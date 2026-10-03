@@ -1,0 +1,9 @@
+{
+  "term": "Agentenschleife",
+  "alternativeNames": [
+    "Agent-Zyklus",
+    "Perceive-Plan-Act-Zyklus"
+  ],
+  "description": "Die Agentenschleife ist der Regelkreis, den ein KI-Agent in einem agentischen Workflow durchläuft: Beobachten — Denken/Planen — Handeln (Tool aufrufen) — Ergebnis integrieren — und von vorn. Ein einzelner Durchlauf heißt Schritt; die Schleife wiederholt sich, bis die Aufgabe erledigt ist oder ein Abbruchkriterium greift. Das Entscheidende: Nicht der Benutzer steuert das nächste Werkzeug, sondern das Modell selbst. Im ReAct-Muster (Reasoning + Acting) sieht das konkret so aus: Das Modell schreibt einen „Thought“ (Überlegung), nennt eine „Action“ (Tool-Aufruf mit Parametern), wartet auf eine „Observation“ (Tool-Ergebnis) — und wiederholt. Wie lange die Schleife läuft, ist nicht von vornherein festgelegt: Ein schlecht konfigurierter Agent kann in Endlosschleifen geraten oder unnötig viele Schritte machen, weshalb Token-Budgets und maximale Schrittzahlen zur Standardausstattung gehören.",
+  "example": "Der Agent soll eine Tabelle aus dem Web herunterladen und den Mittelwert berechnen. Schritt 1: Er denkt „Ich brauche die URL“, ruft das Such-Tool auf, bekommt eine URL zurück. Schritt 2: Er lädt die Seite, liest die Zahlen. Schritt 3: Er führt den Python-Interpreter aus, berechnet den Mittelwert. Schritt 4: Er erkennt, dass er fertig ist, und gibt das Ergebnis aus. Vier Schritte, eine Schleife."
+}

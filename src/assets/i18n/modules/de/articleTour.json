@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "title": "Die Tour: Wie dieses Projekt mit Agenten gebaut wird",
+    "subtitle": "Ein Gang durch das Repository, das diese Seite anzeigt. Jede Station nennt eine Datei, die du in deiner eigenen Kopie öffnen kannst."
+  },
+  "toc": {
+    "lead": "Vor der ersten Station",
+    "map": "Die Karte und das Script, das sie klein hält",
+    "constitution": "Eine Verfassung mit Versionsnummer",
+    "standards": "Standards, und die Ausnahme ist eine Datei",
+    "directives": "Direktiven, Skills und was ein Index nicht sieht",
+    "books": "Die Bücher, das Gedächtnis des Projekts",
+    "gates": "Die Gates und das Kabel zu den Tests",
+    "specs": "Der Specs-Loop und die Lizenz-Lektion",
+    "human": "Wo der Mensch entscheidet",
+    "wave": "Vier Stufen, und warum es die vierte gibt",
+    "epilogue": "Was diese Tour nicht kann",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Die vier Artikel des Pfads Arbeiten mit KI-Agenten beschreiben, wie agent-first-Arbeit gehen sollte. Dieser hier ist anders gebaut. Er geht durch das Repository, das die Seite anzeigt, die du gerade liest, und zeigt auf Dateien. Jede Station nennt einen Pfad. Steht bei einer Behauptung kein Pfad, ist sie eine Meinung, und so solltest du sie lesen. Das ist die Regel, die dieses Repo seinen eigenen Agenten stellt, in directives/core-principles.md: erst das Log, dann die Schuldzuweisung, erst Fakten, dann Behauptungen.",
+    "paragraph2": "Zwei Hinweise vor der ersten Station. Diese Tour beschreibt das Kit so, wie es ausgeliefert wird. Sobald du in deiner Kopie arbeitest, bewegen sich die Dateien, und der Artikel bewegt sich nicht mit; wo beide sich widersprechen, gewinnen die Dateien, aus einem Grund, den Station 2 nennt. Deshalb nennt die Tour Dateien und Ordner statt Zeilennummern und Stückzahlen: Die veralten zuerst.",
+    "paragraph3": "Und das Interessante an diesem Repo ist nicht die Stelle, an der die Methode funktioniert. Es sind die Stellen, an denen sie mit dem Scheitern rechnet: wo es einen Check gibt, weil ein Agent sich selbstbewusst irren kann, und wo es keinen gibt und die Anweisung das Gewicht allein trägt. Nichts hier verlangt Vertrauen. Die letzte Station nennt drei Befehle, die die Teile dieser Tour prüfen, die eine Maschine prüfen kann."
+  },
+  "map": {
+    "title": "Station 1 — Die Karte hat eine harte Obergrenze, und ein Script setzt sie durch",
+    "text1": "Ein Agent, der dieses Repo öffnet, liest zuerst AGENTS.md. Ihr Kopf sagt, dass sie eine harte Obergrenze von 150 Zeilen hat. Das ist keine Absichtserklärung, sondern gemessen: scripts/verify-harness.mjs definiert AGENTS_LINE_CAP = 150, zählt die Datei und lässt den Harness-Check scheitern, sobald sie über die Grenze wächst. CLAUDE.md ist eine dünne Hülle, deren einzige Aufgabe der Import von AGENTS.md ist; dasselbe Script prüft, ob dieser Import noch da ist, damit niemand die Hülle aushöhlt und einem Werkzeug still ein anderes Regelbuch unterschiebt. Außerdem prüft es, ob jeder Link in AGENTS.md noch auflöst.",
+    "text2": "Entscheidend ist, was die Datei ist, nicht wie lang. AGENTS.md ist eine Karte. Sie verlinkt auf die Verfassung, die vier Standards, das Sicherheitsmodell, die Bücher, die Direktiven, die Specs, den Vertrag in kit.json, die Werkzeuge und die Packs, und hört dann auf. Eine Instruktionsdatei mit 5 000 Zeilen liest niemand zu Ende, und gepflegt wird sie auch nicht. Eine kurze wird jede Session gelesen.",
+    "text3": "Die Datei führt dieses Argument über sich selbst, im letzten Abschnitt: Eine aufgeblähte AGENTS.md verdrängt die eigentliche Aufgabe, verrottet schneller, als jemand sie pflegt, und lässt sich nicht mechanisch prüfen. Die Obergrenze ist der einzige Grund, warum das Argument eine anstrengende Woche überlebt.",
+    "statLabel": "AGENTS.md",
+    "statValue": "150",
+    "statDescription": "Zeilengrenze, die der Harness durchsetzt; die Karte verlinkt, statt zu wachsen"
+  },
+  "constitution": {
+    "title": "Station 2 — Die Verfassung trägt eine Versionsnummer, und eine Änderung ist erst fertig, wenn ihre Abhängigen mitgezogen sind",
+    "text1": "docs/CONSTITUTION.MD hält sieben Prinzipien. Sie trägt eine Semver-Version samt Regel, was welchen Sprung auslöst: ein gestrichenes oder umgekehrtes Prinzip ist MAJOR, ein neues MINOR, geänderter Wortlaut PATCH. Über den Prinzipien sitzt ein versteckter HTML-Kommentar, der Sync-Impact-Report, der für jede Änderung festhält, welche abhängigen Dokumente im selben Commit mitgeändert wurden. Die Änderungsregel am Ende lautet: Spec öffnen, Sprung benennen, betroffene Dokumente auflisten, alle zusammen ändern, und jeden offenen Klärungsmarker schließen, bevor es ausgeliefert wird.",
+    "text2": "Zwei Prinzipien tragen den Rest dieser Tour. Prinzip 1: Der Nutzer besitzt die irreversiblen Entscheidungen; der Agent schlägt vor, und ein Mensch verfügt über alles, was sich nicht zurücknehmen lässt. Jedes Human-Gate weiter unten ist dieser Satz in Betriebsform. Prinzip 6: formen statt überdokumentieren, und abgeleitete Ansichten weichen den Daten, wenn beide sich widersprechen. Merk dir das. Es erklärt, warum das Repo seine eigenen Zusammenfassungen gegen ihre Quellen prüft, und es gilt auch für diesen Artikel: Der Artikel ist eine abgeleitete Ansicht, und die Dateien sind die Daten."
+  },
+  "standards": {
+    "title": "Station 3 — Standards sind eine Tabelle, und die Ausnahme ist eine Datei, nie ein Flag",
+    "text1": "Die Standards liegen in base/standards/ als A11Y, PRIVACY, SECURITY und QUALITY, jeder eine Markdown-Tabelle mit ID, Regel, Tag und einer Begründung in Alltagssprache. Die Tabelle von QUALITY mündet in den Einzeiler, an dem jeder Agent gemessen wird: grüner Build, grüne Tests, Doku im selben Commit, und ein zweites Review bei allem, was nicht trivial ist. QUAL-001, QUAL-002 und QUAL-007 tragen das Tag hard. Die anderen vier sind overridable.",
+    "text2": "Das Tag ist keine Verzierung. scripts/check-overrides.mjs liest das Tag jeder ID aus genau diesen Tabellenzeilen und weist jede Ausnahme ab, die eine hard-Regel nennt; alles in SECURITY ist ohnehin außer Reichweite. Der Mechanismus selbst steht in overrides/README.md. Eine committete Datei mit fünf Pflichtfeldern im Frontmatter, darunter wer entschieden hat und wann neu zu prüfen ist, schaltet ein Gate von blockierend auf advisory. Das Gate läuft danach trotzdem, und seine Warnung bleibt in den Health- und Status-Skills sichtbar; es blockiert nur nicht mehr. Ist das Prüfdatum vorbei, läuft die Ausnahme ab, und das Gate blockiert wieder. Abschalten lässt sich ein Gate auf diesem Weg nicht. Eine undokumentierte Ausnahme existiert nicht: kein Config-Flag, keine Umgebungsvariable, kein nur dieses eine Mal.",
+    "footnoteTitle": "Wo eine frische Kopie anfängt",
+    "footnoteText": "In einer frischen Kopie liegt in overrides/ nur die README. Lass node scripts/check-overrides.mjs laufen, und es meldet, wie viele Standards es kennt, wie viele davon overridable sind und dass es keine Override-Dateien gibt, also jedes Gate blockiert. Genau so ist der Anfang gedacht: Der Mechanismus ist fertig und getestet, und die erste Ausnahme in deiner Kopie wird eine Entscheidung deines eigenen Projekts sein, mit deinem Namen und einem Prüfdatum darauf."
+  },
+  "directives": {
+    "title": "Station 4 — Direktiven sind Wissen, Skills sind Verben, und beide werden gegen ihren Index geprüft",
+    "text1": "Das Kit trennt zwei Arten von Anweisung. Eine Direktive ist Wissen, das der Agent in jede Aufgabe mitnimmt; ein Skill ist ein Auftrag, den man beim Namen ruft (docs/explanation/directives-and-skills.md). Die Direktiven liegen unter directives/, mit Watch-Playbooks in directives/watch/ und je einem Leitfaden und einer Setup-Datei pro Sprache in directives/languages/. Die Skills liegen unter .claude/skills/, jeder ein Ordner mit einer SKILL.md.",
+    "text2": "Beide haben einen Index, und beide Indizes werden erzwungen. directives/index.yml erklärt im Kopf, dass es ihn gibt, damit ein Agent eine Direktive findet, ohne alle zu laden. scripts/verify-harness.mjs prüft ihn in beide Richtungen: Jede gelistete Datei muss existieren, und jede Direktive auf der Platte muss gelistet sein, denn eine ungelistete Direktive ist für jeden Agenten unsichtbar, der nur den Index liest. Skills bekommen eine ähnliche Behandlung: Jede SKILL.md muss einen Namen, eine Beschreibung und eine Ebene tragen.",
+    "text3": "Lies je eine, um die Textur zu spüren. directives/verification.md ist die Regel hinter Station 9. Der Bauende bleibt und behält seinen Kontext; der Prüfende wird jede Runde frisch instanziiert, mit dem Auftrag zu widerlegen statt zu bestätigen, und fällt bei Unsicherheit auf nicht verifiziert zurück. Gedächtnis beim Bauenden, frischer Zweifel beim Prüfenden. Und .claude/skills/ship/SKILL.md ist das Verb zum Ausliefern: Es geht die QUALITY-Tabelle Zeile für Zeile durch, hält bei jedem roten hard-Gate an und pusht, deployt oder veröffentlicht nie. Es bereitet vor, und dann fragt es.",
+    "driftTitle": "Zwei Arten von Drift, die kein Index-Check sieht",
+    "drift1": "Ein Satz, der seine Tatsache überlebt. Der Harness beweist, dass eine Skill-Datei existiert und ihr Frontmatter trägt. Ob stimmt, was der Skill sagt, kann er nicht beweisen. Ein Skill, der dem Agenten sagt, ein Ordner existiere noch nicht, obwohl docs/adr/ längst voller Entscheidungsprotokolle ist, funktioniert weiter, weil er die Abwesenheit toleriert statt sie zu verlangen. Nichts scheitert, also meldet auch nichts.",
+    "drift2": "Eine Zusammenfassung, der etwas fehlt. Jeder Eintrag in directives/index.yml trägt eine einzeilige Zusammenfassung, und ein Agent wählt Direktiven nach diesen Zeilen. directives/human-gate.md hat drei Blöcke: die Feedback-Datei-Schleife, mehrere Varianten erzeugen und den Menschen wählen lassen, und das automatische Qualitätsreview nach der Arbeit, dessen Kern ist, dass Befunde vorgelegt und nicht angewendet werden. Eine Zusammenfassung, die nur die ersten beiden nennt, versteckt den dritten vor jedem Agenten, der nach Zusammenfassung wählt, und der Index-Check bliebe grün.",
+    "driftClose": "Beides ist genau, was Prinzip 6 vorhersagt: Abgeleitete Ansichten driften, und die Daten gewinnen. Das einzige Gegenmittel ist, jede Zusammenfassung gegen ihre Quelle zu lesen, und das ist langsam, stur und nichts, was ein Script für dich erledigt. Die praktische Regel folgt aus QUAL-002: Wenn du eine Datei änderst, korrigiere die Sätze, die sie beschreiben, im selben Commit, damit die Beschreibung nie einen Tag lang falsch ist."
+  },
+  "books": {
+    "title": "Station 5 — Die Bücher sind das Gedächtnis",
+    "text1": "Ein Agent hat zwischen zwei Sessions kein Gedächtnis. Dieses Repo ersetzt es durch drei Dateien im Wurzelverzeichnis, unter einem Vertrag in base/BOOKKEEPING.md. JOURNAL.md ist das Tagebuch, nur anhängend: pro Session ein kurzer Abschnitt dazu, was getan wurde, warum, und was geparkt wurde. OPEN-QUESTIONS.md hält die Entscheidungen, die dem Menschen gehören, jede mit Datum, Einzeiler-Frage, Optionen und dem Default, mit dem der Agent weitermacht, wenn niemand antwortet, damit nichts stehen bleibt. CHANGELOG.md ist die kuratierte, nutzergerichtete Zusammenfassung dessen, was ausgeliefert wird. Wenn eine Aufgabe unterwegs abbaut, sagt directives/task-execution.md dem Agenten: anhalten, Session-Report schreiben, in frischem Kontext weitermachen, und diesen Report beim Wiederaufnehmen als Behauptung über einen vergangenen Moment behandeln, gegen git nachgeprüft, bevor gehandelt wird.",
+    "text2": "Das Kit liefert JOURNAL.md und OPEN-QUESTIONS.md als leere Vorlagen aus. Die Bücher gehören dem Projekt, nicht dem Kit: Wer vom Kit aus startet, beginnt seine eigene Geschichte, und die ersten Einträge in deiner Kopie handeln von deiner Arbeit. Der Beispieleintrag der Journal-Vorlage sagt, was ein Eintrag enthalten soll, auch den Teil, den man gern weglässt: festhalten, was kaputtging und warum, weil das später nützlicher ist als die Erfolge allein. Das ist QUAL-007, Ergebnisse ehrlich benennen, nicht als Zeile im Standard, sondern als Gewohnheit des Tagebuchs.",
+    "text3": "Der Vertrag verlangt einen kurzen Abschnitt pro Session, keine Zeilenzahl. Schreib, was der nächste Leser braucht; ein Eintrag, der das Warum erklärt, kostet mehr Zeilen als einer, der das Was aufzählt, und er ist sie wert. Das Journal wird nie gedeckelt, gekürzt oder nachträglich zusammengefasst. Es ist Geschichte, und es wächst mit dem Projekt.",
+    "text4": "Die Bücher sind nur so gut wie der Tag, an dem sie geschrieben wurden. Der Skill /status liest das Journal und den Open-Teil von OPEN-QUESTIONS.md als Primärquellen, also lässt ein Tag mit Commits, aber ohne Journal-Eintrag das Protokoll weniger behaupten, als passiert ist. Die Prüfung ist billig und folgt dem Grundsatz aus der Einleitung: Leg ab und zu git log neben das Journal. Wo das Log Arbeit zeigt, die das Journal nicht erwähnt, schreib den fehlenden Eintrag nach und sag dazu, dass er zu spät geschrieben wurde."
+  },
+  "gates": {
+    "title": "Station 6 — Die Gates und das Kabel vom Build zu den Tests",
+    "text1": "kit.json deklariert die Healthchecks, jeden mit einer Beschreibung für jemanden, der keinen Code liest: Ist der Harness intakt, sind die Ausnahmen gültig, ist der Build grün, ist der Code lint-sauber und formatiert, bestehen die Tests, bestehen die gebauten Seiten den Barrierefreiheits-Check, funktionieren die Hilfswerkzeuge noch. Der Health-Skill liest diese Liste, statt sie fest zu verdrahten. Hinter dem Build-Check steht eine Kette in package.json: build:prod fährt den Angular-Build, bereitet das Ausgabeverzeichnis vor, ruft build:verify, lässt die kuratierte Test-Suite laufen und schreibt und prüft zuletzt ein Manifest. Ein nacktes ng build über npm run ng fängt scripts/ng-guard.js ab, genau weil es diese Kette überspringen und ein kaputtes Ausgabeverzeichnis erzeugen würde.",
+    "text2": "scripts/verify-harness.mjs ist das Gate auf das Agentensystem selbst, mit seinen Checks im Kopf aufgezählt. Zwei davon zeigen, für welche Art Fehler der Harness gebaut ist. Eine Spec-Datei, die nicht in der Test-Allowlist von angular.json steht, wird nie ausgeführt, und die Suite bleibt trotzdem grün, die gefährlichste Art von Lücke, sagt der Kommentar, weil sie wie Abdeckung aussieht; also vergleicht der Harness die Allowlist mit den Spec-Dateien auf der Platte, in beide Richtungen. Und ein literales Steuerzeichen in einer Quelldatei lässt grep und git die Datei als binär behandeln, sodass Suchen ins Leere laufen; also weist der Harness solche Bytes ab. Beides macht aus einem Fehler, in den ein Agent unbemerkt laufen kann, einen Maschinencheck statt eines Absatzes.",
+    "text3": "Ein Gate sitzt nicht auf dem Code, sondern auf den Händen des Agenten. .claude/settings.json verdrahtet einen Pre-Tool-Hook mit den Shell-, Schreib-, Edit- und Lese-Werkzeugen und mit MCP-Werkzeugen. Der Hook, .claude/hooks/guard-red-actions.mjs, verweigert die hart verbotenen und die roten Aktionen aus base/SAFETY.md: Force-Push, Umschreiben der Historie, pauschales Staging, Deploys, Schreiben in Secret-Dateien, Löschen außerhalb des Projekts. verify-harness.mjs führt Hook und Settings-Datei als Pflicht und lässt den Harness scheitern, sobald der Matcher eines dieser Werkzeuge nicht mehr erreicht, PowerShell eingeschlossen. Hinter dem Hook verweigern die Deny-Regeln der Settings-Datei Änderungen am Hook und an den Settings selbst, damit der Agent, den das Gate bewacht, es nicht wegeditieren kann.",
+    "text4": "Was der Hook nicht kann, steht neben dem, was er kann. base/SAFETY.md hat eine Tabelle, Regel für Regel: manche Regeln doppelt abgesichert, manche teilweise, und SEC-004, die Regel über das Abfließen persönlicher Daten, mit einem schlichten Nichts beantwortet, weil kein Gate ausgehenden Verkehr inspiziert. Und dieselbe Datei sagt die größere Grenze offen: Der Hook ist ein Mechanismus eines einzigen Werkzeugs. Jeder andere Agent, den AGENTS.md einlädt, hat genau eine Schicht, die Anweisung. Die Tabelle sagt deshalb weniger über den Hook als über die Anweisung: Sie ist die tragende Schicht, und der Hook verengt nur den Wirkungskreis der Regeln, die er mustern kann.",
+    "storyTitle": "Warum die Test-Suite im Produktions-Build läuft",
+    "text5": "Jetzt das Gate, das man am leichtesten falsch baut. build:verify ist eine Kette statischer Checks: Scripts, die Dateien lesen, und ein Verifier des Ausgabeverzeichnisses. Keiner davon startet einen Test. Liefe die Test-Suite nur auf Zuruf, könnte ein Produktions-Build durchlaufen, während Spec-Dateien nicht laden, und die Meldung, build:prod sei grün, wäre gleichzeitig wahr und nutzlos. Die Suite wäre rot, der Build grün, und die beiden Tatsachen würden sich nie begegnen.",
+    "text6": "Deshalb ruft build:prod scripts/check-test-baseline.mjs nach build:verify und vor dem Schreiben des Manifests. Das Gate legt sein Urteil neben die Build-Ausgabe, gebunden an den Hash der gebauten index.html, den git-Stand und das aufrufende Script. Der Manifest-Schritt liest dieses Urteil dann und stoppt den Build, wenn es rot ist, fehlt oder zu einem anderen Build gehört. Das Urteil ist schlichtes JSON, keine Signatur: Es hält Versehen auf, nicht jemanden, der die Datei absichtlich ändert. Und weil die Suite nur ausführt, was angular.json listet, muss eine neue Spec-Datei in die Allowlist, was der oben beschriebene Harness-Check erzwingt.",
+    "text7": "Eine rote Suite blockiert also auch einen unbeteiligten Produktions-Build. Das ist der beabsichtigte Preis: Ein advisory Schritt ließe ein bestandenes build:prod technisch wahr und trotzdem irreführend, genau die Art Meldung, die das Gate verhindern soll. Der Umweg ist ausdrücklich, wird im Manifest als übersprungen vermerkt und von Manifest-Schreiber und Verifier abgewiesen, wenn dieselbe Variable dort nicht mehr gesetzt ist. Er ist nie ein Default.",
+    "text8": "QUAL-001 sagt in klaren Worten, dass nichts fertig ist ohne grünen Build und grüne Tests. Die Regel allein macht das nicht wahr; das Kabel vom Produktions-Build zum Test-Runner tut es. Ein Standard, den niemand misst, ist ein Satz.",
+    "statTestsLabel": "Test-Gate",
+    "statTestsValue": "build:prod",
+    "statTestsDescription": "Die kuratierte Suite läuft im Produktions-Build, bevor das Manifest geschrieben wird",
+    "statSilentLabel": "Umweg",
+    "statSilentValue": "SKIP_TEST_GATE=1",
+    "statSilentDescription": "Ausdrücklich, im Manifest als übersprungen vermerkt, nie ein Default"
+  },
+  "specs": {
+    "title": "Station 7 — Der Specs-Loop, sein größtes Beispiel und seine teuerste Lektion",
+    "text1": "Nicht-triviale Arbeit wird geformt, bevor sie gebaut wird. specs/README.md definiert eine Spec als Formen statt erschöpfender Dokumentation, mit der Begründung, dass eine Spec, die das Handbuch sein will, in dem Moment verrottet, in dem sich der Code bewegt. Ein datierter Ordner pro Arbeitsstück, zuerst eine Shape-Datei und der Rest nur, wenn er es verdient; eine Statuszeile sagt, ob der Ordner laufende Arbeit ist oder ein Protokoll; offene Punkte tragen einen greppbaren Klärungsmarker, höchstens drei pro Spec.",
+    "text2": "Lesen sollte man specs/2026-09-02-optimus-ui-migration/shape.md, die Spec für den Austausch der Komponentenbibliothek. Ihr How-Abschnitt trägt die Überschrift, dass die Reihenfolge bindend ist: das Entscheidungsprotokoll zuerst; die zitierten Quellzeilen der Bibliothek sichern, bevor eine Installation node_modules ersetzt; ein reiner Format-Commit, damit Formatierungsrauschen aus dem semantischen Diff bleibt; dann die inhaltliche Arbeit, die Gates und die Bücher. Der Ordner bringt eigene Werkzeuge mit, darunter ein Script, das eine Zitatstelle verschiebt, indem es die zitierte Quellzeile wiederfindet statt zu rechnen. Für Arbeit dieser Größe ergänzt directives/orchestration.md die Regel für viele Agenten: nie eine Charge kalt starten. Erst ein repräsentativer Auftrag, Ergebnis lesen, Auftrag nachschärfen, und erst dann der Rest in Wellen.",
+    "text3": "Jetzt die teure Lektion, und die ist nicht die Migration. docs/adr/0014-leave-primeng-22-for-optimus-ui.md hält fest, warum sie nötig war: Eine neue Hauptversion der Komponentenbibliothek hatte ihre Lizenz auf eine umgestellt, die Hochschulen und öffentliche Einrichtungen ausschließt, und das Upgrade, das sie hereinholte, war drei Dinge auf einmal, von denen nur das erste je besprochen wurde. Der Build war grün, und die Tests bestanden. Keins von beiden kann eine Lizenzdatei lesen.",
+    "text4": "Deshalb sagt directives/dependency-upgrades.md einem Agenten jetzt, vor der ersten Installation einer neuen Hauptversion Lizenz, Wartungsstand, Peer-Ranges und Begleitpakete zu lesen und bei einer geänderten Lizenz anzuhalten und einen Menschen entscheiden zu lassen. Verhindert hat die Methode den Fehler nicht. Was sie geleistet hat: Aus dem Fehler wurde ein Entscheidungsprotokoll mit Fakten und Optionen und eine Regel, die beim nächsten Upgrade zuerst die Lizenz lesen lässt."
+  },
+  "human": {
+    "title": "Station 8 — Wo der Mensch entscheidet",
+    "text1": "Prinzip 1 wird in base/SAFETY.md zu einer Stufentabelle. Grün ist lokal und umkehrbar und warnt nie. Gelb setzt erst einen Checkpoint, sagt einen klaren Satz und macht weiter. Rot umfasst Pushen, Deployen, Veröffentlichen, Senden, Daten löschen, Zugriffe ändern, pauschales Staging und alles, was Geld ausgibt oder fremde Daten berührt. Rot passiert nie ohne ausdrückliches, informiertes Go, und es ist nicht an einen Subagenten delegierbar. Die Warnung hat jedes Mal dieselbe Form: was passieren könnte, wie schlimm es wäre, und der Vorschlag des Agenten. Das ist die Theorie, und die Bücher lassen einen die Praxis nachzählen.",
+    "text2": "In OPEN-QUESTIONS.md wird diese Praxis sichtbar. Das Kit liefert die Datei als Vorlage aus: einen Abschnitt Open mit einem Beispieleintrag zum Ersetzen und einen Abschnitt Answered, in dem noch nichts steht. Jeder Eintrag, den der Agent dort parkt, trägt ein Datum, die Frage in einer Zeile, warum sie geparkt ist, eine bis drei Optionen und den Default, mit dem der Agent weitermacht, wenn niemand antwortet (base/BOOKKEEPING.md). Eine entschiedene Frage wandert mit Datum und Entscheidung in den Answered-Teil. Genau diese Form ist der Punkt. Die Arbeit bleibt nicht stehen, solange eine Frage wartet, und weil der Default des Agenten neben der Entscheidung stehen bleibt, kannst du später nachzählen, wie oft du dem Agenten einfach gefolgt bist und wo deine Antwort den Kurs geändert hat. Gute Defaults heißen: Die Zeit des Menschen geht dorthin, wo sie etwas ändert.",
+    "text3": "directives/human-gate.md ergänzt zwei weitere Arten von Gate. Ein Geschmacks-Gate deckt Entscheidungen ohne einzig richtige Antwort ab, etwa Formulierung, Layout oder visuelle Richtung, bei denen die Vorliebe des Menschen die Spezifikation ist; der Agent führt es als Feedback-Datei oder als mehrere Varianten zur Auswahl. Ein Qualitäts-Gate deckt Stellen ab, an denen sich der Agent selbstbewusst irren könnte, etwa Fakten, Didaktik oder die Sicherheit einer Änderung; nach inhaltlicher Arbeit werden Befunde einem Menschen vorgelegt und nicht automatisch angewendet. Und eine Entscheidung mit Folgen für jeden, der das Kit deployt, etwa der Wechsel zu einer Bibliothek mit anderer Lizenz, ist nach jeder Lesart Rot: Der Branch wartet auf das Go eines Menschen, wie sicher sich der Agent auch ist."
+  },
+  "wave": {
+    "title": "Station 9 — Vier Stufen, und warum es die vierte gibt",
+    "text1": "Das Muster aus diesem Repo, das sich am besten auf deine eigene Arbeit übertragen lässt, ist das zum Prüfen dessen, was Agenten liefern. directives/verification.md und directives/orchestration.md beschreiben es in Teilen; zusammengesetzt hat es vier Stufen.",
+    "stagesTitle": "Vier Stufen, und wofür jede da ist",
+    "step1Label": "Gebaut",
+    "step1Description": "Ein Bauender schreibt die Arbeit und behält seinen Kontext über die Runden, damit er sich an seine eigenen Entscheidungen erinnert.",
+    "step2Label": "Reviewt",
+    "step2Description": "Unabhängige Reviewer suchen Fehler, jeden Befund in fester Form: die genaue Textstelle, was falsch ist, der Ersatz und warum die Korrektur stimmt.",
+    "step3Label": "Repariert",
+    "step3Description": "Ein Reparatur-Durchgang beantwortet die Befunde.",
+    "step4Label": "Freigabe geprüft",
+    "step4Description": "Eine frische Prüfung pro Einheit, mit dem Auftrag, den Fixer zu widerlegen und bei Unsicherheit auf nicht verifiziert zu entscheiden.",
+    "text2": "Die schwersten Befunde sitzen meist in den Rezepten, die ein Leser kopieren würde: Beispielcode, Tastaturverhalten, eine zitierte Zeile. Zwei Gewohnheiten erzeugen viele davon. Mehrere Komponenten werden als eine beschrieben, sobald ihre Inputs ähnlich aussehen, und eine deklarierte Oberfläche wird als die ganze Oberfläche gelesen.",
+    "text3": "Nach Stufe drei liefert ein normaler Prozess aus. Zwei Stufen waren sich einig. Die Verifikations-Direktive sagt voraus, dass Parteien, die sich auf fertig einigen, kein Beweis sind, wenn sie einen blinden Fleck teilen (directives/verification.md), also läuft trotzdem eine vierte, unabhängige Prüfung. Es ist die Stufe, die niemand gern bestellt: Sie kommt, wenn sich die Arbeit schon fertig anfühlt, und ihre ganze Aufgabe ist es, nein zu sagen.",
+    "findingsTitle": "Was eine vierte Prüfung typischerweise findet",
+    "finding1": "Ein reparierter Satz, der jetzt andersherum falsch ist. Eine falsche Behauptung, etwas passiere immer, wird durch die ebenso falsche ersetzt, es passiere nie.",
+    "finding2": "Ein korrigierter Verweis, der jetzt um eins daneben liegt. Der Fix hat ein Zitat auf die Nachbarzeile verschoben, und dort steht etwas anderes.",
+    "finding3": "Ein Fix, der eine Mehrdeutigkeit entfernt und ein paar Zeilen weiter unten eine neue einführt, oder der der eigenen Dokumentation der Komponente widerspricht.",
+    "text4": "Auch die vierte Stufe ist nicht unfehlbar. Wenn sie ihre übrigen Befunde in blockierend und nicht-blockierend sortiert, lies den nicht-blockierenden Stapel, bevor du ihn liegen lässt. Ein Befund, der als klein abgelegt wurde, kann trotzdem auf eine Weise falsch sein, die zählt, etwa eine Behauptung, die ausgerechnet mit der Zeile belegt ist, die ihr widerspricht.",
+    "text5": "Es gibt keine Stufe, an der Agenten aufhören, sich zu irren. Es gibt nur eine Stufe, an der die verbleibenden Fehler klein genug zum Ausliefern sind, und wer das entscheidet, liest die Belege statt eines grünen Hakens. Einen richtigen Ersatzsatz zu schreiben ist eine andere Fähigkeit, als einen falschen zu erkennen. Das ist das ganze Argument für eine vierte Stufe und der Grund, warum sie kein Geld verschwendet.",
+    "text6": "Dieselbe Form gilt für eine einzelne Messung. directives/core-principles.md sagt, die eigenen Messbefehle zu prüfen, bevor man eine Schlussfolgerung darauf baut. Ein Beispiel: Ein Agent misst den Farbkontrast der gebauten App über einen einfachen statischen Server. Der Server beantwortet eine Single-Page-Route mit 404, die App startet nie, und jedes Paar misst gleich. Die richtige Reaktion ist, laut zu sagen, dass die Messung wertlos ist, und den Aufbau zu reparieren, etwa mit einem Fallback auf die index.html, statt eine schönere Zahl zu melden.",
+    "text7": "Was so ein Review kostet, gehört nicht in diese Tour. Laufkosten hängen vom Modell, vom Werkzeug und vom Tag ab; die vier Stufen und wofür jede da ist, nicht, und genau das lässt sich auf deine eigene Arbeit übertragen."
+  },
+  "epilogue": {
+    "title": "Station 10 — Was diese Tour nicht kann",
+    "text1": "Dieser Artikel ist eine abgeleitete Ansicht. Nach Prinzip 6 weicht er den Daten, und in deiner Kopie bewegen sich die Daten. Station 4 hat gezeigt, wie ein Satz seine Tatsache überleben kann, während jeder Check grün bleibt; dieser Artikel besteht aus solchen Sätzen. Nichts prüft ihn gegen die Dateien, die er beschreibt, außer einem Leser, der sie öffnet.",
+    "text2": "Nimm ihn also nicht beim Wort. Öffne deine Kopie und lass drei Befehle laufen: node scripts/verify-harness.mjs für den Harness, node scripts/check-overrides.mjs für die Ausnahmen und npm run test:ci für die Test-Suite. Die ersten beiden sagen dir, ob der Harness, den dieser Artikel beschreibt, intakt ist. Der dritte sagt dir, ob die Tests gerade grün sind. Was immer sie melden, ist das aktuelle Kapitel dieser Tour, und geschrieben hat es niemand."
+  },
+  "takeaways": {
+    "containerTitle": "Was du mitnimmst",
+    "item1": "Die Regeln in diesem Repo, die halten, sind die Regeln, die irgendein Script prüfen kann. Die 150-Zeilen-Grenze, der beidseitig geprüfte Index, das Tag an einem Standard: jeweils ein Satz mit einer Maschine dahinter.",
+    "item2": "Ein Standard, den niemand misst, ist ein Satz. QUAL-001 hat Zähne, weil der Produktions-Build die Test-Suite laufen lässt und ihr Urteil im Manifest festhält.",
+    "item3": "Die Ausnahme ist eine Datei, nie ein Flag. Ein Override macht ein Gate advisory, offen, mit fünf Pflichtfeldern und einem Prüfdatum, und schaltet es nie ab.",
+    "item4": "Eine falsche Behauptung zu reparieren ist eine andere Fähigkeit, als sie zu erkennen. Deshalb läuft nach dem Fix-Durchgang eine frische, unabhängige Prüfung.",
+    "item5": "Die Bücher machen die Arbeit einen Monat später noch nachprüfbar, und sie sind nur so gut wie der Tag, an dem sie geschrieben wurden. In deiner Kopie beginnen sie leer; die Geschichte darin wird die deines Projekts sein."
+  },
+  "checkpoint": {
+    "title": "Sitzt es?",
+    "item1": "Ich kann sagen, warum eine Ausnahme eine committete Datei ist und kein Config-Flag, und was sie mit dem genannten Gate macht.",
+    "item2": "Ich kann erklären, warum der Produktions-Build die Test-Suite selbst laufen lässt und was ein grünes build:verify allein nicht beweist.",
+    "item3": "Ich kann sagen, warum nach einem Fix-Durchgang, der schon jeden Befund beantwortet hat, noch eine vierte, unabhängige Prüfung läuft."
+  },
+  "quiz": {
+    "boxTitle": "Quiz",
+    "q1": {
+      "question": "Was macht eine Override-Datei in diesem Kit mit dem Gate, das sie nennt?",
+      "a": "Sie schaltet das Gate ab, bis die Datei gelöscht wird.",
+      "b": "Sie macht das Gate advisory: Es läuft weiter und meldet weiter, blockiert aber nicht mehr.",
+      "c": "Sie entfernt den Standard aus der Standards-Tabelle.",
+      "d": "Sie versteckt das Gate vor den Health- und Status-Berichten.",
+      "explanation": "Ein Override ist eine committete Datei mit fünf Pflichtfeldern im Frontmatter. Sie schiebt ein Gate von blockierend auf advisory. Das Gate läuft weiter, meldet weiter und taucht weiter in Health und Status auf. Eine Regel mit dem Tag hard lässt sich gar nicht übergehen: Der Checker weist die Datei ab."
+    },
+    "q2": {
+      "question": "Warum ruft build:prod den Test-Baseline-Check selbst auf, statt sich auf build:verify zu verlassen?",
+      "a": "build:verify lässt die Tests schon laufen; der zweite Lauf ist nur eine Sicherheitskopie.",
+      "b": "Das Manifest braucht eine Testzahl, um sie auf der Seite anzuzeigen.",
+      "c": "build:verify ist eine Kette statischer Checks, die keinen Test startet; ohne diesen Schritt könnte ein Produktions-Build über eine rote Suite hinweg durchlaufen.",
+      "d": "Die Tests sind zu langsam, um sie während der Entwicklung laufen zu lassen.",
+      "explanation": "build:verify liest Dateien und prüft das Ausgabeverzeichnis; einen Test startet es nie. Ohne den Test-Baseline-Schritt würde die Meldung, build:prod sei grün, nichts über die Tests sagen. Der Schritt läuft vor dem Schreiben des Manifests und hält sein Urteil dort fest, sodass ein Build kein Gate behaupten kann, das nie lief."
+    },
+    "q3": {
+      "question": "Was spricht dafür, nach einem Fix-Durchgang, der jeden Review-Befund beantwortet hat, noch eine unabhängige Prüfung laufen zu lassen?",
+      "a": "Es ist eine Formalie, die die Standards-Tabelle zufriedenstellt.",
+      "b": "Einen richtigen Ersatzsatz zu schreiben ist eine andere Fähigkeit, als einen falschen zu erkennen; eine Reparatur kann neue Fehler einführen.",
+      "c": "Reviewer sind unzuverlässig, ihre Befunde brauchen eine zweite Meinung.",
+      "d": "Es verteilt die Kosten der Arbeit auf mehr Agenten.",
+      "explanation": "Die Review-Befunde können alle stimmen, und die Reparatur kann trotzdem falsch sein: ein Satz, in sein Spiegelbild korrigiert, ein Zitat auf die Nachbarzeile verschoben. Eine frische Prüfung mit dem Auftrag, den Fixer zu widerlegen und bei Unsicherheit auf nicht verifiziert zu entscheiden, findet, was die Reparatur eingeführt hat."
+    },
+    "q4": {
+      "question": "Was hält ein Eintrag in OPEN-QUESTIONS.md neben der Frage fest, damit die Arbeit nicht stehen bleibt, solange er wartet?",
+      "a": "Nur die Frage; der Agent hält an, bis jemand antwortet.",
+      "b": "Die Optionen und den Default, mit dem der Agent weitermacht, wenn niemand antwortet.",
+      "c": "Die endgültige Entscheidung des Agenten, die der Mensch nur noch abzeichnet.",
+      "d": "Einen Link auf den Commit, der die Frage beantworten wird.",
+      "explanation": "Jeder Eintrag hält Datum, Frage, Optionen und den Default des Agenten fest. Der Agent macht mit dem Default weiter, also bleibt nichts stehen, und die Entscheidung wandert später mit Datum in den Answered-Teil. Weil der Default dokumentiert bleibt, siehst du hinterher, wo deine Entscheidung etwas geändert hat."
+    },
+    "q5": {
+      "question": "Was sagt Prinzip 6 über ein Dokument, das dem Code widerspricht, den es beschreibt?",
+      "a": "Das Dokument gewinnt, und der Code ist ein Fehler.",
+      "b": "Beide sind verdächtig, bis ein Mensch entscheidet.",
+      "c": "Die abgeleitete Ansicht weicht den zugrunde liegenden Daten.",
+      "d": "Der Widerspruch muss aufgelöst sein, bevor irgendein Commit landet.",
+      "explanation": "Formen statt überdokumentieren, und abgeleitete Ansichten weichen den Daten, wenn sie sich widersprechen. Dieses Prinzip ist auch der Grund, warum dieser Artikel laut sagt, dass er selbst eine abgeleitete Ansicht ist, und dich bittet, die Befehle laufen zu lassen, statt ihm zu glauben."
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "appearance": {
+    "description": "Change the app to match your wishes",
+    "title": "Look Settings",
+    "glossaryHighlighting": "Highlight Words",
+    "glossaryHighlightingDescription": "Show important words in color (for example Artificial Intelligence)"
+  },
+  "data": {
+    "corruptedFile": "The file has invalid data or is broken.",
+    "description": "Manage your learning progress and app data",
+    "errorApplyingData": "Error applying data. Old settings have been restored.",
+    "errorReadingFile": "Error reading file.",
+    "export": "Download data",
+    "exportDescription": "Download your complete progress and settings as a file",
+    "exportLabel": "Download data",
+    "exportSuccess": "Download successful",
+    "exportSuccessDetail": "Your data has been downloaded successfully.",
+    "fileTooLarge": "The file is too big. Maximum: 1MB.",
+    "import": "Upload data",
+    "importDescription": "Restore your progress from a file. Your progress only comes back if you said yes to saving it.",
+    "importError": "Upload failed",
+    "importErrorDetail": "The file could not be uploaded. Please check the format.",
+    "importLabel": "Upload data",
+    "importSuccess": "Upload successful",
+    "importSuccessDetail": "Your data has been uploaded successfully.",
+    "importProgressWithheld": "Your settings are back. Your learning progress is not, because you did not say yes to saving it. Turn on Save Progress under Privacy and Progress. Then upload the file again.",
+    "invalidFile": "Please choose a valid JSON file.",
+    "legacyV1File": "This file is old. Back then, only the appearance and language were saved. A new download now saves all your progress and all settings.",
+    "reset": "Delete all data",
+    "resetConfirm": "Do you really want to delete everything? Your progress. Your favorites. Your feedback messages. Your cookie choice. And all settings. You cannot undo this.",
+    "resetDescription": "This deletes everything this website saved in your browser. That is: your learning progress. Your favorites. Your messages from the feedback page. Which news you have read. Your cookie choice. And all settings. For example colors, font, and language. Then the page loads again.",
+    "resetLabel": "Delete all data",
+    "resetFailed": "Delete failed",
+    "resetFailedDetail": "Something went wrong. Please try again.",
+    "resetSuccess": "Data deleted",
+    "resetSuccessDetail": "All your data and settings are deleted now. The page loads again in a moment.",
+    "title": "Manage Data"
+  },
+  "font": {
+    "title": "Font",
+    "description": "Choose the font you like reading best. All fonts are free to use. Your selection is saved on this device. For languages with other scripts (for example Hindi, Bengali, Korean, or Punjabi), Noto Sans is used automatically.",
+    "system": {
+      "note": "The font from your device. It does not load anything extra. It looks slightly different on every computer."
+    },
+    "sourceSans3": {
+      "note": "A calm and friendly font. Easy to read, even in long texts. Recommended for most people."
+    },
+    "inter": {
+      "note": "A clear and modern font. You may know it from many other websites and apps."
+    },
+    "ibmPlexSans": {
+      "note": "A calm font with clear letters and numbers. It looks a bit technical."
+    },
+    "bricolageGrotesque": {
+      "note": "A special font with its own character. It stands out a bit more than the others."
+    },
+    "atkinsonHyperlegible": {
+      "note": "A font that is especially easy to read. It helps if you cannot see very well or if reading is hard for you. But: it only helps with Latin script. For Hindi, Bengali, Korean, and Punjabi there is no such font yet. Noto Sans is used there."
+    },
+    "andika": {
+      "note": "A very clear and friendly font. It was made for people who are just learning to read. The letters are large and easy to see. It helps when reading is tiring for you. For example if you find it hard to focus or if your eyesight is getting worse."
+    },
+    "lexend": {
+      "note": "A font that has been tested by scientists. It helps you read better. It looks almost normal. But it helps you read faster and more easily."
+    },
+    "openDyslexic": {
+      "note": "A special font for people with dyslexia. The letters have a thick bottom. This helps you tell them apart. For example b and d. The look is unusual. But it helps many people with dyslexia a lot."
+    }
+  },
+  "language": {
+    "description": "Set your favorite language for the app",
+    "easyLanguage": "Plain Language",
+    "filterPlaceholder": "Search language...",
+    "interface": "Language",
+    "interfaceDescription": "Language of the whole app",
+    "easyLanguageIcon": "Plain Language picture",
+    "loading": "Loading language...",
+    "title": "Language Settings",
+    "clearFilter": "Clear search"
+  },
+  "playground": {
+    "title": "Fun Extras",
+    "description": "Some fun extras. Not related to AI. Just for fun.",
+    "cursorTrail": "Mouse Trail",
+    "cursorTrailDescription": "Your mouse leaves a glowing trail.",
+    "cursorTrailPreview": "Move your mouse here to see it."
+  },
+  "privacy": {
+    "dataControl": "Data Control:",
+    "dataControlDetail": "You have full control over your data. You can turn off progress saving, download your data, or delete everything at any time.",
+    "dataInfo": "Data Storage Details",
+    "dataInfoDescription": "Learn more about what data is stored.",
+    "dataStorageTitle": "Data Storage Info",
+    "dataTransmission": "Data Transfer:",
+    "dataTransmissionDetail": "Your learning progress stays in your browser and is never sent to servers. If you allow statistics, anonymous numbers (which pages, how long) are sent to our own server — not to other companies.",
+    "dataType": {
+      "preferences": "Design, language, and app settings",
+      "quizProgress": "Finished quizzes, checkpoints, and learning paths (only if you say yes)"
+    },
+    "dataTypes": "Types of stored data:",
+    "description": "Control how your learning progress is stored.",
+    "detailsCollapsed": "Privacy details closed",
+    "detailsExpanded": "Privacy details opened",
+    "hideDetails": "Hide details",
+    "progressDescription": "Save which quizzes, checkpoints, and learning paths you finished. Only in your browser. It is off until you turn it on.",
+    "progressTracking": "Save Progress",
+    "showDetails": "Show details",
+    "storageLocation": "Storage Place:",
+    "storageLocationDetail": "Your learning progress (finished quizzes, checkpoints, and learning paths) stays in your browser. It is only saved if you say yes. It does not leave your device. If you allow statistics, anonymous usage numbers are sent to our server (see cookie settings).",
+    "title": "Privacy and Progress",
+    "trackingDisabled": "Progress saving off",
+    "trackingDisabledDetail": "All existing progress has been deleted and new progress will not be saved.",
+    "trackingEnabled": "Progress saving on",
+    "trackingEnabledDetail": "Your finished quizzes, checkpoints, and learning paths are now saved. Also what you did before in this visit.",
+    "cookieSettings": "Cookie Settings",
+    "cookieSettingsDescription": "Here you can change your choice at any time. The same button is at the bottom of every page: \"Cookie settings\".",
+    "openCookieSettings": "Open cookie settings"
+  },
+  "subtitle": "Here you can set this site according to your wishes.",
+  "tableOfContents": "Contents",
+  "theme": {
+    "accessibility": "Help with Reading",
+    "color": "Color Theme",
+    "colorDescription": "Choose your favorite color",
+    "colorVariant": "Color",
+    "dark": "Dark",
+    "family": "Style",
+    "highContrast": "Strong Contrast",
+    "highContrastDescription": "Only black and white. Easier to read.",
+    "light": "Light",
+    "mode": "Display Type",
+    "modeChanged": "Display type changed to {mode}",
+    "modeDarkLabel": "Dark display",
+    "modeDescription": "Choose between Light, Dark, or System",
+    "modeLightLabel": "Light display",
+    "modeSystemLabel": "System display",
+    "moreOptions": "More in settings",
+    "readableFont": "Easy-to-Read Font",
+    "readableFontDescription": "A special font. It helps with reading.",
+    "readableFontUnsupported": "Not for this language",
+    "select": "Choose a design",
+    "system": "System",
+    "title": "Design Settings",
+    "styles": {
+      "werkbund": {
+        "name": "Werkbund",
+        "description": "Straight edges and a strong red. This style looks plain and clear. It is good for work."
+      },
+      "lernwerkstatt": {
+        "name": "Lernwerkstatt",
+        "description": "Round shapes and a font that is easy to read. This style looks friendly. It is good for learning."
+      },
+      "skizzenbuch": {
+        "name": "Skizzenbuch",
+        "description": "Warm paper and thin lines. This style looks hand-drawn. It is good for trying things out."
+      },
+      "blaupause": {
+        "name": "Blaupause",
+        "description": "Thin lines and a blue grid. This style looks like a building plan. It is good for looking things up."
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "baker-monitoring-2025",
+  "type": "paper",
+  "authors": "Bowen Baker, Joost Huizinga, Leo Gao, Zehao Dou, Melody Y. Guan, Aleksander Madry, Wojciech Zaremba, Jakub Pachocki, David Farhi",
+  "year": "2025",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2503.11926",
+  "doi": "10.48550/arXiv.2503.11926",
+  "accessed": "2026-08-16",
+  "tags": [
+    "reward-hacking",
+    "coding-agent",
+    "test-gaming",
+    "chain-of-thought",
+    "specification-gaming"
+  ]
+}

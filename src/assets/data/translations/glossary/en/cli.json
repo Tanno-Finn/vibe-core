@@ -1,0 +1,10 @@
+{
+  "term": "CLI",
+  "alternativeNames": [
+    "Command Line Interface",
+    "command-line shell",
+    "console UI"
+  ],
+  "description": "A Command Line Interface (CLI) is a text-based user interface for interacting with an operating system or software by typing commands. Compared to graphical interfaces, CLIs offer precise, scriptable control and are widely used by developers and system administrators for automation and advanced tasks.",
+  "example": "Running \"python train.py --epochs 50\" launches AI training directly from the command line without needing to open a graphical interface."
+}

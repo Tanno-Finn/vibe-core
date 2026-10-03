@@ -1,0 +1,157 @@
+{
+  "completedBadge": "Done",
+  "progressOf": "of",
+  "optional": "Optional",
+  "comingSoon": "Coming soon",
+  "downloadCertificate": "Download Certificate",
+  "difficulty": {
+    "beginner": "Easy",
+    "intermediate": "Medium",
+    "advanced": "Hard"
+  },
+  "stepType": {
+    "demo": "Demo",
+    "article": "Article",
+    "guide": "Guide"
+  },
+  "certificate": {
+    "title": "CERTIFICATE",
+    "seal": "LEARNING",
+    "subtitle": "Learning Path",
+    "hasCompleted": "Has finished this learning path:",
+    "dialogTitle": "Make Certificate",
+    "nameLabel": "Your Name",
+    "nameRequired": "Please type your name",
+    "namePlaceholder": "Type your name",
+    "privacyHint": "Your name is only in the PDF. It is not saved.",
+    "download": "Save PDF",
+    "cancel": "Cancel",
+    "statusTitle": "Certificate Status",
+    "lockedHint": "Click to see the status",
+    "stepCompleted": "Done",
+    "stepPending": "Not done yet",
+    "stepUnavailable": "Not ready yet",
+    "completedStepsLabel": "Steps you finished:",
+    "stepsRemaining": "{{count}} steps left to do",
+    "stepsUnavailable": "{{count}} steps not ready yet"
+  },
+  "sectors": {
+    "foundation": "The Basics",
+    "foundationDesc": "Start here if you are new. You can use a computer? Then this is for you.",
+    "workshop": "The Workshop",
+    "workshopDesc": "Try things out. Use tools. Build things.",
+    "academy": "The Academy",
+    "academyDesc": "Go deeper into computer science. Like a university course, but easy to follow.",
+    "society": "People and Rules",
+    "societyDesc": "How AI affects people, laws, and different groups.",
+    "misc": "Curiosities",
+    "miscDesc": "Here are demos that do not fit any other learning path. You can simply try them."
+  },
+  "availableFrom": "Coming on",
+  "prerequisiteLabel": "Prerequisite",
+  "seedPath1": {
+    "title": "Start Here",
+    "description": "This path shows you the basics of your subject. What is it? Why is it important?",
+    "learningPromise": "After this path you can say what the subject is.",
+    "targetAudience": "For beginners. You need no prior knowledge.",
+    "duration": "About 30 minutes",
+    "prerequisites": "None",
+    "steps": {
+      "intro": "What is it?",
+      "introDesc": "Learn the main idea of the subject."
+    }
+  },
+  "seedPath2": {
+    "title": "Your Subject in Daily Life",
+    "description": "See where your subject is around you. For example in search or tips.",
+    "learningPromise": "After this path you can find your subject in daily tools.",
+    "targetAudience": "For curious beginners.",
+    "duration": "About 30 minutes",
+    "prerequisites": "None",
+    "steps": {
+      "intro": "It's All Around You",
+      "introDesc": "Find daily things that use your subject."
+    }
+  },
+  "computerBasics": {
+    "title": "Understanding Computers",
+    "description": "Four basics: the command line. The development environment. Version control. And connections between programs.",
+    "learningPromise": "After this learning path you can open a terminal. You know what a repository is. And you understand how programs talk to each other.",
+    "targetAudience": "Beginners with no prior knowledge",
+    "duration": "4 articles. About 55 minutes.",
+    "prerequisites": "None",
+    "steps": {
+      "terminal": "The Command Line",
+      "terminalDesc": "A terminal is a window for commands. You type a command. The computer runs it.",
+      "devEnvironment": "Your Development Environment",
+      "devEnvironmentDesc": "This is where you write programs. You learn: this is how you set everything up.",
+      "versioning": "Managing Versions",
+      "versioningDesc": "A repository remembers every change. So you cannot break anything.",
+      "network": "Networks and Connections",
+      "networkDesc": "How a request travels through the internet. And how two programs connect."
+    }
+  },
+  "agentsBasics": {
+    "title": "Working with AI Agents",
+    "description": "You write an instruction in plain language. An AI agent does the work. This path shows how that works.",
+    "learningPromise": "After this learning path you give an AI agent good instructions. You know what belongs in its context. And you understand how an agent uses tools.",
+    "targetAudience": "Anyone who wants to work with AI agents",
+    "duration": "4 articles. About 36 minutes.",
+    "prerequisites": "Understanding Computers",
+    "steps": {
+      "naturalLanguage": "Programming in Plain Language",
+      "naturalLanguageDesc": "You write what you want. The AI writes the code. That has benefits. And limits.",
+      "context": "Shaping the Context",
+      "contextDesc": "An AI can only read a little text at once. You learn what belongs in there.",
+      "interfaces": "Connections and Tools",
+      "interfacesDesc": "How a program talks to an AI model. And how an agent uses tools.",
+      "harnessEngineering": "Harness Engineering (clear rules instead of hope)",
+      "harnessEngineeringDesc": "Build the setup around the agent. With inspection stations, a sandbox, and a memory."
+    }
+  },
+  "quality": {
+    "title": "Software Quality and Testing",
+    "description": "You learn: What is a test? What do machines check? And what must never go into a repository?",
+    "learningPromise": "You read a test. You understand what it checks. You see when green means nothing. And you know what must stay secret.",
+    "targetAudience": "Anyone building programs with AI",
+    "duration": "4 articles",
+    "prerequisites": "Working with AI Agents",
+    "steps": {
+      "agentTests": "Understanding tests when the AI writes them",
+      "agentTestsDesc": "Green does not mean everything is right. You learn to read a test.",
+      "qualityGates": "Gates: checks made by machines",
+      "qualityGatesDesc": "You learn the 5 questions behind red. And you learn the allowed way past it.",
+      "codeReview": "Checking Without Knowing How to Program",
+      "codeReviewDesc": "You learn the shape of a diff. And you learn 3 testable questions.",
+      "secretsSecurity": "Secrets: What Must Never Go Into a Repository",
+      "secretsSecurityDesc": "You learn what a secret is. And what you do when one gets out."
+    }
+  },
+  "knowledgeConcepts": {
+    "title": "Second Brain & Digital Twins",
+    "description": "Write down your knowledge and connect it. Understand digital copies of real things.",
+    "learningPromise": "You build a second brain. That is a store for your knowledge. And you understand digital twins.",
+    "targetAudience": "Everyone. You need no prior knowledge.",
+    "duration": "2 articles",
+    "prerequisites": "None",
+    "steps": {
+      "secondBrain": "Second Brain: Your Memory Outside Your Head",
+      "secondBrainDesc": "You write your knowledge down. You connect the notes. This way your knowledge helps you think.",
+      "digitalTwins": "Digital Twins",
+      "digitalTwinsDesc": "A digital twin is a computer copy of a real thing. You learn: it can do this. And it cannot do that."
+    }
+  },
+  "underTheHood": {
+    "title": "Under the Hood",
+    "description": "A real project built with AI agents, seen from the inside. With rules, checks, and the places where mistakes are expected.",
+    "learningPromise": "You will see in a real project: which rules does a machine check? Which rules are only text? And why do the tests run in the build?",
+    "targetAudience": "Anyone who wants to work with AI agents",
+    "duration": "1 article, about 12 minutes",
+    "prerequisites": "Working with AI agents",
+    "steps": {
+      "tour": "The Tour: How This Project Is Built with Agents",
+      "tourDesc": "10 stops through a real project. Every stop names a file. You can open it yourself."
+    }
+  },
+  "draftSrOnly": "Draft. This is not in all languages yet."
+}

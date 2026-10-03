@@ -1,0 +1,62 @@
+{
+  "categories": {
+    "all": "Alle Bereiche",
+    "applications": "Anwendungen",
+    "cv": "Computer sehen",
+    "dl": "Tiefes Lernen",
+    "ethics": "Ethik",
+    "fundamentals": "Grundlagen",
+    "ml": "Maschinelles Lernen",
+    "nlp": "Sprache verstehen",
+    "rl": "Lernen mit Belohnung",
+    "ai-safety": "KI-Sicherheit",
+    "ai-fundamentals": "KI-Grundlagen",
+    "generative-ai": "Generative KI",
+    "ai-application": "KI im Alltag",
+    "regulation": "Regeln und Gesetze",
+    "security": "Sicherheit im Internet",
+    "tools": "Werkzeuge",
+    "general": "Allgemein"
+  },
+  "description": "Wichtige Wörter aus deinem Thema. Einfach erklärt.",
+  "entry": {
+    "alsoKnownAs": "Auch genannt",
+    "example": "Beispiel"
+  },
+  "filters": {
+    "active": "Aktive Filter",
+    "all": "Alle",
+    "alphabetNavigation": "ABC-Navigation",
+    "category": "Bereich",
+    "categoryPlaceholder": "Bereich wählen",
+    "clearAll": "Filter löschen",
+    "clearSearch": "Suche löschen",
+    "letter": "Buchstabe",
+    "removeFilter": "Filter entfernen",
+    "search": "Suche",
+    "searchPlaceholder": "Begriff suchen...",
+    "showAllLetters": "Alle Buchstaben zeigen",
+    "sort": "Sortierung",
+    "sortPlaceholder": "Sortierung wählen",
+    "title": "Filter",
+    "letterButton": "Begriffe nach Buchstabe filtern"
+  },
+  "popover": {
+    "definition": "Erklärung",
+    "goToGlossary": "Zum Wörterbuch"
+  },
+  "results": {
+    "noResults": "Keine Begriffe gefunden.",
+    "of": "von",
+    "terms": "Begriffen"
+  },
+  "sort": {
+    "alphabetical": "A bis Z",
+    "category": "Bereich"
+  },
+  "tableOfContents": "Inhalts·verzeichnis",
+  "title": "Wörterbuch",
+  "toc": {
+    "filters": "Filter"
+  }
+}

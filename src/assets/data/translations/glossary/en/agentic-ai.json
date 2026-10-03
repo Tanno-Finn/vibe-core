@@ -1,0 +1,8 @@
+{
+  "term": "Agentic AI",
+  "alternativeNames": [
+    "Agent-based AI systems"
+  ],
+  "description": "Agentic AI refers to AI systems that work toward a goal on their own, across multiple steps: they break the task down, call tools, check their intermediate results, and then decide on the next step - until the goal is reached or a human steps in. Often several agents with persistent memory of their own collaborate along the way. For orientation: the agent is the acting unit, the agentic workflow is the process pattern, and agentic AI is the class of systems as a whole. A chatbot, by contrast, returns one answer per input and then waits. And be careful with the word autonomy: what is meant is independently choosing the next steps within a given assignment - not a system that develops goals of its own.",
+  "example": "A chatbot answers your question about a good train connection. An agentic system plans the trip for you: it searches connections, compares prices, notices while checking that a transfer is too tight, and replans - several steps, tools, and checks without you triggering each one individually."
+}

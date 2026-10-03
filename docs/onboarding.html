@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>vibecore — Onboarding</title>
+<style>
+  /* ---------- Palette — blue (all pairs WCAG-AA verified) ----------
+     Every text/background pair below meets WCAG-AA: body text >=4.5:1,
+     UI/large elements >=3:1. Verified numerically (both themes):
+       LIGHT  text/bg 16.10 · muted/bg 6.73 · accent/bg 6.66 · btn 7.15
+              note-text/note-bg 11.74 · border/surface 5.41 · focus/bg 6.66
+       DARK   text/bg 15.58 · muted/bg 9.11 · accent/bg 8.22 · btn 8.22
+              note-text/note-bg 11.39 · border/surface-alt 3.58 · focus/bg 10.16
+     Theme resolution: :root is the LIGHT default; system dark applies unless
+     the user explicitly chose light; an explicit [data-theme] always wins. */
+  :root {
+    color-scheme: light dark;
+    --bg: #f4f7fc;
+    --surface: #ffffff;
+    --surface-alt: #e8f0fb;
+    --text: #141b26;
+    --muted: #4a586d;
+    --accent: #0f52ba;
+    --btn-bg: #0f52ba;
+    --btn-text: #ffffff;
+    --border: #5b6b84;
+    --focus: #0f52ba;
+    --note-bg: #dceafb;
+    --note-text: #132a4d;
+    --note-border: #3a6fc4;
+    --radius: 10px;
+  }
+  /* Dark palette — reused by both the system-preference block and the
+     explicit [data-theme="dark"] override. */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1622;
+      --surface: #152131;
+      --surface-alt: #1b2a3e;
+      --text: #e7eefb;
+      --muted: #a6b9d6;
+      --accent: #7cb0ff;
+      --btn-bg: #7cb0ff;
+      --btn-text: #0e1622;
+      --border: #68809f;
+      --focus: #9cc4ff;
+      --note-bg: #14263f;
+      --note-text: #cfe0fb;
+      --note-border: #5a8ad6;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1622;
+    --surface: #152131;
+    --surface-alt: #1b2a3e;
+    --text: #e7eefb;
+    --muted: #a6b9d6;
+    --accent: #7cb0ff;
+    --btn-bg: #7cb0ff;
+    --btn-text: #0e1622;
+    --border: #68809f;
+    --focus: #9cc4ff;
+    --note-bg: #14263f;
+    --note-text: #cfe0fb;
+    --note-border: #5a8ad6;
+    color-scheme: dark;
+  }
+  :root[data-theme="light"] { color-scheme: light; }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 1.0625rem;
+  }
+
+  /* ---------- Skip link ---------- */
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--surface);
+    color: var(--accent);
+    padding: 0.6rem 1rem;
+    border: 2px solid var(--focus);
+    border-radius: var(--radius);
+    z-index: 10;
+  }
+  .skip:focus { left: 0.5rem; top: 0.5rem; }
+
+  .wrap { max-width: 760px; margin: 0 auto; padding: 1.25rem; }
+
+  header.site {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0 0.25rem;
+  }
+  .brand { font-weight: 700; letter-spacing: 0.01em; color: var(--accent); font-size: 1.1rem; }
+
+  /* Header controls: language picker + theme toggle */
+  .controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.75rem; }
+
+  .langpicker {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .langpicker button {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: var(--surface);
+    color: var(--accent);
+    border: none;
+    border-radius: 0;
+    padding: 0.4rem 0.7rem;
+  }
+  .langpicker button + button { border-left: 1px solid var(--border); }
+  .langpicker button[aria-pressed="true"] {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+  }
+
+  #themeToggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    background: var(--surface);
+    color: var(--accent);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.7rem;
+  }
+  #themeToggle .ticon { font-size: 1rem; line-height: 1; }
+
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0.75rem 0 0.5rem; }
+  h2 { font-size: 1.3rem; margin: 0; }
+  .lead { color: var(--muted); margin: 0.25rem 0 0.5rem; }
+
+  .callout {
+    background: var(--note-bg);
+    color: var(--note-text);
+    border: 1px solid var(--note-border);
+    border-left-width: 5px;
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    margin: 1rem 0;
+  }
+
+  fieldset {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem 1.25rem;
+  }
+  legend {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 0 0.4rem;
+    color: var(--text);
+  }
+  .q { margin: 1.1rem 0; }
+  .q:first-of-type { margin-top: 0.6rem; }
+  .q > label, .q > .grouplabel { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+  .grouplabel { font-weight: 600; }
+  .help { color: var(--muted); font-size: 0.95rem; margin: 0.15rem 0 0.5rem; }
+
+  input[type="text"], textarea, select {
+    width: 100%;
+    font: inherit;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.7rem;
+  }
+  textarea { min-height: 5.5rem; resize: vertical; }
+
+  /* Radio / checkbox option rows */
+  .opt {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.4rem 0.15rem;
+  }
+  .opt input { width: 1.15rem; height: 1.15rem; margin: 0.15rem 0 0; flex: none; accent-color: var(--btn-bg); }
+  .opt label { font-weight: 400; }
+
+  /* Watch topics — one block per topic: name, plain-words pitch, three levels */
+  .topic { border-top: 1px solid var(--border); padding: 0.8rem 0 0.4rem; }
+  .topic:first-of-type { border-top: 0; padding-top: 0.2rem; }
+  .topic > .grouplabel { display: block; margin-bottom: 0.15rem; }
+  .pitch { color: var(--muted); font-size: 0.95rem; margin: 0.1rem 0 0.45rem; }
+  .levels { display: flex; flex-wrap: wrap; gap: 0 1.6rem; }
+  .levels .opt { padding: 0.25rem 0.15rem; }
+  .levels-legend { margin: 0.2rem 0 1rem; padding-left: 1.3rem; color: var(--muted); font-size: 0.95rem; }
+  .levels-legend li { margin: 0.25rem 0; }
+  .levels-legend strong { color: var(--text); font-family: ui-monospace, "Cascadia Code", "Consolas", "Courier New", monospace; }
+  .callout > p { margin: 0.45rem 0; }
+  .callout > p:first-child { margin-top: 0; }
+  .callout > p:last-child { margin-bottom: 0; }
+
+  /* Focus — never removed, always ≥3:1 */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  /* Fallback for engines without :focus-visible */
+  a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.25rem 0; }
+  button {
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    padding: 0.7rem 1.2rem;
+  }
+  button.secondary {
+    background: var(--surface);
+    color: var(--accent);
+    border: 1px solid var(--border);
+  }
+  button:hover { filter: brightness(0.95); }
+
+  #exportRegion { margin-top: 0.5rem; }
+  #exportOut {
+    width: 100%;
+    min-height: 15rem;
+    font-family: ui-monospace, "Cascadia Code", "Consolas", "Courier New", monospace;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    white-space: pre;
+    overflow: auto;
+  }
+  .status {
+    margin: 0.5rem 0;
+    font-weight: 600;
+    color: var(--accent);
+    min-height: 1.4rem;
+  }
+  .hidden { display: none; }
+
+  #nextRegion { margin-top: 1.5rem; }
+  .nextsteps { margin: 0; padding-left: 1.4rem; }
+  .nextsteps li { margin: 0.55rem 0; }
+  .nextsteps li strong { display: block; margin-bottom: 0.1rem; }
+
+  footer.site { color: var(--muted); font-size: 0.9rem; margin: 2rem 0 3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+
+  /* Mobile: full-width buttons */
+  @media (max-width: 560px) {
+    .actions button { width: 100%; }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    button, .skip { transition: filter 0.15s ease, left 0.1s ease; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Zum Formular springen</a>
+
+<div class="wrap">
+  <header class="site">
+    <span class="brand">vibecore</span>
+    <div class="controls">
+      <div class="langpicker" role="group" aria-label="Language / Sprache" data-i18n-aria="langPickerLabel">
+        <button type="button" id="lang-de-btn" data-lang="de" aria-pressed="true">DE</button>
+        <button type="button" id="lang-en-btn" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" id="themeToggle" aria-pressed="false" aria-label="Dunkelmodus" data-i18n-aria="themeLabel">
+        <span class="ticon" id="themeIcon" aria-hidden="true">&#9790;</span>
+        <span id="themeText" data-i18n="themeLabel">Dunkelmodus</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <h1 data-i18n="h1">Willkommen — erzähl kurz von dir</h1>
+    <p class="lead" data-i18n="intro1">Mit diesem Formular erfährt dein KI-Agent, wie er dir beim Start
+      mit dem vibecore-Kit am besten hilft. Du füllst aus, was du magst, klickst „Exportieren“ und
+      bekommst einen Textblock für deine erste Nachricht an den Agenten — auch wenn du noch keinen hast.</p>
+    <p data-i18n="why">Warum sich das lohnt: Der Agent antwortet dann in deiner Sprache, auf deinem Niveau und
+      in der Länge, die dir passt, und baut für dein Publikum, dessen Geräte und den Weg, auf dem das
+      Material ankommt. Das spart Umwege und Kosten.</p>
+
+    <div class="callout" role="note">
+      <strong data-i18n="optionalTitle">Alles ist freiwillig.</strong>
+      <span data-i18n="optionalBody">Lass weg, was nicht passt — im Export steht dann „(übersprungen)“.</span>
+    </div>
+
+    <p class="help" data-i18n="guideLink">Falls du noch keinen KI-Agenten hast: docs/explanation/choosing-an-ai-agent.md
+      hilft bei der Wahl — lesbar auf der Repo-Seite oder in einem Texteditor.</p>
+
+    <form id="profileForm" novalidate>
+
+      <!-- ===================== 1. WHO & WHY ===================== -->
+      <fieldset>
+        <legend data-i18n="secWho">Wer &amp; warum</legend>
+
+        <div class="q">
+          <label for="goal" data-i18n="qGoal">Was möchtest du bauen oder erreichen?</label>
+          <p class="help" data-i18n="qGoalHelp">Ein, zwei Sätze reichen.</p>
+          <textarea id="goal" name="goal"></textarea>
+        </div>
+
+        <div class="q">
+          <label for="audience" data-i18n="qAudience">Für wen ist es? (optional)</label>
+          <p class="help" data-i18n="qAudienceHelp">z. B. Schülerinnen und Schüler, 12–14 Jahre, Deutsch und Italienisch.</p>
+          <input type="text" id="audience" name="audience" autocomplete="off">
+        </div>
+
+        <div class="q">
+          <span class="grouplabel" id="expLabel" data-i18n="qExp">Wie viel Programmier-Erfahrung hast du?</span>
+          <div role="group" aria-labelledby="expLabel">
+            <span class="opt">
+              <input type="radio" id="exp-new" name="experience" value="new to coding">
+              <label for="exp-new" data-i18n="expNew">Neu im Programmieren</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="exp-comf" name="experience" value="comfortable">
+              <label for="exp-comf" data-i18n="expComf">Etwas Erfahrung, komme zurecht</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="exp-pro" name="experience" value="ships software professionally">
+              <label for="exp-pro" data-i18n="expPro">Entwickle beruflich Software</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="exp-other" name="experience" value="other">
+              <label for="exp-other" data-i18n="expOther">Etwas anderes</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="role" data-i18n="qRole">Deine Rolle (optional)</label>
+          <p class="help" data-i18n="qRoleHelp">z. B. Lehrkraft, Hobby, Autor, Entwickler.</p>
+          <input type="text" id="role" name="role" autocomplete="off">
+        </div>
+
+        <div class="q">
+          <label for="world" data-i18n="qWorld">Was machst du beruflich — oder worin kennst du dich richtig gut aus? (kannst du überspringen)</label>
+          <p class="help" data-i18n="qWorldHelp">Das dient nur dem Erklären: Der Agent greift dann zu Bildern aus deiner Welt statt zu Fachjargon. Welche Vergleiche passen, leitet er selbst ab — du musst nichts vorbereiten.</p>
+          <input type="text" id="world" name="world" autocomplete="off">
+        </div>
+
+        <div class="q">
+          <span class="opt">
+            <input type="checkbox" id="analogies" name="analogies" value="1" checked>
+            <label for="analogies" data-i18n="qAnalogies">Ja, erklär mir Neues gern mit solchen Bildern.</label>
+          </span>
+          <p class="help" data-i18n="qAnalogiesHelp">Höchstens ein Bild pro Erklärung; bei einer Warnung steht der genaue Satz immer zuerst. Ein „lass die Vergleiche“ genügt, und der Agent hört damit auf.</p>
+        </div>
+      </fieldset>
+
+      <!-- ===================== 2. ACCESSIBILITY ===================== -->
+      <fieldset>
+        <legend data-i18n="secA11y">Barrierefreiheit</legend>
+
+        <div class="q">
+          <span class="grouplabel" id="needsLabel" data-i18n="qNeeds">Was davon braucht deine Seite von Anfang an — für dich oder dein Publikum? (Mehrfachauswahl)</span>
+          <div role="group" aria-labelledby="needsLabel">
+            <span class="opt">
+              <input type="checkbox" id="need-kb" name="need" value="keyboard-only">
+              <label for="need-kb" data-i18n="needKb">Nur Tastatur (keine Maus)</label>
+            </span>
+            <span class="opt">
+              <input type="checkbox" id="need-sr" name="need" value="screen reader">
+              <label for="need-sr" data-i18n="needSr">Screenreader</label>
+            </span>
+            <span class="opt">
+              <input type="checkbox" id="need-hc" name="need" value="high contrast">
+              <label for="need-hc" data-i18n="needHc">Hoher Kontrast</label>
+            </span>
+            <span class="opt">
+              <input type="checkbox" id="need-simple" name="need" value="simplified language">
+              <label for="need-simple" data-i18n="needSimple">Einfache Sprache</label>
+            </span>
+            <span class="opt">
+              <input type="checkbox" id="need-none" name="need" value="none">
+              <label for="need-none" data-i18n="needNone">Nichts davon</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="a11yNotes" data-i18n="qNotes">Weitere Hinweise (optional)</label>
+          <input type="text" id="a11yNotes" name="a11yNotes" autocomplete="off">
+        </div>
+
+        <div class="q">
+          <span class="opt">
+            <input type="checkbox" id="protoOff" name="protoOff" value="1" aria-describedby="protoNote">
+            <label for="protoOff" data-i18n="qProto">Das ist ein Wegwerf-Prototyp — Barrierefreiheit aus.</label>
+          </span>
+          <p id="protoNote" class="callout hidden" role="note" data-i18n="protoNote">
+            Gut — solange es ein Prototyp bleibt. Sobald daraus etwas Veröffentlichtes wird, schaltet
+            der Agent die Barrierefreiheit wieder ein: Sie ist der Standard, kein Zusatz.
+          </p>
+        </div>
+      </fieldset>
+
+      <!-- ===================== 3. WHAT THE AGENT WATCHES ===================== -->
+      <fieldset>
+        <legend data-i18n="secWatch">Was der Agent für dich im Blick behält</legend>
+
+        <p class="help" data-i18n="watchIntro">Der Agent behält sieben Themen von sich aus im Blick; du stellst je Thema ein, wie laut er dabei ist. Voreingestellt stehen fünf auf normal und zwei auf quiet: Die fünf schützen vor Schaden, die zwei verbessern ein Ergebnis — Schutz ist der Standard, Optimierung ein Angebot.</p>
+
+        <div class="callout" role="note">
+          <p data-i18n="watchLimit1">Ich behalte das im Blick und melde mich — die Entscheidung liegt immer bei dir.</p>
+          <p data-i18n="watchLimit2">Echte Sicherheitswarnungen schaltet keine dieser Einstellungen ab; die Stufen entscheiden nur, wie oft ich Alltägliches erwähne.</p>
+        </div>
+
+        <div class="q">
+          <span class="grouplabel" data-i18n="levelsHeading">Was die Stufen bedeuten</span>
+          <ul class="levels-legend">
+            <li><strong>quiet</strong> — <span data-i18n="levelQuiet">Der Radar läuft weiter; Funde werden notiert, nicht angesprochen. Du siehst sie, wenn du fragst, oder bei /status.</span></li>
+            <li><strong>normal</strong> — <span data-i18n="levelNormal">Ein schlichter Satz in dem Moment, in dem etwas auffällt, dazu eine Rückfrage an natürlichen Pausen, wenn sich etwas angesammelt hat.</span></li>
+            <li><strong>active</strong> — <span data-i18n="levelActive">Wie normal, und ich biete zusätzlich an, mir Dinge auch ohne akuten Fund einmal anzusehen — mit dem Aufwand vorher gesagt.</span></li>
+          </ul>
+          <div class="actions">
+            <button type="button" id="watchDefaultsBtn" class="secondary" data-i18n="btnWatchDefaults">Alles auf Standard</button>
+          </div>
+        </div>
+
+          <div class="topic">
+            <span class="grouplabel" id="w-security-label" data-i18n="wSecurity">Sicherheit &amp; Geheimnisse</span>
+            <p class="pitch" data-i18n="wSecurityPitch">Software hütet Geheimnisse — Passwörter, Zugangsschlüssel — und hat Türen, die man aus Versehen offen lassen kann.</p>
+            <div class="levels" role="group" aria-labelledby="w-security-label">
+              <span class="opt">
+                <input type="radio" id="w-security-quiet" name="w-security" value="quiet">
+                <label for="w-security-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-security-normal" name="w-security" value="normal" checked>
+                <label for="w-security-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-security-active" name="w-security" value="active">
+                <label for="w-security-active">active</label>
+              </span>
+            </div>
+          </div>
+          <div class="topic">
+            <span class="grouplabel" id="w-privacy-label" data-i18n="wPrivacy">Datenschutz</span>
+            <p class="pitch" data-i18n="wPrivacyPitch">Sobald echte Menschen deine Seite besuchen oder in deinem Projekt vorkommen, existieren Daten über sie — und meistens hat das niemand so entschieden.</p>
+            <div class="levels" role="group" aria-labelledby="w-privacy-label">
+              <span class="opt">
+                <input type="radio" id="w-privacy-quiet" name="w-privacy" value="quiet">
+                <label for="w-privacy-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-privacy-normal" name="w-privacy" value="normal" checked>
+                <label for="w-privacy-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-privacy-active" name="w-privacy" value="active">
+                <label for="w-privacy-active">active</label>
+              </span>
+            </div>
+          </div>
+          <div class="topic">
+            <span class="grouplabel" id="w-accessibility-label" data-i18n="wAccessibility">Barrierefreiheit</span>
+            <p class="pitch" data-i18n="wAccessibilityPitch">Nicht alle bedienen eine Website auf dieselbe Art, und eine Seite, die nur auf eine Art funktioniert, sperrt die anderen aus.</p>
+            <div class="levels" role="group" aria-labelledby="w-accessibility-label">
+              <span class="opt">
+                <input type="radio" id="w-accessibility-quiet" name="w-accessibility" value="quiet">
+                <label for="w-accessibility-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-accessibility-normal" name="w-accessibility" value="normal" checked>
+                <label for="w-accessibility-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-accessibility-active" name="w-accessibility" value="active">
+                <label for="w-accessibility-active">active</label>
+              </span>
+            </div>
+          </div>
+          <div class="topic">
+            <span class="grouplabel" id="w-tech_debt-label" data-i18n="wTechDebt">Technische Schulden</span>
+            <p class="pitch" data-i18n="wTechDebtPitch">Bauen heißt ständig Abkürzungen nehmen — „das räume ich später auf“, „ich kopiere das erst mal“ — und das ist normal, oft richtig und nur dann gefährlich, wenn niemand mitzählt.</p>
+            <div class="levels" role="group" aria-labelledby="w-tech_debt-label">
+              <span class="opt">
+                <input type="radio" id="w-tech_debt-quiet" name="w-tech_debt" value="quiet">
+                <label for="w-tech_debt-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-tech_debt-normal" name="w-tech_debt" value="normal" checked>
+                <label for="w-tech_debt-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-tech_debt-active" name="w-tech_debt" value="active">
+                <label for="w-tech_debt-active">active</label>
+              </span>
+            </div>
+          </div>
+          <div class="topic">
+            <span class="grouplabel" id="w-cost-label" data-i18n="wCost">Kosten</span>
+            <p class="pitch" data-i18n="wCostPitch">Software-Projekte tragen versteckte Preisschilder: hier ein Hosting-Tarif, dort ein Dienst mit einem Freikontingent, der nach dem Probemonat abrechnet — und, wenn du mit einem Agenten arbeitest, die Arbeit selbst, weil eine große Aufgabe viele teure Schritte bedeutet.</p>
+            <div class="levels" role="group" aria-labelledby="w-cost-label">
+              <span class="opt">
+                <input type="radio" id="w-cost-quiet" name="w-cost" value="quiet">
+                <label for="w-cost-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-cost-normal" name="w-cost" value="normal" checked>
+                <label for="w-cost-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-cost-active" name="w-cost" value="active">
+                <label for="w-cost-active">active</label>
+              </span>
+            </div>
+          </div>
+          <div class="topic">
+            <span class="grouplabel" id="w-seo-label" data-i18n="wSeo">Auffindbarkeit (SEO)</span>
+            <p class="pitch" data-i18n="wSeoPitch">Auffindbarkeit ist die Frage, ob deine Seite auftaucht, wenn jemand nach dem sucht, worum es darin geht.</p>
+            <div class="levels" role="group" aria-labelledby="w-seo-label">
+              <span class="opt">
+                <input type="radio" id="w-seo-quiet" name="w-seo" value="quiet" checked>
+                <label for="w-seo-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-seo-normal" name="w-seo" value="normal">
+                <label for="w-seo-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-seo-active" name="w-seo" value="active">
+                <label for="w-seo-active">active</label>
+              </span>
+            </div>
+            <p class="help" data-i18n="wSeoNote">Standard ist hier quiet. Soll deine Seite öffentlich gefunden werden, ist normal die bessere Wahl.</p>
+          </div>
+          <div class="topic">
+            <span class="grouplabel" id="w-performance-label" data-i18n="wPerformance">Tempo</span>
+            <p class="pitch" data-i18n="wPerformancePitch">Eine Seite, die sich auf deinem neuen Laptop flott anfühlt, kann auf einem fünf Jahre alten Handy im Zug quälend langsam sein — und ein großer Teil der Besucher kommt genau so.</p>
+            <div class="levels" role="group" aria-labelledby="w-performance-label">
+              <span class="opt">
+                <input type="radio" id="w-performance-quiet" name="w-performance" value="quiet" checked>
+                <label for="w-performance-quiet">quiet</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-performance-normal" name="w-performance" value="normal">
+                <label for="w-performance-normal">normal</label>
+              </span>
+              <span class="opt">
+                <input type="radio" id="w-performance-active" name="w-performance" value="active">
+                <label for="w-performance-active">active</label>
+              </span>
+            </div>
+          </div>
+      </fieldset>
+
+      <!-- ===================== 4. ENVIRONMENT ===================== -->
+      <fieldset>
+        <legend data-i18n="secEnv">Umgebung (was du schon hast)</legend>
+
+        <div class="q">
+          <span class="grouplabel" id="osLabel" data-i18n="qOs">Betriebssystem</span>
+          <div role="group" aria-labelledby="osLabel">
+            <span class="opt">
+              <input type="radio" id="os-win" name="os" value="windows">
+              <label for="os-win">Windows</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="os-mac" name="os" value="macos">
+              <label for="os-mac">macOS</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="os-linux" name="os" value="linux">
+              <label for="os-linux">Linux</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="grouplabel" id="hwLabel" data-i18n="qHw">Was für ein Gerät nutzt du?</span>
+          <div role="group" aria-labelledby="hwLabel">
+            <span class="opt">
+              <input type="radio" id="hw-cap" name="hardware" value="capable machine">
+              <label for="hw-cap" data-i18n="hwCap">Leistungsfähiger Rechner</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="hw-old" name="hardware" value="old / low-spec">
+              <label for="hw-old" data-i18n="hwOld">Älter / schwach ausgestattet</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="hw-browser" name="hardware" value="browser only">
+              <label for="hw-browser" data-i18n="hwBrowser">Nur ein Browser</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="grouplabel" id="devLabel" data-i18n="qDev">Was ist auf dem Gerät installiert?</span>
+          <div role="group" aria-labelledby="devLabel">
+            <span class="opt">
+              <input type="radio" id="dev-none" name="dev" value="nothing installed">
+              <label for="dev-none" data-i18n="devNone">Nichts installiert</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="dev-node" name="dev" value="node installed">
+              <label for="dev-node" data-i18n="devNode">Node installiert</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="dev-ide" name="dev" value="full IDE">
+              <label for="dev-ide" data-i18n="devIde">Vollständige IDE</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="agentTool" data-i18n="qAgent">Nutzt du schon einen KI-Agenten? Welchen? (optional)</label>
+          <input type="text" id="agentTool" name="agentTool" autocomplete="off">
+        </div>
+      </fieldset>
+
+      <!-- ===================== 5. DELIVERY ===================== -->
+      <fieldset>
+        <legend data-i18n="secDelivery">So kommt es bei deinem Publikum an</legend>
+        <p class="help" data-i18n="deliveryIntro">Damit das Ergebnis dort funktioniert, wo es gebraucht wird. „Weiß ich nicht“ ist eine gute Antwort: Dann wählt der Agent den einfachsten Weg und erklärt ihn.</p>
+
+        <div class="q">
+          <label for="route" data-i18n="qRoute">Wenn etwas fertig ist: Wie kommt es zu deinen Lernenden oder deinem Publikum?</label>
+          <select id="route" name="route">
+            <option value="" data-i18n="routeChoose">— bitte wählen (optional) —</option>
+            <option value="school platform (Moodle, itslearning, Teams)" data-i18n="routeLms">Über die Schulplattform (Moodle, itslearning, Teams)</option>
+            <option value="school web server" data-i18n="routeServer">Auf den Webserver der Schule</option>
+            <option value="hosting service (GitHub Pages, Netlify)" data-i18n="routeHosting">Über einen Webseiten-Dienst (GitHub Pages, Netlify)</option>
+            <option value="offline (print, USB stick, classroom PCs)" data-i18n="routeOffline">Offline: gedruckt, USB-Stick, Dateien auf den Klassen-PCs</option>
+            <option value="only on my computer for now" data-i18n="routeLocal">Vorerst nur auf meinem Rechner</option>
+            <option value="not sure" data-i18n="routeUnsure">Weiß ich nicht</option>
+          </select>
+        </div>
+
+        <div class="q">
+          <label for="devices" data-i18n="qDevices">Worauf öffnen sie es? (optional)</label>
+          <p class="help" data-i18n="qDevicesHelp">z. B. Schul-iPads, eigene Handys, Computerraum mit Windows — und den Browser, falls du ihn kennst.</p>
+          <input type="text" id="devices" name="devices" autocomplete="off">
+        </div>
+
+        <div class="q">
+          <label for="assistive" data-i18n="qAssist">Nutzt jemand Hilfsmittel wie Screenreader, Bildschirmlupe oder Vorlesefunktion? (optional)</label>
+          <input type="text" id="assistive" name="assistive" autocomplete="off">
+        </div>
+
+        <div class="q">
+          <span class="grouplabel" id="netLabel" data-i18n="qNet">Internet dort, wo es genutzt wird</span>
+          <div role="group" aria-labelledby="netLabel">
+            <span class="opt">
+              <input type="radio" id="net-good" name="internet" value="reliable">
+              <label for="net-good" data-i18n="netGood">Zuverlässig</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="net-patchy" name="internet" value="patchy">
+              <label for="net-patchy" data-i18n="netPatchy">Wackelig</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="net-none" name="internet" value="none in the classroom">
+              <label for="net-none" data-i18n="netNone">Keins</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="grouplabel" id="techHelpLabel" data-i18n="qTechHelp">Wer kann dir technisch helfen?</span>
+          <div role="group" aria-labelledby="techHelpLabel">
+            <span class="opt">
+              <input type="radio" id="th-admin" name="techHelp" value="IT admin">
+              <label for="th-admin" data-i18n="thAdmin">IT-Betreuung / Admin</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="th-colleague" name="techHelp" value="a colleague">
+              <label for="th-colleague" data-i18n="thColleague">Eine Kollegin, ein Kollege</label>
+            </span>
+            <span class="opt">
+              <input type="radio" id="th-nobody" name="techHelp" value="nobody">
+              <label for="th-nobody" data-i18n="thNobody">Niemand</label>
+            </span>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="dataRules" data-i18n="qData">Gibt es Datenschutz-Regeln, wo etwas liegen darf? (optional)</label>
+          <p class="help" data-i18n="qDataHelp">z. B. keine fremden Dienste, nur Server der Schule — oder „weiß ich nicht“.</p>
+          <input type="text" id="dataRules" name="dataRules" autocomplete="off">
+        </div>
+      </fieldset>
+
+      <!-- ===================== EXPORT ===================== -->
+      <div class="actions">
+        <button type="submit" id="exportBtn" data-i18n="btnExport">Exportieren</button>
+        <button type="button" id="clearBtn" class="secondary" data-i18n="btnClear">Zurücksetzen</button>
+      </div>
+    </form>
+
+    <section id="exportRegion" aria-labelledby="exportHeading">
+      <h2 id="exportHeading" data-i18n="exportHeading">Dein Export</h2>
+      <p class="help" data-i18n="exportHelp">Kopiere den Text und gib ihn deinem KI-Agenten.</p>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <label for="exportOut" class="hidden" data-i18n="exportOutLabel">Exportierter Profiltext</label>
+      <textarea id="exportOut" readonly aria-label="Exportierter Profiltext" data-i18n-aria="exportOutLabel"
+        placeholder="Noch nichts exportiert." data-i18n-ph="exportPlaceholder"></textarea>
+      <div class="actions">
+        <button type="button" id="copyBtn" class="secondary" data-i18n="btnCopy">Kopieren</button>
+      </div>
+    </section>
+
+    <section id="nextRegion" class="hidden" aria-labelledby="nextHeading">
+      <h2 id="nextHeading" data-i18n="nextHeading">Wie geht’s weiter?</h2>
+      <div class="callout" role="note">
+        <ol class="nextsteps">
+          <li>
+            <strong data-i18n="next1Title">Gib das deinem Agenten.</strong>
+            <span data-i18n="next1Body">Kopiere den Text oben und füge ihn als erste Nachricht deinem KI-Agenten ein. Er richtet dein Profil ein und schlägt vor, wo du anfängst.</span>
+          </li>
+          <li>
+            <strong data-i18n="next2Title">Deine erste Session.</strong>
+            <span data-i18n="next2Body">Dein Agent führt dich hindurch — ihr lernt euch kennen, du sagst „help“ und machst eine kleine echte Änderung. Folge dem Tutorial </span><a href="https://github.com/Tanno-Finn/vibe-core/blob/master/docs/tutorial/first-session.md" target="_blank" rel="noopener noreferrer" data-i18n="next2Link">Deine erste Session</a><span data-i18n="next2Tail">.</span>
+          </li>
+          <li>
+            <strong data-i18n="next3Title">Noch kein Agent?</strong>
+            <span data-i18n="next3Body">Kein Problem — die </span><a href="https://github.com/Tanno-Finn/vibe-core/blob/master/README.md" target="_blank" rel="noopener noreferrer" data-i18n="next3ReadmeLink">README</a><span data-i18n="next3Tail"> zeigt beide Wege: einen Agenten wählen, oder die App einfach selbst starten.</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site">
+    <p data-i18n="footer">vibecore ist ein offenes Angular-Starterkit für barrierefreie, KI-gestützte Lern-Apps.
+      Diese Seite funktioniert vollständig offline — es werden keine Daten gesendet.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------------- i18n dictionary (both languages inlined, no network) ----------------
+  var I18N = {
+    de: {
+      docTitle: "vibecore — Onboarding",
+      skip: "Zum Formular springen",
+      h1: "Willkommen — erzähl kurz von dir",
+      intro1: "Mit diesem Formular erfährt dein KI-Agent, wie er dir beim Start mit dem vibecore-Kit am besten hilft. Du füllst aus, was du magst, klickst „Exportieren“ und bekommst einen Textblock für deine erste Nachricht an den Agenten — auch wenn du noch keinen hast.",
+      why: "Warum sich das lohnt: Der Agent antwortet dann in deiner Sprache, auf deinem Niveau und in der Länge, die dir passt, und baut für dein Publikum, dessen Geräte und den Weg, auf dem das Material ankommt. Das spart Umwege und Kosten.",
+      optionalTitle: "Alles ist freiwillig.",
+      optionalBody: "Lass weg, was nicht passt — im Export steht dann „(übersprungen)“.",
+      guideLink: "Falls du noch keinen KI-Agenten hast: docs/explanation/choosing-an-ai-agent.md hilft bei der Wahl — lesbar auf der Repo-Seite oder in einem Texteditor.",
+      langPickerLabel: "Sprache / Language",
+      themeLabel: "Dunkelmodus",
+      secWho: "Wer & warum",
+      qGoal: "Was möchtest du bauen oder erreichen?",
+      qGoalHelp: "Ein, zwei Sätze reichen.",
+      qAudience: "Für wen ist es? (optional)",
+      qAudienceHelp: "z. B. Schülerinnen und Schüler, 12–14 Jahre, Deutsch und Italienisch.",
+      qExp: "Wie viel Programmier-Erfahrung hast du?",
+      expNew: "Neu im Programmieren",
+      expComf: "Etwas Erfahrung, komme zurecht",
+      expPro: "Entwickle beruflich Software",
+      expOther: "Etwas anderes",
+      qRole: "Deine Rolle (optional)",
+      qRoleHelp: "z. B. Lehrkraft, Hobby, Autor, Entwickler.",
+      qWorld: "Was machst du beruflich — oder worin kennst du dich richtig gut aus? (kannst du überspringen)",
+      qWorldHelp: "Das dient nur dem Erklären: Der Agent greift dann zu Bildern aus deiner Welt statt zu Fachjargon. Welche Vergleiche passen, leitet er selbst ab — du musst nichts vorbereiten.",
+      qAnalogies: "Ja, erklär mir Neues gern mit solchen Bildern.",
+      qAnalogiesHelp: "Höchstens ein Bild pro Erklärung; bei einer Warnung steht der genaue Satz immer zuerst. Ein „lass die Vergleiche“ genügt, und der Agent hört damit auf.",
+      secA11y: "Barrierefreiheit",
+      qNeeds: "Was davon braucht deine Seite von Anfang an — für dich oder dein Publikum? (Mehrfachauswahl)",
+      needKb: "Nur Tastatur (keine Maus)",
+      needSr: "Screenreader",
+      needHc: "Hoher Kontrast",
+      needSimple: "Einfache Sprache",
+      needNone: "Nichts davon",
+      qNotes: "Weitere Hinweise (optional)",
+      qProto: "Das ist ein Wegwerf-Prototyp — Barrierefreiheit aus.",
+      protoNote: "Gut — solange es ein Prototyp bleibt. Sobald daraus etwas Veröffentlichtes wird, schaltet der Agent die Barrierefreiheit wieder ein: Sie ist der Standard, kein Zusatz.",
+      secWatch: "Was der Agent für dich im Blick behält",
+      watchIntro: "Der Agent behält sieben Themen von sich aus im Blick; du stellst je Thema ein, wie laut er dabei ist. Voreingestellt stehen fünf auf normal und zwei auf quiet: Die fünf schützen vor Schaden, die zwei verbessern ein Ergebnis — Schutz ist der Standard, Optimierung ein Angebot.",
+      watchLimit1: "Ich behalte das im Blick und melde mich — die Entscheidung liegt immer bei dir.",
+      watchLimit2: "Echte Sicherheitswarnungen schaltet keine dieser Einstellungen ab; die Stufen entscheiden nur, wie oft ich Alltägliches erwähne.",
+      levelsHeading: "Was die Stufen bedeuten",
+      levelQuiet: "Der Radar läuft weiter; Funde werden notiert, nicht angesprochen. Du siehst sie, wenn du fragst, oder bei /status.",
+      levelNormal: "Ein schlichter Satz in dem Moment, in dem etwas auffällt, dazu eine Rückfrage an natürlichen Pausen, wenn sich etwas angesammelt hat.",
+      levelActive: "Wie normal, und ich biete zusätzlich an, mir Dinge auch ohne akuten Fund einmal anzusehen — mit dem Aufwand vorher gesagt.",
+      btnWatchDefaults: "Alles auf Standard",
+      wSecurity: "Sicherheit & Geheimnisse",
+      wSecurityPitch: "Software hütet Geheimnisse — Passwörter, Zugangsschlüssel — und hat Türen, die man aus Versehen offen lassen kann.",
+      wPrivacy: "Datenschutz",
+      wPrivacyPitch: "Sobald echte Menschen deine Seite besuchen oder in deinem Projekt vorkommen, existieren Daten über sie — und meistens hat das niemand so entschieden.",
+      wAccessibility: "Barrierefreiheit",
+      wAccessibilityPitch: "Nicht alle bedienen eine Website auf dieselbe Art, und eine Seite, die nur auf eine Art funktioniert, sperrt die anderen aus.",
+      wTechDebt: "Technische Schulden",
+      wTechDebtPitch: "Bauen heißt ständig Abkürzungen nehmen — „das räume ich später auf“, „ich kopiere das erst mal“ — und das ist normal, oft richtig und nur dann gefährlich, wenn niemand mitzählt.",
+      wCost: "Kosten",
+      wCostPitch: "Software-Projekte tragen versteckte Preisschilder: hier ein Hosting-Tarif, dort ein Dienst mit einem Freikontingent, der nach dem Probemonat abrechnet — und, wenn du mit einem Agenten arbeitest, die Arbeit selbst, weil eine große Aufgabe viele teure Schritte bedeutet.",
+      wSeo: "Auffindbarkeit (SEO)",
+      wSeoPitch: "Auffindbarkeit ist die Frage, ob deine Seite auftaucht, wenn jemand nach dem sucht, worum es darin geht.",
+      wPerformance: "Tempo",
+      wPerformancePitch: "Eine Seite, die sich auf deinem neuen Laptop flott anfühlt, kann auf einem fünf Jahre alten Handy im Zug quälend langsam sein — und ein großer Teil der Besucher kommt genau so.",
+      wSeoNote: "Standard ist hier quiet. Soll deine Seite öffentlich gefunden werden, ist normal die bessere Wahl.",
+      secEnv: "Umgebung (was du schon hast)",
+      qOs: "Betriebssystem",
+      qHw: "Was für ein Gerät nutzt du?",
+      hwCap: "Leistungsfähiger Rechner",
+      hwOld: "Älter / schwach ausgestattet",
+      hwBrowser: "Nur ein Browser",
+      qDev: "Was ist auf dem Gerät installiert?",
+      devNone: "Nichts installiert",
+      devNode: "Node installiert",
+      devIde: "Vollständige IDE",
+      qAgent: "Nutzt du schon einen KI-Agenten? Welchen? (optional)",
+      secDelivery: "So kommt es bei deinem Publikum an",
+      deliveryIntro: "Damit das Ergebnis dort funktioniert, wo es gebraucht wird. „Weiß ich nicht“ ist eine gute Antwort: Dann wählt der Agent den einfachsten Weg und erklärt ihn.",
+      qRoute: "Wenn etwas fertig ist: Wie kommt es zu deinen Lernenden oder deinem Publikum?",
+      routeChoose: "— bitte wählen (optional) —",
+      routeLms: "Über die Schulplattform (Moodle, itslearning, Teams)",
+      routeServer: "Auf den Webserver der Schule",
+      routeHosting: "Über einen Webseiten-Dienst (GitHub Pages, Netlify)",
+      routeOffline: "Offline: gedruckt, USB-Stick, Dateien auf den Klassen-PCs",
+      routeLocal: "Vorerst nur auf meinem Rechner",
+      routeUnsure: "Weiß ich nicht",
+      qDevices: "Worauf öffnen sie es? (optional)",
+      qDevicesHelp: "z. B. Schul-iPads, eigene Handys, Computerraum mit Windows — und den Browser, falls du ihn kennst.",
+      qAssist: "Nutzt jemand Hilfsmittel wie Screenreader, Bildschirmlupe oder Vorlesefunktion? (optional)",
+      qNet: "Internet dort, wo es genutzt wird",
+      netGood: "Zuverlässig",
+      netPatchy: "Wackelig",
+      netNone: "Keins",
+      qTechHelp: "Wer kann dir technisch helfen?",
+      thAdmin: "IT-Betreuung / Admin",
+      thColleague: "Eine Kollegin, ein Kollege",
+      thNobody: "Niemand",
+      qData: "Gibt es Datenschutz-Regeln, wo etwas liegen darf? (optional)",
+      qDataHelp: "z. B. keine fremden Dienste, nur Server der Schule — oder „weiß ich nicht“.",
+      btnExport: "Exportieren",
+      btnClear: "Zurücksetzen",
+      exportHeading: "Dein Export",
+      exportHelp: "Kopiere den Text und gib ihn deinem KI-Agenten.",
+      exportOutLabel: "Exportierter Profiltext",
+      exportPlaceholder: "Noch nichts exportiert.",
+      btnCopy: "Kopieren",
+      nextHeading: "Wie geht’s weiter?",
+      next1Title: "Gib das deinem Agenten.",
+      next1Body: "Kopiere den Text oben und füge ihn als erste Nachricht deinem KI-Agenten ein. Er richtet dein Profil ein und schlägt vor, wo du anfängst.",
+      next2Title: "Deine erste Session.",
+      next2Body: "Dein Agent führt dich hindurch — ihr lernt euch kennen, du sagst „help“ und machst eine kleine echte Änderung. Folge dem Tutorial ",
+      next2Link: "Deine erste Session",
+      next2Tail: ".",
+      next3Title: "Noch kein Agent?",
+      next3Body: "Kein Problem — die ",
+      next3ReadmeLink: "README",
+      next3Tail: " zeigt beide Wege: einen Agenten wählen, oder die App einfach selbst starten.",
+      footer: "vibecore ist ein offenes Angular-Starterkit für barrierefreie, KI-gestützte Lern-Apps. Diese Seite funktioniert vollständig offline — es werden keine Daten gesendet.",
+      stExported: "Profil exportiert. Du kannst den Text jetzt kopieren.",
+      stCopied: "In die Zwischenablage kopiert.",
+      stSelected: "Text ist markiert — mit Strg+C (bzw. Cmd+C) kopieren.",
+      stCleared: "Formular zurückgesetzt.",
+      stWatchDefaults: "Alle sieben Themen stehen wieder auf Standard.",
+      skipped: "(übersprungen)",
+      preamble: "Das ist mein Onboarding-Profil für das vibecore-Kit. Bitte lies es, erstelle dann `profile/USER-MANIFEST.MD` aus `profile/USER-MANIFEST.template.md` und trage die folgenden Antworten in Zone 1 ein. Schließe dann so ab, wie es die `/onboarding`-Skill unter „The finish: what changes now“ vorgibt, und schlage meinen nächsten Schritt vor. Sprich mit mir auf Deutsch. Jede Angabe war optional; übersprungene Antworten sind unten mit „(übersprungen)“ markiert. Die watch-Stufen steuern nur, wie oft und wie laut du diese Themen im Alltag ansprichst — echte Sicherheitswarnungen bleiben unabhängig davon immer an. communication.analogy_domains habe ich leer gelassen: leite die Vergleichswelten selbst aus communication.profession ab (siehe directives/communication.md) und trag sie ein.",
+      answersHeading: "--- Meine Antworten (Zone 1) ---"
+    },
+    en: {
+      docTitle: "vibecore — Onboarding",
+      skip: "Skip to the form",
+      h1: "Welcome — tell us a little about yourself",
+      intro1: "This form tells your AI agent how to help you get started with the vibecore kit. Fill in whatever you like, click “Export”, and you get a text block for your first message to the agent — even if you don’t have one yet.",
+      why: "Why it pays off: the agent then answers in your language, at your level and at a length that suits you, and builds for your audience, their devices, and the way material reaches them. That saves wrong turns and cost.",
+      optionalTitle: "Everything is optional.",
+      optionalBody: "Leave out anything that doesn’t fit — the export marks it “(skipped)”.",
+      guideLink: "If you haven’t picked an AI agent yet: docs/explanation/choosing-an-ai-agent.md helps you choose — readable on the repository page or in a text editor.",
+      langPickerLabel: "Sprache / Language",
+      themeLabel: "Dark mode",
+      secWho: "Who & why",
+      qGoal: "What would you like to build or achieve?",
+      qGoalHelp: "A sentence or two is plenty.",
+      qAudience: "Who is it for? (optional)",
+      qAudienceHelp: "E.g. pupils aged 12–14, German and Italian.",
+      qExp: "How much coding experience do you have?",
+      expNew: "New to coding",
+      expComf: "Some experience, I get by",
+      expPro: "I ship software professionally",
+      expOther: "Something else",
+      qRole: "Your role (optional)",
+      qRoleHelp: "e.g. teacher, hobbyist, author, developer.",
+      qWorld: "What do you do for a living — or what are you really good at? (you can skip this)",
+      qWorldHelp: "This only shapes how things get explained: the agent reaches for pictures from your world instead of jargon. Which comparisons fit is something it works out itself — nothing to prepare here.",
+      qAnalogies: "Yes, explain new things to me with pictures like that.",
+      qAnalogiesHelp: "At most one picture per explanation, and in a warning the precise sentence always comes first. Say “drop the analogies” at any time and the agent stops.",
+      secA11y: "Accessibility",
+      qNeeds: "Which of these does your site need from day one — for you or your audience? (choose any)",
+      needKb: "Keyboard only (no mouse)",
+      needSr: "Screen reader",
+      needHc: "High contrast",
+      needSimple: "Simplified language",
+      needNone: "None of these",
+      qNotes: "Any other notes (optional)",
+      qProto: "This is a throwaway prototype — accessibility off.",
+      protoNote: "Fine — for as long as it stays a prototype. The moment it becomes shipped work, the agent turns accessibility back on: it is the default, not an add-on.",
+      secWatch: "What the agent watches for you",
+      watchIntro: "The agent keeps seven topics in view without being asked; you set how loud it is on each. Five start at normal and two at quiet: the five protect against damage, the two improve a result — protection is the default, optimization is an offer.",
+      watchLimit1: "I keep these in view and speak up — the decision is always yours.",
+      watchLimit2: "No setting here switches off a real safety warning; the levels only decide how often I mention routine things.",
+      levelsHeading: "What the levels mean",
+      levelQuiet: "The radar still runs; findings are recorded, not raised. You see them when you ask, or on /status.",
+      levelNormal: "One plain sentence the moment something trips, plus a check-in at natural pauses when something has accumulated.",
+      levelActive: "As normal, and I also offer to look over things without an acute finding, with the effort said up front.",
+      btnWatchDefaults: "All seven at their defaults",
+      wSecurity: "Security & secrets",
+      wSecurityPitch: "Software keeps secrets — passwords, access keys — and has doors you can leave open by accident.",
+      wPrivacy: "Privacy",
+      wPrivacyPitch: "The moment real people visit your site or appear in your project, data about them exists — and most of the time nobody decided that it should.",
+      wAccessibility: "Accessibility",
+      wAccessibilityPitch: "Not everyone operates a website the same way, and a page that only works one way locks the others out.",
+      wTechDebt: "Technical debt",
+      wTechDebtPitch: "Building means taking shortcuts constantly — “I’ll tidy that later”, “I’ll copy it for now” — and that is normal, often right, and only dangerous when nobody is keeping count.",
+      wCost: "Cost",
+      wCostPitch: "Software projects carry hidden price tags: a hosting plan here, a service with a free allowance there that starts charging after the trial month — and, when working with an agent, the work itself, because a large task means many expensive steps.",
+      wSeo: "Findability (SEO)",
+      wSeoPitch: "Findability is whether your page turns up when someone searches for what it is about.",
+      wPerformance: "Speed",
+      wPerformancePitch: "A page that feels brisk on your new laptop can be painfully slow on a five-year-old phone on a train — and a large share of visitors arrive on exactly that.",
+      wSeoNote: "The default here is quiet. If your site is meant to be found publicly, normal is the better choice.",
+      secEnv: "Environment (what you already have)",
+      qOs: "Operating system",
+      qHw: "What kind of device do you use?",
+      hwCap: "Capable machine",
+      hwOld: "Old / low-spec",
+      hwBrowser: "Browser only",
+      qDev: "What is installed on the device?",
+      devNone: "Nothing installed",
+      devNode: "Node installed",
+      devIde: "Full IDE",
+      qAgent: "Already using an AI agent? Which one? (optional)",
+      secDelivery: "How it reaches your audience",
+      deliveryIntro: "So the result works where it is needed. “I don’t know” is a good answer: the agent then picks the simplest route and explains it.",
+      qRoute: "When something is finished: how does it get to your learners or your audience?",
+      routeChoose: "— please choose (optional) —",
+      routeLms: "Through the school platform (Moodle, itslearning, Teams)",
+      routeServer: "On the school’s web server",
+      routeHosting: "Through a website service (GitHub Pages, Netlify)",
+      routeOffline: "Offline: printed, USB stick, files on the classroom PCs",
+      routeLocal: "Only on my own computer for now",
+      routeUnsure: "I don’t know",
+      qDevices: "What will they open it on? (optional)",
+      qDevicesHelp: "E.g. school iPads, their own phones, a computer room with Windows — and the browser, if you know it.",
+      qAssist: "Does anyone use aids such as a screen reader, a magnifier, or read-aloud? (optional)",
+      qNet: "Internet where it will be used",
+      netGood: "Reliable",
+      netPatchy: "Patchy",
+      netNone: "None",
+      qTechHelp: "Who can help you with technical things?",
+      thAdmin: "IT support / an admin",
+      thColleague: "A colleague",
+      thNobody: "Nobody",
+      qData: "Are there data-protection rules about where things may be stored? (optional)",
+      qDataHelp: "E.g. no outside services, only the school’s servers — or “I don’t know”.",
+      btnExport: "Export",
+      btnClear: "Reset",
+      exportHeading: "Your export",
+      exportHelp: "Copy this text and paste it to your AI agent.",
+      exportOutLabel: "Exported profile text",
+      exportPlaceholder: "Nothing exported yet.",
+      btnCopy: "Copy",
+      nextHeading: "What happens next?",
+      next1Title: "Give this to your agent.",
+      next1Body: "Copy the text above and paste it as the first message to your AI agent. It sets up your profile and suggests where to start.",
+      next2Title: "Your first session.",
+      next2Body: "Your agent walks you through it — you meet it, you say “help”, and you make one small real change. Follow the tutorial ",
+      next2Link: "Your first session",
+      next2Tail: ".",
+      next3Title: "No agent yet?",
+      next3Body: "No problem — the ",
+      next3ReadmeLink: "README",
+      next3Tail: " covers both paths: choosing an agent, or just running the app yourself.",
+      footer: "vibecore is an open Angular starter kit for accessible, AI-assisted learning apps. This page works fully offline — nothing is sent anywhere.",
+      stExported: "Profile exported. You can copy the text now.",
+      stCopied: "Copied to clipboard.",
+      stSelected: "Text is selected — copy it with Ctrl+C (or Cmd+C).",
+      stCleared: "Form reset.",
+      stWatchDefaults: "All seven topics are back at their defaults.",
+      skipped: "(skipped)",
+      preamble: "This is my onboarding profile for the vibecore kit. Please read it, then create `profile/USER-MANIFEST.MD` from `profile/USER-MANIFEST.template.md` and put the answers below into Zone 1. Then close the way the `/onboarding` skill describes under “The finish: what changes now”, and suggest my next step. Speak to me in English. Every field was optional; skipped answers are marked “(skipped)” below. The watch levels only control how often and how loudly you raise those topics day to day — real safety warnings stay on regardless. I left communication.analogy_domains empty on purpose: derive the analogy domains yourself from communication.profession (see directives/communication.md) and write them in.",
+      answersHeading: "--- My answers (Zone 1) ---"
+    }
+  };
+
+  var $ = function (id) { return document.getElementById(id); };
+  var currentLang = "de";
+
+  function t(key) { return (I18N[currentLang] && I18N[currentLang][key]) || key; }
+
+  // ---------------- localStorage (file:// may block it — always guarded) ----------------
+  function storeGet(key) {
+    try { return window.localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function storeSet(key, val) {
+    try { window.localStorage.setItem(key, val); } catch (e) { /* session-only */ }
+  }
+
+  // ---------------- Language application ----------------
+  function applyLang(lang) {
+    currentLang = (lang === "en") ? "en" : "de";
+    document.documentElement.setAttribute("lang", currentLang);
+    document.title = t("docTitle");
+
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute("data-i18n");
+      if (I18N[currentLang][k] !== undefined) { nodes[i].textContent = I18N[currentLang][k]; }
+    }
+    var ph = document.querySelectorAll("[data-i18n-ph]");
+    for (var j = 0; j < ph.length; j++) {
+      var pk = ph[j].getAttribute("data-i18n-ph");
+      if (I18N[currentLang][pk] !== undefined) { ph[j].setAttribute("placeholder", I18N[currentLang][pk]); }
+    }
+    var ar = document.querySelectorAll("[data-i18n-aria]");
+    for (var a = 0; a < ar.length; a++) {
+      var ak = ar[a].getAttribute("data-i18n-aria");
+      if (I18N[currentLang][ak] !== undefined) { ar[a].setAttribute("aria-label", I18N[currentLang][ak]); }
+    }
+
+    // Reflect the active language on the header picker buttons.
+    var lb;
+    lb = $("lang-de-btn"); if (lb) { lb.setAttribute("aria-pressed", currentLang === "de" ? "true" : "false"); }
+    lb = $("lang-en-btn"); if (lb) { lb.setAttribute("aria-pressed", currentLang === "en" ? "true" : "false"); }
+  }
+
+  // ---------------- Theme (light/dark) ----------------
+  // effectiveTheme(): explicit [data-theme] wins; otherwise follow the OS.
+  function effectiveTheme() {
+    var explicit = document.documentElement.getAttribute("data-theme");
+    if (explicit === "dark" || explicit === "light") { return explicit; }
+    var mm = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)");
+    return (mm && mm.matches) ? "dark" : "light";
+  }
+  function updateThemeButton() {
+    var isDark = effectiveTheme() === "dark";
+    var btn = $("themeToggle");
+    if (btn) { btn.setAttribute("aria-pressed", isDark ? "true" : "false"); }
+    var icon = $("themeIcon");
+    // Filled sun when dark is active (tap to go light), crescent moon otherwise.
+    if (icon) { icon.innerHTML = isDark ? "&#9728;" : "&#9790;"; }
+  }
+  function applyTheme(theme) {
+    if (theme === "dark" || theme === "light") {
+      document.documentElement.setAttribute("data-theme", theme);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    updateThemeButton();
+  }
+
+  // ---------------- The watch catalog ----------------
+  // Order and defaults mirror profile/USER-MANIFEST.template.md (Zone 1, `watch:`);
+  // the level semantics live in directives/stewardship.md, "How loud each level is".
+  var WATCH_TOPICS = [
+    { key: "security", def: "normal" },
+    { key: "privacy", def: "normal" },
+    { key: "accessibility", def: "normal" },
+    { key: "tech_debt", def: "normal" },
+    { key: "cost", def: "normal" },
+    { key: "seo", def: "quiet" },
+    { key: "performance", def: "quiet" }
+  ];
+
+  // ---------------- Helpers ----------------
+  function radioVal(name) {
+    var el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : "";
+  }
+  function textVal(id) {
+    var el = $(id);
+    return el ? el.value.trim() : "";
+  }
+  function checkedNeeds() {
+    var out = [];
+    var els = document.querySelectorAll('input[name="need"]:checked');
+    for (var i = 0; i < els.length; i++) { out.push(els[i].value); }
+    return out;
+  }
+
+  // ---------------- Export builder ----------------
+  function buildExport() {
+    var lang = (currentLang === "en") ? "en" : "de";
+    // preamble is emitted in the chosen language
+    var dict = I18N[lang];
+    var SK = dict.skipped;
+
+    var needs = checkedNeeds();
+    var protoOff = $("protoOff").checked;
+    var simplified = needs.indexOf("simplified language") !== -1;
+
+    var notesParts = [];
+    // canonical needs (exclude "none")
+    for (var i = 0; i < needs.length; i++) {
+      if (needs[i] !== "none") { notesParts.push(needs[i]); }
+    }
+    var freeNotes = textVal("a11yNotes");
+    if (freeNotes) { notesParts.push(freeNotes); }
+    var notesJoined = notesParts.length ? notesParts.join("; ") : "";
+
+    function line(key, val) {
+      return key + ": " + (val !== "" && val != null ? val : SK);
+    }
+
+    var lines = [];
+    lines.push(line("language", lang));
+    lines.push("easy_language: " + (simplified ? "true" : "false"));
+    lines.push("reading_level: " + (simplified ? "simplified" : "standard"));
+    lines.push(line("role", textVal("role")));
+    lines.push(line("experience", radioVal("experience")));
+    lines.push(line("goal", textVal("goal")));
+    lines.push(line("audience", textVal("audience")));
+    lines.push(line("communication.profession", textVal("world")));
+    // Deliberately empty: the agent derives the analogy domains live from the
+    // profession (directives/communication.md) — the form never guesses them.
+    lines.push("communication.analogy_domains: []");
+    lines.push("communication.analogies: " + ($("analogies").checked ? "offer" : "off"));
+    lines.push("accessibility.needed: " + (protoOff ? "false" : "true"));
+    lines.push(line("accessibility.notes", notesJoined));
+    for (var c = 0; c < WATCH_TOPICS.length; c++) {
+      var topic = WATCH_TOPICS[c];
+      lines.push("watch." + topic.key + ": { level: " + (radioVal("w-" + topic.key) || topic.def) + " }");
+    }
+    lines.push(line("environment.os", radioVal("os")));
+    lines.push(line("environment.hardware", radioVal("hardware")));
+    lines.push(line("environment.dev_setup", radioVal("dev")));
+    lines.push(line("environment.agent_tool", textVal("agentTool")));
+    // environment.hosting is not asked separately: the agent derives it from delivery.route.
+    lines.push(line("delivery.route", $("route").value));
+    lines.push(line("delivery.devices", textVal("devices")));
+    lines.push(line("delivery.assistive_tech", textVal("assistive")));
+    lines.push(line("delivery.internet", radioVal("internet")));
+    lines.push(line("delivery.tech_help", radioVal("techHelp")));
+    lines.push(line("delivery.data_rules", textVal("dataRules")));
+
+    return dict.preamble + "\n\n" + dict.answersHeading + "\n" + lines.join("\n") + "\n";
+  }
+
+  function setStatus(msg) { $("status").textContent = msg; }
+
+  // ---------------- Wire up ----------------
+  // Detect a starting language from the browser (de* -> German, else English).
+  function detectLang() {
+    var list = (navigator.languages && navigator.languages.length)
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "en"];
+    for (var i = 0; i < list.length; i++) {
+      var code = String(list[i] || "").toLowerCase();
+      if (code.indexOf("de") === 0) { return "de"; }
+      if (code.indexOf("en") === 0) { return "en"; }
+    }
+    return "en";
+  }
+  function setLang(lang) {
+    currentLang = (lang === "en") ? "en" : "de";
+    storeSet("vibecore.lang", currentLang);
+    applyLang(currentLang);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Theme: a stored explicit choice wins; otherwise follow prefers-color-scheme.
+    var storedTheme = storeGet("vibecore.theme");
+    applyTheme(storedTheme === "dark" || storedTheme === "light" ? storedTheme : null);
+
+    // Language: a stored/explicit choice wins over the browser guess.
+    var storedLang = storeGet("vibecore.lang");
+    applyLang(storedLang === "de" || storedLang === "en" ? storedLang : detectLang());
+
+    // Header language picker switches the page live.
+    var langBtns = document.querySelectorAll(".langpicker button[data-lang]");
+    for (var i = 0; i < langBtns.length; i++) {
+      langBtns[i].addEventListener("click", function (e) {
+        setLang(e.currentTarget.getAttribute("data-lang"));
+      });
+    }
+
+    // Header theme toggle: flip the effective theme and remember it.
+    $("themeToggle").addEventListener("click", function () {
+      applyTheme(effectiveTheme() === "dark" ? "light" : "dark");
+      storeSet("vibecore.theme", effectiveTheme());
+    });
+
+    // Keep an unset (system-following) theme in sync if the OS setting changes.
+    if (window.matchMedia) {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var onSchemeChange = function () {
+        if (!document.documentElement.getAttribute("data-theme")) { updateThemeButton(); }
+      };
+      if (mq.addEventListener) { mq.addEventListener("change", onSchemeChange); }
+      else if (mq.addListener) { mq.addListener(onSchemeChange); }
+    }
+
+    // "None" ↔ specific needs are mutually exclusive (keeps export clean)
+    var noneBox = $("need-none");
+    var specificNeeds = document.querySelectorAll('input[name="need"]:not(#need-none)');
+    noneBox.addEventListener("change", function () {
+      if (noneBox.checked) {
+        for (var k = 0; k < specificNeeds.length; k++) { specificNeeds[k].checked = false; }
+      }
+    });
+    for (var s = 0; s < specificNeeds.length; s++) {
+      specificNeeds[s].addEventListener("change", function (e) {
+        if (e.target.checked) { noneBox.checked = false; }
+      });
+    }
+
+    // "Everything at the default" — one click puts all seven topics back on the
+    // catalog defaults (the same answer as saying "keep everything as it is").
+    $("watchDefaultsBtn").addEventListener("click", function () {
+      for (var w = 0; w < WATCH_TOPICS.length; w++) {
+        var el = $("w-" + WATCH_TOPICS[w].key + "-" + WATCH_TOPICS[w].def);
+        if (el) { el.checked = true; }
+      }
+      setStatus(t("stWatchDefaults"));
+    });
+
+    // Prototype-off inline note
+    var proto = $("protoOff");
+    proto.addEventListener("change", function () {
+      $("protoNote").classList.toggle("hidden", !proto.checked);
+    });
+
+    // Export — the Export button is the form's submit, so Enter in any text field
+    // triggers it too. preventDefault stops the (file://) page from reloading.
+    $("profileForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      $("exportOut").value = buildExport();
+      $("nextRegion").classList.remove("hidden");
+      setStatus(t("stExported"));
+    });
+
+    // Reset
+    $("clearBtn").addEventListener("click", function () {
+      $("profileForm").reset();
+      $("exportOut").value = "";
+      $("nextRegion").classList.add("hidden");
+      $("protoNote").classList.add("hidden");
+      // Language and theme live in the header, not the form — leave them as-is.
+      setStatus(t("stCleared"));
+    });
+
+    // Copy with graceful fallback
+    $("copyBtn").addEventListener("click", function () {
+      var ta = $("exportOut");
+      if (!ta.value) { setStatus(t("exportPlaceholder")); return; }
+      var fallback = function () {
+        ta.focus();
+        ta.select();
+        try { document.execCommand("copy"); setStatus(t("stCopied")); }
+        catch (err) { setStatus(t("stSelected")); }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(ta.value).then(
+          function () { setStatus(t("stCopied")); },
+          function () { fallback(); }
+        );
+      } else {
+        fallback();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

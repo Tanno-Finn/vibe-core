@@ -1,0 +1,5 @@
+{
+  "term": "System Prompt",
+  "description": "A special instruction in modern LLM systems that defines the model's role, behavioral rules, and safety guidelines — before the user enters their own prompt. The system prompt is usually invisible to the user, but fundamentally controls the model's baseline behavior.",
+  "example": "An AI chatbot receives a system prompt such as: 'You are a helpful assistant. Respond precisely and politely.' Other assistants likewise receive a system prompt at runtime that defines their role and behavioral rules. Users don't see these instructions, but they determine how the model responds."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "zhao-coverage-2026",
+  "type": "paper",
+  "authors": "Junda Zhao, Shurui Zhou, Eldan Cohen",
+  "year": "2026",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2607.22880",
+  "doi": "10.48550/arXiv.2607.22880",
+  "accessed": "2026-08-16",
+  "tags": [
+    "coverage",
+    "mutation-score",
+    "llm",
+    "test-effectiveness",
+    "replication-study"
+  ]
+}

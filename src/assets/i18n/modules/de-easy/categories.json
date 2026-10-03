@@ -1,0 +1,21 @@
+{
+  "ai-fundamentals": "Grundlagen",
+  "architecture": "Aufbau (Wie etwas gebaut ist)",
+  "computerVision": "Computer Sehen (Computer versteht Bilder)",
+  "concepts": "Ideen (Wichtige Gedanken)",
+  "creative": "Kreativ (Neue Dinge machen)",
+  "deepLearning": "Deep Learning (Computer lernt schwere Muster)",
+  "emergence": "Emergenz (Aus einfachen Regeln entsteht Komplexes)",
+  "ethics": "Regeln (Was richtig und falsch ist)",
+  "fundamentals": "Grundlagen (Das Wichtigste)",
+  "guide": "Anleitung (Wie man etwas macht)",
+  "history": "Geschichte (Was früher war)",
+  "machineLearning": "Machine Learning (Computer lernt aus Daten)",
+  "ml": "Machine Learning (Computer lernt)",
+  "nlp": "Computer versteht Sprache",
+  "optimization": "Optimierung",
+  "reinforcementLearning": "Lernen durch Belohnung (Computer lernt durch Versuche)",
+  "skills": "Können (Was man lernen kann)",
+  "tools": "Werkzeuge (Programme zum Benutzen)",
+  "tutorial": "Schritt-für-Schritt Anleitung"
+}

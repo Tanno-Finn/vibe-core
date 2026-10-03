@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <title>vibecore</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!--
+    Anti-FOUC Theme Bootstrap.
+    Runs BEFORE stylesheets/Angular load. Reads stored mode (or system preference),
+    sets dark-theme/light-theme on <html>, adds the style scope class and replays
+    the token snapshot ThemeService persisted on the last visit, so the very first
+    paint already shows the reader's style, accent and mode. Without this, the page
+    flashes the default look for a few frames before ThemeService runs.
+    Keys read here must match ThemeService: 'mode', 'theme' (a style name since
+    ADR-0016) and 'boot-tokens'.
+
+    The two static rules below are the DEFAULT STYLE's ground and text colours
+    (lernwerkstatt, ui-styles.ts) — first visit, no snapshot, and they are what
+    check-contrast.mjs verifies against the style data.
+  -->
+    <style>
+      html.dark-theme {
+        background-color: #201e1b;
+        color: #f1efec;
+      }
+      html.light-theme {
+        background-color: #fffdf6;
+        color: #2b2622;
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          var mode = localStorage.getItem('mode') || 'system';
+          var isDark =
+            mode === 'dark' ||
+            (mode === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.classList.add(isDark ? 'dark-theme' : 'light-theme');
+
+          // Style scope class pre-paint. html.style-<name> in styles.scss carries the
+          // SIGNATURE of a style — ink borders (--style-bw), the 4px colour bar,
+          // box-shadow: none — while the token layer below only carries its colours.
+          // The class is therefore set ALWAYS, resolved the way resolveStoredStyle()
+          // in src/app/services/ui-styles.ts resolves it: a known style name stands,
+          // an absent value, a name from the preset era ('aura', 'material', 'lara',
+          // 'nora') and any junk fall back to the default. Without the fallback a
+          // first visit and every prerendered page painted the default's tokens
+          // without its signature and then jumped when ThemeService ran.
+          // The list and the default mirror UI_STYLES / DEFAULT_STYLE_NAME; check 1c
+          // in scripts/check-contrast.mjs fails the build if the two ever drift.
+          var STYLE_NAMES = ['lernwerkstatt', 'werkbund', 'skizzenbuch', 'blaupause'];
+          var stored = localStorage.getItem('theme');
+          var styleName = STYLE_NAMES.indexOf(stored) >= 0 ? stored : 'lernwerkstatt';
+          document.documentElement.classList.add('style-' + styleName);
+
+          // Token snapshot of the last visit, persisted for BOTH modes (the
+          // effective mode of 'system' is only known here, at boot). Its own
+          // try/catch: a corrupt snapshot must not undo the mode and style
+          // classes already applied above (the outer catch would add a second
+          // mode class on top of them).
+          try {
+            var boot = JSON.parse(localStorage.getItem('boot-tokens') || 'null');
+            if (boot) {
+              var set = boot[isDark ? 'dark' : 'light'];
+              if (set) {
+                var s = document.documentElement.style;
+                var k;
+                // Only custom properties with string values — the snapshot is
+                // attacker-writable storage, not trusted input.
+                for (k in set.tokens) {
+                  if (k.indexOf('--') === 0 && typeof set.tokens[k] === 'string') {
+                    s.setProperty(k, set.tokens[k]);
+                  }
+                }
+                for (k in set.importantTokens) {
+                  if (k.indexOf('--') === 0 && typeof set.importantTokens[k] === 'string') {
+                    s.setProperty(k, set.importantTokens[k], 'important');
+                  }
+                }
+              }
+            }
+          } catch (e3) {}
+        } catch (e) {
+          // localStorage blocked (private mode, etc.) — fall back to system preference
+          try {
+            var dark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.classList.add(dark ? 'dark-theme' : 'light-theme');
+          } catch (e2) {}
+        }
+      })();
+    </script>
+
+    <!--
+    Glossary deep-link gate.
+    A deep-link like /de/glossary?search=EXACT:Open%20Source serves the statically
+    prerendered glossary page, which always contains the FULL term list (query
+    params aren't part of prerendering). The filter is applied client-side; if it
+    runs during hydration the prerendered @for wedges and all terms stay visible.
+    GlossaryComponent now applies the filter AFTER hydration (afterNextRender) so
+    the list reconciles cleanly — and this gate hides the list pre-paint until then,
+    so the full glossary never flashes. The class is removed by GlossaryComponent
+    once the filtered list has painted; the safety timeout reveals it if Angular
+    never boots, degrading to the plain prerendered list rather than a blank page.
+  -->
+    <style>
+      html.gloss-deeplink-pending app-glossary .glossary-entries {
+        display: none;
+      }
+      html.gloss-deeplink-pending app-glossary .results-count {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      (function () {
+        try {
+          if (/\/glossary\/?$/.test(location.pathname) && /[?&]search=/.test(location.search)) {
+            document.documentElement.classList.add('gloss-deeplink-pending');
+            setTimeout(function () {
+              document.documentElement.classList.remove('gloss-deeplink-pending');
+            }, 5000);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!--
+    Static meta description + Open Graph / Twitter Card defaults.
+    MetaSeoService overrides these at runtime with route-specific values,
+    but social-embed crawlers (Signal, WhatsApp, Twitter, LinkedIn, Slack)
+    fetch HTML without executing JS — they see ONLY this static markup.
+    Without static OG tags, link previews fall back to the bare title and
+    show no image / no description. Keep the German portal default here.
+  -->
+    <meta
+      name="description"
+      content="vibecore — ein werbefreies, nicht-kommerzielles Lernportal-Starter-Kit. Artikel, interaktive Demos, Glossar und Lernpfade — bereit für deine eigenen Inhalte."
+    />
+
+    <!-- Open Graph (Facebook, LinkedIn, Signal, WhatsApp, Slack, Discord) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="vibecore" />
+    <meta property="og:title" content="vibecore — Ein werbefreies Lernportal-Starter-Kit." />
+    <meta
+      property="og:description"
+      content="Werbefreies Lernportal-Starter-Kit: Artikel, interaktive Demos, Glossar und Lernpfade. Offen, barrierefrei, bereit für deine Inhalte."
+    />
+    <!-- No og:url, og:image or image alt here: they need ABSOLUTE URLs on the real
+       domain, and a placeholder domain would ship in every prerendered page.
+       MetaSeoService sets them (with the image's alt) once environment.siteUrl
+       names the site — see docs/how-to/deploy.md, "Set your site URL". -->
+    <meta property="og:locale" content="de_DE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="vibecore — Ein werbefreies Lernportal-Starter-Kit." />
+    <meta
+      name="twitter:description"
+      content="Werbefreies Lernportal-Starter-Kit: Artikel, interaktive Demos, Glossar und Lernpfade. Offen, barrierefrei, bereit für deine Inhalte."
+    />
+    <!-- twitter:image and its alt: set by MetaSeoService, like og:image above. -->
+
+    <!-- Favicon (multiple formats for better browser support).
+       One source file: src/favicon.svg. Bump the ?v= counter when you edit it,
+       otherwise browsers keep serving the cached icon. -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=6" />
+    <link rel="shortcut icon" href="favicon.svg?v=6" />
+    <link rel="apple-touch-icon" href="favicon.svg?v=6" />
+
+    <!-- Fonts: Latin UI default = system stack (zero fetch). Picker fonts are
+       injected on-demand by FontService (self-hosted via @fontsource — no
+       external Google Fonts requests). Kit ships de/en (latin) only. -->
+
+    <!-- SEO Language Prefix Redirect -->
+    <!-- Runs BEFORE Angular loads. Redirects bare URLs to language-prefixed versions. -->
+    <script>
+      (function () {
+        var p = location.pathname;
+        // Languages the kit actually ships. Extend this list together with
+        // prerender-routes.txt when you add locales.
+        var codes = ['de', 'en'];
+        var hasPrefix = codes.some(function (c) {
+          return p === '/' + c || p.indexOf('/' + c + '/') === 0;
+        });
+        if (!hasPrefix) {
+          var saved = null;
+          try {
+            saved = localStorage.getItem('preferred-language-v2');
+          } catch (e) {}
+          // Strip -easy suffix (URL shows base language only)
+          if (saved && saved.indexOf('-easy') !== -1) saved = saved.replace('-easy', '');
+          // Validate saved language
+          var lang = saved && codes.indexOf(saved) !== -1 ? saved : 'de';
+          var target = '/' + lang + (p === '/' ? '/' : p) + location.search + location.hash;
+          location.replace(target);
+        }
+      })();
+    </script>
+
+    <!-- Cache Control Meta Tags to prevent stale content -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

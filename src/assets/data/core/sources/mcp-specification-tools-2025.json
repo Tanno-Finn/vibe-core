@@ -1,0 +1,17 @@
+{
+  "id": "mcp-specification-tools-2025",
+  "type": "article",
+  "authors": "Model Context Protocol",
+  "year": "2025",
+  "publication": "Model Context Protocol Specification, Revision 2025-11-25",
+  "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "mcp",
+    "tools",
+    "human-in-the-loop",
+    "confirmation",
+    "specification"
+  ]
+}

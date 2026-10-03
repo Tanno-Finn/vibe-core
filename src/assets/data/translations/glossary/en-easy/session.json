@@ -1,0 +1,8 @@
+{
+  "term": "Session",
+  "alternativeNames": [
+    "Work session"
+  ],
+  "description": "Session. A session is one work time with an AI. Everything in this time belongs together. The AI remembers the whole talk. But only during the session. The space for this is limited. This space is called the context window. When the session ends, the AI forgets the talk. The AI can write down important things before that. For example in notes. The notes stay. So the AI knows them next time.",
+  "example": "Think of a meeting with an advisor. In the meeting he knows everything you said. Afterwards he forgets it again. Only his notes remain. At the next meeting he reads the notes."
+}

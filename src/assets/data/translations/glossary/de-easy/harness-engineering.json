@@ -1,0 +1,8 @@
+{
+  "term": "Harness Engineering",
+  "alternativeNames": [
+    "Umgebung für KI-Agenten bauen"
+  ],
+  "description": "Harness Engineering. Das spricht man Harnes Endschiniering aus. Das Wort ist noch ziemlich neu. Es geht um die Umgebung von einem KI-Agenten. Ein Agent ist eine KI, die selbstständig arbeitet. Menschen bauen für den Agenten eine sichere Umgebung. Sie legen fest: Das darf der Agent tun. Das darf er nicht tun. Es gibt Regeln für seine Arbeit. Es gibt Prüfungen für seine Ergebnisse. Der Agent bekommt auch ein Notizbuch. So arbeitet der Agent sicherer und besser.",
+  "example": "Denk an einen neuen Mitarbeiter in einer Werkstatt. Er bekommt Werkzeug, Regeln und einen Prüfer. Erst dann fängt er an. So eine Werkstatt baut man auch für KI-Agenten."
+}

@@ -1,0 +1,159 @@
+{
+  "_comment": "KIT KNOWLEDGE, not your choices: which routes, strings and content belong to each kit feature that src/config/site.json can switch off (`features: { \"news\": false }`). Read by the app through src/config/site-rules.mts (the feature guard, navigation, home page, header) and by the build scripts through scripts/lib/site-config.mjs (prerender list, sitemap, check-a11y). scripts/check-site-config.mjs holds this file against app.routes.ts and the prerender and sitemap tables. Edit it only when you add or remove a kit feature.",
+
+  "_shellPages": "Pages that are no feature and are always on. Articles (articles/*, article/*) and the not-found page are always on too: they are the site's content and frame, not a feature.",
+  "shellPages": ["home", "user-settings", "impressum", "accessibility"],
+
+  "_devOnly": "Strings only the dev workshop reads (src/app/dev/, stripped from production builds). The key-source language carries them; any other language may leave them out and then shows the workshop in the key-source language (scripts/lib/feature-scope.mjs).",
+  "devOnly": { "i18n": ["devWorkshop", "app.nav.devWorkshop"] },
+
+  "_features": "Per feature id: `routes` — route paths it owns (its pages and their legacy redirects; a path also owns everything below it, `learn` owns `learn/x`). `navGroups` — route groups (`group` in app.routes.ts) it owns, so a new page in that group belongs to it without an entry here. `i18n` — namespaces or key paths it owns (a key path owns everything below it); `i18nShared` — key paths below those that other parts of the site read, so they stay required (scripts/check-i18n-keys.mjs fails when code outside the feature reads a key of a namespace the feature owns and the key is not listed here; a key path in a shared namespace, like `app.nav.glossary`, says its readers show it only while the feature is on). `code` — the source files and folders (ending in /) only this feature uses; their reads of its strings need no `i18nShared`. With a feature off, a new language needs none of its strings and none of its collections. `collections` — its content under src/assets/data. `prerenderTier` — 0 (every SEO language), 1 (language tiers 1 and 2) or null, as in scripts/generate-prerender-routes.js. `sitemap` — whether its pages are in scripts/generate-sitemap.js. `a11yPages` — the page keys of scripts/check-a11y.mjs it owns.",
+  "features": {
+    "glossary": {
+      "code": ["src/app/pages/glossary/"],
+      "routes": ["glossary"],
+      "i18n": [
+        "glossary",
+        "app.nav.glossary",
+        "home.quickStart.glossary",
+        "home.showcase.glossary",
+        "seo.pages.glossary",
+        "easyLanguage.content.glossary",
+        "searchTerms.glsr"
+      ],
+      "i18nShared": ["glossary.popover", "glossary.title", "glossary.description"],
+      "collections": ["glossary"],
+      "prerenderTier": 1,
+      "sitemap": true,
+      "a11yPages": ["glossary"]
+    },
+    "timeline": {
+      "code": ["src/app/pages/ai-timeline/"],
+      "routes": ["ai-timeline"],
+      "i18n": [
+        "aiTimeline",
+        "timeline",
+        "app.nav.aiTimeline",
+        "home.quickStart.timeline",
+        "home.showcase.timeline",
+        "seo.pages.aiTimeline",
+        "easyLanguage.content.aiTimeline",
+        "searchTerms.time"
+      ],
+      "collections": ["timeline"],
+      "prerenderTier": 1,
+      "sitemap": true,
+      "a11yPages": ["timeline"]
+    },
+    "catalog": {
+      "code": [
+        "src/app/pages/catalog/",
+        "src/app/components/shared/content-filter.component.ts",
+        "src/app/components/shared/simple-compare-fab.component.ts",
+        "src/app/models/ai-resource.model.ts"
+      ],
+      "routes": ["catalog", "ai-resources", "ai-tools", "rsrc", "tool"],
+      "i18n": [
+        "catalog",
+        "aiTools",
+        "aiResources",
+        "app.nav.catalog",
+        "app.nav.aiTools",
+        "home.showcase.tools",
+        "home.navigation.examples.tools",
+        "easyLanguage.content.aiToolsCatalog",
+        "searchTerms.ctlg"
+      ],
+      "collections": ["ai-tools", "ai-resources"],
+      "prerenderTier": 1,
+      "sitemap": true,
+      "a11yPages": []
+    },
+    "sources": {
+      "code": ["src/app/pages/sources/"],
+      "routes": ["sources"],
+      "i18n": ["sources", "home.showcase.sources", "searchTerms.srcs"],
+      "i18nShared": ["sources.types", "sources.title"],
+      "collections": ["sources"],
+      "prerenderTier": 1,
+      "sitemap": false,
+      "a11yPages": ["sources"]
+    },
+    "learn": {
+      "code": ["src/app/pages/lernbereich/", "src/app/pages/learning-paths/"],
+      "routes": ["learn", "lernen", "guides", "lektionen", "learning-paths"],
+      "navGroups": ["learningPaths"],
+      "i18n": [
+        "lernbereich",
+        "learningPaths",
+        "app.nav.group.learningPaths",
+        "home.showcase.learningPaths",
+        "home.showcase.lessons",
+        "easyLanguage.content.lernbereich",
+        "searchTerms.lern"
+      ],
+      "i18nShared": ["lernbereich.backToLernbereich", "lernbereich.filterDemos"],
+      "collections": ["learning-paths"],
+      "prerenderTier": 0,
+      "sitemap": false,
+      "a11yPages": []
+    },
+    "news": {
+      "code": ["src/app/pages/news/"],
+      "routes": ["news"],
+      "i18n": ["news", "easyLanguage.content.news"],
+      "collections": ["notifications"],
+      "prerenderTier": 1,
+      "sitemap": false,
+      "a11yPages": []
+    },
+    "roadmap": {
+      "code": ["src/app/pages/roadmap/"],
+      "routes": ["roadmap"],
+      "i18n": ["roadmap", "home.showcase.roadmap", "easyLanguage.content.roadmap", "searchTerms.rdmp"],
+      "collections": ["roadmap"],
+      "prerenderTier": 1,
+      "sitemap": false,
+      "a11yPages": []
+    },
+    "progress": {
+      "code": ["src/app/pages/progress/"],
+      "routes": ["progress"],
+      "i18n": ["progress", "app.nav.progress"],
+      "collections": [],
+      "prerenderTier": 1,
+      "sitemap": false,
+      "a11yPages": []
+    },
+    "feedback": {
+      "code": ["src/app/pages/feedback/"],
+      "routes": ["feedback"],
+      "i18n": ["feedback.page"],
+      "collections": [],
+      "prerenderTier": 1,
+      "sitemap": false,
+      "a11yPages": []
+    },
+    "demos": {
+      "code": ["src/app/pages/demos-overview/", "src/app/pages/example-demo/"],
+      "routes": ["demos", "example-demo"],
+      "navGroups": ["interaktiveDemos"],
+      "i18n": [
+        "demos",
+        "exampleDemo",
+        "app.nav.group.interaktiveDemos",
+        "home.quickStart.evolution",
+        "home.showcase.demos",
+        "home.navigation.examples.exampleDemo",
+        "seo.pages.exampleDemo",
+        "easyLanguage.content.exampleDemo",
+        "searchTerms.demo"
+      ],
+      "i18nShared": ["exampleDemo.title"],
+      "collections": ["demos"],
+      "prerenderTier": 1,
+      "sitemap": true,
+      "a11yPages": ["demos"]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Build",
+  "alternativeNames": [
+    "Build-Prozess",
+    "Software-Build"
+  ],
+  "description": "Ein Build verwandelt Quellcode in ein lauffähiges Artefakt: Der Code wird kompiliert, Abhängigkeiten werden aufgelöst, Dateien gebündelt — und unterwegs läuft eine ganze Reihe von Prüfungen mit. Schlägt einer dieser Schritte fehl, ist der Build „rot“: das früheste und billigste Warnsignal der Software-Entwicklung, denn ein Fehler, der schon beim Bauen auffällt, kommt in einer sauberen Prüfstrecke gar nicht erst in die Nähe eines Nutzers. Für KI-Agenten ist ein reproduzierbarer Build-Befehl besonders wertvoll: Der Agent kann nach jeder eigenen Änderung selbst prüfen, ob das Projekt noch baut, statt es den Menschen herausfinden zu lassen. Nicht verwechseln: „Build“ bezeichnet umgangssprachlich auch eine konkrete ausgelieferte Version („Build 4711“) — dann ist das Ergebnis des Prozesses gemeint, nicht der Prozess selbst.",
+  "example": "Ein Manuskript ist noch kein Buch: Erst Satz, Druck und Bindung machen daraus etwas, das ein Leser in die Hand nehmen kann — und fehlt Seite 12, stoppt die Druckerei, bevor ein einziges Exemplar den Laden erreicht. Genauso macht erst der Build aus Quellcode ein startbares Programm: Bei einer Angular-App bündelt „npm run build“ hunderte TypeScript-Dateien zu wenigen optimierten JavaScript-Paketen — und bricht mit Fehlermeldung ab, wenn irgendwo ein Tippfehler steckt. Ein Unterschied zur Druckerei: Ein neuer Build kostet fast nichts und läuft beliebig oft."
+}

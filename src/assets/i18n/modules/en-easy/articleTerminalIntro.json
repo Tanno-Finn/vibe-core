@@ -1,0 +1,253 @@
+{
+  "hero": {
+    "title": "The Terminal",
+    "subtitle": "The terminal is an old but very powerful tool for your computer."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "guiCli": "GUI and CLI",
+    "paths": "Paths",
+    "commands": "First Commands",
+    "flags": "Flags",
+    "aiTerminal": "Terminal and AI",
+    "takeaways": "Summary",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Behind every app there are text commands. The terminal is a program where you type commands. You can control your computer very precisely with it.",
+    "paragraph2": "You do not need any experience. At the end you will know: What is a graphical interface? What is a command line? How do file addresses work? And you will know the most important commands."
+  },
+  "guiCli": {
+    "title": "Two Ways to Use Your Computer",
+    "definitionTitle": "GUI, CLI, Terminal, and Shell",
+    "analogy": "A GUI is like a map. You tap on places and get guided there. A CLI is like an address. You type the address and go directly to the destination. You can also give the same address to many taxis.",
+    "scientific": "GUI means: Graphical User Interface. You click on windows, icons, and buttons. CLI means: Command-Line Interface. You type commands as text. The terminal is the program with the text window. The shell is the program inside it that understands your commands.",
+    "analogyBreak": "This comparison has limits: a wrong command can cause much more damage than a wrong address.",
+    "history": "Command lines have existed since the 1960s. Graphical interfaces came in the 1980s. The command line came first.",
+    "renameExample": "Example: Rename 500 photos. With a GUI you have to click each photo one by one. With the command line you can do it with one single command.",
+    "comparison": {
+      "guiLabel": "GUI — Graphical Interface",
+      "guiResult": "You see pictures and buttons. Easy to learn. Good for editing images. Hard to automate.",
+      "cliLabel": "CLI — Command Line",
+      "cliResult": "You type commands as text. Very precise. Good for automation. You need to learn the commands."
+    },
+    "terminalChoice": {
+      "title": "Which Terminal to Use?",
+      "text": "Mac and Linux have a terminal built in. On Windows, use Windows Terminal or WSL. Tip: Programs like VS Code also have a built-in terminal."
+    },
+    "noUndo": {
+      "title": "There Is No Undo in the Terminal",
+      "text": "The terminal has no recycle bin. A command runs immediately. Start with safe commands like pwd and ls. They only show information and do not change anything."
+    }
+  },
+  "paths": {
+    "title": "Paths — Where Am I?",
+    "definitionTitle": "Paths and Working Directory",
+    "analogy": "Think of an office building. An absolute path is the full address: Building, Floor 3, Room 312. A relative path says: Go one door to the left. The working directory is the room you are standing in right now.",
+    "scientific": "A path is the address of a file. An absolute path starts at the very top of the file system, for example /home/user/file.txt. A relative path starts from your current folder. A dot . means: here. Two dots .. mean: one level up.",
+    "analogyBreak": "This comparison has limits: in a file system there are shortcuts that do not exist in a real building.",
+    "crossPlatform": "On Linux and Mac you use / as separator. On Windows you use \\. Most programs understand both.",
+    "walkthrough": {
+      "title": "Exercise: Navigate the File System",
+      "step1": "pwd → Shows you where you are",
+      "step2": "mkdir project → Creates a new folder",
+      "step3": "cd project → Goes into the folder",
+      "step4": "mkdir data src → Creates two folders at once",
+      "step5": "cd data → Goes into the data folder",
+      "step6": "cd .. → Goes one level back"
+    },
+    "pitfalls": {
+      "title": "Common Mistakes with Paths",
+      "text": "Folder names with spaces need quotes: cd \"My Folder\". Use pwd often so you know where you are."
+    },
+    "resolver": {
+      "title": "Try it: where does the path land?",
+      "intro": "A path depends on 2 things: Where are you standing? And what do you type? Change one of them below. Then you see at once: the path leads somewhere else."
+    }
+  },
+  "commands": {
+    "title": "Your First Commands",
+    "intro": "These 9 commands are like 9 words in a foreign language. You will not be perfect, but you can get by.",
+    "grid": {
+      "pwd": {
+        "label": "pwd",
+        "description": "Shows where you are"
+      },
+      "ls": {
+        "label": "ls",
+        "description": "Shows folder contents"
+      },
+      "cd": {
+        "label": "cd",
+        "description": "Changes the folder"
+      },
+      "mkdir": {
+        "label": "mkdir",
+        "description": "Creates a folder"
+      },
+      "touch": {
+        "label": "touch",
+        "description": "Creates an empty file"
+      },
+      "cat": {
+        "label": "cat",
+        "description": "Shows file contents"
+      },
+      "cp": {
+        "label": "cp",
+        "description": "Copies a file"
+      },
+      "mv": {
+        "label": "mv",
+        "description": "Moves or renames"
+      },
+      "rm": {
+        "label": "rm",
+        "description": "Deletes a file forever"
+      }
+    },
+    "tabCompletion": "Tip: Type the first few letters and press the Tab key. The terminal completes the name for you.",
+    "miniProject": {
+      "title": "Exercise: Build a Project Folder",
+      "step1": "mkdir ai-project → Creates the main folder",
+      "step2": "cd ai-project → Goes inside",
+      "step3": "mkdir data src docs → Creates three subfolders",
+      "step4": "touch requirements.txt README.md → Creates two files",
+      "step5": "ls → Shows all files and folders",
+      "step6": "cp requirements.txt backup.txt → Copies the file",
+      "step7": "mv README.md docs/ → Moves the file into the docs folder"
+    },
+    "rmWarning": {
+      "title": "Careful: rm Deletes Forever",
+      "text": "The rm command deletes files permanently. There is no recycle bin.",
+      "tip": "Tip: Use rm -i. Then you will be asked before each deletion. Always check with pwd and ls that you are in the right folder."
+    },
+    "forwardLink": "In the next article you will learn about your development environment. That is where you write your programs. After that you will learn Git."
+  },
+  "flags": {
+    "title": "More About Flags",
+    "intro": "Flags change what a command does. They start with a dash. For example: ls -l shows more details. ls -a shows hidden files.",
+    "examples": "You can combine flags: ls -la shows hidden files with details.",
+    "help": "Type --help after a command to see which flags exist. For example: ls --help."
+  },
+  "aiTerminal": {
+    "title": "Why the Terminal Matters for AI",
+    "intro": "Many AI computers have no graphical interface. You connect to them through the terminal.",
+    "useCases": "You install programs with pip and conda. You start AI training with a command. And automatic tests also run in the terminal."
+  },
+  "takeaways": {
+    "containerTitle": "Key Points",
+    "items": {
+      "guiCli": "A GUI has pictures and buttons. A CLI has text commands. Both are useful.",
+      "paths": "Every file has an address. That is the path. There are absolute and relative paths.",
+      "commands": "9 commands are enough to start: pwd, ls, cd, mkdir, touch, cat, cp, mv, rm.",
+      "tabCompletion": "The Tab key completes file names automatically.",
+      "noUndo": "The terminal has no undo. The rm command deletes forever."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint",
+    "item1": "When is a GUI better? When is a CLI? Give two examples for each.",
+    "item2": "You are in the folder /home/user/project. How do you get to /home/user/data/file.csv?",
+    "item3": "Create a folder, put a file in it, and check if it is there. Which commands do you need?"
+  },
+  "quiz": {
+    "boxTitle": "Quiz: The Terminal",
+    "q1": {
+      "question": "What is the difference between GUI and CLI?",
+      "a": "A GUI is faster",
+      "b": "A GUI has pictures and buttons. A CLI has text commands.",
+      "c": "A CLI only works on Linux",
+      "d": "A GUI is for professionals. A CLI is for beginners.",
+      "explanation": "A GUI shows windows, icons, and buttons. A CLI works with text. Both are useful."
+    },
+    "q2": {
+      "question": "You are in the folder /home/user/project/data. What does cd .. do?",
+      "a": "It deletes the folder data",
+      "b": "It goes to /home/user/project",
+      "c": "It goes to /home/user",
+      "d": "It shows the folder contents",
+      "explanation": "Two dots .. mean: one level up. From /home/user/project/data, cd .. goes to /home/user/project."
+    },
+    "q3": {
+      "question": "You want to create a folder \"test\", put a file \"log.txt\" inside, and check if it is there. What is the right order?",
+      "a": "touch log.txt, mkdir test, ls",
+      "b": "mkdir test, cd test, touch log.txt, ls",
+      "c": "cd test, mkdir test, touch log.txt",
+      "d": "touch test/log.txt, ls test",
+      "explanation": "First create the folder (mkdir test). Then go inside (cd test). Then create the file (touch log.txt). Then check (ls)."
+    },
+    "q4": {
+      "question": "Why is the command line better for renaming 500 files?",
+      "a": "It shows files faster",
+      "b": "One command can rename all 500 files at once",
+      "c": "A GUI cannot rename files",
+      "d": "The command line has a recycle bin",
+      "explanation": "The command line can automate: One command renames all 500 files in seconds. In a GUI you have to click each file one by one."
+    }
+  },
+  "enrichment": {
+    "tocLabel": "Practice Commands",
+    "sectionTitle": "Interactive: Command Flashcards",
+    "intro": "Test what you know about terminal commands. Click a card to see the answer. Shuffle and try to explain each command before flipping.",
+    "cards": {
+      "1": {
+        "front": "pwd",
+        "frontSub": "Where am I right now?",
+        "back": "Shows the full path of your current folder. Always check before deleting files.",
+        "backFormula": "pwd\n→ /home/user/project",
+        "backExample": "Always run pwd before rm. This keeps you safe."
+      },
+      "2": {
+        "front": "ls",
+        "frontSub": "What is in here?",
+        "back": "Lists files and folders. Use -l for details. Use -a for hidden files.",
+        "backFormula": "ls -la\n→ drwxr-xr-x  .git/\n   -rw-r--r--  README.md",
+        "backExample": "ls -la also shows hidden files like .gitignore."
+      },
+      "3": {
+        "front": "cd",
+        "frontSub": "Go to a different folder",
+        "back": "Changes your folder. Use cd .. to go up one level. Use cd ~ to go home.",
+        "backFormula": "cd project/data\ncd ..\ncd ~",
+        "backExample": "cd alone takes you to your home folder."
+      },
+      "4": {
+        "front": "mkdir",
+        "frontSub": "Create a new folder",
+        "back": "Makes one or more new folders. You can make many at once.",
+        "backFormula": "mkdir data src docs\nmkdir -p parent/child/grandchild",
+        "backExample": "mkdir -p also creates parent folders if needed."
+      },
+      "5": {
+        "front": "cat",
+        "frontSub": "Show file contents",
+        "back": "Prints the whole file to the screen. Good for short files like config files.",
+        "backFormula": "cat requirements.txt\n→ numpy==1.24.4\n   transformers==4.37.0",
+        "backExample": "For long files use less instead of cat."
+      },
+      "6": {
+        "front": "cp",
+        "frontSub": "Copy",
+        "back": "Copies files or folders. For folders with content use -r (recursive).",
+        "backFormula": "cp file.txt backup.txt\ncp -r folder/ copy/",
+        "backExample": "Make a backup before risky changes."
+      },
+      "7": {
+        "front": "mv",
+        "frontSub": "Move or rename",
+        "back": "Moves files to a new place. Also renames them. The command just changes the path.",
+        "backFormula": "mv old.txt new.txt\nmv file.txt folder/",
+        "backExample": "A loop with mv renames 500 files in seconds."
+      },
+      "8": {
+        "front": "rm",
+        "frontSub": "Delete forever",
+        "back": "Deletes files for good. No trash bin. No undo. Use -r for folders. Be very careful.",
+        "backFormula": "rm file.txt\nrm -r folder/\nrm -i file.txt  # asks first",
+        "backExample": "Tip: rm -i asks you before each deletion."
+      }
+    }
+  }
+}

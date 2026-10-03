@@ -1,0 +1,17 @@
+{
+  "id": "adkins-breakglass-2020",
+  "type": "book",
+  "authors": "Heather Adkins, Betsy Beyer, Paul Blankinship, Piotr Lewandowski, Ana Oprea, Adam Stubblefield",
+  "year": "2020",
+  "publication": "Building Secure and Reliable Systems, Kapitel 5, O'Reilly",
+  "url": "https://google.github.io/building-secure-and-reliable-systems/raw/ch05.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "breakglass",
+    "least-privilege",
+    "emergency-access",
+    "monitoring",
+    "security"
+  ]
+}

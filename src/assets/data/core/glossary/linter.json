@@ -1,0 +1,61 @@
+{
+  "id": "linter",
+  "category": "tools",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Linter",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Lint-Tool",
+      "Statische Code-Analyse"
+    ],
+    "en": [
+      "Lint tool",
+      "Static analysis tool"
+    ],
+    "de-easy": [
+      "Fehler-Sucher für Code"
+    ],
+    "en-easy": [
+      "Code checker"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Johnson, S. C. (1978). Lint, a C Program Checker. Bell Laboratories, Computing Science Technical Report No. 65.",
+      "type": "website",
+      "url": "https://wolfram.schneider.org/bsd/7thEdManVol2/lint/lint.pdf",
+      "notes": "Original-Report zum Ur-Werkzeug lint: findet Fehlermuster und fragwürdige Konstrukte in C-Code rein durch Analyse des Quelltexts, ohne Ausführung.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "ESLint: Core Concepts (offizielle Dokumentation)",
+      "type": "documentation",
+      "url": "https://eslint.org/docs/latest/use/core-concepts/",
+      "notes": "Moderner Standard-Linter für JavaScript/TypeScript: Regeln, Severity-Stufen, Auto-Fixes; zeigt den heutigen Funktionsumfang der Werkzeugklasse."
+    },
+    {
+      "title": "Sadowski, C. et al. (2018). Lessons from Building Static Analysis Tools at Google. Communications of the ACM 61(4).",
+      "type": "paper",
+      "url": "https://cacm.acm.org/research/lessons-from-building-static-analysis-tools-at-google/",
+      "notes": "Erfahrungsbericht zu statischer Analyse im Großmaßstab: Wirkung hängt an Integration in den Workflow und niedriger False-Positive-Rate."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "test",
+      "build",
+      "ci-cd",
+      "cli",
+      "vibe-coding"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

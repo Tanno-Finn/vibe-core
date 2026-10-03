@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Low contrast in dark mode</title>
+    <style>
+      body {
+        color: #111;
+        background: #fff;
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #444;
+          background: #222;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Readable in light, not in dark</h1>
+      <p id="dim">This text loses its contrast in the dark scheme.</p>
+    </main>
+  </body>
+</html>

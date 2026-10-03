@@ -1,0 +1,9 @@
+{
+  "term": "Commit",
+  "alternativeNames": [
+    "Revision",
+    "Changeset"
+  ],
+  "description": "A commit is a saved snapshot of your project in version control - along with a short message recording what changed and why. Like a ship's log entry: state plus reasoning, noted down for good. Each commit can later be inspected on its own and, as a rule, rolled back precisely - if later commits touched the same lines, you have to decide by hand what should stand. Especially when an AI agent writes the code, small, single-topic commits pay off: you see exactly which step changed what - and you can roll back a failed step without losing the successful ones.",
+  "example": "An agent builds you a search feature, then a new color scheme - two commits instead of one: 'add search', 'rework colors'. If you dislike the colors, you revert only the second commit; the search stays. And unlike a ship's log, version control does not merely record each noted state - it can restore it."
+}

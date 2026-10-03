@@ -1,0 +1,267 @@
+{
+  "hero": {
+    "title": "Reviewing Without Knowing How to Program",
+    "subtitle": "Your agent says it has finished, every automatic check came out green - and now you are meant to approve something you cannot read. What is genuinely checkable from where you stand, and what merely feels like checking."
+  },
+  "toc": {
+    "lead": "The moment you approve",
+    "thesis": "Your role",
+    "diff": "What a diff tells you",
+    "origin": "Where the diff comes from",
+    "questions": "Three questions that measure something",
+    "acceptance": "Looking for yourself",
+    "limits": "What the browser will not show you",
+    "close": "Closing",
+    "takeaways": "Takeaways",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Your agent reports back: finished. Every automatic check has run, and every one of them came out green. The summary in the chat window is warm, sounds competent, and closes by assuring you that everything was built the way you wanted. Underneath it waits a button labeled Approve. And the code is unreadable to you.",
+    "paragraph2": "No amount of goodwill fixes that, and the two obvious escapes are both worthless. One is to put on a show: scroll the lines, nod solemnly, approve. That is a performance staged for an audience of one. The other is to fish for reassurance. What that yields is a sentence - and sentences are precisely the substance the summary already consists of, the very summary that landed you here.",
+    "paragraph3": "There are, however, three things in this situation that live beyond your chat window. A change whose shape can be measured. Replies with something to test them against. And software you are able to work by hand. Not one of the three certifies that the change is right. Every one of them is capable of showing you that it is wrong. And none demands that you understand a line of code.",
+    "paragraph4": "None of this argues against learning to read code. It is simply the part that remains open to you meanwhile - and the part you will go on using afterwards."
+  },
+  "thesis": {
+    "title": "Your role in this moment",
+    "text1": "Your job here is not to appraise the code like an expert witness. Your job is to take delivery and to carry what follows from it. Not a smaller role - a different one, and the one that becomes yours the instant your finger reaches the Approve button.",
+    "text2": "That reframing does more than sound good. In the literature on placing too much trust in machine-produced output, putting weight on your own answerability for the outcome is one of the countermeasures with an effect on record - and the effect shows up where people ascribe that answerability to themselves, not where it is imposed on them.",
+    "text3": "This article gets there in three moves, none of which requires a programming language: the shape of the change, the question you put to your agent, the thing you watch happen yourself. Every move is capable of surfacing a contradiction. That turns out to be enough.",
+    "objectives": {
+      "title": "What you will be able to do",
+      "item1": "Read a diffstat that somebody else produced and point to its three lay-readable signals: size, spread, and ratio.",
+      "item2": "Say why a diff is worked out on demand from two stored versions rather than stored itself - and why that leaves it, unlike a summary, with no author.",
+      "item3": "Choose, from several equally reasonable-sounding follow-ups, the one whose reply yields evidence, and state what each of the three questions gets tested against.",
+      "item4": "Plan a walk through the software for some change of your own that includes the case obliged to break - and list three matters that walk leaves untouched."
+    }
+  },
+  "diff": {
+    "title": "What a diff tells you without you reading any code",
+    "intro": "The image for it is a word processor with track changes switched on, and it already turns up in several corners of this portal because it earns its keep: one version sits on top of another, crossed-out means gone, highlighted means fresh. Your subject is the editing, never the document. Take that as the floor rather than the insight - the useful part starts where the image stops working.",
+    "analogyBreak1": "The first crack: track changes hands you the full text. A diff hands you slivers - a handful of lines around every altered spot, and nothing whatever from the remainder of the file. So the rest is not merely unseen; it is unreachable.",
+    "analogyBreak2": "The second crack: prose that looks alike is alike. Software is not like that, and one character of difference between two near-identical lines can send the machine somewhere else entirely. Which is exactly why nobody is asking you to read the lines - and exactly why the rest of this section is possible.",
+    "definitionTitle": "Diff",
+    "definitionEverydayLabel": "In plain words",
+    "definitionEveryday": "A roster of the spots where something moved: which files got touched, what dropped out of them, what arrived in them.",
+    "definitionPreciseLabel": "Technically",
+    "definitionPrecise": "Stated carefully: two stored versions set against each other by calculation. A minus marks what left, a plus marks what arrived, and you get slivers with a little unchanged text on either side, never a whole file. Files brought into being or wiped out entirely announce themselves as such. One thing is absent by construction: how the software behaves. Altered text is on offer; outcomes are not.",
+    "signalsTitle": "Three signals that need no programming language",
+    "signalsIntro": "Three properties of a diff are legible with no knowledge of code whatsoever. Taken together they give a change its silhouette, and a silhouette is something you can lay next to the request you made.",
+    "signalSize": "Size: the total number of lines and the total number of files. Arithmetic, and nothing hiding underneath it.",
+    "signalSpread": "Spread: how many files carry the change, and which ones they are. Now and then the names mean something to you, because a folder carries the name of a part of the product you recognize. Now and then they mean nothing whatsoever - which is precisely the job waiting for Question 1 below: one everyday sentence per file. Even with the names opaque, the distribution stays legible: is the weight concentrated in one spot, or smeared across half the project?",
+    "signalRatio": "Ratio: the volume that arrived against the volume that left. A counting rule rides along with this one, and skipping it guarantees a wrong conclusion straight away. Rewrite a line and it is booked twice over - once on the way out, once on the way in. Only by subtracting one figure from the other do you learn what genuinely went missing.",
+    "yardstick": "Size also needs something to be measured against, or every figure lands with the same weight. Two values do that work, and they do different jobs: one is the ruler, the other is only background.",
+    "statA": {
+      "label": "lines is considered a defensible size for one change",
+      "description": "Roughly 1000 lines, says that same published guidance, is normally past what anybody should attempt in one go. This is the figure that lets you rate a size."
+    },
+    "statB": {
+      "label": "lines: median of a reviewed change at Google",
+      "description": "Taken from some 9 million changes between January 2014 and July 2016. That company sits remarkably low - elsewhere figures from 44 up past 260 lines were recorded. Background, never a rule."
+    },
+    "yardstickScope": "Both figures were gathered where humans authored the changes and humans read them; anything a machine had written was filtered out as far as that was possible. Treat them as an order of magnitude and never as a limit.",
+    "exampleTitle": "Example: a diffstat you can read",
+    "exampleIntro": "One sentence went in: existing customers get 10 percent off. Back comes a summary in the chat first - and beside it, once you go hunting, a table like the one below. The name for it is diffstat: every touched file gets a row, and a total sits at the foot.",
+    "blockLabel": "Diffstat: the summary of the change",
+    "walkSize": "Start with size. Four files and 87 altered lines, which is what you get by adding up the figures sitting left of the bars. Held against the ruler from a moment ago, that is not trivial, but it remains something a person can work through. Size is not where the oddity lives.",
+    "walkRatio": "Now the ratio. Arriving: 31 lines. Departing: 56. Subtract, and 25 lines have gone missing - off the back of an instruction to put a rule in. Shrinking while adding is permitted. It does, however, want accounting for.",
+    "walkSpread": "Finally the spread. Three files out of four sit approximately where anybody would look for them. The fourth does too - only it is carrying 62 of those 87 lines all by itself, its bar almost entirely minus signs, and nothing about a shopping cart ever passed your lips. Your sentence concerned a discount for existing customers.",
+    "verdict": "The oddity, then, is not how big this is. The oddity is which way it points.",
+    "located": "Which brings the section to its one indispensable sentence: nothing has been verified. A spot worth the trouble of verifying has been located - and on the way there, the question that the next section is about to put in your hands has written itself.",
+    "misconception1": {
+      "title": "A big diff means a lot got done",
+      "text": "The published guidance behind that earlier figure argues the reverse: something near 100 lines is defensible, something near 1000 is normally past the point, and the virtues it credits to keeping changes small are that people read them with more care and that undoing them stays easy. Bulk is therefore no kind of harvest; it is, before anything else, a change that resists being read. The lesson lands on the instruction you gave rather than on how you read: forty files touched calls for a smaller request next time, not for harder squinting."
+    },
+    "misconception2": {
+      "title": "The diff shows me what the program does now",
+      "text": "What a diff hands over is altered text in slivers. Behavior is neither present nor derivable: a lone altered line is enough to redirect an entire product, and forty altered lines can amount to nothing whatsoever. Where to point your attention is the diff's contribution. What actually occurs there is the running software's business - hence the third part of this article."
+    }
+  },
+  "origin": {
+    "title": "Where the diff comes from - and how you get hold of it",
+    "text1": "What version control keeps are whole versions, one per commit; commit is the word for a stored version. A diff is not among the things kept. It gets worked out when somebody asks for it, by setting two stored versions against each other. Two things follow, and both pay off immediately.",
+    "text2": "Number one: every diff sits between two named versions. The diff, as a thing in itself, does not exist; what exists is a diff running from whatever was there beforehand to whatever your agent left behind. So when somebody puts one in front of you, ask first which two versions it spans.",
+    "text3": "Number two, and the reason this section exists at all: there is no author. Wording went into the summary in the chat window; your agent supplied it. The diff came out of the files as they actually stand. Its greater weight has nothing to do with being more truthful - it comes from nobody having phrased it.",
+    "acquisitionTitle": "Where to find it",
+    "acquisition1": "A command line is presumably not where you are sitting, so here are three routes that work. Route one: whatever your agent runs inside will nearly always offer a view of the touched files - labeled Changes here, Diff there, sometimes reduced to a figure beside a file name. Route two: projects that live on a platform give every proposed change a page of its own, with the table already assembled. Route three: ask your agent to generate the overview and put the resulting output on screen.",
+    "acquisition2": "Should none of that turn up, this sentence is finished and ready to send: show me the summary of the change - which files, how many lines added, how many removed.",
+    "acquisition3": "One qualification belongs with it, and without it this section would claim more than it can carry. Should your agent simply type a diffstat into the chat, you are once again reading something it said. It is the tool's own output that counts as the artifact. The line about there being no author holds for that output, and not for somebody's account of it. So ask for the output, and treat figures arriving without file names as a warning sign.",
+    "acquisition4": "A second limit is permanent: files outside version control are invisible to a diff. Local settings, credentials, anything uploaded - none of it turns up there, however much it may have moved."
+  },
+  "checkpoint1": {
+    "title": "Quick self-check",
+    "item1": "I can point out size, spread, and ratio in a diffstat.",
+    "item2": "I know why the diff has no author - and where to get hold of one.",
+    "item3": "I can say what a diff leaves out."
+  },
+  "questions": {
+    "title": "Three questions that measure something",
+    "intro": "Two questions push themselves forward at this point. Both arrive fully formed before anybody speaks, and neither measures a thing.",
+    "introSure": "Number one: are you sure? What it asks for is a verdict on the model's own confidence. Wherever that has been put to the test, language models come out pitching their confidence above what the results justify. So a self-assured yes fits a sound change and a broken one with equal comfort.",
+    "introReally": "Number two: is that really right? What it broadcasts is your doubt. Replies that line up with an evident position on the asker's side get favored, and this shows up across the assistants in wide use. So the reply is free to shift while nothing whatsoever shifts in the software.",
+    "criterion": "Neither of them is short on courtesy or on precision. What neither has is any independent thing that the reply might be tested against. That absence is where the rule for every question you might ask comes from.",
+    "bridge": "Promise against evidence - that distinction reached you in the article on tests, where it settled which demands were worth making. Here it decides which questions are worth asking.",
+    "filters": "Three filters, briefly. The reply has to reach you as everyday words, file names, figures, or clicks, or you cannot use it. It has to be testable against something the model does not control: the diff, the sentence you wrote, the software as it runs. And going to look has to be capable of exposing a reply that was wrong.",
+    "value": "A question does not earn its place because the reply to it is honest. It earns its place when the reply brings something into existence that is able to contradict it.",
+    "comparison": {
+      "ariaLabel": "Comparison: asking for reassurance against asking for an artifact",
+      "beforeLabel": "Asking for reassurance",
+      "beforeText": "Are you sure that only existing customers get the discount?",
+      "beforeResult": "Reply: a sentence. What I can test it against: nothing.",
+      "afterLabel": "Asking for an artifact",
+      "afterText": "Show me how to check for myself that a new customer does not get it.",
+      "afterResult": "Reply: a procedure. What I can test it against: the software as it runs."
+    },
+    "comparisonNote": "One change, one agent, one level of courtesy. Phrasing is not what separates them. What separates them is that one of the two replies can be proved wrong.",
+    "q1Title": "Question 1: What did you touch?",
+    "q1Label": "Copy and send",
+    "q1Prompt": "List every file you changed, and after each one write a single plain-language sentence about what changes there. At the end, tell me what you did not change even though it would have belonged to what I asked for.",
+    "q1Text1": "Where this reply gets tested is the roster of files in the diff. Two contradictions surface with no knowledge of code required: a file the diff carries that the reply passes over - and a file the reply announces that the diff has never heard of. Both are countable.",
+    "q1Text2": "The question's back half points at no artifact in the diff but at one you own: the instruction you gave. Open it again before you open the reply, then work through its parts against the roster. Memory will not serve - recall the instruction rather than rereading it and you will recall a version that conveniently matches whatever arrived. Even a single sentence typed into the chat qualifies: it is still sitting there, and it is the document this step needs.",
+    "q1Text3": "A footnote from that same published guidance: a change described as Bugfix, or as Phase 1, has not been described. Neither the what nor the why survives. A reply to Question 1 in that shape means the reply has not arrived yet.",
+    "q2Title": "Question 2: What disappeared?",
+    "q2Label": "Copy and send",
+    "q2Prompt": "What did you delete or replace that was already working before? For each deletion, name the place in the application where I would notice first if it were missing.",
+    "q2Text1": "Where this reply gets tested is the net figure in the diff - one number subtracted from the other, never the departures on their own. A file wiped out in full shows up separately. Claim that nothing was removed while twenty-five lines are unaccounted for, and the contradiction is yours.",
+    "q2Text2": "Departures carry the lopsided risk. Anything newly arrived belongs to the spot you were headed for anyway; that change is why you opened it. Anything taken away is absent somewhere you had no reason to be.",
+    "q2Text3": "That second half is the half that matters. It converts a vague hazard into an address, and addresses can be visited. With that, the next section is set up.",
+    "q3Title": "Question 3: How do I see it for myself?",
+    "q3Label": "Copy and send",
+    "q3Prompt": "Write me instructions for checking for myself that it works: which page I open, what I type in, what I have to see afterwards. Also name a case in which it must not work, and what I should see then.",
+    "q3Text1": "Where this reply gets tested is the software itself. Either the steps can be carried out or they cannot, and carrying them out leaves you holding an observation of your own, phrased by nobody.",
+    "q3Text2": "The half that does the work is the failure case. Invent a route to success and reality may well let it stand; invent a way of failing and it falls apart the second your software happily waves through the very thing it was meant to turn away.",
+    "q3Text3": "And since nearly everything built to your order ends up in front of a human being at a screen, watching behavior is the right instrument here: where a change is one your users feel directly, that is the check with any weight.",
+    "analogyTitle": "Buying a used car",
+    "analogy": "Nobody standing on a forecourt inquires whether the car is any good. They want a drive, they want the service history, they want to know what was last put right. Ask properly and evidence turns up in place of comfort - and mechanical knowledge never enters into it.",
+    "analogyBreak": "The picture breaks here, and the spot matters. A seller can set out to deceive you. Nothing of the kind is happening with a model. Why its verdict on itself weighs nothing is a plainer story: nothing gives it special sight of its own workings, and the confidence it reports has never been tuned against how often it turns out right. Character is not the issue. Construction is.",
+    "transfer": {
+      "title": "What is measured here - and what is not",
+      "measured": "Here is what got measured. A study dated April 3, 2025, found one reasoning model mentioning the hint that had actually steered it in 25 percent of cases, and a second in 39 percent. In a second setup, where a scoring loophole was on offer, a comparable share dropped under 2 percent across most scenarios. What the measurement watched, moreover, was the working a model writes out as it thinks - not the reply it hands you when you ask.",
+      "notMeasured": "Here is what did not get measured. Nobody has studied what happens when a coding agent is put in front of the diff it has just produced and a user questions it. Nothing establishes that these findings reach that far.",
+      "why": "Why the advice survives regardless: reliability is not what it rests on. A self-assured yes may well contain something real. The trouble is that there is nothing to set it beside - which leaves you unable to use it. Testability decides here, not truthfulness. And if coding agents were one day shown to handle such questions flawlessly, the three questions would be no worse off: the artifacts would then be agreeing with them rather than catching them out."
+    },
+    "misconception": {
+      "title": "If the explanation sounds convincing, it is right",
+      "text": "Explanations are produced text. What actually drove an output is something they are free to get wrong: in the study just cited, whatever had steered the answer stayed unmentioned nearly every time, while the explanation stood confidently behind the wrong result. Persuasiveness lives in the writing, not in the machine. Every reply is a claim awaiting a check, and never a finding."
+    },
+    "deepDive": {
+      "title": "Why asking about confidence measures nothing",
+      "text1": "Here are the figures kept out of the running text. Under the study of April 3, 2025, the hint that had steered the answer was mentioned by one reasoning model in 25 percent of cases and by a second in 39 percent; in a second setup, where a scoring loophole was available, a comparable share fell under 2 percent in most scenarios. Separate work introduced a biasing feature and watched accuracy fall by up to 36 percent over a range of tasks, with the explanations arguing for the biased result and never once naming the feature.",
+      "text2": "Every bit of that came from language models inside study setups, and none of it from a coding agent fielding questions about work it had just done. So the box further up stands untouched: treat these figures as grounds for not asking, and not as a report on the agent in front of you."
+    },
+    "boundary": "All three questions are about the finished change. Tests - what they cover, what a green result buys you, what you are entitled to demand - belong to a separate article in this learning path, and nothing of it is repeated here."
+  },
+  "acceptance": {
+    "title": "Signing off: looking for yourself",
+    "analogy": "Handing over a flat involves nobody reading the architect's drawings. You do a circuit, work every handle, run every tap, put your head into every corner - then your signature covers what met your eyes. The role is recipient, not surveyor.",
+    "definitionSentence": "There is a term of art for this: acceptance testing. Its usual definition puts the receiving party at the center rather than any tester - the checking happens against real needs, so that whoever has to take the system on is in a position to decide about taking it on. Right now that is you.",
+    "scope": "None of this depends on there being a web page. Where nothing opens, run the identical routine against whatever else the software puts in front of you - something it writes out, something it lists, something it sends. Working it by hand is the instruction; browsers are incidental.",
+    "stepsTitle": "The walk, six steps",
+    "stepsAriaLabel": "A six-step acceptance walk",
+    "step1": "Go to whatever place Question 3 pointed at, loaded from scratch - not the tab that sat there through the agent's shift. Photographs from last week are no basis for taking on a flat either.",
+    "step2": "Put the everyday case through, using the input that genuinely matters to you.",
+    "step3": "Bring on the case obliged to break, and confirm that it breaks in the manner Question 3 promised.",
+    "step4": "Go to the spot Question 2 flagged as something a deletion might have claimed, and confirm the old behavior survives. That is the tap in the room nobody worked on.",
+    "step5": "Put through a case of your own invention - the one that made you want the change in the first place.",
+    "step6": "Note down what met your eyes. Your observation is what you are approving; the write-up is not.",
+    "stepFiveWhy": "Only step 5 originates outside the chat. Steps 3 and 4 visit places the agent picked out - a shortlist, drawn up by the same party whose work is under examination. Invent a case yourself and it becomes the one item on the circuit to which that objection does not apply.",
+    "exampleTitle": "Example: the check that shows too little",
+    "exampleIntro": "Back to the discount. Doing as your agent instructed: cart open, signed in as an existing customer, an item at 10.00 euros dropped in, 9.00 euros expected. And 9.00 euros is on screen.",
+    "exampleResult": "So this much now stands: with this customer, this item, and this price, the reduction lands and is shown. A genuine finding, and one genuine worry is off the list.",
+    "exampleFail": "What has not been settled is what happens to somebody new - that route went unwalked. So sign out, then drop the identical item in as a new customer. Another 9.00 euros on screen, and that deletion-heavy file from the opening section has accounted for itself. Your browser turned that up. Your agent did not.",
+    "exampleStill": "Out of sight regardless: a second order and whether the reduction holds there, a payment abandoned midway and whether it survives that, and whether anybody else's cart was disturbed en route.",
+    "analogyBreak": "This is where the flat gives out as a picture. Neither case lets you behind the wall - that part holds. But a flat's interior walls will hold the same contents next month, whereas software can rearrange what sits behind them on any given change. Also, taps in a flat can be counted. Software offers no such courtesy.",
+    "misconception1": {
+      "title": "It worked for me, so it works",
+      "text": "One run that succeeds establishes one route - traveled by you, on your account, with your permissions, on your machine. That is no cause for gloom, quite the reverse: a check that comes off strikes one definite worry from the list, which is worth having. It simply falls short of the phrase it is correct."
+    },
+    "misconception2": {
+      "title": "If I see nothing unusual, nothing is broken",
+      "text": "Deleted checks are the dangerous category, and nothing visible happens when one goes. What goes missing is a refusal - and absences are not things anyone sees; at best they are things somebody misses. Looking around will therefore not do. The case has to be provoked deliberately."
+    }
+  },
+  "limits": {
+    "title": "What the browser will not show you",
+    "intro": "There is a ceiling on the circuit, and admitting to it is part of this article being straight with you. Seven categories lie beyond its reach:",
+    "blind1": "Everybody else's situation. You checked as yourself, on your account, with the permissions you happen to hold.",
+    "blind2": "Whatever went quietly and does not sit anywhere you happened to open.",
+    "blind3": "What a green confirmation is hiding on the data side: stored twice over, stored somewhere wrong, or never stored.",
+    "blind4": "Unusual routes and things going wrong: nothing typed in, a timeout, the connection dropping mid-action.",
+    "blind5": "Volume and endurance. Working the first time implies nothing about the ten-thousandth.",
+    "blind6": "Anything touching security. That is deliberately outside this article's remit; the learning path carries a separate one for it.",
+    "blind7": "And every place the agent left off its list. The instructions you were given are a shortlist, and it did the choosing.",
+    "dijkstraIntro": "One sentence on the subject predates virtually everything it now gets pointed at. Edsger W. Dijkstra set it down in 1969, in his Notes on Structured Programming, under a heading about how far mechanisms can be relied upon - at a moment when testing was largely how anybody discovered whether a thing ran at all:",
+    "dijkstraQuote": "Program testing can be used to show the presence of bugs, but never to show their absence!",
+    "dijkstraSource": "Edsger W. Dijkstra, Notes on Structured Programming (EWD 249), 1969",
+    "dijkstraTranslation": "Applied to your circuit: whatever turned up is genuine, and whatever failed to turn up has not thereby been ruled out. The line has outlasted every piece of technology it was aimed at, and six steps in a browser are no exception.",
+    "quality": "A second argument for that ceiling, standing on its own and involving no figures: driving the finished interface is slow work, the surroundings interfere with it constantly, and on the occasions when it does catch something it will not name the broken part. All you learn is that something is off.",
+    "handover": "Everything invisible from here is the reason automatic checks exist. They have an article to themselves in this learning path, and this one offers no recommendations about them.",
+    "deepDive": {
+      "title": "And what if a second agent reviews the first?",
+      "text1": "Have a model correct its own output with nothing arriving from outside, and the result does not dependably improve; it may well get worse. So a second model reading only what the first one wrote leaves you inside a self-report - a longer one, but not a different kind of thing.",
+      "text2": "The second reader starts earning its place once material from beyond the chat reaches it: the diff, the results of the automatic checks, the software running. At that point it is comparing rather than retelling, and that is a good arrangement. Take an example: a second agent looks over the diff and flags a password being written into the log unprotected. The deciding and the answering for it remain yours."
+    }
+  },
+  "checkpoint2": {
+    "title": "Quick self-check",
+    "item1": "For each of the three questions I can say what I test the reply against.",
+    "item2": "For a change of my own I can name the case obliged to break.",
+    "item3": "I can list three things my circuit leaves untouched."
+  },
+  "close": {
+    "title": "The contradiction you are looking for",
+    "text1": "Approve is still what the button says, and the code is still beyond you. None of that moved. What moved is your holdings: a silhouette you laid beside your own instruction, three replies you set against three artifacts, and one thing you watched with your own eyes - the case obliged to break included.",
+    "text2": "The value of that admits an exact statement. Nothing is proved. Three definite worries are struck off, and one place existed where a contradiction, had there been one, would have surfaced.",
+    "text3": "Reviews being checks rather than guarantees is nothing this article discovered. Only the workable half of it is new: reading the code is not a precondition for checking. And approval carries answerability with it - invented nowhere in these paragraphs, merely named where it already lived. Treating it seriously is among the things shown to work against putting too much faith in a machine-produced reply."
+  },
+  "takeaways": {
+    "containerTitle": "Takeaways",
+    "item1": "Diffs are changes, not programs. What you assess is the silhouette - the bulk, the scatter, the amount gone once you subtract - and you assess it beside the size of what you actually asked for.",
+    "item2": "Files as they stand are what the diff gets calculated from; no agent wrote it. That is precisely what puts it above the warmest summary - provided you have the tool's own output rather than an account of it.",
+    "item3": "Honesty is not what makes a question good. Testability is. All three questions come paired with something the model does not control: the roster of files, your own instruction, the software running.",
+    "item4": "Everything turns on the failure case. A check that keeps confirming the pleasant route can never catch anything out - and a rule that has been removed produces no event, only a refusal that never comes.",
+    "item5": "Three replies and one clean circuit do not establish that the change is right. They strike definite worries off the list - and they create one place where a contradiction would have surfaced. That is a great deal, and it is a different statement."
+  },
+  "quiz": {
+    "boxTitle": "Check your understanding",
+    "q1": {
+      "question": "You open the diff for a change you could not have written yourself. What is in it - and what is not?",
+      "a": "Complete files exactly as they look once the change has landed, so that the finished state of the software lies before you",
+      "b": "Altered lines as fragments with a little of their surroundings, plus file names and figures - but nothing about behavior",
+      "c": "A summary of the change written by the agent, together with its own assessment of how risky the change has become",
+      "d": "A list of every function reacting differently after the change, together with a pointer to the place responsible",
+      "explanation": "Fragments around each altered spot are what a diff offers, never a whole file - and behavior is absent by construction. What you can test a reply against is the roster of files and its figures. Only the software running will tell you what it does."
+    },
+    "q2": {
+      "question": "Why does the diff outweigh the friendly summary that the agent writes to go with it?",
+      "a": "Because it runs considerably longer and therefore has to carry more detail about the change than any summary could",
+      "b": "Because calculation from the files as they stand leaves it the one piece that nobody phrased on your behalf",
+      "c": "Because summaries written by agents are wrong as a matter of principle and merit no trust on any occasion",
+      "d": "Because it additionally reports which automatic checks ran for this change and whether they came out green",
+      "explanation": "Authorship separates them, not honesty: the summary was phrased, the diff was calculated. Which is why the precedence covers the tool's output alone - a diffstat typed into the chat is your agent speaking again."
+    },
+    "q3": {
+      "question": "Your request was one sentence: customers should be able to download their invoice as a PDF. The diffstat shows nine changed files, 210 lines added, and 14 removed - 150 of them in a folder you never mentioned. Which follow-up question gets you further?",
+      "a": "Whether the code turned out clean enough that maintaining it in six months would still be a comfortable prospect",
+      "b": "Whether the agent is confident that every one of those 210 arriving lines is genuinely needed for the download",
+      "c": "What goes on inside that one folder - an everyday sentence per file, and which parts of it my request covered",
+      "d": "Whether the agent might explain at length what the altered lines inside that folder technically bring about",
+      "explanation": "Spread is the oddity here, not ratio: barely anything departed, yet a folder your sentence never mentioned is carrying the bulk. Exactly one reply helps - an everyday sentence per file, testable against the instruction you gave. The rest yield reassurance, or something unreadable without knowing code."
+    },
+    "q4": {
+      "question": "The agent was supposed to make sure that uploads above 5 MB are refused. You upload a 2 MB file, it goes through, and everything looks right. Which move comes next?",
+      "a": "Sending that same 2 MB file once more, to rule out the display having been correct by accident on the first round",
+      "b": "Sending an 8 MB file across and watching for the refusal to arrive - and for it to look the way it was promised",
+      "c": "Asking the agent whether the 5 MB limit made it into every corner of the application reliably and in full",
+      "d": "Opening the page in a second browser, to rule out some stale cached view from showing you the wrong thing",
+      "explanation": "Forbidding something was the point of this change. With the rule missing, nothing visible happens; a refusal simply never comes. So whether the rule exists at all is shown by one thing only, the case obliged to break. A 2 MB upload going through shows nothing, however often you repeat it."
+    },
+    "q5": {
+      "question": "Two follow-up questions to the same agent, both answered confidently: (a) Are you sure new customers do not get the discount? (b) Write me instructions for checking myself that a new customer does not get it. Where exactly do the two answers differ in value?",
+      "a": "Reply (a) is worthless because studies have measured that coding agents answer dishonestly about diffs they produced",
+      "b": "Reply (b) is better because it is phrased more concretely - sharper questions reliably draw sharper answers out of an agent",
+      "c": "They are equivalent, given that the agent made the change itself and therefore knows best what it altered along the way",
+      "d": "Only (b) creates something beyond the model that the reply can contradict - (a) is one more sentence from the same sender",
+      "explanation": "In (a) the conclusion holds and the reasoning does not. Reply (a) genuinely is worthless - but not because anybody measured it: what a coding agent says when questioned about its own diff has never been studied. Precisely that distinction is the point of the box on the transfer limit. Testability carries the advice, not a figure about honesty."
+    }
+  }
+}

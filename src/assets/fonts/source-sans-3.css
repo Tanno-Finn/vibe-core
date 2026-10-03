@@ -1,0 +1,26 @@
+/*
+ * Source Sans 3 — self-hosted.
+ *
+ * Files copied from @fontsource/source-sans-3 at build time via angular.json
+ * assets glob. Only Latin 400/700 Normal — Italic + other scripts dropped
+ * (Cyrillic/Greek covered by Noto Sans fallback in FontService.SYSTEM_STACK).
+ *
+ * Loaded on-demand by FontService when the user activates this font; not
+ * part of the initial bundle.
+ */
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./source-sans-3/source-sans-3-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Sans 3';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./source-sans-3/source-sans-3-latin-700-normal.woff2') format('woff2');
+}

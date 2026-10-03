@@ -1,0 +1,39 @@
+{
+  "title": "Example Article: The Template",
+  "subtitle": "This article is a sample. It shows: this is how an article page is built.",
+  "description": "This article has no subject topic. It shows the building blocks of an article page: intro, text, definition, example, check, takeaways.",
+  "intro": {
+    "title": "This is a placeholder template",
+    "text": "This page explains no subject topic. It shows you the blueprint for an article. Every part of the page is one building block. Every part explains itself. You can use this page as a template. This is how you write your own article."
+  },
+  "structure": {
+    "title": "How an article is built",
+    "text": "An article has a fixed order. An info box comes first. It tells you: this is what the page is about. Then come short sections with text. Every section has a heading. So you always know where you are. A definition block explains important words. An example box shows one concrete example. At the end there is a check and the takeaways. At the very bottom the article shows related content. For example words from the glossary."
+  },
+  "definition": {
+    "title": "Term: article page",
+    "analogy": "An article page is like a museum. A sign stands at the entrance. It tells you what to expect. Then you walk through the rooms. Each room has one theme. A panel stands at the exit. It sums everything up.",
+    "precise": "An article page is its own page in the portal. It uses the template <code>app-lesson-template</code>. It has meta data: an id, a title, a reading time. You can reach it with a short address of 4 characters.",
+    "example": "This page here is such an article page. Its short address is: sda1."
+  },
+  "example": {
+    "title": "Example: the short address",
+    "text": "Every article gets a short address with 4 characters. The short address fits well in a book. It also fits in a QR code.",
+    "label": "Short address",
+    "result": "/article/sda1 leads to this article. Try it out."
+  },
+  "checkpoint": {
+    "title": "Check: do you know the template?",
+    "item1": "I can name the building blocks of an article: intro, text, definition, example, check, takeaways, related content."
+  },
+  "takeaways": {
+    "title": "Key takeaways",
+    "text": "1. **An article is its own page**: it uses the template app-lesson-template. Its data lives in its own file.\n\n2. **Fixed building blocks**: text block, definition, example box, and check. So every article looks equally clear.\n\n3. **Everything is connected**: the article shows related words and events automatically. This comes from its data file.\n\nThis template has no subject topic. Swap the content. Keep the structure."
+  },
+  "next": {
+    "title": "Write your own article",
+    "text": "This page is a template to copy. Swap the texts for your topic. Keep the structure. Two tools help you:",
+    "designWorkshop": "the design workshop. There you can try all building blocks.",
+    "newContent": "the guided way to create new content pages."
+  }
+}

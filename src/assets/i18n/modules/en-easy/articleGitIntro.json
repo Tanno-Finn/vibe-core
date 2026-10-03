@@ -1,0 +1,184 @@
+{
+  "hero": {
+    "title": "Version Control with Git",
+    "subtitle": "How programmers save all changes to their programs."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "repository": "Repository",
+    "commit": "Commit",
+    "github": "GitHub",
+    "takeaways": "Summary",
+    "quiz": "Quiz",
+    "checkpoint": "Comprehension Check"
+  },
+  "lead": {
+    "paragraph1": "You work on a text for a long time. You make a change. Everything breaks. Ctrl+Z does not help anymore. What if your computer could save every version? That is what Git does.",
+    "paragraph2": "Git is behind almost every program and every AI model. By the end, you will understand three ideas: Repositories, Commits, and GitHub."
+  },
+  "repository": {
+    "title": "Your Project Gets a Memory",
+    "definitionTitle": "Repository",
+    "analogy": "A repository is like a notebook. This notebook remembers every state of every page. If you erase something, you can still find it. Everyone on the team has their own copy.",
+    "scientific": "A repository is a folder with a hidden .git folder. Git stores the whole project history there. Every local copy has the full history. There is no one main server.",
+    "analogyBreak": "Where the analogy does not fit: You cannot split a notebook. Git can create parallel versions. They are called branches.",
+    "walkthrough": {
+      "title": "git init: Turning a folder into a repository",
+      "step1": "You create a new folder.",
+      "step2": "You type git init. Git creates the .git folder.",
+      "step3": "With ls -a you can see the .git folder.",
+      "step4": "git status shows: Git is now watching this folder."
+    },
+    "comparison": {
+      "centralizedLabel": "Centralized (e.g., SVN)",
+      "centralizedResult": "Only the server has the full history. Without the server, you miss everything.",
+      "distributedLabel": "Distributed (Git)",
+      "distributedResult": "Every copy has the full history. You can work without internet."
+    },
+    "misconception": {
+      "title": "Wrong idea: Commits go directly to the server",
+      "text": "git commit only saves on your computer. Others see nothing until you run git push."
+    }
+  },
+  "commit": {
+    "title": "Saving with Intention",
+    "definitionTitle": "Commit",
+    "analogy": "A commit is like a photo of your desk. First you arrange what should be in the picture. That is git add. Then you press the button. That is git commit. Later you can look through all the photos.",
+    "scientific": "A commit is a snapshot of the whole project. It contains all files, the author, and a timestamp. Every commit has a unique number. It is called a hash.",
+    "analogyBreak": "Where the analogy does not fit: A photo does not show the previous photo. But a commit knows its predecessor.",
+    "workflow": {
+      "title": "The Three-Step Workflow",
+      "step1": "You edit files normally. Git does not know about it yet.",
+      "step2": "You choose what to save. You do this with git add.",
+      "step3": "You save with git commit. The snapshot is now safe."
+    },
+    "example": "An example: You change a file. git status shows the change. git add prepares it. git commit saves it. git log shows the entry.",
+    "misconception": {
+      "title": "Three Common Mistakes",
+      "text": "First: git add is not the same as git commit. Second: Git saves complete snapshots. Third: Commits stay local until you run git push."
+    }
+  },
+  "deepDive": {
+    "gitInternals": {
+      "title": "What Git Stores Inside",
+      "text": "The .git folder has three types of objects. Blobs store file contents. Trees store the folder structure. Commit objects connect everything with a timestamp and author.",
+      "hashing": "Every object has a unique number. It is called a SHA-1 hash. Same content always gives the same number. This is how Git detects every change."
+    },
+    "mergeConflicts": {
+      "title": "What Happens with Simultaneous Changes?",
+      "text": "With branches, you can work in parallel. Everyone has their own version. Later you bring them together. This is called a merge.",
+      "branches": "Conflicts only happen when two people change the same line. Then Git shows both versions. You decide which one stays. This is rare."
+    }
+  },
+  "github": {
+    "title": "Your Project in the Cloud",
+    "comparison": {
+      "gitLabel": "Git (Local Tool)",
+      "gitResult": "Works without internet. Saves everything locally. No account needed.",
+      "githubLabel": "GitHub (Cloud Platform)",
+      "githubResult": "Needs internet. Offers collaboration and code reviews. Owned by Microsoft since 2018."
+    },
+    "cameraAlbumAnalogy": "Git is the camera. GitHub is the photo album in the cloud. The camera works without the album. But the album shows the photos to others.",
+    "stats": {
+      "founded": {
+        "label": "Founded",
+        "description": "GitHub has been around since 2008."
+      },
+      "acquisition": {
+        "label": "Acquisition",
+        "value": "7.5",
+        "suffix": " B $",
+        "description": "Microsoft bought GitHub in 2018."
+      },
+      "users": {
+        "label": "Users",
+        "value": "100",
+        "suffix": " M+",
+        "description": "Over 100 million developers use GitHub."
+      }
+    },
+    "clonePushPull": "Three important commands: git clone downloads a project. git push uploads your changes. git pull gets changes from others.",
+    "largeFiles": {
+      "title": "Caution: Large Files and Passwords",
+      "text": "Git is made for text files. Large files like videos make the repository slow. Passwords in Git stay saved, even if you delete them. Use .gitignore."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "items": {
+      "repository": "A repository is a folder with a .git folder. Git stores the whole history there.",
+      "distributed": "Git is distributed. Every copy has everything. You can work without internet.",
+      "staging": "The staging area lets you choose what gets saved.",
+      "commit": "A commit is a snapshot with a label and timestamp.",
+      "github": "GitHub is online storage for Git projects. Git itself works without GitHub."
+    }
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Git",
+    "q1": {
+      "question": "What does git init do?",
+      "a": "It downloads a project",
+      "b": "It turns a folder into a Git repository",
+      "c": "It deletes files",
+      "d": "It uploads files to the internet",
+      "explanation": "git init creates the hidden .git folder. From then on, Git remembers all changes."
+    },
+    "q2": {
+      "question": "You change three files. But you only want to save one. What do you do?",
+      "a": "git add . and then git commit",
+      "b": "git commit file.py",
+      "c": "git add file.py and then git commit",
+      "d": "git push file.py",
+      "explanation": "git add file.py remembers only that file. git commit saves only the remembered file. git add . would take all files."
+    },
+    "q3": {
+      "question": "Someone says: \"I pushed code to Git.\" What is wrong with that?",
+      "a": "That is correct",
+      "b": "You push to GitHub, not to Git. Git is the local tool.",
+      "c": "You cannot push",
+      "d": "Git has no push command",
+      "explanation": "Git works locally. GitHub is the cloud platform. You push to GitHub, not to Git."
+    },
+    "q4": {
+      "question": "Why does Git save complete snapshots and not just the changes?",
+      "a": "Snapshots need less space",
+      "b": "Each commit is complete and can be restored directly",
+      "c": "Git cannot calculate changes",
+      "d": "That only works with images",
+      "explanation": "Each commit has the whole project state. So Git can restore any point in time directly."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension Check",
+    "item1": "Your friend has a folder with files. What happens when they type git init?",
+    "item2": "You change three files. But you only want to save two of them. What do you do?",
+    "item3": "Git and GitHub are not the same. What is the difference?"
+  },
+  "enrichment": {
+    "tocLabel": "Interactive: Git Workflow",
+    "sectionTitle": "Interactive: The Git Workflow Step by Step",
+    "intro": "Click through the four steps of Git. Each step builds on the last. First make a repository. Then prepare changes. Save a snapshot. Then share with others.",
+    "event": {
+      "init": {
+        "title": "git init",
+        "description": "The first step. git init turns a normal folder into a Git repository. Git creates a hidden .git folder for the version history.",
+        "significance": "No init, no Git. After this, Git can track your files."
+      },
+      "add": {
+        "title": "git add",
+        "description": "Pick what to save. git add moves your changes to the staging area. You choose which files go into the next snapshot.",
+        "significance": "The staging area is special. You pick exactly what to save. Like putting items on a desk before taking a photo."
+      },
+      "commit": {
+        "title": "git commit",
+        "description": "Take the snapshot. git commit saves the state of all staged files. It adds a timestamp, a message, and a unique ID.",
+        "significance": "Every commit is a save point. You can always go back to it."
+      },
+      "push": {
+        "title": "git push",
+        "description": "Share with others. git push uploads your commits to a server like GitHub. Only now can others see your work.",
+        "significance": "Push is optional. Git works on your machine alone. But for teamwork, pushing to GitHub is the normal way."
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "term": "Context",
+  "alternativeNames": [],
+  "description": "An AI always reads a text. This whole text is the context. It includes your question. It also includes the chat before. An AI has no memory of its own. It forgets everything after each answer. So the AI gets the chat again every time. Only then does the AI know your topic.",
+  "example": "You talk to a chatbot about Einstein. Then you ask: How old is he? The AI understands the question. Einstein is still in the context. Now you start a new chat. Einstein is gone. The AI does not understand the question now."
+}

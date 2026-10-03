@@ -1,0 +1,8 @@
+{
+  "term": "Digital Twin",
+  "alternativeNames": [
+    "Virtual Replica"
+  ],
+  "description": "A Digital Twin is the virtual counterpart of a physical system - a machine, a factory, a jet engine - kept continuously in sync with real sensor data. The concept comes from product lifecycle management and aerospace: on the model you can simulate, monitor, and rehearse what would be too expensive or too risky on the real thing. The literature is strict here: if data flows only from the real object into the model, that is a digital shadow; without any automated data exchange it is merely a digital model. Keep separate, too, the newer buzzword layer that declares a persona-imitating chatbot the 'AI twin' of a person - it lacks the ongoing coupling to a real, measurable system.",
+  "example": "A wind turbine maker feeds each turbine's digital model with live sensor data from the field. When the measured bearing temperature drifts away from what the model expects - or the model predicts the limit will be reached next week - maintenance happens before the real bearing fails."
+}

@@ -1,0 +1,72 @@
+{
+  "hero": {
+    "title": "Fahrplan",
+    "description": "Was läuft, was geplant ist und was sich heimlich verschoben hat — der aktuelle Stand der Dinge."
+  },
+  "timeline": {
+    "title": "Content-Fahrplan",
+    "description": "Die Inhalte wachsen weiter — laufend neue Lernpfade und interaktive Demos, kostenlos.",
+    "released": "Verfügbar",
+    "upcoming": "Nächster Release",
+    "planned": "Geplant",
+    "articles": "Artikel",
+    "paths": "Lernpfade",
+    "phaseSprint": "wöchentlich",
+    "difficulty": {
+      "beginner": "Einsteiger",
+      "intermediate": "Fortgeschritten",
+      "advanced": "Experte"
+    },
+    "updates": "Erweiterungen"
+  },
+  "mystery": {
+    "title": "Bonus-Content",
+    "description": "Bonus-Content ist in Arbeit — was genau, bleibt vorerst unser Geheimnis."
+  },
+  "languages": {
+    "title": "Übersetzungsqualität",
+    "description": "Alle Übersetzungen wurden mit KI erstellt und durchlaufen ein systematisches Qualitätsreview. Hier siehst du den aktuellen Stand pro Sprache.",
+    "statusComplete": "Review abgeschlossen",
+    "statusPending": "Review geplant",
+    "statusReference": "Referenzsprache",
+    "languageNames": {
+      "de": "Deutsch",
+      "en": "Englisch",
+      "tr": "Türkisch",
+      "bn": "Bengali",
+      "ru": "Russisch",
+      "uk": "Ukrainisch",
+      "pl": "Polnisch",
+      "el": "Griechisch",
+      "hi": "Hindi",
+      "mr": "Marathi",
+      "pa": "Punjabi",
+      "es": "Spanisch",
+      "fr": "Französisch",
+      "ko": "Koreanisch",
+      "hr": "Kroatisch",
+      "it": "Italienisch",
+      "nl": "Niederländisch",
+      "pt-br": "Portugiesisch (BR)",
+      "ro": "Rumänisch",
+      "cs": "Tschechisch",
+      "vi": "Vietnamesisch",
+      "id": "Indonesisch",
+      "ms": "Malaiisch",
+      "sv": "Schwedisch",
+      "da": "Dänisch",
+      "no": "Norwegisch",
+      "sw": "Swahili",
+      "tl": "Tagalog"
+    },
+    "scripts": {
+      "latin": "Lateinisch",
+      "cyrillic": "Kyrillisch",
+      "devanagari": "Devanagari",
+      "bengali": "Bengalisch",
+      "hangul": "Hangul",
+      "greek": "Griechisch",
+      "gurmukhi": "Gurmukhi"
+    }
+  }
+}

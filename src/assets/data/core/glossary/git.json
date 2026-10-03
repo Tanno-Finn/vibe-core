@@ -1,0 +1,21 @@
+{
+  "id": "git",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2026-03-26",
+  "updatedAt": "2026-03-26",
+  "related": {
+    "glossary": [
+      "repository",
+      "cli",
+      "vibe-coding"
+    ],
+    "articles": [
+      "art-git-intro"
+    ]
+  }
+}

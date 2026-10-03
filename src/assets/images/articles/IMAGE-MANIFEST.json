@@ -1,0 +1,5 @@
+{
+  "description": "Registry aller geplanten Artikelbilder. Status: placeholder -> final (oder removed).",
+  "namingScheme": "{article-id}--{figure-number}--{short-description}.{ext}",
+  "images": []
+}

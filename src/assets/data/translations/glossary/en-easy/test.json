@@ -1,0 +1,8 @@
+{
+  "term": "Test (Software)",
+  "alternativeNames": [
+    "Program test"
+  ],
+  "description": "Test. A test checks a program. The test is itself a small program. It gives the program a task. Then it looks at the result. Is the result right? Then the test is green. Is the result wrong? Then the test is red. But careful: green does not mean perfect. A test only finds bugs it looks for. Tests are very important with AI agents. An AI agent writes code on its own. Tests check this code right away. So many bugs show up early. Important: a test set is something else. That is data for machine learning.",
+  "example": "Think of a checklist before a flight. The pilot checks every item on the list. The list finds known problems. But only the problems on the list. A test works the same way."
+}

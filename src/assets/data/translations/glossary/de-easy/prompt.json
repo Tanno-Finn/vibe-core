@@ -1,0 +1,5 @@
+{
+  "term": "Prompt",
+  "description": "Prompt ist die Eingabe für ein KI-Programm. Es ist wie eine Anweisung. Du sagst dem Computer, was er machen soll. Zum Beispiel bei einem KI-Chat-Programm. Du schreibst eine Frage. Das ist der Prompt. Die KI antwortet dann auf die Frage. Je genauer der Prompt ist, desto besser ist die Antwort. Auch Bild·generatoren brauchen Prompts. Dort beschreibst du das Bild, das du willst.",
+  "example": "Du schreibst: Erkläre, wie Fahrräder funktionieren. Das ist ein Prompt. Die KI erklärt dann Fahrräder. Du kannst auch schreiben: Erkläre Fahrräder in einfacher Sprache für Kinder. Dann ist die Antwort anders."
+}

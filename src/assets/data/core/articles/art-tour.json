@@ -1,0 +1,28 @@
+{
+  "id": "art-tour",
+  "pageId": "tour",
+  "created": "2026-09-07",
+  "updated": "2026-10-03",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [],
+  "draft": false,
+  "related": {
+    "articles": [
+      "art-harness-engineering",
+      "art-quality-gates",
+      "art-code-review-basics"
+    ],
+    "glossary": [
+      "harness-engineering",
+      "instruktions-datei",
+      "guardrails",
+      "human-in-the-loop",
+      "agenten-gedaechtnis",
+      "commit",
+      "build",
+      "test"
+    ],
+    "timeline": []
+  }
+}

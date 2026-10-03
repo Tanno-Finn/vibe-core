@@ -1,0 +1,10 @@
+{
+  "term": "CLI",
+  "alternativeNames": [
+    "Command Line Interface",
+    "Kommando·zeile",
+    "Terminal"
+  ],
+  "description": "CLI. Das ist die Abkürzung für Command Line Interface. Das spricht man Cie-El-Ei aus. Eine CLI ist eine Text·eingabe am Computer. Du tippst Befehle ein. Der Computer führt sie aus. Es gibt keine Knöpfe zum Klicken. Nur Text. Entwickler nutzen CLI sehr oft.",
+  "example": "Du tippst einen Befehl ein. Der Computer startet dann ein KI-Training. Das geht ohne Mausklicks."
+}

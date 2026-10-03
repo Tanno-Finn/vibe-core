@@ -1,0 +1,41 @@
+{
+  "label": {
+    "workingDirectory": "You are standing here",
+    "path": "Your path",
+    "placeholder": "for example: data/file.csv"
+  },
+  "action": {
+    "reset": "Start again"
+  },
+  "kind": {
+    "absolute": "Full path",
+    "relative": "Short path",
+    "home": "Path from your own folder"
+  },
+  "hint": {
+    "absolute": "The path starts with /. It does not matter where you stand.",
+    "relative": "The path starts where you stand.",
+    "home": "The sign ~ means: your own folder."
+  },
+  "result": {
+    "landsAt": "You land here:"
+  },
+  "target": {
+    "dir": "There is a folder here",
+    "file": "There is a file here",
+    "missing": "There is nothing here"
+  },
+  "trace": {
+    "title": "Step by step",
+    "start": "start",
+    "up": "one level up",
+    "stay": "stay here",
+    "down": "go inside"
+  },
+  "tree": {
+    "title": "All folders and files",
+    "here": "you are here",
+    "target": "you land here"
+  },
+  "summary": "{{kind}}. You land here: {{absolute}}. {{target}}."
+}

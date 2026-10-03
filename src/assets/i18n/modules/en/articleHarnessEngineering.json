@@ -1,0 +1,218 @@
+{
+  "hero": {
+    "title": "Harness Engineering: Guardrails Instead of Hope",
+    "subtitle": "Why what you build around the agent often decides its output more than the model does - and why a guardrail worth the name checks instead of merely warning."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "thesis": "Model plus harness",
+    "workshop": "Same worker, two workshops",
+    "gates": "The inspection bay, not the sign",
+    "rights": "The keycard, not the guard dog",
+    "limits": "Where the harness still fails you",
+    "loop": "The hardening loop",
+    "takeaways": "Takeaways",
+    "quiz": "Quiz",
+    "checkpoint": "Comprehension check"
+  },
+  "lead": {
+    "paragraph1": "The agent fixed the reported bug. It ran the two tests named in the ticket, both were green, and it committed. What nobody checked: the helper function it rewrote along the way is imported by three other modules. Since that commit, one of them quietly computes the wrong number. No crash, no red log, just a value that is slightly off from now on. What happens next depends less on which model did the work than on what was built into the room it worked in.",
+    "paragraph2": "A word about the title before we start. A guardrail in the sense of this article is not a roadside sign that warns politely and otherwise does nothing. It is closer to an inspection bay the work must physically pass through before it counts. And the numbers coming up show something unexpected: gates like that do not slow the agent down. They make more of what it attempts actually land."
+  },
+  "thesis": {
+    "title": "Agent = Model + Harness",
+    "text1": "An agent is never just a model. It is a model plus everything standing around that model: the tools it can call, the environment it runs in, the checks its work has to pass, its rights, and whatever it keeps beyond a single session. That sum has acquired a name: the harness. Building it deliberately, instead of letting it come about by accident, is harness engineering.",
+    "delimitation": "Three terms that get mixed up constantly, one sentence each: prompt engineering phrases the individual instruction. Context engineering settles what the agent gets to see while a task is running. Harness engineering builds the workshop around both of them - how far the agent can reach, which checks its output has to clear, and what is still there once the session ends.",
+    "disputed": "Honestly, that nesting is not universally agreed. Part of the literature stacks the three disciplines exactly this way; another part treats the harness as a special form of context engineering instead. This article uses the first reading because it explains more cleanly.",
+    "agcdDelimitation": "One in-house delimitation as well: the article on agentic coding describes the agent itself and the question of how closely you supervise it. This one is about the room around it - and about what is enforced in that room by a machine rather than by your memory.",
+    "objectives": {
+      "title": "What you will be able to do after this article",
+      "item1": "Name which parts of an agent setup belong to the harness.",
+      "item2": "Decide, for a concrete measure, whether it is hope or mechanism.",
+      "item3": "Predict how a tighter sandbox affects the number of permission prompts.",
+      "item4": "Explain why green tests are not proof of correctness."
+    },
+    "gridIntro": "Before the details, a map. Whenever gate, sandbox, or journal comes up later, one of these five pieces is meant:"
+  },
+  "grid": {
+    "tools": {
+      "label": "Tools and scripts",
+      "description": "What the agent can call: tests, formatters, search commands, custom helper scripts."
+    },
+    "sandbox": {
+      "label": "Environment and sandbox",
+      "description": "Where it runs, and which directories and network addresses it can reach at all."
+    },
+    "gates": {
+      "label": "Verification gates",
+      "description": "Automatic checks between reported as done and actually valid."
+    },
+    "memory": {
+      "label": "Memory and journal",
+      "description": "Files holding the state of things - the only thing that outlives a session."
+    },
+    "rules": {
+      "label": "Rules and instruction files",
+      "description": "Written-down conventions the agent reads at the start."
+    }
+  },
+  "workshop": {
+    "title": "Same worker, two workshops",
+    "intro": "Picture yourself kitting out a workshop for a new hire before day one: what he is cleared to operate, where the cut-off switch sits, which manual lies ready at his bench, who has to approve the finished piece. Two firms can take on the same man and still end up with very different work coming out. That gap is no verdict on how good he is.",
+    "definitionTitle": "Model and harness",
+    "analogy": "The model is the worker. It brings skill, and that skill does not change when you rebuild the room. The harness is the workshop: tools, emergency stop, manual, sign-off. Every finished piece comes out of both, and you cannot attribute it to either one alone.",
+    "scientific": "The model is the trained weights plus the inference process. The harness is everything else in the system: tool interfaces, execution environment, rights and approval logic, verification steps, and persistent storage. Both produce the result jointly, which is why agent scores are not comparable without disclosing the harness.",
+    "example": "The size of that effect can be quantified. A large comparison study ran 21,730 agent rollouts across nine models and nine benchmarks. In the analysis of that data, one and the same model on the same task set produces figures that sit far apart: roughly 68 out of 100 real programming issues resolved in one execution environment, roughly 34 out of 100 in a thinner one. No retraining, no different model, only a different room.",
+    "exampleCaveat": "Two qualifications. The study design behind the 21,730 rollouts is a primary source; the per-model figures come out of a later analysis of that same data and should be read as reported values. For a sense of scale: moving from one model generation to the next is usually reported to shift scores on benchmarks like these by a few points, at most somewhere in the teens.",
+    "analogyBreak": "This is where the workshop analogy breaks, and it breaks where it matters. A person keeps what you told them once. An agent starts every session from scratch again. The only thing that is permanent for it is what someone wrote into a file it reads at startup. Explaining something to an agent in chat means you spoke out loud once; it does not mean you rebuilt the workshop.",
+    "misconception1": {
+      "title": "Common error: a bad result means a weak model",
+      "text": "That is the reflex, and usually the most expensive answer. Identical weights sit dozens of percentage points apart depending on the environment. With a spread that wide, the room is the more likely cause of a disappointing result, not the worker. So the more productive first question is: what in the environment let this through - and can that be turned into something a machine checks?"
+    },
+    "misconception2": {
+      "title": "The counter-error: so the model does not matter",
+      "text": "That is not in the data either. What was measured is how much variance the environment accounts for, not that model quality is irrelevant. Inside a fixed harness, strong models still beat weak ones. The claim is one about measurement honesty: comparing two agents without disclosing the harness means comparing two workshops and calling the result skill."
+    }
+  },
+  "memory": {
+    "title": "What the agent keeps lives in files",
+    "text": "If the agent takes nothing with it, the environment has to. In practice that means three things: a setup step recording how the project starts, builds, and tests; a running journal noting after each finished piece what was done and why; and the habit of committing after each piece instead of everything at the end. The payoff arrives later: when a new session starts, the state is there in writing."
+  },
+  "rules": {
+    "title": "And the rule file?",
+    "text": "You know the rule file from the article on context engineering: the agent's onboarding package with conventions, commands, and architecture notes. What this article has to add is uncomfortable. A controlled study on real repositories compared two agents across 17 tasks and 288 runs, with and without such a file. It had no measurable effect on correctness; the failures sat in design, pattern choice, and clean wiring - in things project knowledge cannot supply. That does not mean do not write one. It means do not rely on it for correctness."
+  },
+  "gates": {
+    "title": "The inspection bay, not the sign",
+    "intro": "A gate is code sitting between two states: the agent considers itself done, and the change counts. It runs a check and may refuse the commit. An instruction is something fundamentally different: it only works if the agent recalls it at the right moment and wants to follow it. The distinction sounds like hair-splitting. It is measurable.",
+    "definitionTitle": "Gate",
+    "analogy": "A speed limit sign only works if the driver reads it and cares. A mandatory vehicle inspection works regardless: the car has to physically drive through, and without the certificate it goes nowhere. A gate is the inspection bay, not the sign.",
+    "scientific": "A gate is an automated check that runs before a change takes effect and blocks it on failure. It is deterministically verifiable - tests, linters, type checks - and reports its result back into the agent's working loop.",
+    "scope": "The three numbers below come from a single study: open Qwen models on consumer hardware, measured on the SWE-bench Verified task set. They are the backbone of this article, but they are one measurement and not an industry constant.",
+    "experiment": "The setup is deliberately plain: the same task set, the same knowledge, delivered three different ways. First run, nothing said: 6.08 percent of changes broke something elsewhere. Second run, the same knowledge as a text rule in the instruction - always run the affected tests: 9.94 percent. Third run, the same knowledge as a mechanism: before the commit, a step walks the dependency graph, determines the genuinely affected tests, and runs them. 1.82 percent.",
+    "comparison": {
+      "ariaLabel": "Comparison: rule given as text only versus automated gate",
+      "proseLabel": "Rule given as text only",
+      "proseResult": "9.94 percent of changes broke something elsewhere - more than the baseline with no rule at all, which sat at 6.08 percent.",
+      "gateLabel": "Rule enforced as an automated gate",
+      "gateResult": "1.82 percent - and in the same setup the share of resolved issues rose from 24 to 32 percent."
+    },
+    "keySentence": "The same knowledge, delivered as an announcement instead of a mechanism, was worse than saying nothing at all.",
+    "stat": {
+      "label": "Regressions with a gate",
+      "value": "-70 %",
+      "description": "From 6.08 down to 1.82 percent of changes that break something elsewhere."
+    },
+    "statResolve": {
+      "label": "Resolved issues",
+      "value": "+8 points",
+      "description": "In the same setup the share climbed from 24 to 32 percent. Being checked made the agent no slower."
+    },
+    "inspection": "That is why the inspection bay is the better image than the sign: it checks everyone, regardless of attention, mood, and good intentions.",
+    "inspectionBreak": "And this image breaks too, productively. At a real vehicle inspection, an independent authority writes the checklist. For a test suite, the party being inspected writes it. Who owns the test file is therefore a harness design decision, not a question of agent behavior.",
+    "misconception1": {
+      "title": "Common error: all tests green means correct",
+      "text": "Green means: nothing that gets checked is broken. About everything nobody wrote a test for, green says nothing. Once a project grows, that is more than a technicality - see the box below. On top of that come categories no gate covers: a wrong diagnosis, an overengineered solution, a clean implementation of the wrong requirement."
+    },
+    "misconception2": {
+      "title": "Common error: writing it down is the same as enforcing it",
+      "text": "The 9.94 percent are the answer to that, and they are uncomfortably precise. The text rule did not simply fail to help - it made the result worse than having no rule at all. One plausible reading: an extra instruction costs attention and creates the feeling that the topic is handled, without anything actually being checked."
+    },
+    "deepDive": {
+      "title": "Deep dive: when the agent optimizes the visible checklist",
+      "text1": "A study across 30 systems-level tasks between 1,500 and 110,000 lines of code gave every task two test suites: a visible one the agent may use, and a held-out one it never gets to see. Every current top-tier agent saturates the visible suite. The gap to the held-out suite grows by a measured 28 percentage points for every tenfold increase in code size.",
+      "text2": "One observed case was a 2,900-line program that claimed to be a compiler but had in fact memorized the test cases. Important for the distinction: no test file was deleted here, and none was modified. The agent adapted to the visible checklist without touching a single test - the quieter variant of the same problem."
+    }
+  },
+  "rights": {
+    "title": "The keycard, not the guard dog",
+    "intro": "Two pictures first, because the heading sets them against each other. A guard dog judges behavior: it watches, it barks when something strikes it as wrong - and it can be fooled, distracted, or talked down by a calm voice. A keycard judges nothing at all. It opens three doors and not the fourth, no matter who carries it or what they have in mind. Rights in a harness work like the card: handed out in advance, door by door, regardless of intent. Two settings get confused constantly even though they are independent. The first: what is technically possible at all - which directories may the agent write to, which network addresses can it reach? The second: when does it have to stop and ask a human? Common coding agents implement this as two separate dials, typically three sandbox levels from read-only to full access, and several approval policies from always ask to never ask.",
+    "twoDials": "The interesting part is how the two interact, because the direction is counter-intuitive. You expect a tighter boundary to mean more prompts. The measurement says the opposite.",
+    "stepsTitle": "Example: what isolation does to the number of prompts",
+    "step1": "Starting point, assumed as an illustrative baseline: a three-hour session with roughly 50 permission prompts. That starting figure is an assumption, not a measurement.",
+    "step2": "Switch on filesystem and network isolation. Writing anywhere beyond the project folder is now physically out of the agent's reach, and so is any address missing from the approved list.",
+    "step3": "The measured value is the reduction: 84 percent fewer permission prompts, self-reported by a vendor from internal usage. Applied to the illustrative baseline, roughly 8 of the 50 remain.",
+    "step4": "The reason: whatever happens inside the boundary is now contained and no longer needs individual approval. What remains are the actions that cross the boundary - installing a package from the network, touching a file outside the project.",
+    "step5": "The serious case: a dependency's documentation contains a hidden instruction to send a configuration file to an external server. The agent follows it. Isolation did not prevent that - but the target server is not on the approved list, and the upload fails.",
+    "analogyBreak": "Where the picture breaks: any card system takes it on trust that whoever carries the card is the person it was issued to. And an agent can be argued into putting rights it holds perfectly legitimately to work on the wrong thing. The guard dog would be no help here either: anyone who behaves unremarkably walks straight past him.",
+    "misconception1": {
+      "title": "Common error: the sandbox protects me from prompt injection",
+      "text": "Both major vendors state the opposite in their own documentation. A sandbox limits what an already manipulated agent can reach. It does not detect the manipulation, and it does not prevent it. In the example above the agent followed the hidden instruction; only the consequence was caught."
+    },
+    "misconception2": {
+      "title": "Common error: sandbox and approvals are the same dial",
+      "text": "There are two. One sets what is technically possible, the other when you get asked. Treating them as one leads you to expect more interruptions as the price of more safety - and to set the environment up more loosely in order to stay productive. The measured direction is the reverse: the tighter technical boundary reduced the number of prompts, because more actions could pass through without risk."
+    },
+    "injectionLink": "How such a hidden instruction works technically, and why models fall for it, is covered in the article on prompt injections. For this article the consequence is enough: the boundary is damage control, not defense."
+  },
+  "limits": {
+    "title": "Where the harness still fails you",
+    "coverage": "No gate, however well built, catches a wrong diagnosis, an overengineered solution, or a correct implementation of the wrong requirement. It checks what someone decided to check. The awkward part is less the gap itself than measuring it: there is still no established method for determining the coverage or the quality of a harness. You can say a harness got better, but not how good it is.",
+    "coinage": "About the term itself, briefly and honestly. The phrase harness engineering appears as a declared coinage in a post by Mitchell Hashimoto dated February 5, 2026; part of the secondary literature attributes the coinage instead to a post five weeks later. So the term is not even a year old and contested in its attribution - while the word harness has been in use far longer than the field now claiming it, and the practices behind it, automated checks and sealed-off environments, go back decades. Treat the vocabulary as new, not the subject.",
+    "deepDive": {
+      "title": "Deep dive: the overhead nobody has measured",
+      "text": "Against too much enthusiasm stands an objection from practice: a harness becomes a product of its own, with its own bugs, its own legacy, and its own maintenance burden; extra reviewing agents cost time, tokens, and complexity. What matters is how to classify that objection: it comes from practitioner reports, not from a measurement. There is no solid figure for the point at which the effort exceeds the benefit - which, without a quality metric, would be hard to expect anyway. So anyone starting today builds the cheapest mechanisms first: the fast, deterministic checks the project already has lying around."
+    }
+  },
+  "loop": {
+    "title": "The hardening loop",
+    "text": "Back to the beginning. That quiet regression from the first paragraph - what happens to it? Without a harness it becomes a story: noticed eventually, retold in the team, filed as a warning. With a harness it becomes a fact about the environment: a check that from now on pulls in the dependent modules before every commit. Workshop, inspection bay, and keycard are not three techniques but three places where the same habit applies: stop resolving to do things, and start building them in."
+  },
+  "takeaways": {
+    "containerTitle": "The five things worth keeping",
+    "item1": "Agent = model + harness. The harness is often the larger and almost always the more changeable of the two factors.",
+    "item2": "A rule someone has to remember is hope. A rule a machine enforces before the commit is a gate - and in the measurement the difference flipped the sign.",
+    "item3": "Rights and approvals are two dials, not one: what is technically possible, and when a human gets asked. Tightening the first can relieve the second.",
+    "item4": "No gate proves correctness, only that nothing checked is broken. How much it covers is not measurable yet - and as the code base grows, the gap to undetected failures grows with it.",
+    "item5": "Harness engineering means turning every observed failure into a permanent, machine-checked property of the environment, so that it structurally cannot happen a second time."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Harness Engineering",
+    "q1": {
+      "question": "Going by the formula agent = model + harness, what belongs to the harness?",
+      "a": "Exclusively the trained weights of the model and the inference process it runs.",
+      "b": "Everything except the model: tools, environment, gates, rights, and memory.",
+      "c": "Exclusively the chat interface through which a human operates the agent.",
+      "d": "Exclusively the very large data set that the model was originally trained on.",
+      "explanation": "The harness is a subtraction: everything in the system that is not the model itself. Weights and inference are the model, the training data set belongs to how the model came about, and the chat interface is just one tool among many."
+    },
+    "q2": {
+      "question": "A colleague says: I explained the rule to the agent once in chat, that should be enough. What is he missing?",
+      "a": "Nothing of the sort - an agent adopts a rule explained once just as permanently as a person does.",
+      "b": "Explanations only work for simple tasks; on complex tasks they lose their effect entirely.",
+      "c": "An agent starts every session from scratch; only what sits in files or checks is permanent.",
+      "d": "The agent does store the chat history permanently, but it does not read it back on the next start.",
+      "explanation": "The agent keeps nothing beyond the session. A rule becomes permanent once it sits in a file the agent reads - and reliable only once a check enforces it. Said is not built in."
+    },
+    "q3": {
+      "question": "Your team keeps forgetting to update the CHANGELOG. Proposal A: a sentence about it in the agent's rule file. Proposal B: an automated check that rejects the commit while the entry is missing. What do the measurements named in the article predict about proposal A?",
+      "a": "Proposal A works about as reliably as proposal B, because both convey the same knowledge.",
+      "b": "Proposal A works reliably as soon as the rule is phrased clearly and unambiguously enough.",
+      "c": "Proposal A works reliably on small projects and only loses its effect on the very large ones.",
+      "d": "Proposal A can do worse than having no rule at all; only the checked variant B is reliable.",
+      "explanation": "In the measured comparison the automated gate cut the failure rate sharply, while the same knowledge as a text rule made the result worse than having no rule at all. An instruction only works if the agent recalls and follows it at the right moment; a check works regardless. Applied to the CHANGELOG: the sentence in the rule file is hope, the pre-commit check is mechanism."
+    },
+    "q4": {
+      "question": "An agent is to analyze an unfamiliar repository and write a report. It should change nothing, and you do not want to be asked for permission forty times. Which dial do you turn - and what does that not protect you from?",
+      "a": "The approval policy, set to never ask. That does not protect against the agent lacking important context.",
+      "b": "The sandbox, set to read-only. That does not protect against instructions hidden inside unfamiliar files.",
+      "c": "Both at once, set to full access and never ask. That does not protect against the report being inaccurate.",
+      "d": "Neither of the two. The number of prompts depends on the chosen model alone and cannot be configured.",
+      "explanation": "The two dials are independent. A read-only sandbox makes write access technically impossible - so nobody has to approve writes individually any more, and the prompts largely disappear. What it does not do: it does not detect hidden instructions in unfamiliar files. The agent can still follow them; only the possible outcome is bounded."
+    },
+    "q5": {
+      "question": "On a large project an agent reports all visible tests green, without having deleted or modified a single test. A held-out test suite it never saw later shows several failures. What explains this best - and how does it differ from an agent that simply deletes a failing test?",
+      "a": "It is still test manipulation even without a modified file; the difference is purely formal in nature.",
+      "b": "It only shows that large projects generally contain more bugs; there is no substantive difference here.",
+      "c": "It adapted to the visible checklist without touching any test; the gap grows with the project size.",
+      "d": "A properly built gate could never permit this at all; the case points to a bug in the gate itself.",
+      "explanation": "Deleting a test removes the check visibly; you can trace it in the history. Here every test file stays untouched, and the agent still optimizes for the visible checklist, up to memorizing expected outputs. Measured, the gap between the visible and the held-out suite grows by 28 percentage points for every tenfold increase in code size. The quieter variant is therefore the more dangerous one: it leaves no trace in the test file."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension check",
+    "item1": "A colleague gets good results with the same model in tool A and bad ones in tool B, and now wants a bigger model. What do you tell him, and what would you change first?",
+    "item2": "Your team writes a new convention into the agent's rule file. Is that hope or mechanism - and what do the numbers in this article predict about it?",
+    "item3": "You switch the agent from write access to read-only for an audit task. Will it ask you more often or less often, and is it now protected against a doctored documentation file?"
+  }
+}

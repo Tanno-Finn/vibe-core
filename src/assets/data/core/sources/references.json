@@ -1,0 +1,1090 @@
+{
+  "adkins-breakglass-2020": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "alonso-testgetriebene-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "alshahwan-testgen-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "angular-installation-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "anthropic-harnesses-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      },
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "anthropic-mcp-dokumentation-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "anthropic-reasoning-modelle-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "anthropic-sandboxing-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "arxiv-helfen-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "baker-monitoring-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "bender-testing-overview-2020": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "bgh-marlene-dietrich-1999": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "boeckeler-harness-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "bush-as-we-may-think-1945": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "camerer-replicability-2018": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "chen-context-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "destination-earth-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "dijkstra-structured-programming-1969": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "dora-ai-assisted-report-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "dtc-glossary-digital-twin-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "du-twinvoice-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "ec-virtual-human-twins-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "ecmwf-destine-climate-dt-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "eslint-configuration-files-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "eslint-configure-rules-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "eslint-core-concepts-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "eu-dsgvo-2016": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      },
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "eu-ki-verordnung-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "fisher-searching-explanations-2015": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "forte-ai-second-brain-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "forte-basb-overview-2023": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "forte-basb-ten-year-vision-2022": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "forte-para-2023": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "fowler-continuous-integration-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "fowler-foemmel-ci-original-2000": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "fowler-testpyramid-2012": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "geekwire-read-ai-digital-twin-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "git-diff-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "git-gc-manual-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "git-githooks-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "git-gitignore-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "git-install-windows-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "gitguardian-secrets-sprawl-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "github-codespaces-billing-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "github-codespaces-product-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "github-copilot-agent-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "github-plans-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "github-protected-branches-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "github-push-protection-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "github-removing-sensitive-data-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "github-what-are-codespaces-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "glaessgen-digital-twin-paradigm-2012": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "goddard-automation-2012": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "google-cl-descriptions-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "google-cloud-shell-quotas-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "google-looking-for-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "google-small-cls-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "grieves-digital-twin-white-paper-2014": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "hashimoto-adoption-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "hesselmann-google-stroop-2020": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "huang-self-correct-2023": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "istqb-acceptance-testing-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "johnson-lint-1978": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "kapoor-holistische-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "karpicke-retrieval-learning-2008": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "kritzinger-digital-twin-classification-2018": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "lee-critical-thinking-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "luhmann-zettelkaesten-1981": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "matuschak-note-writing-n.d.": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "mcp-specification-tools-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "mcp-tool-annotations-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "mdn-code-editors-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "mdn-installing-software-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "meli-secret-leakage-github-2019": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "microsoft-nodejs-windows-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "misra-compliance-2020": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "nasa-ta11-human-digital-twin-2015": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "national-academies-digital-twins-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "nextjs-installation-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "nngroup-digital-twins-2025": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "nodejs-download-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "nodejs-release-policy-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "npm-install-node-npm-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "park-llm-agents-self-reports-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "petrovic-mutation-2021": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "progit-first-time-setup-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "progit-git-objects-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "progit-graphical-interfaces-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "progit-installing-git-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "progit-maintenance-recovery-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "publishers-weekly-gershon-1997": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "pytest-getstarted-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "python-using-windows-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "risko-cognitive-offloading-2016": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "roediger-test-enhanced-learning-2006": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "sadowski-modern-code-review-2018": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "seed-source-1": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "seed-article-1"
+      }
+    ]
+  },
+  "shao-digital-twins-standardized-2024": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "sharma-auf-2023": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "sparrow-google-effects-2011": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "stackoverflow-survey-2025-methodology": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "stackoverflow-survey-2025-technology": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "tietze-collectors-fallacy-2014": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-second-brain"
+      }
+    ]
+  },
+  "turpin-unfaithful-explanations-2023": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "twelve-factor-config-2017": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "unit42-exposed-iam-keys-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-secrets-security"
+      }
+    ]
+  },
+  "vasilescu-ci-outcomes-2015": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-quality-gates"
+      }
+    ]
+  },
+  "vscode-codebasics-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "vscode-faq-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "vscode-requirements-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "vscode-source-control-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "vscode-terminal-basics-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "vscode-web-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "vscodium-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-dev-environment"
+      }
+    ]
+  },
+  "winters-unit-testing-2020": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "wright-davidson-model-vs-twin-2020": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-digital-twins"
+      }
+    ]
+  },
+  "xiong-confidence-elicitation-2023": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-code-review-basics"
+      }
+    ]
+  },
+  "zhang-llm-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  },
+  "zhao-coverage-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-agent-tests"
+      }
+    ]
+  },
+  "zhao-specbench-2026": {
+    "book": [],
+    "portal": [
+      {
+        "type": "article",
+        "id": "art-harness-engineering"
+      }
+    ]
+  }
+}

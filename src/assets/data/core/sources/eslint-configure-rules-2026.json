@@ -1,0 +1,17 @@
+{
+  "id": "eslint-configure-rules-2026",
+  "type": "article",
+  "authors": "ESLint team",
+  "year": "2026",
+  "publication": "ESLint documentation",
+  "url": "https://eslint.org/docs/latest/use/configure/rules",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "eslint",
+    "linter",
+    "rules",
+    "disable-comment",
+    "exception"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "hero": {
+    "title": "Context Engineering",
+    "subtitle": "Wie man der KI hilft, indem man ihr wichtige Informationen gibt."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "promptVsContext": "Prompt und Kontext",
+    "ruleFile": "Die Regeldatei",
+    "contextHierarchy": "Kontext·hierarchie",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "checkpoint": "Checkpoint",
+    "enrichment": "Interaktiv: Kontext·budget·skalierung"
+  },
+  "lead": {
+    "paragraph1": "Du bittest die KI: Schreibe einen Login·endpunkt. Sie liefert falschen Code. Das Framework stimmt nicht. Der Ordner stimmt nicht. Die KI ist nicht dumm. Sie kennt dein Projekt nicht.",
+    "paragraph2": "Context Engineering hilft dir dabei. Du gibst der KI die richtigen Informationen. Dann passt der Code zu deinem Projekt. In diesem Artikel lernst du drei Dinge."
+  },
+  "promptVsContext": {
+    "title": "Vom Prompt zum Kontext",
+    "definitionTitle": "Context Engineering einfach erklärt",
+    "analogy": "Context Engineering ist wie das Einarbeiten eines neuen Kollegen. Ein guter Prompt ist eine gute Frage. Context Engineering ist ein Einarbeitungspaket. Darin stehen die Regeln und Abläufe. Ohne Einarbeitung macht der Kollege Fehler.",
+    "scientific": "Context Engineering bedeutet: Du sammelst alle Informationen für die KI. Das sind zum Beispiel Anweisungen und Werkzeuge. Die KI bekommt nicht nur eine Frage. Sie bekommt ein ganzes Arbeitsumfeld.",
+    "analogyBreak": "Ein Unterschied: Ein Kollege lernt dauerhaft. Eine KI kann Informationen vergessen. Ihr Kontext·fenster ist begrenzt.",
+    "comparison": {
+      "promptLabel": "Prompt Engineering",
+      "promptResult": "Du verbesserst die einzelne Frage. Du schreibst jedes Mal alle Details dazu. Das ist viel Arbeit.",
+      "contextLabel": "Context Engineering",
+      "contextResult": "Du gibst der KI eine Regeldatei. Die KI kennt dein Projekt. Du musst nicht alles wiederholen."
+    },
+    "misconception": {
+      "title": "Häufiger Irrtum",
+      "text": "Manche denken: Ein besserer Prompt reicht. Das stimmt nicht. Du kannst nicht jedes Mal alle Projekt·details aufschreiben. Eine Regeldatei speichert das dauerhaft."
+    }
+  },
+  "ruleFile": {
+    "title": "Die Regeldatei",
+    "intro": "Eine Regeldatei ist eine Datei in deinem Projekt. Dein KI-Werkzeug liest sie automatisch. In der Datei stehen Regeln in normaler Sprache. Zum Beispiel: Welches Framework nutzt du? Wo liegen die Dateien? Dieses Kit nutzt dafür eine Datei mit dem Namen AGENTS.md.",
+    "checklistIntro": "Die Regeldatei ist wie eine Checkliste für Piloten. Sie hilft der KI, keine Fehler zu machen.",
+    "deepDive": {
+      "title": "Was gehört in die Regeldatei?",
+      "good": "Gute Inhalte: Wie ist das Projekt aufgebaut? Welche Regeln gelten beim Programmieren? Wie startet man das Projekt? Was soll die KI nie tun?",
+      "bad": "Schlechte Inhalte: Passwörter oder geheime Schlüssel. Der gesamte Code. Sachen, die sich ständig ändern."
+    },
+    "codeExampleTitle": "Beispiel: So sieht eine Regeldatei aus",
+    "codeExample": "## Architecture\n- Framework: NestJS 10\n- All imports: absolute (never relative)\n- Folder: src/modules/[domain]/\n\n## Coding Standards\n- Error responses: always use AppException class\n- Tests: Jest, one spec file per service\n- Never use console.log — use LoggerService\n\n## Build & Run\n- npm run dev (port 3000)\n- npm test (all specs)",
+    "misconception": {
+      "title": "Häufiger Irrtum",
+      "text": "Manche denken: Man schreibt die Datei einmal und ist fertig. Das stimmt nicht. Die Datei wächst mit der Zeit. Wenn die KI einen Fehler macht, fügst du eine neue Regel hinzu."
+    }
+  },
+  "contextHierarchy": {
+    "title": "Kontext·hierarchie — Weniger ist mehr",
+    "intro": "KI-Modelle haben ein begrenztes Aufmerksamkeitsfenster. Je mehr Informationen du gibst, desto ungenauer wird die KI. Die Frage ist: Welche Information braucht die KI wann?",
+    "analogyText": "Stell dir einen Chirurgen vor. Im OP gibt es tausende Instrumente. Aber auf dem Tablett liegen nur die Instrumente für den aktuellen Schritt. Zu viele Instrumente stören.",
+    "analogyBreak": "Ein Unterschied: Der Chirurg weiß genau, was er braucht. Die KI muss das erst herausfinden.",
+    "example": "Ein Beispiel: Dein Projekt hat 50.000 Zeilen Code. Schlecht: Alles in den Prompt kopieren. Besser: Die Regeldatei gibt einen Überblick. Die KI sucht dann die richtigen Dateien.",
+    "feedbackLoop": {
+      "title": "Der Feedback·loop",
+      "text": "Eine gute Regeldatei wächst mit der Zeit. Du beobachtest Fehler der KI. Du fügst eine Regel hinzu. Beim nächsten Mal macht die KI es besser."
+    },
+    "misconception": {
+      "title": "Häufiger Irrtum",
+      "text": "Manche denken: Die KI liest automatisch alles. Das stimmt nicht. Zu viele Informationen machen die KI ungenau. Du musst auswählen, was wichtig ist."
+    }
+  },
+  "hierarchy": {
+    "step1": {
+      "label": "Dauerhafte Regeln",
+      "description": "Die Regeldatei — Immer geladen. Architektur und Standards."
+    },
+    "step2": {
+      "label": "Dateien für die Aufgabe",
+      "description": "Die Dateien, die gerade wichtig sind."
+    },
+    "step3": {
+      "label": "Bisherige Unterhaltung",
+      "description": "Was du mit der KI besprochen hast."
+    },
+    "step4": {
+      "label": "Werkzeug·ergebnisse",
+      "description": "Such·ergebnisse und Datei·inhalte. Werden bei Bedarf geladen."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste",
+    "point1": "Context Engineering bedeutet: Nicht die Frage ist entscheidend. Sondern was die KI schon weiß.",
+    "point2": "Eine Regeldatei ist wie ein Einarbeitungspaket. Die KI kennt dein Projekt von Anfang an.",
+    "point3": "Weniger Kontext ist oft besser. Die KI braucht die richtige Information zur richtigen Zeit."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Context Engineering",
+    "q1": {
+      "question": "Was ist der Unterschied zwischen Prompt Engineering und Context Engineering?",
+      "a": "Prompt Engineering nutzt längere Prompts.",
+      "b": "Prompt Engineering verbessert eine Frage. Context Engineering verbessert das ganze Arbeitsumfeld.",
+      "c": "Context Engineering geht nur mit sehr großen Modellen.",
+      "d": "Prompt Engineering ist für Anfänger.",
+      "explanation": "Context Engineering geht weiter als Prompt Engineering. Es verbessert nicht nur die Frage. Es verbessert alle Informationen, die die KI bekommt."
+    },
+    "q2": {
+      "question": "Die KI erstellt Dateien immer im falschen Ordner. Was ist die Lösung?",
+      "a": "Jedes Mal den Ordner im Prompt angeben.",
+      "b": "Ein anderes KI-Modell nutzen.",
+      "c": "Eine Regel in die Regeldatei schreiben.",
+      "d": "Die Datei·erstellung abschalten.",
+      "explanation": "Die Regeldatei löst das Problem dauerhaft. Du schreibst den Ordner einmal auf. Die KI nutzt ihn jedes Mal."
+    },
+    "q3": {
+      "question": "Dein Projekt hat 30.000 Zeilen Code. Du willst einen Service umbauen. Was ist der beste Ansatz?",
+      "a": "Den ganzen Code in den Prompt kopieren.",
+      "b": "Eine Regeldatei mit Überblick geben. Die KI sucht die richtigen Dateien selbst.",
+      "c": "Nur die eine Datei geben.",
+      "d": "Den Code in 500 Wörtern zusammenfassen.",
+      "explanation": "Die Regeldatei gibt den Überblick. Die KI findet dann die richtigen Dateien. Das ist besser als zu viel oder zu wenig Kontext."
+    },
+    "q4": {
+      "question": "Eine Regeldatei enthält das Datenbank·passwort und alle 200 Endpunkte. Was ist das Problem?",
+      "a": "Alles ist in Ordnung.",
+      "b": "Das Passwort ist ein Sicherheitsrisiko. Die Endpunkt·liste ist zu viel Kontext.",
+      "c": "Nur der API-Key ist ein Problem.",
+      "d": "Die Datei braucht noch mehr Informationen.",
+      "explanation": "Passwörter gehören nicht in die Regeldatei. Zu viele Endpunkte überfordern die KI. Besser: Architektur·regeln, die zeigen, wo Dinge zu finden sind."
+    }
+  },
+  "checkpoint": {
+    "title": "Checkpoint: Context Engineering",
+    "item1": "Erkläre: Was ist der Unterschied zwischen einem Prompt und Context Engineering?",
+    "item2": "Was gehört in eine Regeldatei? Was nicht?",
+    "item3": "Warum ist weniger Kontext oft besser als alles auf einmal?"
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: Wie der Aufwand wächst",
+    "sectionTitle": "Interaktiv: Warum mehr Kontext nicht immer hilft",
+    "intro": "Bewege den Regler. Sieh, wie der Aufwand wächst. Die Regeldatei zu laden kostet immer gleich viel (grün). Den Kontext zu lesen wächst gleichmäßig (blau). Infos zu verknüpfen wächst sehr schnell (rot).",
+    "curve": {
+      "constant": "Regeldatei laden",
+      "linear": "Kontext lesen",
+      "quadratic": "Infos verknüpfen"
+    },
+    "insight": {
+      "small": {
+        "title": "Wenig Kontext",
+        "description": "Bei {{n}} Info·einheiten ist der Unterschied klein. Verknüpfen braucht {{worst}} Schritte. Lesen braucht {{reference}} Schritte."
+      },
+      "moderate": {
+        "title": "Mittlerer Kontext",
+        "description": "Bei {{n}} Info·einheiten sieht man den Unterschied. Verknüpfen braucht {{worst}} Schritte. Das ist {{factor}}-mal so viel wie Lesen."
+      },
+      "large": {
+        "title": "Viel Kontext",
+        "description": "Bei {{n}} Info·einheiten braucht Verknüpfen {{worst}} Schritte. Das ist {{factor}}-mal so viel wie Lesen. Die KI wird jetzt ungenau."
+      },
+      "veryLarge": {
+        "title": "Sehr viel Kontext",
+        "description": "Bei {{n}} Info·einheiten braucht Verknüpfen {{worst}} Schritte. Lesen braucht nur {{reference}} Schritte. Das ist Faktor {{factor}}. Darum gilt: Wenig guter Kontext ist besser als viel Kontext."
+      }
+    }
+  },
+  "ruleFileTraits": {
+    "fileName": {
+      "label": "Name und Ort",
+      "description": "Jedes Werkzeug hat einen eigenen Namen für die Regeldatei. Sie liegt meistens ganz oben im Projekt."
+    },
+    "scope": {
+      "label": "Wo die Regeln gelten",
+      "description": "Manche Regeln gelten für das ganze Projekt. Andere gelten nur für einen Ordner."
+    },
+    "loading": {
+      "label": "Wann die Regeln geladen werden",
+      "description": "Manche Regeln sind immer da. Andere lädt die KI erst, wenn sie sie braucht."
+    }
+  }
+}

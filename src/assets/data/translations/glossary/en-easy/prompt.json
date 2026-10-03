@@ -1,0 +1,5 @@
+{
+  "term": "Prompt",
+  "description": "Prompt is the input for an AI program. It is like an instruction. You tell the computer what to do. For example with an AI chat program. You write a question. That is the Prompt. The AI then answers the question. The more specific the Prompt the better the answer. Image generators also need Prompts. There you describe the picture you want.",
+  "example": "You write: Explain how bicycles work. That is a Prompt. The AI then explains bicycles. If you write: Explain bicycles in simple language for children then the answer is different."
+}

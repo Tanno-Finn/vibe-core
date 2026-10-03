@@ -1,0 +1,10 @@
+{
+  "term": "Hallucination",
+  "alternativeNames": [
+    "KI-Halluzination",
+    "Falschinformation",
+    "Konfabulation"
+  ],
+  "description": "Hallucination bezeichnet das Phänomen, wenn KI-Systeme – besonders Large Language Models – falsche oder erfundene Informationen erzeugen und überzeugend als Fakten präsentieren. Es ist wie ein überzeugender Märchenerzähler, der so eloquent formuliert, dass man ihm glaubt. Die KI „halluziniert“ nicht bewusst, sondern folgt statistischen Mustern aus den Trainingsdaten, ohne Wahrheit von Fiktion unterscheiden zu können. Fachlich unterscheidet man zwei Typen: Bei der „Factuality Hallucination“ widerspricht die Ausgabe den realen Fakten – es entstehen überzeugend klingende, aber erfundene Fakten, Zitate oder Studien. Bei der „Faithfulness Hallucination“ ist die Ausgabe nicht treu zur vorgelegten Quelle oder zum Kontext – etwa wenn eine Zusammenfassung Aussagen enthält, die so nicht im Ausgangstext stehen, selbst wenn sie für sich genommen weltfaktisch stimmen könnten. Das Problem ist besonders tückisch, weil die Ausgaben oft fachlich korrekt formuliert sind und Autorität ausstrahlen. Hallucinations sind eine der größten Herausforderungen für den verlässlichen KI-Einsatz und erfordern kontinuierliche Faktenchecks durch Menschen.",
+  "example": "Ein bekannter Chatbot erfindet überzeugende Gerichtsurteile mit realistischen Aktenzeichen für einen Anwalt – die Fälle existierten nie, was zu einer Geldstrafe von 5.000 Dollar führte (Fall Steven Schwartz, 2023)."
+}

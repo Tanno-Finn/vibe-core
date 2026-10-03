@@ -1,0 +1,9 @@
+{
+  "term": "Editor / IDE",
+  "alternativeNames": [
+    "Code-Editor",
+    "Entwicklungsumgebung"
+  ],
+  "description": "Ein Editor ist ein Programm zum Schreiben und Lesen von Code - im Kern eine Textverarbeitung ohne Schnörkel, dafür mit Syntax-Hervorhebung. Eine IDE (integrierte Entwicklungsumgebung) baut darum eine Werkstatt: Ein Debugger führt Code schrittweise aus, Sprach-Server markieren Fehler und finden Definitionen, die Versionskontrolle ist eingebaut. Der Unterschied ähnelt Schreibblock und Werkbank: Auf beiden lässt sich arbeiten, an einer hängt das Werkzeug griffbereit. KI-Agenten verlagern einen Teil der Arbeit ins Gespräch - der Agent schreibt und ändert den Code, der Editor bleibt dein Ort zum Lesen und Prüfen.",
+  "example": "Ein Agent baut eine Funktion um. Statt selbst zu tippen, öffnest du die Datei im Editor, liest die Änderung im Zusammenhang und setzt in der IDE einen Haltepunkt, um sie bei der Ausführung zu beobachten. Geschrieben hat der Agent - verstanden und abgenommen wird im Editor."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "github-removing-sensitive-data-2026",
+  "type": "article",
+  "authors": "GitHub",
+  "year": "2026",
+  "publication": "GitHub Docs",
+  "url": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "github",
+    "forks",
+    "cached-views",
+    "history-rewrite",
+    "credential-rotation"
+  ]
+}

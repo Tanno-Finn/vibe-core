@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "aiTimeline": "Geschichte",
+    "aiTools": "Software und Programme",
+    "catalog": "Katalog",
+    "controls": "Kopf·steuerung",
+    "emptyTitle": "Keine Seite gefunden",
+    "emptyHint": "Versuche ein anderes Wort. Oder tippe die Seiten·nummer mit 4 Zeichen.",
+    "emptyClearAction": "Suche löschen",
+    "glossary": "Wörterbuch",
+    "group": {
+      "development": "Werkstatt (nur im Dev·modus)",
+      "interaktiveDemos": "Spiele zum Ausprobieren",
+      "knowledge": "Wissen",
+      "lessons": "Lerntexte",
+      "portal": "Start·bereich",
+      "learningPaths": "Lernpfade",
+      "misc": "Sonstiges"
+    },
+    "home": "Startseite",
+    "invalidPageId": "Keine Seite mit dieser ID gefunden",
+    "main": "Haupt·navigation",
+    "pageNotFound": "Seite nicht gefunden",
+    "progress": "Mein Fortschritt",
+    "search": "Gehe zu Seite...",
+    "searchHelp": "Tippe, um Seiten zu finden. Nutze Pfeiltasten zum Navigieren.",
+    "searchPages": "Seiten suchen",
+    "showMore": "Mehr...",
+    "sitemap": "Alle Seiten auf einen Blick",
+    "userSettings": "Nutzer·einstellungen",
+    "skipToContent": "Zum Inhalt springen",
+    "devWorkshop": "Werkstatt",
+    "devDesign": "Design·system",
+    "devAgents": "Hilfe für Agenten",
+    "breadcrumb": "Hier bist du"
+  },
+  "footer": {
+    "impressum": "Rechtliches",
+    "accessibility": "Barrierefreiheit",
+    "licenseLink": "Lizenzinfo - CC BY 4.0",
+    "printLicense": "Lizenz: CC BY 4.0 — Quelle nennen",
+    "cookieSettings": "Cookie·einstellungen"
+  }
+}

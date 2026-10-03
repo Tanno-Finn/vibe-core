@@ -1,0 +1,74 @@
+{
+  "title": "Bibliography",
+  "intro": "Sources, references, evidence — for everyone who doesn't just want to take things on trust.",
+  "scope": {
+    "all": "All Sources",
+    "portal": "Site Sources",
+    "label": "Source scope"
+  },
+  "types": {
+    "paper": "Scientific Paper",
+    "book": "Book",
+    "website": "Website",
+    "wikipedia": "Wikipedia",
+    "video": "Video",
+    "interview": "Interview",
+    "article": "Article",
+    "database": "Database",
+    "documentation": "Documentation",
+    "report": "Report",
+    "thesis": "Thesis",
+    "other": "Other"
+  },
+  "chapters": {
+    "unknown": "Sources without a chapter"
+  },
+  "noDate": "n.d.",
+  "filter": {
+    "searchPlaceholder": "Search by author, title, publication...",
+    "chapterLabel": "Filter by Chapter",
+    "typeLabel": "Filter by Source Type",
+    "allChapters": "All Chapters",
+    "allTypes": "All Source Types",
+    "clearAll": "Clear Filters",
+    "clearAllTooltip": "Remove all active filters",
+    "activeFilters": "Active Filters",
+    "searchChip": "Search",
+    "title": "Search Sources"
+  },
+  "results": {
+    "showing": "Showing",
+    "of": "of",
+    "sources": "sources"
+  },
+  "noResults": {
+    "title": "No sources found",
+    "message": "Your search returned no results. Try different search terms or clear the filters."
+  },
+  "export": {
+    "success": "{count} sources exported",
+    "fabLabel": "Export Sources",
+    "dialogTitle": "Export Bibliography",
+    "dialogSubtitle": "Choose format and file type for export",
+    "sourceSelection": "Source Selection",
+    "filteredSources": "Filtered",
+    "allSources": "All",
+    "citationFormat": "Citation Format",
+    "selectCitationFormat": "Select format",
+    "fileFormat": "File Format",
+    "selectFileFormat": "Select format",
+    "downloadButton": "Download",
+    "pdfPrintHint": "PDF print dialog opening",
+    "bookCitationFilter": "Book Citations (DEV)",
+    "allSourcesLabel": "All sources",
+    "bookCitationOnly": "Cited in book only"
+  },
+  "portalGroups": {
+    "articles": "Articles",
+    "guides": "Guides",
+    "demos": "Demos",
+    "glossary": "Glossary",
+    "timeline": "Timeline"
+  },
+  "tableOfContents": "Table of Contents"
+}

@@ -1,0 +1,8 @@
+{
+  "term": "World Models",
+  "alternativeNames": [
+    "Welt-Modelle"
+  ],
+  "description": "An approach in AI — particularly in agents and reinforcement learning — in which the system builds an internal, learned, often generative model of the world or its environment. This model allows the agent to simulate actions 'in imagination' and predict future states (model-based prediction or planning via rollouts) before actually acting. Ha & Schmidhuber (2018) showed that agents with compact world models can learn efficiently in complex environments. Related to the concept of model-based reinforcement learning.",
+  "example": "A robot learning to grasp objects might develop a world model that understands the physics of its environment — for example, how objects fall or roll. Before making a grasping attempt, it mentally simulates various movements and selects the most promising one."
+}

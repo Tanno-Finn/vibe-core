@@ -1,0 +1,32 @@
+{
+  "acceptProgress": "Ja, Fortschritt speichern",
+  "actionsLabel": "Cookie-Einstellungen Aktionen",
+  "bannerLabel": "Cookie-Einstellungen und Datenschutz",
+  "closeDialog": "Einstellungen schließen",
+  "description": "Diese Seite setzt keine Tracking-Cookies. Wenn du zustimmst, merkt sich dein Browser, welche Quiz, Checkpoints und Lernpfade du abgeschlossen hast. Das bleibt nur auf diesem Gerät. Ohne Zustimmung gilt der Fortschritt nur für diesen Besuch.",
+  "disableProgress": "Nein, nicht speichern",
+  "essential": {
+    "description": "Grundlegende Funktionen wie Spracheinstellung und Theme-Auswahl. Diese werden immer lokal gespeichert.",
+    "inputLabel": "Essenzielle Cookies aktivieren",
+    "switchLabel": "Essenzielle Cookies (immer aktiviert)",
+    "title": "Technisch notwendige Funktionen"
+  },
+  "progress": {
+    "description": "Speichert lokal in deinem Browser, welche Quiz, Checkpoints und Lernpfade du abgeschlossen hast. Aus, bis du es einschaltest; schaltest du es wieder aus, wird der gespeicherte Fortschritt gelöscht.",
+    "inputLabel": "Fortschritts-Cookies aktivieren",
+    "switchLabel": "Lernfortschritt speichern",
+    "title": "Lernfortschritt"
+  },
+  "analytics": {
+    "description": "Hilft mir, das Portal zu verbessern. Mit deiner Zustimmung erfasse ich Seitenaufrufe, Verweildauer, Scroll-Tiefe und Geräteinformationen (Browser, Bildschirmgröße). Diese Daten gehen ausschließlich an meinen eigenen Server — nicht an Dritte. Die Zuordnung erfolgt über einen täglich wechselnden Hash; deine IP-Adresse wird nicht gespeichert. Was genau ich erhebe und was ich daraus ablese, zeige ich transparent auf der Statistik-Seite.",
+    "inputLabel": "Nutzungsstatistiken aktivieren",
+    "switchLabel": "Nutzungsstatistiken erlauben",
+    "title": "Nutzungsstatistiken"
+  },
+  "save": "Speichern",
+  "saveSettingsAriaLabel": "Cookie-Einstellungen speichern und anwenden",
+  "settings": "Einstellungen",
+  "settingsDescription": "Wähle, welche Daten lokal gespeichert werden sollen",
+  "settingsTitle": "Speichereinstellungen",
+  "title": "Hinweis zu Cookies"
+}

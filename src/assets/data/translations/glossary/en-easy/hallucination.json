@@ -1,0 +1,10 @@
+{
+  "term": "Hallucination",
+  "alternativeNames": [
+    "Hallucination",
+    "AI Hallucination",
+    "Confabulation"
+  ],
+  "description": "Hallucination. You say it like Hal-oo-sin-ay-shun. This means: AI invents false information. But it says it like it is true. It is like a liar who lies very well. The AI does not know that it lies. It only follows patterns from its data. It cannot tell what is true and what is false. This is a big problem. Especially for important topics. You must always check what the AI says.",
+  "example": "An AI invents court decisions for a lawyer. The decisions sounded real. But they did not exist. The lawyer got big problems."
+}

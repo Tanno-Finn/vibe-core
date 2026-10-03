@@ -1,0 +1,74 @@
+{
+  "title": "Quellen",
+  "intro": "Hier findest du alle Quellen. Zum selbst Nachlesen.",
+  "scope": {
+    "all": "Alle",
+    "portal": "Aus dem Portal",
+    "label": "Quellen·bereich"
+  },
+  "types": {
+    "paper": "Forschung",
+    "book": "Buch",
+    "website": "Internet·seite",
+    "wikipedia": "Wikipedia",
+    "video": "Video",
+    "interview": "Gespräch",
+    "article": "Artikel",
+    "database": "Daten·sammlung",
+    "documentation": "Anleitung",
+    "report": "Bericht",
+    "thesis": "Doktor·arbeit",
+    "other": "Andere"
+  },
+  "chapters": {
+    "unknown": "Quellen ohne Kapitel"
+  },
+  "noDate": "ohne Jahr",
+  "filter": {
+    "searchPlaceholder": "Suche eingeben...",
+    "chapterLabel": "Nach Kapitel filtern",
+    "typeLabel": "Nach Art filtern",
+    "allChapters": "Alle Kapitel",
+    "allTypes": "Alle Arten",
+    "clearAll": "Alles löschen",
+    "clearAllTooltip": "Alle Filter löschen",
+    "activeFilters": "Aktive Filter",
+    "searchChip": "Suche",
+    "title": "Quellen suchen"
+  },
+  "results": {
+    "showing": "Zeige",
+    "of": "von",
+    "sources": "Quellen"
+  },
+  "noResults": {
+    "title": "Nichts gefunden",
+    "message": "Wir haben nichts gefunden. Suche anders."
+  },
+  "export": {
+    "success": "{count} Quellen gespeichert",
+    "fabLabel": "Quellen speichern",
+    "dialogTitle": "Quellen speichern",
+    "dialogSubtitle": "Wähle ein Format",
+    "sourceSelection": "Welche Quellen?",
+    "filteredSources": "Nur diese",
+    "allSources": "Alle",
+    "citationFormat": "Schreib·weise",
+    "selectCitationFormat": "Wähle",
+    "fileFormat": "Dateiart",
+    "selectFileFormat": "Wähle",
+    "downloadButton": "Speichern",
+    "pdfPrintHint": "Druck·fenster öffnet sich",
+    "bookCitationFilter": "Buchquellen (DEV)",
+    "allSourcesLabel": "Alle Quellen",
+    "bookCitationOnly": "Nur aus dem Buch"
+  },
+  "tableOfContents": "Inhalts·verzeichnis",
+  "portalGroups": {
+    "articles": "Artikel",
+    "guides": "Leitfäden",
+    "demos": "Demos",
+    "glossary": "Glossar",
+    "timeline": "Zeitleiste"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "misra-compliance-2020",
+  "type": "article",
+  "authors": "MISRA Consortium",
+  "year": "2020",
+  "publication": "MISRA / HORIBA MIRA",
+  "url": "https://misra.org.uk/app/uploads/2021/06/MISRA-Compliance-2020.pdf",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "misra",
+    "coding-guidelines",
+    "deviation-record",
+    "compliance",
+    "safety-critical"
+  ]
+}

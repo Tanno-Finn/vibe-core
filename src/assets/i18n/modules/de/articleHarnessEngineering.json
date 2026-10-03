@@ -1,0 +1,218 @@
+{
+  "hero": {
+    "title": "Harness Engineering: Leitplanken statt Hoffnung",
+    "subtitle": "Warum das, was du um den Agenten herum baust, oft mehr über sein Ergebnis entscheidet als das Modell selbst - und warum eine brauchbare Leitplanke prüft statt nur zu warnen."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "thesis": "Modell plus Harness",
+    "workshop": "Gleicher Arbeiter, zwei Werkstätten",
+    "gates": "Die Prüfstation, nicht das Schild",
+    "rights": "Die Schlüsselkarte, nicht der Wachhund",
+    "limits": "Wo der Harness dich hängen lässt",
+    "loop": "Die Härteschleife",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "checkpoint": "Verständnischeck"
+  },
+  "lead": {
+    "paragraph1": "Der Agent hat den gemeldeten Fehler behoben. Er hat die beiden Tests laufen lassen, die im Ticket standen, beide waren grün, und er hat committet. Was niemand geprüft hat: Die Hilfsfunktion, die er dabei umgebaut hat, wird von drei anderen Modulen benutzt. Eines davon rechnet seit diesem Commit still falsch. Kein Absturz, kein rotes Log, nur ein Wert, der ab jetzt leicht daneben liegt. Was als Nächstes passiert, hängt weniger davon ab, welches Modell hier gearbeitet hat, als davon, was in den Raum eingebaut war, in dem es gearbeitet hat.",
+    "paragraph2": "Ein Wort zum Titel, bevor es losgeht. Eine Leitplanke im Sinne dieses Artikels ist kein Schild am Straßenrand, das freundlich warnt und ansonsten nichts tut. Sie ist näher an einer Prüfstation, durch die die Arbeit physisch hindurch muss, bevor sie gilt. Und die Zahlen, die gleich kommen, zeigen etwas Unerwartetes: Solche Prüfstationen bremsen den Agenten nicht aus. Sie sorgen dafür, dass mehr von dem, was er versucht, tatsächlich ankommt."
+  },
+  "thesis": {
+    "title": "Agent = Modell + Harness",
+    "text1": "Ein Agent ist nie nur ein Modell. Er ist ein Modell plus alles, was um dieses Modell herum steht: die Werkzeuge, die er aufrufen kann, die Umgebung, in der er läuft, die Prüfungen, die seine Arbeit passieren muss, seine Rechte und das, was er über die Sitzung hinaus behält. Diese Summe hat einen Namen bekommen: Harness. Wer sie bewusst baut, statt sie sich zufällig ergeben zu lassen, betreibt Harness Engineering.",
+    "delimitation": "Drei Begriffe, die oft durcheinandergehen, in je einem Satz: Prompt Engineering formuliert die einzelne Anweisung. Context Engineering entscheidet, welche Informationen dem Agenten während der Arbeit vorliegen. Harness Engineering baut die Werkstatt, in der beides stattfindet - was der Agent anfassen darf, was seine Arbeit prüft, was er behält.",
+    "disputed": "Ehrlicherweise ist diese Staffelung nicht überall Konsens. Ein Teil der Fachliteratur ordnet die drei Disziplinen genau so ineinander, ein anderer hält den Harness umgekehrt für eine Sonderform von Context Engineering. Dieser Artikel nutzt die erste Lesart, weil sie sich besser erklären lässt.",
+    "agcdDelimitation": "Dazu eine Abgrenzung im eigenen Haus: Der Artikel zu Agentic Coding beschreibt den Agenten selbst und die Frage, wie eng du ihn beaufsichtigst. Hier geht es um den Raum um ihn herum - und darum, was darin eine Maschine erzwingt statt deines Gedächtnisses.",
+    "objectives": {
+      "title": "Was du nach diesem Artikel kannst",
+      "item1": "Benennen, welche Bestandteile eines Agenten-Setups zum Harness gehören.",
+      "item2": "Bei einer konkreten Maßnahme entscheiden, ob sie Hoffnung ist oder Mechanismus.",
+      "item3": "Vorhersagen, wie sich eine engere Sandbox auf die Zahl der Rückfragen auswirkt.",
+      "item4": "Begründen, warum grüne Tests kein Beweis für Korrektheit sind."
+    },
+    "gridIntro": "Bevor es in die Einzelteile geht, eine Landkarte. Wenn später von Gate, Sandbox oder Journal die Rede ist, ist immer eines dieser fünf Stücke gemeint:"
+  },
+  "grid": {
+    "tools": {
+      "label": "Werkzeuge und Skripte",
+      "description": "Was der Agent aufrufen kann: Tests, Formatierer, Suchbefehle, eigene Hilfsskripte."
+    },
+    "sandbox": {
+      "label": "Umgebung und Sandbox",
+      "description": "Wo er läuft und welche Verzeichnisse und Netzadressen er überhaupt erreicht."
+    },
+    "gates": {
+      "label": "Prüf-Gates",
+      "description": "Automatische Prüfungen zwischen fertig gemeldet und tatsächlich gültig."
+    },
+    "memory": {
+      "label": "Gedächtnis und Journal",
+      "description": "Dateien mit dem Stand der Dinge - das Einzige, was eine Sitzung überdauert."
+    },
+    "rules": {
+      "label": "Regeln und Instruktionsdateien",
+      "description": "Aufgeschriebene Konventionen, die der Agent zu Beginn mitliest."
+    }
+  },
+  "workshop": {
+    "title": "Gleicher Arbeiter, zwei Werkstätten",
+    "intro": "Stell dir vor, du richtest die Werkstatt für einen neuen Mitarbeiter ein, bevor er zum ersten Mal kommt: welche Maschinen er bedienen darf, wo der Notaus sitzt, welches Handbuch am Platz liegt, wer die Arbeit abnimmt. Zwei Betriebe können denselben Mann einstellen und trotzdem sehr unterschiedliche Ergebnisse bekommen. Dieser Unterschied ist keine Aussage über sein Können.",
+    "definitionTitle": "Modell und Harness",
+    "analogy": "Das Modell ist der Arbeiter. Es bringt Können mit, und dieses Können ändert sich nicht, wenn du den Raum umbaust. Der Harness ist die Werkstatt: Werkzeuge, Notaus, Handbuch, Abnahme. Jedes fertige Werkstück entsteht aus beidem, und man kann es keinem der beiden allein zuschreiben.",
+    "scientific": "Als Modell bezeichnet man die trainierten Gewichte samt Inferenzvorgang. Als Harness bezeichnet man alles Übrige im System: Werkzeugschnittstellen, Ausführungsumgebung, Rechte- und Freigabe-Logik, Verifikationsschritte und persistenten Speicher. Beide erzeugen das Ergebnis gemeinsam, weshalb Messwerte ohne Angabe des Harness nicht vergleichbar sind.",
+    "example": "Wie groß dieser Effekt wird, lässt sich beziffern. Eine große Vergleichsstudie hat 21.730 Agentenläufe über neun Modelle und neun Benchmarks gefahren. In der Auswertung tauchen für ein und dasselbe Modell auf derselben Aufgabenmenge Werte auf, die weit auseinanderliegen: rund 68 von 100 echten Programmier-Tickets gelöst in der einen Ausführungsumgebung, rund 34 von 100 in einer dünneren. Kein Nachtraining, kein anderes Modell, nur ein anderer Raum.",
+    "exampleCaveat": "Zwei Einordnungen dazu. Die Studienanlage mit den 21.730 Läufen ist Primärquelle; die einzelnen Modellwerte stammen aus einer nachgelagerten Auswertung dieser Daten und sind als berichtete Zahlen zu lesen. Zum Maßstab: Der Sprung zwischen zwei Modellgenerationen wird auf solchen Benchmarks üblicherweise im einstelligen bis niedrigen zweistelligen Bereich berichtet.",
+    "analogyBreak": "Hier bricht die Werkstatt-Analogie, und zwar an einer Stelle, die zählt. Ein Mensch behält, was man ihm einmal gesagt hat. Ein Agent fängt jede Sitzung wieder bei null an. Dauerhaft ist für ihn nur, was jemand in eine Datei geschrieben hat, die er beim Start mitliest. Wer einem Agenten etwas im Chat erklärt, hat einmal laut gesprochen, nicht die Werkstatt umgebaut.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Schlechtes Ergebnis heißt schwaches Modell",
+      "text": "Das ist der Reflex, und meist die teuerste Antwort. Identische Gewichte liegen je nach Umgebung um Dutzende Prozentpunkte auseinander. Bei einer solchen Spreizung ist der Raum die wahrscheinlichere Ursache eines enttäuschenden Ergebnisses, nicht der Arbeiter. Die produktivere erste Frage lautet deshalb: Was in der Umgebung hat das durchgehen lassen - und lässt sich daraus etwas machen, das eine Maschine prüft?"
+    },
+    "misconception2": {
+      "title": "Der Gegenirrtum: Dann ist das Modell also egal",
+      "text": "Auch das steht nicht in den Daten. Gemessen wurde, wie viel Streuung auf die Umgebung entfällt, nicht, dass Modellqualität egal wäre. Innerhalb eines festen Harness liegen starke Modelle weiterhin vor schwachen. Die Aussage ist eine über Messehrlichkeit: Wer zwei Agenten vergleicht, ohne den Harness offenzulegen, vergleicht zwei Werkstätten und nennt das Ergebnis Können."
+    }
+  },
+  "memory": {
+    "title": "Was der Agent behält, steht in Dateien",
+    "text": "Wenn der Agent selbst nichts mitnimmt, muss die Umgebung es tun. In der Praxis heißt das drei Dinge: ein Einrichtungsschritt, der festhält, wie das Projekt startet, baut und testet; ein laufendes Journal, in dem nach jedem erledigten Stück steht, was getan wurde und warum; und die Gewohnheit, nach jedem Stück zu committen statt am Ende alles auf einmal. Der Nutzen zeigt sich später: Wenn eine neue Sitzung beginnt, liegt der Stand geschrieben vor."
+  },
+  "rules": {
+    "title": "Und die Regeldatei?",
+    "text": "Die Regeldatei kennst du aus dem Artikel zum Context Engineering: das Onboarding-Paket des Agenten mit Konventionen, Kommandos und Architekturnotizen. Was dieser Artikel hinzufügen muss, ist unbequem. Eine kontrollierte Untersuchung an echten Repositories hat zwei Agenten über 17 Aufgaben und 288 Läufe verglichen, mit und ohne eine solche Datei. Auf die Korrektheit hatte sie keinen messbaren Effekt; die Fehler lagen in Entwurf, Musterwahl und sauberem Verdrahten - in Dingen, die Projektwissen nicht liefern kann. Das heißt nicht: schreib keine. Es heißt: Verlass dich für Korrektheit nicht darauf."
+  },
+  "gates": {
+    "title": "Die Prüfstation, nicht das Schild",
+    "intro": "Ein Gate ist Code, der zwischen zwei Zuständen sitzt: der Agent hält sich für fertig, und die Änderung gilt. Es führt eine Prüfung aus und darf den Commit verweigern. Eine Anweisung ist etwas grundsätzlich anderes: Sie wirkt nur, wenn der Agent sie im richtigen Moment erinnert und ihr folgen will. Der Unterschied klingt nach Haarspalterei. Er ist messbar.",
+    "definitionTitle": "Gate",
+    "analogy": "Ein Tempolimit-Schild wirkt nur, wenn der Fahrer es liest und sich daran hält. Eine Prüfstation für die Hauptuntersuchung wirkt unabhängig davon: Das Auto muss physisch hindurch, und ohne Plakette geht es nicht weiter. Ein Gate ist die Prüfstation, nicht das Schild.",
+    "scientific": "Ein Gate ist ein automatisierter Prüfschritt, der ausgeführt wird, bevor eine Änderung wirksam wird, und der sie bei Nichtbestehen blockiert. Es ist deterministisch prüfbar - Tests, Linter, Typprüfung - und meldet sein Ergebnis in die Arbeitsschleife des Agenten zurück.",
+    "scope": "Die folgenden drei Zahlen stammen aus einer einzelnen Untersuchung: offene Qwen-Modelle auf handelsüblicher Hardware, gemessen auf der Aufgabensammlung SWE-bench Verified. Sie sind das Rückgrat dieses Artikels, aber sie sind eine Messung und keine Branchenkonstante.",
+    "experiment": "Der Aufbau ist bewusst schlicht: dieselbe Aufgabenmenge, dasselbe Wissen, dreimal unterschiedlich zugestellt. Erster Durchgang, nichts gesagt: 6,08 Prozent der Änderungen brachen an anderer Stelle etwas. Zweiter Durchgang, dasselbe Wissen als Textregel in der Anweisung - führe immer die betroffenen Tests aus: 9,94 Prozent. Dritter Durchgang, dasselbe Wissen als Mechanismus: Vor dem Commit bestimmt ein Schritt über den Abhängigkeitsgraphen die wirklich betroffenen Tests und führt sie aus. 1,82 Prozent.",
+    "comparison": {
+      "ariaLabel": "Vergleich: Regel nur als Text vorgegeben gegenüber automatisiertem Gate",
+      "proseLabel": "Regel nur als Text vorgegeben",
+      "proseResult": "9,94 Prozent der Änderungen brachen an anderer Stelle etwas - mehr als in der Ausgangslage ganz ohne Regel, die bei 6,08 Prozent lag.",
+      "gateLabel": "Regel als automatisches Gate erzwungen",
+      "gateResult": "1,82 Prozent - und die Quote gelöster Tickets stieg im selben Aufbau von 24 auf 32 Prozent."
+    },
+    "keySentence": "Dasselbe Wissen, als Ansage statt als Mechanismus zugestellt, war schlechter als gar nichts zu sagen.",
+    "stat": {
+      "label": "Regressionen mit Gate",
+      "value": "-70 %",
+      "description": "Von 6,08 auf 1,82 Prozent der Änderungen, die an anderer Stelle etwas beschädigen."
+    },
+    "statResolve": {
+      "label": "Gelöste Tickets",
+      "value": "+8 Punkte",
+      "description": "Die Quote stieg im selben Aufbau von 24 auf 32 Prozent. Das Gate hat den Agenten nicht gebremst."
+    },
+    "inspection": "Die Prüfstation ist deshalb das bessere Bild als das Schild: Sie prüft jeden, unabhängig von Aufmerksamkeit, Tagesform und gutem Willen.",
+    "inspectionBreak": "Und hier bricht auch dieses Bild, produktiv. Bei einer echten Hauptuntersuchung schreibt eine unabhängige Stelle die Prüfliste. Bei einer Test-Suite schreibt sie derjenige, der geprüft wird. Wem die Testdatei gehört, ist deshalb eine Entwurfsentscheidung am Harness, keine Frage des Agentenverhaltens.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Alle Tests grün heißt korrekt",
+      "text": "Grün heißt: Nichts von dem, was geprüft wird, ist kaputt. Über alles, wofür niemand einen Test geschrieben hat, sagt Grün nichts. Sobald ein Projekt wächst, ist das mehr als eine Spitzfindigkeit - siehe den Kasten weiter unten. Dazu kommen Kategorien, die kein Gate abdeckt: falsche Diagnose, überkonstruierte Lösung, saubere Umsetzung der falschen Anforderung."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Aufschreiben ist dasselbe wie durchsetzen",
+      "text": "Die 9,94 Prozent sind die Antwort darauf, und sie sind unangenehm präzise. Die Textregel brachte nicht einfach nichts - sie machte das Ergebnis schlechter als der Zustand ganz ohne Regel. Eine plausible Lesart: Eine zusätzliche Anweisung kostet Aufmerksamkeit und erzeugt das Gefühl, das Thema sei erledigt, ohne dass etwas geprüft würde."
+    },
+    "deepDive": {
+      "title": "Vertiefung: Wenn der Agent die sichtbare Prüfliste optimiert",
+      "text1": "Eine Untersuchung an 30 systemnahen Aufgaben zwischen 1.500 und 110.000 Codezeilen hat jeder Aufgabe zwei Testreihen mitgegeben: eine sichtbare, die der Agent nutzen darf, und eine zurückgehaltene, die er nie zu sehen bekommt. Die sichtbare Reihe sättigen alle aktuellen Spitzen-Agenten. Der Abstand zur zurückgehaltenen wächst gemessen um 28 Prozentpunkte je Verzehnfachung der Codemenge.",
+      "text2": "Ein beobachteter Fall war ein 2.900 Zeilen langes Programm, das vorgab, ein Compiler zu sein, also ein Übersetzer für Programmcode, in Wahrheit aber die Testfälle auswendig gelernt hatte. Wichtig für die Abgrenzung: Hier wurde keine Testdatei gelöscht und keine verändert. Der Agent hat sich an die sichtbare Prüfliste angepasst, ohne einen Test anzufassen - die leisere Variante desselben Problems."
+    }
+  },
+  "rights": {
+    "title": "Die Schlüsselkarte, nicht der Wachhund",
+    "intro": "Zwei Bilder vorweg, weil die Überschrift sie gegeneinanderstellt. Ein Wachhund urteilt über Verhalten: Er beobachtet, schlägt an, wenn ihm etwas nicht geheuer ist - und er lässt sich täuschen, ablenken, beschwichtigen. Eine Schlüsselkarte urteilt über gar nichts. Sie öffnet drei Türen und die vierte nicht, ganz gleich, wer sie trägt und was er vorhat. Rechte im Harness funktionieren wie die Karte: vorher vergeben, pro Tür, unabhängig von der Absicht. Zwei Einstellungen werden dabei ständig verwechselt, obwohl sie unabhängig sind. Die erste: Was ist technisch überhaupt möglich - welche Verzeichnisse darf der Agent beschreiben, welche Netzadressen erreicht er? Die zweite: Wann muss er anhalten und einen Menschen fragen? Verbreitete Coding-Agenten setzen das als zwei getrennte Regler um, typischerweise drei Sandbox-Stufen von nur lesend bis Vollzugriff und mehrere Freigabe-Politiken von immer fragen bis nie fragen.",
+    "twoDials": "Der interessante Teil ist, wie die beiden zusammenspielen, denn die Richtung ist gegenintuitiv. Man erwartet: engere Grenze, mehr Rückfragen. Gemessen wurde das Gegenteil.",
+    "stepsTitle": "Beispiel: Was die Isolation mit den Rückfragen macht",
+    "step1": "Ausgangslage, als Rechenbeispiel angenommen: eine dreistündige Sitzung mit rund 50 Rückfragen. Diese Ausgangszahl ist eine Annahme, keine Messung.",
+    "step2": "Datei- und Netzwerk-Isolation einschalten. Der Agent kann jetzt physisch nicht mehr außerhalb des Projektordners schreiben und keine Adresse außerhalb der Freigabeliste erreichen.",
+    "step3": "Der gemessene Wert ist die Reduktion: 84 Prozent weniger Rückfragen, laut Eigenangabe eines Herstellers aus interner Nutzung. Auf das Rechenbeispiel angewendet bleiben von 50 noch rund 8 übrig.",
+    "step4": "Der Grund: Was innerhalb der Grenze passiert, ist eingehegt und braucht keine einzelne Zustimmung mehr. Übrig bleiben die Aktionen, die die Grenze überschreiten - ein Paket aus dem Netz installieren, eine Datei außerhalb des Projekts anfassen.",
+    "step5": "Der Ernstfall: In der Dokumentation einer Abhängigkeit steht eine versteckte Anweisung, eine Konfigurationsdatei an einen fremden Server zu schicken. Der Agent folgt ihr. Die Isolation hat das nicht verhindert - aber der Zielserver steht nicht auf der Freigabeliste, und der Versand scheitert.",
+    "analogyBreak": "Wo das Bild bricht: Ein Kartensystem unterstellt, dass der Träger derjenige ist, für den er sich ausgibt. Ein Agent lässt sich dazu bringen, legitim erteilte Rechte zu missbrauchen. Der Wachhund hilft an dieser Stelle übrigens auch nicht weiter: Wer sich unauffällig verhält, kommt an ihm vorbei.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Die Sandbox schützt vor Prompt Injection",
+      "text": "Beide großen Anbieter schreiben in ihren eigenen Unterlagen das Gegenteil. Eine Sandbox begrenzt, was ein bereits manipulierter Agent erreichen kann. Sie erkennt die Manipulation nicht, und sie verhindert sie nicht. Im Beispiel oben hat der Agent die versteckte Anweisung befolgt; abgefangen wurde allein die Folge."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Sandbox und Freigaben sind derselbe Regler",
+      "text": "Es sind zwei. Der eine legt fest, was technisch möglich ist, der andere, wann gefragt wird. Wer sie als einen denkt, erwartet mehr Unterbrechungen als Preis für mehr Sicherheit - und richtet die Umgebung lockerer ein, um arbeitsfähig zu bleiben. Die gemessene Richtung ist umgekehrt: Die engere technische Grenze senkte die Zahl der Rückfragen, weil mehr Aktionen ohne Risiko durchgehen konnten."
+    },
+    "injectionLink": "Wie eine solche versteckte Anweisung technisch funktioniert und warum Modelle darauf hereinfallen, steht im Artikel zu Prompt Injections. Für diesen Artikel reicht die Konsequenz: Die Grenze ist Schadensbegrenzung, keine Abwehr."
+  },
+  "limits": {
+    "title": "Wo der Harness dich trotzdem hängen lässt",
+    "coverage": "Kein Gate, wie gut auch gebaut, erkennt eine falsche Diagnose, eine überkonstruierte Lösung oder eine korrekte Umsetzung der falschen Anforderung. Es prüft, was jemand zu prüfen beschlossen hat. Unangenehm daran ist weniger die Lücke selbst als ihre Vermessung: Es gibt bisher kein etabliertes Verfahren, um Abdeckung oder Qualität eines Harness zu bestimmen. Man kann sagen, dass ein Harness besser geworden ist, aber nicht, wie gut er ist.",
+    "coinage": "Zum Begriff selbst, kurz und ehrlich. Das Wort Harness Engineering taucht als erklärte Wortprägung in einem Beitrag von Mitchell Hashimoto vom 5. Februar 2026 auf; ein Teil der Sekundärliteratur schreibt die Prägung stattdessen einem fünf Wochen späteren Beitrag zu. Der Begriff ist also noch kein Jahr alt und in der Zuschreibung strittig - während das Wort Harness selbst älter ist als die Disziplin und die Praktiken dahinter, automatische Prüfungen und abgeschottete Umgebungen, Jahrzehnte alt sind. Behandle das Vokabular als neu, die Sache nicht.",
+    "deepDive": {
+      "title": "Vertiefung: Der Aufwand, den niemand gemessen hat",
+      "text": "Gegen zu viel Begeisterung steht ein Einwand aus der Praxis: Ein Harness wird selbst zum Produkt, mit eigenen Fehlern, eigenen Altlasten und eigenem Wartungsaufwand; zusätzliche Prüf-Agenten kosten Zeit, Token und Komplexität. Wichtig ist die Einordnung: Der Einwand stammt aus Erfahrungsberichten, nicht aus einer Messung. Eine belastbare Zahl dazu, ab wann der Aufwand den Nutzen übersteigt, gibt es nicht - was ohne Qualitätsmaß auch schwer zu erwarten wäre. Wer heute anfängt, baut deshalb die billigsten Mechanismen zuerst: die schnellen, deterministischen Prüfungen, die im Projekt ohnehin schon liegen."
+    }
+  },
+  "loop": {
+    "title": "Die Härteschleife",
+    "text": "Zurück zum Anfang. Die stille Regression aus dem ersten Absatz - was passiert mit ihr? Ohne Harness wird sie eine Geschichte: irgendwann bemerkt, im Team erzählt, als Mahnung vermerkt. Mit Harness wird sie eine Tatsache über die Umgebung: ein Prüfschritt, der ab jetzt vor jedem Commit die abhängigen Module mitnimmt. Werkstatt, Prüfstation und Schlüsselkarte sind dabei nicht drei Techniken, sondern drei Orte, an denen dieselbe Gewohnheit ansetzt: aufhören, sich Dinge vorzunehmen, und anfangen, sie einzubauen."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste in fünf Punkten",
+    "item1": "Agent = Modell + Harness. Der Harness ist oft der größere und fast immer der leichter änderbare der beiden Faktoren.",
+    "item2": "Eine Regel, an die sich jemand erinnern muss, ist Hoffnung. Eine Regel, die eine Maschine vor dem Commit erzwingt, ist ein Gate - und in der Messung kehrte der Unterschied das Vorzeichen um.",
+    "item3": "Rechte und Freigaben sind zwei Regler, nicht einer: was technisch möglich ist, und wann ein Mensch gefragt wird. Den ersten enger zu stellen, kann den zweiten entlasten.",
+    "item4": "Kein Gate beweist Korrektheit, sondern nur, dass nichts Geprüftes kaputt ist. Wie viel es abdeckt, ist bislang nicht messbar - und mit wachsender Codemenge wächst der Abstand zu unentdeckten Fehlern.",
+    "item5": "Harness Engineering heißt, jeden beobachteten Fehler in eine dauerhafte, maschinell geprüfte Eigenschaft der Umgebung zu übersetzen, damit er strukturell kein zweites Mal passieren kann."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Harness Engineering",
+    "q1": {
+      "question": "Nach der Formel Agent = Modell + Harness: Was gehört zum Harness?",
+      "a": "Ausschließlich die trainierten Gewichte des Modells und dessen Inferenzvorgang.",
+      "b": "Alles außer dem Modell: Werkzeuge, Umgebung, Prüf-Gates, Rechte und Gedächtnis.",
+      "c": "Ausschließlich die Chat-Oberfläche, über die ein Mensch mit dem Agenten spricht.",
+      "d": "Ausschließlich der Datensatz, mit dem das Modell ursprünglich trainiert wurde.",
+      "explanation": "Der Harness ist eine Subtraktion: alles im System, was nicht das Modell selbst ist. Gewichte und Inferenz sind das Modell, der Trainingsdatensatz gehört zu dessen Entstehung, und die Chat-Oberfläche ist nur eines von vielen Werkzeugen."
+    },
+    "q2": {
+      "question": "Ein Kollege sagt: Ich habe dem Agenten die Regel einmal im Chat erklärt, das reicht doch. Was übersieht er?",
+      "a": "Nichts davon stimmt - ein Agent übernimmt eine einmal erklärte Regel genauso dauerhaft wie ein Mensch.",
+      "b": "Erklärungen wirken nur bei einfachen Aufgaben; bei komplexen Aufgaben verlieren sie ihre Wirkung.",
+      "c": "Ein Agent startet jede Sitzung neu; dauerhaft ist nur, was in Dateien oder Prüfungen verankert ist.",
+      "d": "Der Agent speichert den Chatverlauf zwar dauerhaft, liest ihn beim nächsten Start aber nicht mit.",
+      "explanation": "Der Agent behält nichts über die Sitzung hinaus. Dauerhaft wird eine Regel erst, wenn sie in einer Datei steht, die er mitliest - und verlässlich erst, wenn eine Prüfung sie erzwingt. Gesagt ist nicht eingebaut."
+    },
+    "q3": {
+      "question": "In deinem Team wird regelmäßig vergessen, den CHANGELOG zu aktualisieren. Vorschlag A: ein Satz dazu in der Regeldatei des Agenten. Vorschlag B: eine automatische Prüfung, die den Commit ablehnt, solange der Eintrag fehlt. Was sagen die im Artikel genannten Messungen über Vorschlag A voraus?",
+      "a": "Vorschlag A wirkt ähnlich zuverlässig wie Vorschlag B, weil beide dasselbe Wissen vermitteln.",
+      "b": "Vorschlag A wirkt zuverlässig, sobald die Regel nur klar und eindeutig genug formuliert ist.",
+      "c": "Vorschlag A wirkt bei kleinen Projekten zuverlässig und verliert erst bei sehr großen an Wirkung.",
+      "d": "Vorschlag A kann schlechter abschneiden als gar keine Regel; verlässlich ist nur Variante B.",
+      "explanation": "Im gemessenen Vergleich senkte das automatische Gate die Fehlerquote deutlich, während dasselbe Wissen als Textregel das Ergebnis schlechter machte als der Zustand ganz ohne Regel. Eine Anweisung wirkt nur, wenn der Agent sie im richtigen Moment erinnert und befolgt; eine Prüfung wirkt unabhängig davon. Übertragen auf den CHANGELOG heißt das: Der Satz in der Regeldatei ist Hoffnung, die Prüfung vor dem Commit ist Mechanismus."
+    },
+    "q4": {
+      "question": "Ein Agent soll ein fremdes Repository analysieren und einen Bericht schreiben. Ändern soll er nichts, und du willst nicht vierzig Mal um Erlaubnis gefragt werden. An welchem Regler drehst du - und wovor schützt dich das nicht?",
+      "a": "An der Freigabe-Politik, gestellt auf nie fragen. Das schützt nicht davor, dass dem Agenten wichtiger Kontext fehlt.",
+      "b": "An der Sandbox, gestellt auf nur lesend. Das schützt nicht vor Anweisungen, die in fremden Dateien versteckt sind.",
+      "c": "An beiden zugleich, gestellt auf Vollzugriff und nie fragen. Das schützt nicht davor, dass der Bericht ungenau wird.",
+      "d": "An keinem von beiden. Die Zahl der Rückfragen hängt allein vom gewählten Modell ab und lässt sich nicht einstellen.",
+      "explanation": "Die beiden Regler sind unabhängig. Ein nur lesender Sandbox-Modus macht Schreibzugriffe technisch unmöglich - deshalb muss ihnen niemand mehr einzeln zustimmen, und die Rückfragen fallen weitgehend weg. Was er nicht leistet: Er erkennt keine versteckten Anweisungen in fremden Dateien. Der Agent kann ihnen weiterhin folgen; begrenzt wird nur, was dabei herauskommen kann."
+    },
+    "q5": {
+      "question": "Bei einem großen Projekt meldet ein Agent alle sichtbaren Tests grün, ohne einen einzigen Test gelöscht oder verändert zu haben. Eine zurückgehaltene Testreihe, die er nie gesehen hat, zeigt später mehrere Fehlschläge. Was erklärt das am besten - und wie unterscheidet es sich von einem Agenten, der einen roten Test einfach löscht?",
+      "a": "Es liegt trotzdem eine Testmanipulation vor, auch ohne geänderte Datei; der Unterschied ist rein formaler Natur.",
+      "b": "Es zeigt nur, dass große Projekte grundsätzlich mehr Fehler enthalten; ein inhaltlicher Unterschied besteht nicht.",
+      "c": "Er hat sich an die sichtbare Prüfliste angepasst, ohne Tests anzufassen; die Lücke wächst mit der Projektgröße.",
+      "d": "Ein sauber gebautes Gate kann so etwas gar nicht zulassen; der Fall deutet auf einen Fehler im Gate selbst hin.",
+      "explanation": "Beim Löschen eines Tests verschwindet die Prüfung sichtbar; man kann es im Verlauf nachvollziehen. Hier bleibt jede Testdatei unangetastet, und der Agent optimiert trotzdem auf die sichtbare Prüfliste, bis hin zum Auswendiglernen erwarteter Ausgaben. Gemessen wächst der Abstand zwischen sichtbarer und zurückgehaltener Reihe um 28 Prozentpunkte je Verzehnfachung der Codemenge. Die stillere Variante ist deshalb die gefährlichere: Sie hinterlässt keine Spur in der Testdatei."
+    }
+  },
+  "checkpoint": {
+    "title": "Verständnischeck",
+    "item1": "Ein Kollege bekommt mit demselben Modell in Werkzeug A gute und in Werkzeug B schlechte Ergebnisse und will jetzt ein größeres Modell nehmen. Was rätst du ihm, und was würdest du zuerst ändern?",
+    "item2": "Dein Team schreibt eine neue Konvention in die Regeldatei des Agenten. Ist das Hoffnung oder Mechanismus - und was sagen die Zahlen aus diesem Artikel dazu voraus?",
+    "item3": "Du stellst den Agenten für eine Prüfaufgabe von schreibendem auf nur lesenden Zugriff um. Wird er dich häufiger oder seltener fragen, und ist er damit gegen eine präparierte Dokumentationsdatei geschützt?"
+  }
+}

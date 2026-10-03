@@ -1,0 +1,16 @@
+{
+  "id": "progit-graphical-interfaces-2026",
+  "type": "book",
+  "authors": "Scott Chacon, Ben Straub",
+  "year": "2026",
+  "publication": "Pro Git (2nd edition), appendix A",
+  "url": "https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Graphical-Interfaces",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "git",
+    "gui",
+    "command-line",
+    "version-control"
+  ]
+}

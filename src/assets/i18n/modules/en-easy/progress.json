@@ -1,0 +1,30 @@
+{
+  "title": "My progress",
+  "subtitle": "Here you can see how far you have got.",
+  "overviewTitle": "Your overview",
+  "topicsTitle": "All topics",
+  "emptyTitle": "There are no topics yet",
+  "emptyText": "Later there will be articles and demos here. Then every topic gets a row.",
+  "storageNote": "Saved progress stays in this browser. It is not sent to the internet. You can delete it in the settings.",
+  "summary": {
+    "overall": "Everything together"
+  },
+  "table": {
+    "caption": "All topics. With status and finished steps.",
+    "topic": "Topic",
+    "status": "Status",
+    "steps": "Steps"
+  },
+  "status": {
+    "notStarted": "Not started yet",
+    "inProgress": "Started",
+    "done": "Finished"
+  },
+  "kind": {
+    "article": "Article",
+    "demo": "Demo"
+  },
+  "trackingOffNote": "Your progress is not saved. You said no. The numbers here count only for this visit. Next time, you see zeros again. You can allow saving at any time: at the bottom of the page, under \"Cookie settings\".",
+  "settingsLink": "Go to the settings",
+  "trackingUndecidedNote": "Your progress is not saved yet. You have not said yes. The numbers here count only for this visit. You can allow saving: in the cookie banner, or at the bottom of the page under \"Cookie settings\"."
+}

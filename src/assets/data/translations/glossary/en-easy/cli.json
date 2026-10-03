@@ -1,0 +1,10 @@
+{
+  "term": "CLI",
+  "alternativeNames": [
+    "Command Line Interface",
+    "command line",
+    "terminal"
+  ],
+  "description": "CLI. This is short for Command Line Interface. You say it like See-El-Eye. A CLI lets you type commands into your computer. There are no buttons to click. Just text. Developers use CLIs a lot for their work.",
+  "example": "You type a command. The computer starts AI training. No mouse clicks needed."
+}

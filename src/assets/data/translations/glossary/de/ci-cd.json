@@ -1,0 +1,10 @@
+{
+  "term": "CI/CD",
+  "alternativeNames": [
+    "Kontinuierliche Integration",
+    "Kontinuierliche Auslieferung",
+    "CI/CD-Pipeline"
+  ],
+  "description": "CI/CD bündelt zwei verwandte, aber verschiedene Praktiken. Continuous Integration (CI): Jede Code-Änderung wird zeitnah mit dem gemeinsamen Stand im Repository zusammengeführt und durchläuft automatisch dieselbe Prüfstrecke — Build, Linter, Tests. Fehler fallen so nach Minuten auf statt nach Wochen, und zwar für jeden im Team gleich streng. Das zweite C wird doppeldeutig gebraucht: Continuous Delivery bedeutet, dass jede geprüfte Änderung jederzeit auslieferbar ist — den letzten Knopf drückt ein Mensch. Continuous Deployment geht einen Schritt weiter: Was alle Prüfungen besteht, geht automatisch in Produktion, ganz ohne Knopf. Beide Lesarten sind verbreitet; welche gemeint ist, verrät oft nur der Kontext. Für KI-Agenten ist die CI-Strecke das unabhängige Urteil: Nicht der Agent bewertet seine eigene Änderung, sondern dieselbe Prüfmaschine wie für alle anderen. Ein Blick ins Diff bleibt trotzdem nötig — denn auch Tests und Pipeline-Konfiguration sind Code, den ein Agent anfassen kann.",
+  "example": "Eine Fabrik mit Fließband-Endkontrolle: Jedes Werkstück — egal von welchem Mitarbeiter — durchläuft dieselben Prüfstationen und landet fertig verpackt an der Laderampe. Bei Continuous Delivery entscheidet dann ein Mensch, wann der Lastwagen fährt; bei Continuous Deployment fährt er automatisch los, sobald die Prüfung bestanden ist. Konkret: Ein Entwickler pusht eine Änderung, ein CI-Dienst baut das Projekt, lässt Linter und Tests laufen und meldet nach acht Minuten grün oder rot — für jeden Commit, jedes Mal."
+}

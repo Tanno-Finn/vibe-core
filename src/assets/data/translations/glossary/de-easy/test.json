@@ -1,0 +1,8 @@
+{
+  "term": "Test (Software)",
+  "alternativeNames": [
+    "Test für Programme"
+  ],
+  "description": "Test. Ein Test prüft ein Programm. Der Test ist selbst ein kleines Programm. Er gibt dem Programm eine Aufgabe. Dann schaut er auf das Ergebnis. Ist das Ergebnis richtig? Dann ist der Test grün. Ist das Ergebnis falsch? Dann ist der Test rot. Aber Achtung: Grün heißt nicht fehlerfrei. Ein Test findet nur Fehler, nach denen er sucht. Tests sind sehr wichtig bei KI-Agenten. Ein KI-Agent schreibt selbstständig Code. Die Tests prüfen diesen Code sofort. So fallen viele Fehler früh auf. Wichtig: Ein Test Set ist etwas anderes. Das sind Daten für Maschinelles Lernen.",
+  "example": "Denk an eine Checkliste vor einem Flug. Der Pilot prüft jeden Punkt auf der Liste. Die Liste findet bekannte Fehler. Aber nur die Fehler auf der Liste. Genau so arbeitet ein Test."
+}

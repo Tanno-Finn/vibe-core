@@ -1,0 +1,56 @@
+{
+  "id": "harness-engineering",
+  "category": "tools",
+  "difficulty": "advanced",
+  "popularity": "low",
+  "abbreviations": [],
+  "englishTerm": "Harness Engineering",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Agent-Harness-Design"
+    ],
+    "en": [
+      "Agent harness design"
+    ],
+    "de-easy": [
+      "Umgebung für KI-Agenten bauen"
+    ],
+    "en-easy": [
+      "Building the agent's workspace"
+    ]
+  },
+  "sources": [
+    {
+      "type": "primary",
+      "citation": "AI Harness Engineering: A Runtime Substrate for Foundation-Model Software Agents (arXiv:2605.13357)",
+      "url": "https://arxiv.org/abs/2605.13357",
+      "notes": "Formalisiert den Harness als Runtime-Infrastruktur (Kontext, Tools, Gedächtnis, Verifikation, Rechte); Kernthese: Verlässlichkeit hängt vom Zusammenspiel Modell + Harness + Umgebung ab."
+    },
+    {
+      "type": "documentation",
+      "citation": "Databricks Blog: What is an AI agent harness?",
+      "url": "https://www.databricks.com/blog/ai-harness",
+      "notes": "Verwendet den Begriff harness engineering explizit als Disziplin neben Prompt- und Context-Engineering."
+    },
+    {
+      "type": "documentation",
+      "citation": "Firecrawl Blog: What Is an Agent Harness? (April 2026)",
+      "url": "https://www.firecrawl.dev/blog/what-is-an-agent-harness",
+      "notes": "Komponenten-Sicht: Tool-Layer, Memory/State, Kontext-Auswahl, Verifikation und Guardrails."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent",
+      "context-engineering",
+      "prompt-engineering",
+      "system-prompt",
+      "human-in-the-loop",
+      "session"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

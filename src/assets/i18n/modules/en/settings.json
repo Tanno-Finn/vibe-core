@@ -1,0 +1,163 @@
+{
+  "appearance": {
+    "description": "Customize the look and behavior of the application to your preferences",
+    "title": "Appearance Settings",
+    "glossaryHighlighting": "Glossary Highlighting",
+    "glossaryHighlightingDescription": "Enable highlighting of glossary terms in text (e.g. Artificial Intelligence)"
+  },
+  "data": {
+    "corruptedFile": "The file contains invalid data or is corrupted.",
+    "description": "Manage your learning progress and application data",
+    "errorApplyingData": "Error applying data. Previous settings have been restored.",
+    "errorReadingFile": "Error reading file.",
+    "export": "Export data",
+    "exportDescription": "Download your complete progress and settings as a JSON file",
+    "exportLabel": "Export data",
+    "exportSuccess": "Export successful",
+    "exportSuccessDetail": "Your data has been successfully exported.",
+    "fileTooLarge": "The file is too large. Maximum: 1MB.",
+    "import": "Import data",
+    "importDescription": "Restore your progress from a previously exported file. Learning progress is only restored if you have agreed to saving it.",
+    "importError": "Import failed",
+    "importErrorDetail": "The file could not be imported. Please check the format.",
+    "importLabel": "Import data",
+    "importSuccess": "Import successful",
+    "importSuccessDetail": "Your data has been successfully imported.",
+    "importProgressWithheld": "Your settings were imported, but your learning progress was not: you have not agreed to saving it. Switch on Progress Tracking under Privacy & Progress, then import the file again.",
+    "invalidFile": "Please select a valid JSON file.",
+    "legacyV1File": "This file comes from an older version that only saved the theme and language. A new export now covers progress and settings completely.",
+    "reset": "Reset all data",
+    "resetConfirm": "Really delete everything this site has stored in your browser? That is your progress, favorites, feedback messages, news read status, your cookie choice, and every setting. This cannot be undone.",
+    "resetDescription": "Deletes everything this site has stored in your browser: learning progress and achievements, catalog favorites and comparison list, your messages from the feedback page (including name and e-mail), which news items you have read, your cookie choice, and every setting (theme, font, language, Plain Language, glossary highlighting, playground). The page then reloads.",
+    "resetFailed": "Reset failed",
+    "resetFailedDetail": "An error occurred while resetting data. Please try again.",
+    "resetLabel": "Reset all data",
+    "resetSuccess": "Data reset",
+    "resetSuccessDetail": "All of this site's data and settings have been deleted from your browser. The page will reload in a moment.",
+    "title": "Data Management"
+  },
+  "font": {
+    "title": "Font",
+    "description": "Choose the font you enjoy reading most. All of them are free and open source — nobody will send you (or me) a bill later. Your selection is saved on this device. In languages with non-Latin scripts (Hindi, Bengali, Korean, Punjabi), Noto Sans takes over automatically.",
+    "system": {
+      "note": "The font your device already comes with. Nothing extra loads — though it looks slightly different on every computer, which most people never notice."
+    },
+    "sourceSans3": {
+      "note": "Calm, friendly, holds up even in long texts. The solid default choice: you rarely stand out with it, which is usually the goal."
+    },
+    "inter": {
+      "note": "Clear, modern, everywhere. If the internet feels familiar, there's a decent chance this font is why."
+    },
+    "ibmPlexSans": {
+      "note": "A bit more technical in character, with particularly distinct numbers and letters. Serious, calm, never loud — the font that says nothing in meetings yet catches everything."
+    },
+    "bricolageGrotesque": {
+      "note": "Has a strong opinion about how letters should look. Interesting to read — if you like fonts that push back a little."
+    },
+    "atkinsonHyperlegible": {
+      "note": "Designed so letters can no longer be confused with one another. Helpful for limited vision or when reading is otherwise tiring. Works only in Latin script though — for Hindi, Bengali, Korean, and Punjabi there is no comparably accessible font yet; Noto Sans takes over there."
+    },
+    "andika": {
+      "note": "Originally made for first-time readers: large, clearly distinguishable letters with plenty of space between them. Reduces reading effort — helpful for concentration difficulties, declining eyesight, or simply at the end of a long day."
+    },
+    "lexend": {
+      "note": "Looks almost normal but helps subtly: scientifically proven faster reading speed. A font that quietly gets its work done — which is what fonts should do."
+    },
+    "openDyslexic": {
+      "note": "Developed specifically for people with dyslexia. Letters have a distinct weight at the bottom so b and d, p and q no longer get mixed up. Looks unusual at first glance — and for those affected, that is often exactly why it is a real relief."
+    }
+  },
+  "language": {
+    "description": "Set your preferred language for the user interface",
+    "easyLanguage": "Plain Language",
+    "easyLanguageIcon": "Plain Language icon",
+    "filterPlaceholder": "Search language...",
+    "interface": "Language",
+    "interfaceDescription": "Language of the entire application",
+    "loading": "Loading language...",
+    "title": "Language Settings",
+    "clearFilter": "Clear search"
+  },
+  "playground": {
+    "title": "Playground",
+    "description": "What happens when the developer has an idea at 1 AM. Stays in because it gives the proof of concept some extra scope — and because vibe coding sometimes crashes into a wall and cool things emerge.",
+    "cursorTrail": "Comet Trail",
+    "cursorTrailDescription": "Leaves a glowing trail behind your cursor. Looks cool. Does nothing productive — much like a daily standup that takes 45 minutes.",
+    "cursorTrailPreview": "Move your mouse over this. Doesn't it look nice? No? Whatever, I think it looks nice."
+  },
+  "privacy": {
+    "dataControl": "Data Control:",
+    "dataControlDetail": "You have full control over your data. You can disable progress tracking, export your data, or completely reset everything at any time.",
+    "dataInfo": "Data Storage Details",
+    "dataInfoDescription": "Learn more about what data is stored and how.",
+    "dataStorageTitle": "Data Storage Information",
+    "dataTransmission": "Data Transmission:",
+    "dataTransmissionDetail": "Your learning progress is stored exclusively locally and never transmitted to servers. If you allow usage statistics, anonymized data (page views, time spent, device information) is sent to our own server — never to third parties.",
+    "dataType": {
+      "preferences": "Theme, language, and UI settings",
+      "quizProgress": "Completed quizzes, checkpoints, and learning paths (only with your consent)"
+    },
+    "dataTypes": "Types of stored data:",
+    "description": "Control how your learning progress is stored and managed.",
+    "detailsCollapsed": "Privacy details collapsed",
+    "detailsExpanded": "Privacy details expanded",
+    "hideDetails": "Hide details",
+    "progressDescription": "Save which quizzes, checkpoints, and learning paths you have completed, locally in your browser. Off until you switch it on; it is the same choice as in the cookie banner.",
+    "progressTracking": "Progress Tracking",
+    "showDetails": "Show details",
+    "storageLocation": "Storage Location:",
+    "storageLocationDetail": "Your learning progress (completed quizzes, checkpoints, and learning paths) is stored in your browser's localStorage only after you agree, and it does not leave your device. If you additionally allow usage statistics, anonymized usage data is sent to our own server (see cookie settings).",
+    "title": "Privacy & Progress",
+    "trackingDisabled": "Progress tracking disabled",
+    "trackingDisabledDetail": "All existing progress has been deleted and new progress will not be stored.",
+    "trackingEnabled": "Progress tracking enabled",
+    "trackingEnabledDetail": "Your completed quizzes, checkpoints, and learning paths are now saved locally, including what you did earlier in this visit.",
+    "cookieSettings": "Cookie Settings",
+    "cookieSettingsDescription": "Change or withdraw your cookie choices at any time. The same dialog opens from \"Cookie settings\" at the bottom of every page.",
+    "openCookieSettings": "Open cookie settings"
+  },
+  "subtitle": "Where you configure how this site should look, sound, and behave.",
+  "tableOfContents": "Table of Contents",
+  "theme": {
+    "accessibility": "Accessibility",
+    "color": "Color Theme",
+    "colorDescription": "Choose your preferred color theme",
+    "colorVariant": "Color",
+    "dark": "Dark",
+    "family": "Style",
+    "highContrast": "High Contrast",
+    "highContrastDescription": "Black-and-white scheme for better readability",
+    "light": "Light",
+    "mode": "Display Mode",
+    "modeChanged": "Display mode changed to {mode}",
+    "modeDarkLabel": "Dark mode",
+    "modeDescription": "Choose between Light, Dark, or System setting",
+    "modeLightLabel": "Light mode",
+    "modeSystemLabel": "System mode",
+    "moreOptions": "More options in settings",
+    "readableFont": "Readable Font",
+    "readableFontDescription": "Dyslexia-friendly typeface (OpenDyslexic)",
+    "readableFontUnsupported": "Not available for the current language",
+    "select": "Choose a theme",
+    "system": "System",
+    "title": "Design Settings",
+    "styles": {
+      "werkbund": {
+        "name": "Werkbund",
+        "description": "Straight edges, ink borders, and one signal red — matter-of-fact like a component kit, for readers who want a quiet interface."
+      },
+      "lernwerkstatt": {
+        "name": "Lernwerkstatt",
+        "description": "Round shapes, sticker outlines, and a highly legible body font — warm and playful, for learning and beginner content."
+      },
+      "skizzenbuch": {
+        "name": "Skizzenbuch",
+        "description": "Warm paper, fineliner outlines, and hand-drawn button shapes — like a sketchbook page, for everything that is still in progress."
+      },
+      "blaupause": {
+        "name": "Blaupause",
+        "description": "Fine lines, a millimeter grid, and blueprint blue instead of shadows — technical and precise, for reference and documentation."
+      }
+    }
+  }
+}

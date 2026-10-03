@@ -1,0 +1,6 @@
+{
+  "term": "Model Context Protocol",
+  "alternativeNames": ["MCP"],
+  "description": "Model Context Protocol is a shared rule for how AI programs talk to other programs. MCP is a standard. A standard means everyone follows the same rules. With MCP, an AI can read files. It can ask databases for information. It can use other tools too. MCP was released in 2024 by an AI provider. It was published as an open standard. MCP is free. Anyone can use it. You need an MCP server for this. The server provides tools. The AI uses these tools.",
+  "example": "An AI assistant uses an MCP server. The server is connected to a database. The assistant can now read data from the database. The assistant can then give better answers. Without MCP this is much harder to set up."
+}

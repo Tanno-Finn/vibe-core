@@ -1,0 +1,178 @@
+{
+  "$schema": "./base/kit.schema.json",
+  "name": "vibecore-angular",
+  "description": "Agent-first starter kit for building an educational companion portal (interactive AI demos, glossary, timeline, didactic article pages) with Angular.",
+  "baseVersion": "0.1.0",
+  "kitVersion": "1.0.0",
+
+  "commands": {
+    "install": "npm install",
+    "serve": "npm start",
+    "build": "npm run build:prod",
+    "test": "npm run test:ci",
+    "lint": "npm run lint",
+    "format": "npm run format"
+  },
+
+  "healthChecks": [
+    {
+      "id": "harness-intact",
+      "run": "node scripts/verify-harness.mjs",
+      "description": "Are all the files the agent relies on (AGENTS.md, CONSTITUTION, standards, this contract) present, and is AGENTS.md still short enough to be trustworthy?"
+    },
+    {
+      "id": "overrides-valid",
+      "run": "node scripts/check-overrides.mjs",
+      "description": "Are all project overrides well-formed and only relaxing rules that are allowed to be relaxed? Security rules can never be overridden."
+    },
+    {
+      "id": "build-green",
+      "run": "npm run build:prod",
+      "description": "Does the site still compile and pass the build-integrity check? A red build means the last change broke something."
+    },
+    {
+      "id": "lint-clean",
+      "run": "npm run lint",
+      "description": "Is the code free of lint errors (likely bugs, unsafe patterns, forbidden idioms)? This does not check formatting; format-clean does."
+    },
+    {
+      "id": "format-clean",
+      "run": "npm run format:check",
+      "description": "Is every file formatted the way the project's formatter (Prettier) writes it? A red result lists the files; npm run format fixes them."
+    },
+    {
+      "id": "tests-pass",
+      "run": "npm run test:ci",
+      "description": "Do the automated tests still pass? Run this before shipping anything."
+    },
+    {
+      "id": "a11y-built-pages",
+      "run": "npm run check:a11y",
+      "description": "Do the built pages pass the automated accessibility check (axe-core in a headless browser)? Needs a production build first. A violation of a [hard] A11Y rule fails it; everything else is reported as advice."
+    },
+    {
+      "id": "tools-work",
+      "run": "npm run test:tools",
+      "description": "Do the kit's helper tools (PDF, Word, accessibility check, screenshots …) still work? Needs a browser, like the accessibility check."
+    }
+  ],
+
+  "capabilities": [
+    "file:markdown",
+    "file:html-print",
+    "file:pdf",
+    "file:docx",
+    "file:html-single",
+    "file:site-export",
+    "content:article",
+    "content:glossary",
+    "content:timeline",
+    "content:source",
+    "content:news",
+    "page:interactive",
+    "check:a11y",
+    "check:screenshot",
+    "check:reading-level",
+    "check:lang-coverage",
+    "site:make-it-yours"
+  ],
+
+  "tools": [
+    {
+      "id": "pdf",
+      "run": "node tools/pdf.mjs",
+      "provides": ["file:pdf"],
+      "description": "Turns an HTML handout into a PDF, says how many pages it has, fails when it is longer than you allow (--max-pages) and warns when something is too wide for the paper."
+    },
+    {
+      "id": "docx",
+      "run": "node tools/docx.mjs",
+      "provides": ["file:docx"],
+      "description": "Turns a Markdown or HTML file into a Word document with real headings, lists, tables and the document language, so screen readers can navigate it."
+    },
+    {
+      "id": "a11y",
+      "run": "node tools/a11y.mjs",
+      "provides": ["check:a11y"],
+      "description": "Checks one HTML file or one portal page for accessibility problems, in light and dark mode and after clicks, and judges them by the kit's A11Y rules."
+    },
+    {
+      "id": "shot",
+      "run": "node tools/shot.mjs",
+      "provides": ["check:screenshot"],
+      "description": "Takes screenshots of an HTML file or a portal page on desktop and mobile, light and dark, so you (or the agent) can look at the result."
+    },
+    {
+      "id": "doctor",
+      "run": "node tools/doctor.mjs",
+      "provides": [],
+      "description": "Checks whether the kit tools can run on this computer (Node, installed packages, the browser, write access, a built site) and says in one sentence how to fix anything missing."
+    },
+    {
+      "id": "preview",
+      "run": "node tools/preview.mjs",
+      "provides": [],
+      "description": "Shows the built website (or a folder of your material) in your browser on this computer, the way learners would get it, until you press Ctrl+C."
+    },
+    {
+      "id": "export-site",
+      "run": "node tools/export-site.mjs",
+      "provides": ["file:site-export"],
+      "description": "Packs the checked, built website into one zip for a school web server, with a short setup note (German and English) for whoever puts it online."
+    },
+    {
+      "id": "bundle",
+      "run": "node tools/bundle.mjs",
+      "provides": ["file:html-single"],
+      "description": "Turns an HTML page with its styles, pictures, fonts and scripts into one single file that works on its own, for e-mail or a learning platform such as Moodle."
+    },
+    {
+      "id": "reading-level",
+      "run": "node tools/reading-level.mjs",
+      "provides": ["check:reading-level"],
+      "description": "Gives advice on how easy a text is to read: sentence length, long words and a readability score per section, plus Easy-Language hints. Numbers cannot prove a text is easy; readers can."
+    },
+    {
+      "id": "lang-status",
+      "run": "node tools/lang-status.mjs",
+      "provides": ["check:lang-coverage"],
+      "description": "Counts how far one language of the portal is (for example Italian): interface texts and content entries that exist, those still in the source language, and the words left to translate."
+    },
+    {
+      "id": "new-page",
+      "run": "node tools/new-page.mjs",
+      "provides": [],
+      "description": "Sets up a new page or interactive demo of the portal the way the kit expects it: the page, its test, its texts in every language, the navigation entry, and the few lines to paste into the route lists."
+    },
+    {
+      "id": "make-it-yours",
+      "run": "node tools/make-it-yours.mjs",
+      "provides": ["site:make-it-yours"],
+      "description": "Turns the kit into your own portal: shows where your site stands, writes its name, short description, start page, switched-off features and the operator for the imprint in one go, and removes the kit's sample articles, glossary terms, sources and learning paths while keeping the blueprints. Nothing is committed, and every step can be undone."
+    }
+  ],
+
+  "designSystemDoc": "docs/DESIGN-SYSTEM.MD",
+
+  "onboardingExtraQuestions": [
+    {
+      "id": "portal-or-material",
+      "ask": "What do you mainly want to make here: the web portal itself (a site with pages, glossary and demos that goes online), single materials for your learners (a worksheet, a quiz, one learning page as a file), or both? Single materials need no web server; the portal does (docs/how-to/deploy.md).",
+      "type": "choice",
+      "options": ["portal", "materials", "both", "not sure"],
+      "default": "not sure"
+    },
+    {
+      "id": "content-languages",
+      "ask": "Which languages should the portal and your materials be in? (The base kit ships German and English, each with an Easy-Language variant.)",
+      "type": "text",
+      "default": "de, en"
+    },
+    {
+      "id": "easy-language",
+      "ask": "Do you need Easy-Language (simplified) variants of your content for accessibility?",
+      "type": "boolean",
+      "default": true
+    }
+  ]
+}

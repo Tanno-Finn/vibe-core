@@ -1,0 +1,17 @@
+{
+  "id": "github-copilot-agent-2025",
+  "type": "article",
+  "authors": "Thomas Dohmke",
+  "year": "2025",
+  "publication": "The GitHub Blog",
+  "url": "https://github.blog/news-insights/product-news/github-copilot-meet-the-new-coding-agent/",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "coding-agent",
+    "github",
+    "branch-protection",
+    "approval",
+    "agent-guardrails"
+  ]
+}

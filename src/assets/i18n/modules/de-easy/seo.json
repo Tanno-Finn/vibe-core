@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "aiTimeline": {
+      "description": "So hat sich dein Thema entwickelt. Vom Anfang bis heute. Mit den wichtigsten Ereignissen.",
+      "keywords": "Geschichte, Zeitstrahl, Meilensteine, Entwicklung",
+      "title": "Zeitstrahl"
+    },
+    "default": {
+      "description": "{siteName} ist ein Lernportal zu deinem Thema. Es gibt Demos zum Mitmachen, nützliche Tools und Lern·materialien.",
+      "keywords": "lernen, Lernportal, interaktive Demos, Tutorial, Interactive Learning, Bildung",
+      "title": "{siteName} - Dein Einstieg in dein Thema"
+    },
+    "exampleDemo": {
+      "description": "Eine Musterdemo. Sie zeigt, wie eine Demo aufgebaut ist.",
+      "keywords": "Beispiel·demo, Muster, Vorlage",
+      "title": "Beispiel·demo"
+    },
+    "glossary": {
+      "description": "Das Glossar erklärt dir die Fachwörter zu deinem Thema. Ein Glossar ist ein Wörterbuch.",
+      "keywords": "Glossar, Fach·begriffe, Lexikon, Definitionen",
+      "title": "Glossar"
+    },
+    "home": {
+      "description": "Lerne dein Thema kennen. Mit Demos zum Mitmachen, Übungen und nützlichen Tools.",
+      "keywords": "Startseite, Tutorial, interaktive Demos, lernen",
+      "title": "Startseite"
+    },
+    "impressum": {
+      "description": "Impressum und rechtliche Informationen zu {siteName}.",
+      "keywords": "Impressum, Rechtliche Hinweise, Kontakt",
+      "title": "Impressum"
+    },
+    "userSettings": {
+      "description": "Hier stellst du {siteName} ein. Zum Beispiel die Sprache, das Aussehen und wie du lernen willst.",
+      "keywords": "Benutzer·einstellungen, {siteName} Konfiguration, Lern·einstellungen",
+      "title": "Einstellungen"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "id": "art-agent-tests",
+  "path": "articles/art-agent-tests",
+  "titleKey": "articleAgentTests.hero.title",
+  "descriptionKey": "articleAgentTests.hero.subtitle",
+  "category": "concepts",
+  "estimatedTime": "14min",
+  "difficulty": "intermediate",
+  "featured": false,
+  "pageId": "tsts",
+  "created": "2026-08-16",
+  "updated": "2026-09-05",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "baker-monitoring-2025",
+    "anthropic-harnesses-2025",
+    "alshahwan-testgen-2024",
+    "zhao-coverage-2026",
+    "chen-context-2026",
+    "fowler-testpyramid-2012",
+    "bender-testing-overview-2020",
+    "winters-unit-testing-2020",
+    "pytest-getstarted-2026",
+    "petrovic-mutation-2021"
+  ],
+  "related": {
+    "articles": [
+      "art-harness-engineering",
+      "art-vibecoding"
+    ],
+    "glossary": [
+      "test",
+      "specification-gaming",
+      "reward-hacking",
+      "agent",
+      "code-review",
+      "build",
+      "ci-cd",
+      "linter",
+      "harness-engineering",
+      "reward-misspecification"
+    ],
+    "timeline": []
+  }
+}

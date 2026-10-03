@@ -1,0 +1,9 @@
+{
+  "term": "Agent Loop",
+  "alternativeNames": [
+    "Agent Cycle",
+    "Perceive-Plan-Act Cycle"
+  ],
+  "description": "The agent loop is the control cycle an AI agent runs through in an agentic workflow: observe — think/plan — act (call a tool) — integrate result — repeat. One pass through is a step; the loop repeats until the task is done or a stopping criterion kicks in. The key point: it is not the user who decides which tool to invoke next, but the model itself. In the ReAct pattern (Reasoning + Acting), this looks concretely like: the model writes a 'Thought' (reasoning trace), names an 'Action' (tool call with parameters), waits for an 'Observation' (tool result) — and repeats. How long the loop runs is not fixed in advance: a poorly configured agent can fall into infinite loops or take needlessly many steps, which is why token budgets and maximum step counts are standard equipment.",
+  "example": "The agent is supposed to download a table from the web and calculate the mean. Step 1: it thinks 'I need the URL', calls the search tool, receives a URL. Step 2: it loads the page, reads the numbers. Step 3: it runs the Python interpreter, calculates the mean. Step 4: it recognizes it is done and outputs the result. Four steps, one loop."
+}

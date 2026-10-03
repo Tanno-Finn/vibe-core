@@ -1,0 +1,56 @@
+{
+  "id": "mcp-server",
+  "category": "tools",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "MCP Server",
+  "childConcepts": [],
+  "parentConcepts": [
+    "model-context-protocol"
+  ],
+  "alternativeNames": {
+    "de": [
+      "MCP-Server",
+      "Model-Context-Protocol-Server"
+    ],
+    "en": [
+      "MCP Server",
+      "Model Context Protocol Server"
+    ],
+    "de-easy": [
+      "MCP-Server"
+    ],
+    "en-easy": [
+      "MCP Server"
+    ]
+  },
+  "sources": [
+    {
+      "type": "documentation",
+      "citation": "Anthropic. (2024). Model Context Protocol — Server Concepts. MCP Documentation.",
+      "url": "https://modelcontextprotocol.io/introduction",
+      "notes": "Definiert die Serverrolle im MCP-Ökosystem: Ein MCP-Server stellt Tools, Resources und Prompts bereit, die ein Client (z.B. Claude Desktop) konsumiert"
+    },
+    {
+      "type": "documentation",
+      "citation": "Anthropic. (2024). Introducing the Model Context Protocol. Anthropic Blog, 25 November 2024.",
+      "url": "https://www.anthropic.com/news/model-context-protocol",
+      "notes": "Ankündigung des offenen Standards; beschreibt Server als Implementierungen, die Werkzeuge und Datenquellen für KI-Assistenten zugänglich machen"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "model-context-protocol",
+      "function-calling",
+      "agent",
+      "api",
+      "agentic-workflow"
+    ],
+    "articles": [
+      "art-apis-mcp"
+    ]
+  },
+  "createdAt": "2026-06-22",
+  "updatedAt": "2026-06-22"
+}

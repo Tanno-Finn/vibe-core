@@ -1,0 +1,8 @@
+{
+  "term": "Context Window",
+  "description": "Context Window — the maximum text length a language model can process at once. Measured in tokens, the window covers both input and output: An 8K context window means a maximum of 8,000 tokens for prompt and response combined. The limitation arises from the quadratic complexity of the attention mechanism in Transformers — doubling the context quadruples the attention cost. Development has been rapid: from 2K in early language models to 8K, then 200K, and 1M tokens in current frontier models. Practically relevant: with long conversations or extensive documents, you quickly hit limits.",
+  "example": "A user feeds a 100-page document (approx. 75K tokens) into a model with an 8K context window — that doesn't work. With a 128K model, the document fits and there are still 53K tokens left for analysis.",
+  "alternativeNames": [
+    "Kontextfenster"
+  ]
+}

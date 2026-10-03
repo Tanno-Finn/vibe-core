@@ -1,0 +1,17 @@
+{
+  "id": "npm-install-node-npm-2026",
+  "type": "article",
+  "authors": "npm, Inc.",
+  "year": "2026",
+  "publication": "npm Docs",
+  "url": "https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "npm",
+    "nodejs",
+    "package-manager",
+    "installation",
+    "version-manager"
+  ]
+}

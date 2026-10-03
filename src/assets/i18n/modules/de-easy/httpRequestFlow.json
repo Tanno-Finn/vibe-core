@@ -1,0 +1,31 @@
+{
+  "controls": {
+    "play": "Abspielen",
+    "pause": "Pause",
+    "reset": "Zurücksetzen"
+  },
+  "stage": {
+    "step": "Schritt {{current}} von {{total}}",
+    "titleDefault": "Animation starten",
+    "descDefault": "Starte die Animation. Dann siehst du jeden Schritt einzeln."
+  },
+  "svg": {
+    "browser": "Browser",
+    "enterUrl": "URL eingeben",
+    "client": "CLIENT",
+    "dns": "DNS",
+    "toIp": "→ IP-Adresse",
+    "resolution": "AUFLÖSUNG",
+    "tcpTls": "TCP/TLS",
+    "handshake": "Handshake",
+    "connection": "VERBINDUNG",
+    "getApi": "GET /api",
+    "headers": "Header + Body",
+    "request": "ANFRAGE",
+    "server": "SERVER",
+    "statusOk": "200 OK",
+    "jsonData": "{ 'temp': 22 }",
+    "response": "ANTWORT",
+    "returnLabel": "JSON-Daten"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "vibecore",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:24",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "npm ci",
+  "forwardPorts": [2000],
+  "portsAttributes": {
+    "2000": {
+      "label": "vibecore dev server",
+      "onAutoForward": "openPreview"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "angular.ng-template",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        // One agent extension as a working default — swap for your agent's.
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      }
+    }
+  },
+  "//": "In Codespaces or any remote container, start the dev server with `npm run start:codespaces` (binds 0.0.0.0 so the forwarded port is reachable). Local dev uses `npm start`."
+}

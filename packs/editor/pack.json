@@ -1,0 +1,59 @@
+{
+  "$schema": "../../base/pack.schema.json",
+  "id": "editor",
+  "name": "Editor mode",
+  "description": "A role pack for the solo author or small editorial team filling the kit with their own subject: six kit-blind jobs along the editorial chain — article-draft, glossary-entry, source-wiring, style-pass, variants-brief, release-check — each producing a markdown artifact in the author's manifest language (shipped examples are German) under the pack's guardrails (no invented sources, draft stamp until a human has checked, no third-party text into CC BY content, publishing stays human). Activate it conversationally ('switch to editor mode').",
+  "layer": "pack",
+  "packVersion": "0.1.0",
+  "baseVersion": "0.1.0",
+  "activation": {
+    "phrases": [
+      "switch to editor mode",
+      "editor mode",
+      "Redaktionsmodus",
+      "I'm writing for this portal",
+      "help me write an article",
+      "help me get this ready to publish",
+      "wechsle in den Redaktionsmodus",
+      "ich schreibe für dieses Portal",
+      "hilf mir, einen Artikel zu schreiben",
+      "hilf mir, das zum Veröffentlichen fertig zu machen"
+    ],
+    "note": "Conversational and in-place — no install. The agent announces the switch, names the six jobs and where the chain usually starts (article-draft or glossary-entry). Leaving the mode is just as conversational."
+  },
+  "capabilities": [
+    {
+      "id": "content:article",
+      "fallback": "file:markdown",
+      "purpose": "Hand a finished draft to the kit's own article builder; read existing articles for style-pass and release-check."
+    },
+    {
+      "id": "content:glossary",
+      "fallback": "file:markdown",
+      "purpose": "Link existing terms instead of redefining them; hand a finished entry to the kit's glossary builder."
+    },
+    {
+      "id": "content:timeline",
+      "fallback": "file:markdown",
+      "purpose": "Include dated events in variants-brief and release-check (title rule, source per mention)."
+    },
+    {
+      "id": "content:source",
+      "fallback": "file:markdown",
+      "purpose": "Place the generic source records of a source map into the kit's source layer when the kit declares one; otherwise the records stay in the markdown map."
+    },
+    {
+      "id": "content:news",
+      "fallback": "file:markdown",
+      "purpose": "Place the release-check's news draft into the kit's news layer when the kit declares one; otherwise the draft stays in the preflight file."
+    },
+    {
+      "id": "check:reading-level",
+      "fallback": "file:markdown",
+      "purpose": "Advice on sentence length and long words for Easy-Language variants in style-pass and release-check; without it, sentence length is judged by eye and the review says no measure ran."
+    },
+    {
+      "id": "file:markdown"
+    }
+  ]
+}

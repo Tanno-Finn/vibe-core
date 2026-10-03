@@ -1,0 +1,15 @@
+{
+  "id": "seed-source-1",
+  "type": "website",
+  "authors": "Project Gutenberg",
+  "year": null,
+  "publication": "Project Gutenberg",
+  "url": "https://www.gutenberg.org/",
+  "doi": "",
+  "accessed": "2026-09-28",
+  "tags": [
+    "example",
+    "library",
+    "public-domain"
+  ]
+}

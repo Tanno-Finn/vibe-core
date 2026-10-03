@@ -1,0 +1,35 @@
+{
+  "dialog": {
+    "openFullMap": "Open the big knowledge map"
+  },
+  "map": {
+    "nodes": "Nodes",
+    "edges": "Connections",
+    "focus": "Focus",
+    "toggleGraph": "Map",
+    "toggleTable": "List",
+    "loading": "Map is loading …",
+    "empty": "No connections found.",
+    "tableHeadType": "Type",
+    "tableHeadNode": "Node",
+    "tableHeadConnections": "Connections",
+    "tableHeadNeighbors": "Important neighbors",
+    "tableEmpty": "No node matches the search.",
+    "openNeighbor": "Open neighbor",
+    "ariaSummary": "Knowledge map with {{count}} nodes and {{edges}} connections.",
+    "ariaSummaryFocus": "Focus is on {{type}}/{{id}}.",
+    "ariaSummaryTableHint": "The \"List\" toggle shows the connections one row at a time.",
+    "ariaEmpty": "Knowledge map — empty.",
+    "searchResultLive": "{{count}} of {{total}} nodes match your search.",
+    "type": {
+      "article": "Article",
+      "demo": "Demo",
+      "glossary": "Glossary",
+      "timeline": "Timeline",
+      "source": "Source",
+      "sources": "Sources"
+    },
+    "legendLabel": "What the colors mean",
+    "cameraReadoutInit": "The camera readout is starting."
+  }
+}

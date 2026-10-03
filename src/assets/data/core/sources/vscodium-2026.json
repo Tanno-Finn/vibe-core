@@ -1,0 +1,17 @@
+{
+  "id": "vscodium-2026",
+  "type": "website",
+  "authors": "VSCodium project",
+  "year": "2026",
+  "publication": "VSCodium",
+  "url": "https://vscodium.com/",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "vscodium",
+    "vscode",
+    "mit-license",
+    "telemetry",
+    "open-source"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Session",
+  "alternativeNames": [
+    "Sitzung",
+    "Arbeits-Sitzung"
+  ],
+  "description": "Eine Session ist eine Arbeits-Sitzung mit einem KI-Agenten: die Lebensdauer eines zusammenhängenden Kontexts aus Konversation und Arbeitsstand. Solange die Session läuft, hat der Agent alles Bisherige im Blick - begrenzt durch das Kontextfenster, das nur endlich viel Text fasst. Endet die Session, ist dieses Arbeitsgedächtnis meist weg: Was nicht außerhalb gespeichert wurde, muss die nächste Session neu erfahren. Über die Sitzungsgrenze helfen deshalb nur Notizen und Journale, die der Agent außerhalb ablegt und beim nächsten Mal wieder liest. Die Compaction dagegen wirkt innerhalb einer laufenden Session: Läuft das Kontextfenster voll, wird der bisherige Verlauf zusammengefasst und die Arbeit auf dieser Basis fortgesetzt.",
+  "example": "Wie ein Termin bei einem brillanten Berater mit hervorragendem Kurzzeitgedächtnis, der nach dem Termin alles vergisst: Während des Gesprächs ist er voll im Bilde. Was er in seine Akte notiert, weiß er auch beim nächsten Mal - der Rest ist weg."
+}

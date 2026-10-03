@@ -1,0 +1,5 @@
+{
+  "term": "Prompt",
+  "description": "The textual (or multimodal) input given to a generative AI model to produce a specific output. For an LLM, the prompt is the instruction or question – such as 'Explain quantum computing in three sentences'. For image generators, it's the description of the desired image. The art of 'prompt engineering' lies in formulating inputs to make the model deliver desired results – precise enough for clarity, open enough for creativity.",
+  "example": "Prompt for an AI chatbot: 'Write a polite email to a customer complaining about a delayed delivery.' The model generates an appropriate response based on this instruction. The more precise the prompt (e.g., 'Use a formal tone, maximum 150 words'), the more controllable the result."
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Welt-Modelle",
+  "alternativeNames": [
+    "World Models"
+  ],
+  "description": "Ein Ansatz in der KI, insbesondere bei Agenten und Reinforcement Learning, bei dem das System ein internes, gelerntes, oft generatives Modell der Welt oder seiner Umgebung aufbaut. Dieses Modell ermöglicht es dem Agenten, Aktionen „in der Vorstellung“ zu simulieren und zukünftige Zustände vorherzusagen (modellbasierte Vorhersage bzw. Planung durch Rollouts), bevor er tatsächlich handelt. Ha & Schmidhuber (2018) zeigten, dass Agenten mit kompakten Weltmodellen effizient in komplexen Umgebungen lernen können. Verwandt mit dem Konzept des „Model-Based“ Reinforcement Learning.",
+  "example": "Ein Roboter, der lernen soll, Objekte zu greifen, könnte ein Weltmodell entwickeln, das die Physik seiner Umgebung versteht – etwa wie Objekte fallen oder rollen. Bevor er einen Greifversuch macht, simuliert er mental verschiedene Bewegungen und wählt die vielversprechendste aus."
+}

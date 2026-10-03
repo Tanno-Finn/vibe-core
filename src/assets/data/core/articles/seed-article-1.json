@@ -1,0 +1,27 @@
+{
+  "id": "seed-article-1",
+  "pageId": "sda1",
+  "created": "2020-01-01",
+  "updated": "2020-01-01",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "seed-source-1"
+  ],
+  "draft": false,
+  "related": {
+    "articles": [],
+    "glossary": [
+      "seed-term-1",
+      "seed-term-2",
+      "seed-term-3",
+      "seed-term-4",
+      "seed-term-5"
+    ],
+    "timeline": [
+      "seed-event-1",
+      "seed-event-2",
+      "seed-event-3"
+    ]
+  }
+}

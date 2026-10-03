@@ -1,0 +1,8 @@
+{
+  "term": "Session",
+  "alternativeNames": [
+    "Work session"
+  ],
+  "description": "A session is one working sitting with an AI agent: the lifetime of a coherent context made of conversation and working state. While the session runs, the agent has everything so far in view - limited by the context window, which only holds a finite amount of text. When the session ends, that working memory is usually gone: whatever was not stored outside of it has to be relearned in the next session. Across the session boundary, only notes and journals help - files the agent keeps outside and reads again next time. Compaction, by contrast, works within a running session: when the context window fills up, the conversation so far is summarized and work continues on that basis.",
+  "example": "Like an appointment with a brilliant consultant who has an excellent short-term memory but forgets everything after the meeting: during the conversation he is fully up to speed. Whatever he writes into his file he will know next time - the rest is gone."
+}

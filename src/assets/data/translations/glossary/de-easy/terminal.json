@@ -1,0 +1,8 @@
+{
+  "term": "Terminal",
+  "alternativeNames": [
+    "Befehls·fenster"
+  ],
+  "description": "Terminal. Das ist ein Programm auf deinem Computer. Es ist meist ein Fenster mit Text. Dort tippst du Befehle. Der Computer antwortet mit Text. Früher war ein Terminal ein echtes Gerät. Mit Bildschirm und Tastatur. Heute ist es ein Fenster. Viele KI-Agenten laufen im Terminal. Ein KI-Agent ist ein KI-Programm. Es erledigt Aufgaben für dich. Du schreibst normale Sätze. Der Agent macht daraus die richtigen Befehle.",
+  "example": "Du öffnest das Terminal. Du startest einen KI-Agenten. Du schreibst: Zeige mir meine neuen Dateien. Der Agent tippt die Befehle für dich. Du liest die Antwort im Fenster."
+}

@@ -1,0 +1,10 @@
+{
+  "term": "Hallucination",
+  "alternativeNames": [
+    "AI hallucination",
+    "confabulation",
+    "false information"
+  ],
+  "description": "Hallucination describes the phenomenon where AI systems — especially large language models — generate false or fabricated information and present it convincingly as fact. Think of a persuasive storyteller so eloquent that you believe everything they say. The AI doesn't 'hallucinate' consciously; it follows statistical patterns from its training data without any ability to distinguish truth from fiction. Technically, two types are distinguished: 'Factuality hallucination' occurs when the output contradicts real-world facts — producing convincingly phrased but invented facts, citations, or studies. 'Faithfulness hallucination' occurs when the output is not faithful to a provided source or context — for example when a summary contains statements not present in the original text, even if they might be factually plausible in isolation. The problem is particularly insidious because the outputs are often worded with technical authority. Hallucinations are one of the greatest challenges for reliable AI deployment and require ongoing human fact-checking.",
+  "example": "A well-known chatbot invented convincing court rulings with realistic case numbers for a lawyer — the cases never existed, which led to a 5,000 dollar fine (case: Steven Schwartz, 2023)."
+}

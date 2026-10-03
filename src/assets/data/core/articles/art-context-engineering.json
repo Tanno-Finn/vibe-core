@@ -1,0 +1,25 @@
+{
+  "id": "art-context-engineering",
+  "pageId": "ctxe",
+  "created": "2026-09-27",
+  "updated": "2026-08-11",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [],
+  "draft": true,
+  "related": {
+    "articles": [
+      "art-vibecoding",
+      "art-apis-mcp"
+    ],
+    "glossary": [
+      "context-engineering",
+      "context",
+      "context-window",
+      "prompt",
+      "prompt-engineering",
+      "agent"
+    ],
+    "timeline": []
+  }
+}

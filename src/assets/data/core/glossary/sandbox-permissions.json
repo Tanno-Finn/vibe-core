@@ -1,0 +1,62 @@
+{
+  "id": "sandbox-permissions",
+  "category": "ai-safety",
+  "difficulty": "advanced",
+  "popularity": "low",
+  "abbreviations": [],
+  "englishTerm": "Sandboxing and Permissions",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Sandbox und Berechtigungen",
+      "Agenten-Rechteverwaltung"
+    ],
+    "en": [
+      "Sandboxing and permissions",
+      "Agent permission model"
+    ],
+    "de-easy": [
+      "Schutz-Raum und Regeln für KI-Agenten"
+    ],
+    "en-easy": [
+      "Safe space and rules for AI agents"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Saltzer, J. H., Schroeder, M. D. (1975). The Protection of Information in Computer Systems. Proceedings of the IEEE 63(9).",
+      "type": "website",
+      "url": "https://web.mit.edu/Saltzer/www/publications/protection/",
+      "notes": "Klassisches Paper mit dem Principle of Least Privilege: jedes Programm arbeitet mit den geringsten Rechten, die für die Aufgabe nötig sind — die konzeptionelle Grundlage von Agenten-Sandboxes.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Anthropic Engineering: Beyond permission prompts - making Claude Code more secure and autonomous with sandboxing.",
+      "type": "documentation",
+      "url": "https://www.anthropic.com/engineering/claude-code-sandboxing",
+      "notes": "Praxisbeschreibung für Coding-Agenten: Datei- und Netzwerk-Isolation als Umgebungs-Schutz, der Bestätigungs-Prompts reduziert statt Vertrauen ins Modell vorauszusetzen."
+    },
+    {
+      "title": "OWASP GenAI Security Project: LLM06:2025 Excessive Agency.",
+      "type": "documentation",
+      "url": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/",
+      "notes": "Risikoklasse 'zu viele Rechte für den Agenten'; empfiehlt minimale Tool-Rechte und menschliche Freigabe für folgenreiche Aktionen."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "harness-engineering",
+      "agentic-ai",
+      "agent",
+      "prompt-injection",
+      "human-in-the-loop"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11",
+  "release": "draft"
+}

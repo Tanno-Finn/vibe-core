@@ -1,0 +1,17 @@
+{
+  "id": "eslint-core-concepts-2026",
+  "type": "article",
+  "authors": "ESLint team",
+  "year": "2026",
+  "publication": "ESLint documentation",
+  "url": "https://eslint.org/docs/latest/use/core-concepts/",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "eslint",
+    "linter",
+    "static-analysis",
+    "abstract-syntax-tree",
+    "rule"
+  ]
+}

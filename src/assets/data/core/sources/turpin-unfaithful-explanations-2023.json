@@ -1,0 +1,17 @@
+{
+  "id": "turpin-unfaithful-explanations-2023",
+  "type": "paper",
+  "authors": "Miles Turpin, Julian Michael, Ethan Perez, Samuel R. Bowman",
+  "year": "2023",
+  "publication": "arXiv / NeurIPS 2023",
+  "url": "https://arxiv.org/abs/2305.04388",
+  "doi": "10.48550/arXiv.2305.04388",
+  "accessed": "2026-08-16",
+  "tags": [
+    "chain-of-thought",
+    "explanations",
+    "llm",
+    "bias",
+    "faithfulness"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "label": {
+    "inputSize": "Number of inputs n ="
+  },
+  "ratio": {
+    "title": "Compared with the reference",
+    "curve": "Curve",
+    "operations": "Work steps",
+    "factor": "Factor",
+    "reference": "Reference",
+    "cheaper": "less work",
+    "costlier": "more work"
+  }
+}

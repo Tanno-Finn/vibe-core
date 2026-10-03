@@ -1,0 +1,16 @@
+{
+  "id": "eslint-configuration-files-2026",
+  "type": "article",
+  "authors": "ESLint team",
+  "year": "2026",
+  "publication": "ESLint documentation",
+  "url": "https://eslint.org/docs/latest/use/configure/configuration-files",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "eslint",
+    "configuration",
+    "unused-directives",
+    "inline-config"
+  ]
+}

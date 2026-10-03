@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Open Graph Image — vibecore (minimal)
+  Dimensions: 1200×630
+  Elements: Compass logo + Title + Subtitle + CC BY 4.0 badge.
+
+  Source-of-truth. Regenerate PNG via: node scripts/render-og.mjs
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630"
+     font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+
+  <defs>
+    <!-- Logo gradient: warm gold → orange → crimson -->
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFD700"/>
+      <stop offset="50%"  stop-color="#FF8C00"/>
+      <stop offset="100%" stop-color="#DC143C"/>
+    </linearGradient>
+
+    <!-- Title gradient: same family but tighter range for better text legibility -->
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%"   stop-color="#FFD700"/>
+      <stop offset="100%" stop-color="#FF8C00"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background: very dark -->
+  <rect width="1200" height="630" fill="#0a0a0a"/>
+
+  <!-- ─── LOGO (centered horizontally, upper third) ─────────────────── -->
+  <!-- Compass mark, drawn on a 0 0 32 32 grid, scaled ~6.25× to ~200px -->
+  <g transform="translate(500, 100) scale(6.25)">
+    <!-- Outer dark disc -->
+    <circle cx="16" cy="16" r="15" fill="#0a0a0a"/>
+    <!-- Gold ring -->
+    <circle cx="16" cy="16" r="13" fill="none" stroke="url(#logoGrad)" stroke-width="1.5"/>
+    <!-- Inner faint ring -->
+    <circle cx="16" cy="16" r="10" fill="none" stroke="url(#logoGrad)" stroke-width="0.5" opacity="0.5"/>
+    <!-- Compass needle: north (gold) -->
+    <polygon points="16,4 13.5,16 18.5,16" fill="url(#logoGrad)"/>
+    <!-- Compass needle: south (dark) -->
+    <polygon points="16,28 13.5,16 18.5,16" fill="#222"/>
+    <!-- Pivot dot -->
+    <circle cx="16" cy="16" r="3" fill="url(#logoGrad)"/>
+    <circle cx="16" cy="16" r="1.5" fill="#0a0a0a"/>
+  </g>
+
+  <!-- ─── TITLE + SUBTITLE (centered below logo) ────────────────────── -->
+
+  <!-- Title -->
+  <text x="600" y="430" text-anchor="middle"
+        font-size="78" font-weight="800" fill="url(#titleGrad)" letter-spacing="-1.5">
+    vibecore
+  </text>
+
+  <!-- Subtitle: mirrors the og:title/twitter:title tagline in src/index.html -->
+  <text x="600" y="490" text-anchor="middle"
+        font-size="32" font-weight="400" fill="#cbd5e1" letter-spacing="-0.3">
+    An agent-first starter kit for educational portals.
+  </text>
+
+  <!-- ─── CC BY 4.0 LICENSE BADGE (bottom right) ────────────────────── -->
+  <g transform="translate(1040, 558)">
+    <rect x="0" y="0" width="120" height="44" rx="8"
+          fill="#1a1a1a" stroke="#3a3a3a" stroke-width="1"/>
+    <text x="60" y="20" text-anchor="middle"
+          font-size="12" font-weight="600" fill="#999" letter-spacing="1">
+      LICENSE
+    </text>
+    <text x="60" y="36" text-anchor="middle"
+          font-size="14" font-weight="700" fill="url(#titleGrad)">
+      CC BY 4.0
+    </text>
+  </g>
+
+</svg>

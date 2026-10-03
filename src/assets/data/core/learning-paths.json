@@ -1,0 +1,445 @@
+[
+  {
+    "id": "seed-path-1",
+    "titleKey": "learningPaths.seedPath1.title",
+    "descriptionKey": "learningPaths.seedPath1.description",
+    "icon": "pi pi-book",
+    "difficulty": "beginner",
+    "sector": "foundation",
+    "color": "#22C55E",
+    "order": 1,
+    "learningPromiseKey": "learningPaths.seedPath1.learningPromise",
+    "targetAudienceKey": "learningPaths.seedPath1.targetAudience",
+    "durationKey": "learningPaths.seedPath1.duration",
+    "prerequisitesKey": "learningPaths.seedPath1.prerequisites",
+    "prerequisitePathIds": [],
+    "steps": [
+      {
+        "type": "article",
+        "id": "seed-article-1",
+        "route": "/articles/seed-article-1",
+        "titleKey": "learningPaths.seedPath1.steps.intro",
+        "descriptionKey": "learningPaths.seedPath1.steps.introDesc",
+        "required": true,
+        "parts": []
+      }
+    ]
+  },
+  {
+    "id": "seed-path-2",
+    "titleKey": "learningPaths.seedPath2.title",
+    "descriptionKey": "learningPaths.seedPath2.description",
+    "icon": "pi pi-book",
+    "difficulty": "beginner",
+    "sector": "foundation",
+    "color": "#22C55E",
+    "order": 2,
+    "learningPromiseKey": "learningPaths.seedPath2.learningPromise",
+    "targetAudienceKey": "learningPaths.seedPath2.targetAudience",
+    "durationKey": "learningPaths.seedPath2.duration",
+    "prerequisitesKey": "learningPaths.seedPath2.prerequisites",
+    "prerequisitePathIds": [],
+    "steps": [
+      {
+        "type": "article",
+        "id": "seed-article-1",
+        "route": "/articles/seed-article-1",
+        "titleKey": "learningPaths.seedPath2.steps.intro",
+        "descriptionKey": "learningPaths.seedPath2.steps.introDesc",
+        "required": true,
+        "parts": []
+      }
+    ]
+  },
+  {
+    "id": "computer-basics",
+    "titleKey": "learningPaths.computerBasics.title",
+    "descriptionKey": "learningPaths.computerBasics.description",
+    "icon": "pi pi-desktop",
+    "difficulty": "beginner",
+    "sector": "foundation",
+    "color": "#22C55E",
+    "order": 3,
+    "learningPromiseKey": "learningPaths.computerBasics.learningPromise",
+    "targetAudienceKey": "learningPaths.computerBasics.targetAudience",
+    "durationKey": "learningPaths.computerBasics.duration",
+    "prerequisitesKey": "learningPaths.computerBasics.prerequisites",
+    "prerequisitePathIds": [],
+    "steps": [
+      {
+        "type": "article",
+        "id": "art-terminal-intro",
+        "route": "/articles/art-terminal-intro",
+        "titleKey": "learningPaths.computerBasics.steps.terminal",
+        "descriptionKey": "learningPaths.computerBasics.steps.terminalDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-terminal-intro-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-terminal-intro-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-dev-environment",
+        "route": "/articles/art-dev-environment",
+        "titleKey": "learningPaths.computerBasics.steps.devEnvironment",
+        "descriptionKey": "learningPaths.computerBasics.steps.devEnvironmentDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-dev-environment-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-dev-environment-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-git-intro",
+        "route": "/articles/art-git-intro",
+        "titleKey": "learningPaths.computerBasics.steps.versioning",
+        "descriptionKey": "learningPaths.computerBasics.steps.versioningDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-git-intro-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-git-intro-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-networking-apis",
+        "route": "/articles/art-networking-apis",
+        "titleKey": "learningPaths.computerBasics.steps.network",
+        "descriptionKey": "learningPaths.computerBasics.steps.networkDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-networking-apis-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-networking-apis-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "agents-basics",
+    "titleKey": "learningPaths.agentsBasics.title",
+    "descriptionKey": "learningPaths.agentsBasics.description",
+    "icon": "pi pi-microchip-ai",
+    "difficulty": "beginner",
+    "sector": "foundation",
+    "color": "#3B82F6",
+    "order": 4,
+    "learningPromiseKey": "learningPaths.agentsBasics.learningPromise",
+    "targetAudienceKey": "learningPaths.agentsBasics.targetAudience",
+    "durationKey": "learningPaths.agentsBasics.duration",
+    "prerequisitesKey": "learningPaths.agentsBasics.prerequisites",
+    "prerequisitePathIds": [
+      "computer-basics"
+    ],
+    "steps": [
+      {
+        "type": "article",
+        "id": "art-vibecoding",
+        "route": "/articles/art-vibecoding",
+        "titleKey": "learningPaths.agentsBasics.steps.naturalLanguage",
+        "descriptionKey": "learningPaths.agentsBasics.steps.naturalLanguageDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-vibecoding-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-vibecoding-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-context-engineering",
+        "route": "/articles/art-context-engineering",
+        "titleKey": "learningPaths.agentsBasics.steps.context",
+        "descriptionKey": "learningPaths.agentsBasics.steps.contextDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-context-engineering-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-context-engineering-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-apis-mcp",
+        "route": "/articles/art-apis-mcp",
+        "titleKey": "learningPaths.agentsBasics.steps.interfaces",
+        "descriptionKey": "learningPaths.agentsBasics.steps.interfacesDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-apis-mcp-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-apis-mcp-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-harness-engineering",
+        "route": "/articles/art-harness-engineering",
+        "titleKey": "learningPaths.agentsBasics.steps.harnessEngineering",
+        "descriptionKey": "learningPaths.agentsBasics.steps.harnessEngineeringDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-harness-engineering-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-harness-engineering-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quality",
+    "titleKey": "learningPaths.quality.title",
+    "descriptionKey": "learningPaths.quality.description",
+    "icon": "pi pi-verified",
+    "difficulty": "intermediate",
+    "sector": "workshop",
+    "color": "#F97316",
+    "order": 5,
+    "learningPromiseKey": "learningPaths.quality.learningPromise",
+    "targetAudienceKey": "learningPaths.quality.targetAudience",
+    "durationKey": "learningPaths.quality.duration",
+    "prerequisitesKey": "learningPaths.quality.prerequisites",
+    "prerequisitePathIds": [
+      "agents-basics"
+    ],
+    "steps": [
+      {
+        "type": "article",
+        "id": "art-agent-tests",
+        "route": "/articles/art-agent-tests",
+        "titleKey": "learningPaths.quality.steps.agentTests",
+        "descriptionKey": "learningPaths.quality.steps.agentTestsDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-agent-tests-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-agent-tests-checkpoint",
+            "checkpointId": "main"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-quality-gates",
+        "route": "/articles/art-quality-gates",
+        "titleKey": "learningPaths.quality.steps.qualityGates",
+        "descriptionKey": "learningPaths.quality.steps.qualityGatesDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-quality-gates-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-quality-gates-checkpoint-1",
+            "checkpointId": "checks"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-quality-gates-checkpoint-2",
+            "checkpointId": "exception"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-code-review-basics",
+        "route": "/articles/art-code-review-basics",
+        "titleKey": "learningPaths.quality.steps.codeReview",
+        "descriptionKey": "learningPaths.quality.steps.codeReviewDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-code-review-basics-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-code-review-basics-checkpoint-1",
+            "checkpointId": "diff-origin"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-code-review-basics-checkpoint-2",
+            "checkpointId": "questions-acceptance"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-secrets-security",
+        "route": "/articles/art-secrets-security",
+        "titleKey": "learningPaths.quality.steps.secretsSecurity",
+        "descriptionKey": "learningPaths.quality.steps.secretsSecurityDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-secrets-security-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-secrets-security-checkpoint-1",
+            "checkpointId": "chain"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-secrets-security-checkpoint-2",
+            "checkpointId": "sort"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "knowledge-concepts",
+    "titleKey": "learningPaths.knowledgeConcepts.title",
+    "descriptionKey": "learningPaths.knowledgeConcepts.description",
+    "icon": "pi pi-share-alt",
+    "difficulty": "beginner",
+    "sector": "society",
+    "color": "#A855F7",
+    "order": 6,
+    "learningPromiseKey": "learningPaths.knowledgeConcepts.learningPromise",
+    "targetAudienceKey": "learningPaths.knowledgeConcepts.targetAudience",
+    "durationKey": "learningPaths.knowledgeConcepts.duration",
+    "prerequisitesKey": "learningPaths.knowledgeConcepts.prerequisites",
+    "prerequisitePathIds": [],
+    "steps": [
+      {
+        "type": "article",
+        "id": "art-second-brain",
+        "route": "/articles/art-second-brain",
+        "titleKey": "learningPaths.knowledgeConcepts.steps.secondBrain",
+        "descriptionKey": "learningPaths.knowledgeConcepts.steps.secondBrainDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-second-brain-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-second-brain-checkpoint",
+            "checkpointId": "second-brain"
+          }
+        ]
+      },
+      {
+        "type": "article",
+        "id": "art-digital-twins",
+        "route": "/articles/art-digital-twins",
+        "titleKey": "learningPaths.knowledgeConcepts.steps.digitalTwins",
+        "descriptionKey": "learningPaths.knowledgeConcepts.steps.digitalTwinsDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-digital-twins-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-digital-twins-checkpoint",
+            "checkpointId": "digital-twins"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "under-the-hood",
+    "titleKey": "learningPaths.underTheHood.title",
+    "descriptionKey": "learningPaths.underTheHood.description",
+    "icon": "pi pi-wrench",
+    "difficulty": "intermediate",
+    "sector": "workshop",
+    "color": "#F97316",
+    "order": 7,
+    "learningPromiseKey": "learningPaths.underTheHood.learningPromise",
+    "targetAudienceKey": "learningPaths.underTheHood.targetAudience",
+    "durationKey": "learningPaths.underTheHood.duration",
+    "prerequisitesKey": "learningPaths.underTheHood.prerequisites",
+    "prerequisitePathIds": [
+      "agents-basics"
+    ],
+    "steps": [
+      {
+        "type": "article",
+        "id": "art-tour",
+        "route": "/articles/art-tour",
+        "titleKey": "learningPaths.underTheHood.steps.tour",
+        "descriptionKey": "learningPaths.underTheHood.steps.tourDesc",
+        "required": true,
+        "parts": [
+          {
+            "type": "quiz",
+            "quizId": "art-tour-quiz"
+          },
+          {
+            "type": "checkpoint",
+            "checkpointStorageKey": "art-tour-checkpoint",
+            "checkpointId": "tour"
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "id": "art-terminal-intro",
+  "pageId": "trml",
+  "created": "2026-04-26",
+  "updated": "2026-08-11",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [],
+  "draft": false,
+  "related": {
+    "articles": [
+      "art-git-intro",
+      "art-networking-apis"
+    ],
+    "glossary": [
+      "cli",
+      "git",
+      "api",
+      "prompt"
+    ],
+    "timeline": []
+  }
+}

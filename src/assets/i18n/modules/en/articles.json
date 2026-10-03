@@ -1,0 +1,17 @@
+{
+  "category": {
+    "fundamentals": "Fundamentals",
+    "architecture": "Architectures",
+    "concepts": "Concepts"
+  },
+  "difficulty": {
+    "beginner": "Beginner",
+    "intermediate": "Intermediate"
+  },
+  "relatedTools": "Related tools",
+  "relatedResources": "Related resources",
+  "openExternal": "Open externally",
+  "viewInCatalog": "View in catalog",
+  "citedSources": "Cited sources",
+  "referencedInArticles": "Referenced in articles"
+}

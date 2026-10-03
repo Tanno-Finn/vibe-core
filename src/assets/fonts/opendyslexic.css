@@ -1,0 +1,27 @@
+/*
+ * OpenDyslexic — self-hosted.
+ *
+ * Files copied from @fontsource/opendyslexic at build time via angular.json
+ * assets glob. Only Latin 400/700 Normal — Italic dropped (not used by the
+ * portal), other scripts dropped (Cyrillic/Greek covered by Noto Sans fallback
+ * in FontService.SYSTEM_STACK).
+ *
+ * Loaded on-demand by FontService when the user activates the dyslexia-
+ * friendly font; not part of the initial bundle.
+ */
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./opendyslexic/opendyslexic-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./opendyslexic/opendyslexic-latin-700-normal.woff2') format('woff2');
+}

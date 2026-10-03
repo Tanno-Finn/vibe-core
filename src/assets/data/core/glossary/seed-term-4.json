@@ -1,0 +1,16 @@
+{
+  "id": "seed-term-4",
+  "category": "general",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [],
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2020-01-01",
+  "updatedAt": "2020-01-01",
+  "related": {
+    "glossary": [
+      "seed-term-5"
+    ]
+  }
+}

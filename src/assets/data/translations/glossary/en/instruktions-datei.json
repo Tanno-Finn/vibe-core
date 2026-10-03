@@ -1,0 +1,8 @@
+{
+  "term": "Instruction File",
+  "alternativeNames": [
+    "Agent Instruction File"
+  ],
+  "description": "An instruction file is a convention file in a project repository that gives an AI agent durable rules and project context: build commands, code conventions, test procedures, things to leave alone. Supporting agents typically read it at the start of each session - so nobody has to retype the same basics into every prompt. What is well documented is that agents follow the rules it contains; whether such files measurably improve results is still an open question. A common example is the open AGENTS.md convention. For orientation: the system prompt comes from whoever runs the application, the prompt from the user per task - the instruction file, by contrast, belongs to the project and travels with the code, like a README for machines.",
+  "example": "A team puts an AGENTS.md into the repository: tests run with npm test, commit messages in English, the legacy/ folder stays untouched. From then on, every AI agent working on the project picks up those rules - no matter who sends it off with which task."
+}

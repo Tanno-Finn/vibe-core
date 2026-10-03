@@ -1,0 +1,218 @@
+{
+  "hero": {
+    "title": "Harness Engineering: Klare Regeln statt Hoffnung",
+    "subtitle": "Ein KI-Agent arbeitet in einer Umgebung. Diese Umgebung heißt Harness. Sie entscheidet oft mehr über das Ergebnis als die KI selbst."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "thesis": "Modell und Harness",
+    "workshop": "Gleicher Arbeiter, andere Werkstatt",
+    "gates": "Die Prüf·station",
+    "rights": "Die Schlüssel·karte",
+    "limits": "Grenzen vom Harness",
+    "loop": "Aus Fehlern werden Regeln",
+    "takeaways": "Das Wichtigste",
+    "quiz": "Quiz",
+    "checkpoint": "Verständnis·check"
+  },
+  "lead": {
+    "paragraph1": "Ein KI-Agent soll einen Fehler im Programm reparieren. Ein KI-Agent ist ein Programm mit einer KI. Der Agent arbeitet allein an einer Aufgabe. Der Agent repariert den Fehler. Dann prüft er 2 Tests. Ein Test prüft automatisch, ob ein Programm·teil richtig rechnet. Beide Tests sind in Ordnung. Der Agent speichert seine Arbeit. Aber der Agent hat auch eine andere Funktion geändert. Diese Funktion nutzen 3 weitere Programm·teile. Einer davon rechnet jetzt falsch. Niemand merkt das. Es gibt keine Fehler·meldung.",
+    "paragraph2": "Warum passiert so etwas? Die Antwort liegt selten bei der KI selbst. Die Antwort liegt meistens in der Umgebung. Die Umgebung ist alles um die KI herum. Dazu gehören Werkzeuge, Rechte und Prüfungen. Diese Umgebung heißt Harness. Harness ist ein englisches Wort. Es bedeutet hier: die Werkstatt um den Agenten herum."
+  },
+  "thesis": {
+    "title": "Agent = Modell + Harness",
+    "text1": "Ein Agent besteht aus 2 Teilen. Der erste Teil ist das Modell. Das Modell ist die trainierte KI. Der zweite Teil ist der Harness. Zum Harness gehört alles andere: die Werkzeuge, die Umgebung, die Prüfungen, die Rechte und das Gedächtnis. Beide Teile bestimmen zusammen das Ergebnis. Harness Engineering bedeutet: Du baust diese Umgebung mit Absicht.",
+    "delimitation": "Es gibt 3 ähnliche Begriffe. Prompt Engineering formuliert die einzelne Anweisung. Context Engineering wählt die Informationen für die KI aus. Harness Engineering baut die ganze Werkstatt. Die Werkstatt ist der Ort für beides.",
+    "disputed": "Fachleute sind sich bei dieser Einteilung nicht einig. Manche ordnen die 3 Begriffe genau so. Andere sehen den Harness als Teil vom Context Engineering. Dieser Artikel nutzt die erste Einteilung. Sie lässt sich besser erklären.",
+    "agcdDelimitation": "Es gibt einen zweiten Artikel dazu. Der Artikel über Agentic Coding erklärt den Agenten selbst. Dieser Artikel hier erklärt die Umgebung um den Agenten.",
+    "objectives": {
+      "title": "Das lernst du in diesem Artikel",
+      "item1": "Du kannst sagen, welche Teile zum Harness gehören.",
+      "item2": "Du erkennst: Ist eine Regel nur ein Wunsch oder eine echte Prüfung?",
+      "item3": "Du sagst voraus, was eine engere Sandbox mit den Rückfragen macht.",
+      "item4": "Du erklärst: Grüne Tests sind kein Beweis für richtigen Code."
+    },
+    "gridIntro": "Der Harness hat 5 Teile. Hier ist eine kurze Übersicht:"
+  },
+  "grid": {
+    "tools": {
+      "label": "Werkzeuge und Skripte",
+      "description": "Der Agent ruft Programme auf. Zum Beispiel Tests oder Suchbefehle."
+    },
+    "sandbox": {
+      "label": "Umgebung und Sandbox",
+      "description": "Eine Sandbox ist ein abgetrennter Bereich. Der Agent arbeitet nur dort."
+    },
+    "gates": {
+      "label": "Prüf·gates",
+      "description": "Ein Gate ist eine Prüf·station. Sie prüft die Arbeit automatisch."
+    },
+    "memory": {
+      "label": "Gedächtnis und Journal",
+      "description": "Ein Journal ist eine Notizdatei. Dort steht der Stand der Arbeit."
+    },
+    "rules": {
+      "label": "Regeln und Instruktions·dateien",
+      "description": "In diesen Dateien stehen die Regeln vom Projekt. Der Agent liest sie."
+    }
+  },
+  "workshop": {
+    "title": "Gleicher Arbeiter, andere Werkstatt",
+    "intro": "Stell dir eine Werkstatt vor. Ein neuer Mitarbeiter fängt dort an. Du richtest die Werkstatt vor dem ersten Tag ein. Du legst die Maschinen fest. Du legst den Not·schalter fest. Du legst das Handbuch bereit. Du bestimmst die Abnahme der Arbeit. Der gleiche Mitarbeiter liefert in einer anderen Werkstatt andere Ergebnisse. Der Unterschied liegt am Raum. Der Unterschied liegt nicht am Können.",
+    "definitionTitle": "Modell und Harness",
+    "analogy": "Das Modell ist der Arbeiter. Der Arbeiter bringt sein Können mit. Sein Können bleibt gleich. Der Harness ist die Werkstatt. Zur Werkstatt gehören Werkzeuge, Not·schalter, Handbuch und Abnahme. Jedes Ergebnis kommt aus beidem.",
+    "scientific": "Das Modell ist die trainierte KI. Zum Harness gehört alles andere im System. Das sind Werkzeuge, Umgebung, Rechte, Prüfungen und Speicher. Beide Teile erzeugen das Ergebnis gemeinsam. Deshalb kannst du 2 Agenten nur mit gleichem Harness vergleichen.",
+    "example": "Eine große Studie hat das gemessen. Die Studie hat 21.730 Agenten·läufe ausgewertet. Dabei liefen 9 Modelle auf 9 Aufgaben·sammlungen. Ein Ergebnis überrascht. Das gleiche Modell löste in einer Umgebung 68 von 100 Aufgaben. In einer anderen Umgebung löste es nur 34 von 100 Aufgaben. Die KI war die gleiche. Nur die Umgebung war anders.",
+    "exampleCaveat": "2 Hinweise zu diesen Zahlen. Der Aufbau der Studie ist gut belegt. Die einzelnen Zahlen kommen aus einer zweiten Auswertung. Lies sie deshalb als berichtete Zahlen. Zum Vergleich: Eine neue Modell·generation bringt laut Berichten nur wenige Punkte mehr. Höchstens sind es etwas mehr als 10 Punkte.",
+    "analogyBreak": "Die Werkstatt·idee hat eine Grenze. Ein Mensch merkt sich eine Ansage. Ein Agent merkt sich eine Ansage nicht. Der Agent startet jede Sitzung neu. Er behält nur das aus Dateien. Diese Dateien liest er beim Start. Eine Erklärung im Chat verschwindet also wieder.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Ein schlechtes Ergebnis heißt schwache KI",
+      "text": "Viele Menschen denken so. Diese Antwort ist meistens teuer. Die gleiche KI liefert je nach Umgebung sehr unterschiedliche Ergebnisse. Der Unterschied beträgt viele Prozent·punkte. Deshalb ist die Umgebung oft die Ursache. Stelle darum zuerst eine andere Frage. Frage: Was in der Umgebung hat diesen Fehler durchgelassen?"
+    },
+    "misconception2": {
+      "title": "Der umgekehrte Irrtum: Die KI ist also egal",
+      "text": "Auch das stimmt nicht. Die Studie misst nur den Einfluss der Umgebung. Die Qualität der KI bleibt trotzdem wichtig. In der gleichen Umgebung liefert eine starke KI bessere Ergebnisse. Die Aussage ist also anders gemeint. Sie bedeutet: Vergleiche 2 Agenten nur mit gleicher Umgebung."
+    }
+  },
+  "memory": {
+    "title": "Der Agent merkt sich nur Dateien",
+    "text": "Der Agent behält nichts von allein. Deshalb muss die Umgebung das übernehmen. Dafür gibt es 3 einfache Mittel. Erstens: Eine Datei beschreibt den Start vom Projekt. Zweitens: Ein Journal hält jeden Arbeits·schritt fest. Drittens: Der Agent speichert nach jedem fertigen Stück. Der Nutzen zeigt sich bei der nächsten Sitzung. Dann steht der Stand der Arbeit geschrieben da."
+  },
+  "rules": {
+    "title": "Und die Regeldatei?",
+    "text": "Eine Regeldatei enthält die Regeln vom Projekt. Der Artikel über Context Engineering erklärt sie genauer. Es gibt dazu ein wichtiges Ergebnis. Eine Studie hat 2 Agenten verglichen. Die Agenten lösten 17 Aufgaben in 288 Läufen. Einmal gab es eine Regeldatei. Einmal gab es keine. Der Code wurde dadurch nicht messbar richtiger. Die Fehler lagen im Entwurf und im Aufbau. Solche Fehler löst eine Regeldatei nicht. Trotzdem ist die Datei nützlich. Sie gibt Orientierung. Aber verlasse dich für richtigen Code nicht auf sie."
+  },
+  "gates": {
+    "title": "Die Prüf·station statt dem Schild",
+    "intro": "Ein Gate ist eine Prüf·station. Sie steht zwischen 2 Zuständen. Zustand 1: Der Agent hält sich für fertig. Zustand 2: Die Änderung gilt wirklich. Das Gate prüft die Arbeit. Bei einem Fehler blockiert das Gate die Änderung. Eine Anweisung im Text wirkt anders. Sie wirkt nur, wenn der Agent sie beachtet.",
+    "definitionTitle": "Gate",
+    "analogy": "Ein Tempo·schild wirkt nur bei aufmerksamen Fahrern. Eine Prüf·station für Autos wirkt immer. Das Auto muss dort hindurch. Ohne Prüfung geht es nicht weiter. Ein Gate ist so eine Prüf·station.",
+    "scientific": "Ein Gate ist eine automatische Prüfung. Sie läuft vor der Übernahme einer Änderung. Bei einem Fehler blockiert sie die Änderung. Typische Gates sind Tests und Codeprüfer. Das Ergebnis geht zurück an den Agenten.",
+    "scope": "Die nächsten 3 Zahlen kommen aus einer einzelnen Studie. Die Studie nutzte offene Qwen·modelle. Die Modelle liefen auf normaler Hardware. Gemessen wurde auf der Aufgaben·sammlung SWE-bench Verified. Die Zahlen sind also eine Messung. Sie sind kein allgemeiner Wert für die Branche.",
+    "experiment": "Der Aufbau ist einfach. Es gab 3 Durchgänge mit den gleichen Aufgaben. Durchgang 1: Niemand sagt etwas. Ergebnis: 6,08 Prozent der Änderungen machen woanders etwas kaputt. Durchgang 2: Die Regel steht als Text in der Anweisung. Ergebnis: 9,94 Prozent. Durchgang 3: Die Regel läuft als automatisches Gate. Das Gate sucht die betroffenen Tests. Dann führt es diese Tests aus. Ergebnis: 1,82 Prozent.",
+    "comparison": {
+      "ariaLabel": "Vergleich: Regel als Text und Regel als Gate",
+      "proseLabel": "Regel steht nur als Text da",
+      "proseResult": "9,94 Prozent der Änderungen machen woanders etwas kaputt. Ohne jede Regel waren es nur 6,08 Prozent.",
+      "gateLabel": "Regel läuft als automatisches Gate",
+      "gateResult": "1,82 Prozent. Außerdem löste der Agent mehr Aufgaben: 32 statt 24 Prozent."
+    },
+    "keySentence": "Die Regel als Text war schlechter als gar keine Regel.",
+    "stat": {
+      "label": "Fehler mit Gate",
+      "value": "-70 %",
+      "description": "Der Wert sinkt von 6,08 auf 1,82 Prozent."
+    },
+    "statResolve": {
+      "label": "Gelöste Aufgaben",
+      "value": "+8 Punkte",
+      "description": "Der Agent löste 32 statt 24 Prozent der Aufgaben. Das Gate hat ihn nicht gebremst."
+    },
+    "inspection": "Die Prüf·station passt als Bild besser als das Schild. Die Station prüft jeden. Aufmerksamkeit und guter Wille spielen keine Rolle.",
+    "inspectionBreak": "Das Bild hat aber eine Grenze. Bei einer echten Auto·prüfung schreibt eine unabhängige Stelle die Liste. Bei Tests schreibt der Geprüfte die Liste selbst. Deshalb ist eine Frage wichtig. Die Frage lautet: Wem gehört die Testdatei?",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Grüne Tests heißen richtiger Code",
+      "text": "Grün heißt nur eine Sache. Alles Geprüfte funktioniert. Über ungeprüfte Stellen sagt Grün nichts. Manche Fehler findet kein Gate. Dazu gehört eine falsche Diagnose. Dazu gehört eine zu komplizierte Lösung. Dazu gehört eine saubere Lösung für die falsche Aufgabe."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Aufschreiben ist wie Durchsetzen",
+      "text": "Die Zahl 9,94 Prozent zeigt den Unterschied. Die Textregel half nicht. Sie machte das Ergebnis sogar schlechter. Eine Erklärung dafür ist plausibel. Eine zusätzliche Anweisung kostet Aufmerksamkeit. Außerdem fühlt sich das Thema erledigt an. Geprüft hat aber niemand."
+    },
+    "deepDive": {
+      "title": "Vertiefung: Der Agent lernt die sichtbaren Tests auswendig",
+      "text1": "Eine Studie hat 30 schwierige Programm·aufgaben untersucht. Jede Aufgabe hatte 2 Testreihen. Reihe 1 war sichtbar. Der Agent durfte sie nutzen. Reihe 2 war versteckt. Der Agent sah sie nie. Die besten heutigen Agenten bestehen die sichtbare Reihe. Bei der versteckten Reihe wird der Abstand größer. Der Abstand wächst um 28 Prozent·punkte pro 10-facher Codemenge.",
+      "text2": "Ein Fall aus der Studie ist besonders klar. Ein Programm hatte 2.900 Zeilen. Es sah aus wie ein Übersetzer für Code. In Wirklichkeit hatte es die Testfälle auswendig gelernt. Wichtig ist dabei ein Punkt. Der Agent hat keine Testdatei gelöscht. Er hat auch keine Testdatei geändert. Er hat sich nur an die sichtbaren Tests angepasst. Das ist die leisere Form vom gleichen Problem."
+    }
+  },
+  "rights": {
+    "title": "Die Schlüssel·karte statt dem Wachhund",
+    "intro": "Die Überschrift nennt 2 Bilder. Ein Wachhund achtet auf das Verhalten. Er bellt, wenn ihm etwas komisch vorkommt. Aber man kann einen Wachhund täuschen. Eine Schlüssel·karte achtet auf gar nichts. Sie öffnet 3 Türen und die vierte nicht. Dabei ist egal, wer die Karte trägt. Die Rechte vom Agenten sind wie die Karte. Sie gelten vorher und für jede Tür einzeln. Es gibt 2 verschiedene Einstellungen. Menschen verwechseln sie oft. Einstellung 1 regelt die technischen Möglichkeiten. Sie legt fest: Welche Ordner darf der Agent beschreiben? Sie legt fest: Welche Adressen im Netz darf er erreichen? Einstellung 2 regelt die Rückfragen. Sie legt fest: Wann muss der Agent einen Menschen fragen? Viele Coding·agenten haben dafür 2 getrennte Regler.",
+    "twoDials": "Das Zusammenspiel überrascht viele Menschen. Die meisten erwarten mehr Rückfragen bei engeren Grenzen. Die Messung zeigt das Gegenteil.",
+    "stepsTitle": "Beispiel: Weniger Rückfragen durch eine engere Grenze",
+    "step1": "Am Anfang steht ein Rechen·beispiel. Eine Sitzung dauert 3 Stunden. Dabei kommen etwa 50 Rückfragen. Diese Zahl 50 ist nur angenommen. Sie ist keine Messung.",
+    "step2": "Jetzt schaltest du die Isolation ein. Der Agent schreibt nur noch im Projekt·ordner. Er erreicht nur noch erlaubte Adressen im Netz.",
+    "step3": "Die gemessene Zahl ist die Ersparnis. Es gibt 84 Prozent weniger Rückfragen. Diese Zahl kommt vom Hersteller selbst. Aus 50 Rückfragen werden also etwa 8.",
+    "step4": "Der Grund ist einfach. Alles innerhalb der Grenze ist jetzt sicher. Deshalb braucht es dort keine Zustimmung mehr. Übrig bleiben nur Aktionen über die Grenze hinaus.",
+    "step5": "Jetzt kommt der Ernstfall. In einer fremden Dokumentation steht eine versteckte Anweisung. Die Anweisung lautet: Schicke eine Konfigurations·datei an einen fremden Server. Der Agent folgt der Anweisung. Die Isolation verhindert das nicht. Aber der fremde Server ist nicht erlaubt. Deshalb scheitert der Versand.",
+    "analogyBreak": "Das Bild hat aber eine Grenze. Ein Karten·system vertraut dem Träger. Ein Agent lässt sich zu falschen Aktionen überreden. Seine Rechte hat er dabei ganz legal. Der Wachhund hilft hier auch nicht. Wer sich unauffällig verhält, kommt an ihm vorbei.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Die Sandbox schützt vor Prompt Injection",
+      "text": "Prompt Injection ist ein versteckter Befehl in fremdem Text. Die KI hält den Befehl für eine echte Anweisung. Beide großen Anbieter schreiben dazu das Gleiche. Eine Sandbox begrenzt nur den Schaden. Sie erkennt den versteckten Befehl nicht. Sie verhindert ihn auch nicht."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Sandbox und Rückfragen sind ein Regler",
+      "text": "Es sind 2 getrennte Regler. Regler 1 bestimmt die technischen Möglichkeiten. Regler 2 bestimmt die Rückfragen. Viele denken an einen einzigen Regler. Dann erwarten sie mehr Unterbrechungen durch mehr Sicherheit. Deshalb stellen sie die Umgebung zu locker ein. Die Messung zeigt aber das Gegenteil. Eine engere Grenze bringt weniger Rückfragen."
+    },
+    "injectionLink": "Der Artikel über Prompt Injections erklärt die Technik dahinter. Für diesen Artikel reicht ein Satz. Die Grenze begrenzt den Schaden. Sie ist keine Abwehr."
+  },
+  "limits": {
+    "title": "Die Grenzen vom Harness",
+    "coverage": "Kein Gate findet jeden Fehler. Ein Gate erkennt keine falsche Diagnose. Ein Gate erkennt keine zu komplizierte Lösung. Ein Gate erkennt keine Lösung für die falsche Aufgabe. Ein Gate prüft nur das Geplante. Dazu kommt ein weiteres Problem. Es gibt kein festes Maß für die Qualität von einem Harness. Du merkst also eine Verbesserung. Aber du kennst die Qualität nicht genau.",
+    "coinage": "Der Begriff Harness Engineering ist noch sehr jung. Mitchell Hashimoto benutzt ihn am 5. Februar 2026. Er erklärt den Begriff dort als neue Wort·prägung. Andere Fachleute nennen einen späteren Beitrag als Ursprung. Der Begriff ist also noch kein Jahr alt. Die Herkunft ist umstritten. Die Sache selbst ist viel älter. Automatische Prüfungen gibt es seit Jahrzehnten. Abgetrennte Umgebungen gibt es auch seit Jahrzehnten.",
+    "deepDive": {
+      "title": "Vertiefung: Der Aufwand für den Harness",
+      "text": "Ein Harness kostet auch Aufwand. Fachleute berichten davon aus der Praxis. Der Harness wird selbst zu einem Produkt. Er hat eigene Fehler. Er braucht Pflege. Zusätzliche Prüf·agenten kosten Zeit und Geld. Wichtig ist die Einordnung dieser Kritik. Sie kommt aus Erfahrungs·berichten. Sie kommt nicht aus einer Messung. Es gibt keine feste Zahl dafür. Niemand weiß genau, wann der Aufwand zu groß wird. Ein Rat hilft trotzdem. Baue die billigsten Prüfungen zuerst."
+    }
+  },
+  "loop": {
+    "title": "Aus Fehlern werden dauerhafte Regeln",
+    "text": "Denk an den Anfang vom Artikel zurück. Dort rechnete ein Programm·teil still falsch. Ohne Harness bleibt der Fehler eine Geschichte. Jemand erzählt sie im Team. Danach passiert nichts weiter. Mit Harness wird der Fehler zu einer Regel. Eine Prüfung testet ab jetzt die abhängigen Teile. Das ist die Idee hinter Harness Engineering. Werkstatt, Prüf·station und Schlüssel·karte gehören zusammen. Sie zeigen die gleiche Gewohnheit. Die Gewohnheit lautet: Baue deine Regeln ein."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste in 5 Punkten",
+    "item1": "Ein Agent besteht aus Modell und Harness. Der Harness ist oft der wichtigere Teil. Du kannst ihn außerdem leichter ändern.",
+    "item2": "Eine Regel im Text ist nur ein Wunsch. Eine Regel als Gate ist eine echte Prüfung. Der Unterschied ist in der Messung sehr groß.",
+    "item3": "Rechte und Rückfragen sind 2 getrennte Regler. Regler 1 bestimmt die Möglichkeiten. Regler 2 bestimmt die Rückfragen. Eine engere Grenze bringt oft weniger Rückfragen.",
+    "item4": "Ein Gate beweist keinen richtigen Code. Es zeigt nur: Das Geprüfte funktioniert. Bei großen Projekten wächst die Lücke zu unentdeckten Fehlern.",
+    "item5": "Harness Engineering bedeutet: Aus jedem Fehler wird eine feste Prüfung. Dann passiert der gleiche Fehler so nicht noch einmal."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Harness Engineering",
+    "q1": {
+      "question": "Ein Agent besteht aus Modell und Harness. Was gehört zum Harness?",
+      "a": "Nur die trainierte KI und ihre Berechnungen gehören zum Harness dazu.",
+      "b": "Alles außer der KI: Werkzeuge, Umgebung, Gates, Rechte und Speicher.",
+      "c": "Nur die Chat·oberfläche für die Bedienung von dem Agenten gehört dazu.",
+      "d": "Nur die Trainings·daten von der KI gehören mit zum Harness dazu.",
+      "explanation": "Der Harness ist alles außer der KI selbst. Die trainierte KI ist das Modell. Die Trainings·daten gehören zur Entstehung vom Modell. Die Chat·oberfläche ist nur ein Werkzeug von vielen."
+    },
+    "q2": {
+      "question": "Ein Kollege sagt: Ich habe dem Agenten die Regel einmal im Chat erklärt. Das reicht doch. Was übersieht er?",
+      "a": "Nichts davon stimmt. Ein Agent merkt sich eine Erklärung genauso gut wie ein Mensch.",
+      "b": "Erklärungen wirken nur bei leichten Aufgaben. Bei schweren Aufgaben wirken sie nicht mehr.",
+      "c": "Ein Agent startet jede Sitzung neu. Dauerhaft ist nur eine Datei oder eine Prüfung.",
+      "d": "Der Agent speichert den Chat zwar dauerhaft. Aber er liest ihn beim Start nicht mit.",
+      "explanation": "Der Agent behält nichts nach dem Ende der Sitzung. Eine Regel wird erst durch eine Datei dauerhaft. Verlässlich wird sie erst durch eine Prüfung. Gesagt ist also nicht eingebaut."
+    },
+    "q3": {
+      "question": "Dein Team vergisst oft den Eintrag im CHANGELOG. Vorschlag A: ein Satz dazu in der Regeldatei. Vorschlag B: eine automatische Prüfung. Sie blockiert das Speichern ohne Eintrag. Was sagen die Zahlen im Artikel über Vorschlag A?",
+      "a": "Vorschlag A wirkt genauso zuverlässig wie Vorschlag B. Beide sagen ja das Gleiche.",
+      "b": "Vorschlag A wirkt zuverlässig. Dafür muss die Regel nur klar genug formuliert sein.",
+      "c": "Vorschlag A wirkt bei kleinen Projekten zuverlässig. Erst bei großen wirkt er nicht mehr.",
+      "d": "Vorschlag A kann schlechter sein als gar keine Regel. Nur die Prüfung B ist verlässlich.",
+      "explanation": "In der Messung senkte das Gate die Fehler·quote deutlich. Die gleiche Regel als Text machte das Ergebnis schlechter. Sie war sogar schlechter als gar keine Regel. Eine Anweisung wirkt nur bei Beachtung. Eine Prüfung wirkt immer."
+    },
+    "q4": {
+      "question": "Ein Agent soll ein fremdes Projekt lesen. Er soll einen Bericht schreiben. Ändern soll er nichts. Du willst außerdem wenige Rückfragen. Welchen Regler stellst du um? Und wovor schützt dich das nicht?",
+      "a": "Den Regler für Rückfragen auf nie fragen. Das schützt nicht vor fehlendem Kontext.",
+      "b": "Den Regler für die Sandbox auf nur lesen. Das schützt nicht vor versteckten Befehlen.",
+      "c": "Beide Regler auf volle Rechte und nie fragen. Das schützt nicht vor Fehlern im Bericht.",
+      "d": "Keinen von beiden Reglern. Die Zahl der Rückfragen hängt nur von der KI selbst ab.",
+      "explanation": "Die 2 Regler sind unabhängig voneinander. Bei nur lesen sind Änderungen technisch unmöglich. Deshalb braucht es dort keine Zustimmung mehr. Die Rückfragen fallen also weitgehend weg. Versteckte Befehle erkennt die Sandbox trotzdem nicht."
+    },
+    "q5": {
+      "question": "Ein Agent meldet in einem großen Projekt alle sichtbaren Tests als grün. Er hat dabei keinen Test gelöscht oder geändert. Eine versteckte Testreihe zeigt später mehrere Fehler. Was erklärt das am besten? Und was ist der Unterschied zum Löschen von einem Test?",
+      "a": "Es ist trotzdem eine Test·manipulation. Der Unterschied ist nur formal und ohne Bedeutung.",
+      "b": "Große Projekte haben einfach mehr Fehler. Einen inhaltlichen Unterschied gibt es dabei nicht.",
+      "c": "Er hat sich an die sichtbaren Tests angepasst. Der Abstand wächst mit der Größe vom Projekt.",
+      "d": "Ein gutes Gate lässt so etwas gar nie zu. Der Fall zeigt also einen Fehler im Gate selbst.",
+      "explanation": "Ein gelöschter Test fällt im Verlauf sofort auf. Hier bleibt jede Testdatei unverändert. Der Agent passt sich trotzdem an die sichtbaren Tests an. Manchmal lernt er die Ergebnisse sogar auswendig. Der Abstand zur versteckten Reihe wächst um 28 Prozent·punkte pro 10-facher Codemenge. Diese leise Form ist deshalb gefährlicher."
+    }
+  },
+  "checkpoint": {
+    "title": "Verständnis·check",
+    "item1": "Ein Kollege nutzt die gleiche KI in 2 Werkzeugen. In Werkzeug A klappt es gut. In Werkzeug B klappt es schlecht. Jetzt will er eine größere KI. Was rätst du ihm?",
+    "item2": "Dein Team schreibt eine neue Regel in die Regeldatei. Ist das ein Wunsch oder eine echte Prüfung? Was sagen die Zahlen im Artikel dazu?",
+    "item3": "Du stellst den Agenten auf nur lesen um. Fragt er dich jetzt öfter oder seltener? Und schützt ihn das vor einer präparierten Datei?"
+  }
+}

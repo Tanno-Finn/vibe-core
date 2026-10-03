@@ -1,0 +1,57 @@
+{
+  "id": "agenten-gedaechtnis",
+  "category": "tools",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Agent Memory",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Agent Memory",
+      "Langzeitgedächtnis für KI-Agenten"
+    ],
+    "en": [
+      "Long-Term Agent Memory",
+      "Persistent Memory"
+    ],
+    "de-easy": [
+      "Agent Memory"
+    ],
+    "en-easy": [
+      "Memory for AI Agents"
+    ]
+  },
+  "sources": [
+    {
+      "type": "paper",
+      "citation": "Packer, Charles et al.: MemGPT - Towards LLMs as Operating Systems. arXiv, 2023",
+      "url": "https://arxiv.org/abs/2310.08560",
+      "notes": "Frühes System für virtuelles Kontext-Management: Information wird zwischen Kontextfenster und externem Speicher hin- und herbewegt, inspiriert von virtuellem Speicher in Betriebssystemen."
+    },
+    {
+      "type": "paper",
+      "citation": "Zhang, Zeyu et al.: A Survey on the Memory Mechanism of Large Language Model based Agents. arXiv, 2024",
+      "url": "https://arxiv.org/abs/2404.13501",
+      "notes": "Systematischer Überblick über Gedächtnis-Mechanismen von LLM-Agenten: Speicherformate, Abruf-Strategien, Verwaltung."
+    },
+    {
+      "type": "paper",
+      "citation": "From Human Memory to AI Memory: A Survey on Memory Mechanisms in the Era of LLMs. arXiv, 2025",
+      "url": "https://arxiv.org/abs/2504.15965",
+      "notes": "Cross-Referenz: ordnet Kurzzeitgedächtnis (innerhalb der Sitzung) und Langzeitgedächtnis (über Sitzungsgrenzen hinweg) systematisch ein."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "agent",
+      "context-window",
+      "second-brain",
+      "session",
+      "context"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

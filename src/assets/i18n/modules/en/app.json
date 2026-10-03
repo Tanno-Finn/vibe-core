@@ -1,0 +1,44 @@
+{
+  "nav": {
+    "aiTimeline": "Timeline",
+    "aiTools": "Software & Platforms",
+    "catalog": "Catalog",
+    "controls": "Header controls",
+    "emptyTitle": "No matching page found",
+    "emptyHint": "Try a different search term or enter a 4-digit page ID.",
+    "emptyClearAction": "Reset search",
+    "glossary": "Glossary",
+    "group": {
+      "development": "Workshop (dev only)",
+      "interaktiveDemos": "Interactive Demos",
+      "knowledge": "Knowledge",
+      "learningPaths": "Learning Paths",
+      "lessons": "Lessons",
+      "portal": "General",
+      "misc": "Misc"
+    },
+    "home": "Home",
+    "invalidPageId": "No page found with that ID",
+    "main": "Main navigation",
+    "pageNotFound": "Page Not Found",
+    "progress": "My Progress",
+    "search": "Navigate to page...",
+    "searchHelp": "Type to find pages. Use arrow keys to navigate.",
+    "searchPages": "Search pages",
+    "showMore": "More...",
+    "sitemap": "Site Overview",
+    "userSettings": "User Settings",
+    "skipToContent": "Skip to content",
+    "devWorkshop": "Workshop",
+    "devDesign": "Design System",
+    "devAgents": "Agent Guide",
+    "breadcrumb": "Breadcrumb"
+  },
+  "footer": {
+    "impressum": "Legal Notice",
+    "licenseLink": "License information - CC BY 4.0",
+    "accessibility": "Accessibility",
+    "printLicense": "License: CC BY 4.0 — attribution required",
+    "cookieSettings": "Cookie settings"
+  }
+}

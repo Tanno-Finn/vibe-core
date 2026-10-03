@@ -1,0 +1,23 @@
+{
+  "id": "repository",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [
+    "Repo"
+  ],
+  "childConcepts": [],
+  "parentConcepts": [],
+  "createdAt": "2026-03-26",
+  "updatedAt": "2026-03-26",
+  "related": {
+    "glossary": [
+      "git",
+      "cli",
+      "instruktions-datei"
+    ],
+    "articles": [
+      "art-git-intro"
+    ]
+  }
+}

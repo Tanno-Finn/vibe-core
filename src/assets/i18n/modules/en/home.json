@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "subtitle": "An educational companion for your subject — with interactive demos, a glossary, and a timeline."
+  },
+  "marquee": {
+    "title": "Browse all content",
+    "ariaLabel": "Endless band of all content",
+    "pause": "Pause content band",
+    "play": "Resume content band",
+    "expand": "Show all content as a grid",
+    "collapse": "Back to the moving content band",
+    "announceExpanded": "Showing all content as a grid.",
+    "announceCollapsed": "Back to the moving content band."
+  },
+  "navigation": {
+    "bookIntegration": "Every page has a unique 4-character ID — handy for linking from printed materials or QR codes.",
+    "examples": {
+      "exampleDemo": "Example of how an interactive demo is built",
+      "tools": "Comprehensive catalog of all content"
+    },
+    "examplesTitle": "Navigation Examples:",
+    "searchFeature": "Type an ID directly into the search bar in the top right to quickly jump to a specific page.",
+    "title": "Quick navigation"
+  },
+  "quickStart": {
+    "title": "Jump right in",
+    "subtitle": "Four ways in — pick what speaks to you.",
+    "evolution": {
+      "title": "See the example demo",
+      "description": "A small interactive demo that doubles as a copy template — this is what your own demos will feel like.",
+      "cta": "Try it now"
+    },
+    "glossary": {
+      "title": "A term, clearly explained",
+      "description": "One concept with a definition, an example, and context — plus many more terms in the glossary.",
+      "cta": "See the term"
+    },
+    "timeline": {
+      "title": "How it all began",
+      "description": "A milestone of your subject on the timeline — the starting point where the story begins.",
+      "cta": "Go to the milestone"
+    },
+    "prompting": {
+      "title": "The example article",
+      "description": "The copy template for your content — every building block from intro to quiz.",
+      "cta": "Read it now"
+    }
+  },
+  "showcase": {
+    "title": "What awaits you",
+    "learningPaths": {
+      "title": "Step by step to understanding",
+      "description": "Structured learning paths guide you from fundamentals to advanced concepts. With progress tracking and sequentially building lessons.",
+      "cta": "Discover learning paths"
+    },
+    "lessons": {
+      "title": "Depth over superficiality",
+      "description": "Comprehensive lessons with theory, practical examples, and integrated knowledge tests. From beginner guides to advanced articles for experts.",
+      "cta": "View lessons"
+    },
+    "demos": {
+      "title": "Hands-on instead of just reading",
+      "description": "Interactive demos where you control the parameters yourself and see what happens right away. Understanding through doing.",
+      "cta": "Start demos"
+    },
+    "tools": {
+      "title": "Your toolkit",
+      "description": "Curated and rated tools and learning resources. From general helpers to specialized developer tools — find the right one.",
+      "cta": "Browse tools"
+    },
+    "timeline": {
+      "title": "History at a glance",
+      "description": "Explore the most important milestones of your subject interactively. Chronologically arranged.",
+      "cta": "Explore timeline"
+    },
+    "glossary": {
+      "title": "Terms, clearly explained",
+      "description": "Every term with definition, example, and context. Your reference for the whole subject.",
+      "cta": "Open glossary"
+    },
+    "sources": {
+      "title": "Sources, transparently referenced",
+      "description": "All sources and further reading — searchable and filterable. Every claim is backed by a source.",
+      "cta": "Search sources"
+    },
+    "roadmap": {
+      "title": "What's happening? The roadmap",
+      "description": "New learning paths, translation quality, and latest news — transparent and at a glance.",
+      "cta": "View roadmap"
+    }
+  },
+  "tableOfContents": "Table of Contents",
+  "toc": {
+    "hero": "Welcome",
+    "quickStart": "Jump right in",
+    "showcase": "Discover",
+    "navigation": "Navigation"
+  },
+  "translationNotice": {
+    "title": "Translation Notice",
+    "text": "This notice is not displayed in English as it is a primary language. These keys exist here for consistency with other languages."
+  },
+  "templateBridge": {
+    "text": "This page is a template — everything on it is sample content waiting for your topic. Open your AI agent and say “onboarding”, and it becomes yours."
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "term": "MCP Server",
+  "alternativeNames": ["Model Context Protocol Server"],
+  "description": "An MCP Server is a program. It provides tools and data for an AI assistant. The AI can use these tools to do things. For example: read files, search a database, or run a function. The MCP Server and the AI talk using the Model Context Protocol. That is a shared standard. Many companies have built their own MCP Servers. For example: GitHub, Slack, and Notion. This lets an AI assistant use many different services without special setup for each one.",
+  "example": "A company builds an MCP Server for their database. The AI assistant connects to the server. Now users can ask questions in plain language. The MCP Server turns those questions into database queries."
+}

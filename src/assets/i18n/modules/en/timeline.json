@@ -1,0 +1,51 @@
+{
+  "aiTimeline": {
+    "categories": {
+      "all": "All Categories",
+      "breakthroughs": "Breakthroughs",
+      "competitions": "Competitions",
+      "conferences": "Conferences",
+      "datasets": "Datasets",
+      "deep-learning": "Deep Learning",
+      "dev-tools": "Development Tools",
+      "foundations": "AI Foundations",
+      "game-ai": "Game AI",
+      "generative-ai": "Generative AI",
+      "history": "AI History",
+      "knowledge-systems": "Knowledge Systems",
+      "llm": "Large Language Models",
+      "machine-learning": "Machine Learning",
+      "milestones": "Milestones",
+      "neural-networks": "Neural Networks",
+      "nlp": "Natural Language Processing",
+      "organizations": "Organizations",
+      "papers": "Papers",
+      "products": "Products",
+      "regulation": "Regulation",
+      "robotics": "Robotics",
+      "science": "Science"
+    },
+    "empty": {
+      "title": "No Events Found",
+      "text": "No timeline entry matches the current filters. Try a different search, fewer category filters, or a wider time period.",
+      "resetButton": "Reset All Filters"
+    },
+    "filters": {
+      "active": "Active filters",
+      "category": "Category",
+      "clear": "Reset filters",
+      "clearSearch": "Clear search",
+      "dateRange": "Date Range",
+      "removeFilter": "Remove filter",
+      "search": "Search",
+      "searchHelp": "Search through titles and descriptions",
+      "searchPlaceholder": "Search for events..."
+    },
+    "readMore": "Read more",
+    "results": "events",
+    "tableOfContents": "Table of Contents",
+    "sections": {
+      "filters": "Filters"
+    }
+  }
+}

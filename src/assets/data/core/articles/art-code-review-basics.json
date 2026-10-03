@@ -1,0 +1,45 @@
+{
+  "id": "art-code-review-basics",
+  "path": "articles/art-code-review-basics",
+  "titleKey": "articleCodeReviewBasics.hero.title",
+  "descriptionKey": "articleCodeReviewBasics.hero.subtitle",
+  "category": "concepts",
+  "estimatedTime": "19min",
+  "difficulty": "intermediate",
+  "featured": false,
+  "pageId": "revw",
+  "created": "2026-08-16",
+  "updated": "2026-09-05",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "sadowski-modern-code-review-2018",
+    "google-small-cls-2026",
+    "git-diff-2026",
+    "dijkstra-structured-programming-1969",
+    "istqb-acceptance-testing-2026",
+    "turpin-unfaithful-explanations-2023",
+    "huang-self-correct-2023",
+    "xiong-confidence-elicitation-2023",
+    "google-cl-descriptions-2026",
+    "google-looking-for-2026",
+    "anthropic-reasoning-modelle-2025",
+    "sharma-auf-2023",
+    "goddard-automation-2012"
+  ],
+  "related": {
+    "articles": [
+      "art-agent-tests",
+      "art-quality-gates",
+      "art-git-intro"
+    ],
+    "glossary": [
+      "code-review",
+      "diff",
+      "commit",
+      "agent",
+      "human-in-the-loop"
+    ],
+    "timeline": []
+  }
+}

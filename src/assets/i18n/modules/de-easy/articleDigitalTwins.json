@@ -1,0 +1,250 @@
+{
+  "hero": {
+    "title": "Digitale Zwillinge",
+    "subtitle": "Der Begriff kommt aus der Raumfahrt. Heute steht er auch in der Werbung. Vier Fragen helfen dir beim Unterscheiden."
+  },
+  "toc": {
+    "lead": "Einleitung",
+    "origin": "Zwei Eltern und ein Streit um das Jahr",
+    "test": "Was einen Zwilling zum Zwilling macht",
+    "ladder": "Modell, Schatten, Zwilling",
+    "works": "Wo der Begriff wirklich passt",
+    "person": "Der KI-Zwilling einer Person",
+    "limits": "Grenzen",
+    "close": "Die vier Fragen",
+    "takeaways": "Das Wichtigste",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Ein Triebwerk hat ein Lager. Das Lager wird zu warm. Ein Modell im Computer merkt das. Die Maschine wird langsamer gestellt. Niemand muss dafür hingehen. Ein Assistent schreibt deine Mails. Er trifft deinen Ton. Er macht auch Termine für dich. Beide werden „digitaler Zwilling“ genannt.",
+    "paragraph2": "Das Wort verspricht zu viel. „Zwilling“ klingt nach genauer Kopie. Aber das stimmt nicht. Ein digitaler Zwilling ist mit Absicht unvollständig. Er zeigt nur das, was für seinen Zweck nötig ist.",
+    "paragraph3": "Es gibt einen Test dafür. Der Test hat vier Fragen. Du brauchst dafür kein Technik·wissen. Der Test passt auf Fabriken. Er passt auch auf Forschung und auf Werbung. Werbung lügt hier nicht immer. Auch seriöse Stellen dehnen das Wort. Darum lohnt sich ein eigener Maßstab."
+  },
+  "objectives": {
+    "title": "Das lernst du hier",
+    "item1": "Du kannst die vier Bedingungen nennen. Es gibt ein echtes Gegenstück. Messwerte fließen von allein hinein. Etwas fließt von allein zurück. Zweck und Genauigkeit sind festgelegt.",
+    "item2": "Du kannst Digitales Modell, Digital Shadow und digitalen Zwilling unterscheiden. Du erkennst das an der Richtung der Daten.",
+    "item3": "Du kannst erklären, warum Konzept und Name verschieden alt sind. Und warum kein genaues Jahr sicher ist.",
+    "item4": "Du kannst einen „KI-Zwilling einer Person“ prüfen. Du fragst dann: Was wird am Menschen gemessen?",
+    "item5": "Du kannst zwei Grenzen des Begriffs nennen. Eine Grenze gilt auch für dieses Portal."
+  },
+  "origin": {
+    "title": "Zwei Eltern und ein Streit um das Jahr",
+    "concept": "Die Idee entsteht Anfang der 2000er Jahre. Sie kommt aus einem Kurs über Produkt·lebens·zyklus·management. Die Idee ist einfach. Jedes echte Produkt bekommt ein Gegenstück im Computer. Beide bleiben über eine Daten·leitung verbunden. Michael Grieves stellt die Idee dort vor. Den Namen hat er aber nicht erfunden. Das schreibt er 2014 selbst. Der Name kommt von John Vickers. Vickers ist Ingenieur bei der NASA.",
+    "documents": "Es gibt eine NASA-Roadmap vom November 2010. Ein Fachtext von 2012 nennt sie als Grundlage. Sie gilt als erstes offizielles Dokument mit dem Begriff. Was genau darin steht, haben wir nicht geprüft. Unter der alten NASA-Adresse liegt es nicht mehr. Darum zitieren wir es hier nicht. Die erste gute Definition stammt aus dem Jahr 2012. Sie kommt aus der Luft- und Raumfahrt.",
+    "substance": "Warum ist diese Definition so streng? Sie entstand bei Flugzeugen. Ein Fehler ist dort sehr teuer. Früher rechnete man mit Sicherheits·zuschlägen. Woher die Zahlen kamen, wusste kaum jemand genau. Der Zwilling sollte das Raten ersetzen. Er bildet genau dieses eine Flugzeug ab. Darum ist die Daten·leitung so wichtig.",
+    "dispute": "Jetzt kommt der Streit um das Jahr. Grieves schreibt 2014 selbst: Das war 2003. Später schreiben fast alle: Das war 2002. Beide Angaben kommen von derselben Person. Sicher ist nur: Es war Anfang der 2000er Jahre.",
+    "merke": "Eine Zahl steht oft überall. Trotzdem ist sie nicht geprüft.",
+    "misconceptions": "Zwei Sätze hörst du oft. „Die NASA hat den digitalen Zwilling erfunden.“ Das ist falsch. „Grieves hat den Begriff erfunden.“ Das ist auch falsch. Richtig ist: Die Idee kommt aus dem Produktlebenszyklus. Der Name kommt aus der Raumfahrt. Die Definition kommt aus der Luftfahrt."
+  },
+  "test": {
+    "title": "Was einen Zwilling zum Zwilling macht",
+    "analogy1": "Stell dir drei Dinge vor. Alle drei zeigen dieselbe Stadt. Das erste ist ein gedruckter Stadtplan. Er ist genau und nützlich. Aber er weiß nichts vom Stau heute Morgen.",
+    "analogy2": "Das zweite ist ein Navi mit Live·verkehr. Das Navi weiß vom Stau. Die Daten fließen in das Navi hinein. Aber die Straße merkt davon nichts. Auf der Straße ändert sich nichts.",
+    "analogy3": "Das dritte ist eine Verkehrsleitzentrale. Sie schaltet Ampeln um. Sie sperrt Spuren. Sie lenkt Autos um. Der Unterschied liegt nicht im schönen Bild. Der Unterschied liegt in den Daten. Fließen sie von allein? Und in wie viele Richtungen?",
+    "definitionTitle": "Digitaler Zwilling",
+    "definitionEverydayLabel": "Einfach gesagt",
+    "definitionEveryday": "Ein digitaler Zwilling gehört zu einem echten Ding. Das Ding gibt es wirklich. Es ist ein bestimmtes Ding. Messwerte von diesem Ding fließen von allein hinein. Etwas fließt auch wieder zurück. Und es ist festgelegt: Wofür ist der Zwilling gut? Wie genau muss er sein? Zwei Forscher haben es kurz gesagt. Sie arbeiten am National Physical Laboratory in Großbritannien. Übersetzt sagen sie: Ohne physischen Zwilling ist es nur ein Modell.",
+    "definitionPreciseLabel": "Fachlich",
+    "definitionPrecise": "Ein digitaler Zwilling ist ein Abbild im Computer. Es gehört zu einem einzelnen, messbaren Objekt. Eine automatische Daten·leitung hält beide synchron. Ein automatischer Rückweg wirkt auf das Objekt. Der Zwilling hat einen festen Zweck. Er ist nur so genau wie nötig. Er ist mit Absicht unvollständig.",
+    "questionsTitle": "Die vier Fragen",
+    "q1": {
+      "label": "Gibt es das echte Ding wirklich?",
+      "description": "Es muss ein einzelnes, echtes Ding sein. Kein Typ. Nichts Ausgedachtes."
+    },
+    "q2": {
+      "label": "Misst sich der Zustand des Dings von allein?",
+      "description": "Es müssen Messwerte vom Ding selbst sein. Ohne Handarbeit. Texte, die ein Mensch geschrieben hat, sind keine Messwerte."
+    },
+    "q3": {
+      "label": "Ändert sich durch das Modell etwas am echten Ding - von allein oder durch eine feste Regel?",
+      "description": "Der Rückweg muss eingebaut und ständig sein. Er läuft von allein oder über eine feste Schleife. Ein Mensch schaut ab und zu auf ein Dashboard. Er überlegt sich dann etwas. Das ist kein Rückweg. Genau da liegt die Grenze zum Schatten."
+    },
+    "q4": {
+      "label": "Ist gesagt, wofür der Zwilling gut ist und wie genau er sein muss?",
+      "description": "Zweck und Genauigkeit müssen benannt sein. Sonst gibt es keinen Maßstab für den Zwilling."
+    },
+    "convergence": "Diese vier Punkte sind keine Erfindung von uns. Ihre Bestandteile stehen in vier verschiedenen Quellen. Die erste ist die Definition aus der Raumfahrt von 2012. Die zweite ist die Norm ISO 23247. Die dritte ist das Glossar vom Digital Twin Consortium. Die vierte ist ein Bericht der National Academies von 2024. Keine Quelle hat die Liste allein aufgestellt. Aber jeden Punkt fordern mehrere Quellen. Zusammen ergeben sie dieselbe Prüfliste. Die Norm ISO 23247 sagt es so. Ein Zwilling ist nur so genau wie nötig. Er muss synchron zum echten Ding bleiben. Die National Academies sagen: Beide Richtungen sind wichtig.",
+    "misconception1": {
+      "title": "Irrtum: Ein genaues 3D-Modell ist ein digitaler Zwilling",
+      "text": "Das stimmt nicht. Jede Definition verlangt ein echtes Ding dazu. Fehlt das Ding, ist es nur ein Modell. Wie genau das Modell rechnet, spielt keine Rolle. Der Grund ist einfach. Ein Modell von etwas Erfundenem kann nichts spiegeln. Es kann nur rechnen. In diesem Portal gibt es eine Schwarm·simulation. Sie zeigt Vögel, die es nicht gibt. Sie ist ein sehr gutes Modell. Ein Zwilling ist sie nicht."
+    },
+    "misconception2": {
+      "title": "Irrtum: Ein Zwilling ist eine ganze Kopie",
+      "text": "Viele denken: Mehr Inhalt ist besser. Das stimmt nicht. Die Norm bindet die Genauigkeit an den Zweck. Das Konsortium verlangt eine festgelegte Genauigkeit. Ein Zwilling passt zu einer Entscheidung. Er ist keine Kopie. Manchmal ändert sich ein Ding kaum. Manchmal kann man die Änderung nicht messen. Dann bringt ein Zwilling gar nichts. Dann reicht ein Modell."
+    },
+    "breakTitle": "Wo der Vergleich nicht mehr passt",
+    "analogyBreak": "Die Leit·zentrale kümmert sich um eine ganze Stadt. Eine Stadt gehört niemandem allein. Ein Zwilling gehört zu einem einzelnen Ding. Nicht zum Typ. Sondern zu genau diesem Stück. Später siehst du zwei Flugzeuge. Sie kommen am selben Tag vom selben Band."
+  },
+  "ladder": {
+    "title": "Modell, Schatten, Zwilling",
+    "intro": "Die Fachwelt kennt drei Stufen. Sie unterscheidet nur nach der Richtung der Daten. Kritzinger und Kollegen haben das 2018 sortiert. Digitales Modell heißt: Daten laufen in beide Richtungen von Hand. Digital Shadow heißt: Daten laufen automatisch hinein. Zurück laufen sie von Hand. Digitaler Zwilling heißt: Daten laufen automatisch in beide Richtungen.",
+    "naming": "Auf die Stadt übertragen: Stadtplan, Navi, Leit·zentrale.",
+    "stepsTitle": "Ein Windrad auf drei Stufen",
+    "stepsAriaLabel": "Drei Stufen: Modell, Schatten, Zwilling",
+    "illustrationNote": "Achtung: Die Zahlen hier sind ausgedacht. Sie sind plausibel gewählt. Sie stammen aus keiner echten Anlage. Sie zeigen nur, was sich zwischen den Stufen ändert.",
+    "setup": "Ein Windpark hat 40 Anlagen. In jeder Anlage sitzt ein Hauptlager. Geht das Lager kaputt, wird es teuer. Man braucht einen Kran und ein Ersatzteil. Die Anlage steht dann rund zwei Wochen still. Es gibt ein Modell für das Lager. Es rechnet die erwartete Temperatur aus. Dafür nutzt es Wind, Drehzahl und Außentemperatur.",
+    "step1": "Digitales Modell",
+    "step1Desc": "Handarbeit in beide Richtungen",
+    "step2": "Digital Shadow",
+    "step2Desc": "Automatisch hinein, von Hand hinaus",
+    "step3": "Digitaler Zwilling",
+    "step3Desc": "Automatisch in beide Richtungen",
+    "level1": "Stufe 1 ist das Modell. Es läuft auf einem Laptop. Ein Mensch tippt typische Werte ein. Bei 12 m/s und 15 Grad erwartet es 62 Grad. Die Eingabe ist Handarbeit. Der Rückweg auch. Das hilft beim Planen. Über Anlage 17 am Dienstag sagt es nichts.",
+    "level2": "Stufe 2 ist der Schatten. Sensoren senden alle zehn Minuten. Das Modell rechnet mit. Es zeigt die Abweichung an. Anlage 17 meldet 68 Grad. Erwartet wären 62 Grad. Das sind 6 Kelvin Unterschied. Er ist über elf Tage gewachsen. Ein Dashboard wird gelb. Frage 3 ist hier nicht erfüllt. Ein Ingenieur schaut ab und zu hin. Das ist keine feste Rückschleife.",
+    "level3": "Stufe 3 ist der Zwilling. Die Schleife bleibt gleich. Es kommt ein Rückweg dazu. Bei anhaltender Abweichung wird die Anlage gedrosselt. Das passiert automatisch. Ein Wartungs·auftrag wird erzeugt. Danach fließt der Wartungs·bericht zurück. Das Modell rechnet danach besser.",
+    "punchline": "Das Modell wurde zwischen Stufe 1 und Stufe 3 nicht besser. Nur die Verkabelung hat sich geändert. Darum sagt „digitaler Zwilling“ nichts über die Qualität des Modells.",
+    "misconception3": {
+      "title": "Irrtum: Es liest Live·daten, also ist es ein Zwilling",
+      "text": "Das stimmt nicht. Automatisch in eine Richtung ist ein Digital Shadow. Live·daten geben dir einen Schatten. Erst der zweite Pfeil gibt dir den Zwilling. Das ist keine Erbsenzählerei. Kritzinger und Kollegen haben viele Arbeiten geprüft. Viele Arbeiten nennen sich „Digital Twin“. Ein Großteil davon ist nach diesem Maßstab Modell oder Schatten."
+    },
+    "misconception4": {
+      "title": "Irrtum: Nur die Werbung dehnt das Wort",
+      "text": "Das stimmt nicht. Die Europäische Kommission hat ein großes Erdprojekt. Sie nennt es digitalen Zwilling der Erde. Zur Erde fließt aber nichts zurück. Das Wort wird auf jeder Ebene gedehnt. Auch seriöse Stellen tun das. Darum lohnt sich ein eigener Test. Prüfe die Behauptung. Nicht das Logo."
+    },
+    "deepDive": {
+      "title": "Wenn eine Institution das Wort dehnt: der Zwilling der Erde",
+      "text1": "Das Projekt heißt Destination Earth. Es kommt von der Europäischen Kommission. Mit dabei sind ECMWF, ESA und EUMETSAT. Der offizielle Start war 2022. 2024 wurden die ersten beiden Zwillinge gezeigt. Einer ist für Wetter·extreme. Einer ist für Klimaanpassung. Bis 2030 soll die Erde ganz abgebildet sein. Der Klima·zwilling rechnet über viele Jahrzehnte. Er rechnet in einer Auflösung von 5 bis 10 km.",
+      "text2": "Jetzt der Test, ehrlich angewendet. Frage 1 ist erfüllt. Die Erde gibt es wirklich. Frage 2 ist erfüllt. Viele Teile der Erde werden gemessen. Frage 4 ist erfüllt. Zweck und Auflösung sind benannt. Frage 3 ist nicht erfüllt. Nichts verändert den Zustand der Erde. Die Ergebnisse helfen der Politik. Das ist aber kein Rückweg. Sonst wäre jedes gute Modell ein Zwilling.",
+      "text3": "Nach dem strengen Maßstab ist es ein sehr guter Schatten. Das ist keine Kritik am Projekt. Es ist eine Aussage über das Wort. So ein Schatten ist große Wissenschaft. Ein Zwilling ist er trotzdem nicht."
+    }
+  },
+  "works": {
+    "title": "Wo der Begriff wirklich passt",
+    "aircraft1": "Hier ein Beispiel aus der Luftfahrt. Zwei Flugzeuge kommen am selben Tag vom Band. Für die Zulassung sind sie gleich. Gleiche Konstruktion. Gleiche Kennwerte. Gleiche Sicherheitsfaktoren. Flugzeug A hat aber eine winzige Abweichung. Sie sitzt in einer Flügelverbindung. Flugzeug B hat sie nicht. Das Konstruktions·modell weiß davon nichts. Es zeigt die Konstruktion. Nicht das einzelne Stück.",
+    "aircraft2": "Ein Zwilling wird für jedes Flugzeug gebaut. Er bildet genau dieses Flugzeug ab. Er bekommt laufend Sensor·daten aus dem Flugzeug. Dazu kommt die eigene Wartungshistorie. Nach einer harten Landung passiert etwas Wichtiges. Die beiden Zwillinge laufen auseinander. Gleiche Konstruktion. Gleiche Flugstunden. Aber unterschiedliche Restlebensdauer.",
+    "aircraft3": "Darum heißt es: Jeder Zwilling gehört zu einem Flugzeug. Und darum heißt das Wort „Zwilling“. Es heißt nicht „Modell“.",
+    "caveat": "Fair bleiben ist wichtig. Der Fachtext von 2012 beschreibt einen Plan. Er beschreibt ein Forschungsprogramm. Fertig war das 2012 noch nicht.",
+    "human1": "Der zweite Fall betrifft Menschen. Die Europäische Kommission hat eine Initiative. Sie heißt Virtual Human Twins. Gemeint ist ein Abbild von einem Gesundheits·zustand. Es kann auch ein Krankheits·zustand sein. Über 100 Mio. EUR sind investiert. Am 26. Juni 2025 startete die Arbeit an der Plattform. Es geht hier nicht um die Persönlichkeit. Es geht um einen Zustand, den man messen kann.",
+    "human2": "Die NASA hatte schon 2015 einen Eintrag dazu. Er hieß „Human Digital Twin“. Er stand bei der Modellierung von Leistungsfähigkeit. Das zeigt: Die Idee ist nicht neu. Sie kommt nicht aus der heutigen Werbung."
+  },
+  "person": {
+    "title": "Der KI-Zwilling einer Person",
+    "intro": "Seit dem KI-Boom hat das Wort noch eine Bedeutung. Gemeint ist dann ein Sprach·modell. Es tritt als Stellvertreter für eine Person auf. Es schreibt in ihrem Stil. Es kennt ihre Meinungen. Es beantwortet ihre Mails.",
+    "institutional": "Das ist nicht nur Werbesprache. Die Nielsen Norman Group ist ein Forschungsinstitut. Sie forscht über Nutzerfreundlichkeit. Im August 2025 hat sie den Begriff so definiert. Sie nennt ihn einen Stellvertreter für eine Person. Im selben Text kritisiert sie die Ergebnisse. Es benutzen also nicht nur Werber das Wort. Genauer gesagt: Das Wort ist gewandert. Die Kriterien sind nicht mitgewandert.",
+    "product": "Hier ein konkreter Fall. Anfang 2026 kam ein Assistent auf den Markt. Er wird als Digital Twin verkauft. Gemeint ist der Zwilling eines Wissensarbeiters. Er greift auf rund 10.000 Dokumente pro Nutzer zu. Sie kommen aus mehr als 20 Anbindungen. Zum Beispiel aus Besprechungen, Mails und Dateien. Er beantwortet Nachrichten und legt Termine. Antworten legt er zuerst als Entwurf vor. Erst nach einer Freigabe schickt er sie ab.",
+    "checksTitle": "Der Test, live angewendet",
+    "check1": "Gibt es das echte Ding wirklich? Ja. Es gibt diese eine Person.",
+    "check2": "Misst sich der Zustand der Person von allein? Nein. Es fließen Texte hinein. Die Person hat diese Texte selbst geschrieben. Das passiert wirklich automatisch. Das ist keine Kleinigkeit. Aber automatisch einlesen ist nicht messen. Ein Protokoll ist eine Spur. Es ist kein Messwert am Menschen.",
+    "check3": "Ändert sich durch das Modell etwas an der Person - von allein oder durch eine feste Regel? Nein. Der Rückweg wirkt auf den Posteingang. Er wirkt nicht auf die Person.",
+    "check4": "Ist gesagt, wofür er gut ist und wie genau er sein muss? Nein. Eine festgelegte Genauigkeit gibt es nicht.",
+    "score": "Ergebnis: 1 von 4. Das ist ein Stellvertreter. Er ist auf Spuren trainiert. Das ist etwas wert. Ein Zwilling im Fachsinn ist es nicht.",
+    "calibration": "Das soll kein Verriss sein. Darum kommt hier die beste Forschung dazu. Eine Gruppe um Joon Sung Park hat etwas gebaut. Sie hat Agenten auf Interviews aufgebaut. Jedes Interview dauerte zwei Stunden. Danach hat sie geprüft: Trifft der Agent die Antworten der Person? Der Maßstab ist streng. Verglichen wird nicht mit einem perfekten Ergebnis. Verglichen wird mit der Person selbst. Man hat sie zwei Wochen später noch einmal befragt.",
+    "statA": {
+      "value": "83 %",
+      "label": "Agenten aus Interviews",
+      "description": "So weit kommen Agenten aus einem zweistündigen Interview. Gemessen wird an der Person selbst."
+    },
+    "statB": {
+      "value": "74 %",
+      "label": "Nur einfache Angaben zur Person",
+      "description": "So weit kommt ein Modell mit nur demografischen Angaben. Der Abstand ist das eigentliche Ergebnis."
+    },
+    "snapshot": "Das ist ein echter Effekt. Es ist aber auch eine Grenze. Das Interview fand nur einmal statt. Was danach passiert, weiß der Agent nicht.",
+    "benchmark": "Ein Test·verfahren heißt TwinVoice. Ein Team um Bangde Du hat es veröffentlicht. Das war im Oktober 2025. Es misst dasselbe. Die Nachahmung liegt deutlich unter dem Menschen. Besonders schwach ist sie bei Satzbau und Erinnerung.",
+    "portrait1": "Denk an ein Porträt und einen Spiegel. Ein Porträt wird einmal gemalt. Es zeigt dich an einem Tag. Es bekommt keinen Haar·schnitt, wenn du einen bekommst. Ein Spiegel ändert sich mit dir. Dem Personen·zwilling fehlt keine Intelligenz. Ihm fehlt die Synchronisation.",
+    "portrait2": "Auch dieser Vergleich hat eine Grenze. Manche Produkte bekommen laufend neue Daten. Das Porträt wird also oft neu gemalt. Aber immer nach dem, was du geschrieben hast. Nie nach dem, was du bist.",
+    "comparison": {
+      "ariaLabel": "Vergleich: gemessener Zustand und gesammelte Spuren",
+      "beforeLabel": "Virtual Human Twin",
+      "beforeResult": "Frage 2 erfüllt",
+      "beforeText": "Thema: ein Gesundheits·zustand oder Krankheits·zustand. Daten: gemessene Physiologie und Bilder. Zweck: einen Verlauf vorhersagen. Und Behandlungen abwägen. Der Rückweg ist die klinische Entscheidung. Sie läuft über den Arzt. Aber sie ist fest eingerichtet und ständig.",
+      "afterLabel": "KI-Zwilling als Stellvertreter",
+      "afterResult": "Frage 2 nicht erfüllt",
+      "afterText": "Thema: das Auftreten einer Person. Daten: Dokumente, die sie geschrieben hat. Zweck: in ihrem Namen antworten. An der Person wird nichts gemessen."
+    },
+    "misconception5": {
+      "title": "Irrtum: Eine KI, die schreibt wie ich, ist mein Zwilling",
+      "text": "Das stimmt nicht. Zwei von vier Bedingungen fehlen. An dir wird nichts gemessen. Und es gibt keine festgelegte Genauigkeit. Es ist ein Modell deiner Spuren. Das kann nützlich sein. Ein Zwilling ist es nicht."
+    },
+    "misconception6": {
+      "title": "Irrtum: Ein Zwilling eines Menschen ist immer Unsinn",
+      "text": "Auch das stimmt nicht. Die NASA hatte 2015 einen „Human Digital Twin“. Die Europäische Kommission gibt über 100 Mio. EUR aus. Diese Zwillinge nutzen gemessene Gesundheitsdaten. Die Grenze läuft durch die Messung. Sie läuft nicht durch den Menschen."
+    },
+    "delimitation": "Zwei andere Begriffe klingen ähnlich. Ein Deepfake ahmt Aussehen und Stimme nach. Er behauptet keine Kopplung. In der EU gibt es dafür eine Regel. Ein Deepfake muss gekennzeichnet werden. Die Leute sollen erkennen: Das hat eine KI gemacht. Diese Regel gilt seit dem 2. August 2026 (Artikel 50 Absatz 4 KI-Verordnung). Ein Weltmodell lernt eine KI innen. Es geht um die Welt allgemein. Ein Zwilling wird gebaut. Er gehört zu einem bestimmten Ding."
+  },
+  "limits": {
+    "title": "Grenzen: Was der Begriff nicht kann",
+    "useless": "Die wichtigste Grenze kommt zuerst. Manche Dinge ändern sich kaum. Bei manchen kann man die Änderung nicht messen. Dann bleibt nur ein Modell übrig. Damit kannst du eine praktische Frage beantworten. Braucht man hier überhaupt einen Zwilling?",
+    "objections": "Die Nielsen Norman Group nennt zwei Einwände. Menschen verhalten sich unordentlich und mehrdeutig. Das trifft so ein Stellvertreter nicht. Er hilft eher bei der Recherche am Schreibtisch. Ein echtes Gespräch ersetzt er nicht. Und noch etwas ist wichtig. Manche bauen so ein Modell aus den Daten einer Person. Dann stellt sich die Frage nach der Einwilligung. Dieselbe Quelle lässt diese Frage offen.",
+    "rights": {
+      "title": "Wessen Daten stecken im Zwilling?",
+      "text1": "Der Kopplungs·test sagt: Was ist so ein Stellvertreter? Eine andere Frage ist: Von wem darf er sein? In der EU ist diese Frage weniger offen als die ethische. Manche bauen einen Stellvertreter aus den Daten einer anderen Person. Diese Person kann man erkennen. Dann verarbeiten sie personenbezogene Daten. Dafür brauchen sie eine Rechts·grundlage. Am nächsten liegt die Einwilligung dieser Person (Artikel 6 Absatz 1 DSGVO). Dazu kommt das allgemeine Persönlichkeitsrecht. Name, Bild und Stimme gehören dem Menschen selbst. Das gilt im Leben und auch nach dem Tod (BGH, Urteil vom 01.12.1999, Fall Marlene Dietrich).",
+      "text2": "Das gilt auch für den Assistenten von vorhin. Er nutzt rund 10.000 Dokumente. Darunter sind Mails und Besprechungen. Das sind auch Daten von Kollegen und Kunden. Nicht nur deine. In einer Firma ist dafür der Arbeitgeber verantwortlich (Artikel 4 Nummer 7 und Artikel 24 DSGVO). Und für dich selbst gilt: Alles über dich liegt an einem Ort. Dazu kann das Programm in deinem Namen schreiben. Das ist kein Zwilling. Das ist ein Generalschlüssel. Wer ihn bekommt, hat nicht nur eine Mail von dir. Er hat deine Stimme. Darum ist die Freigabe vor dem Senden so wichtig."
+    },
+    "selfTest1": "Jetzt der Test im eigenen Haus. Dieses Portal ist ein Modell. Es bildet ein Wissens·gebiet ab. Es ist ein Vorrat für ein zweites Gedächtnis. Mehr ist es nicht. Die Arbeit damit bleibt bei dir. Ein Zwilling ist es nicht. Es gibt kein einzelnes messbares Objekt dazu. Und es fließt nichts zurück in die KI-Welt. Frage 1 und Frage 3 fallen durch.",
+    "selfTest2": "Wende den Test nicht nur auf andere an. Sonst wird er eine Waffe. Wende ihn auch auf dich an. Dann ist er ein Maßstab.",
+    "deepDive": {
+      "title": "Wie sicher sind die Belege?",
+      "text1": "Die National Academies haben 2024 einen Bericht gemacht. Übersetzt sagen sie: Es wird viel über digitale Zwillinge geredet. Es gibt aber weniger Belege für den Erfolg. Die Fachgebiete sind sich beim Begriff nicht einig. Darum ist Wahres schwer von Hoffnung zu trennen.",
+      "text2": "Das National Physical Laboratory warnte schon 2020. Es begann mit Humpty Dumpty aus Alice hinter den Spiegeln. Der sagt: Ein Wort bedeutet das, was ich will. Eine beliebige Definition macht nicht nur Verwirrung. Sie kann auch einen Rückschlag auslösen. Dann verliert man auch den nützlichen Teil. Dieselbe Arbeit sagt noch etwas. Manche Anbieter nennen jedes Computer·modell einen Zwilling. Sie geben alter Technik nur einen neuen Namen.",
+      "text3": "Nach dieser Quelle braucht man Vertrauen in drei Dinge. In das Modell. In die Daten. Und in das Verfahren dazwischen."
+    }
+  },
+  "close": {
+    "title": "Die vier Fragen für dich",
+    "text1": "Denk an die zwei Beispiele vom Anfang. Das Triebwerk meldet sein warmes Lager. Danach wird es gedrosselt. Es besteht alle vier Fragen. Der Assistent beantwortet deine Mails. Er besteht eine Frage. Beide heißen gleich.",
+    "questionsIntro": "Darum hier noch einmal die vier Fragen:",
+    "text2": "Der Test sagt nicht, ob etwas gut ist. Er sagt nur, was es ist. Ein sehr guter Schatten bleibt sehr gut. Er heißt nur anders.",
+    "text3": "Bald kommt ein neues Wort mit einem großen Versprechen. Dann hast du die Fragen schon."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste",
+    "item1": "Ein digitaler Zwilling ist keine Aussage über die Qualität. Es geht um die Verkabelung. Echtes Gegenstück. Messung hinein. Rückfluss hinaus. Fester Zweck und feste Genauigkeit.",
+    "item2": "Ohne echtes Gegenstück ist es ein Modell. Das ist keine Beleidigung. Es ist einfach etwas anderes.",
+    "item3": "Automatische Daten in eine Richtung ergeben einen Digital Shadow. Erst der zweite Pfeil macht den Zwilling. Ein Mensch am Dashboard zählt nicht.",
+    "item4": "Idee und Name haben verschiedene Eltern. Die Idee kommt aus dem Produkt·lebens·zyklus·management. Der Name kommt aus der Raumfahrt. Ein genaues Jahr kann niemand belegen.",
+    "item5": "Ein Zwilling eines Menschen ist nicht immer Unsinn. Er ist seriös, wenn wirklich etwas gemessen wird. Die Grenze läuft durch die Messung."
+  },
+  "checkpoint": {
+    "title": "Kurzer Selbsttest",
+    "item1": "Ich kann die vier Fragen aus dem Kopf nennen.",
+    "item2": "Ich kann bei einem neuen Beispiel sagen: Modell, Schatten oder Zwilling.",
+    "item3": "Ich kann erklären, wann ein Zwilling eines Menschen seriös ist.",
+    "item4": "Ich kann zwei Grenzen des Begriffs nennen. Eine gilt auch für dieses Portal."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Zwilling oder nicht?",
+    "q1": {
+      "question": "Woran erkennt man einen digitalen Zwilling?",
+      "a": "An den Details. Je feiner das Modell rechnet, desto eher ist es ein Zwilling. Auch viele Bauteile sprechen dafür.",
+      "b": "An vier Punkten. Echtes Gegenstück. Messung von allein hinein. Rückfluss von allein. Fester Zweck.",
+      "c": "Daran, dass die Darstellung dreidimensional ist. Man kann sie von allen Seiten anschauen und begehen.",
+      "d": "Daran, dass eine KI beteiligt ist.",
+      "explanation": "Es geht um die Verkabelung. Es geht nicht um das Aussehen. Details, 3D und KI stehen in keiner Definition."
+    },
+    "q2": {
+      "question": "Wie sind Idee und Name entstanden?",
+      "a": "Die NASA hat beides erfunden. Das war in der Roadmap vom November 2010. Dort steht auch die erste Definition.",
+      "b": "Michael Grieves hat beides erfunden. Das war 2002. Der Ort war eine Präsentation für ein Forschungszentrum.",
+      "c": "Die Idee kommt aus einem Kurs der frühen 2000er. Den Namen schrieb Grieves einem NASA-Ingenieur zu.",
+      "d": "Der Begriff kam mit dem KI-Boom ab 2023.",
+      "explanation": "Idee und Name haben verschiedene Eltern. Die erste Definition steht nicht in der Roadmap von 2010. Sie steht in einem Fachtext von 2012. Ein genaues Jahr ist nicht belegbar."
+    },
+    "q3": {
+      "question": "Eine Brücke hat Sensoren. Alle zehn Minuten fließen die Messwerte automatisch in ein Modell. Das Modell zeigt Abweichungen an. Ein Ingenieur schaut morgens darauf. Er entscheidet dann, was passiert. Was ist dieses System?",
+      "a": "Ein digitaler Zwilling. Es verarbeitet ohne Zutun echte Messwerte. Es rechnet sie gegen ein Modell der Brücke.",
+      "b": "Ein digitales Modell. Am Ende entscheidet ein Mensch. Damit ist die Automatik unterbrochen.",
+      "c": "Ein Digital Shadow. Automatisch hinein, von Hand hinaus.",
+      "d": "Nichts davon. Eine Brücke fährt nicht. Der Begriff kommt aus der Fahrzeug·technik.",
+      "explanation": "Automatisch hinein und von Hand hinaus ist ein Digital Shadow. Der Ingenieur ist kein eingebauter Rückweg. Genau daran scheitert Frage 3."
+    },
+    "q4": {
+      "question": "Die Europäische Kommission nennt ihr Erdprojekt einen digitalen Zwilling der Erde. Es verarbeitet laufend Messdaten. Es rechnet in 5 bis 10 km Auflösung. Zweck und Genauigkeit sind benannt. Welche Frage bleibt offen?",
+      "a": "Frage 1. Die Erde ist kein einzelnes Objekt. Darum trägt das Projekt den Begriff zu Unrecht.",
+      "b": "Frage 3. Nichts verändert die Erde. Also ist es ein sehr guter Schatten.",
+      "c": "Frage 4. Die Genauigkeit ist nirgends festgelegt. Sie ergibt sich erst später aus den Rechnungen.",
+      "d": "Keine. Das Projekt erfüllt alle vier Bedingungen.",
+      "explanation": "Die Erde gibt es. Sie wird teilweise gemessen. Zweck und Auflösung sind benannt. Es fehlt der Rückweg. Nichts verändert die Erde."
+    },
+    "q5": {
+      "question": "Zwei Systeme heißen digitaler Zwilling eines Menschen. System A liest rund 10.000 Dokumente einer Person. Es antwortet in ihrem Namen. System B ist ein Modell eines Krankheitsverlaufs. Es nutzt Bilder und gemessene Physiologie. Welches ist ein Zwilling im Fachsinn?",
+      "a": "Beide. In beiden Fällen fließen laufend Daten über die Person hinein. Das passiert ohne Handarbeit.",
+      "b": "Keines. Ein digitaler Zwilling eines Menschen ist unmöglich.",
+      "c": "System A. Es wertet mehr Daten über die Person aus. Darum trifft es die Person genauer.",
+      "d": "System B. Dort wird am Menschen gemessen. Die Grenze läuft durch die Messung.",
+      "explanation": "System A liest Texte der Person. Das ist automatisch. Aber es ist keine Messung. System B misst wirklich am Menschen. Antwort b wäre die Übertreibung in die andere Richtung. So ein Zwilling ist möglich."
+    }
+  }
+}

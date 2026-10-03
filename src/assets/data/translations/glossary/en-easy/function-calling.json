@@ -1,0 +1,5 @@
+{
+  "term": "Function Calling",
+  "description": "Function Calling. This means calling functions. A computer program can use tools. It notices when it needs help. Then it calls another program. For example a weather app. Or a calculator. The program says what it needs. In a computer language. The system then executes it.",
+  "example": "You ask: What's the weather tomorrow? The program doesn't know. It calls a weather app. The app gives the answer. The program tells the user."
+}

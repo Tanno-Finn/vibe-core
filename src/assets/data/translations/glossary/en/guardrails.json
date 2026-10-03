@@ -1,0 +1,9 @@
+{
+  "term": "Guardrails",
+  "alternativeNames": [
+    "Safety Rails",
+    "Safety Filters"
+  ],
+  "description": "Guardrails are control mechanisms that inspect the inputs and outputs of an AI system for compliance with defined policies, and block, modify, or redirect them as needed. They operate as a layer before, after, or within the model, largely independent of the model architecture itself.\n\nImplementations range from rule-based filters ('does this text belong to a blocked category?') to dedicated classification models to dialogue control layers (topical rails that confine a conversation to permitted topics). Important: guardrails primarily address content and safety risks; they are not a substitute for grounding (factual accuracy) or structured output (format compliance) — those are separate concerns.\n\nA key architectural distinction: embedded mechanisms like Constitutional AI act during training to shape model behavior from the inside; external guardrails act at inference time as a separate system layer. Both can coexist and reinforce each other.",
+  "example": "A customer service bot is equipped with guardrails that detect when a user asks for medical advice. Instead of responding, the bot outputs a message that medical questions should be answered by a doctor — and steers back to product support."
+}

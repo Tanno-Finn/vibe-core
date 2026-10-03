@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Toggle</title>
+  </head>
+  <body>
+    <main>
+      <h1>A problem that appears only after a click</h1>
+      <button type="button" id="b">Show the picture</button>
+      <div id="slot"></div>
+    </main>
+    <script>
+      document.getElementById('b').addEventListener('click', () => {
+        const img = document.createElement('img');
+        img.id = 'late';
+        img.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACw=';
+        img.width = 40;
+        img.height = 40;
+        document.getElementById('slot').append(img);
+      });
+    </script>
+  </body>
+</html>

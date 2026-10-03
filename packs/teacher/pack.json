@@ -1,0 +1,70 @@
+{
+  "$schema": "../../base/pack.schema.json",
+  "id": "teacher",
+  "name": "Teacher mode",
+  "description": "A role pack for teachers: turns the kit's content capabilities into ready-to-use classroom deliverables. Ships five job-skills — worksheet, practice-quiz, differentiation, cover-lesson, and teaching-unit — each kit-blind (it degrades to a plain markdown artifact when the kit lacks a richer capability) and each producing classroom material in the teacher's profile language — the shipped examples are German — under the pack's guardrails. Activate it conversationally ('switch to teacher mode').",
+  "layer": "pack",
+  "packVersion": "0.1.0",
+  "baseVersion": "0.1.0",
+  "activation": {
+    "phrases": [
+      "switch to teacher mode",
+      "teacher mode",
+      "I'm a teacher",
+      "help me prepare a lesson",
+      "wechsle in den Lehrkraft-Modus",
+      "Lehrkraft-Modus",
+      "Lehrermodus",
+      "ich bin Lehrerin",
+      "ich bin Lehrer",
+      "hilf mir, eine Unterrichtsstunde vorzubereiten",
+      "Arbeitsblatt erstellen"
+    ],
+    "note": "Conversational and in-place — there is no install. When the agent hears one of these, it announces the switch and offers the pack's jobs; the user can leave the mode just as conversationally."
+  },
+  "capabilities": [
+    {
+      "id": "content:article",
+      "fallback": "file:markdown",
+      "purpose": "Read the kit's didactic articles as the raw material a worksheet or quiz is built from."
+    },
+    {
+      "id": "content:glossary",
+      "fallback": "file:markdown",
+      "purpose": "Pull term definitions for vocabulary tasks and differentiation."
+    },
+    {
+      "id": "file:html-print",
+      "fallback": "file:markdown",
+      "purpose": "Produce a print-ready handout; on a kit without print export, fall back to a plain markdown handout."
+    },
+    {
+      "id": "file:pdf",
+      "fallback": "file:html-print",
+      "purpose": "Turn the printable handout into a PDF and check it fits the page count the teacher wants; without it, the teacher prints the HTML handout from the browser."
+    },
+    {
+      "id": "file:docx",
+      "fallback": "file:markdown",
+      "purpose": "A Word version with real headings, lists and the document language for screen-reader users or teachers who edit in Word; without it, hand over the markdown version."
+    },
+    {
+      "id": "check:a11y",
+      "fallback": "file:markdown",
+      "purpose": "Check the handout for accessibility problems by the kit's A11Y rules; without it, add a short manual checklist to the handover note."
+    },
+    {
+      "id": "file:html-single",
+      "fallback": "file:html-print",
+      "purpose": "Pack a handout or learning page with its images, fonts and scripts into one file for e-mail or a school platform such as Moodle; without it, hand over the HTML file together with the files it uses."
+    },
+    {
+      "id": "check:reading-level",
+      "fallback": "file:markdown",
+      "purpose": "Advice on sentence length and long words for the easier variants and Easy-Language material; without it, read by eye and say that no measure ran."
+    },
+    {
+      "id": "file:markdown"
+    }
+  ]
+}

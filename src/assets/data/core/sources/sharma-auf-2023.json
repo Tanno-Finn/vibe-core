@@ -1,0 +1,17 @@
+{
+  "id": "sharma-auf-2023",
+  "type": "paper",
+  "authors": "Mrinank Sharma, Meg Tong, Tomasz Korbak, David Duvenaud, Amanda Askell, Samuel R. Bowman, Newton Cheng, Esin Durmus, Zac Hatfield-Dodds, Scott R. Johnston, Shauna Kravec, Timothy Maxwell, Sam McCandlish, Kamal Ndousse, Oliver Rausch, Nicholas Schiefer, Da Yan, Miranda Zhang, Ethan Perez",
+  "year": "2023",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2310.13548",
+  "doi": "10.48550/arXiv.2310.13548",
+  "accessed": "2025-12-02",
+  "tags": [
+    "sycophancy",
+    "llm",
+    "rlhf",
+    "anthropic",
+    "ai-safety"
+  ]
+}

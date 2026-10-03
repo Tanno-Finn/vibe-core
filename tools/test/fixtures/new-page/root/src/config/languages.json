@@ -1,0 +1,10 @@
+{
+  "_comment": "Fixture for tools/test/new-page.test.mjs.",
+  "defaultLanguage": "de",
+  "keySourceLanguage": "en",
+  "contentReferenceLanguage": "de",
+  "languages": [
+    { "code": "de", "easyCode": "de-easy" },
+    { "code": "en", "easyCode": "en-easy" }
+  ]
+}

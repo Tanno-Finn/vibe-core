@@ -1,0 +1,17 @@
+{
+  "id": "sadowski-modern-code-review-2018",
+  "type": "paper",
+  "authors": "Caitlin Sadowski, Emma Söderberg, Luke Church, Michal Sipko, Alberto Bacchelli",
+  "year": "2018",
+  "publication": "ICSE-SEIP 2018",
+  "url": "https://sback.it/publications/icse2018seip.pdf",
+  "doi": "10.1145/3183519.3183525",
+  "accessed": "2026-08-16",
+  "tags": [
+    "code-review",
+    "empirical-study",
+    "google",
+    "change-size",
+    "software-engineering"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Agent Memory",
+  "alternativeNames": [
+    "Long-Term Agent Memory",
+    "Persistent Memory"
+  ],
+  "description": "Agent memory covers the mechanisms an AI agent uses to keep knowledge across session boundaries: memory files and notes it maintains itself, summaries of finished sessions, or retrievable knowledge stores. This is needed because the two built-in forms of knowledge fall short: the context window is only short-term memory and empties when the session ends, while knowledge learned in training is baked in and cannot simply be extended with the details of your project. Agent memory closes the gap in between - often as plain files or searchable databases that the agent reads and keeps updating.",
+  "example": "At the end of a session, a coding agent writes down: the test run needs a specific environment variable. Weeks later, in a fresh session, it reads its notes - and avoids walking into the same trap again. Like a colleague who keeps a work journal instead of trusting his memory."
+}

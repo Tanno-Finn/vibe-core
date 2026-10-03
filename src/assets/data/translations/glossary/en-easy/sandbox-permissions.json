@@ -1,0 +1,8 @@
+{
+  "term": "Sandbox & Permissions",
+  "alternativeNames": [
+    "Safe space and rules for AI agents"
+  ],
+  "description": "Sandbox and permissions. A sandbox is like a sandbox for children. Permissions means: things you are allowed to do. An AI agent works on a computer by itself. May it simply do everything? No, better not. People build a safe space for it. That is the sandbox. Inside it, the agent can work freely. Outside it, the agent cannot change anything. There are also rules for single actions. Dangerous actions need extra permission. For example: deleting files. Then a human must say yes first. So the safety comes from the environment. You do not have to trust the AI blindly. This also helps against attacks like prompt injection.",
+  "example": "Think of an intern with a key card. The card opens only three rooms. For the server room, the boss must come along. An AI agent gets a key card like this too."
+}

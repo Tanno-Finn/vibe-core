@@ -1,0 +1,17 @@
+{
+  "id": "microsoft-nodejs-windows-2026",
+  "type": "article",
+  "authors": "Microsoft",
+  "year": "2026",
+  "publication": "Microsoft Learn",
+  "url": "https://learn.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-overview",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "nodejs",
+    "windows",
+    "wsl",
+    "setup",
+    "microsoft-learn"
+  ]
+}

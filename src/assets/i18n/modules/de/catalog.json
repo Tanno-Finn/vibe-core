@@ -1,0 +1,82 @@
+{
+  "title": "Katalog",
+  "subtitle": "Kuratierte Übersicht über Tools, Ressourcen und Anlaufstellen rund um dein Thema.",
+  "disclaimer": "Externe Inhalte – Nutzung auf eigene Verantwortung",
+  "entryType": {
+    "tool": "Tool",
+    "resource": "Ressource"
+  },
+  "sort": {
+    "label": "Sortierung",
+    "rating": "Bewertung",
+    "alphabetical": "Alphabetisch",
+    "newest": "Neueste"
+  },
+  "filter": {
+    "search": "Suchen..."
+  },
+  "quickFilters": {
+    "topRated": "Top bewertet",
+    "freeAndGerman": "Kostenlos & Deutsch",
+    "onlyFavorites": "Nur Favoriten"
+  },
+  "noResults": {
+    "title": "Keine Ergebnisse",
+    "subtitle": "Versuche andere Filtereinstellungen oder einen anderen Suchbegriff."
+  },
+  "loadMore": "Mehr laden",
+  "loadingMore": "Wird geladen...",
+  "results": {
+    "showing": "Zeige",
+    "of": "von",
+    "entries": "Einträgen"
+  },
+  "details": {
+    "source": "Quelle",
+    "author": "Autor",
+    "estimatedTime": "Geschätzte Dauer",
+    "language": "Sprache",
+    "access": "Zugang",
+    "accessInfo": "Zugangsinformationen",
+    "category": "Kategorie",
+    "features": "Features",
+    "useCases": "Anwendungsfälle",
+    "pros": "Vorteile",
+    "cons": "Nachteile",
+    "alternatives": "Alternativen",
+    "paywall": "Bezahlschranke",
+    "registration": "Registrierung",
+    "required": "erforderlich",
+    "published": "Veröffentlicht",
+    "similarResources": "Ähnliche Ressourcen",
+    "noSimilarResources": "Keine ähnlichen Ressourcen gefunden",
+    "similarTools": "Ähnliche Tools",
+    "noSimilarTools": "Keine ähnlichen Tools gefunden"
+  },
+  "tags": {
+    "more": "weitere"
+  },
+  "actions": {
+    "favorite": "Zu Favoriten hinzufügen",
+    "removeFavorite": "Aus Favoriten entfernen",
+    "compare": "Vergleichen",
+    "removeCompare": "Aus Vergleich entfernen"
+  },
+  "compare": {
+    "title": "Tool-Vergleich",
+    "feature": "Eigenschaft",
+    "rating": "Bewertung",
+    "pricing": "Preismodell",
+    "difficulty": "Schwierigkeit",
+    "deployment": "Bereitstellung",
+    "features": "Features",
+    "useCases": "Anwendungsfälle"
+  },
+  "buttons": {
+    "share": "Teilen",
+    "visitSource": "Zur Quelle",
+    "close": "Schließen",
+    "clearAll": "Alle entfernen",
+    "startCompare": "Vergleich starten"
+  }
+}

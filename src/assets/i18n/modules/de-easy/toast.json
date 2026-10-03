@@ -1,0 +1,10 @@
+{
+  "notifications": "Nachrichten",
+  "type": {
+    "success": "Erfolg",
+    "info": "Info",
+    "warning": "Warnung",
+    "error": "Fehler"
+  },
+  "close": "Nachricht schließen"
+}

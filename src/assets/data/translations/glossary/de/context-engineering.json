@@ -1,0 +1,9 @@
+{
+  "term": "Context Engineering",
+  "alternativeNames": [
+    "Kontextgestaltung",
+    "Kontext-Design für LLMs"
+  ],
+  "description": "Context Engineering ist die systematische Gestaltung und Verwaltung des Kontexts, den du einem LLM gibst - also System-Prompts, Beispiele, externe Wissensquellen, Tools und Speicher. Die definierende Herausforderung dabei ist, dass das Kontextfenster eine endliche Ressource mit begrenztem Aufmerksamkeits-Budget ist: Es geht nicht nur darum, gute Inhalte hinzuzufügen, sondern ebenso darum, das Richtige auszuwählen, zu ordnen, zu begrenzen und zu komprimieren (Context Editing bzw. Compaction). Relevante Information muss vor irrelevanter Vorrang bekommen, und über lange, agentische Interaktionen hinweg muss der Überlauf des Kontextfensters beherrscht werden. Genau dieses Haushalten mit knappem Platz unterscheidet Context Engineering vom blossen Zusammenstellen guter Prompts - Ziel ist es, das Modell zuverlässiger, konsistenter und aufgabenspezifisch antworten zu lassen.",
+  "example": "Statt nur einen Prompt zu schreiben, designst du beim Context Engineering das gesamte Informationspaket: System-Prompt mit Regeln, RAG-Ergebnisse als Wissensquelle, Few-Shot-Beispiele und Tool-Definitionen - alles zusammen bildet den Kontext."
+}

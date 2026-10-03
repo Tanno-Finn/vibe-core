@@ -1,0 +1,42 @@
+{
+  "title": "Accessibility Statement",
+  "subtitle": "What works well here, what doesn't yet — and how to report a barrier to us.",
+
+  "introTitle": "What this is about",
+  "introText": "This statement applies to this project. We publish it because it matters to us that as many people as possible can learn with this content — and because we believe you should be honest about what works and what doesn't yet.",
+
+  "standardTitle": "What we align with",
+  "standardText": "We align with the internationally recognized Web Content Accessibility Guidelines (WCAG 2.2) at Level AA, as well as the European standard EN 301 549. We treat these standards as a benchmark that we keep working towards. No external audit or certification has taken place so far — every statement on this page is based on our own assessment.",
+
+  "statusTitle": "How accessible is this site?",
+  "statusText": "By our own assessment, this site is partially compliant with the standards named above. Much of it works well: keyboard operation across large parts of the site, color contrast, text alternatives, dark mode, scalable type, and content in Plain Language. Some areas are not yet fully accessible — the most important ones are listed below, with an explanation.",
+
+  "limitsTitle": "Known limitations",
+  "limitLanguageLabel": "Plain Language is not certified Easy Read",
+  "limitLanguageText": "Our Plain Language texts are produced with AI support; a person has read them through, but they are not editorially reviewed. They follow the core principles of easy-to-understand language — short sentences, simple words, a clear structure. They do not, however, meet all the formal criteria of certified Easy Read / Leichte Sprache (the certified German standard): there is no review by a test group of people with learning difficulties, and we do not fully apply the typographic and design rules those standards require. That is why we deliberately call our offering Plain Language rather than certified Easy Read.",
+  "limitDemosLabel": "Some interactive demos are highly visual",
+  "limitDemosText": "This site contains many interactive demonstrations. Most can be operated with the keyboard and come with explanatory text. In a few, however, the key point lives in the visual flow of an animation — those demos are currently not fully usable without sight. We are working on adding structured descriptive text for such demos, similar to audio description in film.",
+  "limitTranslationsLabel": "Translations are produced with AI support",
+  "limitTranslationsText": "The content is available in {count} languages, each also in Plain Language. Translations are produced with AI support and may occasionally contain inaccuracies. The authoritative versions are German and English; they too are produced with AI support and read through by a person, not editorially reviewed.",
+  "limitSignLabel": "No sign language",
+  "limitSignText": "We do not currently offer content in German Sign Language (DGS). We deliberately do not use automated sign-language avatars — the deaf associations currently advise explicitly against them, and the quality does not convince us. We are watching how things develop and will reconsider an offering once that changes.",
+
+  "methodTitle": "How this statement came about",
+  "methodText": "This statement is based on a self-assessment. No third-party evaluation has taken place so far.",
+  "createdLabel": "Created on",
+  "createdDate": "July 15, 2026",
+  "updatedLabel": "Last reviewed on",
+  "updatedDate": "July 15, 2026",
+
+  "feedbackTitle": "Report a barrier",
+  "feedbackText": "Did you come across a barrier? Are you stuck somewhere with a screen reader, keyboard, or magnification? Please let us know — the easiest way is the 'Report a barrier' function in the feedback menu. It helps to include: the page affected, a short description of the problem and, if applicable, the assistive technology you used. All details are optional, and anonymous reports are welcome too. We aim to respond to or fix reports within four weeks as a rule.",
+
+  "enforcementTitle": "One honest note at the end",
+  "enforcementText": "Your feedback does not vanish into thin air: barrier reports feed directly into how this site develops — some of what you read on this page is here because someone pointed it out to us.",
+
+  "helpTitle": "What helps you get around",
+  "helpKeyboard": "Keyboard: navigation and most demos can be operated with Tab, arrow keys, and Enter.",
+  "helpContrast": "Display: dark mode and a light theme, high contrast, font size freely scalable via browser zoom.",
+  "helpEasyLanguage": "Plain Language: every language is also available in a plain variant — switchable via the language selector at the top.",
+  "helpStructure": "Structure: heading hierarchy, landmarks, and alternative text for assistive technologies."
+}

@@ -1,0 +1,9 @@
+{
+  "term": "Agenten-Gedächtnis",
+  "alternativeNames": [
+    "Agent Memory",
+    "Langzeitgedächtnis für KI-Agenten"
+  ],
+  "description": "Agenten-Gedächtnis umfasst die Mechanismen, mit denen ein KI-Agent Wissen über Sitzungsgrenzen hinweg behält: selbst gepflegte Gedächtnis-Dateien und Notizen, Zusammenfassungen abgeschlossener Sitzungen oder abrufbare Wissensspeicher. Nötig ist das, weil beide eingebauten Wissensformen nicht reichen: Das Kontextfenster ist nur Kurzzeitgedächtnis und mit dem Sitzungsende leer, das im Training gelernte Wissen ist eingebrannt und lässt sich nicht mal eben um dein Projekt ergänzen. Agenten-Gedächtnis schließt die Lücke dazwischen - oft als schlichte Dateien oder durchsuchbare Wissensspeicher, die der Agent liest und fortschreibt.",
+  "example": "Ein Coding-Agent notiert am Ende einer Sitzung: Der Testlauf braucht eine bestimmte Umgebungsvariable. Wochen später, in einer frischen Sitzung, liest er seine Notizen - und tappt nicht erneut in dieselbe Falle. Wie ein Kollege, der ein Arbeitsjournal führt, statt sich auf sein Gedächtnis zu verlassen."
+}

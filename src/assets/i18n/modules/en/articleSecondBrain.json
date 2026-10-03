@@ -1,0 +1,229 @@
+{
+  "hero": {
+    "title": "Second Brain: Your External Memory",
+    "subtitle": "Why one half of the work feels like progress — and the other half produces the entire return."
+  },
+  "toc": {
+    "lead": "Starting point",
+    "brain": "What a second brain is",
+    "origin": "The idea is older than the word",
+    "code": "The lopsided half",
+    "limit": "Collecting is not understanding",
+    "ai": "When the AI reads along",
+    "mirror": "Two memories, one mechanism",
+    "close": "Where the lever sits",
+    "takeaways": "Summary",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Do the arithmetic: five things a day that you hold on to — an article, a screenshot, a quote, a link, a voice memo. Not an extreme case, just a normal week for anyone who reads. Five days, fifty weeks: 1,250 finds a year. And now the uncomfortable question you will answer faster than it takes to finish this paragraph — how many of them ever turned into anything?",
+    "paragraph2": "The numbers are a model built from stated assumptions, not a measurement; run it with your own if you like. The direction stays the same. What a store like that is worth is not decided by what goes in, but by what comes back out processed.",
+    "paragraph3": "One note on the division of labor: how to work with an AI so that you actually learn something is covered in the article \"Learning with AI (Instead of Cheating)\". This one is about the question before that — what do you keep, and what does keeping it buy you?"
+  },
+  "brain": {
+    "title": "What a second brain is",
+    "build1": "Recite ten phone numbers. Can't? That is the most common form of offloading, and nobody treats it as mental decline. You traded the knowledge itself for the knowledge of where the numbers live — and for what a phone number is for, that is entirely enough.",
+    "build2": "Cognitive scientists call this offloading: an action in the outside world that takes work off your head. The term sounds bigger than the thing. It covers tilting your head at a crooked picture just as much as setting an alarm on your phone — a strategy, not a defect.",
+    "definitionTitle": "Second Brain",
+    "definitionEverydayLabel": "In short",
+    "definitionEveryday": "Two things that are only worth anything together: a store of written material that sits outside your head and can be pulled back up on purpose — and the habit of handling it instead of only feeding it.",
+    "definitionPreciseLabel": "More precisely",
+    "definitionPrecise": "The first half is stock, the second is behavior. The stock can be set up in an afternoon and costs nothing afterwards. The behavior costs something every single time — and it is the only part anything ever comes out of. Whoever has only the first half does not have half a second brain, but a warehouse.",
+    "notAnApp": "That settles the most common assumption: that a second brain is an app and you only need to pick the right one. Behavior cannot be installed. A note app is the usual place for such a store, but the place is not the thing — a well-kept notebook beats a neglected app.",
+    "example": "An everyday case: in February you happen to hear how to spot a bad dynamic electricity tariff. In October a contract is in front of you. Between \"I know I had something on this\" and \"I am not even sure I ever heard it\" lies the whole difference — and you have not processed anything yet.",
+    "misconception": {
+      "title": "Common misconception: offloading makes you dull",
+      "text": "The suspicion is natural: hand your memory outside and you lose it. Research says otherwise — offloading is well studied, entirely ordinary, and often helpful. What matters is not whether you offload, but what: the filing yes, the understanding no."
+    },
+    "analogyBreak": "And here the phone number breaks, at exactly the point that counts. A number is only ever retrieved. A thought you want to think with has to be in your head at the moment of thinking — nobody looks up a concept in the middle of an argument. What can be offloaded is the filing, not the thinking."
+  },
+  "origin": {
+    "title": "The idea is older than the word",
+    "event1": {
+      "date": "1945",
+      "title": "Bush's memex",
+      "description": "Vannevar Bush describes a machine that takes in everything you read and retrieves it at speed: an enlarged intimate supplement to memory."
+    },
+    "event2": {
+      "date": "1981",
+      "title": "Luhmann's Zweitgedächtnis",
+      "description": "The sociologist Niklas Luhmann calls his slip-box — the most famous note collection in the German-speaking world — a kind of Zweitgedächtnis, an alter ego."
+    },
+    "event3": {
+      "date": "1998",
+      "title": "An entirely different second brain",
+      "description": "\"The Second Brain\" appears as a book about the nervous system of the gut. Same phrase, different subject."
+    },
+    "event4": {
+      "date": "2017",
+      "title": "The first cohort",
+      "description": "Tiago Forte teaches his course \"Building a Second Brain\" for the first time, in January."
+    },
+    "event5": {
+      "date": "2022",
+      "title": "The book",
+      "description": "The book of the same name appears and carries the phrase to a mass audience."
+    },
+    "text1": "Forte named the method and made it known — he did not coin the phrase. Two separate things speak against that, and they should be kept apart.",
+    "text2": "The words were already taken: in 1998 \"The Second Brain\" was already on a book cover, and that book was about the gut. A claim to having coined the phrase does not survive this.",
+    "text3": "The thing itself is older, and that weighs more. Luhmann's \"Zweitgedächtnis, ein Alter ego\" from 1981 is not a translation of the English phrase — Zweitgedächtnis means second memory, not second brain. It is the same idea, thirty-six years earlier, with a German word of its own.",
+    "useful": "The use of this backstory is practical, not historical: once you know the idea is some eighty years old, you no longer buy the line that \"the new app changes everything\"."
+  },
+  "code": {
+    "title": "The lopsided half",
+    "intro": "The best-known description of this way of working is called CODE: Capture — hold on to what strikes you as important. Organize — file it so that you find it again. Distill — boil it down to the core, in your own words. Express — make something of it: a text, an explanation, a decision. Printed at equal length, they are not worth the same.",
+    "kitchen1": "Shopping, putting away, chopping, cooking. A full fridge is not dinner. The first two moves are done before anyone is fed; only the last two produce something that did not exist before.",
+    "kitchen2": "Two places where the picture does not hold. Food spoils and gets used up, notes do neither — which is exactly why hoarding notes feels free. And cooking is a sequence, CODE is a loop: whoever brings something out runs into new material on the way.",
+    "funnelIntro": "Back to the 1,250 from the opening. Add a few assumptions, your own if you prefer:",
+    "stepsTitle": "The funnel, with its assumptions on the table",
+    "stepsAriaLabel": "Four steps from collecting to result",
+    "step1": {
+      "label": "Capture: 1,250",
+      "description": "Five a day, five days a week, fifty weeks. Costs seconds per item."
+    },
+    "step2": {
+      "label": "Organize: 125",
+      "description": "One in ten ever gets opened again. Filing costs little, reopening too."
+    },
+    "step3": {
+      "label": "Distill: 25",
+      "description": "One in five of those you sum up in your own words. The first step that takes effort."
+    },
+    "step4": {
+      "label": "Express: 5",
+      "description": "Five become something you write, say, or decide."
+    },
+    "statLabel": "Collected to brought out",
+    "statValue": "250 : 1",
+    "statDescription": "A model built from stated assumptions, not a measurement.",
+    "secondCalc": "Now change a single number. Collecting stays at five a day, but you distill one in three of what you reopen instead of one in five: 25 becomes a good 40, and a good eight come out at the end instead of five. Two thirds more return, without a single extra find.",
+    "lever": "The lever does not sit at the top of the funnel. A faster capture app enlarges a number that was never the bottleneck.",
+    "para": "CODE also comes with an organizing layer called PARA. Its principle: sort by what you are working on right now, not by subject area. It needs no more space here — it sits in the cheap part.",
+    "retrievalTitle": "A second track to the same result",
+    "retrieval1": "That active recall sticks better than re-reading is already stated in the article on learning with AI. What is new here is not the claim but its evidence.",
+    "retrieval2": "In a classic study, participants either read a text several times — or read it once and then recalled it from memory several times without seeing it again. Immediately afterwards, re-reading was ahead; a week later the order had reversed. A follow-up study found no effect at all on later recall for repeated studying, and a large one for repeated retrieval.",
+    "retrieval3": "And now the transfer this is about: distilling something in your own words is a retrieval. Saving it again is a re-read. The method and memory research have nothing to do with each other, and they point at the same half.",
+    "misconception": {
+      "title": "Common misconception: it felt productive, so it worked",
+      "text": "In this territory the feeling is not evidence. In that same follow-up study, participants predicted beforehand how well they would do later — their predictions had no relation to the actual result. Collecting and filing feel like progress because something visibly moves. Whether anything sticks is a different question."
+    },
+    "deepDive": {
+      "title": "Why collecting feels so good",
+      "text1": "There is a second reason, and it is less comfortable than self-deception: the feedback is weak. A bad note system never fails loudly. Nothing crashes, nothing is visibly missing, no check goes red.",
+      "text2": "Andy Matuschak, who has spent years on note-taking practices, built the explanation from this for why so many people stay at the same level for years: whoever never gets a signal that something is not working has no reason to change anything. You reach a middling level and stay there — content."
+    }
+  },
+  "limit": {
+    "title": "Collecting is not understanding",
+    "intro": "That sentence sounds like a rebuke. It is above all a measurement, which is why this section does not open with a wagging finger but with an experimental design.",
+    "experiment1": "Around two hundred participants were given a handful of everyday questions, among them how a zipper actually works. One group was allowed to search online to confirm the details of the explanation. The other was explicitly told to use no outside sources. Both then rated on a scale from 1 to 7 how well they could explain the answer.",
+    "experiment2": "Then came the actual part. Both groups had to rate how well they could explain questions from six entirely different areas: weather, science, American history, food, health treatments, the human body. None of it had anything to do with the first questions, and nobody had looked any of it up.",
+    "experiment3": "The searching group rated itself higher there too. It had learned nothing about those other topics; all that had changed was the experience of having had access. In a further variant, the searchers even picked images of more active brains as a depiction of their own thinking. Nine experiments in total probe this illusion from different angles; the transfer effect itself comes from the first of them.",
+    "experiment4": "The most telling part is a later variant of the same series: the effect held even when the search returned no answer at all — right down to queries that produced nothing usable. Having searched is apparently enough.",
+    "comparison": {
+      "ariaLabel": "Access and understanding compared",
+      "beforeLabel": "Access",
+      "beforeResult": "An archive can take it over entirely",
+      "afterLabel": "Understanding",
+      "afterResult": "Can only arise inside your head",
+      "beforeText": "Sits outside you and can be multiplied at will. What it does: find things again. What it feels like: competence. An AI can take it off your hands almost completely.",
+      "afterText": "Sits inside you and grows only through work. What it does: thinking at the moment of thinking. What it feels like: competence — the same feeling, hence the mix-up. An AI cannot take it off your hands."
+    },
+    "misconception": {
+      "title": "Common misconception: I saved it, so I know it",
+      "text": "Access and understanding are two different possessions. An archive can hold the first completely and the second not at all — and because both feel almost the same, you notice the difference only when somebody asks. In the slip-box community somebody put it in the shortest possible form back in 2014: knowing about something is not the same as knowing it."
+    },
+    "luhmannContext": "The sharpest version of this thought comes not from a critic of collecting but from the man with the most famous collection. In 1981 Luhmann describes what a slip-box is as long as the slips do not yet refer to one another — it is not a conversation partner yet:",
+    "luhmannQuote": "\"Bis dahin arbeitet er nur als Behälter, aus dem man herausholt, was man hineingetan hat.\" (Until then it works only as a container, out of which you take what you put in.)",
+    "analogyBreak": "What matters is what this sentence describes: a state, not the nature of the thing. A container is passive; a linked, regularly used archive is not — it genuinely puts things in front of you that you would not have thought of. The container is a diagnosis: this is what a dead system looks like. Concluding that systems are pointless is one correction too far.",
+    "deepDive": {
+      "title": "How solid is this, actually?",
+      "text1": "The most famous finding on this topic dates from 2011 and runs roughly: we remember where something is rather than what it says. It is still quoted today. Only its very first sub-study could not be confirmed later — twice not, inside a large replication initiative that did confirm 13 of the 21 studies it tested, and once more not in an independent later study.",
+      "text2": "What is affected is the sub-study on the priming effect, not the whole paper. Even so, that is precisely why this article rests on a different finding. The lesson is broader than the topic: a result is not true because it is quoted often."
+    }
+  },
+  "ai": {
+    "title": "When the AI reads along",
+    "text1": "Assistants can now be pointed at your own files and data sources; there is an open, vendor-neutral standard for this, the Model Context Protocol. How that works technically is explained in the article on RAG.",
+    "text2": "What changes is the price of finding things again: it drops towards zero. That raises the value of notes containing something distilled, while the value of three thousand unread links stays exactly what it was.",
+    "text3": "The best witness for this is Forte himself. In March 2026 he wrote that the bottleneck is no longer the ability of the AI but your own ability to hand it the right material at the right moment — and added that getting value out of AI is never as fast or as easy as claimed.",
+    "survey": "Solid evidence on what this does to your own thinking is thin, and it comes from self-report: in a survey of 319 knowledge workers, those with high confidence in the AI reported less critical thinking of their own, those with high confidence in themselves reported more; critical thinking also shifted towards verifying the answers. What was captured is what people report, not what they do.",
+    "bottleneck": "The next conclusion is this article's, not Forte's: the bottleneck has moved onto Distill, the one step almost nobody does anyway. The machine gets the looking up, you get the understanding."
+  },
+  "privacy": {
+    "title": "Your Second Brain on Someone Else’s Servers?",
+    "text1": "Many note-taking apps now ship with built-in AI features — summarizing, answering questions, automatic tagging. Convenient, but technically it often means your notes are sent to an AI provider’s servers. That can be true even when the app itself looks local. And whether the provider may also use your content to train its models is stated not in the app but in the terms of service — worth reading before the button is pressed.",
+    "text2": "For a second brain full of personal thoughts, health notes, or work internals, the settings are worth a look: AI features can usually be switched off, and some tools offer local models. The rule of thumb from the secrets article applies here too: what you wouldn’t write in an email to strangers shouldn’t go unchecked into a cloud AI feature.",
+    "text3": "A second brain rarely contains only you. Colleagues, clients, family turn up in it — at the latest in a screenshot of a chat. As long as that stays strictly private, the GDPR does not apply to you, though it does apply to the cloud provider (Art. 2(2)(c) and Recital 18 GDPR). Work is different: notes about clients, patients, or staff are data that you or your employer are answerable for, and an AI feature that ships them to an outside provider is then a transfer that as a rule has to be covered by contract (Art. 28 GDPR) — before you switch it on, not after."
+  },
+  "mirror": {
+    "title": "Two memories, one mechanism",
+    "text1": "A learning portal like this one is itself a second memory that somebody else has kept for you. The part that changes you it cannot take over — that is what the checkpoint and the quiz are for.",
+    "text2": "The second half is a machine: an AI agent knows nothing on Monday about Friday — that is stated in its vendor's own engineering guidance. Picture ten such sessions: without a progress file the same insight gets worked out ten times over, with one it is worked out once. More on this in the article on harness engineering and in the glossary entry on agent memory.",
+    "text3": "What the head does not keep and no session outlives has to sit outside — for people as much as for machines. Not a neat comparison, but the same mechanism twice.",
+    "forward": "And the demarcation going forward: a second memory is something you process yourself, and the processing changes you. A digital twin, by contrast, is kept in agreement with a physical thing through measurement and acts back on it — a different matter, its own topic."
+  },
+  "close": {
+    "title": "Where the lever sits",
+    "text1": "Back to the arithmetic from the start. The return does not hang on the number at the top, which is why \"which app would be better\" is almost never the first question. The first one is different, and from now on you can put it to any system you meet.",
+    "text2": "Where in this system does processing actually happen — and what would be the smallest change that produces more of it there? A full store does not answer that. A single note in your own words does."
+  },
+  "takeaways": {
+    "containerTitle": "The five points that stay",
+    "item1": "A second brain has two halves: a stock and a habit. The stock is cheap to get, the habit produces the return — drop it and a warehouse is what remains.",
+    "item2": "Offloading does not make you dull; it is a well-studied everyday strategy. The question is not whether you offload but what: the filing yes, the understanding no.",
+    "item3": "CODE has a cheap half and a valuable one. Capturing and organizing cost little and yield little; distilling and expressing cost effort and yield everything.",
+    "item4": "Access and understanding are two different possessions — and access measurably feels like understanding. That is not a character flaw, it is an effect.",
+    "item5": "An assistant allowed to read your notes raises the value of good notes and changes nothing about the value of bad ones. The bottleneck moves from finding to phrasing."
+  },
+  "checkpoint": {
+    "title": "Checkpoint",
+    "item1": "I can explain which second half has to go with a stock of notes — and why the right app does not supply it.",
+    "item2": "I can say which half of CODE produces the return, and give an argument for why.",
+    "item3": "I can show, with an example of my own, where access and understanding come apart."
+  },
+  "quiz": {
+    "boxTitle": "Test your knowledge",
+    "q1": {
+      "question": "What do the four steps of the CODE principle stand for?",
+      "a": "Collect, Order, Deliver, Evaluate",
+      "b": "Capture, Organize, Distill, Express",
+      "c": "Copy, Optimize, Download, Export",
+      "d": "Create, Observe, Decide, Execute",
+      "explanation": "Capture (hold on to), Organize (file), Distill (boil down), Express (bring out). The last two steps produce the return; the first two only create the conditions for it."
+    },
+    "q2": {
+      "question": "The article says Tiago Forte named the method and made it known — and explicitly not that he coined the phrase. What speaks against that?",
+      "a": "Nothing demonstrable; the distinction is merely a cautious formula of the article.",
+      "b": "Two things: the phrase existed in 1998 for another subject, the idea in 1981.",
+      "c": "Forte developed the method only in 2022 with the book, not back in 2017 in the first course.",
+      "d": "The phrase comes from brain research and still means something different there today.",
+      "explanation": "The two counter-facts aim at different things. In 1998 a book about the nervous system of the gut was called \"The Second Brain\" — same phrase, different subject; that undercuts the claim to the word. Luhmann called his slip-box a Zweitgedächtnis in 1981; that is not a translation of \"Second Brain\" but the same idea with a German word of its own, and it undercuts the novelty of the thing."
+    },
+    "q3": {
+      "question": "Somebody saves 1,000 finds a year, reopens 100 of them, distills 20 into their own words, and brings 4 out of that. They are weighing two changes: (A) a faster capture app that gets them to 2,000 instead of 1,000, or (B) distilling 40 instead of 20 of what they reopen. What does the logic of the funnel predict?",
+      "a": "A works better, because twice as much material means twice as many ideas.",
+      "b": "Both work about equally, because both changes double the very same number.",
+      "c": "B works, A barely: A doubles a step that is not the bottleneck.",
+      "d": "Neither works, because the return here depends on chance anyway.",
+      "explanation": "A doubles the number at the very top, which in the model is not what limits the output. B doubles the step that produces the return: distilling. The small change in the right place beats the large one in the wrong place."
+    },
+    "q4": {
+      "question": "Two people prepare for the same conversation. Person A has saved 40 articles on the topic and skimmed them the evening before; they feel well prepared. Person B has read three of them and summed them up in their own words. Who is more likely to be caught out — and why is that not a character flaw?",
+      "a": "Person B, because three sources are simply too few for a serious conversation.",
+      "b": "Person A: much material leaves a feeling of knowing, even without learning.",
+      "c": "Neither of them, since preparation only works above a certain amount of material.",
+      "d": "Person A, but only because they started too late; with more time they would be level.",
+      "explanation": "The measured effect: whoever has looked something up afterwards rates themselves as more competent even on topics they never looked up. That is not laziness but a mix-up of access and understanding. Person B took the step that makes the difference — distilling in their own words."
+    },
+    "q5": {
+      "question": "Two people point an AI assistant at their note archive. A has 3,000 saved links, never reopened. B has 300 notes, each boiled down to the core in their own words. What does the assistant shift — and what does it not?",
+      "a": "It shifts both: it finds and distills, which is why A catches up with B.",
+      "b": "It shifts nothing essential, because it uses the same search in both archives.",
+      "c": "It takes over the finding, not the phrasing — and only B has phrased.",
+      "d": "It helps B more only because smaller archives can be searched faster.",
+      "explanation": "The bottleneck moves from finding to phrasing. The assistant handles the finding equally well in both archives; the distilling it never did and still does not do. That is why better search raises the value of distilled notes and leaves the value of unprocessed finds where it was."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Mein Fortschritt",
+  "subtitle": "Wie weit du mit den Inhalten dieses Portals bist.",
+  "overviewTitle": "Überblick",
+  "topicsTitle": "Themen im Einzelnen",
+  "emptyTitle": "Noch keine Inhalte vorhanden",
+  "emptyText": "Sobald dieses Portal Artikel oder Demos enthält, steht hier für jedes Thema eine Zeile.",
+  "storageNote": "Gespeicherter Fortschritt bleibt nur in diesem Browser und wird nirgendwohin gesendet. In den Einstellungen kannst du ihn jederzeit löschen.",
+  "summary": {
+    "overall": "Gesamtfortschritt"
+  },
+  "table": {
+    "caption": "Themen mit Status und erledigten Schritten",
+    "topic": "Thema",
+    "status": "Status",
+    "steps": "Schritte"
+  },
+  "status": {
+    "notStarted": "Nicht begonnen",
+    "inProgress": "In Arbeit",
+    "done": "Abgeschlossen"
+  },
+  "kind": {
+    "article": "Artikel",
+    "demo": "Demo"
+  },
+  "trackingOffNote": "Dein Fortschritt wird nicht gespeichert — du hast dich dagegen entschieden. Die Zahlen hier gelten nur für diesen Besuch und beginnen beim nächsten Mal wieder bei null. In den Cookie-Einstellungen am Ende der Seite kannst du das Speichern jederzeit erlauben.",
+  "settingsLink": "Zu den Einstellungen",
+  "trackingUndecidedNote": "Dein Fortschritt wird noch nicht gespeichert — du hast noch nicht entschieden, ob er gespeichert werden darf. Die Zahlen hier gelten nur für diesen Besuch. Im Cookie-Banner oder in den Cookie-Einstellungen am Ende der Seite kannst du das Speichern erlauben."
+}

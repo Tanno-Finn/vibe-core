@@ -1,0 +1,8 @@
+{
+  "term": "Agentischer Workflow",
+  "alternativeNames": [
+    "KI-Workflow"
+  ],
+  "description": "Ein agentischer Workflow ist ein Arbeits·ablauf für eine KI. Die KI bekommt eine Aufgabe. Dann arbeitet sie selbstständig. Sie plant Schritte. Sie nutzt Werkzeuge wie Suche oder Code. Sie prüft die Ergebnisse. Dann entscheidet sie, was als nächstes kommt. Das ist anders als eine normale Frage an eine KI. Bei einem agentischen Workflow macht die KI viele Schritte hintereinander.",
+  "example": "Ein Nutzer sagt der KI: „Suche den Fehler in meinem Programm.“ Die KI liest den Code. Sie führt Tests aus. Sie liest die Fehler·meldungen. Sie ändert eine Zeile. Sie testet nochmal. Erst wenn alles klappt, meldet sie sich zurück."
+}

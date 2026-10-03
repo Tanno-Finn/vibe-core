@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Generic starter-kit mark: amber rounded square with a white isometric box,
+       matching the app header icon (pi pi-box). No text, legible at 16px. -->
+  <defs>
+    <linearGradient id="amberBox" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="30" height="30" rx="7" fill="url(#amberBox)"/>
+  <!-- Isometric cube (three faces, shaded via opacity for a clean 3D read) -->
+  <path d="M16 6 L25 11 L16 16 L7 11 Z" fill="#ffffff"/>
+  <path d="M7 11 L16 16 L16 26 L7 21 Z" fill="#ffffff" opacity="0.78"/>
+  <path d="M25 11 L16 16 L16 26 L25 21 Z" fill="#ffffff" opacity="0.56"/>
+</svg>

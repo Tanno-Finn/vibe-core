@@ -1,0 +1,39 @@
+{
+  "title": "Beispiel·artikel: Die Vorlage",
+  "subtitle": "Dieser Artikel ist ein Muster. Er zeigt: So ist eine Artikel·seite aufgebaut.",
+  "description": "Dieser Artikel hat kein Fachthema. Er zeigt die Bausteine einer Artikel·seite: Einstieg, Text, Definition, Beispiel, Check, Kern·aussagen.",
+  "intro": {
+    "title": "Das ist eine Platzhalter·vorlage",
+    "text": "Diese Seite erklärt kein Fachthema. Sie zeigt dir den Bauplan für einen Artikel. Jeder Teil der Seite ist ein Baustein. Jeder Teil erklärt sich selbst. Du kannst die Seite als Vorlage nehmen. So schreibst du deinen eigenen Artikel."
+  },
+  "structure": {
+    "title": "So ist ein Artikel aufgebaut",
+    "text": "Ein Artikel hat eine feste Reihenfolge. Oben steht eine Infobox. Sie sagt dir: Darum geht es hier. Danach kommen kurze Abschnitte mit Text. Jeder Abschnitt hat eine Überschrift. So findest du dich leicht zurecht. Ein Definitions·block erklärt wichtige Wörter. Eine Beispiel·box zeigt ein konkretes Beispiel. Am Ende gibt es einen Check und die Kern·aussagen. Ganz unten zeigt der Artikel passende Inhalte. Zum Beispiel Wörter aus dem Glossar."
+  },
+  "definition": {
+    "title": "Begriff: Artikel·seite",
+    "analogy": "Eine Artikel·seite ist wie ein Museum. Am Eingang steht ein Schild. Es sagt dir, was dich erwartet. Dann gehst du durch die Räume. Jeder Raum hat ein Thema. Am Ausgang steht eine Tafel. Sie fasst alles kurz zusammen.",
+    "precise": "Eine Artikel·seite ist eine eigene Seite im Portal. Sie nutzt die Vorlage <code>app-lesson-template</code>. Sie hat Metadaten: eine ID, einen Titel, eine Lesezeit. Man erreicht sie über eine kurze Adresse mit 4 Zeichen.",
+    "example": "Diese Seite hier ist so eine Artikel·seite. Ihre kurze Adresse ist: sda1."
+  },
+  "example": {
+    "title": "Beispiel: Die kurze Adresse",
+    "text": "Jeder Artikel bekommt eine kurze Adresse mit 4 Zeichen. Die kurze Adresse passt gut in ein Buch. Sie passt auch in einen QR-Code.",
+    "label": "Kurze Adresse",
+    "result": "/article/sda1 führt zu diesem Artikel. Probiere es aus."
+  },
+  "checkpoint": {
+    "title": "Check: Kennst du die Vorlage?",
+    "item1": "Ich kann die Bausteine eines Artikels nennen: Einstieg, Text, Definition, Beispiel, Check, Kern·aussagen, passende Inhalte."
+  },
+  "takeaways": {
+    "title": "Das Wichtigste in Kürze",
+    "text": "1. **Ein Artikel ist eine eigene Seite**: Er nutzt die Vorlage app-lesson-template. Seine Daten stehen in einer eigenen Datei.\n\n2. **Feste Bausteine**: Textblock, Definition, Beispiel·box und Check. So sieht jeder Artikel gleich klar aus.\n\n3. **Alles ist verbunden**: Der Artikel zeigt passende Wörter und Ereignisse automatisch an. Das steht in seiner Datendatei.\n\nDiese Vorlage hat kein Fachthema. Tausche die Inhalte aus. Behalte den Aufbau."
+  },
+  "next": {
+    "title": "Schreib deinen eigenen Artikel",
+    "text": "Diese Seite ist eine Vorlage zum Kopieren. Tausche die Texte gegen dein Thema. Behalte den Aufbau. Zwei Werkzeuge helfen dir dabei:",
+    "designWorkshop": "die Design·werkstatt. Dort probierst du alle Bausteine aus.",
+    "newContent": "der geführte Weg für neue Inhalts·seiten."
+  }
+}

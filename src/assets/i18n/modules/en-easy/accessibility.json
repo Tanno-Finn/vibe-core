@@ -1,0 +1,42 @@
+{
+  "title": "Accessibility Statement",
+  "subtitle": "What works well here. What does not work yet. And how you tell us about a problem.",
+
+  "introTitle": "What this is about",
+  "introText": "This statement is about this project. Accessible means: all people can use it well. We write this statement because many people should be able to learn here. And we say honestly what works well. We also say what does not work well yet.",
+
+  "standardTitle": "What we follow",
+  "standardText": "There are rules for accessible web pages. These rules are called WCAG 2.2 and EN 301 549. We follow these rules. The rules are our goal. We keep getting better. No other company has checked us yet. We have checked everything ourselves. So everything here is our own view.",
+
+  "statusTitle": "How accessible is this site?",
+  "statusText": "This site is partly accessible. This is our own view. Many things already work well. You can use this site with the keyboard. The colors have good contrast. Images have text that explains them. There is a dark mode. You can make the text bigger. And there are texts in Plain Language. Some parts are not fully accessible yet. We explain the most important parts below.",
+
+  "limitsTitle": "This does not work well yet",
+  "limitLanguageLabel": "Plain Language is not certified Easy Read",
+  "limitLanguageText": "We write texts in Plain Language. An AI helps us with this. A person reads the texts afterwards. Nobody checks them in detail. We use the basic rules of easy language. These are short sentences and simple words. But we do not meet all the rules of certified Easy Read. Easy Read is a certified standard. For Easy Read, a group checks the texts. In the group are people with learning difficulties. We do not do this check. We also do not follow all the rules for fonts and images. So we say on purpose: Plain Language. We do not say: certified Easy Read.",
+  "limitDemosLabel": "Some demos show a lot with pictures",
+  "limitDemosText": "This site has many demos to try out. You can use most of them with the keyboard. Most of them also have text that explains them. In some demos, the important part is in an animation. You can hardly use these demos without sight. We are working on a solution. We want to describe these demos well with text. This is like a picture description in a film.",
+  "limitTranslationsLabel": "An AI helps with the translation",
+  "limitTranslationsText": "The content is there in {count} languages. Each language is also there in Plain Language. An AI helps with the translation. Sometimes there are small mistakes. German and English are the safest. A person has read the texts in these 2 languages. Nobody checks them in detail.",
+  "limitSignLabel": "No sign language",
+  "limitSignText": "There is no German Sign Language here. The short form for it is DGS. Some companies use avatars for signs. An avatar is a figure on the computer. We do not use such avatars on purpose. The deaf associations advise against them. And the quality is not good enough yet. We keep watching the technology. Maybe we will offer sign language later.",
+
+  "methodTitle": "How this statement came about",
+  "methodText": "We have checked this site ourselves. No other company has checked it yet.",
+  "createdLabel": "Created on",
+  "createdDate": "July 15, 2026",
+  "updatedLabel": "Last checked on",
+  "updatedDate": "July 15, 2026",
+
+  "feedbackTitle": "Tell us about a problem",
+  "feedbackText": "Did you find a problem? Are you stuck at some point? Maybe you use a screen reader. A screen reader reads the text out loud. Maybe you use the keyboard or a magnifier. Then tell us about the problem. The best way is the feedback menu. There you find the point: Report a barrier. Write us the page you mean. Describe the problem in a few words. Tell us your assistive tool if you like. You do not have to give your name. Anonymous reports are welcome too. We usually answer within 4 weeks.",
+
+  "enforcementTitle": "One honest note at the end",
+  "enforcementText": "Your feedback is important. We read every report about a problem. We use it to make this site better. Some things on this page are here because of a report.",
+
+  "helpTitle": "This helps you use this site",
+  "helpKeyboard": "Keyboard: you use the menu with the keyboard. You use the Tab key, the arrow keys, and the Enter key for this.",
+  "helpContrast": "Display: there is a dark mode and a light mode. The colors have strong contrast. You make the text bigger with the browser zoom.",
+  "helpEasyLanguage": "Plain Language: each language is also there in a simple version. You switch it at the top in the language selector.",
+  "helpStructure": "Structure: there are clear headings and areas. Images have text for assistive tools."
+}

@@ -1,0 +1,23 @@
+{
+  "404": {
+    "backToHome": "Back to start",
+    "description": "The page is not here. Maybe in another place. We cannot know.",
+    "goBack": "Back to last page",
+    "popularPages": "Pages that really exist",
+    "title": "Page not found"
+  },
+  "app": {
+    "newVersionTitle": "There is a new version.",
+    "newVersionDetail": "The page is new. Please load the page again.",
+    "reload": "Load again",
+    "unexpected": "Something went wrong."
+  },
+  "http": {
+    "timeoutTitle": "This took too long.",
+    "timeoutDetail": "The server did not answer. Please try again.",
+    "offlineTitle": "No connection.",
+    "offlineDetail": "We cannot reach the server. Please check your internet.",
+    "serverTitle": "Problem with the server.",
+    "serverDetail": "The server has a problem. The problem has the number {status}. Please try again later."
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Commit",
+  "alternativeNames": [
+    "Speicher·punkt"
+  ],
+  "description": "Commit. Das spricht man Komitt aus. Ein Commit ist ein Speicher·punkt für dein Projekt. Er hält einen Stand von deinem Code fest. Dazu schreibst du eine kurze Nachricht. Die Nachricht sagt: Das habe ich geändert. Und darum. Viele kleine Commits sind besser als ein großer. Denn du kannst jeden Commit einzeln zurücknehmen. Das hilft, wenn eine KI deinen Code schreibt. Du siehst dann jeden Schritt einzeln.",
+  "example": "Die KI baut eine Suche in deine App. Das ist ein Commit. Dann ändert die KI die Farben. Das ist ein zweiter Commit. Die Farben gefallen dir nicht? Dann nimmst du nur den zweiten Commit zurück. Die Suche bleibt."
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Context Engineering",
+  "alternativeNames": [
+    "Kontextgestaltung"
+  ],
+  "description": "Context Engineering. You plan on purpose which information the AI model gets. The model has only a small space for information. This space is called the context window. That is why you must choose carefully. You take the important information. You leave out the unimportant. Sometimes you must also make information shorter. Good context makes the answers better. This is more than just writing a prompt.",
+  "example": "You give the model rules, examples, and knowledge. All together that is the context. The better the context, the better the answer."
+}

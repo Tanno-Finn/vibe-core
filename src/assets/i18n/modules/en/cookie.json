@@ -1,0 +1,32 @@
+{
+  "acceptProgress": "Yes, save my progress",
+  "actionsLabel": "Cookie settings actions",
+  "bannerLabel": "Cookie settings and privacy",
+  "closeDialog": "Close settings",
+  "description": "This site sets no tracking cookies. If you agree, your browser remembers which quizzes, checkpoints, and learning paths you have completed. That stays on this device only. Without your consent, your progress lasts for this visit only.",
+  "disableProgress": "No, do not save",
+  "essential": {
+    "description": "Basic functions like language setting and theme selection. These are always stored locally.",
+    "inputLabel": "Enable essential cookies",
+    "switchLabel": "Essential cookies (always enabled)",
+    "title": "Technically Necessary Functions"
+  },
+  "progress": {
+    "description": "Saves which quizzes, checkpoints, and learning paths you have completed, locally in your browser. Off until you switch it on; switch it off again and the saved progress is deleted.",
+    "inputLabel": "Enable progress cookies",
+    "switchLabel": "Save learning progress",
+    "title": "Learning Progress"
+  },
+  "analytics": {
+    "description": "Helps me improve this site. With your consent, I collect page views, time spent, scroll depth, and device information (browser, screen size). This data is sent exclusively to my own server — not to third parties. Attribution is done via a daily-changing hash; your IP address is not stored. What exactly I collect and what I learn from it is shown transparently on the statistics page.",
+    "inputLabel": "Enable usage statistics",
+    "switchLabel": "Allow usage statistics",
+    "title": "Usage Statistics"
+  },
+  "save": "Save",
+  "saveSettingsAriaLabel": "Save and apply cookie settings",
+  "settings": "Settings",
+  "settingsDescription": "Choose which data should be stored locally",
+  "settingsTitle": "Storage Settings",
+  "title": "About Cookies"
+}

@@ -1,0 +1,5 @@
+{
+  "term": "Function Calling",
+  "description": "Function Calling. Das bedeutet Funktionsaufrufe. Ein Computer·programm kann Werkzeuge nutzen. Es merkt, wenn es Hilfe braucht. Dann ruft es ein anderes Programm an. Zum Beispiel eine Wetter·app. Oder einen Rechner. Das Programm sagt, was es braucht. In einer Computer·sprache. Das System führt es dann aus.",
+  "example": "Man fragt: Wie wird das Wetter morgen? Das Programm weiß das nicht. Es ruft eine Wetter·app an. Die App gibt die Antwort. Das Programm sagt es dem Nutzer."
+}

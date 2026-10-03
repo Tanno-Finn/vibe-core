@@ -1,0 +1,17 @@
+{
+  "id": "arxiv-helfen-2026",
+  "type": "paper",
+  "authors": "Prakhar Khatri",
+  "year": "2026",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2607.27250",
+  "doi": "10.48550/arXiv.2607.27250",
+  "accessed": "2026-08-11",
+  "tags": [
+    "context-files",
+    "ablation-study",
+    "coding-agent",
+    "agents-md",
+    "null-result"
+  ]
+}

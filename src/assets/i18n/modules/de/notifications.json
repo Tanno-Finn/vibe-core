@@ -1,0 +1,28 @@
+{
+  "bell": {
+    "label": "Benachrichtigungen",
+    "labelWithCount": "Benachrichtigungen, {count} ungelesen",
+    "ariaLiveUpdate": "Eine neue Benachrichtigung ist verfügbar",
+    "empty": "Keine Benachrichtigungen",
+    "viewAll": "Alle Updates ansehen"
+  },
+  "welcome": {
+    "title": "Willkommen im Portal",
+    "description": "Hier siehst du künftig Neuigkeiten zu Inhalten, Sprachen und Features."
+  },
+  "cta": {
+    "open": "Ansehen"
+  },
+  "clientUpdate": {
+    "title": "Neue Version verfügbar",
+    "description": "Lade die Seite neu, um die aktuelle Version zu erhalten."
+  },
+  "seedNotification1": {
+    "title": "Beispiel-Meldung 1",
+    "description": "So sieht eine Neuigkeit aus. Lege eigene Meldungen unter assets/data/notifications ab."
+  },
+  "seedNotification2": {
+    "title": "Beispiel-Meldung 2",
+    "description": "Ältere Meldungen wandern ins Archiv — genau wie diese."
+  }
+}

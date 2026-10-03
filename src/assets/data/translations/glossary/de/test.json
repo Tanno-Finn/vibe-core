@@ -1,0 +1,10 @@
+{
+  "term": "Test (Software)",
+  "alternativeNames": [
+    "Software-Test",
+    "Automatisierter Test",
+    "Test-Suite"
+  ],
+  "description": "Testen heißt, ein Programm gezielt auszuprobieren, um Fehler zu finden. Meist ist ein Test dabei selbst ein kleines Programm: Es ruft ein Stück Code mit bekannten Eingaben auf und vergleicht das Ergebnis mit dem erwarteten. Läuft die Test-Suite grün, ist das beruhigend — aber kein Beweis. Tests prüfen nur, was sie prüfen; Edsger Dijkstra formulierte es so: Testen kann die Anwesenheit von Fehlern zeigen, nicht ihre Abwesenheit. Gerade für Code, den KI-Agenten schreiben, sind Tests das wichtigste Sicherheitsnetz: Ein Agent, der seine Änderung gegen eine gute Test-Suite laufen lassen muss, bemerkt viele eigene Fehler sofort — und der Mensch muss nicht jede Zeile selbst nachrechnen. Vorsicht mit zwei Namensvettern: Das Test Set ist ein Datensplit im maschinellen Lernen, A/B-Testing ein Experiment mit echten Nutzern — beides sind keine Software-Tests.",
+  "example": "Stell dir die Checkliste eines Piloten vor: Vor jedem Start werden dieselben Punkte geprüft — Ruder frei, Tanks voll, Klappen gesetzt. Die Liste fängt zuverlässig die bekannten Fehler, aber eben nur die, die auf ihr stehen. Genauso eine Test-Suite: Der Test „addiere(2, 3) muss 5 ergeben“ schlägt sofort Alarm, wenn eine Änderung die Addition bricht. Den Fehler bei negativen Zahlen, für den niemand einen Test geschrieben hat, sieht dagegen keiner."
+}

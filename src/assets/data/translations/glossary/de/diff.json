@@ -1,0 +1,9 @@
+{
+  "term": "Diff",
+  "alternativeNames": [
+    "Änderungsübersicht",
+    "Differenzanzeige"
+  ],
+  "description": "Ein Diff ist die Gegenüberstellung zweier Stände einer Datei oder eines Projekts: eine Liste, die zeigt, was sich geändert hat - hinzugefügte und entfernte Zeilen, dazu ein paar unveränderte Zeilen ringsum, damit man sieht, wo man ist. Wie der Korrekturmodus einer Textverarbeitung: Du liest nicht das ganze Dokument neu, sondern nur die markierten Stellen. Genau das macht Diffs zum wichtigsten Prüfwerkzeug bei der Arbeit mit KI-Agenten: Statt jede Datei komplett zu lesen, siehst du auf einen Blick, was der Agent tatsächlich angefasst hat - auch an Stellen, an denen du keine Änderung erwartet hättest.",
+  "example": "Du bittest einen Agenten, einen Tippfehler zu korrigieren. Das Diff zeigt eine geänderte Zeile im Text - und überraschend eine zweite in der Konfiguration. Genau dafür ist es da. Nur eines zeigt ein Diff nicht: die Wirkung. Eine einzige geänderte Zeile kann das Verhalten des ganzen Programms verändern - deshalb ersetzt das Lesen des Diffs nicht das Ausprobieren."
+}

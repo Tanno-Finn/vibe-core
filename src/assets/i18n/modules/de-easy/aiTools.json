@@ -1,0 +1,29 @@
+{
+  "buttons": {
+    "compare": "Zum Vergleichen"
+  },
+  "categories": {
+    "audioVideo": "Ton & Video",
+    "coding": "Programmieren",
+    "imageGeneration": "Bilder machen",
+    "productivity": "Arbeits Hilfe",
+    "textAi": "Text Computer",
+    "general": "Allgemein"
+  },
+  "deployment": {
+    "cloud": "Internet",
+    "hybrid": "Gemischt",
+    "onPremise": "Eigener Computer"
+  },
+  "difficulty": {
+    "advanced": "Schwer",
+    "beginner": "Anfänger",
+    "expert": "Experte"
+  },
+  "pricing": {
+    "enterprise": "Für Firmen",
+    "free": "Kostenlos",
+    "freemium": "Teils kostenlos",
+    "premium": "Kostet Geld"
+  }
+}

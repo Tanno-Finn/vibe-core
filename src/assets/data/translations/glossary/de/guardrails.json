@@ -1,0 +1,9 @@
+{
+  "term": "Leitplanken",
+  "alternativeNames": [
+    "Guardrails",
+    "Sicherheitsfilter"
+  ],
+  "description": "Guardrails — auf Deutsch „Leitplanken“ — sind Kontrollmechanismen, die Ein- und Ausgaben eines KI-Systems auf Einhaltung definierter Richtlinien prüfen und gegebenenfalls blockieren, abwandeln oder umleiten. Sie arbeiten als Schicht vor, nach oder innerhalb des Modells und sind von der eigentlichen Modellarchitektur weitgehend unabhängig.\n\nDie Implementierungen reichen von regelbasierten Filtern („enthält dieser Text eine der gesperrten Kategorien?“) über dedizierte Klassifikationsmodelle bis zu dialogischen Steuerungsschichten (Topical Rails, die das Gespräch auf erlaubte Themen begrenzen). Wichtig: Guardrails adressieren primär inhaltliche und sicherheitsbezogene Risiken; sie sind kein Ersatz für Grounding (Faktentreue) oder Structured Output (Formatkonformität).\n\nKonzeptuell abzugrenzen sind eingebettete Sicherheitsmechanismen wie Constitutional AI, die bereits während des Trainings wirken, von externen Guardrails, die zur Laufzeit als separate Systemschicht agieren. Beide können sich ergänzen.",
+  "example": "Ein Kundenservice-Bot ist mit Guardrails ausgestattet, die erkennen, wenn ein Nutzer die KI nach medizinischem Rat fragt. Statt zu antworten, gibt der Bot einen Hinweis aus, dass medizinische Fragen von einem Arzt beantwortet werden sollten — und bleibt beim Thema Produktsupport."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "progit-git-objects-2026",
+  "type": "book",
+  "authors": "Scott Chacon, Ben Straub",
+  "year": "2014",
+  "publication": "Pro Git, 2. Auflage, Kapitel 10.2 (git-scm.com)",
+  "url": "https://git-scm.com/book/en/v2/Git-Internals-Git-Objects",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "git",
+    "content-addressable",
+    "commit-object",
+    "hash",
+    "internals"
+  ]
+}

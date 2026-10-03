@@ -1,0 +1,32 @@
+{
+  "acceptProgress": "Ja, speichern",
+  "actionsLabel": "Was du machen kannst",
+  "bannerLabel": "Einstellungen für Daten speichern",
+  "closeDialog": "Schließen",
+  "description": "Wir möchten deinen Lern·fortschritt auf deinem Computer speichern. Aber nur, wenn du Ja sagst. Ohne Ja vergisst die Seite nach diesem Besuch, welche Quiz und Checkpoints du geschafft hast. Mit Ja bleibt alles da.",
+  "disableProgress": "Nein, nicht speichern",
+  "essential": {
+    "description": "Nötige Dinge wie Sprache und Farben. Diese werden immer gespeichert.",
+    "inputLabel": "Nötige Daten speichern",
+    "switchLabel": "Nötige Daten (immer an)",
+    "title": "Grund·funktionen"
+  },
+  "progress": {
+    "description": "Speichert, welche Quiz, Checkpoints und Lernpfade du geschafft hast. Nur auf deinem Computer. Es ist aus, bis du es anmachst.",
+    "inputLabel": "Fortschritt speichern einschalten",
+    "switchLabel": "Lern·fortschritt speichern",
+    "title": "Lern·fortschritt"
+  },
+  "save": "Speichern",
+  "saveSettingsAriaLabel": "Deine Wahl speichern",
+  "settings": "Einstellungen",
+  "settingsDescription": "Wähle, was auf deinem Computer gespeichert wird",
+  "settingsTitle": "Wie speichern",
+  "title": "Cookie·hinweis",
+  "analytics": {
+    "description": "Wenn du es erlaubst, zähle ich, welche Seiten benutzt werden. Dann sehe ich auch: wie lange du auf einer Seite bist, wie weit du scrollst und welchen Browser du benutzt. Die Zahlen gehen nur an meinen eigenen Server — nicht an andere Firmen. Ich weiß nicht, wer du bist. Was genau ich zähle, zeige ich auf der Statistik·seite.",
+    "inputLabel": "Statistiken an",
+    "switchLabel": "Statistiken erlauben",
+    "title": "Statistiken"
+  }
+}

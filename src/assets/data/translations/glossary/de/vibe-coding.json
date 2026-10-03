@@ -1,0 +1,8 @@
+{
+  "term": "Vibe Coding",
+  "alternativeNames": [
+    "Programmieren per Zuruf"
+  ],
+  "description": "Vibe Coding ist Programmieren per natürlicher Sprache: Du beschreibst, was die Software tun soll, ein KI-Agent schreibt den Code. Deine Aufmerksamkeit wandert von den Code-Zeilen zum Ergebnis - du prüfst, ob das Programm tut, was du wolltest, statt jede Zeile selbst zu formulieren. Im engen, ursprünglichen Sinn heißt das sogar: den erzeugten Code gar nicht mehr lesen; die verbreitete, vorsichtigere Praxis behält Testen und Nachsteuern beim Menschen. Das unterscheidet Vibe Coding von klassischem Programmieren, bei dem du den Code selbst schreibst, und von Code-Vervollständigung, die nur einzelne Zeilen vorschlägt. Richtung, Prüfung und Verantwortung bleiben bei dir.",
+  "example": "Du tippst: „Baue mir eine Einkaufslisten-App, die Einträge nach Supermarkt-Abteilung sortiert.“ Der Agent schreibt die App, du probierst sie aus und antwortest: „Tiefkühlware landet noch in der falschen Abteilung.“ Wie beim Schreiner: Du beschreibst das Regal, er baut es - aber ob es hält und passt, prüfst du selbst. Und Vorsicht: Dass es sichtbar steht, heißt nicht, dass es trägt - Fehler stecken oft im Unsichtbaren, etwa bei Sicherheit oder Randfällen."
+}

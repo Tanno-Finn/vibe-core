@@ -1,0 +1,5 @@
+{
+  "term": "Context Window",
+  "description": "Context Window. This is the memory of AI models. It shows how much text the AI can read at once. This is measured in tokens. One token is about one word. For example: 8,000 tokens means about 6,000 words. The context window includes your question and the answer together. Newer models can process more text at once.",
+  "example": "You want to upload a long book. The book has 100 pages. That is about 75,000 tokens. If the AI can only process 8,000 tokens it does not work. If the AI can process 200,000 tokens it works."
+}

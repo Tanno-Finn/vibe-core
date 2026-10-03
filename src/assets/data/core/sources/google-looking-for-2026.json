@@ -1,0 +1,16 @@
+{
+  "id": "google-looking-for-2026",
+  "type": "article",
+  "authors": "Google",
+  "year": "2026",
+  "publication": "Google Engineering Practices Documentation",
+  "url": "https://google.github.io/eng-practices/review/reviewer/looking-for.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "code-review",
+    "review-criteria",
+    "engineering-practices",
+    "guidance"
+  ]
+}

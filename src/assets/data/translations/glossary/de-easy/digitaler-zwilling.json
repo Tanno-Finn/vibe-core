@@ -1,0 +1,8 @@
+{
+  "term": "Digitaler Zwilling",
+  "alternativeNames": [
+    "Digital Twin"
+  ],
+  "description": "Digitaler Zwilling. Auf Englisch: Digital Twin. Das ist ein Computer·modell von einem echten Ding. Zum Beispiel von einer Maschine. Das Modell bekommt laufend echte Messdaten. So zeigt es fast immer, wie es dem echten Ding gerade geht. Am Modell kann man Dinge gefahrlos testen. Das ist billiger und sicherer. Manche sagen auch: KI-Zwilling von einem Menschen. Das ist aber etwas anderes. Da fehlen die echten Messdaten.",
+  "example": "Eine Firma baut Windräder. Jedes Windrad hat ein Computer·modell. Das Modell zeigt: Ein Teil wird zu heiß. Die Firma tauscht das Teil aus. Das echte Windrad geht nicht kaputt."
+}

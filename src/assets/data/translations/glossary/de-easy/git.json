@@ -1,0 +1,8 @@
+{
+  "term": "Git",
+  "alternativeNames": [
+    "Git·versions·verwaltung"
+  ],
+  "description": "Git ist ein Programm für Code·verwaltung. Es speichert alle Änderungen an deinen Dateien. Du kannst alte Versionen wiederherstellen. Viele Entwickler können gleichzeitig arbeiten. Git merkt sich alles.",
+  "example": "Du änderst eine Datei. Git merkt sich die alte und die neue Version. Du kannst jederzeit zurückgehen."
+}

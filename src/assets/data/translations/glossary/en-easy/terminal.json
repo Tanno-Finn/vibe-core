@@ -1,0 +1,8 @@
+{
+  "term": "Terminal",
+  "alternativeNames": [
+    "Command window"
+  ],
+  "description": "Terminal. This is a program on your computer. It is usually a window with text. There you type commands. The computer answers with text. Long ago a terminal was a real device. With a screen and a keyboard. Today it is a window. Many AI agents run in the terminal. An AI agent is an AI program. It does tasks for you. You write normal sentences. The agent turns them into the right commands.",
+  "example": "You open the terminal. You start an AI agent. You write: show me my new files. The agent types the commands for you. You read the answer in the window."
+}

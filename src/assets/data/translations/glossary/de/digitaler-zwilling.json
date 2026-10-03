@@ -1,0 +1,9 @@
+{
+  "term": "Digitaler Zwilling",
+  "alternativeNames": [
+    "Digital Twin",
+    "Digitales Abbild"
+  ],
+  "description": "Ein Digitaler Zwilling ist das virtuelle Abbild eines physischen Systems - einer Maschine, einer Fabrik, eines Triebwerks -, das laufend mit echten Sensordaten synchronisiert wird. Das Konzept stammt aus dem Product Lifecycle Management und der Raumfahrt: Am Modell lässt sich simulieren und durchspielen, was am realen Objekt zu teuer oder zu riskant wäre. Die Fachliteratur ist dabei streng: Fließen die Daten nur vom realen Objekt ins Modell, spricht sie von einem Digital Shadow; ganz ohne automatischen Datenaustausch ist es bloß ein digitales Modell. Davon zu trennen ist auch die jüngere Buzzword-Schicht, die einen Chatbot mit Persönlichkeitsimitat zum „KI-Zwilling“ einer Person erklärt - ihr fehlt die laufende Kopplung an ein reales, messbares System.",
+  "example": "Ein Windrad-Hersteller füttert das digitale Modell jeder Turbine laufend mit Sensordaten aus dem Feld. Weicht die gemessene Lagertemperatur von dem ab, was das Modell erwartet - oder sagt das Modell für nächste Woche den Grenzwert voraus -, wird gewartet, bevor das echte Lager bricht."
+}

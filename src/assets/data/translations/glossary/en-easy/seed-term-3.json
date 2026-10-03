@@ -1,0 +1,6 @@
+{
+  "term": "Example Term 3",
+  "alternativeNames": [],
+  "description": "This is example entry number 3. An entry can also have other names. These other names are called alternative names. An entry can also have a category. A category is a group of similar terms. The structure of an entry is small on purpose. This structure is also called the schema.",
+  "example": "Some terms have several names. Then alternative names help."
+}

@@ -1,0 +1,8 @@
+{
+  "term": "Instruktions·datei",
+  "alternativeNames": [
+    "Regeldatei für KI-Agenten"
+  ],
+  "description": "Instruktions·datei. Auf Englisch: Instruction File. Das ist eine Datei mit Regeln für einen KI-Agenten. Die Datei liegt im Projekt·ordner. Darin stehen wichtige Dinge über das Projekt. Zum Beispiel: So startet man die Tests. Oder: Diesen Ordner nicht ändern. Der Agent liest die Datei meist am Anfang. So gelten die Regeln in jeder Sitzung. Man muss sie nicht jedes Mal neu schreiben. Ein bekanntes Beispiel heißt AGENTS.md.",
+  "example": "Ein Team schreibt Regeln in eine Datei. Zum Beispiel: Schreibe Kommentare auf Deutsch. Der KI-Agent liest die Datei. Dann hält er sich an die Regel. Bei jeder Aufgabe."
+}

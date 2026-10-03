@@ -1,0 +1,15 @@
+{
+  "lastUpdated": "2026-07-21",
+  "languages": [
+    {
+      "code": "de",
+      "status": "reference",
+      "progress": 100
+    },
+    {
+      "code": "en",
+      "status": "complete",
+      "progress": 100
+    }
+  ]
+}

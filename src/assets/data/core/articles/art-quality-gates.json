@@ -1,0 +1,47 @@
+{
+  "id": "art-quality-gates",
+  "path": "articles/art-quality-gates",
+  "titleKey": "articleQualityGates.hero.title",
+  "descriptionKey": "articleQualityGates.hero.subtitle",
+  "category": "concepts",
+  "estimatedTime": "18min",
+  "difficulty": "intermediate",
+  "featured": false,
+  "pageId": "gate",
+  "created": "2026-08-16",
+  "updated": "2026-09-05",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [
+    "fowler-continuous-integration-2024",
+    "fowler-foemmel-ci-original-2000",
+    "vasilescu-ci-outcomes-2015",
+    "dora-ai-assisted-report-2025",
+    "misra-compliance-2020",
+    "johnson-lint-1978",
+    "eslint-configure-rules-2026",
+    "eslint-configuration-files-2026",
+    "github-protected-branches-2026",
+    "adkins-breakglass-2020",
+    "git-githooks-2026",
+    "github-copilot-agent-2025",
+    "eslint-core-concepts-2026"
+  ],
+  "related": {
+    "articles": [
+      "art-agent-tests",
+      "art-harness-engineering",
+      "art-git-intro"
+    ],
+    "glossary": [
+      "ci-cd",
+      "build",
+      "linter",
+      "test",
+      "git",
+      "code-review",
+      "commit"
+    ],
+    "timeline": []
+  }
+}

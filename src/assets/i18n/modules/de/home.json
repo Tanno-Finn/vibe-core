@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "subtitle": "Ein Lern-Begleiter für dein Thema — mit interaktiven Demos, einem Glossar und einem Zeitstrahl."
+  },
+  "marquee": {
+    "title": "Stöbere durch alle Inhalte",
+    "ariaLabel": "Endlos-Band mit allen Inhalten",
+    "pause": "Inhaltsband pausieren",
+    "play": "Inhaltsband fortsetzen",
+    "expand": "Alle Inhalte als Raster anzeigen",
+    "collapse": "Zurück zum laufenden Inhaltsband",
+    "announceExpanded": "Alle Inhalte werden als Raster angezeigt.",
+    "announceCollapsed": "Zurück zum laufenden Inhaltsband."
+  },
+  "navigation": {
+    "bookIntegration": "Jede Seite hat eine eindeutige 4-Zeichen-ID — ideal, um von QR-Codes oder gedrucktem Material direkt auf die passende Seite zu verweisen.",
+    "examples": {
+      "exampleDemo": "Beispiel für den Aufbau einer interaktiven Demo",
+      "tools": "Umfassender Katalog aller Inhalte"
+    },
+    "examplesTitle": "Beispiele für Navigation:",
+    "searchFeature": "Tippe eine ID direkt in die Suchleiste oben rechts ein, um schnell zu einer bestimmten Seite zu springen.",
+    "title": "Schnell navigieren"
+  },
+  "quickStart": {
+    "title": "Direkt einsteigen",
+    "subtitle": "Vier Wege in die Inhalte — wähl, was dich anspricht.",
+    "evolution": {
+      "title": "Die Beispiel-Demo ansehen",
+      "description": "Eine kleine interaktive Demo als Kopiervorlage — sie zeigt, wie sich deine eigenen Demos anfühlen werden.",
+      "cta": "Jetzt ausprobieren"
+    },
+    "glossary": {
+      "title": "Ein Begriff, klar erklärt",
+      "description": "Ein Fachbegriff mit Definition, Beispiel und Kontext — plus viele weitere im Glossar.",
+      "cta": "Begriff ansehen"
+    },
+    "timeline": {
+      "title": "Wie alles begann",
+      "description": "Ein Meilenstein deines Themas auf dem Zeitstrahl — der Ausgangspunkt, an dem die Geschichte startet.",
+      "cta": "Zum Meilenstein"
+    },
+    "prompting": {
+      "title": "Der Beispiel-Artikel",
+      "description": "Die Kopiervorlage für deine Inhalte — mit allen Bausteinen von Einleitung bis Quiz.",
+      "cta": "Direkt lesen"
+    }
+  },
+  "showcase": {
+    "title": "Was dich erwartet",
+    "learningPaths": {
+      "title": "Schritt für Schritt zum Verständnis",
+      "description": "Strukturierte Lernpfade führen dich von den Grundlagen bis zu fortgeschrittenen Konzepten. Mit Fortschrittsverfolgung und aufeinander aufbauenden Lektionen.",
+      "cta": "Lernpfade entdecken"
+    },
+    "lessons": {
+      "title": "Tiefgang statt Oberflächlichkeit",
+      "description": "Ausführliche Lektionen mit Theorie, Praxisbeispielen und integrierten Wissenstests. Von Guides für den Einstieg bis zu Fachartikeln für Fortgeschrittene.",
+      "cta": "Lektionen ansehen"
+    },
+    "demos": {
+      "title": "Anfassen statt nur lesen",
+      "description": "Interaktive Demos, in denen du Parameter selbst steuerst und sofort siehst, was passiert. Verstehen durch Ausprobieren.",
+      "cta": "Demos starten"
+    },
+    "tools": {
+      "title": "Dein Werkzeugkasten",
+      "description": "Kuratierte und bewertete Tools und Lernressourcen. Von allgemeinen Helfern bis zu spezialisierten Entwickler-Tools — finde das richtige Werkzeug.",
+      "cta": "Tools durchstöbern"
+    },
+    "timeline": {
+      "title": "Geschichte auf einen Blick",
+      "description": "Die wichtigsten Meilensteine deines Themas interaktiv erkunden. Chronologisch aufbereitet, von den Anfängen bis heute.",
+      "cta": "Timeline erkunden"
+    },
+    "glossary": {
+      "title": "Begriffe verständlich erklärt",
+      "description": "Jeder Begriff mit Definition, Beispiel und Kontext. Dein Nachschlagewerk für die Welt deines Themas.",
+      "cta": "Glossar öffnen"
+    },
+    "sources": {
+      "title": "Quellen, transparent referenziert",
+      "description": "Alle Quellen und weiterführende Literatur — durchsuchbar und filterbar. Jede Behauptung ist mit einer Quelle belegt.",
+      "cta": "Quellen durchsuchen"
+    },
+    "roadmap": {
+      "title": "Was passiert gerade? Der Fahrplan",
+      "description": "Neue Lernpfade, Übersetzungsqualität und aktuelle Neuigkeiten — transparent und auf einen Blick.",
+      "cta": "Fahrplan ansehen"
+    }
+  },
+  "tableOfContents": "Inhaltsverzeichnis",
+  "toc": {
+    "hero": "Willkommen",
+    "quickStart": "Direkt einsteigen",
+    "showcase": "Entdecken",
+    "navigation": "Navigation"
+  },
+  "translationNotice": {
+    "title": "Hinweis zur Übersetzung",
+    "text": "Dieser Hinweis wird auf Deutsch nicht angezeigt, da Deutsch die Originalsprache ist. Diese Keys existieren hier nur für Konsistenz mit anderen Sprachen."
+  },
+  "templateBridge": {
+    "text": "Diese Seite ist eine Vorlage — alles hier ist Beispiel-Inhalt, der auf dein Thema wartet. Öffne deinen KI-Agenten und sag „onboarding“, dann wird sie deine."
+  }
+}

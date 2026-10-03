@@ -1,0 +1,17 @@
+{
+  "id": "github-protected-branches-2026",
+  "type": "article",
+  "authors": "GitHub",
+  "year": "2026",
+  "publication": "GitHub Docs",
+  "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "github",
+    "branch-protection",
+    "required-status-checks",
+    "bypass",
+    "admin"
+  ]
+}

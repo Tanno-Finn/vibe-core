@@ -1,0 +1,16 @@
+{
+  "id": "fowler-continuous-integration-2024",
+  "type": "article",
+  "authors": "Martin Fowler",
+  "year": "2024",
+  "publication": "martinfowler.com",
+  "url": "https://martinfowler.com/articles/continuousIntegration.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "continuous-integration",
+    "build",
+    "software-practice",
+    "feedback-loop"
+  ]
+}

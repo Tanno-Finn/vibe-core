@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Three pages</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+      .page-break {
+        break-before: page;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Page one</h1>
+    <p>A synthetic fixture for the pdf tool test.</p>
+    <h2 class="page-break">Page two</h2>
+    <p>Forced break before this heading.</p>
+    <h2 class="page-break">Page three</h2>
+    <p>And one more.</p>
+  </body>
+</html>

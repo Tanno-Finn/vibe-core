@@ -1,0 +1,82 @@
+{
+  "title": "Catalog",
+  "subtitle": "A sorted list of tools and useful pages.",
+  "disclaimer": "Content from other websites – please check yourself",
+  "entryType": {
+    "tool": "Program",
+    "resource": "Learning material"
+  },
+  "sort": {
+    "label": "Sort by",
+    "rating": "Rating",
+    "alphabetical": "A to Z",
+    "newest": "Newest first"
+  },
+  "filter": {
+    "search": "Search..."
+  },
+  "quickFilters": {
+    "topRated": "Best rated",
+    "freeAndGerman": "Free and in German",
+    "onlyFavorites": "Favorites only"
+  },
+  "noResults": {
+    "title": "Nothing found",
+    "subtitle": "Try different filters or a different search word."
+  },
+  "loadMore": "Show more",
+  "loadingMore": "Loading...",
+  "results": {
+    "showing": "Showing",
+    "of": "of",
+    "entries": "items"
+  },
+  "details": {
+    "source": "Source",
+    "author": "Author",
+    "estimatedTime": "Time needed",
+    "language": "Language",
+    "access": "Access",
+    "accessInfo": "Access information",
+    "category": "Category",
+    "features": "What it can do",
+    "useCases": "What it is used for",
+    "pros": "Good things",
+    "cons": "Not so good things",
+    "alternatives": "Other options",
+    "paywall": "Paywall",
+    "registration": "Registration",
+    "required": "required",
+    "published": "Published",
+    "similarResources": "Similar learning materials",
+    "noSimilarResources": "No similar learning materials found",
+    "similarTools": "Similar programs",
+    "noSimilarTools": "No similar programs found"
+  },
+  "tags": {
+    "more": "more"
+  },
+  "actions": {
+    "favorite": "Save as favorite",
+    "removeFavorite": "Remove from favorites",
+    "compare": "Compare",
+    "removeCompare": "Remove from comparison"
+  },
+  "compare": {
+    "title": "Compare programs",
+    "feature": "Feature",
+    "rating": "Rating",
+    "pricing": "Price",
+    "difficulty": "Difficulty",
+    "deployment": "How it works",
+    "features": "What it can do",
+    "useCases": "What it is used for"
+  },
+  "buttons": {
+    "share": "Share",
+    "visitSource": "Go to source",
+    "close": "Close",
+    "clearAll": "Remove all",
+    "startCompare": "Start comparison"
+  }
+}

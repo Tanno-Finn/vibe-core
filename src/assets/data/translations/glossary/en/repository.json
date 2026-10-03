@@ -1,0 +1,9 @@
+{
+  "term": "Repository",
+  "alternativeNames": [
+    "Repo",
+    "Code Repository"
+  ],
+  "description": "A repository is generally a central storage and archival location for a project's artifacts, along with their management. Repositories are best known in version control systems (e.g., Git): they store files, directories, and the complete change history of a project. In the AI context, there are also other central repository types: model and dataset repositories (such as a public model hub) for sharing trained models and data, as well as package and artifact repositories (e.g., PyPI, Maven, or container registries) for distributing software libraries and images. A code repository typically contains source code, training scripts, model files, and configurations so that teams can collaborate reproducibly.",
+  "example": "On GitHub, an AI team hosts its code repository with training code, data pipelines, and model configurations; each team member clones the repo and works locally on their own branch. The team then uploads the finished trained model to a model repository on a public model hub so others can download it."
+}

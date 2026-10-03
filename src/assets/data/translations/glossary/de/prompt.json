@@ -1,0 +1,5 @@
+{
+  "term": "Prompt",
+  "description": "Die textuelle (oder multimodale) Eingabe, die einem generativen KI-Modell gegeben wird, um eine bestimmte Ausgabe zu erzeugen. Bei einem LLM ist der Prompt die Anweisung oder Frage – etwa „Erkläre Quantencomputing in drei Sätzen“. Bei Bildgeneratoren ist es die Beschreibung des gewünschten Bildes. Die Kunst des „Prompt Engineering“ liegt darin, Eingaben so zu formulieren, dass das Modell die gewünschten Ergebnisse liefert – präzise genug für Klarheit, offen genug für Kreativität.",
+  "example": "Prompt für einen KI-Chatbot: „Schreibe eine höfliche E-Mail an einen Kunden, der sich über eine verspätete Lieferung beschwert.“ Das Modell generiert basierend auf dieser Anweisung eine passende Antwort. Je präziser der Prompt (z.B. „Verwende einen formellen Ton, maximal 150 Wörter“), desto kontrollierbarer das Ergebnis."
+}

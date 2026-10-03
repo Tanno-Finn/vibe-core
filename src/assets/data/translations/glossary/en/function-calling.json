@@ -1,0 +1,5 @@
+{
+  "term": "Function Calling",
+  "description": "The ability of an LLM to recognize when external tools or functions are needed and to generate the necessary parameters for calling them in the correct format. The model doesn't just produce text — it generates structured commands such as JSON, which are then executed by an external system. Example: a user asks 'What will the weather be like tomorrow in Berlin?' The LLM recognizes that it needs a weather API and generates: {\"function\": \"get_weather\", \"location\": \"Berlin\", \"date\": \"tomorrow\"}. The system executes the API call and passes the result back to the LLM for formulation.",
+  "example": "The function-calling interfaces of the major model providers (sometimes called 'tool use') are built on this principle: when asked 'Show me flights to Tokyo,' the LLM recognizes that the flight-search function must be called, generates the correct parameters (destination: Tokyo, date: today), and the application executes the search. Plugin systems and agent frameworks are built on this technique today."
+}

@@ -1,0 +1,255 @@
+{
+  "hero": {
+    "title": "Vibecoding: AI Writes Your Code",
+    "subtitle": "When you tell AI what you want — and it writes the code."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "paradigm": "The Big Change",
+    "tools": "The Tools",
+    "risks": "The Dangers",
+    "takeaways": "Key Points",
+    "quiz": "Quiz",
+    "checkpoint": "Checkpoint",
+    "enrichment": "Prompt Builder"
+  },
+  "lead": {
+    "paragraph1": "In 2025, Andrej Karpathy invented a new word: vibecoding. Karpathy is an AI researcher. Vibecoding means: You tell the AI what you want. The AI writes the code for you.",
+    "paragraph2": "Before, a program took two hours. Now: ten minutes describing, then 30 minutes checking. But be careful: There are three dangerous traps."
+  },
+  "paradigm": {
+    "title": "The Big Change",
+    "definitionTitle": "What Is Vibecoding?",
+    "analogy": "Imagine an architect. Before, he built every wall himself. Now he has workers (the AI). He makes the blueprint (prompt). The workers build from it. The architect checks the work.",
+    "scientific": "Vibecoding means: You write in normal language what the program should do. The AI turns it into real code. This is the newest step: From machine code to normal language.",
+    "analogyBreak": "But: Real workers learn and improve. AI forgets everything after each session. And: Checking a building is easy. Checking code is hard.",
+    "abstractionTitle": "Getting Simpler",
+    "roleShift": "Your job changes: You don't write code anymore. You check code. You tell the AI what to change. It is like a conversation.",
+    "eightTwenty": "The AI does about 80 percent of the work. You do the important 20 percent: The planning. The tricky edge cases. The security."
+  },
+  "steps": {
+    "machineCode": "Machine Code",
+    "assembler": "Assembler",
+    "highlevel": "C / Java",
+    "scripting": "Python",
+    "naturalLanguage": "Normal Language"
+  },
+  "comparison": {
+    "traditionalLabel": "Before",
+    "vibecodingLabel": "With Vibecoding",
+    "traditionalResult": "2 hours: Writing everything by hand.",
+    "vibecodingResult": "40 minutes: 10 min describing, 30 min checking."
+  },
+  "tools": {
+    "title": "The Tools",
+    "intro": "There are different AI tools. Some help a little. Others do almost everything alone. You choose how much the AI should do.",
+    "gridTitle": "Four Levels"
+  },
+  "toolGrid": {
+    "completion": {
+      "label": "Suggests lines",
+      "description": "Suggests single lines. Like a GPS in your car."
+    },
+    "editor": {
+      "label": "Editor that knows the project",
+      "description": "Changes many files at once. Like a co-driver reading the map."
+    },
+    "supervised": {
+      "label": "Agent with supervision",
+      "description": "Plans and works on its own. You watch. Like a driving student."
+    },
+    "autonomous": {
+      "label": "Agent without supervision",
+      "description": "Does everything alone. You just say the goal. Like a taxi."
+    }
+  },
+  "deepDive": {
+    "literacy": {
+      "title": "Important: Read More, Write Less",
+      "text": "Vibecoding has a surprise: You write less code. But you must read more code. Understanding AI code is harder than understanding your own code.",
+      "insight": "Reading becomes more important than writing. If you don't check AI code, you get problems later."
+    }
+  },
+  "risks": {
+    "title": "The Dangers",
+    "intro": "Vibecoding has three big dangers. Also: The AI likes to build security holes.",
+    "warningTitle": "Three Dangers",
+    "hallucination": {
+      "title": "1. Wrong Code:",
+      "text": "The code starts. But it has hidden errors. The AI misses special cases."
+    },
+    "contextLoss": {
+      "title": "2. Forgetting:",
+      "text": "In big projects, the AI forgets rules. It makes errors that were already fixed."
+    },
+    "cargoCult": {
+      "title": "3. Blind Accepting:",
+      "text": "If you take code you don't understand: Later nobody can fix it."
+    },
+    "failScenario": {
+      "title": "Example: Everything Goes Wrong",
+      "text": "A beginner builds a chatbot. On his computer everything works. On the internet: Passwords visible. Huge costs. Crashes.",
+      "consequences": "Everything worked — until real users came."
+    },
+    "bottomLine": "Experienced developers use vibecoding best. They know what good code looks like."
+  },
+  "misconceptions": {
+    "obsolete": {
+      "title": "Wrong: Programmers Are Not Needed Anymore",
+      "text": "Wrong. Programmers now check the code. Without knowledge you cannot find errors."
+    },
+    "autonomy": {
+      "title": "Wrong: The Most Independent Tool Is Always Best",
+      "text": "Wrong. For important code (security, money) you need more control. Choose the right tool for the job."
+    },
+    "safe": {
+      "title": "Wrong: If the Code Runs, Everything Is Safe",
+      "text": "Wrong. AI code often runs. But it has hidden problems. Checking is a must."
+    }
+  },
+  "takeaways": {
+    "title": "Key Points",
+    "point1": "Vibecoding: You say WHAT. The AI does HOW.",
+    "point2": "Your new job: Check code instead of write code.",
+    "point3": "There are four levels: From suggestions to full automation. Choose wisely.",
+    "point4": "Three dangers: Wrong code, forgetting, blind accepting. Always check!"
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Vibecoding",
+    "q1": {
+      "question": "What is vibecoding?",
+      "a": "A programming language",
+      "b": "You tell the AI what you want. It writes the code.",
+      "c": "A technique for finding errors",
+      "d": "An AI that replaces programmers",
+      "explanation": "Vibecoding means: You describe in normal language. The AI writes the code."
+    },
+    "q2": {
+      "question": "Your program needs a secure login. Which tool fits best?",
+      "a": "The most independent tool — finished quickly",
+      "b": "A simple tool with lots of your own control — security is important",
+      "c": "No AI tool at all",
+      "d": "A medium tool — the AI does most of it",
+      "explanation": "For security code you need more control. A simple tool is safer."
+    },
+    "q3": {
+      "question": "The AI builds a login. It works. But passwords are not encrypted. What problem is this?",
+      "a": "The AI forgot something",
+      "b": "The programmer did not understand the code",
+      "c": "Wrong code — looks good but has an error",
+      "d": "The tool was set up wrong",
+      "explanation": "This is wrong code: It runs but has a dangerous error."
+    },
+    "q4": {
+      "question": "A beginner says: I don't need to learn to read code. The AI writes everything. What is wrong?",
+      "a": "He is right",
+      "b": "You must be able to check AI code — for that you must be able to read",
+      "c": "He should write more tests",
+      "d": "Only experts need to read code",
+      "explanation": "You write less code. But you must read more code and check it."
+    },
+    "q5": {
+      "question": "What are the important 20 percent that humans must do?",
+      "a": "Write standard code",
+      "b": "Planning, special cases, security, and checking",
+      "c": "Run tests and upload code",
+      "d": "Let the AI do everything",
+      "explanation": "The important 20 percent: Planning, special cases, security. That is where the value is."
+    },
+    "q6": {
+      "question": "A team builds an app with vibecoding. After six months nobody understands the code. What is the problem?",
+      "a": "Normal technical debt",
+      "b": "Vibecoding debt: The team accepted code it does not understand",
+      "c": "Cost of AI tools",
+      "d": "The project got too big",
+      "explanation": "When nobody understands the code, nobody can fix errors. That is vibecoding debt."
+    }
+  },
+  "checkpoint": {
+    "title": "Did You Understand?",
+    "q1": "Why do programmers now check code instead of writing it?",
+    "q2": "Which of the four levels is best for important code?",
+    "q3": "What are the three dangers of vibecoding?"
+  },
+  "enrichment": {
+    "sectionTitle": "Interactive: Build a Vibe-Coding Prompt",
+    "intro": "Put together a vibe-coding prompt from building blocks. Pick a role, tech stack, task, and quality rules. Watch a clear prompt take shape.",
+    "instruction": "Click one block in each group. Your prompt appears below.",
+    "hint": {
+      "title": "Why a builder?",
+      "description": "Good prompts always have 4 parts: the role, the tech stack, the task, and the quality. The builder shows these 4 parts. And you see at once when a part is missing."
+    },
+    "category": {
+      "role": {
+        "label": "Role",
+        "quality": "Role is picked",
+        "missing": "a role"
+      },
+      "expertise": {
+        "label": "Tech stack",
+        "quality": "Tech stack is picked",
+        "missing": "a tech stack"
+      },
+      "task": {
+        "label": "Task",
+        "quality": "Task is picked",
+        "missing": "a task"
+      },
+      "format": {
+        "label": "Quality",
+        "quality": "Quality is picked",
+        "missing": "a quality rule"
+      }
+    },
+    "block": {
+      "vc_r1": {
+        "label": "Senior Developer",
+        "text": "You are a senior developer. You write clean code that is easy to maintain."
+      },
+      "vc_r2": {
+        "label": "Software Architect",
+        "text": "You are a software architect. Explain your design choices. Suggest alternatives."
+      },
+      "vc_r3": {
+        "label": "Pair Programmer",
+        "text": "You are my pair programmer. Think out loud. Ask questions. Explain your decisions."
+      },
+      "vc_e1": {
+        "label": "React + TypeScript",
+        "text": "The project uses React and TypeScript. It also uses Tailwind CSS and Vite."
+      },
+      "vc_e2": {
+        "label": "Python + FastAPI",
+        "text": "The project is a backend in Python. It uses FastAPI, SQLAlchemy, and PostgreSQL."
+      },
+      "vc_e3": {
+        "label": "Angular + Optimus UI",
+        "text": "The project uses Angular with Optimus UI components. Signals manage the state."
+      },
+      "vc_t1": {
+        "label": "Build Feature",
+        "text": "Build this feature completely. Create all needed files. Update existing ones."
+      },
+      "vc_t2": {
+        "label": "Fix Bug",
+        "text": "Find and fix this bug. Explain the root cause. Explain why your fix works."
+      },
+      "vc_t3": {
+        "label": "Refactoring",
+        "text": "Refactor the code for better readability. Keep the same behavior."
+      },
+      "vc_f1": {
+        "label": "With Tests",
+        "text": "Write a unit test for every new function. Use the test framework the project already has."
+      },
+      "vc_f2": {
+        "label": "Explain Steps",
+        "text": "Explain each step. Briefly say why you made each design choice."
+      },
+      "vc_f3": {
+        "label": "Clean Code",
+        "text": "Follow clean code rules: clear names, small functions, no magic numbers."
+      }
+    }
+  }
+}

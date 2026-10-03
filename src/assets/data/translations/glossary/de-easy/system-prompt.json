@@ -1,0 +1,5 @@
+{
+  "term": "System·prompt",
+  "description": "System·prompt ist eine unsichtbare Anweisung für die KI. Die KI bekommt diese Anweisung vor dem Nutzer. Die Anweisung sagt der KI, wie sie sein soll. Zum Beispiel höflich oder sachlich. Der Nutzer sieht das nicht. Aber die KI folgt diesen Regeln.",
+  "example": "Ein KI-Chat-Programm bekommt eine System·anweisung: Du bist ein hilfreicher Assistent. Der Nutzer sieht das nicht. Aber die KI folgt dieser Regel. Deshalb antwortet die KI immer höflich."
+}

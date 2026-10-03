@@ -1,0 +1,17 @@
+{
+  "id": "pytest-getstarted-2026",
+  "type": "article",
+  "authors": "pytest development team",
+  "year": "2026",
+  "publication": "pytest documentation",
+  "url": "https://docs.pytest.org/en/stable/getting-started.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "pytest",
+    "python",
+    "assertion",
+    "test-discovery",
+    "official-documentation"
+  ]
+}

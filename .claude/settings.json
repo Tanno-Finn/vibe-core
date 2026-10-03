@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(/.claude/hooks/**)",
+      "Edit(/.claude/settings.json)",
+      "Edit(/.claude/settings.local.json)",
+      "Edit(/.git/config)",
+      "Edit(/.git/hooks/**)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "^(?:Bash|PowerShell|Write|Edit|MultiEdit|NotebookEdit|Read)$|^mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PROJECT_DIR}/.claude/hooks/guard-red-actions.mjs\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

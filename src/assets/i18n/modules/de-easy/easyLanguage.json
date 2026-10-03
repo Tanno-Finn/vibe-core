@@ -1,0 +1,312 @@
+{
+  "content": {
+    "preview": {
+      "sampleContent": "So sieht der Inhalt in Einfacher Sprache aus.<br>Kurze Sätze.<br>Einfache Wörter.<br>Klare Struktur.",
+      "sampleTitle": "Beispiel·titel",
+      "title": "Vorschau"
+    },
+    "home": {
+      "title": "Das Lernportal",
+      "blocks": [
+        {
+          "title": "Was du hier findest",
+          "content": "Hier lernst du alles über dein Thema. Es gibt Lektionen und ein Wörterbuch mit Fach·begriffen. Es gibt auch interaktive Demos. Bei einer Demo kannst du selbst etwas ausprobieren."
+        },
+        {
+          "title": "So kannst du starten",
+          "content": "Du kannst einen Lernpfad starten. Ein Lernpfad führt dich Schritt für Schritt durch die Themen. Du kannst Demos selbst ausprobieren. Du kannst Begriffe nachschlagen."
+        },
+        {
+          "title": "Gut zu wissen",
+          "content": "Das Portal ist kostenlos. Es gibt das Portal auf Deutsch und auf Englisch. Es ist barrierefrei. Barrierefrei bedeutet: Alle Menschen können es gut nutzen. Du kannst Erfolge sammeln."
+        }
+      ]
+    },
+    "notFound": {
+      "title": "Seite nicht gefunden",
+      "blocks": [
+        {
+          "title": "Was ist passiert?",
+          "content": "Diese Seite gibt es nicht. Du hast vielleicht eine falsche Adresse eingegeben. Die Seite existiert nicht mehr."
+        },
+        {
+          "title": "Was du tun kannst",
+          "content": "Geh zurück zur vorherigen Seite. Oder geh zur Startseite. Dort findest du alle Inhalte des Portals."
+        }
+      ]
+    },
+    "artApisMcp": {
+      "title": "Schnitt·stellen und KI-Werkzeuge",
+      "blocks": [
+        {
+          "title": "Was ist eine API?",
+          "content": "Eine API ist eine Schnitt·stelle. Schnitt·stelle bedeutet: ein Verbindungs·punkt zwischen Programmen. Du schickst eine Anfrage an das Programm. Das Programm schickt eine Antwort zurück. So sprechen KI-Programme mit anderen Programmen."
+        },
+        {
+          "title": "MCP verbindet alle Werkzeuge",
+          "content": "Viele KI-Programme brauchen viele Verbindungen. MCP macht das einfacher. MCP bedeutet: ein einheitlicher Standard für KI-Verbindungen. Es ist wie ein USB-C-Stecker für KI. Alle Programme nutzen denselben Stecker."
+        },
+        {
+          "title": "Was ist ein KI-Agent?",
+          "content": "Ein Agent ist ein KI-Programm. Er führt Aufgaben selbst aus. Er plant einen Schritt. Dann führt er ihn aus. Dann prüft er das Ergebnis. So arbeitet er Schritt für Schritt."
+        }
+      ]
+    },
+    "aiTimeline": {
+      "title": "Die Geschichte der KI",
+      "blocks": [
+        {
+          "title": "Was ist der Zeitstrahl?",
+          "content": "Hier siehst du den Zeitstrahl der KI. KI bedeutet Künstliche Intelligenz. Ein Zeitstrahl ordnet Ereignisse nach Datum. Die Geschichte der KI beginnt im Jahr 1950."
+        },
+        {
+          "title": "Was du hier findest",
+          "content": "Es gibt 96 Ereignisse auf diesem Zeitstrahl. Sie beginnen im Jahr 1950. Sie gehen bis heute. Wichtige Personen wie Alan Turing prägten die KI-Geschichte."
+        },
+        {
+          "title": "So kannst du suchen",
+          "content": "Du kannst einen Zeitraum wählen. Du kannst nach Kategorien filtern. Du kannst auch Such·begriffe eingeben. So findest du schnell ein bestimmtes Thema."
+        }
+      ]
+    },
+    "artContextEngineering": {
+      "title": "Context Engineering für KI-Aufgaben",
+      "blocks": [
+        {
+          "title": "Was Context Engineering ist",
+          "content": "Eine KI kennt dein Projekt nicht. Sie braucht Informationen darüber. Context Engineering heißt: Du erklärst der KI das Projektumfeld. Das geht weiter als Prompt Engineering. Prompt Engineering verbessert nur eine einzelne Frage."
+        },
+        {
+          "title": "Die Regeldatei",
+          "content": "Du kannst eine Regeldatei anlegen. Die KI liest sie bei jeder Aufgabe. Dort steht das Wichtigste über dein Projekt. So muss die KI nicht jedes Mal von vorn anfangen."
+        },
+        {
+          "title": "Weniger ist oft mehr",
+          "content": "Mehr Informationen helfen nicht immer. Zu viel Kontext kann die KI verwirren. Wichtiger ist: Welche Informationen sind wirklich relevant? Nur das Nötigste gibt der KI den besten Fokus."
+        }
+      ]
+    },
+    "artGitIntro": {
+      "title": "Versions·kontrolle mit Git",
+      "blocks": [
+        {
+          "title": "Was ist Git?",
+          "content": "Git ist ein Programm für Versions·kontrolle. Versions·kontrolle heißt: Das Programm merkt sich alle alten Versionen. Du kannst jederzeit zu einer alten Version zurückgehen. Das ist sehr nützlich bei Fehlern."
+        },
+        {
+          "title": "Commits sind Schnappschüsse",
+          "content": "Ein Commit ist wie ein Foto deines Projekts. Du speicherst den aktuellen Stand der Arbeit. Jeder Commit hat eine kurze Beschreibung. Du kannst alle Commits anschauen. So siehst du: Was hat sich wann geändert? Ein Repository ist ein Ordner mit allen Commits."
+        },
+        {
+          "title": "GitHub für Zusammenarbeit",
+          "content": "GitHub ist eine Website. Du kannst dein Repository dort hochladen. Andere können dann mit dir zusammenarbeiten. GitHub ist ein Cloud·speicher für Code. Cloud heißt: Es ist auf einem Server im Internet."
+        }
+      ]
+    },
+    "artNetworkingApis": {
+      "title": "Wie Computer miteinander sprechen",
+      "blocks": [
+        {
+          "title": "Client und Server",
+          "content": "Du öffnest eine Webseite. Dein Computer schickt eine Anfrage. Ein anderer Computer antwortet. Dein Computer heißt Client. Der andere Computer heißt Server. Das passiert in weniger als einer Sekunde."
+        },
+        {
+          "title": "DNS: Das Internet·telefonbuch",
+          "content": "Jede Webseite hat eine IP-Adresse. IP-Adresse bedeutet: eine Nummer wie 142.250.1.1. Menschen merken sich Zahlen schlecht. Deshalb gibt es Namen wie google.com. DNS übersetzt den Namen in eine Nummer. DNS bedeutet: Domain Name System."
+        },
+        {
+          "title": "API: Schnitt·stelle für Programme",
+          "content": "Eine API ist eine Schnitt·stelle. Das bedeutet: ein Verbindungs·punkt zwischen Programmen. Programme können darüber Informationen austauschen. Dein Handy nutzt viele APIs. Das Wetter·widget fragt eine Wetter-API. KI-Assistenten nutzen auch APIs."
+        }
+      ]
+    },
+    "artTerminalIntro": {
+      "title": "Mit Text den Computer steuern",
+      "blocks": [
+        {
+          "title": "Was ist das Terminal?",
+          "content": "Das Terminal ist ein Textfenster. Du tippst Befehle ein. Der Computer führt sie sofort aus. So kannst du alles steuern. Zum Beispiel: Dateien kopieren oder Ordner anlegen."
+        },
+        {
+          "title": "Dateipfade: Die Adresse einer Datei",
+          "content": "Jede Datei hat eine Adresse. Diese Adresse nennt man Pfad. Ein Pfad zeigt, wo die Datei liegt. Zum Beispiel: /home/nutzer/projekt/datei.txt."
+        },
+        {
+          "title": "Wichtige Befehle",
+          "content": "Es gibt neun Basis·befehle. pwd zeigt, wo du gerade bist. ls zeigt Dateien im Ordner. rm löscht Dateien sofort und endgültig. Gelöschte Dateien sind weg."
+        }
+      ]
+    },
+    "artVibecoding": {
+      "title": "Programmieren mit KI",
+      "blocks": [
+        {
+          "title": "Was ist Vibecoding?",
+          "content": "Du beschreibst dein Ziel in normalen Worten. Eine KI schreibt dann den Code. Das nennt man Vibecoding. Vibecoding ist eine neue Form des Programmierens."
+        },
+        {
+          "title": "Deine neue Rolle",
+          "content": "Früher hast du Code Zeile für Zeile geschrieben. Jetzt schreibt die KI den Code. Du prüfst den Code danach. Das ist deine neue Aufgabe. Ohne Programmierwissen geht das nicht."
+        },
+        {
+          "title": "Risiken beim Vibecoding",
+          "content": "KI macht manchmal Fehler im Code. Den Code musst du immer selbst prüfen. KI vergisst manchmal wichtige Details. Manche Vibecoder verstehen den Code nicht mehr. Das ist gefährlich."
+        }
+      ]
+    },
+    "aiToolsCatalog": {
+      "title": "Tools und Ressourcen",
+      "blocks": [
+        {
+          "title": "Was findest du hier?",
+          "content": "Hier findest du viele Lern·materialien über KI. Es gibt Videos und Onlinekurse. Es gibt auch Bücher und Tools. Alles zusammen sind über 340 Einträge."
+        },
+        {
+          "title": "Wie du die Seite nutzt",
+          "content": "Du kannst Einträge filtern. Zum Beispiel nur Videos anzeigen. Oder nur Kurse. Du kannst auch kostenlose Inhalte auf Deutsch auswählen."
+        },
+        {
+          "title": "Externe Inhalte",
+          "content": "Alle Einträge führen zu externen Webseiten. Du verlässt diese Seite dabei. Die Inhalte kommen von bekannten Anbietern. Viele sind kostenlos verfügbar."
+        }
+      ]
+    },
+    "glossary": {
+      "title": "Das Wörterbuch",
+      "blocks": [
+        {
+          "title": "Was ist das Glossar?",
+          "content": "Das Glossar ist ein Wörterbuch. Es erklärt Begriffe aus der KI. Es gibt 305 Einträge. Jeder Begriff hat eine klare Erklärung."
+        },
+        {
+          "title": "So nutzt du das Glossar",
+          "content": "Scrolle durch alle Begriffe. Oder suche direkt nach einem Begriff. Du kannst auch nach Buchstaben filtern. Jeder Eintrag zeigt dir verwandte Themen."
+        },
+        {
+          "title": "Tipp für Einsteiger",
+          "content": "Kennst du einen Begriff nicht? Schau hier nach. Die Erklärungen sind für jeden verständlich. Viele Begriffe haben auch Beispiele."
+        }
+      ]
+    },
+    "impressum": {
+      "title": "Infos zur Website",
+      "blocks": [
+        {
+          "title": "Kontakt und Zweck",
+          "content": "Diese Website heißt {siteName}. Sie gehört {operator}."
+        },
+        {
+          "title": "Lizenz",
+          "content": "Die meisten Website·inhalte darf man frei nutzen. Die Lizenz heißt CC BY 4.0. CC BY 4.0 bedeutet: Du musst die Quelle nennen. Und du musst sagen, wenn du etwas verändert hast. Inhalte von anderen sind davon ausgenommen."
+        }
+      ]
+    },
+    "news": {
+      "title": "Neuigkeiten aus dem Portal",
+      "blocks": [
+        {
+          "title": "Was findest du hier?",
+          "content": "Hier stehen alle Neuigkeiten aus dem Portal. Du siehst, was neu hinzugekommen ist. Neue Artikel, neue Sprachen, neue Funktionen."
+        },
+        {
+          "title": "Wie nutzt du die Seite?",
+          "content": "Die Nachrichten sind nach Datum sortiert. Die neueste kommt zuerst. Du kannst nach Thema filtern. Zum Beispiel: nur neue Funktionen oder nur Korrekturen."
+        }
+      ]
+    },
+    "exampleDemo": {
+      "title": "Der Bauplan einer Demo",
+      "blocks": [
+        {
+          "title": "Was ist diese Demo?",
+          "content": "Diese Demo hat kein Fachthema. Sie zeigt den Bauplan. Ein Bauplan zeigt: So ist eine Demo aufgebaut."
+        },
+        {
+          "title": "Wie du die Demo benutzt",
+          "content": "Bewege den Schiebe·regler. Wähle ein Muster. Drücke auf Start. Schau: Die Punkte ändern sich sofort."
+        },
+        {
+          "title": "Was du lernst",
+          "content": "Jede Demo hat vier Bausteine: Regler, Bild, Beobachten, Verstehen. Mit diesem Bauplan baust du deine eigene Demo."
+        }
+      ]
+    },
+    "userSettings": {
+      "title": "Deine Einstellungen",
+      "blocks": [
+        {
+          "title": "Was du hier findest",
+          "content": "Auf dieser Seite kannst du die App anpassen. Du kannst das Aussehen ändern. Zum Beispiel helles oder dunkles Design. Du kannst auch die Sprache wählen."
+        },
+        {
+          "title": "Deine Lern·fortschritte",
+          "content": "Hier siehst du deine Punkte und Erfolge. Du kannst sie als Datei speichern. Das heißt exportieren. Exportieren bedeutet: Daten auf deinem Gerät sichern."
+        },
+        {
+          "title": "Deine Privatsphäre",
+          "content": "Deine Daten bleiben auf deinem Gerät. Kein Server bekommt deine Daten. Du kannst alle Daten jederzeit löschen. So behältst du die Kontrolle."
+        }
+      ]
+    },
+    "roadmap": {
+      "title": "Der Lernpfad·fahrplan",
+      "blocks": [
+        {
+          "title": "Was ist hier?",
+          "content": "Hier siehst du alle Lernpfade. Lernpfade sind geordnete Sammlungen von Artikeln. Manche Pfade sind schon verfügbar. Andere Pfade kommen bald dazu."
+        },
+        {
+          "title": "Wie ist es aufgebaut?",
+          "content": "Es gibt vier Sektoren. Sektor 0 heißt Foundation. Foundation bedeutet Grundlagen. Sektor 1 ist Theorie und Wissenschaft. Sektor 2 ist Praxis. Sektor 3 zeigt KI im Alltag."
+        },
+        {
+          "title": "Wie nutzt du die Seite?",
+          "content": "Jeder Pfad hat eine Schwierigkeitsstufe. Es gibt Einsteiger·pfade. Es gibt Pfade für Fortgeschrittene. Und Pfade für Experten. Neue Pfade erscheinen alle zwei Wochen."
+        }
+      ]
+    },
+    "lernbereich": {
+      "title": "Der Lern·bereich",
+      "blocks": [
+        {
+          "title": "Was ist hier",
+          "content": "Hier findest du Lernpfade rund um KI. Ein Lernpfad ist eine Reihe von Artikeln zu einem Thema. Du lernst Schritt für Schritt."
+        },
+        {
+          "title": "Wie du lernst",
+          "content": "Jeder Pfad hat ein Schwierigkeitslevel. Manche Pfade bauen auf anderen auf. Am Ende bekommst du ein Zertifikat."
+        },
+        {
+          "title": "Was dich erwartet",
+          "content": "Es gibt Pfade für Einsteiger. Es gibt Pfade für Fortgeschrittene. Viele Pfade haben interaktive Demos. Demos sind kleine Programme im Browser. Dort kannst du selbst ausprobieren."
+        }
+      ]
+    },
+    "seedArticle1": {
+      "title": "So ist ein Artikel aufgebaut",
+      "blocks": [
+        {
+          "title": "Was ist diese Seite?",
+          "content": "Diese Seite ist eine Vorlage. Sie hat kein Fachthema. Sie zeigt: So ist ein Artikel aufgebaut."
+        },
+        {
+          "title": "Die Bausteine",
+          "content": "Ein Artikel hat feste Bausteine: Einstieg, Text·abschnitte, Definition, Beispiel, Check und Kern·aussagen. Ganz unten stehen passende Inhalte."
+        },
+        {
+          "title": "Was du damit machst",
+          "content": "Nimm die Seite als Vorlage. Tausche die Texte gegen dein Thema. Behalte den Aufbau."
+        }
+      ]
+    }
+  },
+  "dialog": {
+    "preview": "Vorschau",
+    "title": "Einfache Sprache",
+    "fullPortalNotice": "Hier siehst du eine Zusammenfassung in Einfacher Sprache. Die ganze Website gibt es auch in Einfacher Sprache. Du kannst oben die Sprache wechseln. Oder nutze den Button unten. KI schreibt unsere Texte in Einfacher Sprache. Ein Mensch liest die Texte danach durch. Eine genaue Prüfung gibt es nicht. Die Texte folgen den Regeln von Leichter Sprache. Es ist aber keine geprüfte Leichte Sprache. Eine Prüfgruppe liest die Texte nicht. In der Prüfgruppe sind Menschen mit Lern·schwierigkeiten.",
+    "switchToEasyLanguage": "Zu Einfacher Sprache wechseln"
+  },
+  "fab": {
+    "label": "Einfache Sprache"
+  }
+}

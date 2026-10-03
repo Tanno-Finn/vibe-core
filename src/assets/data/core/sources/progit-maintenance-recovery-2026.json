@@ -1,0 +1,17 @@
+{
+  "id": "progit-maintenance-recovery-2026",
+  "type": "book",
+  "authors": "Scott Chacon, Ben Straub",
+  "year": "2014",
+  "publication": "Pro Git, 2. Auflage, Kapitel 10.7 (git-scm.com)",
+  "url": "https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "git",
+    "unreachable-objects",
+    "reflog",
+    "data-recovery",
+    "internals"
+  ]
+}

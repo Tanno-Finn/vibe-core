@@ -1,0 +1,17 @@
+{
+  "id": "zhao-specbench-2026",
+  "type": "paper",
+  "authors": "Bingchen Zhao, Dhruv Srikanth, Yuxiang Wu, Zhengyao Jiang",
+  "year": "2026",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2605.21384",
+  "doi": "10.48550/arXiv.2605.21384",
+  "accessed": "2026-08-11",
+  "tags": [
+    "reward-hacking",
+    "benchmark",
+    "coding-agent",
+    "held-out-tests",
+    "specification-gaming"
+  ]
+}

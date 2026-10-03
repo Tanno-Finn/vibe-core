@@ -1,0 +1,6 @@
+{
+  "term": "Beispiel-Begriff 1",
+  "alternativeNames": [],
+  "description": "Ein Beispiel-Eintrag, damit das Glossar nicht leer startet. Sag deinem KI-Agenten „/new-content“ — dann wird daraus ein echter Begriff aus deinem Thema.",
+  "example": "Ein Beispielsatz zeigt den Begriff einmal im Einsatz — so wie dieser hier."
+}

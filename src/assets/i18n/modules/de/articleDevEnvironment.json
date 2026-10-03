@@ -1,0 +1,235 @@
+{
+  "hero": {
+    "title": "Deine Entwicklungsumgebung",
+    "subtitle": "Vier Teile, vier Fragen — und die Abkürzung über die Cloud, falls du gar nichts installieren willst."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "thesis": "Kernthese",
+    "parts": "Vier Teile",
+    "comfort": "Komfort",
+    "cloud": "Die Cloud-Abkürzung",
+    "notNeeded": "Was du nicht brauchst",
+    "close": "Und jetzt?",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Verständnischeck",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "In der letzten Lektion hast du ein Terminal geöffnet und einen Befehl eingetippt. In der nächsten sollst du git init eingeben. Dazwischen fehlt eine Auskunft: Was muss auf deinem Rechner liegen, damit irgendetwas davon antwortet?",
+    "paragraph2": "Die Antwort ist kein großes Programm, das du kaufst. Es sind vier kleine Teile — und der schnellste Weg hinein führt über eine andere Frage. Nicht „was lade ich herunter“, sondern „welche Frage beantwortet dieses Teil“.",
+    "paragraph3": "Dein Agent benutzt dieselben vier Teile: Er läuft im Terminal oder im Editor und greift auf dieselbe Laufzeitumgebung und dasselbe git zu wie du. Deshalb ist das hier kein Hintergrundwissen, sondern das, womit du seine Arbeit prüfst.",
+    "paragraph4": "Was hier nicht steht: eine Klick-für-Klick-Anleitung. Die sieht auf jedem System anders aus und ist in einem halben Jahr falsch. Sie steht auf den offiziellen Seiten unten."
+  },
+  "thesis": {
+    "title": "Was eine Entwicklungsumgebung wirklich ist",
+    "text1": "Eine Entwicklungsumgebung ist kein Produkt. Sie ist die Summe aus vier Teilen: einem Ort zum Lesen, einem Ort zum Befehlen, etwas, das den Code ausführt, und einem Weg zurück zu einem Stand, der funktioniert hat. Keines davon enthält die anderen.",
+    "text2": "Daraus folgen zwei praktische Dinge: Du kannst in unter einer Minute feststellen, was dir fehlt — und du erkennst, was du dir nur eingeredet hast zu brauchen.",
+    "objectives": {
+      "title": "Was du danach kannst",
+      "item1": "Die vier Teile benennen und zu jedem sagen, welche Frage es beantwortet.",
+      "item2": "Für ein fremdes Projekt bestimmen, welche Laufzeitumgebung es braucht — und warum das an der Sprache des Projekts hängt, nicht an dir.",
+      "item3": "Erklären, warum die Versionskontroll-Knöpfe eines Editors nichts tun, wenn git fehlt.",
+      "item4": "Ein Gratis-Kontingent in Kern-Stunden in echte Arbeitszeit umrechnen und sagen, was beim Ende einer gemieteten Umgebung verloren geht.",
+      "item5": "Aus offiziellen Anforderungslisten begründen, warum du weder Vollausstattung noch ein grafisches git-Programm noch einen neuen Rechner brauchst."
+    }
+  },
+  "parts": {
+    "title": "Vier Teile, vier Fragen",
+    "grid": {
+      "editor": {
+        "label": "Editor",
+        "description": "Wo lese und prüfe ich, was geschrieben wurde?"
+      },
+      "terminal": {
+        "label": "Terminal",
+        "description": "Wie gebe ich einen Befehl und sehe, was passiert ist?"
+      },
+      "runtime": {
+        "label": "Laufzeitumgebung",
+        "description": "Was führt den geschriebenen Code tatsächlich aus?"
+      },
+      "versioning": {
+        "label": "Versionskontrolle (git)",
+        "description": "Wie komme ich zu einem Stand zurück, der funktioniert hat?"
+      }
+    },
+    "editorText": "Den Editor stellst du dir schon vor: ein Fenster mit Text, eingefärbt und durchsuchbar. Er ist der Ort, an dem du liest und prüfst — und je weniger du selbst tippst, weil ein Agent einen Teil des Schreibens übernimmt, desto wichtiger wird diese Stelle.",
+    "terminalText": "Das Terminal kennst du aus der letzten Lektion. Neu ist hier nur eines: Es gehört zum Grundbestand, und installieren musst du keins. Jedes Betriebssystem bringt eins mit.",
+    "runtimeIntro": "Bleibt das Teil, das die meisten übersehen, weil man es nie zu Gesicht bekommt. Ein Editor zeigt Text an, ein Terminal nimmt Befehle entgegen — ausführen tut keines von beiden irgendetwas.",
+    "definitionTitle": "Laufzeitumgebung",
+    "definitionEverydayLabel": "Alltagssprache",
+    "definitionEveryday": "Das Programm, das den geschriebenen Code tatsächlich ausführt. Ohne sie ist eine Datei voller Code eine Datei voller Text: richtig geschrieben, hübsch eingefärbt und vollkommen wirkungslos. Zu Gesicht bekommst du sie dabei nie. Du startest sie nicht, sie öffnet kein Fenster und meldet sich nicht — du merkst überhaupt nur an ihrer Wirkung, ob sie da ist oder fehlt.",
+    "definitionPreciseLabel": "Fachlich",
+    "definitionPrecise": "Eine Laufzeitumgebung gehört zur Sprache des Projekts, nicht zu dir. Ein Projekt in JavaScript oder TypeScript verlangt Node, ein Projekt in Python verlangt Python. Die Frage lautet also nie „welche nehme ich“, sondern „welche verlangt dieses Projekt“. Ein Vergleich hilft beim Einstieg, aber nur mit seinen beiden Grenzen im selben Atemzug: Eine Laufzeitumgebung ist wie der Strom im Haus — unsichtbar, und ohne sie tut nichts, was du gebaut hast, irgendetwas. Erste Grenze: Strom ist überall derselbe, Laufzeitumgebungen sind es nicht. Zweite Grenze, und das ist die wichtigere: Strom liegt im Haus schon an, eine Laufzeitumgebung nicht. Sie ist ausgerechnet das Teil, das am häufigsten fehlt.",
+    "runtimeNotOnlyJs": "Das gilt auch, wenn du selbst keine Zeile schreibst: Die Werkzeuge des Projekts brauchen die Laufzeitumgebung, bevor du irgendetwas eintippst. Ein großes Web-Framework verlangt in seiner Installationsanleitung eine Mindestversion davon, allein damit sich das Projekt starten lässt.",
+    "packageManager": "Ein Missverständnis lohnt sich früh loszuwerden: Der Paketmanager ist kein zweiter Download. Normalerweise kommt er mit der Laufzeitumgebung; auf manchen Systemen liefert ihn die Distribution getrennt aus. Welchen Installationsweg du nimmst, entscheidet nicht dieser Artikel, sondern die offizielle Installationsanleitung des Paketmanagers — sie rät aus Rechtegründen zu einem Versionsmanager.",
+    "gitText": "Das vierte Teil ist git, der Weg zurück. Was git tut, ist Thema der nächsten Lektion; hier zählt, dass es ein eigenes Programm ist, das du separat installierst, und dass seine gesamte Pflicht-Einrichtung aus zwei Konfigurationszeilen besteht: Name und E-Mail, einmal pro Rechner.",
+    "exampleTitle": "Beispiel: Vier Fragen, vier Antworten",
+    "exampleIntro": "Dein Setup ist keine Stimmung, sondern vier Ja-oder-Nein-Antworten. Die folgenden Abfragen tippst du in irgendein Terminal — in das deines Systems oder in das im Editor, das ist ohnehin dasselbe.",
+    "stepsAriaLabel": "Vier Abfragen, mit denen du prüfst, welches der vier Teile auf deinem Rechner fehlt",
+    "steps": {
+      "step1": {
+        "label": "Die Laufzeitumgebung fragen",
+        "description": "Antwortet sie mit einer Nummer, ist das dritte Teil da."
+      },
+      "step2": {
+        "label": "Den Paketmanager fragen",
+        "description": "Er antwortet meist nur, wenn Schritt 1 geklappt hat."
+      },
+      "step3": {
+        "label": "git fragen",
+        "description": "Kommt keine Nummer, fehlt das vierte Teil."
+      },
+      "step4": {
+        "label": "Das Terminal im Editor öffnen",
+        "description": "Klappt das, liegen alle vier in einem Fenster."
+      }
+    },
+    "exampleResult": "Zwei Antworten sehen dabei gleich aus und bedeuten Verschiedenes. „Befehl nicht gefunden“ heißt entweder: nicht installiert. Oder: installiert, aber die Kommandozeile findet es nicht. Der zweite Fall ist so verbreitet, dass die offizielle Anleitung einer großen Programmiersprache den Eintrag in den Suchpfad als eigenen, ausdrücklich optionalen Schritt führt.",
+    "misconception": {
+      "title": "„Der Editor hat git-Knöpfe, also ist git dabei“",
+      "text": "Er hat die Knöpfe, aber nicht das Programm. Die Dokumentation des verbreitetsten Editors sagt es in einem Satz: Er benutzt die git-Installation deines Rechners und verlangt dafür eine Mindestversion. Fehlt sie, sind die Knöpfe da und tun nichts. Genau daran siehst du, dass hier vier getrennte Teile stehen — eines kann fehlen, während die anderen drei weiterarbeiten."
+    },
+    "dated": {
+      "title": "Zahlen mit Haltbarkeitsdatum (Stand: 18. August 2026)",
+      "runtime": "Laufzeitumgebung: Die Download-Seite von Node.js führt v24.19.0 als LTS und v26.7.0 als Current. Laut Release-Politik werden bisher geradzahlige Versionen in den LTS-Status überführt und sind damit für den allgemeinen Gebrauch bereit; eine LTS-Linie wird rund 30 Monate gepflegt.",
+      "git": "git: aktuelle Version 2.55.0, veröffentlicht am 11. August 2026. Für die Versionskontroll-Ansicht von Visual Studio Code genügt jede Version ab 2.0.0.",
+      "hardware": "Hardware: Visual Studio Code nennt 1,6 GHz, 1 GB Arbeitsspeicher, unter 200 MB Download und unter 500 MB auf der Platte. Was daraus folgt, ist unsere Einschätzung und steht nirgends dokumentiert: Das schafft praktisch jeder Rechner, der noch angeht.",
+      "python": "Python unter Windows zieht gerade um: Der Python Install Manager ist der empfohlene Weg, das klassische Installationsprogramm gilt seit 3.14 als veraltet und wird für 3.16 nicht mehr gebaut.",
+      "survey": "Verbreitung: In der letzten verfügbaren Stack-Overflow-Erhebung — Feldzeit 29. Mai bis 23. Juni 2025, 49.009 Antworten insgesamt, davon 26.143 auf die Editor-Frage — nannten 75,9 Prozent Visual Studio Code. Befragt wurde die Leserschaft einer Entwickler-Plattform, keine repräsentative Stichprobe. Die Zahl taugt für genau eine Aussage: Das meistgenutzte Werkzeug ist ein kostenloses.",
+      "closing": "Diese Zahlen altern. Die verlinkten Seiten nicht — dort steht der aktuelle Stand."
+    },
+    "deepDive": {
+      "title": "Vertiefung: Der Beweis in zwei Browser-Tabs",
+      "text1": "Du kannst die Vier-Teile-These überprüfen, ohne etwas zu installieren. Öffne vscode.dev: Die Dokumentation beschreibt es als ein Visual Studio Code, das nichts kostet, nichts installiert und in einem Browser-Tab lebt. Dateien, Suche, Einfärbung, alles da.",
+      "text2": "Dieselbe Dokumentation zieht dann die Grenze, und darauf kommt es an: Zwei Dinge fehlen dort, das Terminal und die Fehlersuche — und sie fehlen, weil der Browser das Übersetzen und Starten von Programmen gar nicht zulässt. Nimm einer Umgebung Terminal und Laufzeitumgebung weg, und übrig bleibt kein Arbeitsplatz, sondern ein Textfenster. Öffne daneben eine gemietete Umgebung wie GitHub Codespaces: Dort antworten die Abfragen von oben. Zwei Tabs, ein Beweis, null Installationen."
+    }
+  },
+  "comfort": {
+    "title": "Komfort, der wirklich zählt",
+    "intro": "Drei Bequemlichkeiten des Editors sind mehr als Kosmetik, und in einer steckt eine Falle.",
+    "autosave": "Automatisches Speichern gibt es, aber ab Werk ist es aus. Einschalten kannst du es auf drei Arten: nach kurzer Verzögerung, beim Verlassen der Datei oder beim Verlassen des Fensters. Bis dahin sind „steht im Editor“ und „steht auf der Platte“ zwei verschiedene Aussagen; sobald git dazukommt, wird eine dritte daraus. Warum ein ungespeicherter Text nach einem Absturz weg ist, weißt du schon aus dem ersten Schritt dieses Lernpfads.",
+    "diff": "Die Diff-Ansicht legt alt und neu nebeneinander. Das ist die eine wirklich hilfreiche Bildschirmansicht, wenn ein Agent Dateien umgeschrieben hat, bei deren Entstehen du nicht zugesehen hast.",
+    "terminal": "Und das eingebaute Terminal ist kein anderes Terminal: Jeder Befehl aus der Terminal-Lektion funktioniert dort unverändert."
+  },
+  "cloud": {
+    "title": "Die Abkürzung: eine Umgebung mieten",
+    "what": "Es gibt einen Weg, bei dem du nichts davon installierst: eine Cloud-Entwicklungsumgebung. Das ist ein Rechner, den jemand anderes bereithält, erreichbar in einem Browser-Tab, mit allen vier Teilen schon darauf.",
+    "scope": "Was sie dir abnimmt, ist die Installation. Mehr nicht. Die vier Teile sind weiterhin da, du bedienst sie nur auf einem fremden Rechner. Deshalb steht dieser Abschnitt hinter dem ersten und nicht davor.",
+    "analogy": "Denk an eine Mietwerkstatt statt an den eigenen Keller. Du mietest Zeit und Platz an einer fremden Werkbank, die Uhr läuft, während du arbeitest, und ist die Zeit um, bist du draußen. Dein einziges Exemplar lässt du dort besser nicht liegen.",
+    "exampleTitle": "Beispiel: Die Rechnung hinter dem Gratis-Kontingent",
+    "example1": "Zwei Gratis-Tarife, zwei entgegengesetzte Formen. Der eine rechnet in Kern-Stunden, und das ist der ganze Punkt: Der Anbieter rechnet es auf seiner Produktseite selbst an einer Maschine mit zwei Kernen vor — dort bleibt vom Monatskontingent die Hälfte an echter Laufzeit. Bei doppelt so vielen Kernen halbiert sich das erneut.",
+    "example2": "Der zweite Tarif ist die Umkehrung: mehr Stunden pro Woche, weniger dauerhafter Speicher, eine harte Obergrenze pro Sitzung und eine Regel, die vergisst. Das ist keine Rangliste, sondern eine Wahl.",
+    "comparison": {
+      "title": "Zwei Gratis-Tarife nebeneinander (Stand: 18. August 2026)",
+      "ariaLabel": "Vergleich der kostenlosen Kontingente von GitHub Codespaces und Google Cloud Shell",
+      "beforeLabel": "GitHub Codespaces (GitHub Free)",
+      "beforeResult": "Weniger Zeit, mehr Speicher",
+      "beforeText": "120 Kern-Stunden pro Monat, auf zwei Kernen also 60 Stunden Laufzeit. 15 GB Speicher pro Monat. Ist das Kontingent aufgebraucht und keine Zahlungsart hinterlegt, wird die Nutzung gesperrt.",
+      "afterLabel": "Google Cloud Shell",
+      "afterResult": "Mehr Zeit, weniger Speicher",
+      "afterText": "50 Stunden pro Woche als Voreinstellung. 5 GB dauerhafter Speicher im Heimatverzeichnis. Sitzungen enden nach spätestens 12 Stunden, unbeaufsichtigte nach 40 Minuten. Nach 120 Tagen ohne Zugriff wird das Heimatverzeichnis gelöscht."
+    },
+    "stat": {
+      "label": "Kern-Stunden geteilt durch Kerne",
+      "value": "120 ÷ 4 = 30",
+      "description": "Dasselbe Kontingent, vier statt zwei Kerne: aus 60 Stunden im Monat werden 30. Stand: 18. August 2026."
+    },
+    "rule": "Die Zahl, die du dir merkst, ist gar keine Zahl, sondern ein Rechenweg: durch die Kernzahl teilen. Der gilt bei jedem Anbieter, auch bei denen, die es heute noch nicht gibt.",
+    "misconception": {
+      "title": "„So-und-so-viele Stunden gratis“",
+      "text": "Die Einheit ist Kern-Stunden, nicht Stunden. Die Abrechnungsseite eines Anbieters kürzt in ihrer Tabelle auf eine Stunden-Abkürzung ab und lädt zum Fehllesen ein; die Tarifseite desselben Anbieters schreibt es genau hin. Lies bei jedem Gratis-Tarif zuerst die Einheit und erst danach die Zahl."
+    },
+    "nothingNeeded": "„In der Cloud brauche ich gar nichts“ stimmt nicht ganz: Du brauchst einen Browser und ein Konto. Und der reine Browser-Editor aus der Vertiefung ist ausdrücklich keine Umgebung — ohne Terminal und Laufzeitumgebung kannst du lesen und ändern, aber nichts ausführen und nichts prüfen.",
+    "forgetting": "„Was in der Cloud liegt, bleibt dort“ stimmt noch weniger. Der eine Anbieter löscht das Heimatverzeichnis nach der im Tarifkasten oben genannten Frist ohne Zugriff und schreibt dazu, dass die Dateien dann nicht wiederherstellbar sind. Der andere sperrt bei erschöpftem Kontingent — und rät in derselben Dokumentation, die angefangene Arbeit vorher in einen Branch zu exportieren.",
+    "analogyBreak": "Damit bricht die Analogie, und zwar zu deinen Gunsten: Aus einer Mietwerkstatt trägst du dein Werkstück nach Hause, hier ist es umgekehrt. Die Umgebung ist das Vergängliche, das Repository das Bleibende — und das liegt an einem dritten Ort, weder in der gemieteten Werkstatt noch in deiner Hand."
+  },
+  "notNeeded": {
+    "title": "Was du NICHT brauchst",
+    "framing": "Dieser Abschnitt ist keine Meinung über Werkzeuge. Er ist eine Zählung.",
+    "inventoryTitle": "Beispiel: Was die offiziellen Anleitungen wirklich verlangen",
+    "inventory1": "Nimm die Installationsseiten echter Projekte und schreib auf, was dort als Voraussetzung steht. Ein großes Web-Framework führt vier Punkte auf: eine Laufzeitumgebung in einer Mindestversion, einen Texteditor, ein Terminal — und als vierten ein Zusatzwerkzeug für den Editor, das es ausdrücklich nur empfiehlt. Verlangt sind also drei; der vierte Punkt ist ein Rat. Ein zweites Framework nennt unter „Systemvoraussetzungen“ zwei. Das Handbuch von git verlangt zwei Konfigurationszeilen, einmal pro Rechner. Der Editor verlangt die Hardware aus dem Kasten oben.",
+    "inventory2": "Jetzt die zweite Zählung: Was steht in keiner dieser Listen? Eine Vollausstattung, ein grafisches git-Programm, eine Container-Laufzeit, ein Linux-Unterbau als Pflicht, ein neuer Rechner. Diese Liste ist länger als die erste, und alles darauf hat sich jemand selbst dazugekauft.",
+    "analogy": "Die Packliste schreibt das Ziel, nicht der Laden. Was du mitnehmen musst, entscheidet, wohin du fährst — nicht, wie gut vorbereitet du dich fühlen möchtest. Genau deshalb verlangt die eine Seite drei Dinge und die andere zwei: Der Unterschied kommt von den Projekten, nicht von dir.",
+    "analogyBreak": "Die Grenze der Packliste: Sie nennt den Boden, nicht die Decke, und sie ist pro Ziel geschrieben. Der dokumentierte Fall dafür ist der Linux-Unterbau unter Windows. Der Hersteller empfiehlt ihn unter einer ausdrücklichen Bedingung — wenn du auf Linux-Server ausrollst oder Linux-Werkzeuge benutzt. Trifft beides nicht zu, ist er eine Möglichkeit und kein Initiationsritus.",
+    "misconception": {
+      "title": "„Ein Profi-Werkzeug macht mich schneller zum Profi“",
+      "text": "Fang bei der Untergrenze an. Auf jedem System liegt ein Notizblock, der Text öffnet und wieder speichert; die Einsteiger-Empfehlung einer der größten Web-Dokumentationen lässt ihn im Notfall gelten, hält seinen Funktionsumfang aber für schmal. Die Obergrenze ist die Vollausstattung, und dieselbe Quelle rät ab: Sie verlangt in dieser Phase mehr Bedienung, als sie zurückgibt. Empfohlen wird das Mittlere, ein richtiger Code-Editor. Dass der Preis diese Wahl nicht entscheidet, zeigt die Beispielliste derselben Quelle — dort steht Notepad++ (kostenlos, nur für Windows) neben Sublime Text (kostenpflichtig). Also nicht „nimm irgendwas“, sondern: eine Stufe über dem Notizblock, eine Stufe unter der Vollausstattung."
+    },
+    "hardware": "„Ich brauche einen neuen Rechner“ erledigt der Kasten oben: Die dort dokumentierte Untergrenze liegt weit unter dem, was heute in jedem Gerät steckt, das noch angeht.",
+    "gitGui": "„Ohne grafisches git-Programm verstehe ich git nicht“ dreht die Sache um: Das Handbuch von git hält fest, dass solche Programme nichts können, was die Kommandozeile nicht kann. Die eine wirklich hilfreiche Ansicht hast du im Editor ohnehin schon.",
+    "agentEditors": "Es gibt inzwischen eine eigene Kategorie von Editoren mit eingebautem Agenten. Für das Minimal-Setup brauchst du sie nicht: Irgendein Editor plus ein Terminal reicht.",
+    "departureTitle": "Eine offene Abweichung",
+    "departure": "Dieselbe Dokumentation, der wir das „installier es, wenn du es brauchst“ verdanken, rät Einsteigern auch, sich um Versionskontrolle vorerst nicht zu kümmern. Von diesem einen Punkt weichen wir ab, und wir sagen es lieber, als die Quelle stillschweigend zu kürzen: Ihr Rat gilt jemandem, der HTML von Hand tippt. Du arbeitest mit einem Agenten, der Dateien ändert, die du nicht gelesen hast.",
+    "deepDive": {
+      "title": "Vertiefung: Gratis heißt nicht automatisch frei",
+      "text1": "Der meistgenutzte Editor kostet nichts, privat wie kommerziell, und sein Quellcode steht unter der freizügigen MIT-Lizenz. Der Download mit dem Markenlogo ist trotzdem etwas anderes: dieselben Quellen, aber unter der Produktlizenz des Herstellers.",
+      "text2": "Kostenlos und frei sind hier zwei verschiedene Aussagen. Wer das Freie will, nimmt VSCodium — den Nachbau aus denselben Quellen. Was Quelllizenz und Produktlizenz unterscheidet, ist Thema des Artikels über Open Source in diesem Lernpfad."
+    }
+  },
+  "close": {
+    "title": "Und jetzt?",
+    "text1": "Vier Fragen, vier Teile: Wo lese ich? Wie befehle ich? Was führt aus? Wie komme ich zurück? Drei davon hast du jetzt so weit beisammen, wie du sie für den Anfang brauchst.",
+    "text2": "Das vierte hat eine eigene Lektion verdient. Der Rat des Cloud-Anbieters von eben — bring deine Arbeit in einen Branch, bevor die Uhr abläuft — hilft nur, wenn du weißt, was ein Branch ist.",
+    "text3": "Genau davon handelt der nächste Artikel."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste in fünf Sätzen",
+    "item1": "Vier Teile, vier Fragen: Der Editor beantwortet, wo du liest und prüfst. Das Terminal, wie du befiehlst und das Ergebnis siehst. Die Laufzeitumgebung, was den Code ausführt. git, wie du zurückkommst.",
+    "item2": "Die Laufzeitumgebung gehört zur Sprache des Projekts, nicht zu dir. Frag das Projekt, nicht das Tutorial.",
+    "item3": "Der Editor enthält die anderen drei nicht. Er borgt sie sich von deinem Rechner — deshalb hören seine git-Knöpfe auf zu funktionieren, wenn git fehlt.",
+    "item4": "Die Cloud erspart dir die Installation, nicht die vier Teile. Die gemietete Umgebung ist das Vergängliche, das Repository das Bleibende.",
+    "item5": "Was in keiner offiziellen Anforderungsliste steht, hast du dir selbst dazugekauft."
+  },
+  "checkpoint": {
+    "title": "Verständnischeck",
+    "item1": "Ich kann die vier Teile nennen und zu jedem sagen, welche Frage es beantwortet.",
+    "item2": "Ich kann für ein fremdes Projekt sagen, welche Laufzeitumgebung es braucht — und warum diese Frage nicht an mir hängt.",
+    "item3": "Ich kann erklären, was mir eine gemietete Umgebung abnimmt und was nicht.",
+    "item4": "Ich kann an den offiziellen Anforderungslisten ablesen, was ich mir nur eingeredet habe zu brauchen."
+  },
+  "quiz": {
+    "boxTitle": "Teste dein Wissen",
+    "q1": {
+      "question": "Welche Frage beantwortet die Laufzeitumgebung in einem Minimal-Setup?",
+      "a": "Wo lese und prüfe ich, was geschrieben worden ist?",
+      "b": "Wie komme ich zu einem Stand zurück, der funktioniert hat?",
+      "c": "Was führt den geschriebenen Code tatsächlich aus?",
+      "d": "Wie tausche ich meine Dateien mit anderen Leuten aus?",
+      "explanation": "Der Editor zeigt Text, das Terminal nimmt Befehle entgegen, git führt zurück. Ausgeführt wird der Code von der Laufzeitumgebung — dem Teil, das man nie sieht und ohne das nichts passiert."
+    },
+    "q2": {
+      "question": "Du bekommst ein Projekt, das in Python geschrieben ist. Du selbst tippst keine Zeile Code, das übernimmt der Agent. Was brauchst du trotzdem auf deinem Rechner?",
+      "a": "Node, weil das die Standard-Laufzeitumgebung für alle Projekte ist.",
+      "b": "Python, weil die Laufzeitumgebung zur Sprache des Projekts gehört.",
+      "c": "Nichts weiter, weil das Programmieren komplett der Agent übernimmt.",
+      "d": "Eine kostenpflichtige Umgebung, weil Python sonst gar nicht startet.",
+      "explanation": "Die Laufzeitumgebung hängt an der Sprache des Projekts, nicht daran, wer tippt. Ein Projekt in Python verlangt Python — auch dann, wenn der Agent jede einzelne Zeile schreibt."
+    },
+    "q3": {
+      "question": "Angenommen, ein Gratis-Tarif nennt 100 Kern-Stunden pro Monat, und du arbeitest auf einer Maschine mit 4 Kernen. Wie viele echte Arbeitsstunden hast du im Monat frei?",
+      "a": "100 Stunden, denn die Kernzahl gehört nicht in die Abrechnung.",
+      "b": "400 Stunden, denn mehr Kerne bedeuten ein größeres Kontingent.",
+      "c": "25 Stunden, denn Kern-Stunden werden durch die Kernzahl geteilt.",
+      "d": "50 Stunden, denn bei Kern-Stunden rechnet man immer mit 2 Kernen.",
+      "explanation": "100 geteilt durch 4 ergibt 25. Die übertragbare Lehre steckt nicht in der Zahl, sondern in der Einheit: Lies bei jedem Gratis-Tarif zuerst, worin gerechnet wird, und erst danach, wie viel."
+    },
+    "q4": {
+      "question": "In deinem Editor sind die Knöpfe für die Versionskontrolle da, aber sie tun nichts. Was ist die wahrscheinlichste Ursache?",
+      "a": "Der Editor ist beschädigt und muss komplett neu installiert werden.",
+      "b": "git fehlt auf dem Rechner oder ist zu alt; der Editor bedient es nur.",
+      "c": "Die Knöpfe gibt es nur in der kostenpflichtigen Version des Editors.",
+      "d": "Es fehlt die Internetverbindung, ohne die Versionskontrolle stillsteht.",
+      "explanation": "Die Dokumentation des Editors sagt es selbst: Er benutzt die git-Installation deines Rechners und verlangt dafür eine Mindestversion. Genau daran siehst du, dass hier vier getrennte Teile stehen — eines kann fehlen, ohne dass die anderen drei es merken."
+    },
+    "q5": {
+      "question": "Zwei Leser hören nach vier Monaten auf und kommen ein halbes Jahr später zurück. Der eine hatte alles lokal installiert, der andere ausschließlich in einer gemieteten Cloud-Umgebung gearbeitet. Wer findet seine Arbeit eher wieder vor?",
+      "a": "Der lokale Leser, weil gemietete Umgebungen grundsätzlich unsicher sind.",
+      "b": "Der Cloud-Leser, weil in einer gemieteten Umgebung alles gesichert wird.",
+      "c": "Beide gleichermaßen, weil der Ort der Arbeit über ihre Haltbarkeit nichts sagt.",
+      "d": "Wer sie in ein Repository gebracht hat; die Umgebung ist das Vergängliche.",
+      "explanation": "Es hängt nicht am Ort, sondern am Repository. Der eine Anbieter löscht ein lange unberührtes Heimatverzeichnis, der andere sperrt bei erschöpftem Kontingent und rät selbst dazu, die Arbeit vorher in einen Branch zu bringen. Lokal ist deswegen nicht automatisch sicher: Dieselbe Lücke reißt dort ein Festplattenschaden."
+    }
+  }
+}

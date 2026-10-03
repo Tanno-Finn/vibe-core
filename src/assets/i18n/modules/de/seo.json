@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "aiTimeline": {
+      "description": "Die Entwicklung deines Themas von den Anfängen bis heute. Meilensteine und wichtige Wendepunkte.",
+      "keywords": "Geschichte, Zeitstrahl, Meilensteine, Entwicklung",
+      "title": "Zeitstrahl"
+    },
+    "default": {
+      "description": "{siteName} — ein Lern-Portal zu deinem Thema mit interaktiven Demos, nützlichen Tools und praktischen Lernressourcen.",
+      "keywords": "lernen, Lern-Portal, interaktive Demos, Tutorial, Interactive Learning, Bildung",
+      "title": "{siteName} - Dein Einstieg in dein Thema"
+    },
+    "exampleDemo": {
+      "description": "Platzhalter-Demo, die den Bauplan einer interaktiven Demo zeigt: Controls, Visualisierung, Beobachten, Verstehen.",
+      "keywords": "Beispiel-Demo, Bauplan, interaktive Demo, Vorlage",
+      "title": "Beispiel-Demo"
+    },
+    "glossary": {
+      "description": "Umfassendes Glossar mit Erklärungen zu den Fachbegriffen deines Themas.",
+      "keywords": "Glossar, Fachbegriffe, Lexikon, Definitionen",
+      "title": "Glossar"
+    },
+    "home": {
+      "description": "Entdecke dein Thema mit interaktiven Demos, praktischen Übungen und nützlichen Tools.",
+      "keywords": "Startseite, Tutorial, interaktive Demos, lernen",
+      "title": "Startseite"
+    },
+    "impressum": {
+      "description": "Impressum und rechtliche Informationen zu {siteName}.",
+      "keywords": "Impressum, Rechtliche Hinweise, Kontakt",
+      "title": "Impressum"
+    },
+    "userSettings": {
+      "description": "Passe {siteName} an deine Bedürfnisse an. Sprache, Theme und Lernpräferenzen konfigurieren.",
+      "keywords": "Benutzereinstellungen, {siteName} Konfiguration, Lerneinstellungen",
+      "title": "Einstellungen"
+    }
+  }
+}

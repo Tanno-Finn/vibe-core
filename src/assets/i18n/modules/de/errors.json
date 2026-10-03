@@ -1,0 +1,23 @@
+{
+  "404": {
+    "backToHome": "Zur Startseite",
+    "description": "In einer anderen Realität existiert diese Seite bestimmt. Nur nicht hier. Falls dich das tröstet.",
+    "goBack": "Zurück zur vorherigen Seite",
+    "popularPages": "Seiten, die nachweislich existieren",
+    "title": "Seite nicht gefunden"
+  },
+  "app": {
+    "newVersionTitle": "Neue Version verfügbar",
+    "newVersionDetail": "Die Seite wurde aktualisiert. Bitte einmal neu laden.",
+    "reload": "Neu laden",
+    "unexpected": "Ein unerwarteter Fehler ist aufgetreten."
+  },
+  "http": {
+    "timeoutTitle": "Zeitüberschreitung",
+    "timeoutDetail": "Der Server hat nicht rechtzeitig geantwortet. Bitte versuche es erneut.",
+    "offlineTitle": "Verbindungsfehler",
+    "offlineDetail": "Keine Verbindung zum Server. Bitte prüfe deine Internetverbindung.",
+    "serverTitle": "Serverfehler",
+    "serverDetail": "Der Server meldet einen Fehler ({status}). Bitte versuche es später erneut."
+  }
+}

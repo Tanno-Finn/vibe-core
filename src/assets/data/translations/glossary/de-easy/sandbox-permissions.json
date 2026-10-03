@@ -1,0 +1,8 @@
+{
+  "term": "Sandbox & Permissions",
+  "alternativeNames": [
+    "Schutzraum und Regeln für KI-Agenten"
+  ],
+  "description": "Sandbox und Permissions. Sandbox heißt Sandkasten. Permissions heißt Erlaubnisse. Ein KI-Agent arbeitet selbstständig am Computer. Darf er dabei einfach alles? Nein, besser nicht. Menschen bauen ihm einen Schutzraum. Das ist die Sandbox. Darin darf der Agent frei arbeiten. Außerhalb darf er nichts verändern. Dazu kommen Regeln für einzelne Aktionen. Gefährliche Aktionen brauchen eine extra Erlaubnis. Zum Beispiel: Dateien löschen. Dann muss erst ein Mensch Ja sagen. Der Schutz kommt also aus der Umgebung. Man muss der KI nicht blind vertrauen. Das hilft auch bei Angriffen wie Prompt Injection.",
+  "example": "Denk an einen Praktikanten mit einer Schlüssel·karte. Die Karte öffnet nur drei Räume. Für den Serverraum muss der Chef mitkommen. So eine Schlüssel·karte bekommt auch ein KI-Agent."
+}

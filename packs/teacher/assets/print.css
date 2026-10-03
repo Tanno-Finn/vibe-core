@@ -1,0 +1,272 @@
+/* =============================================================================
+   teacher pack — print stylesheet for classroom handouts (A4)
+   -----------------------------------------------------------------------------
+   Self-contained, dependency-free. The print-producing teacher jobs (worksheet,
+   practice-quiz, cover-lesson) INLINE this whole file into a <style> block so
+   each handout is a single file a teacher can double-click and print — no
+   external asset, no web server, works offline. Kit-blind: nothing here assumes
+   any framework. The example handouts in ../examples/ inline this file verbatim.
+
+   Design goals: clean black-on-white, generous margins, readable at arm's length
+   for a whole class, honest page breaks, and space to WRITE. High contrast by
+   default (A11Y-004); never relies on colour alone (A11Y-006) — task demand is
+   carried by text tags (AB I/II/III), the draft stamp by a word, not by hue.
+   ============================================================================= */
+
+:root {
+  --ink: #111;
+  --muted: #555;
+  --rule: #999;
+  --box: #bbb;
+  --band: #f2f2f2;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, 'Helvetica Neue', sans-serif;
+  color: var(--ink);
+  line-height: 1.45;
+  font-size: 12pt;
+  margin: 0;
+  background: #fff;
+}
+
+/* --- page geometry ------------------------------------------------------- */
+@page {
+  size: A4;
+  margin: 18mm 16mm;
+}
+
+.sheet {
+  max-width: 180mm; /* A4 content width */
+  margin: 0 auto;
+  padding: 0 4mm;
+}
+
+/* --- draft stamp (guardrail T1-C) ---------------------------------------- */
+/* Every printed page of a teacher output carries this, in the material's own
+   language ("Entwurf, ungeprüft" / "Draft — unchecked"), until a teacher has
+   reviewed it. See ../GUARDRAILS.md. It is a word, not a colour, so it survives
+   greyscale printing (A11Y-006). */
+.draft-stamp {
+  display: block;
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 3px 10px;
+  margin: 0 0 12px;
+  font-weight: 700;
+  font-size: 11pt;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* --- handout header ------------------------------------------------------ */
+.handout-head {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 6px;
+  margin-bottom: 14px;
+}
+.handout-head h1 {
+  font-size: 18pt;
+  margin: 0 0 2px;
+}
+.handout-head .meta {
+  font-size: 10.5pt;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+}
+/* Name/Datum write-in line */
+.name-date {
+  display: flex;
+  gap: 24px;
+  margin: 6px 0 0;
+  font-size: 11pt;
+}
+.name-date .field {
+  flex: 1;
+  border-bottom: 1px solid var(--ink);
+  min-height: 1.6em;
+}
+.name-date .label {
+  color: var(--muted);
+}
+
+/* --- content blocks ------------------------------------------------------ */
+h2 {
+  font-size: 13.5pt;
+  margin: 18px 0 6px;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+}
+h3 {
+  font-size: 12pt;
+  margin: 12px 0 4px;
+}
+
+.input-box {
+  background: var(--band);
+  border: 1px solid var(--box);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin: 8px 0;
+}
+
+/* numbered tasks with room to answer */
+ol.tasks {
+  padding-left: 1.4em;
+}
+ol.tasks > li {
+  margin: 0 0 12px;
+}
+.answer-lines {
+  border-bottom: 1px solid var(--rule);
+  height: 1.9em;
+  margin: 6px 0;
+}
+.answer-lines.tall {
+  height: 5.8em;
+  background: repeating-linear-gradient(#fff, #fff 1.85em, var(--rule) 1.85em, var(--rule) calc(1.85em + 1px));
+  border-bottom: none;
+}
+
+/* Anforderungsbereich tag on worksheet tasks — plain text (AB I/II/III), so it
+   does NOT collide with the ⭐ differentiation levels used elsewhere. */
+.ab-tag {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 9.5pt;
+  border: 1px solid var(--muted);
+  border-radius: 3px;
+  padding: 0 5px;
+  margin-right: 4px;
+  white-space: nowrap;
+}
+
+/* quiz question block (practice-quiz) */
+.q {
+  margin: 12px 0;
+}
+.q .stem {
+  font-weight: 600;
+}
+.q .tag {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 10pt;
+}
+.opt {
+  margin: 3px 0 3px 1.2em;
+}
+
+/* term / vocabulary + matching tables */
+table.terms,
+table.grid {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+table.terms th,
+table.terms td,
+table.grid th,
+table.grid td {
+  border: 1px solid var(--box);
+  padding: 6px 8px;
+  vertical-align: top;
+  text-align: left;
+  font-size: 11pt;
+}
+table.terms th,
+table.grid th {
+  background: var(--band);
+}
+table.terms td.def {
+  min-height: 2.2em;
+}
+
+/* answer key / teacher-only zone */
+.answer-key {
+  border: 1px dashed var(--muted);
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+.answer-key h2 {
+  border: none;
+  margin-top: 0;
+}
+.teacher-note {
+  color: var(--muted);
+  font-size: 10.5pt;
+  font-style: italic;
+}
+
+/* cover-lesson timing markers */
+.ablauf {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+}
+.ablauf > li {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 6px;
+}
+.ablauf .t {
+  flex: 0 0 6.5em;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- footer / print utilities ------------------------------------------- */
+.handout-foot {
+  margin-top: 16px;
+  padding-top: 6px;
+  border-top: 1px solid var(--rule);
+  font-size: 9pt;
+  color: var(--muted);
+}
+
+.page-break {
+  break-before: page;
+  page-break-before: always;
+}
+
+/* keep a task/question from splitting across pages where possible */
+ol.tasks > li,
+table.terms tr,
+.input-box,
+.ablauf > li,
+.q {
+  break-inside: avoid;
+}
+
+/* On screen the sheet floats on grey so it reads as a page; print is pure white. */
+@media screen {
+  body {
+    background: #e9e9e9;
+    padding: 16px 0;
+  }
+  .sheet {
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+    padding: 16mm;
+    border-radius: 2px;
+  }
+}
+
+/* Helper to omit a node from print only (kept visible on screen). */
+@media print {
+  .no-print {
+    display: none;
+  }
+}

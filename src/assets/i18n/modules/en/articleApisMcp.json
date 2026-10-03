@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "title": "Using Interfaces: APIs & MCP",
+    "subtitle": "When software talks to models, someone needs the vocabulary — APIs and MCP do that."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "apiSection": "From Chat Window to Code",
+    "mcpSection": "One Plug for Everything — MCP",
+    "agentSection": "Anatomy of an Agent",
+    "takeaways": "Summary",
+    "quiz": "Quiz",
+    "checkpoint": "Self-Check"
+  },
+  "lead": {
+    "paragraph1": "You have seen what a language model can do when you type into a chat window. But software does not type — it sends structured requests through an API.",
+    "paragraph2": "This article takes you from your first API call to the protocol that could standardize how all AI tools connect: MCP. Along the way, you will learn what these calls cost, why 50 custom integrations are a problem, and how four building blocks turn a single model into an acting agent."
+  },
+  "apiSection": {
+    "title": "From Chat Window to Code",
+    "intro": "The moment you move from a chat UI to code, the model becomes a service you call — like any other web API.",
+    "definitionTitle": "LLM API",
+    "analogy": "Think of a restaurant counter. You fill out an order form (the JSON request) specifying what you want: model, messages, temperature. You hand it to the counter staff along with your membership card (API key). The kitchen (the model) processes your order and sends back a tray (JSON response). You pay per item on the tray, not per visit.",
+    "scientific": "An HTTP endpoint that accepts a structured JSON request (model name, message history, parameters) and returns the model's response as JSON. Authentication uses an API key — a secret token tied to a billing account.",
+    "analogyNote": "Important: you do not choose the ingredients — you have no access to the model's internal workings.",
+    "codeIntro": "A minimal Python call looks like this:",
+    "pricingTitle": "What Does an API Call Cost?",
+    "pricingIntro": "Billing is split between input and output tokens.",
+    "pricingExample": "Example calculation with rounded list prices for a mid-sized model: 30 input tokens × USD 2.50 per million = USD 0.000075. 100 output tokens × USD 10.00 per million = USD 0.001. Total: about USD 0.001 — roughly one tenth of a cent.",
+    "pricingScale": "At 1,000 calls per day: about USD 1.08. At 100,000 calls per day: about USD 107.",
+    "stats": {
+      "costPerCall": {
+        "value": "~0.1",
+        "suffix": " cents",
+        "label": "Per Call",
+        "description": "Cost of a single call in the example calculation"
+      },
+      "costAtScale": {
+        "value": "~107",
+        "suffix": " USD",
+        "label": "At 100k Calls/Day",
+        "description": "Daily cost at high volume"
+      },
+      "mcpReduction": {
+        "value": "70",
+        "suffix": "%",
+        "label": "Fewer Integrations",
+        "description": "Savings through MCP (N+M instead of N×M)"
+      }
+    },
+    "misconceptionTitle": "Common Misconception: APIs Are Expensive",
+    "misconception": "Individual calls cost fractions of a cent. The cost risk lies in volume and long context windows — not in single requests. Think of API costs like a water bill: the per-liter price is tiny, but leaving the tap open drains the budget."
+  },
+  "mcpSection": {
+    "title": "One Plug for Everything — MCP",
+    "intro": "You have just seen how one app talks to one model. Now imagine five apps, each needing ten different tools. Without a standard, that is 50 integrations. This is the N-times-M problem.",
+    "definitionTitle": "Model Context Protocol (MCP)",
+    "analogy": "USB-C for AI. Before USB-C, every device had its own cable — phone charger, camera cable, external drive connector. With 5 devices and 10 accessories, you needed up to 50 different cables. USB-C reduced this to one standard plug: each device and each accessory just needs one USB-C port. MCP does the same for AI integrations.",
+    "scientific": "An open protocol (published in 2024) for standardizing bidirectional connections between AI applications and external tools. An MCP server exposes tools, an MCP client manages the connection, and the LLM decides which tool to call and when.",
+    "analogyLimit": "Key difference: USB-C is a mature, universal standard. MCP is young (2024) and not yet universally adopted.",
+    "comparison": {
+      "withoutLabel": "Without MCP",
+      "withoutResult": "5 apps × 10 tools = 50 custom integrations to build and maintain.",
+      "withLabel": "With MCP",
+      "withResult": "5 MCP clients + 10 MCP servers = 15 implementations. That is a 70% reduction."
+    },
+    "architecture": "Architecturally, MCP forms a triangle: the MCP server exposes tools, the client manages the connection, and the LLM decides when to use which tool. Concrete example: a desktop AI application connects to the filesystem, a local database, and version control through three MCP servers — one protocol, three capabilities.",
+    "warningTitle": "Important: MCP Is Not a Universal Replacement",
+    "warning": "MCP does not replace all APIs. Direct integrations remain necessary for specialized SaaS services where no MCP server exists yet. MCP standardizes how AI discovers and invokes tools — not how the tool works internally.",
+    "originTitle": "As of 2026-08-11 — this box ages, the rest doesn’t",
+    "origin": "The Model Context Protocol was published as an open standard by Anthropic in November 2024; other vendors and tools have adopted it since. Who released the protocol is a historical fact — nothing else in this article depends on it. If you delete this box, everything else stays true."
+  },
+  "agentSection": {
+    "title": "Anatomy of an Agent",
+    "intro": "An API call is a question with one answer. An agent is a loop — it plans, acts, observes, and decides whether to continue. This loop needs four building blocks.",
+    "iconGrid": {
+      "llm": {
+        "label": "Brain (LLM)",
+        "description": "Plans and interprets — decides which tool to use and when"
+      },
+      "tools": {
+        "label": "Hands (Tools)",
+        "description": "Execute actions — each tool has a specific function"
+      },
+      "context": {
+        "label": "Memory (Context)",
+        "description": "Stores history, documents, and intermediate results across steps"
+      },
+      "orchestration": {
+        "label": "Conductor (Orchestration)",
+        "description": "Controls flow, handles errors, and determines stopping conditions"
+      }
+    },
+    "analogyIntro": "Think of a head chef managing dinner service.",
+    "analogy": "The chef's brain is the LLM — reading orders, deciding what to cook, and prioritizing. The chef's hands are the tools — knife, stove, oven, each with a specific function. The order tickets above the pass are the context — they track what has been ordered, what is in progress, what is done. The kitchen workflow is the orchestration: starters first, then mains, then desserts, check timing.",
+    "analogyNote": "Like a real chef, an agent can also make mistakes — picking the wrong tool or misreading an order.",
+    "steps": {
+      "receive": "Receive Task",
+      "plan": "Plan (LLM chooses tool)",
+      "execute": "Execute (tool runs)",
+      "observe": "Observe (result returns)",
+      "decide": "Decide (continue or stop)"
+    },
+    "exampleTitle": "Example: A Travel-Booking Agent",
+    "example": "Step 1: The user says: Book me a flight to Berlin next Tuesday. Step 2: The LLM reads the calendar (context) — Tuesday is March 24. Step 3: The LLM calls the flight-search tool — three options found. Step 4: The LLM compares prices and times, selects the cheapest morning flight. Step 5: The LLM asks the user for confirmation (safety gate). Step 6: User confirms. Step 7: The LLM calls the booking tool. Step 8: Orchestration checks the result — booking confirmed — loop ends.",
+    "misconceptionTitle": "Common Misconception: Agents Are Autonomous AI",
+    "misconception": "Today's agents are only as capable as their tools, permissions, and safety boundaries. They do not improvise — they follow a plan-act-observe loop within defined guardrails. An agent without tools is a chatbot. An agent without guardrails is a liability.",
+    "frameworkTitle": "Overview: how agent frameworks differ",
+    "frameworks": {
+      "broad": "Broad integration ecosystem: many ready-made connectors to data sources and services. A fast start, at the price of a large surface to learn.",
+      "retrieval": "Retrieval emphasis: document processing and knowledge lookup as the core strength. A fit when the agent mostly needs to read and find.",
+      "multiAgent": "Multi-agent collaboration: several agents with defined roles working together. Powerful, but considerably harder to follow when something goes wrong.",
+      "minimal": "Protocol-native and lean: minimal overhead, with tools arriving through an open standard rather than in-house adapters."
+    },
+    "frameworkNote": "These are emphases, not product recommendations. The names on the market turn over every few months; the four emphases stay — check which one any given framework comes closest to."
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "item1": "An API call is an HTTP POST with JSON — the same mental model you already know from web development, applied to language models.",
+    "item2": "MCP turns many-to-many integration chaos (N times M) into a manageable many-plus-many structure (N plus M) by standardizing how tools expose their capabilities.",
+    "item3": "An agent is not magic — it is a loop of four components (LLM, Tools, Context, Orchestration) repeating until a stopping condition is met."
+  },
+  "quiz": {
+    "boxTitle": "Knowledge Check: APIs & MCP",
+    "q1": {
+      "question": "What is the primary role of an API key when calling an LLM API?",
+      "a": "It determines which language the model responds in.",
+      "b": "It authenticates your application and ties usage to a billing account.",
+      "c": "It encrypts the content of your prompt so nobody can read it.",
+      "d": "It selects the specific GPU that processes your request.",
+      "explanation": "An API key is a secret token that identifies your application and ties usage to your billing account. It does not control the language, encrypt content, or select hardware."
+    },
+    "q2": {
+      "question": "Which statement best describes what MCP standardizes?",
+      "a": "The internal architecture of language models.",
+      "b": "The pricing structure across different AI providers.",
+      "c": "How AI applications discover and invoke external tools through a shared protocol.",
+      "d": "How training data is collected and labeled for fine-tuning.",
+      "explanation": "MCP standardizes communication between AI applications and external tools. It does not define how models work internally, how providers set prices, or how training data is processed."
+    },
+    "q3": {
+      "question": "A startup runs 50,000 API calls per day. Each call uses 200 input tokens and 500 output tokens. The provider charges USD 3.00 per million input tokens and USD 15.00 per million output tokens. What is the approximate daily cost?",
+      "a": "About USD 4",
+      "b": "About USD 40",
+      "c": "About USD 405",
+      "d": "About USD 4,050",
+      "explanation": "Calculation: 50,000 × 200 = 10M input tokens × USD 3.00/M = USD 30. 50,000 × 500 = 25M output tokens × USD 15.00/M = USD 375. Total: USD 405."
+    },
+    "q4": {
+      "question": "A company has 3 AI applications that each need to work with 8 different tools. How many integrations are needed without MCP — and how many with MCP?",
+      "a": "Without: 11, With: 24",
+      "b": "Without: 24, With: 11",
+      "c": "Without: 24, With: 8",
+      "d": "Without: 11, With: 3",
+      "explanation": "Without MCP: 3 × 8 = 24 custom integrations. With MCP: 3 clients + 8 servers = 11 implementations. The formula is N×M without a standard vs. N+M with a standard."
+    },
+    "q5": {
+      "question": "An AI agent is tasked with summarizing a 200-page PDF but keeps producing incomplete summaries. Which component of the agent architecture is most likely the bottleneck?",
+      "a": "Orchestration — the loop stops too early.",
+      "b": "Tools — the PDF reader cannot handle large files.",
+      "c": "LLM — the context window cannot fit all pages.",
+      "d": "Any of the above could be the cause — diagnosis requires checking each component individually.",
+      "explanation": "All three components could cause the problem: orchestration might stop too early, the tool might be limited, or the LLM's context window might be too small. Systematic troubleshooting checks each component individually."
+    },
+    "q6": {
+      "question": "A developer argues: We do not need MCP — direct API integrations are fine. In which scenario is this argument strongest?",
+      "a": "The team has 2 apps using 2 stable, rarely-changing tools.",
+      "b": "The team has 10 apps sharing 15 tools.",
+      "c": "The team adds new tools every quarter across multiple apps.",
+      "d": "The team builds open-source AI tools for broad community use.",
+      "explanation": "With only 2 × 2 = 4 integrations, the overhead of implementing MCP infrastructure outweighs the benefit. In all other scenarios, MCP's N+M advantage becomes significant."
+    }
+  },
+  "checkpoint": {
+    "title": "Self-Check: APIs & MCP",
+    "item1": "Can you explain what happens technically when software sends a prompt to an LLM — from request to response?",
+    "item2": "Why does MCP reduce the integration count from 50 to 15 in a five-app, ten-tool scenario?",
+    "item3": "Name the four building blocks of an agent and explain why removing any one of them breaks the system."
+  },
+  "enrichment": {
+    "tocLabel": "Interactive: HTTP Request",
+    "sectionTitle": "Interactive: What Happens During an API Call?",
+    "introText": "Click Play and watch step by step what happens behind the scenes when your code calls an API — from the browser through DNS and TLS to the JSON response.",
+    "intro": {
+      "title": "The Journey of an HTTP Request",
+      "description": "This animation shows the six stations every API call passes through — from the click in the browser to the JSON response."
+    },
+    "edu": {
+      "title": "Why Does This Matter?",
+      "description": "Every API call — whether to a model provider or to your own REST API — goes through exactly these steps. Understanding what happens lets you diagnose errors (timeouts, 404, CORS) much faster."
+    },
+    "stage": {
+      "browser": "Browser / Client",
+      "dns": "DNS Resolution",
+      "tls": "TCP/TLS Handshake",
+      "request": "HTTP Request",
+      "server": "Server Processing",
+      "response": "HTTP Response"
+    },
+    "stageDesc": {
+      "browser": "Your code sends a request — for example a POST to /v1/chat/completions. The browser or library builds an HTTP message from it.",
+      "dns": "The domain name (api.example.com) is translated into an IP address. Without DNS, your computer would not know which server to contact.",
+      "tls": "An encrypted connection is established. TLS ensures that nobody can intercept your API keys or data.",
+      "request": "The actual request is sent: HTTP method (POST), headers (Authorization: Bearer …), and body (your prompt as JSON).",
+      "server": "The server receives the request, processes it (for an LLM API: inference), and generates a response.",
+      "response": "The server sends the response back: status code (200 OK), headers, and body (the generated answer as JSON)."
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Mein Fortschritt",
+  "subtitle": "Hier siehst du: So weit bist du schon.",
+  "overviewTitle": "Dein Überblick",
+  "topicsTitle": "Alle Themen",
+  "emptyTitle": "Es gibt noch keine Themen",
+  "emptyText": "Später gibt es hier Artikel und Demos. Dann steht hier für jedes Thema eine Zeile.",
+  "storageNote": "Gespeicherter Fortschritt bleibt in diesem Browser. Er wird nicht ins Internet geschickt. Du kannst ihn in den Einstellungen löschen.",
+  "summary": {
+    "overall": "Alles zusammen"
+  },
+  "table": {
+    "caption": "Alle Themen. Mit Status und geschafften Schritten.",
+    "topic": "Thema",
+    "status": "Status",
+    "steps": "Schritte"
+  },
+  "status": {
+    "notStarted": "Noch nicht begonnen",
+    "inProgress": "Angefangen",
+    "done": "Fertig"
+  },
+  "kind": {
+    "article": "Artikel",
+    "demo": "Demo"
+  },
+  "trackingOffNote": "Dein Fortschritt wird nicht gespeichert. Du hast Nein gesagt. Die Zahlen hier gelten nur für diesen Besuch. Beim nächsten Mal stehen hier wieder Nullen. Du kannst das Speichern jederzeit erlauben: unten auf der Seite bei „Cookie·einstellungen“.",
+  "settingsLink": "Zu den Einstellungen",
+  "trackingUndecidedNote": "Dein Fortschritt wird noch nicht gespeichert. Du hast noch nicht Ja gesagt. Die Zahlen hier gelten nur für diesen Besuch. Du kannst das Speichern erlauben: im Cookie·banner oder unten auf der Seite bei „Cookie·einstellungen“."
+}

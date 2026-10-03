@@ -1,0 +1,17 @@
+{
+  "id": "huang-self-correct-2023",
+  "type": "paper",
+  "authors": "Jie Huang, Xinyun Chen, Swaroop Mishra, Huaixiu Steven Zheng, Adams Wei Yu, Xinying Song, Denny Zhou",
+  "year": "2023",
+  "publication": "arXiv / ICLR 2024",
+  "url": "https://arxiv.org/abs/2310.01798",
+  "doi": "10.48550/arXiv.2310.01798",
+  "accessed": "2026-08-16",
+  "tags": [
+    "self-correction",
+    "llm",
+    "reasoning",
+    "evaluation",
+    "feedback"
+  ]
+}

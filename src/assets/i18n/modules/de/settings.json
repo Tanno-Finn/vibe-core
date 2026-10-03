@@ -1,0 +1,163 @@
+{
+  "appearance": {
+    "description": "Passe das Aussehen und Verhalten der Anwendung an deine Vorlieben an",
+    "title": "Erscheinungseinstellungen",
+    "glossaryHighlighting": "Glossar-Hervorhebungen",
+    "glossaryHighlightingDescription": "Hervorhebung von Glossarbegriffen im Text aktivieren (z.B. Künstliche Intelligenz)"
+  },
+  "font": {
+    "title": "Schrift",
+    "description": "Wähle die Schrift, in der du am liebsten liest. Alle hier sind frei und Open Source — niemand schickt dir (oder mir) später eine Rechnung. Die Auswahl bleibt auf diesem Gerät. In Sprachen mit nicht-lateinischer Schrift (Hindi, Bengali, Koreanisch, Punjabi) übernimmt automatisch Noto Sans.",
+    "system": {
+      "note": "Die Schrift, die dein Gerät ohnehin dabei hat. Lädt nichts nach — sieht dafür auf jedem Rechner ein bisschen anders aus, was den meisten nie auffällt."
+    },
+    "sourceSans3": {
+      "note": "Ruhig, freundlich, hält auch lange Texte aus. Die solide Hauswahl: man fällt damit selten auf, was meistens das Ziel ist."
+    },
+    "inter": {
+      "note": "Klar, modern, überall. Wenn dir das Internet bekannt vorkommt, liegt das mit einer gewissen Wahrscheinlichkeit an dieser Schrift."
+    },
+    "ibmPlexSans": {
+      "note": "Etwas technischer im Charakter, mit besonders deutlichen Zahlen und Buchstaben. Seriös, ruhig, niemals laut — die Schrift, die in Meetings nichts sagt und trotzdem alles mitbekommt."
+    },
+    "bricolageGrotesque": {
+      "note": "Hat eine deutliche Meinung dazu, wie Buchstaben aussehen sollen. Spannend zu lesen — wenn man Schriften mag, die ein bisschen zurückreden."
+    },
+    "atkinsonHyperlegible": {
+      "note": "Gestaltet, damit sich Buchstaben nicht mehr verwechseln lassen. Hilfreich bei eingeschränktem Sehvermögen oder wenn Lesen sonst anstrengend ist. Wirkt allerdings nur in lateinischer Schrift — für Hindi, Bengali, Koreanisch und Punjabi gibt es bisher keine vergleichbar barrierefreie Schrift; dort übernimmt Noto Sans."
+    },
+    "andika": {
+      "note": "Ursprünglich für Erstleser gemacht: große, klar unterscheidbare Buchstaben mit viel Luft dazwischen. Reduziert die Anstrengung beim Lesen — hilfreich bei Konzentrationsschwächen, nachlassender Sehkraft oder einfach am Ende eines langen Tages."
+    },
+    "lexend": {
+      "note": "Sieht fast normal aus, hilft aber dezent: wissenschaftlich nachgewiesen schnelleres Lesetempo. Eine Schrift, die ihre Arbeit leise erledigt — was Schriften ja eigentlich tun sollten."
+    },
+    "openDyslexic": {
+      "note": "Speziell für Menschen mit Legasthenie entwickelt. Buchstaben haben ein deutliches Gewicht am unteren Rand, damit b und d, p und q nicht mehr durcheinandergeraten. Sieht beim ersten Blick ungewohnt aus — und ist für Betroffene oft genau deshalb eine echte Erleichterung."
+    }
+  },
+  "data": {
+    "corruptedFile": "Die Datei enthält ungültige Daten oder ist beschädigt.",
+    "description": "Verwalte deinen Lernfortschritt und deine Anwendungsdaten",
+    "errorApplyingData": "Fehler beim Anwenden der Daten. Vorherige Einstellungen wurden wiederhergestellt.",
+    "errorReadingFile": "Fehler beim Lesen der Datei.",
+    "export": "Daten exportieren",
+    "exportDescription": "Lade deinen gesamten Fortschritt und Einstellungen als JSON-Datei herunter",
+    "exportLabel": "Daten exportieren",
+    "exportSuccess": "Export erfolgreich",
+    "exportSuccessDetail": "Deine Daten wurden erfolgreich exportiert.",
+    "fileTooLarge": "Die Datei ist zu groß. Maximum: 1MB.",
+    "import": "Daten importieren",
+    "importDescription": "Stelle deinen Fortschritt aus einer zuvor exportierten Datei wieder her. Der Lernfortschritt wird nur übernommen, wenn du dem Speichern zugestimmt hast.",
+    "importError": "Import fehlgeschlagen",
+    "importErrorDetail": "Die Datei konnte nicht importiert werden. Bitte überprüfe das Format.",
+    "importLabel": "Daten importieren",
+    "importSuccess": "Import erfolgreich",
+    "importSuccessDetail": "Deine Daten wurden erfolgreich importiert.",
+    "importProgressWithheld": "Deine Einstellungen wurden importiert, dein Lernfortschritt nicht: Du hast dem Speichern noch nicht zugestimmt. Schalte unter „Privatsphäre & Fortschritt“ das Fortschritts-Tracking ein und importiere die Datei dann noch einmal.",
+    "invalidFile": "Bitte wähle eine gültige JSON-Datei aus.",
+    "legacyV1File": "Diese Datei stammt aus einer alten Version, in der nur Theme und Sprache gesichert wurden. Ein neuer Export deckt jetzt Fortschritt und Einstellungen vollständig ab.",
+    "reset": "Alle Daten zurücksetzen",
+    "resetConfirm": "Wirklich alles löschen, was diese Website in deinem Browser gespeichert hat? Das sind Fortschritt, Favoriten, Feedback-Nachrichten, Lesestatus der Neuigkeiten, deine Cookie-Entscheidung und alle Einstellungen. Das kann nicht rückgängig gemacht werden.",
+    "resetDescription": "Löscht alles, was diese Website in deinem Browser gespeichert hat: Lernfortschritt und Erfolge, Favoriten und Vergleichsliste im Katalog, deine Nachrichten von der Feedback-Seite (samt Name und E-Mail), welche Neuigkeiten du gelesen hast, deine Cookie-Entscheidung und alle Einstellungen (Design, Schrift, Sprache, Einfache Sprache, Glossar-Hervorhebung, Spielwiese). Danach lädt die Seite neu.",
+    "resetFailed": "Zurücksetzen fehlgeschlagen",
+    "resetFailedDetail": "Beim Zurücksetzen der Daten ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+    "resetLabel": "Alle Daten zurücksetzen",
+    "resetSuccess": "Daten zurückgesetzt",
+    "resetSuccessDetail": "Alle Daten und Einstellungen dieser Website wurden aus deinem Browser gelöscht. Die Seite lädt gleich neu.",
+    "title": "Datenverwaltung"
+  },
+  "language": {
+    "description": "Stelle deine bevorzugte Sprache für die Benutzeroberfläche ein",
+    "easyLanguage": "Einfache Sprache",
+    "easyLanguageIcon": "Symbol für Einfache Sprache",
+    "filterPlaceholder": "Sprache suchen...",
+    "interface": "Sprache",
+    "interfaceDescription": "Sprache der gesamten Anwendung",
+    "loading": "Sprache wird geladen...",
+    "title": "Spracheinstellungen",
+    "clearFilter": "Suche löschen"
+  },
+  "playground": {
+    "title": "Spielwiese",
+    "description": "Was passiert, wenn dem Entwickler um 1 Uhr nachts eine Idee kommt. Bleibt drin, weil es dem Proof of Concept etwas mehr Umfang gibt — und weil Vibe Coding manchmal gegen die Wand läuft und dabei coole Dinge entstehen.",
+    "cursorTrail": "Kometenschweif",
+    "cursorTrailDescription": "Hinterlässt eine leuchtende Spur hinter dem Mauszeiger. Sieht cool aus. Macht nichts Produktives — etwa wie ein Daily Standup, das 45 Minuten dauert.",
+    "cursorTrailPreview": "Beweg die Maus hierüber. Sieht das nicht nice aus? Nein? Egal, ich finde es sieht nice aus."
+  },
+  "privacy": {
+    "dataControl": "Datenkontrolle:",
+    "dataControlDetail": "Du hast die volle Kontrolle über deine Daten. Du kannst das Fortschritts-Tracking deaktivieren, deine Daten exportieren oder jederzeit alles komplett zurücksetzen.",
+    "dataInfo": "Datenspeicherungs-Details",
+    "dataInfoDescription": "Erfahre mehr darüber, welche Daten gespeichert werden und wie.",
+    "dataStorageTitle": "Datenspeicherungs-Information",
+    "dataTransmission": "Datenübertragung:",
+    "dataTransmissionDetail": "Dein Lernfortschritt wird ausschließlich lokal gespeichert und nie an Server übertragen. Wenn du Nutzungsstatistiken erlaubst, werden anonymisierte Daten (Seitenaufrufe, Verweildauer, Geräteinformationen) an unseren eigenen Server gesendet — niemals an Dritte.",
+    "dataType": {
+      "preferences": "Theme-, Sprach- und UI-Einstellungen",
+      "quizProgress": "Abgeschlossene Quiz, Checkpoints und Lernpfade (nur mit deiner Zustimmung)"
+    },
+    "dataTypes": "Arten der gespeicherten Daten:",
+    "description": "Steuere, wie dein Lernfortschritt gespeichert und verwaltet wird.",
+    "detailsCollapsed": "Datenschutz-Details eingeklappt",
+    "detailsExpanded": "Datenschutz-Details erweitert",
+    "hideDetails": "Details ausblenden",
+    "progressDescription": "Speichere lokal in deinem Browser, welche Quiz, Checkpoints und Lernpfade du abgeschlossen hast. Aus, bis du es einschaltest — dieselbe Wahl wie im Cookie-Banner.",
+    "progressTracking": "Fortschritts-Tracking",
+    "showDetails": "Details anzeigen",
+    "storageLocation": "Speicherort:",
+    "storageLocationDetail": "Dein Lernfortschritt (abgeschlossene Quiz, Checkpoints und Lernpfade) wird erst nach deiner Zustimmung im localStorage deines Browsers gespeichert und verlässt dein Gerät nicht. Wenn du zusätzlich Nutzungsstatistiken erlaubst, werden anonymisierte Nutzungsdaten an unseren eigenen Server gesendet (siehe Cookie-Einstellungen).",
+    "title": "Privatsphäre & Fortschritt",
+    "trackingDisabled": "Fortschritts-Tracking deaktiviert",
+    "trackingDisabledDetail": "Alle bestehenden Fortschritte wurden gelöscht und neue Fortschritte werden nicht gespeichert.",
+    "trackingEnabled": "Fortschritts-Tracking aktiviert",
+    "trackingEnabledDetail": "Deine abgeschlossenen Quiz, Checkpoints und Lernpfade werden jetzt lokal gespeichert — auch das, was du vorher bei diesem Besuch geschafft hast.",
+    "cookieSettings": "Cookie-Einstellungen",
+    "cookieSettingsDescription": "Ändere oder widerrufe deine Cookie-Entscheidung jederzeit. Derselbe Dialog öffnet sich über „Cookie-Einstellungen“ am Ende jeder Seite.",
+    "openCookieSettings": "Cookie-Einstellungen öffnen"
+  },
+  "subtitle": "Wo du einstellst, wie das Portal aussehen, klingen und sich verhalten soll.",
+  "tableOfContents": "Inhaltsverzeichnis",
+  "theme": {
+    "accessibility": "Barrierefreiheit",
+    "color": "Farbthema",
+    "colorDescription": "Wähle dein bevorzugtes Farbthema",
+    "colorVariant": "Farbe",
+    "dark": "Dunkel",
+    "family": "Stil",
+    "highContrast": "Hoher Kontrast",
+    "highContrastDescription": "Schwarz/Weiß-Darstellung für mehr Lesbarkeit",
+    "light": "Hell",
+    "mode": "Anzeigemodus",
+    "modeChanged": "Anzeigemodus zu {mode} geändert",
+    "modeDarkLabel": "Anzeigemodus Dunkel",
+    "modeDescription": "Wähle zwischen Hell, Dunkel oder Systemeinstellung",
+    "modeLightLabel": "Anzeigemodus Hell",
+    "modeSystemLabel": "Anzeigemodus System",
+    "moreOptions": "Weitere Optionen in den Einstellungen",
+    "readableFont": "Lesbare Schrift",
+    "readableFontDescription": "Spezial-Schrift für Legasthenie (OpenDyslexic)",
+    "readableFontUnsupported": "Für die aktuelle Sprache nicht verfügbar",
+    "select": "Wähle ein Thema",
+    "system": "System",
+    "title": "Design-Einstellungen",
+    "styles": {
+      "werkbund": {
+        "name": "Werkbund",
+        "description": "Gerade Kanten, Tinten-Konturen und ein Signalrot — sachlich wie ein Baukasten, für alle, die Ruhe im Interface wollen."
+      },
+      "lernwerkstatt": {
+        "name": "Lernwerkstatt",
+        "description": "Runde Formen, Sticker-Konturen und eine besonders gut lesbare Schrift — warm und verspielt, für Lern- und Einsteiger-Inhalte."
+      },
+      "skizzenbuch": {
+        "name": "Skizzenbuch",
+        "description": "Warmes Papier, Fineliner-Konturen und handgezeichnete Button-Formen — wie eine Skizzenbuchseite, für alles, was noch in Arbeit ist."
+      },
+      "blaupause": {
+        "name": "Blaupause",
+        "description": "Feine Linien, Millimeterraster und Blaupausen-Blau statt Schatten — technisch und präzise, für Referenz und Doku."
+      }
+    }
+  }
+}

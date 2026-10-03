@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "generatedAt": "2026-07-21T00:00:00.000Z",
+  "nodeCount": {
+    "article": 0,
+    "demo": 0,
+    "glossary": 5,
+    "timeline": 3,
+    "source": 0
+  },
+  "edgeCount": 8,
+  "edges": [
+    {
+      "a": { "type": "glossary", "id": "seed-term-1" },
+      "b": { "type": "glossary", "id": "seed-term-2" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "glossary", "id": "seed-term-1" },
+      "b": { "type": "timeline", "id": "seed-event-1" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "glossary", "id": "seed-term-2" },
+      "b": { "type": "glossary", "id": "seed-term-3" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "glossary", "id": "seed-term-3" },
+      "b": { "type": "glossary", "id": "seed-term-4" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "glossary", "id": "seed-term-3" },
+      "b": { "type": "timeline", "id": "seed-event-2" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "glossary", "id": "seed-term-4" },
+      "b": { "type": "glossary", "id": "seed-term-5" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "timeline", "id": "seed-event-1" },
+      "b": { "type": "timeline", "id": "seed-event-2" },
+      "kind": "related"
+    },
+    {
+      "a": { "type": "timeline", "id": "seed-event-2" },
+      "b": { "type": "timeline", "id": "seed-event-3" },
+      "kind": "related"
+    }
+  ]
+}

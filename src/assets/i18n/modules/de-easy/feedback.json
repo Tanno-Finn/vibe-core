@@ -1,0 +1,83 @@
+{
+  "button": "Feedback",
+  "dialog": {
+    "title": "Feedback geben"
+  },
+  "intro": "Sag uns, was du denkst! Deine Meinung ist uns wichtig.",
+  "message": "Deine Nachricht",
+  "messagePlaceholder": "Schreibe hier...",
+  "email": "Deine E-Mail (wenn du willst)",
+  "emailPlaceholder": "du@example.org",
+  "emailHint": "Diese E-Mail sieht nicht richtig aus. Hast du dich vertippt?",
+  "privacyNote": "Deine E-Mail brauchen wir nur, um dir zu antworten. Wir speichern sie nicht in unserer Datenbank. Nach der Antwort löschen wir sie. Wir sehen auch, welche Seite du gerade benutzt und welchen Browser du hast.",
+  "privacyNoteLink": "Mehr Infos im Impressum",
+  "send": "Absenden",
+  "sending": "Wird gesendet...",
+  "sent": "Fertig!",
+  "sentDetail": "Danke für deine Nachricht!",
+  "error": "Fehler",
+  "errorDetail": "Das hat nicht geklappt. Versuche es später noch mal.",
+  "errorRateLimit": "Du hast schon viele Nachrichten geschickt. Versuche es später noch mal.",
+  "category": {
+    "label": "Was möchtest du uns sagen?",
+    "general": "Etwas Allgemeines",
+    "bug": "Einen Fehler melden",
+    "feature": "Einen Wunsch äußern",
+    "content": "Einen Inhalt verbessern",
+    "praise": "Etwas Nettes sagen",
+    "accessibility": "Eine Barriere melden"
+  },
+  "rating": {
+    "label": "Wie gut findest du die Seite?"
+  },
+  "placeholder": {
+    "bug": "Was ist kaputt? Was hast du gemacht?",
+    "praise": "Was findest du gut? (Du musst nichts schreiben)",
+    "content": "Was stimmt nicht? Wo hast du es gesehen?",
+    "feature": "Was wünschst du dir?",
+    "accessibility": "Welche Barriere hattest du? Was hat nicht geklappt?"
+  },
+  "a11y": {
+    "pageLabel": "Welche Seite?",
+    "techLabel": "Hilfs·mittel (wenn du willst)",
+    "techPlaceholder": "Zum Beispiel: Vorlese·programm, Lupe, Tastatur",
+    "anonymNote": "Du kannst auch ohne Namen melden. Deine E-Mail brauchen wir nur, wenn du eine Antwort willst."
+  },
+  "page": {
+    "title": "Feedback",
+    "subtitle": "Sag uns deine Meinung. Hier hast du viel Platz zum Schreiben.",
+    "formTitle": "Deine Nachricht",
+    "nameLabel": "Dein Name (wenn du willst)",
+    "namePlaceholder": "Wie heißt du?",
+    "emailLabel": "Deine E-Mail (wenn du willst)",
+    "messageLabel": "Deine Nachricht",
+    "messageHint": "Schreibe bitte mindestens 20 Zeichen.",
+    "charCounterLabel": "So viele Zeichen hast du geschrieben",
+    "consentLabel": "Ich bin einverstanden. Meine Angaben dürfen gespeichert werden.",
+    "requiredMark": "Pflicht·feld",
+    "submit": "Nachricht abschicken",
+    "submitting": "Die Nachricht wird abgeschickt …",
+    "successTitle": "Fertig",
+    "successText": "Danke für deine Nachricht! Sie ist jetzt gespeichert.",
+    "successAgain": "Noch eine Nachricht schreiben",
+    "privacyTitle": "Wo geht deine Nachricht hin?",
+    "privacyText": "Deine Nachricht bleibt in diesem Browser. Sie wird nicht ins Internet geschickt. Du kannst sie jederzeit löschen.",
+    "errorTitle": "Das hat nicht geklappt",
+    "error": {
+      "emailInvalid": "Diese E-Mail sieht nicht richtig aus. Hast du dich vertippt?",
+      "messageTooShort": "Deine Nachricht ist zu kurz. Schreibe bitte mehr.",
+      "messageTooLong": "Deine Nachricht ist zu lang. Schreibe bitte weniger.",
+      "consentRequired": "Bitte setze das Häkchen. Dann kannst du abschicken.",
+      "storage": "Der Browser konnte nichts speichern. Das passiert im privaten Modus."
+    },
+    "inboxTitle": "Deine gespeicherten Nachrichten",
+    "inboxNote": "Nur du siehst diese Liste. Sie ist in diesem Browser gespeichert.",
+    "inboxEmpty": "Hier ist noch nichts. Deine erste Nachricht kommt hierher.",
+    "clear": "Alle Nachrichten löschen",
+    "clearConfirmLabel": "Wirklich alles löschen?",
+    "clearCancel": "Abbrechen",
+    "cleared": "Alle Nachrichten sind gelöscht.",
+    "entryDateLabel": "Geschrieben am",
+    "anonymous": "Ohne Namen"
+  }
+}

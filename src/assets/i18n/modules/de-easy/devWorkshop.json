@@ -1,0 +1,148 @@
+{
+  "common": {
+    "devOnlyBadge": "Nur für Entwickler - nicht in der fertigen App"
+  },
+  "hub": {
+    "title": "Werkstatt",
+    "subtitle": "Hier bauen wir an diesem Baukasten. Nutzer sehen diesen Bereich nie.",
+    "designTitle": "Design·system",
+    "designDesc": "Eine Übersicht aller Bausteine. Mit Live·beispiel und Anleitung für jeden Baustein. Dazu die Guides: lange Artikel über fremde Bauteile und Layouts.",
+    "agentsTitle": "Agenten·hilfe",
+    "agentsDesc": "Welche Anleitung du wann liest. Und wie du einen neuen Baustein richtig anlegst."
+  },
+  "gallery": {
+    "title": "Design·system",
+    "subtitle": "Alle Bausteine in diesem Baukasten. Jede Kachel zeigt: ein Live·beispiel und eine Anleitung.",
+    "filterLabel": "Bausteine filtern",
+    "filterPlaceholder": "Name oder Stichwort eingeben ...",
+    "countOf": "von",
+    "countComponents": "Bausteinen",
+    "noMatches": "Nichts gefunden für"
+  },
+  "detail": {
+    "backToGallery": "Zur Übersicht",
+    "sourceLabel": "Datei",
+    "liveDemo": "Live·beispiel",
+    "docsAriaLabel": "Anleitung zum Baustein",
+    "tabExample": "Beispiel",
+    "tabUsage": "Wann benutzen?",
+    "tabAgent": "Anleitung für Agenten",
+    "exampleNote": "Genau diesen Code zeigt das Live·beispiel oben.",
+    "copy": "Kopieren",
+    "copied": "Kopiert",
+    "codeRegion": "Codebeispiel",
+    "tableRegion": "Tabelle",
+    "loading": "Lädt ...",
+    "noUsageSections": "Hier steht noch nichts. Die ganze Anleitung steht im Tab: Anleitung für Agenten.",
+    "docError": "Die Anleitung konnte nicht laden:",
+    "notFoundTitle": "Nicht gefunden",
+    "notFoundNote": "Diesen Baustein gibt es nicht:",
+    "quickSwitchLabel": "Anderen Baustein oder Guide öffnen",
+    "quickSwitchPlaceholder": "Baustein wählen ...",
+    "quickSwitchFilterPlaceholder": "Name oder Stichwort eingeben ...",
+    "quickSwitchEmpty": "Nichts gefunden."
+  },
+  "groups": {
+    "scaffolding": {
+      "title": "Eine Seite bauen",
+      "hint": "Grund·aufbau, Textspalte, Titel, Wegweiser",
+      "chip": "Seiten·aufbau"
+    },
+    "content": {
+      "title": "Inhalte erklären",
+      "hint": "Hinweisboxen, Beispiele, Definitionen, Prompts, Formeln, Zusammenfassungen",
+      "chip": "Inhalt"
+    },
+    "inlineHelp": {
+      "title": "Ein Wort im Text erklären",
+      "hint": "eine kleine Hilfeblase neben einem Wort",
+      "chip": "Hilfe im Text"
+    },
+    "quiz": {
+      "title": "Ein Quiz oder einen Selbsttest bauen",
+      "hint": "Fragen mit Auswertung oder eine Checkliste",
+      "chip": "Quiz"
+    },
+    "progress": {
+      "title": "Fortschritt oder Zahlen zeigen",
+      "hint": "eine Zahl, ein Verhältnis, ein Prozent·wert, eine Reihenfolge",
+      "chip": "Fortschritt"
+    },
+    "cards": {
+      "title": "Eine klickbare Karte",
+      "hint": "Titel, Beschreibung, Chips und Knöpfe auf einer Karte",
+      "chip": "Karten"
+    },
+    "other": {
+      "title": "Weitere Bausteine",
+      "hint": "neu dazugekommen, noch ohne Gruppe",
+      "chip": "Weitere"
+    }
+  },
+  "agents": {
+    "title": "Agenten·hilfe",
+    "subtitle": "So arbeiten Agenten mit diesem Baukasten: Erst die Anleitung lesen. Dann bauen. Für vieles gibt es schon einen fertigen Baustein.",
+    "orientationTitle": "Überblick",
+    "orientationP1": "Das Design·system ist die Sammlung aller Bausteine: Container, Boxen, Karten, Fortschritts·anzeigen, ein Quiz, ein Tooltip. Jeder Baustein hat genau eine Anleitung. Menschen und Agenten lesen die gleiche Datei. Die Galerie zeigt genau diese Datei. So gibt es keine zwei Versionen.",
+    "factDocs": "Anleitungen",
+    "factRegistry": "Liste aller Bausteine",
+    "factGate": "Automatische Prüfung",
+    "factHub": "Regel·dokument",
+    "factGuides": "Guide·artikel (Anleitungen für Agenten)",
+    "factScript": "Agenten·befehl für die Guides",
+    "englishNote": "Die Anleitungen sind mit Absicht auf Englisch. So gibt es nur eine Version für Menschen und Agenten. Nichts kann sich unterscheiden.",
+    "indexTitle": "Welche Anleitung wann lesen",
+    "indexLede": "Suche deine Aufgabe. Öffne dann die verlinkten Anleitungen. Die Tabelle entsteht automatisch aus der Liste aller Bausteine. Jeder Baustein steht in genau einer Zeile.",
+    "thTask": "Deine Aufgabe",
+    "thDocs": "Diese Anleitungen lesen",
+    "indexSummary": "{count} Bausteine in {groups} Gruppen. Die Tabelle entsteht automatisch aus der Liste. Alle Bausteine findest du auch in der Galerie.",
+    "loopTitle": "Einen neuen Baustein anlegen",
+    "loopLede": "Eine automatische Prüfung passt auf jeden neuen Baustein auf. Folge diesen Schritten. Der Befehl /new-component hilft dir dabei.",
+    "step1Title": "Erst in der Galerie suchen.",
+    "step1Body": "Gibt es schon einen Baustein, der fast passt? Dann stopp. Nutze den fertigen Baustein. Baue kein Doppel.",
+    "step2Title": "Frage: Braucht man ihn öfter?",
+    "step2Body": "Braucht man den Baustein an vielen Stellen? Dann kommt er in die Liste. Braucht man ihn nur einmal? Dann kommt er in die Ausnahme·datei. Mit einem kurzen Grund.",
+    "step3Title": "Vier Dinge zusammen anlegen.",
+    "step3Body": "Die Bau-Stein-Datei, den Eintrag in der Liste, die Anleitung und ein Live·beispiel. Steht der Baustein in der Liste? Dann erscheint er automatisch in der Galerie und in der Tabelle oben.",
+    "step4Title": "Prüfung bestehen.",
+    "step4Body": "Führe beide Prüfungen aus. Beide müssen klappen:",
+    "ctaBody": "Der Befehl /new-component macht all das richtig. Die Regeln zum Schreiben stehen in: docs/DESIGN-SYSTEM.MD."
+  },
+  "guideTabs": {
+    "examples": "Beispiele",
+    "usage": "Wann benutzen?",
+    "design": "Aussehen",
+    "development": "Code",
+    "i18n": "Sprachen",
+    "history": "Verlauf",
+    "agent": "Anleitung für Agenten"
+  },
+  "guides": {
+    "sectionTitle": "Guides",
+    "sectionHint": "Lange Artikel. Sie zeigen, wie man mit fremden Bauteilen und Layouts eine Oberfläche baut. Sie ergänzen die Bausteine oben.",
+    "category": {
+      "library": "Bauteile aus Optimus UI",
+      "foundations": "Grundlagen",
+      "layouts": "Layouts & Muster"
+    },
+    "notFoundTitle": "Guide nicht gefunden",
+    "notFoundNote": "Diesen Guide gibt es nicht:",
+    "relatedTitle": "Passt dazu",
+    "agentTabHint": "Agenten bekommen den gleichen Text auch über den Befehl:",
+    "agentsTitle": "Guides für Fragen zu Bauteilen und Layouts",
+    "agentsLede": "Hast du eine Frage zu Optimus-UI-Bau-Teilen, zu Grundlagen oder zu Layouts? Dann helfen die Guides. Jeder Guide hat eine Anleitung für Agenten. Lies sparsam: Erst die Liste. Dann ein Kapitel. Dann bei Bedarf alles.",
+    "cliTopicsNote": "zeigt in einer Übersicht, was es alles gibt",
+    "cliListNote": "kurze Liste: ID, Gruppe, Stichworte, Kern",
+    "cliJsonNote": "die Liste als JSON für Maschinen",
+    "cliSectionNote": "genau ein Kapitel (zum Beispiel bei der Auswahl)",
+    "cliSectionsNote": "ein Kapitel aus allen Guides auf einmal",
+    "cliBlocksNote": "alle Do-und-Don't-Beispiele auf einmal",
+    "cliBundleNote": "ein Guide und seine Nachbar·guides",
+    "cliTabNote": "ein Artikel·tab, mit echten Werten gefüllt",
+    "cliShowNote": "die ganze Anleitung beim Bauen",
+    "cliSearchNote": "sucht in allen Texten: Anleitungen, Artikel und Kit",
+    "thGuide": "Guide",
+    "thGuideCat": "Gruppe",
+    "thGuideDoc": "Anleitung"
+  }
+}

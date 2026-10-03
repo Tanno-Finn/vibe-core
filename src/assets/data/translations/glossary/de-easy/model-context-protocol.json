@@ -1,0 +1,6 @@
+{
+  "term": "Model Context Protocol",
+  "alternativeNames": ["MCP"],
+  "description": "Model Context Protocol heißt auf Deutsch ungefähr: Protokoll für Modell·kontext. MCP ist ein Standard. Ein Standard ist eine gemeinsame Regel. Die Regel legt fest, wie KI-Programme mit anderen Programmen sprechen. Zum Beispiel kann eine KI damit Dateien lesen. Oder sie kann Datenbanken abfragen. Oder sie kann im Internet suchen. MCP wurde 2024 von einem KI-Anbieter veröffentlicht. Es wurde als offener Standard freigegeben. MCP ist kostenlos. Jeder kann es nutzen. Dafür braucht man einen MCP-Server. Der Server stellt Werkzeuge bereit. Die KI nutzt diese Werkzeuge.",
+  "example": "Ein KI-Assistent benutzt einen MCP-Server. Der Server ist mit einer Datenbank verbunden. Der Assistent kann jetzt Daten aus der Datenbank lesen. Der Assistent kann dann bessere Antworten geben. Das geht ohne MCP nicht so einfach."
+}

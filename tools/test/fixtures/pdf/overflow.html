@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Overflow</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+      #wide {
+        width: 300mm;
+        border-collapse: collapse;
+      }
+      #wide td {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A table that is too wide</h1>
+    <table id="wide">
+      <tr>
+        <td>Column one</td>
+        <td>Column two</td>
+        <td>Column three</td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+{
+  "title": "Quellenverzeichnis",
+  "intro": "Quellen, Verweise, Belege — für alle, die nicht nur glauben wollen, was hier steht.",
+  "scope": {
+    "all": "Alle Quellen",
+    "portal": "Portalquellen",
+    "label": "Quellen-Bereich"
+  },
+  "types": {
+    "paper": "Wissenschaftliche Arbeit",
+    "book": "Buch",
+    "website": "Webseite",
+    "wikipedia": "Wikipedia",
+    "video": "Video",
+    "interview": "Interview",
+    "article": "Artikel",
+    "database": "Datenbank",
+    "documentation": "Dokumentation",
+    "report": "Bericht",
+    "thesis": "Dissertation",
+    "other": "Sonstiges"
+  },
+  "chapters": {
+    "unknown": "Quellen ohne Kapitel"
+  },
+  "noDate": "o. J.",
+  "filter": {
+    "searchPlaceholder": "Nach Autor, Titel, Publikation suchen...",
+    "chapterLabel": "Nach Kapitel filtern",
+    "typeLabel": "Nach Quellentyp filtern",
+    "allChapters": "Alle Kapitel",
+    "allTypes": "Alle Quellentypen",
+    "clearAll": "Filter zurücksetzen",
+    "clearAllTooltip": "Alle aktiven Filter entfernen",
+    "activeFilters": "Aktive Filter",
+    "searchChip": "Suche",
+    "title": "Quellen durchsuchen"
+  },
+  "results": {
+    "showing": "Zeige",
+    "of": "von",
+    "sources": "Quellen"
+  },
+  "noResults": {
+    "title": "Keine Quellen gefunden",
+    "message": "Deine Suche ergab keine Treffer. Versuche es mit anderen Suchbegriffen oder setze die Filter zurück."
+  },
+  "export": {
+    "success": "{count} Quellen exportiert",
+    "fabLabel": "Quellen exportieren",
+    "dialogTitle": "Bibliographie exportieren",
+    "dialogSubtitle": "Wähle Format und Dateityp für den Export",
+    "sourceSelection": "Quellenauswahl",
+    "filteredSources": "Gefiltert",
+    "allSources": "Alle",
+    "citationFormat": "Zitierformat",
+    "selectCitationFormat": "Format auswählen",
+    "fileFormat": "Dateiformat",
+    "selectFileFormat": "Format auswählen",
+    "downloadButton": "Herunterladen",
+    "pdfPrintHint": "PDF-Druck wird geöffnet",
+    "bookCitationFilter": "Buch-Zitationen (DEV)",
+    "allSourcesLabel": "Alle Quellen",
+    "bookCitationOnly": "Nur im Buch zitiert"
+  },
+  "portalGroups": {
+    "articles": "Artikel",
+    "guides": "Leitfäden",
+    "demos": "Demos",
+    "glossary": "Glossar",
+    "timeline": "Zeitleiste"
+  },
+  "tableOfContents": "Inhaltsverzeichnis"
+}

@@ -1,0 +1,209 @@
+{
+  "hero": {
+    "title": "Schnitt·stellen nutzen: APIs und MCP",
+    "subtitle": "Schnitt·stellen, mit denen Programme mit KI sprechen können."
+  },
+  "toc": {
+    "lead": "Einführung",
+    "apiSection": "Vom Chat zum Code",
+    "mcpSection": "Ein Stecker für alles",
+    "agentSection": "Was ist ein Agent?",
+    "takeaways": "Zusammenfassung",
+    "quiz": "Quiz",
+    "checkpoint": "Selbstcheck"
+  },
+  "lead": {
+    "paragraph1": "Du tippst in ein Chat·fenster. Das Modell antwortet. Aber Software tippt nicht. Sie sendet Anfragen über eine API.",
+    "paragraph2": "Dieser Artikel erklärt dir drei Dinge. Erstens: Was ist ein API-Aufruf? Zweitens: Was ist MCP? Drittens: Was ist ein Agent?"
+  },
+  "apiSection": {
+    "title": "Vom Chat zum Code",
+    "intro": "Du wechselst vom Chat zum Code. Das Modell wird ein Dienst. Du rufst es auf.",
+    "definitionTitle": "LLM-API",
+    "analogy": "Stell dir eine Restaurant·theke vor. Du gibst eine Bestellung ab. Die Bestellung ist ein Formular. Das Formular heißt JSON-Anfrage. Du zeigst deine Mitglieds·karte. Die Karte heißt API-Key. Die Küche macht dein Essen. Die Küche ist das Modell. Du bekommst ein Tablett zurück. Das Tablett ist die JSON-Antwort. Du zahlst pro Gericht.",
+    "scientific": "Eine API ist ein Endpunkt im Internet. Du sendest eine Anfrage als JSON. Du bekommst eine Antwort als JSON. Der API-Key ist dein Zugangs·schlüssel. Er ist an dein Abrechnungs·konto gebunden.",
+    "analogyNote": "Du wählst nicht die Zutaten. Du hast keinen Zugriff auf das Modell.",
+    "codeIntro": "Ein einfacher Aufruf in Python sieht so aus:",
+    "pricingTitle": "Was kostet ein Aufruf?",
+    "pricingIntro": "Du zahlst für Input·tokens und Output·tokens getrennt.",
+    "pricingExample": "Ein Beispiel: 30 Input·tokens kosten 0,000075 USD. 100 Output·tokens kosten 0,001 USD. Zusammen: etwa 0,001 USD. Das ist ein Zehntel Cent.",
+    "pricingScale": "1.000 Aufrufe pro Tag kosten etwa 1 USD. 100.000 Aufrufe pro Tag kosten etwa 107 USD.",
+    "stats": {
+      "costPerCall": {
+        "value": "~0,1",
+        "suffix": " Cent",
+        "label": "Pro Aufruf",
+        "description": "Ein Aufruf kostet sehr wenig"
+      },
+      "costAtScale": {
+        "value": "~107",
+        "suffix": " USD",
+        "label": "Bei 100k Aufrufen/Tag",
+        "description": "Viele Aufrufe werden teuer"
+      },
+      "mcpReduction": {
+        "value": "70",
+        "suffix": " %",
+        "label": "Weniger Arbeit",
+        "description": "MCP spart Integrationen"
+      }
+    },
+    "misconceptionTitle": "Irrtum: APIs sind teuer",
+    "misconception": "Ein Aufruf kostet fast nichts. Teuer wird es nur bei vielen Aufrufen. Denk an eine Wasser·rechnung. Ein Liter ist billig. Aber der Hahn muss irgendwann zu."
+  },
+  "mcpSection": {
+    "title": "Ein Stecker für alles — MCP",
+    "intro": "Eine App spricht mit einem Modell. Jetzt stell dir fünf Apps vor. Jede braucht zehn Werkzeuge. Ohne Standard: 50 Verbindungen. Das ist viel Arbeit.",
+    "definitionTitle": "Model Context Protocol (MCP)",
+    "analogy": "Denk an USB-C. Früher hatte jedes Gerät ein eigenes Kabel. Jetzt gibt es einen Stecker für alles. MCP ist wie USB-C für KI.",
+    "scientific": "MCP ist ein offenes Protokoll. Es kam 2024 heraus. Es verbindet KI-Apps mit Werkzeugen. Ein Server bietet Werkzeuge an. Ein Client verbindet sich. Das LLM wählt das richtige Werkzeug.",
+    "analogyLimit": "Achtung: USB-C ist ein alter Standard. MCP ist noch sehr neu.",
+    "comparison": {
+      "withoutLabel": "Ohne MCP",
+      "withoutResult": "5 Apps mal 10 Tools gleich 50 Verbindungen.",
+      "withLabel": "Mit MCP",
+      "withResult": "5 Clients plus 10 Server gleich 15. Das spart 70 Prozent."
+    },
+    "architecture": "MCP hat drei Teile. Der Server bietet Werkzeuge an. Der Client verbindet sich. Das LLM entscheidet. Beispiel: Eine KI-App auf dem Computer nutzt drei MCP-Server. Einen für Dateien. Einen für Datenbanken. Einen für die Versions·verwaltung.",
+    "warningTitle": "Wichtig: MCP ersetzt nicht alles",
+    "warning": "MCP ersetzt nicht alle APIs. Manche Dienste haben noch keinen MCP-Server. Direkte Verbindungen bleiben wichtig.",
+    "originTitle": "Stand 11.08.2026 — diese Box altert, der Rest nicht",
+    "origin": "Die Firma Anthropic hat MCP im November 2024 veröffentlicht. Seitdem nutzen es auch andere Anbieter. Das ist nur ein historisches Datum. Der Rest von diesem Artikel bleibt auch ohne diese Box richtig."
+  },
+  "agentSection": {
+    "title": "Was ist ein Agent?",
+    "intro": "Ein API-Aufruf ist eine Frage mit einer Antwort. Ein Agent ist eine Schleife. Er plant, handelt und prüft. Dann entscheidet er: weiter oder stopp.",
+    "iconGrid": {
+      "llm": {
+        "label": "Gehirn (LLM)",
+        "description": "Plant und entscheidet"
+      },
+      "tools": {
+        "label": "Hände (Tools)",
+        "description": "Führen Aktionen aus"
+      },
+      "context": {
+        "label": "Gedächtnis (Kontext)",
+        "description": "Speichert, was passiert ist"
+      },
+      "orchestration": {
+        "label": "Dirigent (Steuerung)",
+        "description": "Steuert den Ablauf"
+      }
+    },
+    "analogyIntro": "Stell dir einen Koch beim Abendessen vor.",
+    "analogy": "Sein Gehirn ist das LLM. Er liest Bestellungen. Seine Hände sind die Werkzeuge: Messer, Herd, Ofen. Die Bestell·zettel sind das Gedächtnis. Der Ablauf ist die Steuerung.",
+    "analogyNote": "Auch ein Agent macht Fehler. Genau wie ein Koch.",
+    "steps": {
+      "receive": "Aufgabe empfangen",
+      "plan": "Plan machen",
+      "execute": "Werkzeug nutzen",
+      "observe": "Ergebnis prüfen",
+      "decide": "Weiter oder stopp?"
+    },
+    "exampleTitle": "Beispiel: Ein Reiseagent",
+    "example": "Der Nutzer sagt: Buche einen Flug nach Berlin. Das LLM liest den Kalender. Es sucht Flüge. Es vergleicht Preise. Es fragt den Nutzer. Der Nutzer sagt ja. Das LLM bucht den Flug. Die Steuerung prüft: Buchung fertig. Schleife endet.",
+    "misconceptionTitle": "Irrtum: Agenten sind selbständig",
+    "misconception": "Agenten tun nur, was ihre Werkzeuge erlauben. Ohne Werkzeuge ist ein Agent ein Chatbot. Ohne Regeln ist er ein Risiko.",
+    "frameworkTitle": "So unterscheiden sich Agent·frameworks",
+    "frameworks": {
+      "broad": "Viele fertige Verbindungen zu anderen Diensten. Du kommst schnell los. Aber du musst viel lernen.",
+      "retrieval": "Stark bei Dokumenten und beim Suchen. Gut, wenn der Agent vor allem lesen soll.",
+      "multiAgent": "Mehrere Agenten arbeiten zusammen. Das kann viel. Aber Fehler sind schwerer zu finden.",
+      "minimal": "Sehr schlank. Werkzeuge kommen über einen offenen Standard."
+    },
+    "frameworkNote": "Das sind Schwerpunkte. Es sind keine Empfehlungen. Die Namen der Produkte ändern sich oft. Die Schwerpunkte bleiben."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste",
+    "item1": "Ein API-Aufruf ist ein HTTP-POST mit JSON. So spricht Software mit Modellen.",
+    "item2": "MCP macht aus vielen Verbindungen (N mal M) wenige Verbindungen (N plus M).",
+    "item3": "Ein Agent ist eine Schleife. Er hat vier Teile: LLM, Tools, Kontext und Steuerung."
+  },
+  "quiz": {
+    "boxTitle": "Wissens·check: APIs und MCP",
+    "q1": {
+      "question": "Was macht ein API-Key?",
+      "a": "Er wählt die Sprache der Antwort.",
+      "b": "Er sagt dem Anbieter, wer du bist. Und er rechnet ab.",
+      "c": "Er verschlüsselt deinen Text.",
+      "d": "Er wählt die Hardware aus.",
+      "explanation": "Der API-Key sagt dem Anbieter, wer du bist. Er verknüpft deine Nutzung mit deinem Konto."
+    },
+    "q2": {
+      "question": "Was macht MCP?",
+      "a": "Es baut Sprach·modelle.",
+      "b": "Es regelt die Preise.",
+      "c": "Es verbindet KI-Apps mit Werkzeugen über ein gemeinsames Protokoll.",
+      "d": "Es sammelt Trainings·daten.",
+      "explanation": "MCP ist ein Standard. Er verbindet KI-Apps mit Werkzeugen."
+    },
+    "q3": {
+      "question": "50.000 Aufrufe pro Tag. 200 Input·tokens und 500 Output·tokens pro Aufruf. Input kostet 3 USD pro Million. Output kostet 15 USD pro Million. Wie viel kostet das am Tag?",
+      "a": "Etwa 4 USD",
+      "b": "Etwa 40 USD",
+      "c": "Etwa 405 USD",
+      "d": "Etwa 4.050 USD",
+      "explanation": "10 Millionen Input·tokens mal 3 USD gleich 30 USD. 25 Millionen Output·tokens mal 15 USD gleich 375 USD. Zusammen: 405 USD."
+    },
+    "q4": {
+      "question": "3 Apps brauchen 8 Tools. Wie viele Verbindungen ohne MCP? Und mit MCP?",
+      "a": "Ohne: 11, Mit: 24",
+      "b": "Ohne: 24, Mit: 11",
+      "c": "Ohne: 24, Mit: 8",
+      "d": "Ohne: 11, Mit: 3",
+      "explanation": "Ohne MCP: 3 mal 8 gleich 24. Mit MCP: 3 plus 8 gleich 11."
+    },
+    "q5": {
+      "question": "Ein Agent fasst ein PDF zusammen. Die Zusammenfassung ist unvollständig. Woran liegt das?",
+      "a": "Die Schleife stoppt zu früh.",
+      "b": "Das PDF-Tool kann die Datei nicht lesen.",
+      "c": "Das Modell hat zu wenig Speicher für den Text.",
+      "d": "Jeder der drei Gründe ist möglich.",
+      "explanation": "Alle drei Teile können schuld sein. Man muss jeden einzeln prüfen."
+    },
+    "q6": {
+      "question": "Wann braucht man kein MCP?",
+      "a": "Bei 2 Apps mit 2 stabilen Tools.",
+      "b": "Bei 10 Apps mit 15 Tools.",
+      "c": "Wenn jedes Quartal neue Tools kommen.",
+      "d": "Bei Open-Source-Tools für viele Nutzer.",
+      "explanation": "2 mal 2 gleich 4 Verbindungen. Da lohnt sich MCP nicht."
+    }
+  },
+  "checkpoint": {
+    "title": "Selbstcheck: APIs und MCP",
+    "item1": "Kannst du erklären, was bei einem API-Aufruf passiert?",
+    "item2": "Warum braucht man mit MCP nur 15 statt 50 Verbindungen?",
+    "item3": "Welche vier Teile hat ein Agent?"
+  },
+  "enrichment": {
+    "tocLabel": "Interaktiv: HTTP-Anfrage",
+    "sectionTitle": "Interaktiv: Was passiert bei einem API-Aufruf?",
+    "introText": "Klicke auf Play. Sieh Schritt für Schritt, was passiert. Der Weg geht vom Browser bis zur Antwort.",
+    "intro": {
+      "title": "Der Weg einer HTTP-Anfrage",
+      "description": "Diese Animation zeigt sechs Stationen. Jeder API-Aufruf durchläuft diese Stationen."
+    },
+    "edu": {
+      "title": "Warum ist das wichtig?",
+      "description": "Jede App nutzt APIs. Wenn du den Ablauf verstehst, kannst du Fehler besser finden."
+    },
+    "stage": {
+      "browser": "Browser / Client",
+      "dns": "DNS-Auflösung",
+      "tls": "TCP/TLS-Handshake",
+      "request": "HTTP-Request",
+      "server": "Server verarbeitet",
+      "response": "HTTP-Response"
+    },
+    "stageDesc": {
+      "browser": "Dein Code schickt eine Anfrage. Der Browser baut daraus eine HTTP-Nachricht.",
+      "dns": "Der Name wird in eine IP-Adresse übersetzt. Ohne DNS weiss der Computer nicht, wo der Server ist.",
+      "tls": "Eine verschlüsselte Verbindung wird aufgebaut. Niemand kann deine Daten mitlesen.",
+      "request": "Die Anfrage wird gesendet. Sie enthält Methode, Header und deine Daten als JSON.",
+      "server": "Der Server empfängt die Anfrage. Er verarbeitet sie und erstellt die Antwort.",
+      "response": "Der Server schickt die Antwort zurück. Sie enthält einen Statuscode und die Daten."
+    }
+  }
+}

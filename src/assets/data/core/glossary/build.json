@@ -1,0 +1,61 @@
+{
+  "id": "build",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "medium",
+  "abbreviations": [],
+  "englishTerm": "Build",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Build-Prozess",
+      "Software-Build"
+    ],
+    "en": [
+      "Build process",
+      "Software build"
+    ],
+    "de-easy": [
+      "Programm bauen"
+    ],
+    "en-easy": [
+      "Building the program"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Winters, T., Manshreck, T., Wright, H. (2020). Software Engineering at Google, Kapitel 18: Build Systems and Build Philosophy. O'Reilly.",
+      "type": "website",
+      "url": "https://abseil.io/resources/swe-book/html/ch18.html",
+      "notes": "Lehrbuch-Kapitel: Build-Systeme als automatisierte, reproduzierbare Transformation von Quellcode in Artefakte; Hermetik und Abhängigkeits-Management.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Fowler, M.: Continuous Integration (martinfowler.com)",
+      "type": "documentation",
+      "url": "https://martinfowler.com/articles/continuousIntegration.html",
+      "notes": "Self-testing build als Kernpraktik: jeder Commit wird gebaut und geprüft; ein roter Build stoppt die Weiterarbeit, bis er repariert ist."
+    },
+    {
+      "title": "Spolsky, J. (2000). The Joel Test: 12 Steps to Better Code.",
+      "type": "documentation",
+      "url": "https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/",
+      "notes": "Klassiker-Checkliste: 'Can you make a build in one step?' und tägliche Builds als Qualitätsmerkmal von Software-Teams."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "ci-cd",
+      "test",
+      "linter",
+      "git",
+      "cli"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

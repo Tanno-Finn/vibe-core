@@ -1,0 +1,17 @@
+{
+  "id": "python-using-windows-2026",
+  "type": "article",
+  "authors": "Python Software Foundation",
+  "year": "2026",
+  "publication": "Python 3 Documentation",
+  "url": "https://docs.python.org/3/using/windows.html",
+  "doi": "",
+  "accessed": "2026-08-18",
+  "tags": [
+    "python",
+    "windows",
+    "install-manager",
+    "path",
+    "deprecation"
+  ]
+}

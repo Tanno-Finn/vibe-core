@@ -1,0 +1,280 @@
+{
+  "hero": {
+    "title": "Gates: Das Sicherheitsnetz aus Maschinenprüfungen",
+    "subtitle": "Warum ein rotes Brett die günstigste Stelle ist, an der dein Problem auftauchen kann - und warum der Weg daran vorbei nicht über einen Schalter führt, sondern über eine Notiz mit Namen und Datum."
+  },
+  "toc": {
+    "lead": "Das rote Brett",
+    "thesis": "Kernthese",
+    "checks": "Fünf Fragen, fünf Sorten Rot",
+    "cheap": "Rot ist der billige Fehler",
+    "limits": "Grenzen",
+    "exception": "Die dokumentierte Ausnahme",
+    "agents": "Bei Agenten",
+    "close": "Abschluss",
+    "takeaways": "Zum Mitnehmen",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "Der Agent meldet: fertig. Du schaust auf das Brett, und es ist rot. Nichts bewegt sich - kein Knopf, kein Übernehmen, dafür eine Meldung, die offensichtlich für jemand anderen geschrieben wurde. Der erste Gedanke ist fast immer derselbe: Da steht etwas im Weg.",
+    "paragraph2": "Das Bild vom Sicherheitsnetz kennst du schon. Im vorigen Schritt dieses Pfades ist es auseinandergefallen, weil derjenige am Netz knüpft, der hineinfällt. Für die Maschinen in diesem Artikel bricht es an einer zweiten Stelle: Ein Netz fängt dich auf, nachdem du gefallen bist. Diese hier lassen dich gar nicht erst fallen. Sie sagen nein.",
+    "paragraph3": "Im Artikel Tests verstehen, wenn der Agent sie schreibt, hast du gelernt, einen Test zu lesen: eine benannte Behauptung mit einem erwarteten Wert. Eine Behauptung, die niemand ausführt, ändert allerdings gar nichts. Hier geht es um die Maschinerie, die Behauptungen ausführt und das Ergebnis durchsetzt. Die Frage lautet deshalb nicht, wie du an dem roten Brett vorbeikommst. Sie lautet: Welche Maschine hat sich gemeldet, was bedeutet diese Sorte Rot, und wie sieht ein legitimer Weg daran vorbei aus?"
+  },
+  "thesis": {
+    "title": "Was zwischen fertig und drin steht",
+    "text1": "Zwischen dem Moment, in dem der Agent sich für fertig hält, und dem Moment, in dem deine Änderung tatsächlich im Projekt ist, steht eine Reihe von Maschinen. Sie arbeiten eine feste Liste ab. Sie werden von der Änderung selbst in Gang gesetzt. Sie laufen an einem Ort, an den du nicht herankommst. Und sie können sich weigern.",
+    "text2": "Ihre Autorität hat mit Strenge nichts zu tun. Sie kommt davon, wer über den Ort verfügt, an dem die Prüfung läuft, und davon, ob ein Vorbeikommen eine Spur hinterlässt. Genau deshalb ist die Ausnahme von so einer Prüfung kein Schalter, sondern ein Eintrag.",
+    "objectives": {
+      "title": "Was du danach kannst",
+      "item1": "Die fünf Fragen benennen, die vor einer Änderung geprüft werden - und bei einer roten Meldung sagen, welche davon gerade mit Nein beantwortet wurde.",
+      "item2": "Erklären, warum der Ort einer Prüfung darüber entscheidet, ob sie ein Hinweis ist oder ein Tor.",
+      "item3": "Das gemessene Ergebnis solcher Prüfungen richtig wiedergeben: als beobachteten Zusammenhang, nicht als nachgewiesene Ursache.",
+      "item4": "Einen konkreten Antrag auf eine Ausnahme daraufhin prüfen, ob er die beiden entscheidenden Ablehnungsgründe übersteht.",
+      "item5": "Sagen, was eine Ausnahme verändert und was sie nie verändert."
+    }
+  },
+  "checks": {
+    "title": "Fünf Fragen, fünf Sorten Rot",
+    "intro": "Rot ist kein Zustand deines Programms. Rot ist die Antwort auf eine Frage. Welche Frage das war, steht selten in der Meldung, und genau darum liest sie sich wie eine Beschimpfung. Also fangen wir bei den Fragen an und nicht bei den Werkzeugen.",
+    "definitionTitle": "Gate",
+    "definitionEverydayLabel": "Alltagssprache",
+    "definitionEveryday": "Eine Prüfung, die zwischen fertig und drin steht. Sie meldet sich von allein, sobald du etwas abgibst, und sie kann den Weg versperren.",
+    "definitionPreciseLabel": "Fachlich",
+    "definitionPrecise": "Genauer sind es drei Eigenschaften. Erstens wird sie durch die Änderung selbst ausgelöst und nicht dadurch, dass jemand beschließt hinzusehen. Zweitens läuft sie auf einer Maschine, die dir nicht gehört und die nichts über den Zustand deines Rechners weiß. Drittens kann sie die Annahme verweigern. Was sie ausdrücklich nicht ist: ein Mensch, ein Urteil oder ein Gütesiegel. Sie hat keine Meinung über dein Vorhaben. Sie hat eine Liste.",
+    "questions": "Fünf Fragen stehen zwischen einer Änderung und dem Projekt. Erstens: Lässt sich aus diesem Text überhaupt ein laufendes Programm machen? Zweitens: Sind sich zwei Stellen im Programm einig darüber, was ein bestimmter Wert eigentlich ist? Drittens: Wurde eine Regel verletzt, die jemand aufgeschrieben hat? Viertens: Sieht es so aus, wie das Projekt es vereinbart hat? Und fünftens: Stimmt eine Behauptung über das Verhalten noch?",
+    "grid": {
+      "build": {
+        "label": "Build",
+        "description": "Lässt sich daraus überhaupt ein laufendes Programm machen? Rot heißt hier: Es gibt bislang gar kein Programm."
+      },
+      "types": {
+        "label": "Typprüfung",
+        "description": "Sind sich zwei Stellen einig, was ein Wert ist? Rot heißt hier: Zwei Stellen widersprechen sich."
+      },
+      "linter": {
+        "label": "Linter",
+        "description": "Wurde eine Regel gebrochen, die jemand aufgeschrieben hat? Rot heißt hier: Eine von Menschen gesetzte Erwartung wurde nicht erfüllt. Über die Funktion sagt das nichts."
+      },
+      "format": {
+        "label": "Formatprüfung",
+        "description": "Sieht es aus wie vereinbart? Rot heißt hier: Es weicht äußerlich ab."
+      },
+      "tests": {
+        "label": "Tests",
+        "description": "Stimmt eine Behauptung über das Verhalten? Rot heißt hier: Eine benannte Behauptung ist nachweislich falsch."
+      }
+    },
+    "overlap": "Fünf Fragen, nicht zwingend fünf Programme. Je nach Programmiersprache beantwortet ein einziger Lauf mehrere davon auf einmal: In sehr vielen Projekten steckt die Typprüfung im Build und meldet sich gemeinsam mit ihm - auch in dem Portal, das du gerade liest. Die Zahl der Werkzeuge ist deshalb nicht die interessante Größe. Interessant ist, welche der fünf Fragen soeben mit Nein beantwortet wurde.",
+    "handover": "Die fünfte Frage ist der gesamte Gegenstand des vorigen Artikels dieses Pfades. Die anderen vier sind neues Gelände - und sie sind der Grund, warum ein rotes Brett noch lange nicht bedeutet, dass sich dein Programm falsch verhält.",
+    "analogyTitle": "Die Sicherheitskontrolle am Flughafen",
+    "analogy": "Alle gehen hindurch. Niemand wird gefragt, ob es heute gerade passt. Das Gerät arbeitet eine veröffentlichte Liste ab und nicht eine Einschätzung deiner Person. Es weiß nicht, wer du bist, es kann einen gefährlichen Reisenden nicht von einem harmlosen unterscheiden, und es hat keine Ansicht über deine Absichten. Rot bedeutet dort: Ein Punkt auf der Liste hat angeschlagen. Rot bedeutet nicht: Mit dir stimmt etwas nicht.",
+    "analogyBreak1": "Dass am Flughafen der Reisende die Liste nicht geschrieben hat, während hier dasselbe Team das Programm und die Prüfliste besitzt, weißt du bereits - der vorige Artikel hat genau das gezeigt. Neu ist, was daraus folgt, sobald die Liste eine Maschine ist: Wer sie umgeht, muss es aufschreiben. Sonst ist von außen nicht mehr zu erkennen, ob da jemand bewusst entschieden hat oder ob etwas kaputtgegangen ist.",
+    "analogyBreak2": "Eine zweite, kleinere Bruchstelle: Die Kontrolle am Flughafen passiert einmal pro Reise. Diese Prüfungen laufen bei jeder einzelnen Änderung, oft mehrmals am Tag.",
+    "exampleTitle": "Ein Beispiel: 09:14 Uhr",
+    "exampleIntro": "Der Agent hat drei Dateien geändert. Um 09:14 Uhr wird die Änderung abgegeben. Niemand hat beschlossen, jetzt etwas zu prüfen; die Abgabe selbst setzt den Lauf in Gang. Das Beispiel soll drei Eigenschaften auf einmal sichtbar machen - was auslöst, wo gelaufen wird, und warum die Antwortzeit über die Wirkung entscheidet.",
+    "stepsTitle": "Was nach der Abgabe passiert",
+    "stepsAriaLabel": "Ablauf einer Prüfung nach der Abgabe einer Änderung",
+    "step1": "09:14 Uhr: Die Änderung wird abgegeben. An diesem Schritt ist kein Mensch beteiligt.",
+    "step2": "Eine frische Kopie des Projekts landet auf einer fremden Maschine. Nichts von deinem Rechner reist mit.",
+    "step3": "Die Prüfungen laufen nacheinander. Format braucht 0:05, der Linter 0:20, die Typprüfung 0:50, der Build 3:10 und die Tests 5:30. Zusammen sind das 9:55.",
+    "step4": "09:24 Uhr: Das Urteil steht. Es liegt innerhalb der zehn Minuten, die als vernünftige Obergrenze für die meisten Projekte gelten.",
+    "step5": "Bei Rot: sofort reparieren oder die Änderung zurücknehmen, damit die anderen weiterarbeiten können.",
+    "exampleCounter": "Jetzt dieselbe Rechnung mit einer Testreihe, die 25 Minuten braucht. Die Summe steigt auf 29:25, das Urteil kommt um 09:44 - lange nachdem du mit der nächsten Sache angefangen hast. Eine Prüfung, die zu spät antwortet, wird nicht gelesen, sondern ausgesessen. Tempo ist hier also keine Bequemlichkeit, sondern die Bedingung dafür, dass die Prüfung überhaupt benutzt wird.",
+    "placeTitle": "Hinweis oder Tor - der Ort entscheidet",
+    "placeIntro": "Dieselbe Prüfung kann an zwei Stellen eingerichtet sein, und die beiden Stellen haben wenig miteinander zu tun.",
+    "comparison": {
+      "ariaLabel": "Vergleich: dieselbe Prüfung an zwei verschiedenen Orten",
+      "beforeLabel": "Auf deinem eigenen Rechner",
+      "beforeText": "Sie läuft, bevor du deine Änderung festhältst, also vor deinem Commit. Mit einem zusätzlichen Schalter lässt sie sich überspringen. Niemand sonst erfährt davon.",
+      "beforeResult": "Ergebnis: ein Hinweis.",
+      "afterLabel": "Auf der annehmenden Maschine",
+      "afterText": "Sie läuft, nachdem du die Änderung abgegeben hast. Sie entscheidet über die Annahme. Sagt sie nein, wird nichts übernommen - nicht nur der strittige Teil, sondern gar nichts.",
+      "afterResult": "Ergebnis: ein Tor."
+    },
+    "platform": "Auf der verbreitetsten Plattform ist dieselbe Idee als Einstellung eingebaut: Bestimmte Prüfungen müssen erfolgreich durchgelaufen sein, bevor ein geschützter Zweig eine Änderung überhaupt annimmt; ausdrücklich übersprungene zählen dabei ebenfalls als bestanden.",
+    "authority": "Die Autorität einer Prüfung kommt nicht von ihrer Strenge, sondern davon, wer über den Ort verfügt, an dem sie läuft - und davon, ob ein Vorbeikommen eine Spur hinterlässt. Auf deinem Rechner bist das du, allein und lautlos. Auf der annehmenden Maschine ist es jemand anderes, und ein Vorbeikommen ist dort eine Handlung, die jemandem gehört.",
+    "severityForward": "Eine Sache gehört noch an diese Stelle, weil sie später gebraucht wird. Ob ein Rot den Weg tatsächlich versperrt oder bloß im Protokoll steht, ist keine Eigenschaft der Prüfung. Es ist eine Festlegung des Projekts. Deshalb steht die Formatprüfung im einen Projekt hart im Weg und im nächsten nur als Notiz daneben. Und deshalb heißt äußerlich nicht automatisch harmlos.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Build, Typprüfung, Linter, Format und Tests sagen alle dasselbe",
+      "text": "Sie beantworten fünf verschiedene Fragen und scheitern aus fünf verschiedenen Gründen. Ein roter Build heißt, dass es noch gar kein lauffähiges Programm gibt. Ein Typfehler heißt, dass zwei Stellen sich über einen Wert uneinig sind. Ein Linter-Befund heißt, dass eine Regel verletzt wurde, die Menschen aufgestellt haben. Eine rote Formatprüfung heißt, dass etwas anders aussieht als vereinbart. Nur die Tests reden über das Verhalten. Ein rotes Format und ein roter Build sind nicht dieselbe Nachricht, und wer beides als Fehler liest, verliert genau die Information, die weiterhilft."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Bei mir läuft es, also ist die Prüfung kaputt",
+      "text": "Sie läuft mit Absicht woanders: auf einer frischen Kopie, auf einer Maschine, die nichts über den Zustand deines Rechners weiß. Dass es bei dir läuft und dort nicht, ist deshalb kein Defekt der Prüfung, sondern ihr wertvollstes Ergebnis. In aller Regel bedeutet es, dass auf deinem Rechner etwas vorhanden ist, das nirgends aufgeschrieben steht. Dass es bei einem selbst doch laufe, ist unter Entwicklern aus genau diesem Grund ein geflügeltes Wort."
+    }
+  },
+  "checkpoint1": {
+    "title": "Kurzer Zwischenstand",
+    "item1": "Ich kann die fünf Fragen benennen, die vor einer Änderung geprüft werden.",
+    "item2": "Ich kann sagen, welche dieser Fragen der vorige Artikel dieses Pfades behandelt hat.",
+    "item3": "Ich kann erklären, warum dieselbe Prüfung auf meinem Rechner weniger Gewicht hat als auf der annehmenden Maschine."
+  },
+  "cheap": {
+    "title": "Rot ist der billige Fehler",
+    "intro": "Ein rotes Brett fühlt sich wie ein Rückschlag an. Es ist aber derselbe Fehler wie später, nur an der Stelle entdeckt, an der er am wenigsten kostet: bevor ein Mensch hingesehen hat, bevor er Teil des Projekts ist, bevor ihn jemand außerhalb trifft.",
+    "claimNot": "Wichtig ist, welche Behauptung hier nicht aufgestellt wird. Maschinenprüfungen sorgen nicht dafür, dass weniger Fehler existieren. Der kanonische Text zur Sache sagt das selbst und sehr direkt: Sie schaffen Fehler nicht aus der Welt, sie machen sie erheblich leichter auffindbar. Dieser Text ist keine Momentaufnahme: Seine Ursprungsfassung ist auf den 10. September 2000 datiert, und die Praxis dahinter stammt aus der Extreme-Programming-Bewegung der neunziger Jahre - nicht, wie oft behauptet, aus einem Lehrbuch über objektorientierten Entwurf, in dem der Ausdruck nur beiläufig fällt.",
+    "claimIs": "Die Behauptung, die tatsächlich zu belegen ist, lautet anders: Solche Prüfungen verschieben, wo und wann Fehler gefunden werden. Und dafür gibt es eine Messung.",
+    "exampleTitle": "Ein Beispiel: hundert Änderungen im Monat",
+    "exampleSetup": "Nimm ein erfundenes, aber maßstabsgerechtes Projekt ohne Maschinenprüfungen. Pro Monat gehen hundert Änderungen des Kernteams ins Projekt. Die Entwickler selbst melden 25 Fehler. Von Leuten außerhalb des Kernteams kommen 30 Meldungen. Darauf legen wir jetzt die Werte, die in einer Untersuchung von 246 Projekten beobachtet wurden, nachdem diese Projekte Maschinenprüfungen eingeführt hatten. Das Beispiel soll zeigen, was sich dabei verschiebt und was nicht.",
+    "exampleMerged": "Erstens der Durchsatz. Die Zahl der übernommenen Änderungen lag um rund ein Fünftel höher; aus hundert werden also grob hundertzwanzig. Grob ist Absicht: Der Wert ist ein Mittel über viele Projekte, und eine Nachkommastelle würde eine Genauigkeit vortäuschen, die es nicht gibt. Festhalten lässt sich, dass mehr durchging und nicht weniger.",
+    "exampleFound": "Zweitens die Fehler, die die Entwickler selbst meldeten. Diese Zahl lag um 48 Prozent höher, aus 25 werden 37. Zwölf zusätzliche Fehler wurden also sichtbar, und zwar für die Leute, die sie beheben können.",
+    "exampleOutside": "Drittens die Meldungen von außerhalb des Kernteams - die beste Annäherung an das, was bei den Nutzern ankam, die diese Untersuchung zu bieten hat. Hier war kein messbarer Unterschied zu sehen. Dieser Satz ist genau so gemeint, wie er dasteht: Kein messbarer Unterschied heißt nicht null. Er heißt, dass die Untersuchung keinen gefunden hat. Wer daraus macht, dass kein einziger zusätzlicher Fehler bei irgendwem angekommen sei, sagt deutlich mehr, als die Zahl hergibt. Gezählt wurden außerdem Meldungen, nicht Fehler: Was niemand meldet, taucht in keiner der beiden Zahlen auf.",
+    "statA": {
+      "label": "Fehler, die Entwickler selbst meldeten",
+      "description": "Beobachtet über 246 Projekte. Kein Kausalnachweis."
+    },
+    "statB": {
+      "label": "Kein messbarer Unterschied bei Meldungen von außerhalb des Kernteams",
+      "description": "Der Wert erreichte keine statistische Aussagekraft. Das ist ein fehlender Befund, keine Null."
+    },
+    "exampleResult": "Mehr Änderungen gingen durch, zwölf Fehler mehr fanden diejenigen, die sie beheben können, und außerhalb des Kernteams war nichts Messbares zu sehen. Die Prüfungen haben keine zwölf Fehler hergestellt. Zwölf Entdeckungen sind von der teuren Seite auf die billige gewandert.",
+    "caveat": "Wie belastbar ist das? Es sind 246 beobachtete Projekte, kein Experiment. Die Autoren nennen ihre Arbeit selbst vorläufig und weisen darauf hin, dass die Einführung solcher Prüfungen auch das Verhalten eines Teams verändern kann, was sich von ihrer Wirkung auf die Software nicht sauber trennen lässt. Deshalb heißt es hier durchgehend: In den untersuchten Projekten war zu beobachten. Nie: Maschinenprüfungen bewirken.",
+    "analogyTitle": "Der Rauchmelder um drei Uhr nachts",
+    "analogy": "Niemand freut sich, wenn er losgeht. Sein ganzer Wert liegt darin, wann er losgeht. Und die einzige wirklich teure Handlung, die dir offensteht, ist, die Batterie herauszunehmen. Der Melder hat das Feuer nicht gemacht, und genau das zeigt die Messung: Die Fehler waren vorher schon da, sie wurden nur früher sichtbar. Genervtsein ist deshalb kein Argument gegen ihn.",
+    "analogyBreak1": "Die Bruchstelle ist wichtiger als das Bild. Ein Rauchmelder reagiert auf echten Rauch. Eine Prüfung kann sich schlicht irren. Das allererste Werkzeug dieser Art trug die Warnung schon 1978 im eigenen Text: Meldungen der Art hier könnte etwas nicht stimmen sind nur so viel wert wie der Anteil echter Fehler, den sie aufdecken. Ist dieser Anteil zu klein, verlieren sie ihre Glaubwürdigkeit und verstopfen bloß noch die Ausgabe. Jeder weiß, was mit einem Melder passiert, der beim Toasten losschreit: Irgendwann hängt ein Handtuch darüber. Das ist der Grund, warum Prüfungen schnell sein müssen - und warum die Ausnahme von ihnen ein aufgeschriebener Vorgang sein muss und kein stiller.",
+    "analogyBreak2": "Und die Gegenrichtung, damit das Bild nicht mehr verspricht, als es kann: Ein stiller Melder beweist nur, dass kein Rauch bei ihm angekommen ist.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Das rote Brett wirft uns zurück, fertig war der Agent doch schon",
+      "text": "Die Alternative zu einem roten Brett ist nicht: kein Problem. Sie ist dasselbe Problem, später, gefunden von jemandem außerhalb. Und der Reflex, solche Prüfungen bremsten, hält der Messung nicht stand: In den untersuchten Projekten ging mehr durch und nicht weniger. Der Agent war auch nicht fertig. Er hielt sich für fertig, und das ist ein Unterschied, den eine Maschine feststellen kann."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Der Prüfer nervt dauernd, also weg damit",
+      "text": "Halb richtig, und die richtige Hälfte ist 48 Jahre alt: Ein Prüfer, der zu oft danebenliegt, verliert tatsächlich seine Autorität. Daraus folgt nur nicht, ihn abzuschalten. Die Regel lässt sich korrigieren, und die Ausnahme lässt sich aufschreiben. Der Unterschied liegt nicht in der Bequemlichkeit, sondern in der Sichtbarkeit: Ein Abschalten sieht von außen niemand, eine aufgeschriebene Ausnahme schon. Damit sind wir beim dritten Teil dieses Artikels."
+    }
+  },
+  "limits": {
+    "title": "Was keine Prüfung entscheiden kann",
+    "text1": "Grün bedeutet: Nichts von dem, was geprüft wurde, hat widersprochen. Das ist ein Boden und keine Decke. Wie weit dieser Boden trägt und warum eine Abdeckungszahl darüber weniger sagt, als sie verspricht, ist der Gegenstand des vorigen Artikels dieses Pfades. Hier bleibt es bei diesem einen Satz.",
+    "text2": "Was dieser Artikel dazu beitragen kann, ist eine andere Grenze: Eine Prüfung liest Form, niemals Absicht. Keine Maschine kann entscheiden, ob das, was gebaut wurde, das ist, was du bestellt hast. Sie kann prüfen, ob eine Behauptung über das Verhalten stimmt. Ob es die richtige Behauptung war, steht auf einem anderen Blatt, und auf diesem Blatt steht kein Prüfer.",
+    "deepDive": {
+      "title": "Vertiefung: Die Grenze, die keine Prüfung überschreiten kann",
+      "text1": "Der Ursprung ist gut datiert. Am 26. Juli 1978 beschrieb S. C. Johnson in den Bell Laboratories ein eigenes Prüfprogramm für die Sprache C. Der Grund für ein zweites, separates Werkzeug war unbequem: Die Übersetzer jener Zeit kauften ihre Geschwindigkeit damit, dass sie weniger gründlich prüften. Also brauchte es daneben einen langsameren, sorgfältigeren Leser.",
+      "text2": "In einem Abschnitt, den er ein Wort zur Philosophie nannte, hielt Johnson zwei Dinge fest, von denen dieser Artikel bis heute lebt. Erstens: Viele Angaben, die ein solches Werkzeug bräuchte, sind womöglich überhaupt nicht zu ermitteln. Ob eine bestimmte Stelle eines Programms jemals erreicht wird, kann von den Eingaben abhängen, und das allgemein zu entscheiden ist gleichwertig mit einem Problem, das nachweislich unentscheidbar ist. Zweitens, als Folge davon: Seine Verfahren seien ein Kompromiss. Das älteste Werkzeug dieser Familie kam also bereits mit dem ehrlichen Kleingedruckten auf die Welt."
+    }
+  },
+  "exception": {
+    "title": "Die dokumentierte Ausnahme",
+    "intro": "Niemand, der sich ernsthaft damit befasst hat, verlangt Prüfungen, an denen man unmöglich vorbeikommt. Verlangt wird etwas anderes: dass der Weg daran vorbei eine Spur hinterlässt, einen Eigentümer nennt und sichtbar bleibt.",
+    "severity": "Der Anfang ist eine Abstufung, und es ist genau die Festlegung, die im ersten Abschnitt schon angeklungen ist. Ein sicherheitskritischer Industriestandard unterscheidet drei Stufen. Es gibt Regeln, von denen es keine Ausnahme gibt. Es gibt Regeln, von denen abgewichen werden darf, aber nur mit einem Eintrag, der Einschränkungen, Anforderungen und Vorkehrungen benennt. Und es gibt Regeln, deren Verletzung lediglich gemeldet wird, ohne dass jemand etwas ausfüllen muss. Welche Prüfung in welche Stufe gehört, entscheidet das Projekt und nicht der Prüfer.",
+    "recordTitle": "Der Eintrag, den es dafür braucht",
+    "recordIntro": "Ab hier hört Haltung auf und ein Formular fängt an. Derselbe Standard schreibt vor, was auf so einem Eintrag stehen muss, und ein Agenten-Baukasten aus dem Jahr 2026 kommt zu fast derselben Liste - ein Sicherheitsstandard aus der Fahrzeugtechnik und ein Werkzeugkasten für KI-Agenten landen bei demselben Zettel.",
+    "cards": {
+      "rule": {
+        "title": "Welche Regel",
+        "description": "Namentlich, nicht der Prüfer im Allgemeinen. Wer später liest, muss die Regel wiederfinden können."
+      },
+      "when": {
+        "title": "Wann es vertretbar ist",
+        "description": "Die Umstände, unter denen die Abweichung in Ordnung geht - und nur diese."
+      },
+      "why": {
+        "title": "Warum es nötig ist",
+        "description": "Der Grund. Es eilt ist keiner, und es lässt sich auch nicht in einen verwandeln."
+      },
+      "background": {
+        "title": "Hintergrund",
+        "description": "Was jemand wissen muss, der in einem halben Jahr darauf stößt und den Zusammenhang nicht kennt."
+      },
+      "conditions": {
+        "title": "Auflagen",
+        "description": "Unter welchen Bedingungen die Ausnahme gilt - und wann sie erneut angesehen wird."
+      },
+      "owner": {
+        "title": "Name",
+        "description": "Wer die Entscheidung trägt. Ein Name, nicht das Team. Der Standard nennt es die Zustimmung einer benannten fachlichen Instanz."
+      }
+    },
+    "refusals": "Zwei Ablehnungsgründe entscheiden die meisten echten Fälle. Eine Ausnahme wird nicht erteilt, nur weil das Einhalten unbequem ist. Und sie wird nicht ohne die Zustimmung einer benannten fachlichen Instanz erteilt. In einem Satz: Wer die Ausnahme will, erteilt sie nicht.",
+    "alone": "Und wenn du allein arbeitest? Die Trennung liegt zwischen Rollen, nicht zwangsläufig zwischen Personen. Allein wird daraus eine Trennung in der Zeit und im Gegenstand: Du schreibst den Eintrag, und der Eintrag mit seinem Datum für die erneute Ansicht ist die zweite Partei. Denn die Version von dir, die ihn in einem halben Jahr liest, ist nicht die Version, die es gerade eilig hatte. Genau dafür ist dieses Feld da. Es ist keine Bürokratie, sondern der einzige Gesprächspartner, den du in dieser Lage bekommst.",
+    "exampleTitle": "Ein Beispiel: drei Anträge",
+    "exampleIntro": "Der Prüfer ist an einer Stelle rot. Drei verschiedene Begründungen werden vorgebracht. Welche überlebt? Das Beispiel soll zeigen, woran sich das entscheidet.",
+    "exampleA": "Der erste Antrag lautet: Ich habe es eilig, und die Regel stört hier. Er scheitert schon am ersten der beiden Gründe: an der Bequemlichkeit. Und der Standard nennt noch einen weiteren Einwand, der hier greift - es gibt einen vernünftigen anderen Weg, der die Abweichung überflüssig macht. Abgelehnt. Nicht weil jemand streng ist, sondern weil in das Feld für den Grund dann stünde: Es war unbequem. Das unterschreibt niemand.",
+    "exampleB": "Der zweite Antrag lautet: Der Prüfer hält eine Stelle für unerreichbar, erreicht wird sie aber über einen Rückruf, den er nicht sehen kann. Das ist genau der Fall, für den das erste Werkzeug dieser Art 1978 seine Ausnahmen bekam - manchmal hat der Mensch recht, und der Prüfer hat blinde Flecken. Erteilt, mit Eintrag: eine Zeile, die die Regel nennt und den Grund, dazu ein Hinweis darauf, wo der echte Weg verläuft.",
+    "recurring": "Und wenn derselbe Fehlalarm an dreißig Stellen auftaucht, schreibt niemand dreißig Begründungen. Der wiederkehrende Fall wird einmal im Voraus genehmigt, und die einzelnen Stellen verweisen darauf. Der Standard hat dafür eine eigene Form, weil viele Abweichungen zu bekannten Situationen gehören, die breit auftreten.",
+    "exampleC": "Der dritte Antrag lautet: Die Auslieferung liegt still, die Reparatur muss sofort hinaus, und ausgerechnet eine unzuverlässige Prüfung meldet Rot. Das ist der Notfall. Erteilt, und beobachtet. Ein solcher Notzugang wird eng überwacht, stark eingeschränkt und regelmäßig geprobt, damit er funktioniert, wenn er gebraucht wird. Und er ist ehrlich zu sich selbst: ein benannter Weg vorbei, kein stilles Durchdrücken durch jemanden, der zufällig die Rechte hat. Wissenswert dazu: Auf der verbreitetsten Plattform gelten die Einschränkungen einer Schutzregel für Verwaltungskonten standardmäßig nicht. Dass sie auch für diese gelten sollen, muss jemand ausdrücklich einschalten.",
+    "point": "Der Unterschied zwischen dem ersten und dem zweiten Antrag ist weder Aufwand noch Dienstalter. Er besteht darin, ob sich die Felder wahrheitsgemäß ausfüllen lassen. Und das ist überprüfbar, auch von einer Maschine: Ein Eintrag, dem ein Feld fehlt, ist keine schwächere Ausnahme, sondern gar keine.",
+    "overrideDoes": "Eine Ausnahme verändert die Folge einer Prüfung, nie ihre Beobachtung. Die Prüfung läuft weiter, meldet weiter, und die Entscheidung bleibt sichtbar.",
+    "companion": "Das kleinere Bild dazu ist der Zettel neben dem Schalter. 1978 war die Ausnahme ein Kommentar im Quelltext, dort platziert, wo der nächste Leser steht. Heute ist sie eine Zeile mit einem Grund hinter einem Trennzeichen. Achtundvierzig Jahre auseinander, dieselbe Geste: Die Ausnahme wohnt neben der Sache, die sie entschuldigt. Der Notschlüssel im Glaskasten trägt genau so weit - der Schlüssel ist mit Absicht erreichbar, aber die Scheibe zu zerschlagen ist laut, hinterlässt Spuren, und jemand fragt hinterher nach. Was das Bild nicht trägt: Es legt nahe, jede Ausnahme sei ein Drama. Die meisten sind Routine.",
+    "misconception1": {
+      "title": "Häufiger Irrtum: Eine Ausnahme heißt, die Prüfung abzuschalten",
+      "text": "Abgeschaltet wird nichts. Der Unterschied ist auch nicht kosmetisch: Eine abgeschaltete Prüfung ist von außen nicht von einer kaputten zu unterscheiden. Eine auf Hinweis gestellte Prüfung mit einem Eintrag daneben ist dagegen eine nachvollziehbare Entscheidung."
+    },
+    "misconception2": {
+      "title": "Häufiger Irrtum: Wer eine Ausnahme benötigt, darf sie sich selbst erteilen",
+      "text": "Eine Ausnahme hat einen Verfasser und einen Eigentümer, und das sind zwei Rollen. Getrennt bleiben sie nicht aus Misstrauen, sondern weil die Prüfung sonst die Instanz wäre, die sich selbst kontrolliert. Dieselbe Trennung taucht gleich noch einmal auf, eine Ebene höher, wenn es um Agenten geht."
+    },
+    "deepDive": {
+      "title": "Vertiefung: Wenn die Ausnahme selbst geprüft wird",
+      "text1": "Die wiederkehrende Ausnahme ist im Standard eine eigene Form: ein im Voraus genehmigter Anwendungsfall, auf den sich spätere Einträge berufen dürfen, statt jedes Mal neu zu argumentieren. Die Antwort auf die Frage, ob man jetzt für jeden Fehlalarm einen Aufsatz schreiben muss, lautet also: nein.",
+      "text2": "Interessanter ist, dass die Ausnahmen selbst beobachtet werden. In dem verbreiteten Prüfwerkzeug ist von Haus aus eingestellt, dass eine Ausnahme, die gar nicht mehr gebraucht wird, als Störung gemeldet wird; der Zettel verschwindet also nicht klammheimlich in der Wand. Und ein Projekt kann Ausnahmen in Eigenregie vollständig abstellen: Dann haben die Kommentare im Quelltext keine Wirkung mehr, und wer eine Ausnahme erteilen darf, ist keine persönliche Entscheidung, sondern eine Projekteinstellung."
+    }
+  },
+  "checkpoint2": {
+    "title": "Kurzer Zwischenstand",
+    "item1": "Ich kann sagen, was ein rotes Brett bedeutet und was es nicht bedeutet.",
+    "item2": "Ich weiß, was auf einem Eintrag für eine Ausnahme stehen muss.",
+    "item3": "Ich kann die beiden Gründe nennen, aus denen eine Ausnahme abgelehnt wird."
+  },
+  "agents": {
+    "title": "Warum das bei Agenten stärker zählt",
+    "text1": "Ein Forschungsbericht zur Softwareentwicklung mit KI-Unterstützung, veröffentlicht am 23. September 2025 und gestützt auf knapp fünftausend Antworten, findet einen positiven Zusammenhang zwischen dem Einsatz von KI und dem Durchsatz - und zugleich einen negativen zwischen dem Einsatz von KI und der Stabilität der Auslieferung. Die Gegengewichte benennt der Bericht ausdrücklich: automatisierte Tests, eine belastbare Versionsverwaltung und schnelle Rückmeldung.",
+    "text2": "Das Problem ist also nicht, dass ein Agent unvorsichtig wäre. Es ist, dass die Menge der Änderungen schneller wächst als die Prüfung darum herum. Und zwei der drei genannten Gegengewichte sind der Gegenstand dieses Artikels. Wie das konkret aussieht, hat eine Plattform am 19. Mai 2025 für ihren eigenen Programmier-Agenten aufgeschrieben. Vier Punkte: Der Agent darf nur auf Zweige schreiben, die er selbst angelegt hat. Seine Abläufe starten nicht ohne menschliche Freigabe. Bestehende Schutzregeln gelten für ihn genau so wie für alle anderen. Und wer den Agenten um eine Änderung gebeten hat, darf diese Änderung nicht selbst freigeben.",
+    "text3": "Das ist die Antwort auf die Frage, warum das Ding den eigenen Agenten blockiert: Es blockiert nicht den Agenten. Der Agent ist ein Beteiligter, der dieselben Prüfungen passieren muss wie jeder andere - und dem ausdrücklich verwehrt wird, sich selbst durchzuwinken. Es ist dieselbe Trennung wie beim Eintrag für die Ausnahme, eine Ebene höher."
+  },
+  "close": {
+    "title": "Zurück zum roten Brett",
+    "text1": "Was tatsächlich passiert ist: Eine von fünf Fragen wurde mit Nein beantwortet, auf einer Maschine, die nicht deine ist, ausgelöst durch deine eigene Änderung. Daraus ergeben sich drei Fragen, in dieser Reihenfolge. Welche der fünf hat sich gemeldet? Was bedeutet diese Sorte Rot? Und falls die Prüfung wirklich danebenliegt: Wer schreibt das auf, und wer trägt die Entscheidung? Die Frage nach dem Schalter kommt in dieser Liste nicht vor.",
+    "text2": "Eine Ausnahme, die nirgends aufgeschrieben ist, unterscheidet sich für jeden, der später darauf stößt, in nichts von einer Panne."
+  },
+  "takeaways": {
+    "containerTitle": "Zum Mitnehmen",
+    "item1": "Fünf Fragen stehen zwischen einer Änderung und dem Projekt: ob es überhaupt ein lauffähiges Programm gibt, ob die Teile sich einig sind, ob eine aufgeschriebene Regel gebrochen wurde, ob es aussieht wie vereinbart, und ob eine Behauptung über das Verhalten noch stimmt. Die erste Frage vor einem roten Brett lautet immer: Welche davon?",
+    "item2": "Die Autorität einer Prüfung kommt davon, wer über den Ort verfügt, an dem sie läuft, und davon, ob ein Vorbeikommen eine Spur hinterlässt. Was du allein und lautlos überspringen kannst, ist ein Hinweis.",
+    "item3": "Rot ist die billige Fassung des Fehlers. In den untersuchten Projekten fanden die Entwickler deutlich mehr Fehler selbst, außerhalb des Kernteams war kein Unterschied messbar, und es ging mehr durch statt weniger. Die Fehler sind gewandert und nicht entstanden.",
+    "item4": "Grün heißt: Nichts von dem, was geprüft wurde, hat widersprochen. Keine Prüfung kann entscheiden, ob das Gebaute das Bestellte ist, denn sie liest Form und nicht Absicht.",
+    "item5": "Eine Ausnahme ist kein Schalter. Sie verändert, was die Prüfung bewirkt, nie dass sie läuft, meldet und sichtbar bleibt - und sie braucht eine Regel, einen Anlass, unter dem sie gilt, einen Grund, einen Hintergrund, Auflagen und einen Namen."
+  },
+  "quiz": {
+    "boxTitle": "Prüfe dein Verständnis",
+    "q1": {
+      "question": "Dieselbe Prüfung ist an zwei Stellen eingerichtet: einmal bei dir, bevor du deine Änderung festhältst, und einmal dort, wo die Änderung angenommen wird. Was unterscheidet die beiden?",
+      "a": "Die Prüfung auf deinem Rechner ist gründlicher, weil sie mehr über den Zustand des Projekts weiß.",
+      "b": "Die bei dir lässt sich allein und ohne Zeugen überspringen, die andere entscheidet über die Annahme.",
+      "c": "Beide sind gleichwertig, verschieden ist allein, wie schnell die jeweilige Maschine ihr Ergebnis liefert.",
+      "d": "Die annehmende Seite gibt nur eine Warnung aus, während bei dir der Vorgang tatsächlich abbricht.",
+      "explanation": "Beide Spalten des Vergleichs beschreiben dieselbe Prüfung. Verschieden ist allein der Ort und damit, wer über sie verfügt. Die lokale lässt sich mit einem zusätzlichen Schalter überspringen, ohne dass es jemand erfährt."
+    },
+    "q2": {
+      "question": "Das Brett ist rot. Die Meldung nennt eine Regel, die das Projekt gegen eine als riskant bekannte Konstruktion aufgestellt hat. Was sagt dir das über das Programm selbst?",
+      "a": "Dass es sich derzeit gar nicht erst in ein lauffähiges Programm übersetzen lässt und repariert werden muss.",
+      "b": "Dass zwei Stellen im Programm sich darüber uneinig sind, was ein bestimmter Wert eigentlich sein soll.",
+      "c": "Dass eine benannte Behauptung über sein Verhalten nachweislich nicht mehr zutrifft und geprüft gehört.",
+      "d": "Dass eine von Menschen gesetzte Regel verletzt wurde, was über die Funktion des Programms nichts sagt.",
+      "explanation": "Eine Regel gegen eine als riskant bekannte Konstruktion ist der Gegenstand des Linters. Sein Rot heißt: Eine aufgeschriebene Erwartung wurde nicht erfüllt. Ob das Programm überhaupt läuft und ob es tut, was es soll, sind zwei andere Fragen mit zwei anderen Prüfungen."
+    },
+    "q3": {
+      "question": "Nach der Einführung von Maschinenprüfungen melden die Entwickler eines Teams drei Monate später spürbar mehr Fehler als zuvor. Die Leitung liest das als Qualitätsverlust. Was kannst du dem entgegenhalten, und was nicht?",
+      "a": "Genau diese Zahl stieg auch dort, ohne dass außerhalb des Teams ein Unterschied messbar geworden wäre.",
+      "b": "Nichts davon hilft: Die Untersuchung fand denselben Anstieg und wertete ihn ebenfalls als Verschlechterung.",
+      "c": "Der Anstieg widerspricht der Untersuchung, denn dort ging die Zahl solcher Meldungen aus dem Team zurück.",
+      "d": "Die Untersuchung sagt dazu nichts, weil sie ausschließlich den Durchsatz erhoben hat und keine Meldungen.",
+      "explanation": "Mehr Meldungen aus dem Team sind genau das beobachtete Muster: Die Fehler wurden früher sichtbar und nicht zahlreicher. Was du dagegen nicht behaupten kannst, ist, bei den Nutzern sei nichts angekommen. Gemessen wurde kein Unterschied, und das ist kein Nachweis, dass es keinen gibt."
+    },
+    "q4": {
+      "question": "Drei Anträge, an einer roten Prüfung vorbeizukommen. Erstens: Ich habe es eilig, und die Regel stört hier. Zweitens: Eine Stelle gilt dem Prüfer als nie erreichbar, tatsächlich führt ein Rückruf dorthin. Drittens: Die Sache ist dringend, ich lasse sie durch und trage die Begründung nach, sobald Zeit ist. Welcher davon ist eine dokumentierte Ausnahme?",
+      "a": "Der erste, denn Zeitdruck ist ein nachvollziehbarer Grund, sofern die Prüfung danach wieder blockiert.",
+      "b": "Der dritte, denn die Begründung entsteht ohnehin noch, und der Ablauf hält dabei niemanden unnötig auf.",
+      "c": "Der zweite, denn nur dort lässt sich jedes Feld ehrlich füllen und die Entscheidung hat einen Namen.",
+      "d": "Alle drei, denn eine Ausnahme bleibt eine Ausnahme; verschieden ist allein die Güte ihrer Begründungen.",
+      "explanation": "Der erste scheitert an der Bequemlichkeit. Der dritte ist keine Ausnahme, sondern eine ohne Eintrag: Bis nachgetragen wird, ist die Stelle von einer Panne nicht zu unterscheiden, und ein Eintrag, dem etwas fehlt, gilt als gar keiner. Nur der zweite benennt eine Regel, einen prüfbaren Grund und jemanden, der die Entscheidung trägt."
+    },
+    "q5": {
+      "question": "Ein Prüfer meldet häufig dieselbe Sache; etwa jede vierte Meldung ist ein echtes Problem, der Rest ist Fehlalarm. Was ändert sich, wenn dieselbe Regel im Projekt nicht als Hinweis, sondern als blockierende Stufe eingetragen ist?",
+      "a": "Nichts Wesentliches, denn die Trefferquote einer Regel hängt nicht davon ab, welche Stufe ein Projekt ihr gibt.",
+      "b": "Jeder Fehlalarm hält nun die Arbeit an, und damit steht die Stufe selbst zur Debatte und nicht nur der Prüfer.",
+      "c": "Die Regel wird verlässlicher, weil eine blockierende Stufe im Projekt strenger überprüft wird als ein Hinweis.",
+      "d": "Der Prüfer gehört abgeschaltet, denn drei von vier Meldungen kosten Zeit und decken nichts Echtes auf.",
+      "explanation": "Die Trefferquote ändert sich nicht, wohl aber ihre Folgen. Als Hinweis kostet ein Fehlalarm Aufmerksamkeit, als blockierende Stufe kostet er einen Eintrag oder einen Stillstand. Genau dieser Preis ist das Argument dafür, die Stufe zu ändern oder die Regel zu korrigieren, statt still abzuschalten."
+    }
+  }
+}

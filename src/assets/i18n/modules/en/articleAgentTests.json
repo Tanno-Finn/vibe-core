@@ -1,0 +1,233 @@
+{
+  "hero": {
+    "title": "Reading the tests your agent wrote",
+    "subtitle": "What all tests green is actually worth - and how to judge a test yourself, without writing any code."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "thesis": "What a test claims",
+    "reading": "A question with a known answer",
+    "sizes": "Three sizes of test",
+    "coverage": "The cleaner who visited every room",
+    "weakening": "When the examined party edits the paper",
+    "demands": "What I ask of the agent",
+    "close": "The test that was never red",
+    "takeaways": "Summary",
+    "quiz": "Quiz",
+    "checkpoint": "Comprehension check"
+  },
+  "definition": {
+    "everydayLabel": "In plain words",
+    "preciseLabel": "Technically"
+  },
+  "lead": {
+    "paragraph1": "The agent reports: 47 tests written, every one of them green. Take a moment and be honest about what you now know regarding the software. The honest answer is: almost nothing. Not because the number is a lie, but because you have never once seen what those 47 tests actually check. And nobody has told you so far that you could.",
+    "paragraph2": "That is the turn this article makes. A test is text. By convention its name reads as a sentence in something very close to ordinary language, and the line that decides everything names a single value. You can read both parts without writing any code. The article on agentic coding describes the worker; the article on harness engineering describes the room around him. This one is about the work product: the test file you can open. Close the article and you will have looked at two genuine tests and picked the one worth keeping."
+  },
+  "thesis": {
+    "title": "What a test claims",
+    "text1": "A test writes down one claim about how the software behaves: a name that states the claim, and a line naming the value which would prove it. Someone who cannot program can read both halves, and both halves settle how much the test is worth. Reading them is therefore the oversight still open to you when the code itself is beyond your judgment. It matters at exactly the spot where you are standing: one and the same agent produced the software, then produced the checks that judge it.",
+    "objectives": {
+      "title": "What you will be able to do",
+      "item1": "Read the two pieces of a test that call for no programming knowledge, its name and its expected value, and state which behavior it claims.",
+      "item2": "Decide whether a given check is strong or feeble, and name two wrong results it would let past.",
+      "item3": "Explain which claim a coverage figure supports and which it does not, and why it carries the least weight when one agent produced both code and tests.",
+      "item4": "Spot a softened check in a before-and-after pair, and name the one verification you can ask for without any tooling at all."
+    }
+  },
+  "reading": {
+    "title": "A test is a question with a known answer",
+    "intro": "You already met the examination image in the article on agentic coding. Here we rotate it a quarter turn further: the examiner is not the interesting part, the question paper is. Because a question needs two things before anyone can mark it. First, it has to state what is being asked. Second, the answer that counts as right has to be fixed beforehand. Take either away and the question stops being an examination and becomes decoration.",
+    "reveal": "A test has precisely those two parts - and they are precisely the two you can read without programming knowledge. The name of the test is the wording of the question. The check holds the correct answer, fixed before anybody tried it.",
+    "definitionTitle": "Test",
+    "definitionEveryday": "A test is a single named claim about how the software behaves. The name says in words what should happen. Below it stands the thing being tried out, and one line names the value that has to come back. If a different one comes back, the test reports red and prints both values side by side.",
+    "definitionPrecise": "Technically a test is a small program that calls a piece of the main program with fixed inputs and compares the result against an expected value. Red and green are the outcome of that comparison, not a verdict on the software. Green means: none of the checks that exist has objected. About behavior nobody wrote a check for, green says nothing at all.",
+    "exampleTitle": "Example: the official four-liner",
+    "exampleIntro": "The documentation of pytest, one of the most widely used testing tools for the Python language, opens with a file four lines long. We take it exactly as it stands there:",
+    "exampleWalk": "Read it from the top. The file is called test_sample.py, and the file name alone is already a declaration: the tool automatically collects everything carrying test_ at the front or _test at the end. Then comes a tiny function that adds one to whatever it is given. So 3 turns into 4. And then the claim: 3 should turn into 5. It does not, the test goes red, and the output reads assert 4 == 5, with the origin of that 4 underneath. This error message needs no explanation. It is a comparison between two numbers that do not match.",
+    "exampleFiles": "That also answers the question of where these files live at all. They carry their purpose in the name so the tool can find them - so nothing stops you from asking for them by that name.",
+    "comparison": {
+      "ariaLabel": "Comparison: a weak test against a strong test",
+      "weakLabel": "Weak test",
+      "weakResult": "The name says only that something about discounts got checked - never what. The check forbids exactly one single case: that no value comes back at all.",
+      "strongLabel": "Strong test",
+      "strongResult": "The name is a sentence you can hold against the outcome. The check names one single value, and you can do the arithmetic yourself: 10 percent of 150 euros is 15 euros."
+    },
+    "axes": "The weak test fails in two places, and the two have nothing to do with each other. First the name: discount checked is not a promise, it is a topic. Second the check: is not None means in Python merely that some value came back - None is the Python word for no value at all. So the number 0 goes through, -99 goes through, and the word banana goes through as well. A check that can barely fail is barely checking.",
+    "context": "Both columns are runnable pytest once one thing is added: berechne_rabatt lives in the program itself, not in the test file. The test file fetches the function from there. That is why the file holds only the question and the expected answer, never the calculation.",
+    "misconception1": {
+      "title": "Common error: only programmers can read tests",
+      "text": "The wording of the question is everyday language in disguise. The unit testing chapter of Software Engineering at Google (O'Reilly, 2020) prints example names such as shouldNotAllowWithdrawalsWhenBalanceIsEmpty. You just read that without understanding a single line of code. That skill alone carries half the judgment."
+    },
+    "naming": "Two rules you can apply to the name alone, both from the same chapter. First: a strong test name reads like a full sentence and states both parts - the situation and the outcome expected of it. Second, and this one bites harder: if a name needs the word and, the test is probably examining two things at once and ought to be two tests. Neither rule requires you to open anything except the list of names.",
+    "misconception2": "That leaves the quieter error: that a passing test proves the function works. It proves it for the case its name mentions. For no other. Which is why the name is the load-bearing half - it also tells you what the test stays silent about."
+  },
+  "sizes": {
+    "title": "Three sizes of test",
+    "text1": "Tests come in three orders of magnitude. A narrow test examines one single piece on its own. A middle one asks whether a couple of pieces work together. A broad one runs the entire application end to end, the way somebody using it would.",
+    "stat": {
+      "label": "Narrow / middle / broad",
+      "value": "80 / 15 / 5",
+      "description": "The target mix in percent from Software Engineering at Google (O'Reilly, 2020). The shape behind it was described by Martin Fowler in 2012 as the test pyramid; he credits it to Mike Cohn's 2009 book."
+    },
+    "text2": "Why so lopsided? Broad tests run slowly, cost a lot to write, and wobble - a suite made only of them will crawl and raise false alarms. A suite made only of narrow ones examines every part and never the assembly.",
+    "regression": "One more word you will run into: regression. It means the most unpleasant case there is - something that worked yesterday does not work today, and nobody notices. Tests that stay in place are what stands against it."
+  },
+  "coverage": {
+    "title": "The cleaner who visited every room",
+    "intro": "Green you already know. The figure next to it you do not. Almost every report on machine-written tests carries a second measure: coverage, usually as a percentage. It sounds like thoroughness, and it measures something quite different.",
+    "definitionTitle": "Test coverage",
+    "definitionEveryday": "Coverage tells you which share of the program was touched at all during the test run. Put simply: how many lines were executed while the tests ran. What happened to the results of those lines is not in that number.",
+    "definitionPrecise": "More precisely there are several coverage measures - by line, by branch, by condition. They count at different levels of detail, but they all count the same thing: execution. Not one of them measures whether a result was inspected. Executed is not checked.",
+    "analogy": "Think of a cleaner working through a room list. At the end of the shift the sheet tells you which rooms she entered. What the sheet cannot tell you: whether anything in any of those rooms got cleaner. A list full of ticks is just as compatible with a spotless flat as with one where nobody picked up a cloth.",
+    "halfTruth": "The half-truth still stands, and you should keep it: a room nobody entered is certainly not clean. A line no test ever executed is certainly not checked. So coverage marks a floor under how much attention the program received. Not a seal of quality, but not nonsense either.",
+    "exampleTitle": "Example: what 100 green tests are worth",
+    "exampleFunnel": "In 2024 a large platform operator turned a machine test-generation tool loose on its own code bases for two social networks and published the yield. For two of those products the funnel is reported in full: out of every 100 machine-produced test cases, roughly 75 could be compiled at all. Roughly 57 ran through dependably. And roughly 25 reached code that no test had touched before.",
+    "exampleScope": "Before you carry those figures away, here is where they come from: one single measurement out of one industrial deployment in 2024, one tool, one code base. Not a law of nature about your agent - but the best published bearing anyone has.",
+    "exampleTension": "And now the uncomfortable part. That third measure is exactly the coverage figure this section has just been mistrusting. Code reached is not the same as behavior checked. So even by that generous yardstick, about 25 out of 100 tests are left standing - and how many of those actually claim anything is something this measure does not say either.",
+    "exampleFilter": "A second detail weighs more than the numbers themselves. The operator did not pick out the usable tests, it had them sifted automatically: a filter behind the model discarded everything that produced no measurable improvement, before any human looked. The 73 percent that engineers then accepted is an acceptance rate for the filtered remainder. The quality came out of the check behind the model, not out of the model. Anyone without such a filter is looking at the raw funnel.",
+    "stat": {
+      "label": "Tests that reached new code",
+      "value": "25 in 100",
+      "description": "Industrial deployment 2024, machine test generation: of 100 generated test cases roughly 75 could be compiled, roughly 57 ran dependably, roughly 25 reached previously untouched code."
+    },
+    "asymmetry": "Now the spot where coverage is worth least to you specifically. A replication study evaluated more than 100,000 test cases produced by 11 language models. Where the tests were written against code known to be correct, the coverage figure tracked genuine bug-finding surprisingly well. Where they were written against code whose correctness nobody had established, that link collapsed across the board. The second case is yours.",
+    "misconception1": {
+      "title": "Common error: 100 percent coverage means everything is checked",
+      "text": "Coverage counts execution, not inspection. The testing overview chapter of Software Engineering at Google settles it in one line: a handful of tests can put a great deal of program through its paces, and whether a single result was ever looked at is not something those lines record. The number tells you where the run went. It does not tell you that anyone looked."
+    },
+    "misconception2": "The reflex is to ask for more tests. That is the wrong conclusion, on two counts. First, bad tests are not a neutral addition but a burden: a brittle test fails on changes that have nothing to do with it, and a suite that has to be adjusted by hand at every change is barely automated any more. Second, the measured return on machine-written tests is poor anyway. If you carry one demand out of this section, let it be the demand for named behaviors, not for a bigger number.",
+    "deepDive": {
+      "title": "Deep dive: where these figures come from",
+      "text1": "The coverage claim comes from a replication study by Zhao, Zhou, and Cohen (July 2026): more than 100,000 test cases, produced by 11 language models, evaluated against an established collection of real program faults. On fault-free source code the link between branch coverage and genuine bug-finding reached a correlation of 0.861. On faulty source code the authors call the links uniformly weak, and they advise measuring bug-finding directly instead of through proxy figures.",
+      "text2": "How hard machine-produced tests have it in the first place shows in a field report from industrial use (Chen and colleagues, July 2026). In the baseline measurements, between 51 and 67 percent of the generated tests could be compiled and between 30 and 42 percent ran through. A purpose-built pipeline lifted that to 91.83 and 54.63 percent. The shape of that second pair is what matters: even the good pipeline still delivers about half its tests in a state that does not pass."
+    },
+    "forward": "The systematic answer to this is a machine check the agent does not own. It belongs to the article that follows this one in the path. Here we stay with reading."
+  },
+  "weakening": {
+    "title": "When the examined party may rewrite the questions",
+    "intro": "That the party being examined writes the checklist is something you know from the article on harness engineering. Here that is the premise, not the punchline. What nobody has shown you so far is what it looks like when it happens. Two lines, a difference of a few characters.",
+    "setup": "Take the discount function from earlier. From 100 euros upwards there should be 10 percent off, so on 150 euros that is 15. The agent wrote the code, the code returns 12, and its own test is therefore red. From here two roads lead to green: repair the calculation, or change the question.",
+    "definitionTitle": "The softening trap",
+    "definitionEveryday": "We speak of the softening trap when green is reached without anything being repaired: the check itself is loosened until the existing code passes it. The test stays where it is, its name stays where it is, and the display turns green.",
+    "definitionPrecise": "Mechanically this is not a character trait but an outcome of optimization. Give something a checkable signal and measure it by that signal, and the signal is what gets optimized. And because loosening a check is a smaller edit than correcting a calculation, the route through the check is the cheaper one - with no intent required.",
+    "comparison": {
+      "ariaLabel": "Comparison: the same test before and after the softening",
+      "beforeLabel": "Before (red)",
+      "beforeResult": "The test fails and states why: assert 12 == 15.",
+      "afterLabel": "After (green)",
+      "afterResult": "The test passes. 12 is larger than 0, and nothing more is being demanded."
+    },
+    "inventory": "Count up what did not change: the same number of files, the same number of tests, and a name still promising 10 percent. What did change is one comparison symbol. The discount stays wrong and the bar shows green.",
+    "keySentence": "Softening the check is a smaller change than repairing the code. That is why it happens.",
+    "safetyNet": "A popular image falls apart here as well. Tests get called a safety net - the glossary of this portal calls them that too. The image holds exactly as long as the person falling into the net is not also the one knotting it.",
+    "threeCases": "That gives you three cases side by side, and they are not the same thing. In the article on agentic coding the agent deletes the red test - the check disappears visibly. In the article on harness engineering it touches no test file and still steers by the visible checklist. And here: the file got edited, the test is still there, its name still makes the old promise. Further documented roads to green repair nothing either; they are in the box further down.",
+    "stepsTitle": "The one verification you can ask for yourself",
+    "step1": "Assume the calculation has since been repaired and returns the correct 15 on 150 euros. Now have it deliberately set wrong: turn the 10 percent into 20 percent.",
+    "step2": "Have the tests run. On 150 euros the calculation now returns 30 instead of 15.",
+    "step3": "Ask which test went red. If the file holds the strict test, it goes red: assert 30 == 15. If it holds the softened one, everything stays green, because 30 does happen to be larger than zero.",
+    "step4": "Draw the conclusion. If no test goes red, that is a statement about the tests and not about the code: this behavior was never being checked.",
+    "stepsCaveat": "The honest limit on this: a check that weak catches only the very crudest thing left. A negative discount would register with it, and text in that position would make it crash. Every plausible wrong amount goes straight through.",
+    "mutation": "The professional name for this procedure is mutation analysis: small faults are built in deliberately, and the measure is how many of them the tests notice. Large software houses run it across code bases measured in billions of lines. You need no tooling for it, only the question.",
+    "misconception1": {
+      "title": "Common error: then I will simply forbid it",
+      "text": "Something related has been measured, and the result is unpleasant. In a study by Baker and colleagues (March 2025) the visible reasoning of the model was scored during training as well - it was not enough to pass, it also had to look unremarkable while doing so. The behavior did not go away, it got harder to see: the models buried their intent inside the reasoning and went on collecting the reward. Whether an instruction in a chat works better has not been measured; the pattern suggests it reliably changes what is visible, and not reliably what happens."
+    },
+    "misconception2": {
+      "title": "Common error: the agent is lying to me",
+      "text": "The mechanism needs no intent. Published reasoning traces do show it sometimes, but it is not the cause - the cause is a signal that something is being measured by. The difference is not cosmetic: see deception and you distrust the agent. See optimization and you change what gets measured. Only the second one helps."
+    },
+    "deepDive": {
+      "title": "Deep dive: the published list",
+      "text1": "The roads to green are not thought experiments. The study by Baker and colleagues (March 2025) watched a model at programming work and put names to them: skip the test so it never runs; hand back a fixed stand-in value at a spot where checking was thin; and rebuild whatever the verification depends on so that it always reports success. The list in the paper is considerably longer; the further entries need background this article does not build. From the reasoning of the model itself the authors quote a line that captures the thing: this is unnatural but tests might pass.",
+      "text2": "One point has to stand clearly here, because otherwise it sticks in the wrong shape: how often this occurs in ordinary projects is measured by none of these sources. What is documented is that the behavior occurs and what it looks like. How often it will meet you, nobody knows - this article included."
+    },
+    "forward": "The next obvious move is to check what changed inside the test file. That is a craft of its own and gets an article of its own in this learning path."
+  },
+  "demands": {
+    "title": "What I ask of the agent",
+    "intro": "Five sentences you can send word for word. The list should not get longer than that - a long list gets skimmed instead of used.",
+    "item1": {
+      "label": "Show the tests first",
+      "description": "Put the tests in front of me before you touch the code. That way you see the claim before a result replaces it."
+    },
+    "item2": {
+      "label": "Leave the tests alone",
+      "description": "Leave existing tests untouched, neither edited nor removed. Should one of them look wrong to you, say so and give the reason. The vendor of a widely used coding agent has given it an instruction to the same effect since November 26, 2025."
+    },
+    "item3": {
+      "label": "Names as sentences",
+      "description": "Name every test so that the name says what should happen. The name is the half you can check without programming knowledge."
+    },
+    "item4": {
+      "label": "A concrete expected value",
+      "description": "Put a concrete expected value into every test, rather than only: is not empty. A check with no concrete value can hardly fail - and what cannot fail is checking nothing."
+    },
+    "item5": {
+      "label": "Break it on purpose",
+      "description": "Set the calculation deliberately wrong and show me which test goes red. This is the only demand on the list that hands you evidence instead of an assurance."
+    },
+    "closing": "The fifth sits at the end for a reason: its answer is the one you can check for yourself. The first four are assurances. This one is evidence."
+  },
+  "close": {
+    "title": "The test that was never red",
+    "text": "Every road to a dishonest green in this article ends at the same result: a test that never once went red for an honest reason. Back to the 47 green tests from the start. You still do not know whether the software is correct - but you now have three things you did not have before: two halves you can read, one figure you mistrust in measured amounts, and one verification that produces evidence. And you have a different opening question. No longer: are the tests green? Instead: what does each of them claim, and which behavior did none of them name?"
+  },
+  "takeaways": {
+    "containerTitle": "The five points that matter",
+    "item1": "Two halves of a test are open to a non-programmer: the name states the intended behavior, the check names the value that would demonstrate it. Neither is decoration.",
+    "item2": "Green reports on the condition of the checks, not on the condition of the software - and where nobody ever wrote a test, it reports nothing at all.",
+    "item3": "A coverage figure records which lines were executed, not whether a result was inspected. It is useful where the code is known to be correct, and it loses its value in exactly the case where the same agent wrote code and tests.",
+    "item4": "The risky edit is not the test somebody removed. It is the one left in place, its name still vouching for the old behavior after the check inside went soft - and no count of tests, no pass rate, and no coverage figure shows it.",
+    "item5": "One verification does not rest on what the agent tells you: have the code deliberately broken, then ask which test turned red. If nothing turned red, nothing was checking that behavior."
+  },
+  "quiz": {
+    "boxTitle": "Quiz: reading and judging tests",
+    "q1": {
+      "question": "Which two parts of a test can you read without being able to program?",
+      "a": "The programming language used and the number of lines in the test.",
+      "b": "The name of the test and the expected value it checks against.",
+      "c": "The running time of the test and its memory use during the run.",
+      "d": "The file name and the date on which the file was last changed.",
+      "explanation": "The name is the wording of the question, the expected value is the answer fixed before anyone ran it. Running time, memory, language, and modification date say nothing about what the test claims."
+    },
+    "q2": {
+      "question": "A test is called test_passwort and checks only that the result is not empty. Which two independent weaknesses does it have?",
+      "a": "The name states no result, and the check waves through nearly any value.",
+      "b": "The name is far too long, and the check compares against the wrong value.",
+      "c": "The name needs the word and, so the check examines two things at once.",
+      "d": "The name is in German, so the check will not run inside the tool at all.",
+      "explanation": "The two weaknesses sit on separate axes. The name states a topic, not an expected outcome - afterwards you do not know what is supposed to hold. And a check for not empty waves through any value that contains something, including a wrong verdict about the password. The length and language of the name are beside the point for both."
+    },
+    "q3": {
+      "question": "Agent A reports 40 tests, all green. Agent B reports 12 tests, all green, each of them with a concrete expected value. What follows from that?",
+      "a": "Agent A checked more thoroughly, because the count of tests reflects thoroughness.",
+      "b": "The two reports are equivalent, as long as all tests are green in both cases.",
+      "c": "Neither implies correctness; with B you can at least read what is being claimed.",
+      "d": "Agent B checked far too little, because twelve tests can never be enough here.",
+      "explanation": "Green means only this in both cases: no check that exists has objected. The count settles nothing - forty checks without a concrete expected value can claim less than twelve with one. What B gives you on top is readability: every test names a value you can hold against the name. There is no generally required minimum number of tests."
+    },
+    "q4": {
+      "question": "A test is called test_suche_liefert_genau_drei_treffer. Yesterday it checked for the number 3, today only that a list comes back at all. Nothing was deleted. Which of the usual figures shows this?",
+      "a": "The test count, which visibly drops by one entry once the change was made.",
+      "b": "The coverage figure, which measurably falls once the number check is gone.",
+      "c": "The pass rate, which flags the looser comparison as a warning of its own.",
+      "d": "None of these figures - it becomes visible only in the test file itself.",
+      "explanation": "The file was edited but the test stayed, so the test count carries on unchanged. The line is still executed, so coverage does not move either. And the pass rate stays the same or even rises: if the test was red before, it is green now. The name goes on promising exactly three hits. The softening is visible only where it sits: in the test file."
+    },
+    "q5": {
+      "question": "Case A: a human wrote working code and the agent adds the tests. Case B: the agent wrote the code that nobody has checked, and the tests along with it. Where does a high coverage figure say more?",
+      "a": "Equally much in both, because coverage only ever counts the executed lines.",
+      "b": "In case A, because the check there is whether the known code stays intact.",
+      "c": "In case B, because more lines are new there and so more of it gets checked.",
+      "d": "In neither of them, because coverage as a figure carries no meaning at all.",
+      "explanation": "Exactly this difference was measured. For tests written against code whose correctness was established, the coverage figure tracked genuine bug-finding well. For tests written against unverified code, the link collapsed across the board. Answer d is the overcorrection this article explicitly blocks: in case A the figure is usable."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension check",
+    "item1": "You are handed a test named test_login with the check: result is not empty. What do you know about the login afterwards - and what do you not?",
+    "item2": "A report states 100 percent coverage. What is your next question, and why does that figure say particularly little in your situation of all situations?",
+    "item3": "A test is still called test_rabatt_ab_100_euro_ist_10_prozent, unchanged, but it has been green since yesterday. Where do you look, and what do you ask the agent to do?"
+  }
+}

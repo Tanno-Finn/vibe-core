@@ -1,0 +1,17 @@
+{
+  "id": "chen-context-2026",
+  "type": "paper",
+  "authors": "Junjie Chen, Ziqi Wang, Lin Yang, Chen Yang, Xiao Chu, Jianyi Zhou, Guangtai Liang, Qianxiang Wang, Dong Wang",
+  "year": "2026",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2607.19682",
+  "doi": "10.48550/arXiv.2607.19682",
+  "accessed": "2026-08-16",
+  "tags": [
+    "test-generation",
+    "llm",
+    "industrial-deployment",
+    "compile-rate",
+    "reliability"
+  ]
+}

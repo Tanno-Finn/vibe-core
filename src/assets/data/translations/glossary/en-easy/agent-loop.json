@@ -1,0 +1,8 @@
+{
+  "term": "Agent Loop",
+  "alternativeNames": [
+    "AI loop"
+  ],
+  "description": "An agent loop is a repeated process for an AI. The AI does these steps again and again: first it observes something. Then it thinks. Then it acts with a tool. Then it looks at what the tool returned. Then it starts over. The loop stops when the task is done.",
+  "example": "The AI must get a number from the internet and find the mean. First it searches for the page. Then it reads the numbers. Then it calculates the mean. Then it gives the result. Those are four steps in the loop."
+}

@@ -1,0 +1,62 @@
+{
+  "categories": {
+    "all": "All Categories",
+    "applications": "Applications",
+    "cv": "Computer Vision",
+    "dl": "Deep Learning",
+    "ethics": "Ethics",
+    "fundamentals": "Fundamentals",
+    "ml": "Machine Learning",
+    "nlp": "Natural Language Processing",
+    "rl": "Reinforcement Learning",
+    "ai-safety": "AI Safety",
+    "ai-fundamentals": "AI Fundamentals",
+    "generative-ai": "Generative AI",
+    "ai-application": "AI Application Areas",
+    "regulation": "Regulation",
+    "security": "Cybersecurity",
+    "tools": "Tools",
+    "general": "General"
+  },
+  "description": "The terms of your subject, explained for people without prior knowledge.",
+  "entry": {
+    "alsoKnownAs": "Also known as",
+    "example": "Example"
+  },
+  "filters": {
+    "active": "Active filters",
+    "all": "All",
+    "alphabetNavigation": "Alphabet Navigation",
+    "category": "Category",
+    "categoryPlaceholder": "Select category",
+    "clearAll": "Clear Filters",
+    "clearSearch": "Clear search",
+    "letter": "Letter",
+    "removeFilter": "Remove filter",
+    "search": "Search",
+    "searchPlaceholder": "Search term...",
+    "letterButton": "Filter terms by letter",
+    "showAllLetters": "Show all letters",
+    "sort": "Sort",
+    "sortPlaceholder": "Select sorting",
+    "title": "Filters"
+  },
+  "popover": {
+    "definition": "Definition",
+    "goToGlossary": "Go to Glossary"
+  },
+  "results": {
+    "noResults": "No terms found",
+    "of": "of",
+    "terms": "terms"
+  },
+  "sort": {
+    "alphabetical": "Alphabetical",
+    "category": "By Category"
+  },
+  "tableOfContents": "Table of Contents",
+  "title": "Glossary",
+  "toc": {
+    "filters": "Filters"
+  }
+}

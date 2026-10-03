@@ -1,0 +1,17 @@
+{
+  "id": "github-push-protection-2026",
+  "type": "article",
+  "authors": "GitHub",
+  "year": "2026",
+  "publication": "GitHub Docs",
+  "url": "https://docs.github.com/en/code-security/secret-scanning/introduction/about-push-protection",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "github",
+    "push-protection",
+    "secret-scanning",
+    "bypass",
+    "audit-log"
+  ]
+}

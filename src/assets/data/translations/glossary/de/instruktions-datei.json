@@ -1,0 +1,9 @@
+{
+  "term": "Instruktions-Datei",
+  "alternativeNames": [
+    "Instruction File",
+    "Agenten-Anweisungsdatei"
+  ],
+  "description": "Eine Instruktions-Datei ist eine Konventions-Datei im Projekt-Repository, die einem KI-Agenten dauerhafte Regeln und Projekt-Kontext mitgibt: Build-Befehle, Code-Konventionen, Testabläufe, Tabus. Unterstützende Agenten lesen sie in der Regel zu Beginn jeder Sitzung - so muss niemand dieselben Grundlagen in jeden Prompt tippen. Belegt ist vor allem, dass Agenten die enthaltenen Regeln befolgen; ob solche Dateien die Ergebnisse messbar verbessern, ist bislang offen. Ein verbreitetes Beispiel ist die offene AGENTS.md-Konvention. Einordnung: Der System-Prompt kommt von dem, der die Anwendung betreibt, der Prompt vom Nutzer pro Aufgabe - die Instruktions-Datei dagegen gehört dem Projekt und wandert mit dem Code, wie eine README für Maschinen.",
+  "example": "Ein Team legt eine AGENTS.md ins Repository: Tests laufen mit npm test, Commit-Nachrichten auf Deutsch, der Ordner legacy/ bleibt unangetastet. Jeder KI-Agent, der am Projekt arbeitet, bekommt diese Regeln ab sofort mit - egal, wer ihn gerade mit welcher Aufgabe losschickt."
+}

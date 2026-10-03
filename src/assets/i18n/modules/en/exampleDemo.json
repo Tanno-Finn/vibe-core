@@ -1,0 +1,76 @@
+{
+  "title": "Example Demo: The Blueprint",
+  "subtitle": "A placeholder demo that shows and explains how an interactive demo is structured",
+  "description": "Placeholder demo with no subject content: it shows the blueprint of a good interactive demo — controls, visualization, observing, understanding.",
+  "intro": {
+    "title": "This is a placeholder demo",
+    "text": "This page teaches no subject matter — it shows you the blueprint. Every section is one building block of a good interactive demo and explains itself. Use this page as the template to copy for your own demos."
+  },
+  "demo": {
+    "title": "Interactive Core",
+    "lead": "The interactive core is the heart of every demo: a visualization that reacts to your input immediately. Here it is deliberately content-free — colored dots reacting to a slider, a select, and buttons.",
+    "canvasAria": "Visualization area: colored dots reacting to the controls",
+    "summary": "{n} dots in the \"{pattern}\" pattern. {state}"
+  },
+  "controls": {
+    "points": "Number of dots",
+    "pointsAria": "Number of dots: {n}",
+    "pattern": "Pattern",
+    "patterns": {
+      "scatter": "Scatter",
+      "ring": "Ring",
+      "grid": "Grid",
+      "wave": "Wave"
+    },
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset demo",
+    "reducedMotion": "Your system prefers reduced motion, so the animation is off. All controls keep working."
+  },
+  "status": {
+    "points": "Number of dots changed to {n}.",
+    "pattern": "Pattern changed to {pattern}.",
+    "running": "Animation running.",
+    "paused": "Animation paused.",
+    "reset": "Demo reset to its initial state."
+  },
+  "tooltip": {
+    "points": "How many dots are drawn. A slider suits continuous quantities with a clear minimum and maximum.",
+    "pattern": "How the dots are arranged. A select suits a few clearly named variants.",
+    "moreInfo": "More information"
+  },
+  "structure": {
+    "title": "How a Demo Is Built",
+    "intro": "Almost every good interactive demo consists of the same four building blocks — and the learner experiences them in this order.",
+    "controls": {
+      "title": "Controls",
+      "text": "Few, clearly labeled controls: a slider for quantities, a select for variants, start/pause, and a reset. Every element carries a label, an aria-label, and an info tooltip where needed."
+    },
+    "viz": {
+      "title": "Visualization",
+      "text": "An area that reacts to every input immediately. Essentials: a text fallback for high-contrast mode, a live region for screen readers, and respect for reduced motion."
+    },
+    "observe": {
+      "title": "Observe",
+      "text": "The learner plays with the controls and sees the effect immediately. Short prompts guide attention: what happens when you switch the pattern? What does the slider change?"
+    },
+    "understand": {
+      "title": "Understand",
+      "text": "Finally, the observations get framed: explanatory text, a checkpoint for self-testing, and key takeaways. Only this step turns playing into learning."
+    }
+  },
+  "checkpoint": {
+    "title": "Check: Got the Blueprint?",
+    "item1": "I can name the four building blocks of a demo: controls, visualization, observing, understanding."
+  },
+  "takeaways": {
+    "title": "Key Takeaways",
+    "text": "1. **Four building blocks**: controls, visualization, observing, understanding — every demo on this page follows this order.\n\n2. **Immediate feedback**: every input has an immediately visible effect — that is the difference between a demo and a diagram.\n\n3. **Accessibility built in**: aria-labels, a live region, a high-contrast text fallback, and reduced motion belong in from the start, not as an afterthought.\n\nThis placeholder demo is deliberately content-free — replace the dot canvas with your own subject and keep the structure."
+  },
+  "build": {
+    "title": "Build Your Own Demo",
+    "text": "This page is the template: replace the interactive core with your subject matter and keep the structure. In development mode, two tools help you:",
+    "designWorkshop": "the design workshop with every kit component to try out",
+    "newComponent": "the guided way to add a new reusable component properly"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "difficulty": {
+    "advanced": "Schwierig",
+    "beginner": "Für Anfänger",
+    "expert": "Für Experten",
+    "intermediate": "Für Fortgeschrittene",
+    "Anfänger": "Anfänger",
+    "Fortgeschritten": "Fortgeschritten",
+    "Experte": "Experte",
+    "Schwierig": "Schwierig"
+  },
+  "disclaimer": "Diese Seiten sind von anderen Firmen. Nutze sie auf eigene Verantwortung.",
+  "filter": {
+    "access": "Zugang",
+    "active": "Gewählte Filter",
+    "clear": "Filter löschen",
+    "clearAll": "Filter löschen",
+    "difficulty": "Schwierigkeit",
+    "hideAdvanced": "Mehr Filter verstecken",
+    "language": "Sprache",
+    "notSelected": "Nicht ausgewählt",
+    "onlyFree": "Nur kostenlos",
+    "removeFilter": "Diesen Filter löschen",
+    "search": "Suche",
+    "selected": "Ausgewählt",
+    "showAdvanced": "Mehr Filter zeigen",
+    "topic": "Thema"
+  },
+  "language": {
+    "en": "Englisch",
+    "english": "Englisch",
+    "german": "Deutsch",
+    "multilingual": "Mehrsprachig"
+  },
+  "mediaType": {
+    "all": "Alle Medienarten",
+    "blog": "Blog",
+    "conference": "Konferenz",
+    "course": "Kurs",
+    "document": "Dokument",
+    "guideline": "Regel",
+    "infographic": "Bild mit Infos",
+    "podcast": "Audio",
+    "research-paper": "Forschungs·arbeit",
+    "researchPaper": "Forschungs·text",
+    "textbook": "Lehrbuch",
+    "toolGuide": "Tool·hilfe",
+    "tutorial": "Anleitung",
+    "video": "Video",
+    "paper": "Forschungs·arbeit"
+  },
+  "search": {
+    "placeholder": "Lernseiten suchen..."
+  },
+  "topic": {
+    "business": "Geschäft",
+    "career": "Beruf",
+    "deep_learning": "Tiefes Lernen",
+    "education": "Lernen",
+    "ethics": "Was ist richtig",
+    "regulation": "Gesetze",
+    "research": "Forschung",
+    "society": "Gesellschaft",
+    "statistics": "Zahlen",
+    "technology": "Technik",
+    "tools": "Werkzeuge",
+    "general": "Allgemein"
+  }
+}

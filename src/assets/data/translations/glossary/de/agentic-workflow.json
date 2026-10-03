@@ -1,0 +1,9 @@
+{
+  "term": "Agentischer Workflow",
+  "alternativeNames": [
+    "KI-Agenten-Workflow",
+    "autonomer KI-Workflow"
+  ],
+  "description": "Ein agentischer Workflow ist ein Ablaufmuster, bei dem ein KI-Modell — anders als im gewöhnlichen Frage-Antwort-Betrieb — autonom eine mehrstufige Aufgabe abarbeitet: Es plant Teilschritte, ruft Tools auf (Code-Interpreter, Web-Suche, Dateioperationen), integriert die Ergebnisse in seinen Kontext und entscheidet dann, welchen Schritt es als nächstes ausführt. Damit unterscheidet es sich fundamental von einem einfachen Prompt-Response-Zyklus: Das Modell tritt in einen Regelkreis ein, dessen Dauer es selbst bestimmt. Die Crux dabei ist, dass jede Selbstentscheidung einen Fehler magnifizieren kann — weshalb gute agentische Systeme entweder enge Guardrails setzen oder den Menschen an entscheidenden Weggabelungen einbinden (Human-in-the-Loop). Das Spektrum reicht von deterministischen Pipelines, in denen der Ablauf fest vorgegeben ist, bis zu vollautonomen Agenten, die ihren eigenen Plan entwerfen.",
+  "example": "Ein Entwickler gibt einem Coding-Agenten den Auftrag: „Finde den Bug in meinem Repository.“ Der Agent liest den Code, führt die Tests aus, liest die Fehlermeldungen, formuliert eine Hypothese, ändert eine Zeile, testet erneut — und meldet sich erst, wenn die Tests grün sind. Kein manueller Zwischenschritt."
+}

@@ -1,0 +1,35 @@
+{
+  "dialog": {
+    "openFullMap": "Volle Wissenskarte öffnen"
+  },
+  "map": {
+    "nodes": "Knoten",
+    "edges": "Verbindungen",
+    "focus": "Fokus",
+    "toggleGraph": "Graph",
+    "toggleTable": "Tabelle",
+    "loading": "Karte wird geladen…",
+    "empty": "Keine Verbindungen gefunden.",
+    "tableHeadType": "Typ",
+    "tableHeadNode": "Knoten",
+    "tableHeadConnections": "Verbindungen",
+    "tableHeadNeighbors": "Top-Nachbarn",
+    "tableEmpty": "Keine Knoten passen zur Suche.",
+    "openNeighbor": "Nachbar öffnen",
+    "ariaSummary": "Ontologie-Karte mit {{count}} Knoten und {{edges}} Verbindungen.",
+    "ariaSummaryFocus": "Fokus auf {{type}}/{{id}}.",
+    "ariaSummaryTableHint": "Mit dem Schalter „Tabelle“ können die Verbindungen tabellarisch durchnavigiert werden.",
+    "ariaEmpty": "Ontologie-Karte — leer.",
+    "searchResultLive": "{{count}} von {{total}} Knoten passen zur Suche",
+    "type": {
+      "article": "Artikel",
+      "demo": "Demo",
+      "glossary": "Glossar",
+      "timeline": "Timeline",
+      "source": "Quelle",
+      "sources": "Quellen"
+    },
+    "legendLabel": "Legende der Knotentypen",
+    "cameraReadoutInit": "Kamera-Anzeige — wird gestartet …"
+  }
+}

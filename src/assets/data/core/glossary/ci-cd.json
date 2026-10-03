@@ -1,0 +1,67 @@
+{
+  "id": "ci-cd",
+  "category": "tools",
+  "difficulty": "intermediate",
+  "popularity": "medium",
+  "abbreviations": [
+    "CI/CD",
+    "CI",
+    "CD"
+  ],
+  "englishTerm": "Continuous Integration / Continuous Delivery",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Kontinuierliche Integration",
+      "Kontinuierliche Auslieferung",
+      "CI/CD-Pipeline"
+    ],
+    "en": [
+      "Continuous Integration",
+      "Continuous Delivery",
+      "Continuous Deployment",
+      "CI/CD pipeline"
+    ],
+    "de-easy": [
+      "Automatische Prüf-Strecke für Code"
+    ],
+    "en-easy": [
+      "Automatic checking pipeline"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Humble, J., Farley, D. (2010). Continuous Delivery: Reliable Software Releases through Build, Test, and Deployment Automation. Addison-Wesley.",
+      "type": "website",
+      "url": "https://continuousdelivery.com/",
+      "notes": "Standard-Lehrbuch: Deployment-Pipeline als automatisierte Prüfstrecke; Prinzip, dass Software jederzeit auslieferbar gehalten wird.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Fowler, M.: Continuous Integration (martinfowler.com)",
+      "type": "documentation",
+      "url": "https://martinfowler.com/articles/continuousIntegration.html",
+      "notes": "Grundlagentext zu CI: häufiges Integrieren in den gemeinsamen Stand, self-testing build, schnelles Feedback pro Commit."
+    },
+    {
+      "title": "Red Hat: What is CI/CD?",
+      "type": "documentation",
+      "url": "https://www.redhat.com/en/topics/devops/what-is-ci-cd",
+      "notes": "Beschreibt explizit die Doppel-Lesart des CD: Continuous Delivery (manuelle Freigabe) vs. Continuous Deployment (vollautomatisch bis in Produktion)."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "build",
+      "test",
+      "git",
+      "linter"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11"
+}

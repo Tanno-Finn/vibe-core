@@ -1,0 +1,10 @@
+{
+  "_comment": "Fixture for tools/test/lang-status.test.mjs: German and English configured, Italian half translated but not configured.",
+  "defaultLanguage": "de",
+  "keySourceLanguage": "en",
+  "contentReferenceLanguage": "de",
+  "languages": [
+    { "code": "de", "easyCode": "de-easy" },
+    { "code": "en", "easyCode": "en-easy" }
+  ]
+}

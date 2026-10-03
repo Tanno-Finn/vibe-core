@@ -1,0 +1,21 @@
+{
+  "badge": {
+    "term": "Term",
+    "explanation": "Explanation"
+  },
+  "hint": {
+    "flip": "Click to flip",
+    "flipBack": "Click to flip back"
+  },
+  "label": {
+    "syntax": "Syntax",
+    "example": "Example"
+  },
+  "nav": {
+    "prev": "← Back",
+    "shuffle": "Shuffle",
+    "next": "Next →",
+    "cardAriaLabel": "Card {{num}}"
+  },
+  "progress": "Card {{current}} of {{total}}"
+}

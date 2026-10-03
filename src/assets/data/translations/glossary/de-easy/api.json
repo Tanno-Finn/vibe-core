@@ -1,0 +1,9 @@
+{
+  "term": "API",
+  "alternativeNames": [
+    "Programm·verbindung",
+    "Computer·schnitt·stelle"
+  ],
+  "description": "API. Das bedeutet: Application Programming Interface. Das ist eine Verbindung zwischen Computer·programmen. Wie ein Übersetzer. Ein Programm will etwas von einem anderen Programm. Die API hilft dabei. Sie übersetzt die Anfrage. Und sie bringt die Antwort zurück. Manchmal laufen beide Programme auf demselben Computer. Manchmal sind sie weit weg, zum Beispiel im Internet. APIs sind sehr wichtig. Viele Webseiten benutzen APIs. Auch KI-Programme benutzen APIs. Zum Beispiel, um mit einem KI-Chat-Programm zu sprechen.",
+  "example": "Du benutzt eine Wetter·app. Die App will das Wetter von einem Wetter·server wissen. Die App fragt über eine API: Wie ist das Wetter heute? Der Server antwortet über die API: Es regnet. Die App zeigt dir: Es regnet."
+}

@@ -1,0 +1,32 @@
+{
+  "acceptProgress": "Yes, save",
+  "actionsLabel": "Things you can do",
+  "bannerLabel": "Settings for saving data",
+  "closeDialog": "Close",
+  "description": "We would like to save your learning progress on your computer. But only if you say yes. Without a yes, the site forgets your quizzes and checkpoints after this visit. With a yes, everything stays.",
+  "disableProgress": "No, do not save",
+  "essential": {
+    "description": "Basic things like language and colors. These are always saved.",
+    "inputLabel": "Turn on basic saving",
+    "switchLabel": "Basic saving (always on)",
+    "title": "Basic Functions"
+  },
+  "progress": {
+    "description": "Saves which quizzes, checkpoints, and learning paths you finished. Only on your computer. It is off until you turn it on.",
+    "inputLabel": "Turn on progress saving",
+    "switchLabel": "Save learning progress",
+    "title": "Learning Progress"
+  },
+  "save": "Save",
+  "saveSettingsAriaLabel": "Save your choices",
+  "settings": "Settings",
+  "settingsDescription": "Choose what to save on your computer",
+  "settingsTitle": "How to Save",
+  "title": "Cookie Notice",
+  "analytics": {
+    "description": "If you allow it, I count which pages are used. Then I also see: how long you stay on a page, how far you scroll, and which browser you use. These numbers only go to my own server — not to other companies. I do not know who you are. What exactly I count is shown on the statistics page.",
+    "inputLabel": "Statistics on",
+    "switchLabel": "Allow statistics",
+    "title": "Statistics"
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "common": {
+    "devOnlyBadge": "For developers only - not in the finished app"
+  },
+  "hub": {
+    "title": "Workshop",
+    "subtitle": "Here we work on this building kit. Users never see this area.",
+    "designTitle": "Design System",
+    "designDesc": "A list of all building blocks. With a live example and a guide for each one. Plus the Guides: long articles about outside parts and layouts.",
+    "agentsTitle": "Agent Help",
+    "agentsDesc": "Which guide to read when. And how to add a new building block the right way."
+  },
+  "gallery": {
+    "title": "Design System",
+    "subtitle": "All building blocks in this kit. Each tile shows a live example and a guide.",
+    "filterLabel": "Filter building blocks",
+    "filterPlaceholder": "Type a name or keyword ...",
+    "countOf": "of",
+    "countComponents": "building blocks",
+    "noMatches": "Nothing found for"
+  },
+  "detail": {
+    "backToGallery": "Back to the list",
+    "sourceLabel": "File",
+    "liveDemo": "Live example",
+    "docsAriaLabel": "Guide for this building block",
+    "tabExample": "Example",
+    "tabUsage": "When to use?",
+    "tabAgent": "Guide for agents",
+    "exampleNote": "The live example above shows exactly this code.",
+    "copy": "Copy",
+    "copied": "Copied",
+    "codeRegion": "Code example",
+    "tableRegion": "Table",
+    "loading": "Loading ...",
+    "noUsageSections": "Nothing here yet. The full guide is in the tab: Guide for agents.",
+    "docError": "The guide could not load:",
+    "notFoundTitle": "Not found",
+    "notFoundNote": "This building block does not exist:",
+    "quickSwitchLabel": "Open another building block or guide",
+    "quickSwitchPlaceholder": "Choose a building block ...",
+    "quickSwitchFilterPlaceholder": "Type a name or keyword ...",
+    "quickSwitchEmpty": "Nothing found."
+  },
+  "groups": {
+    "scaffolding": {
+      "title": "Building a page",
+      "hint": "basic layout, text column, title, wayfinding",
+      "chip": "Page structure"
+    },
+    "content": {
+      "title": "Explaining content",
+      "hint": "info boxes, examples, definitions, prompts, formulas, summaries",
+      "chip": "Content"
+    },
+    "inlineHelp": {
+      "title": "Explaining a word in the text",
+      "hint": "a small help bubble next to a word",
+      "chip": "Help in text"
+    },
+    "quiz": {
+      "title": "Building a quiz or self-test",
+      "hint": "graded questions or a checklist",
+      "chip": "Quiz"
+    },
+    "progress": {
+      "title": "Showing progress or numbers",
+      "hint": "a number, a ratio, a percentage, a sequence",
+      "chip": "Progress"
+    },
+    "cards": {
+      "title": "A clickable card",
+      "hint": "title, description, chips, and buttons on one card",
+      "chip": "Cards"
+    },
+    "other": {
+      "title": "More building blocks",
+      "hint": "newly added, not in a group yet",
+      "chip": "Other"
+    }
+  },
+  "agents": {
+    "title": "Agent Help",
+    "subtitle": "How agents work with this kit: Read the guide first. Then build. Many things already exist as a building block.",
+    "orientationTitle": "Overview",
+    "orientationP1": "The design system is the set of all building blocks: containers, boxes, cards, progress displays, a quiz, a tooltip. Each building block has exactly one guide. People and agents read the same file. The gallery shows exactly this file. So there are never two versions.",
+    "factDocs": "Guides",
+    "factRegistry": "List of all building blocks",
+    "factGate": "Automatic check",
+    "factHub": "Rule document",
+    "factGuides": "Guide articles (agent guides)",
+    "factScript": "Agent command for the guides",
+    "englishNote": "The guides are in English on purpose. One version for people and agents. Nothing can drift apart.",
+    "indexTitle": "Which guide to read when",
+    "indexLede": "Find your task. Then open the linked guides. The table is built automatically from the list of building blocks. Each building block is in exactly one row.",
+    "thTask": "Your task",
+    "thDocs": "Read these guides",
+    "indexSummary": "{count} building blocks in {groups} groups. The table is built automatically from the list. You can also find all blocks in the gallery.",
+    "loopTitle": "Adding a new building block",
+    "loopLede": "An automatic check watches every new building block. Follow these steps. The command /new-component helps you.",
+    "step1Title": "Search the gallery first.",
+    "step1Body": "Is there a building block that almost fits? Then stop. Use the existing one. Do not build a copy.",
+    "step2Title": "Ask: will it be used often?",
+    "step2Body": "Will the building block be used in many places? Then it goes on the list. Used only once? Then it goes in the exceptions file. With a short reason.",
+    "step3Title": "Create four things together.",
+    "step3Body": "The component file, the list entry, the guide, and a live example. Once it is on the list, it appears automatically in the gallery and in the table above.",
+    "step4Title": "Pass the checks.",
+    "step4Body": "Run both checks. Both must pass:",
+    "ctaBody": "The command /new-component does all of this the right way. The writing rules are in: docs/DESIGN-SYSTEM.MD."
+  },
+  "guideTabs": {
+    "examples": "Examples",
+    "usage": "When to use?",
+    "design": "Look",
+    "development": "Code",
+    "i18n": "Languages",
+    "history": "History",
+    "agent": "Agent guide"
+  },
+  "guides": {
+    "sectionTitle": "Guides",
+    "sectionHint": "Long articles. They show how to build a screen with outside parts and layouts. They add to the building blocks above.",
+    "category": {
+      "library": "Parts from Optimus UI",
+      "foundations": "Basics",
+      "layouts": "Layouts & patterns"
+    },
+    "notFoundTitle": "Guide not found",
+    "notFoundNote": "There is no guide with this id:",
+    "relatedTitle": "Goes with",
+    "agentTabHint": "Agents get the same text from the command too:",
+    "agentsTitle": "Guides for questions about parts and layouts",
+    "agentsLede": "Do you have a question about Optimus UI parts, about basics, or about layouts? Then the guides help. Each guide has one agent guide. Read in small steps: the list first. Then one part. Then the whole guide only if you need it.",
+    "cliTopicsNote": "shows what there is, in one view",
+    "cliListNote": "short list: id, group, tags, core idea",
+    "cliJsonNote": "the list as JSON for machines",
+    "cliSectionNote": "just one part (for example when you pick a component)",
+    "cliSectionsNote": "one part from all guides at once",
+    "cliBlocksNote": "all do and don't examples at once",
+    "cliBundleNote": "one guide and the guides near it",
+    "cliTabNote": "one article tab, with real values filled in",
+    "cliShowNote": "the whole guide while you build",
+    "cliSearchNote": "search all texts: guides, articles, and kit docs",
+    "thGuide": "Guide",
+    "thGuideCat": "Group",
+    "thGuideDoc": "Doc"
+  }
+}

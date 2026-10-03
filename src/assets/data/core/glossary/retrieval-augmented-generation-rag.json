@@ -1,0 +1,52 @@
+{
+  "id": "retrieval-augmented-generation-rag",
+  "category": "ml",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [
+    "RAG"
+  ],
+  "englishTerm": "Retrieval-Augmented Generation",
+  "childConcepts": [],
+  "parentConcepts": [
+    "natural-language-processing-nlp"
+  ],
+  "createdAt": "2025-11-16",
+  "updatedAt": "2025-11-16",
+  "alternativeNames": {
+    "de": [
+      "RAG",
+      "Suchverstärkte Textgenerierung"
+    ],
+    "en": [
+      "RAG",
+      "Retrieval-Augmented Generation"
+    ],
+    "de-easy": [
+      "RAG",
+      "Suchen und Antworten"
+    ],
+    "en-easy": [
+      "RAG",
+      "Search and Answer"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Lewis, P., et al. (2020). Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks. NeurIPS 2020",
+      "type": "website",
+      "url": "https://arxiv.org/abs/2005.11401",
+      "notes": "Original RAG paper from Facebook AI Research",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    }
+  ],
+  "related": {
+    "glossary": [
+      "hallucination",
+      "context-window"
+    ]
+  }
+}

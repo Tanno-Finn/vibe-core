@@ -1,0 +1,42 @@
+{
+  "title": "Erklärung zur Barrierefreiheit",
+  "subtitle": "Was hier gut geht. Was noch nicht geht. Und wie du uns Probleme meldest.",
+
+  "introTitle": "Darum geht es hier",
+  "introText": "Diese Erklärung gilt für dieses Angebot. Barrierefrei heißt: Alle Menschen können es gut nutzen. Wir schreiben diese Erklärung, weil viele Menschen hier lernen sollen. Und wir sagen ehrlich, was gut geht. Wir sagen auch, was noch nicht gut geht.",
+
+  "standardTitle": "Daran halten wir uns",
+  "standardText": "Es gibt Regeln für barrierefreie Webseiten. Diese Regeln heißen WCAG 2.2 und EN 301 549. Wir halten uns an diese Regeln. Die Regeln sind unser Ziel. Wir werden immer besser. Eine fremde Firma hat uns noch nicht geprüft. Wir haben alles selbst geprüft. Darum ist alles hier unsere eigene Meinung.",
+
+  "statusTitle": "Wie barrierefrei ist diese Website?",
+  "statusText": "Diese Website ist zum Teil barrierefrei. Das ist unsere eigene Einschätzung. Vieles geht schon gut. Du kannst diese Website mit der Tastatur bedienen. Die Farben haben gute Kontraste. Bilder haben erklärende Texte. Es gibt einen dunklen Modus. Du kannst die Schrift größer machen. Und es gibt Texte in Einfacher Sprache. Manche Teile sind noch nicht ganz barrierefrei. Wir erklären dir die wichtigsten Teile unten.",
+
+  "limitsTitle": "Das geht noch nicht gut",
+  "limitLanguageLabel": "Einfache Sprache ist keine geprüfte Leichte Sprache",
+  "limitLanguageText": "Wir schreiben Texte in Einfacher Sprache. Eine KI hilft uns dabei. Ein Mensch liest die Texte danach durch. Eine genaue Prüfung gibt es nicht. Wir nutzen die Grundregeln der Leichten Sprache. Das sind kurze Sätze und einfache Wörter. Aber wir erfüllen nicht alle Regeln der Leichten Sprache. Bei Leichter Sprache prüft eine Gruppe die Texte. In der Gruppe sind Menschen mit Lern·schwierigkeiten. Diese Prüfung machen wir nicht. Auch bei Schrift und Bildern folgen wir nicht allen Regeln. Darum sagen wir mit Absicht: Einfache Sprache. Wir sagen nicht: Leichte Sprache.",
+  "limitDemosLabel": "Manche Demos zeigen viel mit Bildern",
+  "limitDemosText": "Diese Website hat viele Demos zum Ausprobieren. Die meisten kannst du mit der Tastatur bedienen. Die meisten haben auch erklärende Texte. Bei manchen Demos steckt das Wichtige in einer Animation. Diese Demos kannst du ohne Augenlicht schwer nutzen. Wir arbeiten an einer Lösung. Wir wollen diese Demos gut mit Text beschreiben. Das ist wie eine Bild·beschreibung im Film.",
+  "limitTranslationsLabel": "Eine KI hilft beim Übersetzen",
+  "limitTranslationsText": "Es gibt die Inhalte in {count} Sprachen. Jede Sprache gibt es auch in Einfacher Sprache. Eine KI hilft beim Übersetzen. Manchmal sind kleine Fehler drin. Deutsch und Englisch sind am sichersten. Ein Mensch hat die Texte in diesen 2 Sprachen durchgelesen. Eine genaue Prüfung gibt es nicht.",
+  "limitSignLabel": "Keine Gebärden·sprache",
+  "limitSignText": "Es gibt hier keine Deutsche Gebärden·sprache. Die Abkürzung dafür ist DGS. Manche Firmen nutzen Avatare für Gebärden. Ein Avatar ist eine Figur am Computer. Wir nutzen solche Avatare mit Absicht nicht. Die Verbände der Gehörlosen raten davon ab. Und die Qualität ist noch nicht gut genug. Wir beobachten die Technik weiter. Vielleicht bieten wir Gebärden·sprache später an.",
+
+  "methodTitle": "So ist diese Erklärung entstanden",
+  "methodText": "Wir haben diese Website selbst geprüft. Eine fremde Firma hat sie noch nicht geprüft.",
+  "createdLabel": "Erstellt am",
+  "createdDate": "15. Juli 2026",
+  "updatedLabel": "Zuletzt geprüft am",
+  "updatedDate": "15. Juli 2026",
+
+  "feedbackTitle": "Melde uns ein Problem",
+  "feedbackText": "Hast du ein Problem gefunden? Kommst du an einer Stelle nicht weiter? Vielleicht nutzt du einen Screenreader. Ein Screenreader liest den Text vor. Vielleicht nutzt du die Tastatur oder eine Lupe. Dann melde uns das Problem. Am besten gehst du ins Feedback·menü. Dort gibt es den Punkt: Barriere melden. Schreib uns die betroffene Seite. Beschreib uns das Problem kurz. Nenn uns deine Hilfs·technik, wenn du magst. Du musst deinen Namen nicht nennen. Auch anonyme Meldungen sind willkommen. Wir antworten meistens in 4 Wochen.",
+
+  "enforcementTitle": "Zum Schluss noch ehrlich gesagt",
+  "enforcementText": "Deine Rückmeldung ist wichtig. Wir lesen jede Meldung über ein Problem. Wir bauen diese Website damit besser. Manches auf dieser Seite steht hier wegen einer Meldung.",
+
+  "helpTitle": "Das hilft dir beim Bedienen",
+  "helpKeyboard": "Tastatur: Du bedienst das Menü mit der Tastatur. Du nutzt dafür die Tab·taste, die Pfeiltasten und die Enter·taste.",
+  "helpContrast": "Anzeige: Es gibt einen dunklen und einen hellen Modus. Die Farben haben starke Kontraste. Du machst die Schrift mit dem Browser·zoom größer.",
+  "helpEasyLanguage": "Einfache Sprache: Jede Sprache gibt es auch in einer einfachen Version. Du schaltest sie oben in der Sprach·auswahl um.",
+  "helpStructure": "Struktur: Es gibt klare Überschriften und Bereiche. Bilder haben Texte für Hilfs·technik."
+}

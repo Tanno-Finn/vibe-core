@@ -1,0 +1,60 @@
+{
+  "id": "terminal",
+  "category": "tools",
+  "difficulty": "beginner",
+  "popularity": "high",
+  "abbreviations": [],
+  "englishTerm": "Terminal",
+  "parentConcepts": [],
+  "childConcepts": [],
+  "alternativeNames": {
+    "de": [
+      "Konsole",
+      "Terminal-Fenster"
+    ],
+    "en": [
+      "Console",
+      "Terminal emulator"
+    ],
+    "de-easy": [
+      "Befehls-Fenster"
+    ],
+    "en-easy": [
+      "Command window"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Digital Equipment Corporation: VT100 User Guide, 1978",
+      "type": "website",
+      "url": "https://vt100.net/docs/vt100-ug/",
+      "notes": "Original-Dokumentation des Hardware-Terminals, dessen Verhalten heutige Terminal-Programme emulieren.",
+      "tags": [
+        "primary",
+        "origin-type:primary"
+      ]
+    },
+    {
+      "title": "Linus Åkesson: The TTY demystified",
+      "type": "documentation",
+      "url": "https://www.linusakesson.net/programming/tty/index.php",
+      "notes": "Technische Begriffsgeschichte: vom Fernschreiber über das Hardware-Terminal zum Terminal-Emulator."
+    },
+    {
+      "title": "Microsoft Learn: Windows Terminal - Overview",
+      "type": "documentation",
+      "url": "https://learn.microsoft.com/en-us/windows/terminal/",
+      "notes": "Cross-Referenz: modernes Terminal als Programm, das Shells wie PowerShell oder bash beherbergt."
+    }
+  ],
+  "related": {
+    "glossary": [
+      "cli",
+      "agent"
+    ]
+  },
+  "createdAt": "2026-08-11",
+  "updatedAt": "2026-08-11",
+  "release": "published",
+  "publishDate": "2026-09-09"
+}

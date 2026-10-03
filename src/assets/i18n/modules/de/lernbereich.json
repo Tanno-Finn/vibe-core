@@ -1,0 +1,23 @@
+{
+  "title": "Lernbereich",
+  "subtitle": "Der zentrale Einstieg in alle Lerninhalte — geführt oder frei, ganz wie du magst.",
+  "viewPaths": "Lernpfade",
+  "viewContent": "Inhalte",
+  "viewLabel": "Ansicht",
+  "filterAll": "Alle",
+  "filterDemos": "Demos",
+  "filterLessons": "Lektionen",
+  "filterType": "Inhaltstyp",
+  "filterDifficulty": "Schwierigkeitsgrad",
+  "searchPlaceholder": "Inhalte durchsuchen...",
+  "difficultyAll": "Alle Schwierigkeiten",
+  "group": {
+    "examples": "Beispiel-Inhalte"
+  },
+  "emptyState": "Keine Inhalte gefunden",
+  "clearFilters": "Filter zurücksetzen",
+  "backToLernbereich": "Zurück zum Lernbereich",
+  "badgeDemo": "Demo",
+  "badgeLesson": "Lektion",
+  "emptyStateHint": "Noch leer — neuer Inhalt entsteht mit „/new-content“ in deinem KI-Agenten."
+}

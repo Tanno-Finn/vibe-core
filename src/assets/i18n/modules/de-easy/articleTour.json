@@ -1,0 +1,181 @@
+{
+  "hero": {
+    "title": "Die Tour: Wie dieses Projekt mit Agenten gebaut wird",
+    "subtitle": "Ein Rundgang durch das Projekt, das diese Seite zeigt. Jede Station nennt eine Datei. Du kannst sie in deiner eigenen Kopie öffnen."
+  },
+  "toc": {
+    "lead": "Vor der ersten Station",
+    "map": "Die Karte und ihr Wächter",
+    "constitution": "Die Verfassung",
+    "standards": "Standards und Ausnahmen",
+    "directives": "Direktiven und Skills",
+    "books": "Die Bücher",
+    "gates": "Die Gates",
+    "specs": "Der Specs·loop",
+    "human": "Wo der Mensch entscheidet",
+    "wave": "4 Stufen beim Prüfen",
+    "epilogue": "Was diese Tour nicht kann",
+    "takeaways": "Zusammenfassung",
+    "checkpoint": "Checkpoint",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "In diesem Kit gibt es einen Lernpfad über KI-Agenten. Er heißt Arbeiten mit KI-Agenten. Er hat 4 Artikel. Sie sagen, wie die Arbeit gehen sollte. Dieser Artikel ist anders. Er zeigt ein echtes Projekt. Und er zeigt echte Dateien darin. Bei jeder Station steht eine Datei dabei. Steht keine Datei dabei? Dann ist es nur eine Meinung. Diese Regel gilt im Projekt für alle Agenten. Sie steht in der Datei directives/core-principles.md.",
+    "paragraph2": "2 Hinweise vorher. Diese Tour zeigt das Kit so, wie es ausgeliefert wird. Dann arbeitest du in deiner Kopie. Die Dateien ändern sich. Dieser Artikel ändert sich nicht. Widersprechen sie sich? Dann gewinnen die Dateien. Station 2 sagt, warum. Darum nennt die Tour Dateien und Ordner. Sie nennt keine Zeilen·nummern und keine Anzahlen. Die veralten zuerst.",
+    "paragraph3": "Und: Das Spannende ist nicht, wo die Methode gut läuft. Spannend ist, wo sie mit Fehlern rechnet. Manche Prüfungen gibt es, weil ein Agent sich irren kann. Und dabei ganz sicher wirkt. An anderen Stellen gibt es keine Prüfung. Dort hilft nur die Anweisung. Du musst diesem Artikel nicht glauben. Die letzte Station nennt 3 Befehle. Sie prüfen, was eine Maschine prüfen kann."
+  },
+  "map": {
+    "title": "Station 1 — Die Karte hat eine Grenze",
+    "text1": "Ein Agent öffnet das Projekt. Zuerst liest er die Datei AGENTS.md. Mehr als 150 Zeilen darf diese Datei nicht haben. Das ist keine Bitte. Ein Script zählt die Zeilen. Das Script heißt scripts/verify-harness.mjs. Wird die Datei zu lang? Dann meldet das Script einen Fehler. Auch die Datei CLAUDE.md wird geprüft. Sie ist sehr kurz. Sie verweist auf AGENTS.md. So bekommt kein Werkzeug heimlich andere Regeln. Das Script prüft auch jeden Link in AGENTS.md.",
+    "text2": "Wichtig ist: AGENTS.md ist eine Karte. Sie ist nicht das Regelbuch. Sie verlinkt auf die anderen Dateien. Dann hört sie auf.",
+    "text3": "Warum ist das gut? Eine sehr lange Datei liest niemand ganz. Und niemand pflegt sie. Eine kurze Datei wird jedes Mal gelesen. Die Zeilen·grenze sorgt dafür, dass sie kurz bleibt.",
+    "statLabel": "AGENTS.md",
+    "statValue": "150",
+    "statDescription": "So viele Zeilen darf die Datei höchstens haben"
+  },
+  "constitution": {
+    "title": "Station 2 — Die Verfassung hat eine Versions·nummer",
+    "text1": "Die Datei docs/CONSTITUTION.MD hat 7 Prinzipien. Sie hat eine Versions·nummer wie ein Programm. Ändert jemand die Verfassung? Dann muss er sagen, was sich ändert. Er muss auch alle abhängigen Dateien mit ändern. Und zwar im selben Schritt.",
+    "text2": "2 Prinzipien sind für diesen Artikel wichtig. Prinzip 1 sagt: Der Mensch entscheidet alles, was man nicht zurücknehmen kann. Der Agent macht nur Vorschläge. Prinzip 6 sagt: Wenn ein Text und die Daten sich widersprechen, dann gewinnen die Daten. Auch dieser Artikel ist so ein Text. Die Dateien sind die Daten."
+  },
+  "standards": {
+    "title": "Station 3 — Standards sind eine Tabelle",
+    "text1": "Im Ordner base/standards/ liegen 4 Dateien. Sie heißen A11Y, PRIVACY, SECURITY und QUALITY. Jede ist eine Tabelle. Jede Zeile hat eine Nummer, eine Regel und eine Begründung. Manche Regeln sind hart. Die Regel QUAL-001 ist hart. Sie sagt: Nichts ist fertig ohne grünen Build und grüne Tests.",
+    "text2": "Eine harte Regel kann man nicht umgehen. Ein Script prüft das. Für weiche Regeln gibt es eine Ausnahme. Die Ausnahme ist eine Datei im Projekt. Kein Schalter und keine Einstellung. In der Datei steht, wer entschieden hat. Und wann man es wieder prüft. Nach diesem Tag endet die Ausnahme. Die Ausnahme schaltet die Prüfung nicht ab. Die Prüfung läuft weiter. Sie meldet weiter. Sie blockiert nur nicht mehr.",
+    "footnoteTitle": "So fängt eine neue Kopie an",
+    "footnoteText": "In einer neuen Kopie gibt es keine Ausnahme·datei. Du kannst die Prüfung selbst starten. Sie sagt: keine Ausnahmen. Jede Prüfung blockiert. So soll es anfangen. Deine erste Ausnahme wird deine eigene Entscheidung sein. Mit deinem Namen und einem Datum."
+  },
+  "directives": {
+    "title": "Station 4 — Direktiven und Skills",
+    "text1": "Es gibt 2 Arten von Anweisungen. Eine Direktive ist Wissen. Der Agent nimmt es in jede Aufgabe mit. Ein Skill ist ein Auftrag. Man ruft ihn beim Namen. Die Direktiven liegen im Ordner directives/. Die Skills liegen im Ordner .claude/skills/.",
+    "text2": "Beide haben eine Liste. Ein Script prüft die Liste der Direktiven in 2 Richtungen. Jede Datei in der Liste muss es geben. Und jede Datei auf der Platte muss in der Liste stehen. Sonst findet ein Agent sie nicht.",
+    "text3": "Eine Direktive ist besonders wichtig für Station 9. Sie heißt directives/verification.md. Sie sagt: Wer baut, behält sein Wissen. Wer prüft, fängt jedes Mal neu an. Und der Prüfer soll widerlegen. Er soll nicht bestätigen.",
+    "driftTitle": "2 Fehler, die keine Listen·prüfung findet",
+    "drift1": "Ein Satz kann alt werden. Das Script prüft: Gibt es die Datei? Es prüft nicht: Stimmt der Text noch? Ein Beispiel: Ein Skill sagt, einen Ordner gibt es noch nicht. Aber den Ordner gibt es. Nichts geht kaputt. Darum meldet auch nichts den Fehler.",
+    "drift2": "Eine kurze Beschreibung kann etwas weglassen. Die Liste beschreibt jede Direktive in einer Zeile. Agenten wählen nach diesen Zeilen. Eine Direktive hat 3 Teile. Was, wenn die Zeile nur 2 Teile nennt? Dann kennen Agenten den dritten Teil nicht. Und die Listen·prüfung ist trotzdem grün.",
+    "driftClose": "Das ist genau, was Prinzip 6 sagt. Texte veralten. Die Daten gewinnen. Dagegen hilft nur Lesen. Man vergleicht jede Beschreibung mit ihrer Quelle. Das ist mühsam. Darum gilt: Änderst du eine Datei? Dann korrigiere ihre Beschreibung im selben Schritt."
+  },
+  "books": {
+    "title": "Station 5 — Die Bücher sind das Gedächtnis",
+    "text1": "Ein KI-Agent vergisst alles nach der Arbeit. Er hat kein Gedächtnis über mehrere Sitzungen. Darum gibt es 3 Dateien. JOURNAL.md ist ein Tagebuch. Dort steht, was getan wurde. Und warum. OPEN-QUESTIONS.md sammelt offene Fragen. Diese Fragen entscheidet der Mensch. Jede Frage hat auch einen Vorschlag. So bleibt nichts stehen, wenn niemand antwortet. CHANGELOG.md ist eine kurze Liste der Änderungen.",
+    "text2": "Das Kit liefert das Tagebuch und die Fragen·liste leer aus. Sie gehören deinem Projekt. Deine Kopie beginnt ihre eigene Geschichte. Im Tagebuch steht ein Beispiel·eintrag. Er sagt: Schreib auch auf, was kaputtging. Und warum. Das hilft später mehr als nur die Erfolge.",
+    "text3": "Die Regel sagt: ein kurzer Abschnitt pro Sitzung. Es gibt keine feste Zahl von Zeilen. Schreib, was der nächste Leser braucht. Das Tagebuch wird nie gekürzt. Es wächst mit dem Projekt.",
+    "text4": "Die Bücher sind nur so gut wie der Tag, an dem sie geschrieben wurden. Ein Skill liest das Tagebuch und sagt dir damit den Stand. Wurde ein Arbeitstag nie aufgeschrieben? Dann steht im Tagebuch zu wenig. Schau darum ab und zu in die Git·geschichte. Fehlt Arbeit im Tagebuch? Dann schreib den Eintrag nach. Und sag dazu, dass er zu spät kommt."
+  },
+  "gates": {
+    "title": "Station 6 — Die Gates",
+    "text1": "Ein Gate ist eine Maschinen·prüfung. Ein Build ist der Schritt, in dem aus dem Code die fertige App entsteht. Das Projekt hat mehrere Gesundheits·prüfungen. Sie prüfen zum Beispiel: Ist das Regelwerk heil? Sind die Ausnahmen gültig? Ist der Build grün? Ist der Code sauber? Sind die Tests grün? Jede Prüfung hat eine Erklärung in einfacher Sprache.",
+    "text2": "Ein Script prüft das Agenten·system selbst. Es heißt scripts/verify-harness.mjs. 2 seiner Prüfungen zeigen die Idee. Erstens: Eine Testdatei muss in der Testliste stehen. Sonst läuft sie nie. Die Tests bleiben trotzdem grün. Das sieht aus wie Sicherheit. Es ist keine. Zweitens: Manche unsichtbaren Zeichen machen eine Datei für die Suche unlesbar. Das Script verbietet sie. Beide Fehler übersieht man leicht. Darum prüft sie eine Maschine.",
+    "text3": "Es gibt auch ein Gate für die Hände des Agenten. Es ist ein Hook. Ein Hook ist ein kleines Programm. Es läuft vor jedem Befehl des Agenten. Der Hook verbietet gefährliche Befehle. Zum Beispiel: Daten löschen. Oder die Geschichte des Projekts umschreiben. Ein Script prüft, dass der Hook eingeschaltet ist. Für jedes Werkzeug, auch unter Windows.",
+    "text4": "Was der Hook nicht kann, steht daneben. Eine Tabelle sagt es Regel für Regel. Zum Beispiel: Kein Gate prüft, welche Daten das Projekt verlässt. Und der Hook gehört zu einem einzigen Werkzeug. Andere KI-Werkzeuge haben nur die Anweisung. Die Anweisung ist also die wichtigste Schicht.",
+    "storyTitle": "Warum die Tests im Build laufen",
+    "text5": "Jetzt das wichtigste Gate. Der Build hat einige Prüfungen. Sie lesen Dateien. Keine davon startet einen Test. Was, wenn die Tests nur auf Wunsch laufen? Dann kann der Build grün sein. Und die Tests können gleichzeitig kaputt sein. Die Meldung sagt: Der Build ist grün. Das ist wahr. Und es ist nutzlos.",
+    "text6": "Darum laufen die Tests am Ende von jedem Produktions·build. Bevor der Build·bericht geschrieben wird. Das Ergebnis der Tests kommt in den Build·bericht. Das Ergebnis gehört genau zu diesem Build. Ein Ergebnis von einem anderen Build zählt nicht.",
+    "text7": "Kaputte Tests stoppen also den ganzen Build. Das ist Absicht. Eine Warnung allein hätte den falschen Bericht wieder erlaubt. Es gibt einen Umweg. Den musst du ausdrücklich wählen. Und der Build·bericht sagt es dann.",
+    "text8": "Die Regel QUAL-001 sagt: Ohne grüne Tests ist nichts fertig. Die Regel allein schafft das nicht. Das schafft die Verbindung zur Maschine. Ein Standard, den niemand misst, ist nur ein Satz.",
+    "statTestsLabel": "Tests",
+    "statTestsValue": "build:prod",
+    "statTestsDescription": "Die Tests laufen in jedem Produktions·build",
+    "statSilentLabel": "Umweg",
+    "statSilentValue": "SKIP_TEST_GATE=1",
+    "statSilentDescription": "Nur mit Absicht. Der Build·bericht sagt es."
+  },
+  "specs": {
+    "title": "Station 7 — Erst formen, dann bauen",
+    "text1": "Große Arbeit wird vorher beschrieben. Diese Beschreibung heißt Spec. Eine Spec ist kein Handbuch. Sie beschreibt nur die Form der Arbeit. Sonst veraltet sie zu schnell. Offene Punkte bekommen eine Markierung. Mehr als 3 offene Punkte sind nicht erlaubt.",
+    "text2": "Es gibt ein großes Beispiel. Eine Bibliothek wurde getauscht. Die Spec sagt die Reihenfolge vor. Erst die Entscheidung aufschreiben. Dann die Quellen sichern. Dann bauen. Am Ende die Bücher pflegen. Für große Arbeit mit vielen Agenten gibt es auch eine Regel. Zuerst kommt ein kleiner Testlauf. Danach wird die große Arbeit geplant.",
+    "text3": "Jetzt die teure Lektion. Warum musste die Bibliothek getauscht werden? Die neue Version hatte eine andere Lizenz. Hochschulen und Behörden durften sie nicht mehr nutzen. Beim Update hatte das niemand gelesen. Der Build war grün. Die Tests waren grün. Aber ein Build kann keine Lizenz lesen.",
+    "text4": "Heute gibt es dafür eine Regel. Sie sagt: Lies die Lizenz vor dem Update. Hat sich die Lizenz geändert? Dann halt an. Ein Mensch entscheidet. Die Methode hat den Fehler nicht verhindert. Sie hat ihn aufgeschrieben. Und daraus eine Regel gemacht."
+  },
+  "human": {
+    "title": "Station 8 — Wo der Mensch entscheidet",
+    "text1": "Es gibt 3 Stufen für Aktionen. Grün ist harmlos. Der Agent macht es einfach. Gelb ist ein kurzer Halt. Der Agent sagt einen Satz und macht weiter. Rot braucht immer ein Ja vom Menschen. Rot ist zum Beispiel: veröffentlichen, Daten löschen, Geld ausgeben. Der Agent darf Rot nicht an einen anderen Agenten abgeben.",
+    "text2": "Die Datei OPEN-QUESTIONS.md sammelt offene Fragen. Das Kit liefert sie fast leer aus. Du füllst sie mit deinen eigenen Fragen. Der Agent schreibt jede Frage auf. Er schreibt auch seinen Vorschlag dazu. Dann arbeitet er mit diesem Vorschlag weiter. So bleibt nichts stehen. Später kommt deine Antwort auch in die Datei. Der Vorschlag bleibt dort stehen. So kannst du später nachzählen: Wie oft war ich einverstanden? Wo habe ich anders entschieden?",
+    "text3": "Es gibt noch mehr Stellen, an denen der Mensch entscheidet. Manche Fragen haben keine einzig richtige Antwort. Zum Beispiel: Wortwahl oder Aussehen. Dort entscheidet dein Geschmack. Der Agent zeigt dir mehrere Vorschläge. Andere Dinge müssen stimmen. Zum Beispiel: Fakten. Dort zeigt dir der Agent seine Funde. Er ändert sie nicht einfach. Und eine große Entscheidung mit einer neuen Lizenz wartet auf dein Ja."
+  },
+  "wave": {
+    "title": "Station 9 — 4 Stufen beim Prüfen",
+    "text1": "Das ist der wichtigste Teil des Artikels. Wie prüft man die Arbeit von Agenten? Das Projekt nutzt dafür 4 Stufen.",
+    "stagesTitle": "4 Stufen und wofür jede da ist",
+    "step1Label": "Gebaut",
+    "step1Description": "Ein Agent baut die Arbeit. Er merkt sich seine eigenen Entscheidungen.",
+    "step2Label": "Geprüft",
+    "step2Description": "Andere Agenten suchen Fehler. Jeder Fund sagt: Das ist falsch, und so ist es besser.",
+    "step3Label": "Repariert",
+    "step3Description": "Ein Durchgang beantwortet alle Funde.",
+    "step4Label": "Nochmal geprüft",
+    "step4Description": "Eine neue Prüfung versucht, die Reparatur zu widerlegen. Ist sie unsicher? Dann sagt sie: nicht geprüft.",
+    "text2": "Die schwersten Fehler stehen oft in Beispiel·code. Also genau da, wo Leser abschreiben.",
+    "text3": "Nach Stufe 3 würden viele Projekte fertig sagen. 2 Stufen sind sich ja einig. Aber eine Direktive warnt davor. Sind sich alle einig, kann der Fehler trotzdem da sein. Alle können denselben blinden Fleck haben. Darum läuft eine 4. Prüfung. Diese Stufe bestellt niemand gern. Sie kommt, wenn die Arbeit sich fertig anfühlt.",
+    "findingsTitle": "Was eine 4. Prüfung oft findet",
+    "finding1": "Ein falscher Satz wurde repariert. Jetzt ist der neue Satz auch falsch. Er sagt das Gegenteil.",
+    "finding2": "Eine Zeilen·nummer wurde korrigiert. Die neue Nummer ist um 1 daneben.",
+    "finding3": "Eine unklare Stelle wurde repariert. Aber die Reparatur hat eine neue unklare Stelle gemacht.",
+    "text4": "Auch die 4. Prüfung kann sich irren. Sie sortiert ihre Funde. Manche gelten als nicht so wichtig. Schau dir auch diese an. Manche davon können trotzdem zählen.",
+    "text5": "Es gibt keine Stufe ohne Fehler. Es gibt nur eine Stufe, ab der die Fehler klein genug sind. Wer das entscheidet, liest die Texte selbst. Ein grüner Haken reicht dafür nicht. Und: Einen richtigen Satz zu schreiben ist schwerer, als einen falschen zu finden.",
+    "text6": "Das gilt auch für eine einzelne Messung. Prüf zuerst dein Mess·werkzeug. Ein Beispiel: Ein Agent misst Farben in der App. Aber die App ist gar nicht gestartet. Alle Werte sind falsch. Der Agent soll das laut sagen. Dann soll er das Mess·werkzeug reparieren. Nicht die Zahl.",
+    "text7": "Was das Prüfen kostet, steht hier nicht. Kosten ändern sich mit dem Werkzeug und mit dem Tag. Die 4 Stufen bleiben gleich. Du kannst sie für deine eigene Arbeit nutzen."
+  },
+  "epilogue": {
+    "title": "Station 10 — Was diese Tour nicht kann",
+    "text1": "Dieser Artikel ist nur ein Abbild. Die Daten sind wichtiger als der Artikel. Und in deiner Kopie ändern sich die Daten. Station 4 hat es gezeigt: Ein Satz kann alt werden. Und jede Prüfung bleibt grün. Dieser Artikel besteht aus solchen Sätzen.",
+    "text2": "Glaube ihm also nicht einfach. Öffne deine Kopie. Und lass 3 Befehle laufen. Sie prüfen das Regelwerk, die Ausnahmen und die Tests. Was sie sagen, ist der echte Stand. Nicht dieser Artikel."
+  },
+  "takeaways": {
+    "containerTitle": "Das Wichtigste",
+    "item1": "Regeln halten, wenn eine Maschine sie prüft. Die Zeilen·grenze, die Listen, die Tags: Hinter jedem Satz steht ein Script.",
+    "item2": "Ein Standard, den niemand misst, ist nur ein Satz. Die Tests zählen, weil jeder Produktions·build sie laufen lässt.",
+    "item3": "Eine Ausnahme ist eine Datei. Kein Schalter. Sie schaltet eine Prüfung nie ab.",
+    "item4": "Einen Fehler finden und einen Fehler reparieren sind 2 verschiedene Fähigkeiten. Darum braucht es eine Prüfung nach der Reparatur.",
+    "item5": "Die Bücher machen die Arbeit später nachprüfbar. Aber nur, wenn jemand sie schreibt. In deiner Kopie beginnen sie leer."
+  },
+  "checkpoint": {
+    "title": "Sitzt es?",
+    "item1": "Ich kann sagen, warum eine Ausnahme eine Datei ist und kein Schalter.",
+    "item2": "Ich kann erklären, warum die Tests im Produktions·build laufen.",
+    "item3": "Ich kann sagen, warum nach der Reparatur eine 4. Prüfung läuft."
+  },
+  "quiz": {
+    "boxTitle": "Quiz",
+    "q1": {
+      "question": "Was macht eine Ausnahme·datei mit einer Prüfung?",
+      "a": "Sie schaltet die Prüfung ab.",
+      "b": "Die Prüfung läuft und meldet weiter. Sie blockiert nur nicht mehr.",
+      "c": "Sie löscht den Standard aus der Tabelle.",
+      "d": "Sie versteckt die Prüfung im Bericht.",
+      "explanation": "Eine Ausnahme ist eine Datei im Projekt. Sie hat 5 Pflicht·felder. Die Prüfung läuft weiter und meldet weiter. Sie blockiert nur nicht mehr. Bei harten Regeln geht das gar nicht."
+    },
+    "q2": {
+      "question": "Warum laufen die Tests im Produktions·build?",
+      "a": "Die anderen Prüfungen starten die Tests schon.",
+      "b": "Der Build·bericht braucht eine Zahl für die Webseite.",
+      "c": "Die anderen Prüfungen starten keinen Test. Ohne diesen Schritt kann ein Build grün sein, obwohl die Tests kaputt sind.",
+      "d": "Die Tests sind zu langsam für die tägliche Arbeit.",
+      "explanation": "Die anderen Prüfungen lesen nur Dateien. Sie starten nie einen Test. Darum laufen die Tests am Ende von jedem Produktions·build. Das Ergebnis kommt in den Build·bericht."
+    },
+    "q3": {
+      "question": "Warum lohnt sich eine Prüfung nach der Reparatur?",
+      "a": "Es ist nur eine Formsache.",
+      "b": "Eine Reparatur kann neue Fehler machen.",
+      "c": "Die Prüfer vorher sind unzuverlässig.",
+      "d": "Es verteilt die Kosten auf mehr Agenten.",
+      "explanation": "Die Funde können alle stimmen. Und die Reparatur kann trotzdem falsch sein. Eine neue Prüfung versucht, die Reparatur zu widerlegen. So findet sie die neuen Fehler."
+    },
+    "q4": {
+      "question": "Was schreibt der Agent zu jeder offenen Frage dazu?",
+      "a": "Nichts. Er hält an und wartet.",
+      "b": "Seinen Vorschlag. Damit arbeitet er weiter.",
+      "c": "Seine endgültige Entscheidung.",
+      "d": "Das steht nirgends.",
+      "explanation": "Bei jeder Frage steht ein Vorschlag. Der Agent arbeitet damit weiter. So bleibt nichts stehen. Später siehst du, wo du anders entschieden hast."
+    },
+    "q5": {
+      "question": "Ein Text widerspricht dem Code. Wer gewinnt?",
+      "a": "Der Text gewinnt.",
+      "b": "Beide sind gleich viel wert.",
+      "c": "Die Daten gewinnen. Der Text ist nur ein Abbild.",
+      "d": "Es muss sofort ein Mensch entscheiden.",
+      "explanation": "Das sagt Prinzip 6 der Verfassung. Ein Text über den Code ist nur ein Abbild. Bei einem Widerspruch gewinnen die Daten."
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "petrovic-mutation-2021",
+  "type": "paper",
+  "authors": "Goran Petrović, Marko Ivanković, Gordon Fraser, René Just",
+  "year": "2021",
+  "publication": "arXiv",
+  "url": "https://arxiv.org/abs/2102.11378",
+  "doi": "10.48550/arXiv.2102.11378",
+  "accessed": "2026-08-16",
+  "tags": [
+    "mutation-testing",
+    "test-adequacy",
+    "google",
+    "scale",
+    "seeded-faults"
+  ]
+}

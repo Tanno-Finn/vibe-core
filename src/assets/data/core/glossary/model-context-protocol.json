@@ -1,0 +1,68 @@
+{
+  "id": "model-context-protocol",
+  "category": "tools",
+  "difficulty": "intermediate",
+  "popularity": "high",
+  "abbreviations": [
+    "MCP"
+  ],
+  "englishTerm": "Model Context Protocol",
+  "childConcepts": [],
+  "parentConcepts": [
+    "function-calling"
+  ],
+  "alternativeNames": {
+    "de": [
+      "Model Context Protocol",
+      "MCP",
+      "Modell-Kontext-Protokoll"
+    ],
+    "en": [
+      "Model Context Protocol",
+      "MCP"
+    ],
+    "de-easy": [
+      "Model Context Protocol",
+      "MCP"
+    ],
+    "en-easy": [
+      "Model Context Protocol",
+      "MCP"
+    ]
+  },
+  "sources": [
+    {
+      "type": "documentation",
+      "citation": "Anthropic. (2024). Introducing the Model Context Protocol. Anthropic Blog, 25 November 2024.",
+      "url": "https://www.anthropic.com/news/model-context-protocol",
+      "notes": "Offizielle Ankündigung von MCP durch Anthropic; beschreibt das Protokoll als offenen Standard zur sicheren, bidirektionalen Verbindung von KI-Assistenten mit Datenquellen und Werkzeugen"
+    },
+    {
+      "type": "documentation",
+      "citation": "Anthropic. (2024). Model Context Protocol — Introduction. MCP Documentation.",
+      "url": "https://modelcontextprotocol.io/introduction",
+      "notes": "Technische Einführung in MCP: Client-Server-Architektur, drei Primitiva (Resources, Tools, Prompts), JSON-RPC-2.0-basiertes Transport-Layer"
+    },
+    {
+      "type": "documentation",
+      "citation": "Anthropic. (2024). Model Context Protocol Specification. GitHub: modelcontextprotocol/specification.",
+      "url": "https://github.com/modelcontextprotocol/specification",
+      "notes": "Formale Spezifikation des Protokolls inkl. Schema-Definitionen, Lifecycle-Regeln und Sicherheitsrichtlinien; Referenz für Implementierungen"
+    }
+  ],
+  "related": {
+    "glossary": [
+      "mcp-server",
+      "function-calling",
+      "context",
+      "context-engineering",
+      "agent",
+      "api"
+    ],
+    "articles": [
+      "art-apis-mcp"
+    ]
+  },
+  "createdAt": "2026-06-22",
+  "updatedAt": "2026-06-22"
+}

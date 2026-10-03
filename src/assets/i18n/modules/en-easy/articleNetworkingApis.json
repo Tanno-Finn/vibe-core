@@ -1,0 +1,185 @@
+{
+  "hero": {
+    "title": "The Internet & APIs",
+    "subtitle": "How computers talk to each other on the internet."
+  },
+  "toc": {
+    "lead": "Introduction",
+    "clientServer": "Client and Server",
+    "dns": "Addresses: IP and DNS",
+    "apis": "APIs: The Interface",
+    "takeaways": "Summary",
+    "checkpoint": "Comprehension Check",
+    "quiz": "Quiz"
+  },
+  "lead": {
+    "paragraph1": "You open a website. Your computer sends a message to another computer. That computer is far away. The answer comes back in less than one second. How does this work?",
+    "paragraph2": "Three ideas explain this. These ideas are in every app. By the end, you will understand what happens when a web page loads."
+  },
+  "clientServer": {
+    "title": "Client and Server: Like a Restaurant",
+    "definitionTitle": "Client, Server, and HTTP",
+    "analogy": "Think of a restaurant. You are the guest. You order something. The waiter brings the order to the kitchen. The kitchen makes the food. The waiter brings it back. On the internet, your computer is the guest. It is called the client. The other computer is the kitchen. It is called the server.",
+    "scientific": "The client sends a request. The server sends a response back. The web uses HTTP as its language. HTTP stands for Hypertext Transfer Protocol. A request has a method like GET or POST. The response has a code like 200 or 404.",
+    "analogyBreak": "A web server serves thousands of guests at the same time. No restaurant can do that. A server can also become a client itself. The network can make mistakes. Data can get lost.",
+    "walkthrough": {
+      "title": "What happens when you type google.com?",
+      "step1": "Your browser asks: What is the address of google.com?",
+      "step2": "Browser and server connect.",
+      "step3": "The browser sends a request.",
+      "step4": "The server creates the response.",
+      "step5": "The server sends the web page back.",
+      "step6": "The browser shows the page. This takes less than half a second."
+    },
+    "misconception": {
+      "title": "Wrong idea: Internet is the same as the Web",
+      "text": "Internet and Web are not the same. The internet is cables and routers. The Web is just one service on the internet. There is also email and streaming."
+    }
+  },
+  "dns": {
+    "title": "Addresses: IP and DNS",
+    "definitionTitle": "IP Address, DNS, and Port",
+    "analogy": "DNS is like a phone book. But not one big book. It is a chain of books. Each book knows part of the answer. In the end, you find the right number.",
+    "scientific": "Every device on the internet has an IP address. It is a number. IPv4 has numbers like 192.168.0.1. DNS translates names like google.com into these numbers. Ports are like extensions. Port 443 is for secure websites.",
+    "stats": {
+      "ipv4": {
+        "label": "IPv4 Addresses",
+        "value": "4.3",
+        "suffix": " B",
+        "description": "There are 4.3 billion. That is not enough for all devices."
+      },
+      "dnsTime": {
+        "label": "DNS Lookup",
+        "description": "The name lookup takes about 50 milliseconds."
+      },
+      "port": {
+        "label": "HTTPS Port",
+        "description": "Port 443 is for secure websites."
+      }
+    },
+    "phoneBookAnalogy": "Your browser first checks its own memory. Then it asks your internet provider. The provider asks further. In the end, the IP address comes back. The result is saved.",
+    "analogyBreak": "A real phone book is printed once a year. DNS entries can change in minutes. DNS queries are active requests to servers.",
+    "resolution": {
+      "title": "DNS Resolution: Step by Step",
+      "step1": "Browser checks its own memory.",
+      "step2": "No match: request goes to the internet provider.",
+      "step3": "The provider asks the root server: Who knows .com?",
+      "step4": "The .com server says: Google uses these servers.",
+      "step5": "Google's server gives the IP address.",
+      "step6": "The address is saved. Next time it will be faster."
+    },
+    "portsExplanation": "Ports are like extensions. The IP address is the main number. The port points to the right service. Port 80 is HTTP. Port 443 is HTTPS. Port 22 is SSH.",
+    "misconception": {
+      "title": "Wrong idea: My IP address shows who I am",
+      "text": "Your IP address changes often. Many devices share one address. The IP is like a hotel room number. It does not show who you are."
+    }
+  },
+  "apis": {
+    "title": "APIs: The Menu for Programs",
+    "definitionTitle": "API, REST, and JSON",
+    "analogy": "An API is like a menu. The menu shows what is available. You order by the rules. You get your result. It does not matter if you are an app or a program.",
+    "scientific": "API stands for Application Programming Interface. It is an interface. One program uses the functions of another program. Web APIs use HTTP. The data comes as JSON.",
+    "analogyBreak": "API responses can be very complex. APIs often need a key. There are limits on requests per minute. That does not happen in a restaurant.",
+    "comparison": {
+      "websiteLabel": "Website (Browser)",
+      "websiteResult": "The server sends HTML with colors and images. The browser shows the page. Made for humans.",
+      "apiLabel": "API (Program)",
+      "apiResult": "The server sends data as JSON. A program processes the data. Made for machines."
+    },
+    "weatherExample": "An example: A weather API. You send the city name Berlin. The answer comes as JSON: temperature 18 degrees, cloudy. No images. Just data.",
+    "aiForwardLink": "Exciting: An AI API works the same way. You send a question. The answer comes as JSON. Instead of a database, a neural network does the work.",
+    "misconception": {
+      "title": "Wrong idea: APIs are only for programmers",
+      "text": "Every app on your phone uses APIs. The weather widget asks an API. The transit app asks an API. You do not see the APIs. But they are everywhere."
+    }
+  },
+  "deepDive": {
+    "httpMethods": {
+      "title": "HTTP Methods and Status Codes",
+      "text": "HTTP has a small vocabulary. GET means: read something. POST means: send something. PUT means: replace something. DELETE means: remove something.",
+      "statusCodes": "Status codes are short answers. 200 means: all good. 404 means: not found. 500 means: the server has a problem."
+    },
+    "aiApis": {
+      "title": "From Weather APIs to AI APIs",
+      "text": "A weather API: You send a city name. You get the temperature. An AI API: You send a question. You get an answer. The pattern is the same.",
+      "samePattern": "HTTP and JSON are the same in both cases. Only the server works differently. Once a database. Once a neural network."
+    }
+  },
+  "takeaways": {
+    "containerTitle": "Key Takeaways",
+    "items": {
+      "clientServer": "The internet follows a pattern: Client asks, server answers. This is true for websites, apps, and AI chatbots.",
+      "dns": "DNS is the phone book of the internet. It translates names into numbers.",
+      "api": "An API is an interface. Programs talk to other programs through it. Every app uses APIs.",
+      "json": "JSON is the format for API data. It is easy to read. Every programming language understands JSON.",
+      "cloud": "The cloud is computers in data centers. They work like any website."
+    }
+  },
+  "quiz": {
+    "boxTitle": "Quiz: Internet & APIs",
+    "q1": {
+      "question": "What does DNS do on the internet?",
+      "a": "DNS encrypts data",
+      "b": "DNS translates names into numbers",
+      "c": "DNS stores websites",
+      "d": "DNS protects against viruses",
+      "explanation": "DNS translates names like google.com into numbers. Without DNS, you would have to remember the numbers."
+    },
+    "q2": {
+      "question": "You type google.com. You get an error: \"DNS resolution failed.\" What does that mean?",
+      "a": "Google's computer is broken",
+      "b": "Your browser could not translate google.com into a number",
+      "c": "The website no longer exists",
+      "d": "Your internet is too slow",
+      "explanation": "The browser could not translate the name google.com into an IP address. This is often because of the DNS server or the internet connection."
+    },
+    "q3": {
+      "question": "A weather app shows 18 degrees for Berlin. What happens in the background?",
+      "a": "The app has all weather data saved",
+      "b": "The app opens a website",
+      "c": "The app asks an API and gets JSON data back",
+      "d": "The app takes a photo of a weather website",
+      "explanation": "The app asks a weather API. The API sends the temperature back as JSON data. No website. Just data."
+    },
+    "q4": {
+      "question": "Websites and APIs both use HTTP. What is the difference?",
+      "a": "APIs are faster",
+      "b": "Websites use GET, APIs use POST",
+      "c": "Websites send HTML for the browser. APIs send JSON data for programs.",
+      "d": "APIs only work on phones",
+      "explanation": "Websites send HTML with images and colors. APIs send JSON data without images. Both use HTTP."
+    }
+  },
+  "checkpoint": {
+    "title": "Comprehension Check",
+    "item1": "You type google.com. But the page does not come. What does the browser do before it shows the page?",
+    "item2": "Why does DNS exist? Why do we not just type in numbers?",
+    "item3": "Your weather widget shows 18 degrees for Berlin. Where does the app get this number?"
+  },
+  "enrichment": {
+    "tocLabel": "Try It: HTTP",
+    "sectionTitle": "Try It: The Journey of a Web Request",
+    "intro": {
+      "title": "HTTP Request: From Browser to Server",
+      "description": "Click Play. Follow step by step what happens when your browser calls an API."
+    },
+    "edu": {
+      "title": "Why does this matter?",
+      "description": "Every website uses HTTP requests.\nEvery app uses HTTP requests.\nEvery AI tool uses HTTP requests.\nWhen you understand how a request works,\nyou can use APIs.\nYou can find errors faster.\nYou understand how software communicates."
+    },
+    "stage": {
+      "title1": "Browser (Client)",
+      "title2": "DNS Lookup",
+      "title3": "Connection",
+      "title4": "Send Request",
+      "title5": "Server Works",
+      "title6": "Get Response",
+      "desc1": "You type a web address. The browser is the client. It starts the request.",
+      "desc2": "The browser needs a number for the name. It asks the DNS server.",
+      "desc3": "With the number, the browser connects to the server.",
+      "desc4": "The browser sends the request. It says what it wants.",
+      "desc5": "The server gets the request. It looks up the answer.",
+      "desc6": "The server sends the answer back. It includes the data."
+    }
+  }
+}

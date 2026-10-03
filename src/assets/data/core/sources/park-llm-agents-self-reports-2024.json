@@ -1,0 +1,16 @@
+{
+  "id": "park-llm-agents-self-reports-2024",
+  "type": "paper",
+  "authors": "Joon Sung Park, Carolyn Q. Zou, Jonne Kamphorst, Niles Egan, Aaron Shaw, Benjamin Mako Hill, Carrie Cai, Meredith Ringel Morris, Percy Liang, Robb Willer, Michael S. Bernstein",
+  "year": "2024",
+  "publication": "LLM Agents Grounded in Self-Reports Enable General-Purpose Simulation of Individuals. arXiv:2411.10109",
+  "url": "https://arxiv.org/abs/2411.10109",
+  "doi": "10.48550/arXiv.2411.10109",
+  "accessed": "2026-08-18",
+  "tags": [
+    "generative-agents",
+    "personensimulation",
+    "messung",
+    "interview"
+  ]
+}

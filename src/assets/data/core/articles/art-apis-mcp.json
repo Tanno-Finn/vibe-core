@@ -1,0 +1,26 @@
+{
+  "id": "art-apis-mcp",
+  "pageId": "amcp",
+  "created": "2026-08-30",
+  "updated": "2026-08-11",
+  "toolReferences": [],
+  "resourceReferences": [],
+  "sourceReferences": [],
+  "draft": true,
+  "related": {
+    "articles": [
+      "art-networking-apis",
+      "art-vibecoding",
+      "art-context-engineering"
+    ],
+    "glossary": [
+      "api",
+      "model-context-protocol",
+      "mcp-server",
+      "function-calling",
+      "agent-loop",
+      "agent"
+    ],
+    "timeline": []
+  }
+}

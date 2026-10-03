@@ -1,0 +1,17 @@
+{
+  "id": "twelve-factor-config-2017",
+  "type": "article",
+  "authors": "Adam Wiggins",
+  "year": "2017",
+  "publication": "The Twelve-Factor App",
+  "url": "https://12factor.net/config",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "configuration",
+    "environment-variables",
+    "secrets",
+    "twelve-factor",
+    "open-source"
+  ]
+}

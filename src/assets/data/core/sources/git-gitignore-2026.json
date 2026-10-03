@@ -1,0 +1,17 @@
+{
+  "id": "git-gitignore-2026",
+  "type": "article",
+  "authors": "Git project contributors",
+  "year": "2026",
+  "publication": "Git documentation",
+  "url": "https://git-scm.com/docs/gitignore",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "git",
+    "gitignore",
+    "tracked-files",
+    "rm-cached",
+    "reference-manual"
+  ]
+}

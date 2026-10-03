@@ -1,0 +1,5 @@
+{
+  "term": "Retrieval-Augmented Generation (RAG)",
+  "description": "RAG ist eine Technik für Sprach-KI. Sie macht Antworten besser. So geht es: Die KI bekommt eine Frage. Zuerst sucht sie nach Informationen. Sie schaut in Dokumenten oder im Internet. Dabei sucht sie nicht nur nach gleichen Wörtern. Sie sucht nach Texten mit der gleichen Bedeutung. Dafür nutzt sie eine spezielle Datenbank. Dann liest sie die passenden Texte. Danach antwortet sie. Die Antwort ist genauer. Sie ist auch aktueller. Die KI kann sogar sagen, woher die Information kommt. Und die KI erfindet weniger falsche Dinge.",
+  "example": "Eine Firma hat einen Computer·helfer. Er beantwortet Kunden·fragen. Ein Kunde fragt: Wie lange ist die Garantie? Der Computer sucht zuerst die neuesten Garantie·regeln. Er liest sie. Dann antwortet er richtig. Ohne RAG würde er vielleicht alte Regeln sagen."
+}

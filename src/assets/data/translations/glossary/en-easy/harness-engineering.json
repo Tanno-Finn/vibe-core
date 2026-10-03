@@ -1,0 +1,8 @@
+{
+  "term": "Harness Engineering",
+  "alternativeNames": [
+    "Building the agent's workspace"
+  ],
+  "description": "Harness Engineering. This term is still quite new. It is about the workspace of an AI agent. An agent is an AI that works on its own. People build a safe workspace for the agent. They decide: The agent may do this. The agent may not do that. There are rules for its work. There are checks for its results. The agent also gets a notebook. This makes the agent safer and better.",
+  "example": "Think of a new worker in a workshop. He gets tools, rules, and someone who checks. Only then does he start. People build such a workshop for AI agents too."
+}

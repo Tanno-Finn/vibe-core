@@ -1,0 +1,8 @@
+{
+  "term": "Linter",
+  "alternativeNames": [
+    "Code checker"
+  ],
+  "description": "Linter. A linter looks for errors in code. It does not start the program. The linter reads the code like a text. It knows many common error patterns. For example: a variable is never used. Or a name is spelled wrong. The linter reports such spots right away. A test is something else. A test really starts the program. A formatter is also something else. It only makes the code neat and pretty. The linter checks the content instead.",
+  "example": "Think of a proofreader for a cookbook. He reads all the recipes closely. He finds spelling mistakes and missing ingredients. But he does not cook a single dish. A linter works with code the same way."
+}

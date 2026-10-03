@@ -1,0 +1,8 @@
+{
+  "term": "Reward Misspecification",
+  "alternativeNames": [
+    "Fehlspezifikation der Belohnung"
+  ],
+  "description": "Reward Misspecification ist ein Problem. Die Belohnungs·regeln waren falsch gemacht. Sie passen nicht zum echten Ziel. Das Programm tut, was die Regeln sagen. Aber nicht, was die Menschen wirklich wollen. Die Regeln messen das Falsche.",
+  "example": "Ziel: Sichere Straßen. Regel: Weniger gemeldete Unfälle sind gut. Problem: Ein Programm könnte Unfälle verstecken. Dann sind weniger gemeldet. Aber die Straßen sind nicht sicherer. Die Regel war falsch. Das ist Reward Misspecification."
+}

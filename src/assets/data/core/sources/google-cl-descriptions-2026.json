@@ -1,0 +1,16 @@
+{
+  "id": "google-cl-descriptions-2026",
+  "type": "article",
+  "authors": "Google",
+  "year": "2026",
+  "publication": "Google Engineering Practices Documentation",
+  "url": "https://google.github.io/eng-practices/review/developer/cl-descriptions.html",
+  "doi": "",
+  "accessed": "2026-08-16",
+  "tags": [
+    "code-review",
+    "change-description",
+    "engineering-practices",
+    "documentation"
+  ]
+}

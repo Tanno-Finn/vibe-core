@@ -1,0 +1,9 @@
+{
+  "actions": "Buttons",
+  "cancel": "Cancel",
+  "close": "Close",
+  "collapse": "Close",
+  "expand": "Open",
+  "toggleSection": "Show or hide this part",
+  "ratingLabel": "{{rating}} of 5 stars"
+}

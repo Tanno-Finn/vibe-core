@@ -1,0 +1,8 @@
+{
+  "term": "Human-in-the-Loop",
+  "description": "Human-in-the-Loop — often abbreviated as HITL — is an umbrella term for approaches in which human judgment is incorporated at the right point in an otherwise automated AI process. Several forms exist. First, human oversight and approval: for safety or regulatory reasons, a person must review or confirm critical decisions before they take effect — such as the human oversight required by the EU AI Act. No retraining is necessary here. Second, actively soliciting responses for uncertain cases during training (Active Learning), as well as human feedback during training (such as RLHF). A common variant combines both: the model makes the majority of decisions autonomously but routes low-confidence cases to a human, whose judgment then provides new training material. An elegant cycle: the AI continuously improves while the human can focus on the difficult, ambiguous cases. Particularly valuable in areas where errors are costly — medical diagnostics, content moderation, automated translation. A social media moderation system might automatically classify 95% of clear-cut cases (harmless or violating), while the remaining 5% of borderline content requires human judgment. If that feedback flows back into training, the model gradually learns to handle these edge cases better as well.",
+  "example": "An AI system for early cancer detection analyzes X-ray images. When it is 90% confident, it makes the diagnosis itself. When confidence is lower, it passes the image to a radiologist. The radiologist's assessment is used to improve the model.",
+  "alternativeNames": [
+    "HITL"
+  ]
+}

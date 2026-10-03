@@ -1,0 +1,163 @@
+{
+  "appearance": {
+    "description": "Passe die App an deine Wünsche an",
+    "title": "Aussehen einstellen",
+    "glossaryHighlighting": "Wörter hervorheben",
+    "glossaryHighlightingDescription": "Zeige wichtige Wörter farbig an (zum Beispiel Künstliche Intelligenz)"
+  },
+  "font": {
+    "title": "Schrift",
+    "description": "Wähle die Schrift, mit der du am liebsten liest. Alle Schriften sind frei verfügbar und kostenlos. Deine Auswahl bleibt auf diesem Gerät gespeichert. Bei Sprachen mit anderer Schrift (zum Beispiel Hindi, Bengali, Koreanisch oder Punjabi) wird automatisch Noto Sans benutzt.",
+    "system": {
+      "note": "Die Schrift von deinem Gerät. Sie wird nicht extra geladen. Sie sieht auf jedem Computer ein bisschen anders aus."
+    },
+    "sourceSans3": {
+      "note": "Eine ruhige und freundliche Schrift. Gut zu lesen, auch bei langen Texten. Empfohlen für die meisten."
+    },
+    "inter": {
+      "note": "Eine klare und moderne Schrift. Du kennst sie vielleicht von vielen anderen Webseiten und Apps."
+    },
+    "ibmPlexSans": {
+      "note": "Eine ruhige Schrift mit klaren Buchstaben und Zahlen. Sie wirkt etwas technisch."
+    },
+    "bricolageGrotesque": {
+      "note": "Eine besondere Schrift mit eigenem Charakter. Sie fällt etwas mehr auf als die anderen."
+    },
+    "atkinsonHyperlegible": {
+      "note": "Eine Schrift, die besonders gut zu lesen ist. Sie hilft, wenn du nicht so gut sehen kannst oder das Lesen für dich schwer ist. Aber: Sie hilft nur bei lateinischer Schrift. Für Hindi, Bengali, Koreanisch und Punjabi gibt es leider noch keine solche Schrift. Dort wird Noto Sans benutzt."
+    },
+    "andika": {
+      "note": "Eine sehr klare und freundliche Schrift. Sie wurde für Menschen entwickelt, die gerade erst lesen lernen. Die Buchstaben sind groß und gut zu erkennen. Sie hilft, wenn das Lesen für dich anstrengend ist. Zum Beispiel, wenn du dich schwer konzentrieren kannst oder im Alter nicht mehr so gut siehst."
+    },
+    "lexend": {
+      "note": "Eine Schrift, die wissenschaftlich getestet wurde. Mit ihr kann man besser lesen. Sie sieht fast normal aus. Hilft aber dabei, schneller und einfacher zu lesen."
+    },
+    "openDyslexic": {
+      "note": "Eine besondere Schrift für Menschen mit Lese-Rechtschreib-Schwäche (Legasthenie). Die Buchstaben haben unten ein dickes Ende. So kannst du sie besser unterscheiden. Zum Beispiel b und d. Das Aussehen ist ungewohnt. Aber vielen Menschen mit Legasthenie hilft sie sehr."
+    }
+  },
+  "data": {
+    "corruptedFile": "Die Datei hat ungültige Daten oder ist kaputt.",
+    "description": "Verwalte deinen Lern·fortschritt und deine App·daten",
+    "errorApplyingData": "Fehler beim Anwenden der Daten. Alte Einstellungen wurden wiederhergestellt.",
+    "errorReadingFile": "Fehler beim Lesen der Datei.",
+    "export": "Daten herunterladen",
+    "exportDescription": "Lade deinen ganzen Fortschritt und Einstellungen als Datei herunter",
+    "exportLabel": "Daten herunterladen",
+    "exportSuccess": "Herunterladen erfolgreich",
+    "exportSuccessDetail": "Deine Daten wurden erfolgreich heruntergeladen.",
+    "fileTooLarge": "Die Datei ist zu groß. Maximum: 1MB.",
+    "import": "Daten hochladen",
+    "importDescription": "Stelle deinen Fortschritt aus einer Datei wieder her. Dein Fortschritt kommt nur zurück, wenn du Ja zum Speichern gesagt hast.",
+    "importError": "Hochladen fehlgeschlagen",
+    "importErrorDetail": "Die Datei konnte nicht hochgeladen werden. Bitte prüfe das Format.",
+    "importLabel": "Daten hochladen",
+    "importSuccess": "Hochladen erfolgreich",
+    "importSuccessDetail": "Deine Daten wurden erfolgreich hochgeladen.",
+    "importProgressWithheld": "Deine Einstellungen sind wieder da. Dein Lern·fortschritt nicht. Du hast noch nicht Ja zum Speichern gesagt. Mach bei „Privatsphäre und Fortschritt“ den Schalter „Fortschritt speichern“ an. Dann lade die Datei noch einmal hoch.",
+    "invalidFile": "Bitte wähle eine gültige JSON-Datei.",
+    "legacyV1File": "Diese Datei ist alt. Damals wurden nur das Aussehen und die Sprache gespeichert. Ein neuer Download speichert jetzt deinen ganzen Fortschritt und alle Einstellungen.",
+    "reset": "Alle Daten löschen",
+    "resetConfirm": "Willst du wirklich alles löschen? Deinen Fortschritt. Deine Favoriten. Deine Feedback·nachrichten. Deine Cookie·wahl. Und alle Einstellungen. Das kann man nicht rückgängig machen.",
+    "resetDescription": "Das löscht alles, was diese Website in deinem Browser gespeichert hat. Das sind: dein Lern·fortschritt. Deine Favoriten. Deine Nachrichten von der Feedback·seite. Welche Neuigkeiten du gelesen hast. Deine Cookie·wahl. Und alle Einstellungen. Zum Beispiel Farben, Schrift und Sprache. Danach lädt die Seite neu.",
+    "resetFailed": "Löschen fehlgeschlagen",
+    "resetFailedDetail": "Beim Löschen der Daten ist ein Fehler passiert. Versuch es nochmal.",
+    "resetLabel": "Alle Daten löschen",
+    "resetSuccess": "Daten gelöscht",
+    "resetSuccessDetail": "Alle deine Daten und Einstellungen sind jetzt gelöscht. Die Seite lädt gleich neu.",
+    "title": "Daten verwalten"
+  },
+  "playground": {
+    "title": "Spielwiese",
+    "description": "Was passiert, wenn dem Entwickler um 1 Uhr nachts eine Idee kommt. Ist drin, weil Spielen manchmal gute Ideen bringt.",
+    "cursorTrail": "Kometen·schweif",
+    "cursorTrailDescription": "Hinterlässt eine leuchtende Spur hinter der Maus. Sieht cool aus.",
+    "cursorTrailPreview": "Beweg die Maus hierüber. Siehst du die Spur?"
+  },
+  "language": {
+    "description": "Stelle deine Lieblings·sprache für die App ein",
+    "easyLanguage": "Einfache Sprache",
+    "filterPlaceholder": "Sprache suchen...",
+    "interface": "Sprache",
+    "interfaceDescription": "Sprache der ganzen App",
+    "easyLanguageIcon": "Symbol für Einfache Sprache",
+    "loading": "Sprache wird geladen...",
+    "title": "Sprache einstellen",
+    "clearFilter": "Suche löschen"
+  },
+  "privacy": {
+    "dataControl": "Daten·kontrolle:",
+    "dataControlDetail": "Du hast die volle Kontrolle über deine Daten. Du kannst das Speichern von deinem Fortschritt ausschalten, deine Daten herunterladen oder jederzeit alles löschen.",
+    "dataInfo": "Daten·speicher Details",
+    "dataInfoDescription": "Lerne mehr darüber, welche Daten gespeichert werden.",
+    "dataStorageTitle": "Daten·speicher Info",
+    "dataTransmission": "Daten·übertragung:",
+    "dataTransmissionDetail": "Dein Lern·fortschritt bleibt in deinem Browser und wird nie an Server geschickt. Wenn du Statistiken erlaubst, werden anonyme Zahlen (welche Seiten, wie lange) an unseren eigenen Server gesendet — nicht an andere Firmen.",
+    "dataType": {
+      "preferences": "Design-, Sprach·einstellungen und App·einstellungen",
+      "quizProgress": "Geschaffte Quiz, Checkpoints und Lernpfade (nur wenn du Ja sagst)"
+    },
+    "dataTypes": "Arten der gespeicherten Daten:",
+    "description": "Bestimme, wie dein Lern·fortschritt gespeichert wird.",
+    "detailsCollapsed": "Daten·schutz·details geschlossen",
+    "detailsExpanded": "Daten·schutz·details geöffnet",
+    "hideDetails": "Details verstecken",
+    "progressDescription": "Speichere, welche Quiz, Checkpoints und Lernpfade du geschafft hast. Nur in deinem Browser. Es ist aus, bis du es anmachst.",
+    "progressTracking": "Fortschritt speichern",
+    "showDetails": "Details zeigen",
+    "storageLocation": "Speicher·ort:",
+    "storageLocationDetail": "Dein Lern·fortschritt (geschaffte Quiz, Checkpoints und Lernpfade) bleibt in deinem Browser. Er wird nur gespeichert, wenn du Ja sagst. Er verlässt dein Gerät nicht. Wenn du Statistiken erlaubst, gehen anonyme Nutzungs·zahlen an unseren Server (siehe Cookie·einstellungen).",
+    "title": "Privatsphäre und Fortschritt",
+    "trackingDisabled": "Fortschritt speichern: aus",
+    "trackingDisabledDetail": "Alle bestehenden Fortschritte wurden gelöscht und neue werden nicht gespeichert.",
+    "trackingEnabled": "Fortschritt speichern: an",
+    "trackingEnabledDetail": "Deine geschafften Quiz, Checkpoints und Lernpfade werden jetzt gespeichert. Auch das, was du vorher bei diesem Besuch gemacht hast.",
+    "cookieSettings": "Cookie·einstellungen",
+    "cookieSettingsDescription": "Hier kannst du deine Wahl jederzeit ändern. Unten auf jeder Seite gibt es denselben Knopf: „Cookie·einstellungen“.",
+    "openCookieSettings": "Cookie·einstellungen öffnen"
+  },
+  "subtitle": "Hier kannst du das Portal nach deinen Wünschen einstellen.",
+  "tableOfContents": "Inhalts·verzeichnis",
+  "theme": {
+    "accessibility": "Hilfen zum Lesen",
+    "color": "Farbthema",
+    "colorDescription": "Wähle deine Lieblings·farbe",
+    "colorVariant": "Farbe",
+    "dark": "Dunkel",
+    "family": "Art",
+    "highContrast": "Starker Kontrast",
+    "highContrastDescription": "Nur schwarz und weiß. Damit kann man besser lesen.",
+    "light": "Hell",
+    "mode": "Anzeigeart",
+    "modeChanged": "Anzeigeart zu {mode} geändert",
+    "modeDarkLabel": "Anzeigeart Dunkel",
+    "modeDescription": "Wähle zwischen Hell, Dunkel oder System",
+    "modeLightLabel": "Anzeigeart Hell",
+    "modeSystemLabel": "Anzeigeart System",
+    "moreOptions": "Mehr in den Einstellungen",
+    "readableFont": "Schrift für Legasthenie",
+    "readableFontDescription": "Eine besondere Schrift. Sie hilft beim Lesen.",
+    "readableFontUnsupported": "Geht nicht für diese Sprache",
+    "select": "Wähle ein Design",
+    "system": "System",
+    "title": "Design einstellen",
+    "styles": {
+      "werkbund": {
+        "name": "Werkbund",
+        "description": "Gerade Kanten und ein kräftiges Rot. Der Stil sieht sachlich aus. Er passt gut zum Arbeiten."
+      },
+      "lernwerkstatt": {
+        "name": "Lern·werkstatt",
+        "description": "Runde Formen und eine gut lesbare Schrift. Der Stil sieht freundlich aus. Er passt gut zum Lernen."
+      },
+      "skizzenbuch": {
+        "name": "Skizzen·buch",
+        "description": "Warmes Papier und feine Striche. Der Stil sieht aus wie mit der Hand gezeichnet. Er passt gut zum Ausprobieren."
+      },
+      "blaupause": {
+        "name": "Blaupause",
+        "description": "Feine Linien und ein Raster in Blau. Der Stil sieht aus wie ein Bauplan. Er passt gut zum Nachschlagen."
+      }
+    }
+  }
+}

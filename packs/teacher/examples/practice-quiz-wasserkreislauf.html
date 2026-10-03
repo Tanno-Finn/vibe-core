@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Übungsquiz — Der Wasserkreislauf</title>
+    <!-- DRY-RUN OUTPUT of the `practice-quiz` job on _input-wasserkreislauf.md.
+     The <style> below is packs/teacher/assets/print.css inlined VERBATIM (self-contained).
+     Lösungsschlüssel on its own page. -->
+    <style>
+      :root {
+        --ink: #111;
+        --muted: #555;
+        --rule: #999;
+        --box: #bbb;
+        --band: #f2f2f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: 'Segoe UI', Arial, 'Helvetica Neue', sans-serif;
+        color: var(--ink);
+        line-height: 1.45;
+        font-size: 12pt;
+        margin: 0;
+        background: #fff;
+      }
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+      }
+      .sheet {
+        max-width: 180mm;
+        margin: 0 auto;
+        padding: 0 4mm;
+      }
+      .draft-stamp {
+        display: block;
+        border: 2px solid var(--ink);
+        border-radius: 4px;
+        padding: 3px 10px;
+        margin: 0 0 12px;
+        font-weight: 700;
+        font-size: 11pt;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .handout-head {
+        border-bottom: 2px solid var(--ink);
+        padding-bottom: 6px;
+        margin-bottom: 14px;
+      }
+      .handout-head h1 {
+        font-size: 18pt;
+        margin: 0 0 2px;
+      }
+      .handout-head .meta {
+        font-size: 10.5pt;
+        color: var(--muted);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 18px;
+      }
+      .name-date {
+        display: flex;
+        gap: 24px;
+        margin: 6px 0 0;
+        font-size: 11pt;
+      }
+      .name-date .field {
+        flex: 1;
+        border-bottom: 1px solid var(--ink);
+        min-height: 1.6em;
+      }
+      .name-date .label {
+        color: var(--muted);
+      }
+      h2 {
+        font-size: 13.5pt;
+        margin: 18px 0 6px;
+        border-bottom: 1px solid var(--rule);
+        padding-bottom: 2px;
+      }
+      h3 {
+        font-size: 12pt;
+        margin: 12px 0 4px;
+      }
+      .input-box {
+        background: var(--band);
+        border: 1px solid var(--box);
+        border-radius: 4px;
+        padding: 8px 12px;
+        margin: 8px 0;
+      }
+      ol.tasks {
+        padding-left: 1.4em;
+      }
+      ol.tasks > li {
+        margin: 0 0 12px;
+      }
+      .answer-lines {
+        border-bottom: 1px solid var(--rule);
+        height: 1.9em;
+        margin: 6px 0;
+      }
+      .answer-lines.tall {
+        height: 5.8em;
+        background: repeating-linear-gradient(#fff, #fff 1.85em, var(--rule) 1.85em, var(--rule) calc(1.85em + 1px));
+        border-bottom: none;
+      }
+      .ab-tag {
+        display: inline-block;
+        font-weight: 600;
+        font-size: 9.5pt;
+        border: 1px solid var(--muted);
+        border-radius: 3px;
+        padding: 0 5px;
+        margin-right: 4px;
+        white-space: nowrap;
+      }
+      .q {
+        margin: 12px 0;
+      }
+      .q .stem {
+        font-weight: 600;
+      }
+      .q .tag {
+        font-weight: 400;
+        color: var(--muted);
+        font-size: 10pt;
+      }
+      .opt {
+        margin: 3px 0 3px 1.2em;
+      }
+      table.terms,
+      table.grid {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 8px 0;
+      }
+      table.terms th,
+      table.terms td,
+      table.grid th,
+      table.grid td {
+        border: 1px solid var(--box);
+        padding: 6px 8px;
+        vertical-align: top;
+        text-align: left;
+        font-size: 11pt;
+      }
+      table.terms th,
+      table.grid th {
+        background: var(--band);
+      }
+      table.terms td.def {
+        min-height: 2.2em;
+      }
+      .answer-key {
+        border: 1px dashed var(--muted);
+        border-radius: 4px;
+        padding: 8px 12px;
+        margin-top: 10px;
+      }
+      .answer-key h2 {
+        border: none;
+        margin-top: 0;
+      }
+      .teacher-note {
+        color: var(--muted);
+        font-size: 10.5pt;
+        font-style: italic;
+      }
+      .ablauf {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0;
+      }
+      .ablauf > li {
+        display: flex;
+        gap: 10px;
+        margin: 0 0 6px;
+      }
+      .ablauf .t {
+        flex: 0 0 6.5em;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      .handout-foot {
+        margin-top: 16px;
+        padding-top: 6px;
+        border-top: 1px solid var(--rule);
+        font-size: 9pt;
+        color: var(--muted);
+      }
+      .page-break {
+        break-before: page;
+        page-break-before: always;
+      }
+      ol.tasks > li,
+      table.terms tr,
+      .input-box,
+      .ablauf > li,
+      .q {
+        break-inside: avoid;
+      }
+      @media screen {
+        body {
+          background: #e9e9e9;
+          padding: 16px 0;
+        }
+        .sheet {
+          background: #fff;
+          box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+          padding: 16mm;
+          border-radius: 2px;
+        }
+      }
+      @media print {
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sheet">
+      <!-- Seite 1 — Quiz -->
+      <p class="draft-stamp">Entwurf, ungeprüft</p>
+
+      <header class="handout-head">
+        <h1>Übungsquiz: Der Wasserkreislauf</h1>
+        <div class="meta">
+          <span>Fach: Biologie / Sachunterricht</span><span>Klasse: 5–6</span><span>Punkte gesamt: 10</span>
+        </div>
+        <div class="name-date">
+          <span class="field"><span class="label">Name:</span></span>
+          <span class="field"><span class="label">Datum:</span></span>
+        </div>
+      </header>
+
+      <div class="q">
+        <p class="stem">
+          1. Multiple-Choice <span class="tag">(Wissen · 1 P.)</span><br />
+          Wie nennt man den Vorgang, bei dem Wasser durch Wärme zu Wasserdampf wird?
+        </p>
+        <div class="opt">☐ a) Kondensation</div>
+        <div class="opt">☐ b) Verdunstung</div>
+        <div class="opt">☐ c) Niederschlag</div>
+        <div class="opt">☐ d) Versickerung</div>
+      </div>
+
+      <div class="q">
+        <p class="stem">
+          2. Wahr / Falsch mit Begründung <span class="tag">(Anwenden · 2 P.)</span><br />
+          „Wolken entstehen, weil Wasserdampf in kälterer Luft wieder zu Tröpfchen wird.“
+        </p>
+        <div>Wahr ☐&nbsp;&nbsp;Falsch ☐</div>
+        <div>Begründung:</div>
+        <div class="answer-lines"></div>
+      </div>
+
+      <div class="q">
+        <p class="stem">
+          3. Zuordnung <span class="tag">(Wissen · 2 P.)</span> — Ordne Begriff und Beschreibung zu (a–1 …):
+        </p>
+        <table class="grid">
+          <tr>
+            <th>Begriff</th>
+            <th>Beschreibung</th>
+          </tr>
+          <tr>
+            <td>a) Verdunstung</td>
+            <td>1) Tröpfchen fallen als Regen oder Schnee zu Boden</td>
+          </tr>
+          <tr>
+            <td>b) Kondensation</td>
+            <td>2) Wasser steigt als Dampf in die Luft</td>
+          </tr>
+          <tr>
+            <td>c) Niederschlag</td>
+            <td>3) Wasserdampf wird in der Höhe zu Wolken</td>
+          </tr>
+        </table>
+        <div>Antwort: a – ____ b – ____ c – ____</div>
+      </div>
+
+      <div class="q">
+        <p class="stem">4. Lückentext <span class="tag">(Anwenden · 2 P.)</span></p>
+        <p>Die ______________ erwärmt das Wasser. Über Bäche und Flüsse fließt das Wasser zurück ins ______________.</p>
+      </div>
+
+      <div class="q">
+        <p class="stem">
+          5. Offene Frage <span class="tag">(Transfer · 3 P.)</span><br />
+          Warum geht dem Meer trotz ständiger Verdunstung das Wasser nicht aus? Beziehe alle vier Schritte des
+          Wasserkreislaufs in deine Antwort ein.
+        </p>
+        <div class="answer-lines tall"></div>
+      </div>
+
+      <footer class="handout-foot">
+        Übungsquiz · Wasserkreislauf · Klasse 5–6 — Entwurf, ungeprüft. Mit KI-Unterstützung erstellt — vor dem Einsatz
+        prüfen. Lösungen auf der Folgeseite; ohne diese Seite drucken.
+      </footer>
+
+      <!-- Seite 2 — Lösungsschlüssel -->
+      <div class="page-break"></div>
+      <p class="draft-stamp">Entwurf, ungeprüft</p>
+      <div class="answer-key">
+        <h2>Lösungsschlüssel (für die Lehrkraft)</h2>
+        <ol>
+          <li>b) Verdunstung. <span class="teacher-note">(1 P.)</span></li>
+          <li>
+            Wahr. <span class="teacher-note">Erwartungshorizont (2 P.):</span> In der Höhe ist die Luft kälter, der
+            Wasserdampf kühlt ab und kondensiert zu winzigen Tröpfchen → Wolke.
+          </li>
+          <li>a – 2, b – 3, c – 1. <span class="teacher-note">(2 P.)</span></li>
+          <li>Sonne; Meer. <span class="teacher-note">(2 P.)</span></li>
+          <li>
+            <span class="teacher-note">Erwartungshorizont (3 P.):</span> Das verdunstete Wasser fällt als Niederschlag
+            wieder herab und fließt über Flüsse zurück ins Meer — der Kreislauf ist geschlossen, es geht kein Wasser
+            verloren.
+          </li>
+        </ol>
+      </div>
+      <footer class="handout-foot">
+        Lösungsschlüssel · Wasserkreislauf · Klasse 5–6 — Entwurf, ungeprüft. Mit KI-Unterstützung erstellt — vor dem
+        Einsatz prüfen.
+      </footer>
+    </div>
+  </body>
+</html>

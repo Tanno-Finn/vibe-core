@@ -1,0 +1,6 @@
+{
+  "term": "Example Term 1",
+  "alternativeNames": [],
+  "description": "This is an example entry. It is only a placeholder. It keeps the glossary from being empty at the start. A glossary is a list of terms with explanations. Tell your AI agent: “/new-content”. Then your AI agent turns this entry into a real term. The term will come from your topic.",
+  "example": "An example sentence shows the term in use 1 time. Just like this sentence."
+}

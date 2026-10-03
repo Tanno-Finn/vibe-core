@@ -1,0 +1,62 @@
+{
+  "categories": {
+    "all": "Alle Kategorien",
+    "applications": "Anwendungen",
+    "cv": "Computer Vision",
+    "dl": "Deep Learning",
+    "ethics": "Ethik",
+    "fundamentals": "Grundlagen",
+    "ml": "Maschinelles Lernen",
+    "nlp": "Sprachverarbeitung",
+    "rl": "Reinforcement Learning",
+    "ai-safety": "KI-Sicherheit",
+    "ai-fundamentals": "KI-Grundlagen",
+    "generative-ai": "Generative KI",
+    "ai-application": "KI-Anwendungsfelder",
+    "regulation": "Regulierung",
+    "security": "Cybersicherheit",
+    "tools": "Werkzeuge",
+    "general": "Allgemein"
+  },
+  "description": "Fachbegriffe deines Themas, verständlich erklärt — für alle, die sich nicht durch Fachartikel quälen wollen.",
+  "entry": {
+    "alsoKnownAs": "Auch bekannt als",
+    "example": "Beispiel"
+  },
+  "filters": {
+    "active": "Aktive Filter",
+    "all": "Alle",
+    "alphabetNavigation": "Alphabet-Navigation",
+    "category": "Kategorie",
+    "categoryPlaceholder": "Kategorie auswählen",
+    "clearAll": "Filter zurücksetzen",
+    "clearSearch": "Suche löschen",
+    "letter": "Buchstabe",
+    "removeFilter": "Filter entfernen",
+    "search": "Suche",
+    "searchPlaceholder": "Begriff suchen...",
+    "showAllLetters": "Alle Buchstaben anzeigen",
+    "sort": "Sortierung",
+    "sortPlaceholder": "Sortierung auswählen",
+    "title": "Filter",
+    "letterButton": "Begriffe filtern nach Buchstabe"
+  },
+  "popover": {
+    "definition": "Definition",
+    "goToGlossary": "Zum Glossar"
+  },
+  "results": {
+    "noResults": "Keine Begriffe gefunden",
+    "of": "von",
+    "terms": "Begriffen"
+  },
+  "sort": {
+    "alphabetical": "Alphabetisch",
+    "category": "Nach Kategorie"
+  },
+  "tableOfContents": "Inhaltsverzeichnis",
+  "title": "Glossar",
+  "toc": {
+    "filters": "Filter"
+  }
+}

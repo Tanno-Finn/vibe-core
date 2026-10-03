@@ -1,0 +1,336 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "schematics": {
+    "@schematics/angular:component": {
+      "inlineStyle": true,
+      "inlineTemplate": true,
+      "standalone": true,
+      "style": "scss",
+      "type": "component"
+    },
+    "@schematics/angular:directive": {
+      "type": "directive"
+    },
+    "@schematics/angular:service": {
+      "type": "service"
+    },
+    "@schematics/angular:guard": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:interceptor": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:module": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:pipe": {
+      "typeSeparator": "."
+    },
+    "@schematics/angular:resolver": {
+      "typeSeparator": "."
+    }
+  },
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "vibecore": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/vibecore",
+            "index": "src/index.html",
+            "browser": "src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": ["cytoscape-fcose", "cose-base"],
+            "assets": [
+              "src/favicon.svg",
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets",
+                "ignore": [
+                  "data/core/**",
+                  "data/translations/**",
+                  "data/achievements/**",
+                  "data/ai-tools/**",
+                  "data/processing/**",
+                  "data/ontology/edges/**",
+                  "data/glossary.*.json",
+                  "data/timeline.*.json",
+                  "data/ai-tools.*.json",
+                  "data/ai-resources.*.json",
+                  "data/algorithms.*.json",
+                  "data/book-sources.*.json",
+                  "data/interviews.*.json",
+                  "!data/core/glossary/compiled-glossary.*.json",
+                  "i18n/modules/**"
+                ]
+              },
+              {
+                "glob": "compiled-glossary.**.json",
+                "input": "src/assets/data/core/glossary",
+                "output": "assets/data/core/glossary"
+              },
+              {
+                "glob": "index.json",
+                "input": "src/assets/data/core/guides",
+                "output": "assets/data/core/guides"
+              },
+              {
+                "glob": "index.json",
+                "input": "src/assets/data/core/articles",
+                "output": "assets/data/core/articles"
+              },
+              {
+                "glob": "index.json",
+                "input": "src/assets/data/core/demos",
+                "output": "assets/data/core/demos"
+              },
+              {
+                "glob": "**/*",
+                "input": "public",
+                "output": "/",
+                "ignore": ["highlight-demo.html"]
+              },
+              {
+                "glob": "opendyslexic-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/opendyslexic/files",
+                "output": "assets/fonts/opendyslexic"
+              },
+              {
+                "glob": "atkinson-hyperlegible-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/atkinson-hyperlegible/files",
+                "output": "assets/fonts/atkinson-hyperlegible"
+              },
+              {
+                "glob": "lexend-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/lexend/files",
+                "output": "assets/fonts/lexend"
+              },
+              {
+                "glob": "source-sans-3-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/source-sans-3/files",
+                "output": "assets/fonts/source-sans-3"
+              },
+              {
+                "glob": "inter-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/inter/files",
+                "output": "assets/fonts/inter"
+              },
+              {
+                "glob": "ibm-plex-sans-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/ibm-plex-sans/files",
+                "output": "assets/fonts/ibm-plex-sans"
+              },
+              {
+                "glob": "bricolage-grotesque-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/bricolage-grotesque/files",
+                "output": "assets/fonts/bricolage-grotesque"
+              },
+              {
+                "glob": "andika-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/andika/files",
+                "output": "assets/fonts/andika"
+              },
+              {
+                "glob": "baloo-2-latin-700-normal.woff2",
+                "input": "node_modules/@fontsource/baloo-2/files",
+                "output": "assets/fonts/baloo-2"
+              },
+              {
+                "glob": "lora-latin-700-normal.woff2",
+                "input": "node_modules/@fontsource/lora/files",
+                "output": "assets/fonts/lora"
+              },
+              {
+                "glob": "nunito-sans-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/nunito-sans/files",
+                "output": "assets/fonts/nunito-sans"
+              },
+              {
+                "glob": "archivo-latin-{400,700}-normal.woff2",
+                "input": "node_modules/@fontsource/archivo/files",
+                "output": "assets/fonts/archivo"
+              },
+              {
+                "glob": "archivo-black-latin-400-normal.woff2",
+                "input": "node_modules/@fontsource/archivo-black/files",
+                "output": "assets/fonts/archivo-black"
+              },
+              {
+                "glob": "rajdhani-latin-700-normal.woff2",
+                "input": "node_modules/@fontsource/rajdhani/files",
+                "output": "assets/fonts/rajdhani"
+              }
+            ],
+            "styles": ["src/styles.scss"],
+            "scripts": [],
+            "server": "src/main.server.ts",
+            "ssr": true,
+            "prerender": {
+              "discoverRoutes": false,
+              "routesFile": "prerender-routes.txt"
+            }
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "src/app/components/shared/illustration-source.component.ts",
+                  "with": "src/app/components/shared/illustration-source.stub.ts"
+                },
+                {
+                  "replace": "src/app/components/shared/content-visual-snippet-source.component.ts",
+                  "with": "src/app/components/shared/content-visual-snippet-source.stub.ts"
+                },
+                {
+                  "replace": "src/app/dev/dev.routes.ts",
+                  "with": "src/app/dev/dev.routes.prod.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2000kb",
+                  "maximumError": "2260kb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "100kb",
+                  "maximumError": "200kb"
+                }
+              ],
+              "optimization": true,
+              "aot": true,
+              "extractLicenses": true,
+              "sourceMap": false,
+              "namedChunks": false,
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "vibecore:build:production"
+            },
+            "development": {
+              "buildTarget": "vibecore:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular/build:extract-i18n",
+          "options": {
+            "buildTarget": "vibecore:build"
+          }
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "buildTarget": "vibecore:build:development",
+            "tsConfig": "tsconfig.spec.json",
+            "runner": "vitest",
+            "watch": false,
+            "reporters": ["default"],
+            "include": [
+              "src/app/components/didactic/path-resolver/path-resolver.component.spec.ts",
+              "src/app/components/didactic/path-resolver/path-resolver.engine.spec.ts",
+              "src/app/components/shared/ontology-map.classify-edge.spec.ts",
+              "src/app/components/shared/active-filter-chips.component.spec.ts",
+              "src/app/components/shared/quiz-container.component.spec.ts",
+              "src/app/components/shared/standard-container.component.spec.ts",
+              "src/app/directives/highlight.directive.spec.ts",
+              "src/app/services/feedback-inbox.service.spec.ts",
+              "src/app/services/privacy-consent.service.spec.ts",
+              "src/app/services/user-progress.service.spec.ts",
+              "src/app/services/ui-styles.spec.ts",
+              "src/app/services/theme.service.spec.ts",
+              "src/app/services/optimus-a11y.service.spec.ts",
+              "src/app/components/shared/breadcrumb.component.spec.ts",
+              "src/app/services/structured-data.service.spec.ts",
+              "src/app/utils/preloading-strategy.spec.ts",
+              "src/app/app.routes.dev-only.spec.ts",
+              "src/app/app.routes.maps.spec.ts",
+              "src/app/styles-select-state.spec.ts",
+              "src/app/services/learning-progress.service.spec.ts",
+              "src/app/pages/feedback/feedback.component.spec.ts",
+              "src/app/pages/progress/progress.component.spec.ts",
+              "src/app/pages/user-settings/user-settings.component.spec.ts",
+              "src/app/dev/articles/listbox/cascade-select-demo.component.spec.ts",
+              "src/app/dev/articles/scroll-regions.spec.ts",
+              "src/app/utils/safe-storage.spec.ts",
+              "src/app/utils/translate-or.spec.ts",
+              "src/app/utils/search-fold.spec.ts",
+              "src/app/utils/date-locale.spec.ts",
+              "src/app/utils/storage-keys.spec.ts",
+              "src/app/services/update-detection.service.spec.ts",
+              "src/app/services/local-data-reset.service.spec.ts",
+              "src/app/services/user-data.service.spec.ts",
+              "src/app/components/frame/cookie-consent.component.spec.ts",
+              "src/app/services/translation.service.spec.ts",
+              "src/app/services/meta-seo.service.spec.ts",
+              "src/app/utils/route-generator.spec.ts",
+              "src/app/guards/guards.spec.ts",
+              "src/app/services/navigation.service.spec.ts",
+              "src/app/services/unified-content.service.spec.ts",
+              "src/app/services/easy-language.service.spec.ts",
+              "src/app/pages/catalog/catalog.component.spec.ts",
+              "src/app/app.component.spec.ts",
+              "src/app/pages/catalog/catalog-state.service.spec.ts",
+              "src/app/pages/sources/citation-formats.spec.ts",
+              "src/app/pages/sources/sources.component.spec.ts",
+              "src/app/components/shared/glossary-popover.component.spec.ts",
+              "src/app/utils/reduced-motion.spec.ts",
+              "src/app/components/didactic/interactive-timeline/interactive-timeline.component.spec.ts",
+              "src/app/utils/site-host.spec.ts",
+              "src/app/interceptors/http-error.interceptor.spec.ts",
+              "src/app/services/highlighting.service.spec.ts",
+              "src/app/services/feedback.service.spec.ts",
+              "src/app/services/timeline.service.spec.ts",
+              "src/app/utils/search-fold.components.spec.ts",
+              "src/app/components/shared/checkpoint.component.spec.ts",
+              "src/app/components/shared/content-hub-template.component.spec.ts",
+              "src/app/components/shared/fab-container.component.spec.ts",
+              "src/app/components/shared/content-marquee.previews.spec.ts",
+              "src/config/site-rules.spec.ts",
+              "src/app/pages/home/home.component.spec.ts",
+              "src/app/services/related-refs.service.spec.ts",
+              "src/app/feature-switch-links.spec.ts"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

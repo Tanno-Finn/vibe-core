@@ -1,0 +1,9 @@
+{
+  "actions": "Aktionen",
+  "cancel": "Abbrechen",
+  "close": "Schließen",
+  "collapse": "Einklappen",
+  "expand": "Ausklappen",
+  "toggleSection": "Abschnitt ein- oder ausklappen",
+  "ratingLabel": "Bewertung: {{rating}} von 5 Sternen"
+}

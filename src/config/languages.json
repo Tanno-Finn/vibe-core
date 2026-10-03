@@ -1,0 +1,42 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for supported languages, read by the app (src/config/languages.ts) and by every build script (scripts/lib/locale-fallback.mjs). The rules that turn it into fallback chains live in src/config/language-rules.mts. The kit ships de and en, each with its Easy-Language variant.",
+  "_lastUpdated": "2026-09-23",
+
+  "_defaultLanguage": "Site default: where a visitor with no URL prefix, no stored choice and no matching browser language lands. Drives the bare-URL redirect in src/index.html, hreflang x-default, the sitemap x-default and the language signal before detection.",
+  "defaultLanguage": "de",
+
+  "_keySourceLanguage": "Canonical key source for the UI strings (src/assets/i18n/modules/<lang>/). Every locale must carry its keys (check-i18n-keys.mjs), and it is the last resort when a UI key is missing at runtime.",
+  "keySourceLanguage": "en",
+
+  "_contentReferenceLanguage": "Reference tree for CONTENT (glossary, timeline, sources, ...): the most complete one, and the last resort of the content-bundle fallback chain (scripts/build-unified-content.ts, check-content-coverage.mjs).",
+  "contentReferenceLanguage": "de",
+
+  "languages": [
+    {
+      "code": "de",
+      "easyCode": "de-easy",
+      "name": "German",
+      "nativeName": "Deutsch",
+      "easyName": "Einfache Sprache",
+      "easyNativeName": "Einfache Sprache",
+      "flag": "de",
+      "hreflang": "de",
+      "locale": "de-DE",
+      "seo": true,
+      "prerenderTier": 1
+    },
+    {
+      "code": "en",
+      "easyCode": "en-easy",
+      "name": "English",
+      "nativeName": "English",
+      "easyName": "Plain Language",
+      "easyNativeName": "Plain Language",
+      "flag": "gb",
+      "hreflang": "en",
+      "locale": "en-US",
+      "seo": true,
+      "prerenderTier": 1
+    }
+  ]
+}
