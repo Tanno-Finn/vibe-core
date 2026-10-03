@@ -84,12 +84,12 @@
     "@openng/optimus-ui": "^2.0.2",
     "@openng/optimus-ui-themes": "^2.0.2",
     "chart.js": "^4.5.0",
-    "cytoscape": "^3.33.3",
+    "cytoscape": "^3.34.3",
     "cytoscape-fcose": "^2.2.0",
     "marked": "16.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "^0.15.0"
+    "zone.js": "^0.16.3"
   },
   "overrides": {
     "js-yaml": "^4.3.2",
@@ -112,10 +112,10 @@
     "eslint-config-prettier": "^10.1.8",
     "glob": "^13.0.0",
     "jsdom": "^29.1.1",
-    "prettier": "^3.9.5",
-    "puppeteer": "^25.11.0",
+    "prettier": "^3.9.9",
+    "puppeteer": "^25.12.0",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.64.0",
+    "typescript-eslint": "^8.71.0",
     "vitest": "^4.1.10"
   }
 }
