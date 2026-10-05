@@ -4,7 +4,7 @@ import { TranslationService } from '../services/translation.service';
 import { PageHeaderComponent } from '../components/shared/page-header.component';
 import { designRegistry } from './design-registry';
 import { groupDesignEntries } from './design-groups';
-import { articleRegistry, groupGuidesByCategory } from './articles/article-registry';
+import { articleRegistry, groupGuidesByCategory, localizedGuide } from './articles/article-registry';
 import { VIBE_DEV_SENTINEL } from './dev-sentinel';
 
 /**
@@ -340,24 +340,25 @@ export class DevDesignGalleryComponent {
     })),
   );
 
-  /** Case-insensitive filter over guide title + summary + tags + category. */
+  /** Case-insensitive filter over guide title + summary (both languages) + tags + category. */
   readonly filteredGuides = computed(() => {
     const q = this.query().trim().toLowerCase();
     if (!q) return articleRegistry;
     return articleRegistry.filter((a) => {
-      const haystack = (a.title + ' ' + a.summary + ' ' + a.category + ' ' + a.tags.join(' ')).toLowerCase();
+      const haystack = [a.title, a.titleDe, a.summary, a.summaryDe, a.category, ...a.tags].join(' ').toLowerCase();
       return haystack.includes(q);
     });
   });
 
-  /** Filtered guides grouped by category (empty categories dropped). */
-  readonly guideGroups = computed(() =>
-    groupGuidesByCategory(this.filteredGuides()).map((bucket) => ({
+  /** Filtered guides grouped by category (empty categories dropped), titles in the reader's language. */
+  readonly guideGroups = computed(() => {
+    const language = this.i18n.currentLanguage$();
+    return groupGuidesByCategory(this.filteredGuides()).map((bucket) => ({
       id: bucket.id,
       title: this.i18n.translate(`devWorkshop.guides.category.${bucket.id}`),
-      entries: bucket.entries,
-    })),
-  );
+      entries: bucket.entries.map((a) => ({ ...a, ...localizedGuide(a, language) })),
+    }));
+  });
 
   onQuery(event: Event): void {
     this.query.set((event.target as HTMLInputElement).value);

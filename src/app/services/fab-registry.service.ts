@@ -16,7 +16,7 @@ import { Injectable, signal, computed } from '@angular/core';
 /**
  * FAB color themes
  */
-export type FabColor = 'default' | 'primary' | 'teal' | 'orange' | 'purple' | 'green' | 'red';
+export type FabColor = 'default' | 'primary' | 'teal' | 'orange' | 'blue' | 'green' | 'red';
 
 /**
  * FAB registration data

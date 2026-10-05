@@ -10,6 +10,392 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    MessageModule,
+    ToastModule,
+    ButtonModule,
+    SelectModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Shared surface --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__aside {
+        font-weight: 400;
+        color: var(--text-color-secondary);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .pg__code {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-2);
+      }
+
+      /* --- Two-up --- */
+      .two {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin: 0 0 var(--space-4);
+      }
+      .two__cell {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .two__title {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .two__note {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .two__cell p-message {
+        width: 100%;
+      }
+      .probe {
+        width: 100%;
+        min-height: 3rem;
+      }
+
+      /* --- Severity matrix --- */
+      .mx-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        align-items: center;
+        margin: 0 0 var(--space-4);
+      }
+      .mx-controls .pg__field {
+        min-width: 11rem;
+      }
+      .mx {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+        margin: 0 0 var(--space-5);
+      }
+      .mx__col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .mx__head {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+
+      /* --- Instruments --- */
+      .inst {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: var(--space-3);
+        margin: 0 0 var(--space-5);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .inst__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .inst__input {
+        padding: 0.4rem 0.6rem;
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-sm);
+        background: var(--surface-card);
+        color: var(--text-color);
+        font: inherit;
+      }
+      .inst__out {
+        flex-basis: 100%;
+        margin: 0;
+        display: grid;
+        gap: 0.25rem;
+      }
+      .inst__out > div {
+        display: grid;
+        grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+        gap: var(--space-3);
+      }
+      .inst__out dt {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .inst__out dd {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        color: var(--text-color);
+        word-break: break-word;
+      }
+
+      /* --- RTL demo --- */
+      .rtl-demo {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-card);
+      }
+      .rtl-demo p-message {
+        width: 100%;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-card);
+      }
+      .dd__why {
+        margin: 0.4rem 0 0;
+        font-size: 0.9rem;
+        color: var(--text-color);
+      }
+      .tag {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        padding: 0.1rem 0.45rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--surface-border);
+        color: var(--text-color-secondary);
+      }
+      .tag--bad {
+        border-color: var(--red-500);
+        color: var(--red-600);
+      }
+      .tag--good {
+        border-color: var(--green-500);
+        color: var(--green-600);
+      }
+
+      .copy-btn {
+        font: inherit;
+        font-size: var(--font-size-sm);
+        padding: 0.2rem 0.6rem;
+        border-radius: var(--radius-sm);
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      td.bad {
+        color: var(--red-600);
+      }
+      .check li {
+        margin: 0.3rem 0;
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (max-width: 900px) {
+        .pg__grid,
+        .two,
+        .dd {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .mx {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Feedback Messages — p-message + p-toast (SPEC N5, Guides).
  *
@@ -77,16 +463,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-feedback-messages-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    MessageModule,
-    ToastModule,
-    ButtonModule,
-    SelectModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   providers: [MessageService],
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
@@ -1054,391 +1431,18 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Shared surface --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__aside {
-        font-weight: 400;
-        color: var(--text-color-secondary);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-3);
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .pg__code {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-2);
-      }
-
-      /* --- Two-up --- */
-      .two {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin: 0 0 var(--space-4);
-      }
-      .two__cell {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .two__title {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .two__note {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .two__cell p-message {
-        width: 100%;
-      }
-      .probe {
-        width: 100%;
-        min-height: 3rem;
-      }
-
-      /* --- Severity matrix --- */
-      .mx-controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-        align-items: center;
-        margin: 0 0 var(--space-4);
-      }
-      .mx-controls .pg__field {
-        min-width: 11rem;
-      }
-      .mx {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--space-4);
-        margin: 0 0 var(--space-5);
-      }
-      .mx__col {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .mx__head {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-
-      /* --- Instruments --- */
-      .inst {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        gap: var(--space-3);
-        margin: 0 0 var(--space-5);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .inst__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .inst__input {
-        padding: 0.4rem 0.6rem;
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-sm);
-        background: var(--surface-card);
-        color: var(--text-color);
-        font: inherit;
-      }
-      .inst__out {
-        flex-basis: 100%;
-        margin: 0;
-        display: grid;
-        gap: 0.25rem;
-      }
-      .inst__out > div {
-        display: grid;
-        grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
-        gap: var(--space-3);
-      }
-      .inst__out dt {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .inst__out dd {
-        margin: 0;
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        color: var(--text-color);
-        word-break: break-word;
-      }
-
-      /* --- RTL demo --- */
-      .rtl-demo {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-card);
-      }
-      .rtl-demo p-message {
-        width: 100%;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-card);
-      }
-      .dd__why {
-        margin: 0.4rem 0 0;
-        font-size: 0.9rem;
-        color: var(--text-color);
-      }
-      .tag {
-        display: inline-block;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        padding: 0.1rem 0.45rem;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--surface-border);
-        color: var(--text-color-secondary);
-      }
-      .tag--bad {
-        border-color: var(--red-500);
-        color: var(--red-600);
-      }
-      .tag--good {
-        border-color: var(--green-500);
-        color: var(--green-600);
-      }
-
-      .copy-btn {
-        font: inherit;
-        font-size: var(--font-size-sm);
-        padding: 0.2rem 0.6rem;
-        border-radius: var(--radius-sm);
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      td.bad {
-        color: var(--red-600);
-      }
-      .check li {
-        margin: 0.3rem 0;
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (max-width: 900px) {
-        .pg__grid,
-        .two,
-        .dd {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .mx {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class FeedbackMessagesArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
-  private readonly messageService = inject(MessageService);
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  protected readonly messageService = inject(MessageService);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1507,7 +1511,7 @@ export class FeedbackMessagesArticleComponent {
   }
 
   // browser-only: reached only from the demo button handlers.
-  private describeProbe(name: string): string {
+  protected describeProbe(name: string): string {
     const host = document.querySelector(`[data-probe="${name}"]`);
     const el = host?.querySelector('p-message');
     if (!el) return 'no p-message element in the DOM';
@@ -1617,7 +1621,7 @@ export class FeedbackMessagesArticleComponent {
     return lines.join('\n');
   });
 
-  private toastPayload(severity: string): ToastMessageOptions {
+  protected toastPayload(severity: string): ToastMessageOptions {
     const msg: ToastMessageOptions = {
       severity,
       summary: this.summaryFor(severity),
@@ -1629,7 +1633,7 @@ export class FeedbackMessagesArticleComponent {
     return msg;
   }
 
-  private summaryFor(severity: string): string {
+  protected summaryFor(severity: string): string {
     switch (severity) {
       case 'success':
         return 'Draft saved';
@@ -1740,7 +1744,7 @@ export class FeedbackMessagesArticleComponent {
   }
 
   // browser-only: reached only from the demo button handlers.
-  private describeActive(): string {
+  protected describeActive(): string {
     const el = document.activeElement as HTMLElement | null;
     if (!el || el === document.body) return 'document.body — nothing focused';
     const id = el.id ? `#${el.id}` : '';
@@ -1793,8 +1797,7 @@ export class FeedbackMessagesArticleComponent {
 
   // ------------------------------------------------------------------ design
 
-  readonly anatomyNote =
-    'Class names and structure read from the shipped component templates and the Aura stylesheets ' +
+  readonly anatomyNote: string = 'Class names and structure read from the shipped component templates and the Aura stylesheets ' +
     'for message and toast, Optimus UI 2.0.2 / Aura 2.x.';
 
   readonly tokenRows = [
@@ -1827,8 +1830,7 @@ export class FeedbackMessagesArticleComponent {
     },
   ];
 
-  readonly contrastNote =
-    'Quoted from docs/generated/CONTRAST.MD, group "message & toast": the text and icon color ' +
+  readonly contrastNote: string = 'Quoted from docs/generated/CONTRAST.MD, group "message & toast": the text and icon color ' +
     '(one token) on the severity tint composited over --surface-ground and over --surface-card ' +
     '(filled box, message and toast alike), and the outlined / simple color on those two surfaces ' +
     '(outlined and simple share one value per severity). Ranges run across the four visual styles. ' +
@@ -2001,8 +2003,7 @@ export class FeedbackMessagesArticleComponent {
     },
   ];
 
-  readonly motionNote =
-    'Measured: under prefers-reduced-motion the toast still disappears on schedule, and it also ' +
+  readonly motionNote: string = 'Measured: under prefers-reduced-motion the toast still disappears on schedule, and it also ' +
     'disappears with animation: none forced on both elements. An inline message closed under ' +
     'animation: none stays at opacity 1 and full height with only the leave class applied.';
 
@@ -2162,8 +2163,7 @@ export class FeedbackMessagesArticleComponent {
     },
   ];
 
-  readonly ariaNote =
-    'The pair on the inline message is not a contradiction but a downgrade, and it resolves the ' +
+  readonly ariaNote: string = 'The pair on the inline message is not a contradiction but a downgrade, and it resolves the ' +
     'way the specification says: in the accessibility tree the node is an alert with ' +
     'live="polite" and atomic=true (atomic comes from the role, not from the markup). The toast ' +
     'message is the only assertive live region either component produces. The pass-through ' +
@@ -2225,8 +2225,7 @@ export class FeedbackMessagesArticleComponent {
     'An inline message is not focusable and takes no part in the tab order until it has a close button. Once it is closable, that button is a tab stop that stays in the order even after the message has collapsed to nothing — one more reason the host must remove it.',
   ];
 
-  readonly ssrNote =
-    'Both components render on the server, but only one of them renders anything. An inline ' +
+  readonly ssrNote: string = 'Both components render on the server, but only one of them renders anything. An inline ' +
     'message is in the served HTML complete with role="alert" and aria-live="polite", so it is ' +
     'part of the first paint and of the document a crawler sees; a toast outlet is an empty ' +
     'fixed container, because messages only ever arrive through the service at runtime. Two ' +
@@ -2264,8 +2263,7 @@ export class FeedbackMessagesArticleComponent {
     '}',
   ].join('\n');
 
-  readonly i18nNote =
-    'setTranslation merges one level deep only, so the aria block is replaced wholesale — spread ' +
+  readonly i18nNote: string = 'setTranslation merges one level deep only, so the aria block is replaced wholesale — spread ' +
     'the current one first or the fifty keys you did not list fall back to English. The kit ' +
     'pushes this table on every language change; close is part of it because these two ' +
     'components are the only ones that read it.';
@@ -2289,8 +2287,7 @@ export class FeedbackMessagesArticleComponent {
     },
   ];
 
-  readonly rtlNote =
-    'The inside of both components mirrors correctly, because it is ' +
+  readonly rtlNote: string = 'The inside of both components mirrors correctly, because it is ' +
     'built from logical properties. The toast’s corner does not: position is a physical key ' +
     'compiled into inline top/right/bottom/left, so "top-right" is the end corner in LTR and the ' +
     'start corner in RTL — where a notification is conventionally not expected. Flip the position ' +

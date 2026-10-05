@@ -3,7 +3,7 @@
   "name": "vibecore-angular",
   "description": "Agent-first starter kit for building an educational companion portal (interactive AI demos, glossary, timeline, didactic article pages) with Angular.",
   "baseVersion": "0.1.0",
-  "kitVersion": "1.0.0",
+  "kitVersion": "1.0.1",
 
   "commands": {
     "install": "npm install",

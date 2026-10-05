@@ -12,6 +12,224 @@ import { ButtonModule } from '@openng/optimus-ui/button';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Live inspector --- */
+      .insp {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        margin: 0 0 var(--space-3);
+      }
+      .insp__state {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .sw {
+        display: inline-block;
+        width: 2.5rem;
+        height: 1.1rem;
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-sm);
+        vertical-align: middle;
+      }
+
+      /* --- Scoped-override demo --- */
+      .demo2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .panel {
+        background: var(--surface-card);
+        color: var(--text-color);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+      }
+      .panel p {
+        margin: 0.4rem 0 0;
+        font-size: var(--font-size-sm);
+      }
+      .panel--tinted {
+        --surface-card: #123f3c;
+        --text-color: #e6f7f5;
+      }
+      @media (max-width: 640px) {
+        .demo2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .dd__code {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+      .mini {
+        display: inline-flex;
+        align-items: center;
+        padding: var(--space-3) var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-sm);
+        background: var(--surface-card);
+        color: var(--text-color);
+      }
+      .mini--hard {
+        background: #ffffff;
+        color: #1e293b;
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: Design Tokens (foundations).
  *
@@ -64,7 +282,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-design-tokens-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'design-tokens'">
@@ -799,231 +1017,17 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Live inspector --- */
-      .insp {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        margin: 0 0 var(--space-3);
-      }
-      .insp__state {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .sw {
-        display: inline-block;
-        width: 2.5rem;
-        height: 1.1rem;
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-sm);
-        vertical-align: middle;
-      }
-
-      /* --- Scoped-override demo --- */
-      .demo2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .panel {
-        background: var(--surface-card);
-        color: var(--text-color);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        padding: var(--space-4);
-      }
-      .panel p {
-        margin: 0.4rem 0 0;
-        font-size: var(--font-size-sm);
-      }
-      .panel--tinted {
-        --surface-card: #2d1b4e;
-        --text-color: #ede9fe;
-      }
-      @media (max-width: 640px) {
-        .demo2 {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .dd__code {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-      }
-      .mini {
-        display: inline-flex;
-        align-items: center;
-        padding: var(--space-3) var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-size: var(--font-size-sm);
-        background: var(--surface-card);
-        color: var(--text-color);
-      }
-      .mini--hard {
-        background: #ffffff;
-        color: #1e293b;
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class DesignTokensArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly platformId = inject(PLATFORM_ID);
-  private readonly document = inject(DOCUMENT);
+  protected readonly platformId = inject(PLATFORM_ID);
+  protected readonly document = inject(DOCUMENT);
 
   /** The role tokens the live inspector resolves, in the order it lists them. */
-  private readonly inspected = [
+  protected readonly inspected = [
     '--surface-ground',
     '--surface-card',
     '--surface-section',
@@ -1062,11 +1066,11 @@ export class DesignTokensArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly scopeSnippet = `/* Override two tokens for one subtree. Everything inside the
+  readonly scopeSnippet: string = `/* Override two tokens for one subtree. Everything inside the
    element keeps reading the same names and picks up the new values. */
 .panel--tinted {
-  --surface-card: #2d1b4e;
-  --text-color: #ede9fe;
+  --surface-card: #123f3c;
+  --text-color: #e6f7f5;
 }
 
 /* The panel rule itself never changes — it only ever reads roles. */
@@ -1078,7 +1082,7 @@ export class DesignTokensArticleComponent {
   padding: var(--space-4);
 }`;
 
-  readonly fallbackSnippet = `/* Undefined token -> the fallback is used. */
+  readonly fallbackSnippet: string = `/* Undefined token -> the fallback is used. */
 color: var(--not-defined-anywhere, #495057);   /* renders #495057 */
 
 /* Token defined as EMPTY -> the fallback is NOT used. The substitution
@@ -1097,7 +1101,7 @@ color: var(--defined-but-empty, red);          /* no color */
    there is no defense in the consuming rule — fix the declaration at its
    source, in styles.scss or design-tokens.scss. */`;
 
-  readonly addTokenSnippet = `/* styles.scss — add the token to BOTH blocks, even when the
+  readonly addTokenSnippet: string = `/* styles.scss — add the token to BOTH blocks, even when the
    two values are the same today. */
 :root {
   --callout-surface: #fff7ed;
@@ -1113,15 +1117,15 @@ color: var(--defined-but-empty, red);          /* no color */
    for text or for a control edge:
    node scripts/check-contrast.mjs --write */`;
 
-  readonly runtimeSnippet = `/* Does NOT work: the runtime layer writes this token as inline
+  readonly runtimeSnippet: string = `/* Does NOT work: the runtime layer writes this token as inline
    style on the root element, and inline style beats any selector. */
 :root {
-  --primary-fg: #7c3aed;
+  --primary-fg: #0f766e;
 }
 
 /* Works: you are no longer competing with the root's inline style,
    because this element is further down the tree. */
 .brand-scope {
-  --primary-fg: #7c3aed;
+  --primary-fg: #0f766e;
 }`;
 }

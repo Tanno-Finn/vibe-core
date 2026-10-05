@@ -1,7 +1,7 @@
 import type { TranslationService } from '../services/translation.service';
 import { designRegistry } from './design-registry';
 import { groupDesignEntries } from './design-groups';
-import { articleRegistry, groupGuidesByCategory } from './articles/article-registry';
+import { articleRegistry, groupGuidesByCategory, localizedGuide } from './articles/article-registry';
 
 /**
  * Shared quick-switch derivation (SPEC N5, Guides extension).
@@ -19,7 +19,8 @@ import { articleRegistry, groupGuidesByCategory } from './articles/article-regis
  *
  * `resolveSwitchRoute(value)` maps a chosen value back to a router path array:
  * a bare slug → `/dev/design/<slug>`, a `guide:<id>` → `/dev/design/guide/<id>`.
- * Group labels are i18n, so callers rebuild the list on language switch.
+ * Group labels are i18n and guide labels follow the language (`titleDe` on de),
+ * so callers rebuild the list on language switch.
  */
 export interface SwitchOption {
   label: string;
@@ -56,12 +57,14 @@ export function buildSwitchGroups(i18n: TranslationService): SwitchOptionGroup[]
     })),
   }));
 
+  const language = i18n.currentLanguage$();
   const guideGroups: SwitchOptionGroup[] = groupGuidesByCategory(articleRegistry).map((bucket) => ({
     label: i18n.translate(`devWorkshop.guides.category.${bucket.id}`),
     items: bucket.entries.map((a) => ({
-      label: a.title,
+      label: localizedGuide(a, language).title,
       value: guideSwitchValue(a.id),
-      search: `${a.tags.join(' ')} ${a.category}`,
+      // Both titles, so a search in either language finds the guide.
+      search: `${a.title} ${a.titleDe} ${a.tags.join(' ')} ${a.category}`,
     })),
   }));
 

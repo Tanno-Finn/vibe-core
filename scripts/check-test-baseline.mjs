@@ -153,8 +153,10 @@ function recordGate(result) {
 // 2026-09-28: raised 60->62 / 744->761 after the make-it-yours review follow-up — no link
 // into a switched-off feature (related refs, back buttons, catalog buttons, notices,
 // roadmap, learn hub, path steps, progress) and no guard redirect loop on the start page.
-const BASELINE_FILES = 62;
-const BASELINE_TESTS = 761;
+// 2026-10-05: raised 62->64 / 761->783 to the real count (775 at 1.0.0, plus the eight
+// German-guide-twin tests: the language switch, its resolver, the registry's German strings).
+const BASELINE_FILES = 64;
+const BASELINE_TESTS = 783;
 
 const line = '='.repeat(66);
 console.log(line);

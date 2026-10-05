@@ -5,10 +5,188 @@ import { scrollBehavior } from '../../../utils/reduced-motion';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
-interface Row {
+export interface Row {
   id: number;
   label: string;
 }
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, ScrollerModule, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-scroller-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+      app-scroller-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      app-scroller-article .stage__status {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+      app-scroller-article .demo-scroller,
+      app-scroller-article .plain-list {
+        border: 1px solid var(--control-border);
+      }
+      app-scroller-article .plain-list:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      app-scroller-article ul.p-virtualscroller-content,
+      app-scroller-article .plain-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      app-scroller-article .plain-list {
+        max-height: 160px;
+        overflow: auto;
+      }
+      app-scroller-article .row {
+        display: flex;
+        align-items: center;
+        padding: 0 0.75rem;
+        box-sizing: border-box;
+      }
+      app-scroller-article .row--odd {
+        background: var(--surface-section);
+      }
+      app-scroller-article .demo-scroller .p-virtualscroller-content {
+        width: 100%;
+      }
+      app-scroller-article .term {
+        margin: 0;
+        padding: 0.4rem 0.75rem;
+        font-size: 0.85rem;
+        box-sizing: border-box;
+      }
+      app-scroller-article .term--clip {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-block: 0;
+      }
+      app-scroller-article .jump {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      app-scroller-article .jump input {
+        width: 7rem;
+        padding: 0.3rem 0.5rem;
+        border: 1px solid var(--control-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+        font: inherit;
+      }
+      app-scroller-article code,
+      app-scroller-article .code-block {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+      }
+      app-scroller-article .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+      app-scroller-article .code-block {
+        margin: 0 0 1rem;
+        padding: 1rem;
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        line-height: 1.55;
+      }
+      app-scroller-article .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      app-scroller-article table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      app-scroller-article th,
+      app-scroller-article td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      app-scroller-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+      app-scroller-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        min-width: 0;
+      }
+      app-scroller-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      app-scroller-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+      app-scroller-article .dd__stage {
+        padding: 0.75rem;
+        background: var(--surface-section);
+      }
+      app-scroller-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+      app-scroller-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      app-scroller-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      app-scroller-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+      app-scroller-article .sources a,
+      app-scroller-article .history strong {
+        color: var(--primary-color-fg);
+      }
+      app-scroller-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+      @media (max-width: 640px) {
+        app-scroller-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
 
 /**
  * Guide article: Scroller (Guides, category `library`).
@@ -38,7 +216,7 @@ interface Row {
   selector: 'app-scroller-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, ScrollerModule, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'scroller'">
@@ -313,181 +491,7 @@ interface Row {
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-scroller-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-      app-scroller-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      app-scroller-article .stage__status {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-      app-scroller-article .demo-scroller,
-      app-scroller-article .plain-list {
-        border: 1px solid var(--control-border);
-      }
-      app-scroller-article .plain-list:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      app-scroller-article ul.p-virtualscroller-content,
-      app-scroller-article .plain-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-      app-scroller-article .plain-list {
-        max-height: 160px;
-        overflow: auto;
-      }
-      app-scroller-article .row {
-        display: flex;
-        align-items: center;
-        padding: 0 0.75rem;
-        box-sizing: border-box;
-      }
-      app-scroller-article .row--odd {
-        background: var(--surface-section);
-      }
-      app-scroller-article .demo-scroller .p-virtualscroller-content {
-        width: 100%;
-      }
-      app-scroller-article .term {
-        margin: 0;
-        padding: 0.4rem 0.75rem;
-        font-size: 0.85rem;
-        box-sizing: border-box;
-      }
-      app-scroller-article .term--clip {
-        display: flex;
-        align-items: center;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        padding-block: 0;
-      }
-      app-scroller-article .jump {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.5rem;
-      }
-      app-scroller-article .jump input {
-        width: 7rem;
-        padding: 0.3rem 0.5rem;
-        border: 1px solid var(--control-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-        font: inherit;
-      }
-      app-scroller-article code,
-      app-scroller-article .code-block {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-      }
-      app-scroller-article .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-      app-scroller-article .code-block {
-        margin: 0 0 1rem;
-        padding: 1rem;
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        line-height: 1.55;
-      }
-      app-scroller-article .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      app-scroller-article table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      app-scroller-article th,
-      app-scroller-article td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      app-scroller-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-      app-scroller-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        min-width: 0;
-      }
-      app-scroller-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      app-scroller-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-      app-scroller-article .dd__stage {
-        padding: 0.75rem;
-        background: var(--surface-section);
-      }
-      app-scroller-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-      app-scroller-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      app-scroller-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      app-scroller-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-      app-scroller-article .sources a,
-      app-scroller-article .history strong {
-        color: var(--primary-color-fg);
-      }
-      app-scroller-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-      @media (max-width: 640px) {
-        app-scroller-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ScrollerArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -496,8 +500,7 @@ export class ScrollerArticleComponent {
   readonly rowSize = 40;
   readonly rows: Row[] = Array.from({ length: 10000 }, (_, i) => ({ id: i, label: 'Row ' + (i + 1) }));
   readonly terms: Row[] = Array.from({ length: 400 }, (_, i) => ({ id: i, label: 'Term ' + (i + 1) }));
-  readonly definition =
-    'a synthetic glossary definition, long enough to wrap onto a second or third line in a narrow column, the way real definitions do.';
+  readonly definition: string = 'a synthetic glossary definition, long enough to wrap onto a second or third line in a narrow column, the way real definitions do.';
 
   readonly plainPt = { root: { 'aria-label': 'Ten thousand rows (plain)', role: 'region' } };
   readonly listPt = { root: { 'aria-label': 'Ten thousand rows (list)', role: 'region' } };
@@ -506,7 +509,7 @@ export class ScrollerArticleComponent {
   readonly rangeFirst = signal(0);
   readonly rangeLast = signal(12);
   readonly jumpTarget = signal(5000);
-  private readonly listScroller = viewChild<Scroller>('listScroller');
+  protected readonly listScroller = viewChild<Scroller>('listScroller');
 
   onRange(event: { first: number | { rows: number }; last: number | { rows: number } }): void {
     const first = typeof event.first === 'number' ? event.first : event.first.rows;
@@ -590,8 +593,7 @@ export class ScrollerArticleComponent {
     checkFocus: 'Keep interactive controls out of the rows, or manage focus on the container.',
   };
 
-  readonly listSnippet =
-    '<p-scroller [items]="rows" [itemSize]="40" scrollHeight="240px"\n' +
+  readonly listSnippet: string = '<p-scroller [items]="rows" [itemSize]="40" scrollHeight="240px"\n' +
     '            [pt]="{ root: { \'aria-label\': labels().rows, role: \'region\' } }">\n' +
     '  <ng-template #content let-items let-options="options">\n' +
     '    <!-- keep contentStyleClass: the scroller finds its content box by that class -->\n' +
@@ -605,8 +607,7 @@ export class ScrollerArticleComponent {
     '  </ng-template>\n' +
     '</p-scroller>';
 
-  readonly jumpSnippet =
-    'import { scrollBehavior } from "../../utils/reduced-motion";\n' +
+  readonly jumpSnippet: string = 'import { scrollBehavior } from "../../utils/reduced-motion";\n' +
     '\n' +
     'private readonly scroller = viewChild(Scroller);\n' +
     '\n' +

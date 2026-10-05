@@ -129,6 +129,7 @@
     "notFoundNote": "Diesen Guide gibt es nicht:",
     "relatedTitle": "Passt dazu",
     "agentTabHint": "Agenten bekommen den gleichen Text auch über den Befehl:",
+    "agentTabLanguageNote": "Dieser Tab ist für KI-Agenten. Er bleibt auf Englisch.",
     "agentsTitle": "Guides für Fragen zu Bauteilen und Layouts",
     "agentsLede": "Hast du eine Frage zu Optimus-UI-Bau-Teilen, zu Grundlagen oder zu Layouts? Dann helfen die Guides. Jeder Guide hat eine Anleitung für Agenten. Lies sparsam: Erst die Liste. Dann ein Kapitel. Dann bei Bedarf alles.",
     "cliTopicsNote": "zeigt in einer Übersicht, was es alles gibt",

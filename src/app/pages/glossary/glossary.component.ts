@@ -692,8 +692,8 @@ import { translatedOr } from '../../utils/translate-or';
         color: var(--green-800);
       }
       app-glossary .category-nlp {
-        background: var(--purple-100);
-        color: var(--purple-800);
+        background: var(--p-amber-100);
+        color: var(--p-amber-800);
       }
       app-glossary .category-cv {
         background: var(--orange-100);
@@ -708,12 +708,12 @@ import { translatedOr } from '../../utils/translate-or';
         color: var(--teal-800);
       }
       app-glossary .category-ethics {
-        background: var(--pink-100);
-        color: var(--pink-800);
+        background: var(--p-pink-100);
+        color: var(--p-pink-800);
       }
       app-glossary .category-applications {
-        background: var(--indigo-100);
-        color: var(--indigo-800);
+        background: var(--p-slate-100);
+        color: var(--p-slate-700);
       }
 
       /* CTM-2: Dark mode badge overrides */
@@ -726,8 +726,8 @@ import { translatedOr } from '../../utils/translate-or';
         color: var(--green-400);
       }
       .dark-theme app-glossary .category-nlp {
-        background: rgba(168, 85, 247, 0.15);
-        color: var(--purple-400);
+        background: rgba(245, 158, 11, 0.15);
+        color: var(--p-amber-300);
       }
       .dark-theme app-glossary .category-cv {
         background: rgba(249, 115, 22, 0.15);
@@ -743,11 +743,11 @@ import { translatedOr } from '../../utils/translate-or';
       }
       .dark-theme app-glossary .category-ethics {
         background: rgba(236, 72, 153, 0.15);
-        color: var(--pink-400);
+        color: var(--p-pink-400);
       }
       .dark-theme app-glossary .category-applications {
-        background: rgba(99, 102, 241, 0.15);
-        color: var(--indigo-400);
+        background: rgba(100, 116, 139, 0.2);
+        color: var(--p-slate-300);
       }
 
       /* Entry Content */
@@ -950,8 +950,8 @@ import { translatedOr } from '../../utils/translate-or';
         color: var(--green-800);
       }
       app-glossary .category-nlp {
-        background: var(--purple-100);
-        color: var(--purple-800);
+        background: var(--p-amber-100);
+        color: var(--p-amber-800);
       }
       app-glossary .category-cv {
         background: var(--orange-100);
@@ -966,8 +966,8 @@ import { translatedOr } from '../../utils/translate-or';
         color: var(--teal-800);
       }
       app-glossary .category-ethics {
-        background: var(--pink-100);
-        color: var(--pink-800);
+        background: var(--p-pink-100);
+        color: var(--p-pink-800);
       }
 
       app-glossary .entry-content {
@@ -1170,20 +1170,20 @@ import { translatedOr } from '../../utils/translate-or';
        while keeping the rest of the glossary visible around it. */
       @keyframes app-glossary-entry-pulse {
         0% {
-          box-shadow: 0 0 0 0 rgba(67, 56, 202, 0.55);
-          outline-color: rgba(67, 56, 202, 0.9);
+          box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 55%, transparent);
+          outline-color: color-mix(in srgb, var(--primary-color) 90%, transparent);
         }
         50% {
-          box-shadow: 0 0 0 14px rgba(67, 56, 202, 0);
-          outline-color: rgba(67, 56, 202, 0.5);
+          box-shadow: 0 0 0 14px color-mix(in srgb, var(--primary-color) 0%, transparent);
+          outline-color: color-mix(in srgb, var(--primary-color) 50%, transparent);
         }
         100% {
-          box-shadow: 0 0 0 0 rgba(67, 56, 202, 0);
-          outline-color: rgba(67, 56, 202, 0);
+          box-shadow: 0 0 0 0 color-mix(in srgb, var(--primary-color) 0%, transparent);
+          outline-color: color-mix(in srgb, var(--primary-color) 0%, transparent);
         }
       }
       app-glossary .entry-card-pulse {
-        outline: 3px solid rgba(67, 56, 202, 0.9);
+        outline: 3px solid color-mix(in srgb, var(--primary-color) 90%, transparent);
         outline-offset: 2px;
         animation: app-glossary-entry-pulse 2.6s ease-out 1;
         scroll-margin-top: 96px;

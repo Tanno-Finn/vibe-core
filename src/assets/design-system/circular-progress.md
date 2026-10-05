@@ -26,7 +26,7 @@ A ring/donut progress indicator whose conic-gradient fill color is, by default, 
 | `value` | `number` | `0` | Progress 0-100; clamped internally |
 | `label` | `string` | `''` | Optional caption shown under the percentage |
 | `size` | `'small'\|'medium'\|'large'` | `'medium'` | Sets the ring diameter: `small` 100px, `medium` 140px, `large` 180px (applied inline, so it overrides the responsive shrink) |
-| `color` | `'green'\|'blue'\|'orange'\|'purple'?` | — (interpolated) | When set, forces a fixed ring/glow color (green/blue/orange/purple) regardless of value. When omitted (default), the color is interpolated from the value (red→orange→yellow→green) |
+| `color` | `'green'\|'blue'\|'orange'\|'pink'?` | — (interpolated) | When set, forces a fixed ring/glow color (green/blue/orange/pink) regardless of value. When omitted (default), the color is interpolated from the value (red→orange→yellow→green) |
 
 No `@Output()`s. No content projection — fully data-driven via `value`/`label`.
 

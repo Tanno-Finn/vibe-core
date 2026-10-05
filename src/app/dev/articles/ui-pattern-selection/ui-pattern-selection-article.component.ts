@@ -6,6 +6,203 @@ import { StandardContainerComponent } from '../../../components/shared/standard-
 import { InfoTooltipComponent } from '../../../components/shared/info-tooltip.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    CardModule,
+    TooltipModule,
+    StandardContainerComponent,
+    InfoTooltipComponent,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      .m0 {
+        margin: 0;
+      }
+
+      /* --- Rendered stages --- */
+      .stage {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+      }
+      .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        align-items: flex-start;
+      }
+      .stage--stack {
+        display: grid;
+        gap: var(--space-4);
+      }
+      .stage__item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .stage__cap {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .faux-help {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+      .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: 1.1rem;
+        color: var(--text-color);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+      }
+      .card-h {
+        margin: 0;
+        padding: var(--space-4) var(--space-4) 0;
+      }
+
+      /* --- Ordered decision steps --- */
+      .steps {
+        margin: 0 0 var(--space-4);
+        padding-left: 1.25rem;
+      }
+      .steps li {
+        margin: 0 0 var(--space-3);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .dd__code {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        overflow-wrap: anywhere;
+        min-width: 0;
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
+        color: var(--semantic-red-fg, #b91c1c);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: UI Pattern Selection (foundations).
  *
@@ -46,14 +243,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-ui-pattern-selection-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    CardModule,
-    TooltipModule,
-    StandardContainerComponent,
-    InfoTooltipComponent,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'ui-pattern-selection'">
@@ -728,193 +918,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      .m0 {
-        margin: 0;
-      }
-
-      /* --- Rendered stages --- */
-      .stage {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-      }
-      .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-        align-items: flex-start;
-      }
-      .stage--stack {
-        display: grid;
-        gap: var(--space-4);
-      }
-      .stage__item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .stage__cap {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-      .faux-help {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--space-2);
-      }
-      .icon-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.25rem;
-        height: 2.25rem;
-        font-size: 1.1rem;
-        color: var(--text-color);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-      }
-      .card-h {
-        margin: 0;
-        padding: var(--space-4) var(--space-4) 0;
-      }
-
-      /* --- Ordered decision steps --- */
-      .steps {
-        margin: 0 0 var(--space-4);
-        padding-left: 1.25rem;
-      }
-      .steps li {
-        margin: 0 0 var(--space-3);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .dd__code {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-        overflow-wrap: anywhere;
-        min-width: 0;
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
-        color: var(--semantic-red-fg, #b91c1c);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class UiPatternSelectionArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -922,8 +926,7 @@ export class UiPatternSelectionArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly decideSnippet =
-    '# 1. Has the kit already built it? (the gallery layer)\n' +
+  readonly decideSnippet: string = '# 1. Has the kit already built it? (the gallery layer)\n' +
     'node scripts/design-guides.mjs list --layer kit\n' +
     'node scripts/design-guides.mjs search "tooltip" --scope all\n' +
     '#    A miss names the scopes it read, so "not documented" and "wrong word"\n' +
@@ -937,8 +940,7 @@ export class UiPatternSelectionArticleComponent {
     '\n' +
     '# 3. Neither layer owns it -> plain HTML, and no dependency is added.';
 
-  readonly addPatternSnippet =
-    '// A component under src/app/components/ must land on one side of a fork,\n' +
+  readonly addPatternSnippet: string = '// A component under src/app/components/ must land on one side of a fork,\n' +
     '// or the design-system gate fails the build:\n' +
     '//\n' +
     '//   reusable primitive -> an entry in src/app/dev/design-registry.ts,\n' +

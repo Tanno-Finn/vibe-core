@@ -7,6 +7,386 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    CardModule,
+    ButtonModule,
+    SelectModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+      }
+      .pg__code {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      @media (max-width: 720px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Demo card decorations (opt-in, so the default stays honest) --- */
+      .demo-edge {
+        border: 1px solid var(--surface-border);
+      }
+      .demo-clip {
+        overflow: hidden;
+      }
+      .demo-h {
+        margin: 0;
+        font-size: 1.125rem;
+        font-weight: 500;
+        line-height: 1.3;
+        color: inherit;
+      } /* 18px — deliberately under card.title, which is 1.25rem in Aura 2.x */
+      .demo-p {
+        margin: 0;
+        font-size: 0.92rem;
+        line-height: 1.55;
+      }
+      .demo-band {
+        display: flex;
+        justify-content: space-between;
+        gap: var(--space-3);
+        padding: var(--space-3) var(--space-4);
+        font-size: 0.82rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        border-bottom: 1px solid var(--surface-border);
+      }
+      .demo-band--solid {
+        background: var(--surface-section);
+        border-bottom: 0;
+      }
+      .demo-actions {
+        display: flex;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+      }
+      .demo-anat {
+        max-width: 24rem;
+      }
+      .demo-nest {
+        flex: 1 1 15rem;
+        min-width: 0;
+      }
+
+      /* --- Equal-height grid demo --- */
+      .demo-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-4);
+        width: 100%;
+      }
+      .demo-col {
+        display: flex;
+        flex-direction: column;
+      }
+      @media (max-width: 700px) {
+        .demo-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Stretched-link card --- */
+      .demo-linkcard {
+        position: relative;
+        max-width: 26rem;
+      }
+      .demo-link {
+        color: var(--primary-color-fg);
+        text-decoration: none;
+      }
+      .demo-link::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+      .demo-link:hover {
+        text-decoration: underline;
+      }
+      .demo-link:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 3px;
+      }
+
+      /* --- Examples --- */
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        max-width: 46rem;
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-ground);
+      }
+      .ex__stage--anatomy {
+        display: block;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 720px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .code-block--inline {
+        margin: 0;
+        font-size: 0.75rem;
+        background: var(--surface-card);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Card (`p-card`) — SPEC N5, Guides.
  *
@@ -89,15 +469,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-card-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    CardModule,
-    ButtonModule,
-    SelectModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'card'">
@@ -1109,6 +1481,10 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       <ng-template appGuideTab="history">
         <ul class="history">
           <li>
+            <strong>v0.7</strong> — 2026-10-01 — lernwerkstatt's dark surfaces turned neutral, and its dark outline with
+            them: <code>#969491</code>, the style's control-edge grey, 5.5:1 on its ground, replacing <code>#9c8fac</code>.
+          </li>
+          <li>
             <strong>v0.6</strong> — 2026-09-23 — Synced with the contrast and focus rounds: the style outline is gated
             ("panel outline", 3.85:1 and up — lernwerkstatt's dark outline is <code>#9c8fac</code> now, no 1.17:1); the
             dark card shadow is a default that yields to each style's signature; the i18n sample names an existing key.
@@ -1154,384 +1530,16 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-      }
-      .pg__code {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      @media (max-width: 720px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Demo card decorations (opt-in, so the default stays honest) --- */
-      .demo-edge {
-        border: 1px solid var(--surface-border);
-      }
-      .demo-clip {
-        overflow: hidden;
-      }
-      .demo-h {
-        margin: 0;
-        font-size: 1.125rem;
-        font-weight: 500;
-        line-height: 1.3;
-        color: inherit;
-      } /* 18px — deliberately under card.title, which is 1.25rem in Aura 2.x */
-      .demo-p {
-        margin: 0;
-        font-size: 0.92rem;
-        line-height: 1.55;
-      }
-      .demo-band {
-        display: flex;
-        justify-content: space-between;
-        gap: var(--space-3);
-        padding: var(--space-3) var(--space-4);
-        font-size: 0.82rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        border-bottom: 1px solid var(--surface-border);
-      }
-      .demo-band--solid {
-        background: var(--surface-section);
-        border-bottom: 0;
-      }
-      .demo-actions {
-        display: flex;
-        gap: var(--space-2);
-        flex-wrap: wrap;
-      }
-      .demo-anat {
-        max-width: 24rem;
-      }
-      .demo-nest {
-        flex: 1 1 15rem;
-        min-width: 0;
-      }
-
-      /* --- Equal-height grid demo --- */
-      .demo-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--space-4);
-        width: 100%;
-      }
-      .demo-col {
-        display: flex;
-        flex-direction: column;
-      }
-      @media (max-width: 700px) {
-        .demo-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Stretched-link card --- */
-      .demo-linkcard {
-        position: relative;
-        max-width: 26rem;
-      }
-      .demo-link {
-        color: var(--primary-color-fg);
-        text-decoration: none;
-      }
-      .demo-link::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-      }
-      .demo-link:hover {
-        text-decoration: underline;
-      }
-      .demo-link:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 3px;
-      }
-
-      /* --- Examples --- */
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        max-width: 46rem;
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-ground);
-      }
-      .ex__stage--anatomy {
-        display: block;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 720px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .code-block--inline {
-        margin: 0;
-        font-size: 0.75rem;
-        background: var(--surface-card);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class CardArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
+  protected readonly destroyRef = inject(DestroyRef);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1547,16 +1555,15 @@ export class CardArticleComponent {
     { label: 'band + heading + footer actions', value: 'full' },
   ];
 
-  readonly pgTopic = 'Retrieval-augmented generation';
-  readonly pgBody =
-    'The model looks the answer up before it writes it. Everything hard about the method is ' + 'in the looking up.';
+  readonly pgTopic: string = 'Retrieval-augmented generation';
+  readonly pgBody: string = 'The model looks the answer up before it writes it. Everything hard about the method is ' + 'in the looking up.';
 
   readonly pgVariant = signal<'plain' | 'heading' | 'band' | 'full'>('plain');
   readonly pgSubtitle = signal(true);
   readonly pgClip = signal(false);
   readonly pgBorder = signal(false);
 
-  readonly pgSub = computed(() => (this.pgSubtitle() ? 'Six minutes, intermediate' : undefined));
+  readonly pgSub = computed<string | undefined>(() => (this.pgSubtitle() ? 'Six minutes, intermediate' : undefined));
 
   /** Live-generated markup mirroring the playground configuration. */
   readonly pgCode = computed(() => {
@@ -1617,7 +1624,7 @@ export class CardArticleComponent {
     footer: { style: 'margin-top: auto' },
   };
 
-  readonly stretchSnippet = `/* The body never grows on its own, so footers in a stretched row
+  readonly stretchSnippet: string = `/* The body never grows on its own, so footers in a stretched row
    do not share a baseline. Three rules: the host is display:block in
    Optimus, so it has to be made a flex column first; the last is the
    one that actually moves the footer, because growing the body does
@@ -1631,7 +1638,7 @@ export class CardArticleComponent {
 <p-card class="card-grid__item"
   [pt]="{ body: { style: 'flex: 1' }, footer: { style: 'margin-top: auto' } }">`;
 
-  readonly linkCardSnippet = `<p-card class="link-card">
+  readonly linkCardSnippet: string = `<p-card class="link-card">
   <ng-template #title>
     <h3><a class="link-card__link" [routerLink]="item.route">{{ item.title }}</a></h3>
   </ng-template>
@@ -1641,7 +1648,7 @@ export class CardArticleComponent {
 /* .link-card { position: relative; }
    .link-card__link::after { content: ''; position: absolute; inset: 0; } */`;
 
-  readonly annotatedSource = `<p-card
+  readonly annotatedSource: string = `<p-card
   class="event-card"                       <!-- 'class' — styleClass is back but deprecated -->
   [header]="labels().title"                <!-- lands in .p-card-title: a DIV, not a heading -->
   [subheader]="labels().meta">             <!-- .p-card-subtitle, muted color -->
@@ -1664,7 +1671,7 @@ export class CardArticleComponent {
      overflow: hidden;                          // clip the filled band to the card's radius
    } */`;
 
-  readonly shippedCss = `/* 1-5: @openng/optimus-ui-styles/dist/card/index.mjs — the whole preset file */
+  readonly shippedCss: string = `/* 1-5: @openng/optimus-ui-styles/dist/card/index.mjs — the whole preset file */
 .p-card         { background: dt('card.background'); color: dt('card.color');
                   box-shadow: dt('card.shadow'); border-radius: dt('card.border.radius');
                   display: flex; flex-direction: column; }
@@ -1700,14 +1707,14 @@ export class CardArticleComponent {
 html.style-werkbund .p-card          { border: var(--style-bw) solid var(--style-outline);
                                        border-radius: 0; box-shadow: none; }`;
 
-  readonly ptSnippet = `<!-- pt.root and pt.host are merged onto the <p-card> element itself
+  readonly ptSnippet: string = `<!-- pt.root and pt.host are merged onto the <p-card> element itself
      and written from onAfterViewChecked. -->
 <p-card [pt]="{ root: { role: 'group', 'aria-labelledby': titleId } }">
   <ng-template #title><h3 [id]="titleId">{{ labels().title }}</h3></ng-template>
   …
 </p-card>`;
 
-  readonly i18nSnippet = `// labels(): one computed() map, re-evaluated on a language switch.
+  readonly i18nSnippet: string = `// labels(): one computed() map, re-evaluated on a language switch.
 readonly labels = computed(() => ({
   title: this.t.translate('events.rag.title'),
   meta: this.t.translate('events.rag.meta'),

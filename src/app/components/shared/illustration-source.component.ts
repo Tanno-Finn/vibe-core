@@ -48,7 +48,7 @@ import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@a
                 <div style="border-radius:50%;background:var(--surface-300)"></div>
                 <div style="border-radius:50%;background:var(--primary-400)"></div>
                 <div style="border-radius:50%;background:var(--surface-300)"></div>
-                <div style="border-radius:50%;background:var(--purple-400,#c084fc)"></div>
+                <div style="border-radius:50%;background:var(--teal-400,#2dd4bf)"></div>
                 <div style="border-radius:50%;background:var(--surface-300)"></div>
               </div>
               <div style="display:flex;align-items:center;gap:8px;position:relative">

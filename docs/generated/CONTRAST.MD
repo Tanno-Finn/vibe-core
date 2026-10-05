@@ -29,8 +29,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 
 | style | light: lowest pair | dark: lowest pair |
 |---|---|---|
-| **werkbund** | 3.30:1 (SC 1.4.11, needs 3:1) · `--dev-toggle-border` on `--surface-card` | 3.74:1 (SC 1.4.11, needs 3:1) · `mystic.--primary-color-fg (kit focus ring, option)` on `mystic.multiselect.option.selected.focus.background` |
-| **lernwerkstatt** (default) | 3.30:1 (SC 1.4.11, needs 3:1) · `--dev-toggle-border` on `--surface-card` | 3.74:1 (SC 1.4.11, needs 3:1) · `mystic.--primary-color-fg (kit focus ring, option)` on `mystic.multiselect.option.selected.focus.background` |
+| **werkbund** | 3.30:1 (SC 1.4.11, needs 3:1) · `--dev-toggle-border` on `--surface-card` | 3.78:1 (SC 1.4.11, needs 3:1) · `fire.progressbar.value.background` on `progressbar.background` |
+| **lernwerkstatt** (default) | 3.30:1 (SC 1.4.11, needs 3:1) · `--dev-toggle-border` on `--surface-card` | 3.78:1 (SC 1.4.11, needs 3:1) · `fire.progressbar.value.background` on `progressbar.background` |
 | **skizzenbuch** | 3.30:1 (SC 1.4.11, needs 3:1) · `--dev-toggle-border` on `--surface-card` | 3.63:1 (SC 1.4.11, needs 3:1) · `fire.--primary-color-fg (kit focus ring, inset)` on `fire.datatable.row.selected.background` |
 | **blaupause** | 3.30:1 (SC 1.4.11, needs 3:1) · `--dev-toggle-border` on `--surface-card` | 3.25:1 (SC 1.4.11, needs 3:1) · `--control-border` on `--surface-section` |
 
@@ -63,8 +63,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#15803d` | `--surface-card` | `#ffffff` | **5.02:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-ground` | `#f6f5f1` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-ground` | `#f6f5f1` | **6.40:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-ground` | `#f6f5f1` | **4.91:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-ground` | `#f6f5f1` | **5.53:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-card` | `#ffffff` | **6.04:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -178,10 +178,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-ground` | `#f6f5f1` | **5.44:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-card` | `#ffffff` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-ground` | `#f6f5f1` | **5.07:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-ground` | `#f6f5f1` | **4.70:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-card` | `#ffffff` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-ground` | `#f6f5f1` | **5.59:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-ground` | `#f6f5f1` | **4.93:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-card` | `#ffffff` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-ground` | `#f6f5f1` | **5.08:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#a05e1c` | `--surface-ground` | `#f6f5f1` | **4.68:1** | 1.4.3 | 4.5:1 | ok |
@@ -209,8 +209,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#167e4a` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#0369a1` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#cc1790` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#d0174a` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#a05e1c` | **5.11:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#ffffff` | `contrast.--primary-color` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -234,8 +234,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#147444` | **4.88:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2f40c2` | **6.69:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#036194` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8b2acf` | **5.29:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bc1584` | **4.92:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#a91275` | **5.81:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bf1544` | **5.17:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#6d5d51` | **5.28:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#93561a` | **4.91:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#ffffff` | `contrast.--primary-color @brightness(1.1)` | `#11192e` | **17.47:1** | 1.4.3 | 4.5:1 | ok |
@@ -252,7 +252,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#00423a` | `ocean.--accent-surface` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#003f55` | `aurora.--accent-surface` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#0013a0` | `twilight.--accent-surface` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#6400ae` | `mystic.--accent-surface` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#85004c` | `mystic.--accent-surface` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#443225` | `stone.--accent-surface` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#000000` | `contrast.--accent-surface` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -283,9 +283,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#3346d3` | `--surface-ground` | `#f6f5f1` | **6.51:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#ffffff` | `twilight.checkbox.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-ground` | `#f6f5f1` | **5.07:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-ground` | `#f6f5f1` | **5.59:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-ground` | `#f6f5f1` | **5.08:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#ffffff` | `stone.checkbox.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -307,7 +307,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#ffffff` | `ocean.toggleswitch.checked.background` | `#0a756d` | **5.56:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#ffffff` | `aurora.toggleswitch.checked.background` | `#077288` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#ffffff` | `twilight.toggleswitch.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#ffffff` | `stone.toggleswitch.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#ffffff` | `contrast.toggleswitch.checked.background` | `#0f172a` | **17.85:1** | 1.4.11 | 3:1 | ok |
 
@@ -412,7 +412,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.tag.primary.color` | `#00423a` | `ocean.tag.primary.background` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.tag.primary.color` | `#003f55` | `aurora.tag.primary.background` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#0013a0` | `twilight.tag.primary.background` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#6400ae` | `mystic.tag.primary.background` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#85004c` | `mystic.tag.primary.background` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#443225` | `stone.tag.primary.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#000000` | `contrast.tag.primary.background` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -461,8 +461,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#ffffff` | `aurora.progressbar.value.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#3346d3` | `progressbar.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#ffffff` | `twilight.progressbar.value.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#972ee1` | `progressbar.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#b8147f` | `progressbar.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#776558` | `progressbar.background` | `#e2e8f0` | **4.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#ffffff` | `stone.progressbar.value.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#0f172a` | `progressbar.background` | `#e2e8f0` | **14.48:1** | 1.4.11 | 3:1 | ok |
@@ -488,8 +488,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#ffffff` | `aurora.togglebutton.content.checked.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#3346d3` | `togglebutton.background` | `#efede7` | **6.07:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `twilight.togglebutton.content.checked.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#972ee1` | `togglebutton.background` | `#efede7` | **4.73:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#b8147f` | `togglebutton.background` | `#efede7` | **5.21:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#776558` | `togglebutton.background` | `#efede7` | **4.74:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `stone.togglebutton.content.checked.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#0f172a` | `togglebutton.background` | `#efede7` | **15.25:1** | 1.4.11 | 3:1 | ok |
@@ -518,8 +518,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#077288` | `menubar.background` | `#ffffff` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.item.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.item.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.item.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.item.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#0f172a` | `menubar.item.focus.background` | `#f1f5f9` | **16.30:1** | 1.4.11 | 3:1 | ok |
@@ -558,10 +558,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `select.option.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.focus.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.overlay.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.option.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.focus.background` | `#fffaff` | **5.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.overlay.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.option.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.focus.background` | `#ffe0ff` | **5.04:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.overlay.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.option.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `stone.select.option.selected.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -636,12 +636,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `datatable.row.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#6400ae` | `mystic.datatable.row.selected.background` | `#ffffff` | **9.75:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#85004c` | `mystic.datatable.row.selected.background` | `#fffaff` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#fffaff` | `datatable.row.background` | `#ffffff` | **1.03:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#443225` | `stone.datatable.row.selected.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#ffffff` | `stone.paginator.nav.button.selected.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#776558` | `paginator.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -672,7 +672,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#ffffff` | `ocean.badge.primary.background` | `#0a756d` | **5.56:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#ffffff` | `aurora.badge.primary.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#ffffff` | `twilight.badge.primary.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#ffffff` | `stone.badge.primary.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#ffffff` | `contrast.badge.primary.background` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -741,8 +741,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#1d4ed8` | `--surface-card` | `#ffffff` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-ground` | `#f6f5f1` | **4.75:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-card` | `#ffffff` | **5.18:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-ground` | `#f6f5f1` | **6.40:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-ground` | `#f6f5f1` | **4.91:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-ground` | `#f6f5f1` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#121212` | `--surface-ground` | `#f6f5f1` | **17.17:1** | 1.4.3 | 4.5:1 | ok |
@@ -763,8 +763,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#077288` | `--surface-card` | `#ffffff` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-ground` | `#f6f5f1` | **6.51:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-ground` | `#f6f5f1` | **5.07:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-ground` | `#f6f5f1` | **5.59:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-ground` | `#f6f5f1` | **5.08:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#0f172a` | `--surface-ground` | `#f6f5f1` | **16.36:1** | 1.4.3 | 4.5:1 | ok |
@@ -865,16 +865,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `datatable.row.hover.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `autocomplete.chip.focus.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-ground` | `#f6f5f1` | **5.07:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-section` | `#efede7` | **4.73:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `dialog.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `chip.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.hover.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-ground` | `#f6f5f1` | **5.59:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-section` | `#efede7` | **5.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `dialog.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `chip.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.hover.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-ground` | `#f6f5f1` | **5.08:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-section` | `#efede7` | **4.74:1** | 1.4.11 | 3:1 | ok |
@@ -921,9 +921,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-ground` | `#f6f5f1` | **6.51:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-section` | `#efede7` | **6.07:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-ground` | `#f6f5f1` | **5.07:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-section` | `#efede7` | **4.73:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-ground` | `#f6f5f1` | **5.59:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-section` | `#efede7` | **5.21:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-ground` | `#f6f5f1` | **5.08:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-section` | `#efede7` | **4.74:1** | 1.4.11 | 3:1 | ok |
@@ -958,8 +958,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#86efac` | `--surface-card` | `#1d1d21` | **11.97:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-ground` | `#141416` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-card` | `#1d1d21` | **8.85:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-ground` | `#141416` | **10.41:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-card` | `#1d1d21` | **9.50:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-ground` | `#141416` | **12.69:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-card` | `#1d1d21` | **11.59:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-ground` | `#141416` | **10.15:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-card` | `#1d1d21` | **9.26:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -1079,10 +1079,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#85a7ff` | `--surface-card` | `#1d1d21` | **7.18:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-ground` | `#141416` | **11.04:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-card` | `#1d1d21` | **10.08:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-ground` | `#141416` | **6.96:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-card` | `#1d1d21` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-ground` | `#141416` | **10.46:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-card` | `#1d1d21` | **9.55:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-ground` | `#141416` | **10.15:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-card` | `#1d1d21` | **9.26:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-ground` | `#141416` | **9.73:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-card` | `#1d1d21` | **8.88:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-ground` | `#141416` | **12.35:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-card` | `#1d1d21` | **11.28:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#fbbf24` | `--surface-ground` | `#141416` | **11.02:1** | 1.4.3 | 4.5:1 | ok |
@@ -1110,8 +1110,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#12683d` | **6.83:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#2638b0` | **9.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#075985` | **7.56:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#7c1cc2` | **7.49:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#ab1378` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#9a116a` | **7.89:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#af133e` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#605247` | **7.51:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#854e17` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#1e293b` | `contrast.--primary-color` | `#f8fafc` | **13.98:1** | 1.4.3 | 4.5:1 | ok |
@@ -1135,8 +1135,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#116038` | **6.40:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2334a2` | **8.45:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#06527a` | **7.06:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#721ab2` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#9d116e` | **6.43:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8e1062` | **7.34:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#a11139` | **6.64:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#584b41` | **7.05:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#7a4815` | **6.37:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#212d41` | `contrast.--primary-color @brightness(1.1)` | `#ffffff` | **13.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -1153,7 +1153,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#a3ffff` | `ocean.--accent-surface` | `#000000` | **18.31:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#a0ffff` | `aurora.--accent-surface` | `#000009` | **18.17:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#ccdfff` | `twilight.--accent-surface` | `#000054` | **13.80:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#ffc7ff` | `mystic.--accent-surface` | `#180062` | **12.23:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#ffadff` | `mystic.--accent-surface` | `#390000` | **10.80:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#fffef1` | `stone.--accent-surface` | `#000000` | **20.70:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#a8b0c3` | `contrast.--accent-surface` | `#000000` | **9.66:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -1184,9 +1184,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#85a7ff` | `--surface-ground` | `#141416` | **7.86:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#85a7ff` | `--surface-card` | `#1d1d21` | **7.18:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#18181b` | `twilight.checkbox.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-ground` | `#141416` | **6.96:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-card` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-ground` | `#141416` | **10.15:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-card` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-ground` | `#141416` | **12.35:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-card` | `#1d1d21` | **11.28:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#18181b` | `stone.checkbox.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
@@ -1208,7 +1208,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#18181b` | `ocean.toggleswitch.checked.background` | `#2dd4bf` | **9.52:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#18181b` | `aurora.toggleswitch.checked.background` | `#22d3ee` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#18181b` | `twilight.toggleswitch.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#18181b` | `stone.toggleswitch.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#18181b` | `contrast.toggleswitch.checked.background` | `#f8fafc` | **16.93:1** | 1.4.11 | 3:1 | ok |
 
@@ -1320,8 +1320,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.tag.primary.color` | `#88ffff` | `aurora.tag.primary.background over --surface-card` | `#1e3a42` | **10.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-ground` | `#262c3b` | **13.47:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-card` | `#2e3345` | **12.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-ground` | `#30263b` | **12.59:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-card` | `#372d44` | **11.39:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-ground` | `#392c34` | **13.26:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-card` | `#40333e` | **11.92:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-ground` | `#333334` | **12.62:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-card` | `#3b3a3d` | **11.30:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#ffffff` | `contrast.tag.primary.background over --surface-ground` | `#38393b` | **11.56:1** | 1.4.3 | 4.5:1 | ok |
@@ -1372,8 +1372,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#18181b` | `aurora.progressbar.value.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#85a7ff` | `progressbar.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#18181b` | `twilight.progressbar.value.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#c084fc` | `progressbar.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#f9a8d4` | `progressbar.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#d6d3d1` | `progressbar.background` | `#3f3f46` | **7.01:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#18181b` | `stone.progressbar.value.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#f8fafc` | `progressbar.background` | `#3f3f46` | **9.98:1** | 1.4.11 | 3:1 | ok |
@@ -1399,8 +1399,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#1d1d21` | `aurora.togglebutton.content.checked.background` | `#22d3ee` | **9.30:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#85a7ff` | `togglebutton.background` | `#26262b` | **6.43:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#1d1d21` | `twilight.togglebutton.content.checked.background` | `#85a7ff` | **7.18:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#c084fc` | `togglebutton.background` | `#26262b` | **5.70:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#1d1d21` | `mystic.togglebutton.content.checked.background` | `#c084fc` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#f9a8d4` | `togglebutton.background` | `#26262b` | **8.30:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#1d1d21` | `mystic.togglebutton.content.checked.background` | `#f9a8d4` | **9.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#d6d3d1` | `togglebutton.background` | `#26262b` | **10.11:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#1d1d21` | `stone.togglebutton.content.checked.background` | `#d6d3d1` | **11.28:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#f8fafc` | `togglebutton.background` | `#26262b` | **14.39:1** | 1.4.11 | 3:1 | ok |
@@ -1429,8 +1429,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#22d3ee` | `menubar.background` | `#18181b` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.item.focus.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.background` | `#18181b` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.item.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.item.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.item.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.background` | `#18181b` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#f8fafc` | `menubar.item.focus.background` | `#27272a` | **14.24:1** | 1.4.11 | 3:1 | ok |
@@ -1518,17 +1518,17 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `listbox.background` | `#09090b` | **8.50:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.background` | `#252a32` | **6.16:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.focus.background` | `#333b46` | **4.84:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-card (.dark-theme .p-select-overlay)` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `select.option.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.background` | `#3f3645` | **4.35:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.focus.background` | `#3f3645` | **4.35:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#26262b` | **5.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `multiselect.overlay.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.background` | `#3b313f` | **4.68:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.focus.background` | `#4d3e52` | **3.74:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `listbox.background` | `#09090b` | **7.53:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.background` | `#2e2532` | **5.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.focus.background` | `#413346` | **4.45:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-card (.dark-theme .p-select-overlay)` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `select.option.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.background` | `#413b45` | **5.98:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.focus.background` | `#413b45` | **5.98:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#26262b` | **8.30:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `multiselect.overlay.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.background` | `#3d373f` | **6.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.focus.background` | `#4f4752` | **4.92:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `listbox.background` | `#09090b` | **10.97:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.background` | `#302b32` | **7.63:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.focus.background` | `#443b46` | **5.91:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `--surface-card (.dark-theme .p-select-overlay)` | `#1d1d21` | **11.28:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `select.option.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `stone.select.option.selected.background` | `#414145` | **6.82:1** | 1.4.11 | 3:1 | ok |
@@ -1617,12 +1617,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#363b45` | `datatable.row.background` | `#1d1d21` | **1.49:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#363b45` | **4.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `datatable.row.background` | `#1d1d21` | **7.18:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#e6e5e7` | `mystic.datatable.row.selected.background` | `#3f3645` | **9.17:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#c084fc` | `paginator.background` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#3f3645` | `datatable.row.background` | `#1d1d21` | **1.46:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#3f3645` | **4.35:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `datatable.row.background` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#e6e6e7` | `mystic.datatable.row.selected.background` | `#413b45` | **8.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | `paginator.background` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#413b45` | `datatable.row.background` | `#1d1d21` | **1.55:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#413b45` | **5.98:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `datatable.row.background` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#e6e6e7` | `stone.datatable.row.selected.background` | `#414145` | **8.15:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#18181b` | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | `paginator.background` | `#1d1d21` | **11.28:1** | 1.4.11 | 3:1 | ok |
@@ -1653,7 +1653,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#18181b` | `ocean.badge.primary.background` | `#2dd4bf` | **9.52:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#18181b` | `aurora.badge.primary.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#18181b` | `twilight.badge.primary.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#18181b` | `stone.badge.primary.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#18181b` | `contrast.badge.primary.background` | `#f8fafc` | **16.93:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -1722,8 +1722,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#93c5fd` | `--surface-card` | `#1d1d21` | **9.32:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-ground` | `#141416` | **10.91:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-card` | `#1d1d21` | **9.96:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-ground` | `#141416` | **10.41:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-card` | `#1d1d21` | **9.50:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-ground` | `#141416` | **12.69:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-card` | `#1d1d21` | **11.59:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-ground` | `#141416` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-card` | `#1d1d21` | **8.85:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#f2f1ed` | `--surface-ground` | `#141416` | **16.28:1** | 1.4.3 | 4.5:1 | ok |
@@ -1744,8 +1744,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#22d3ee` | `--surface-card` | `#1d1d21` | **9.30:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-ground` | `#141416` | **7.86:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-card` | `#1d1d21` | **7.18:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-ground` | `#141416` | **6.96:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-card` | `#1d1d21` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-ground` | `#141416` | **10.15:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-card` | `#1d1d21` | **9.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-ground` | `#141416` | **12.35:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-card` | `#1d1d21` | **11.28:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#f8fafc` | `--surface-ground` | `#141416` | **17.58:1** | 1.4.3 | 4.5:1 | ok |
@@ -1846,16 +1846,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `datatable.row.hover.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#363b45` | **4.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `autocomplete.chip.focus.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-ground` | `#141416` | **6.96:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-card` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-section` | `#26262b` | **5.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `dialog.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `chip.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `paginator.background` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.background` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.hover.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#3f3645` | **4.35:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `autocomplete.chip.focus.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-ground` | `#141416` | **10.15:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-card` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-section` | `#26262b` | **8.30:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `dialog.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `chip.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `paginator.background` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.background` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.hover.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#413b45` | **5.98:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `autocomplete.chip.focus.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-ground` | `#141416` | **12.35:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-card` | `#1d1d21` | **11.28:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-section` | `#26262b` | **10.11:1** | 1.4.11 | 3:1 | ok |
@@ -1902,9 +1902,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-ground` | `#141416` | **7.86:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-card` | `#1d1d21` | **7.18:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-section` | `#26262b` | **6.43:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-ground` | `#141416` | **6.96:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-card` | `#1d1d21` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-section` | `#26262b` | **5.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-ground` | `#141416` | **10.15:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-card` | `#1d1d21` | **9.26:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-section` | `#26262b` | **8.30:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-ground` | `#141416` | **12.35:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-card` | `#1d1d21` | **11.28:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-section` | `#26262b` | **10.11:1** | 1.4.11 | 3:1 | ok |
@@ -1941,8 +1941,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#15803d` | `--surface-card` | `#ffffff` | **5.02:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-ground` | `#fffdf6` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-ground` | `#fffdf6` | **6.86:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-ground` | `#fffdf6` | **5.26:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-ground` | `#fffdf6` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-card` | `#ffffff` | **6.04:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -1987,8 +1987,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text` | `#2b2622` | `--gradient-warn-to` | `#f59e0b` | **6.97:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-from` | `#6d645c` | **5.79:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-to` | `#6d645c` | **5.79:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#675ad0` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#675ad0` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#0e7490` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#0e7490` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 
 #### outlined severity
 
@@ -1999,7 +1999,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `info.--outlined-info-fg` | `#4762c9` | `--surface-card` | `#ffffff` | **5.44:1** | 1.4.3 | 4.5:1 | ok |
 | `warn.--outlined-warn-fg` | `#9e6506` | `--surface-card` | `#ffffff` | **4.86:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--outlined-secondary-fg` | `#6d645c` | `--surface-card` | `#ffffff` | **5.79:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--outlined-help-fg` | `#675ad0` | `--surface-card` | `#ffffff` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--outlined-help-fg` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 
 #### severity button (hover)
 
@@ -2015,8 +2015,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text @brightness(1.1)` | `#2f2a25` | `--gradient-warn-to @brightness(1.1)` | `#ffae0c` | **7.65:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-from @brightness(0.92)` | `#645c55` | **5.50:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-to @brightness(0.92)` | `#645c55` | **5.50:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#5f53bf` | **5.07:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#5f53bf` | **5.07:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#0d6b84` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#0d6b84` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
 
 #### brand chip
 
@@ -2056,10 +2056,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-ground` | `#fffdf6` | **5.83:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-card` | `#ffffff` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-ground` | `#fffdf6` | **5.44:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-ground` | `#fffdf6` | **5.04:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-card` | `#ffffff` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-ground` | `#fffdf6` | **5.99:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-ground` | `#fffdf6` | **5.29:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-card` | `#ffffff` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-ground` | `#fffdf6` | **5.45:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#a05e1c` | `--surface-ground` | `#fffdf6` | **5.02:1** | 1.4.3 | 4.5:1 | ok |
@@ -2087,8 +2087,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#167e4a` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#0369a1` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#cc1790` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#d0174a` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#a05e1c` | **5.11:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#ffffff` | `contrast.--primary-color` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -2112,8 +2112,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#147444` | **4.88:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2f40c2` | **6.69:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#036194` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8b2acf` | **5.29:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bc1584` | **4.92:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#a91275` | **5.81:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bf1544` | **5.17:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#6d5d51` | **5.28:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#93561a` | **4.91:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#ffffff` | `contrast.--primary-color @brightness(1.1)` | `#11192e` | **17.47:1** | 1.4.3 | 4.5:1 | ok |
@@ -2130,7 +2130,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#00423a` | `ocean.--accent-surface` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#003f55` | `aurora.--accent-surface` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#0013a0` | `twilight.--accent-surface` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#6400ae` | `mystic.--accent-surface` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#85004c` | `mystic.--accent-surface` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#443225` | `stone.--accent-surface` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#000000` | `contrast.--accent-surface` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -2161,9 +2161,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#3346d3` | `--surface-ground` | `#fffdf6` | **6.98:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#ffffff` | `twilight.checkbox.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-ground` | `#fffdf6` | **5.44:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-ground` | `#fffdf6` | **5.99:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-ground` | `#fffdf6` | **5.45:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#ffffff` | `stone.checkbox.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -2185,7 +2185,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#ffffff` | `ocean.toggleswitch.checked.background` | `#0a756d` | **5.56:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#ffffff` | `aurora.toggleswitch.checked.background` | `#077288` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#ffffff` | `twilight.toggleswitch.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#ffffff` | `stone.toggleswitch.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#ffffff` | `contrast.toggleswitch.checked.background` | `#0f172a` | **17.85:1** | 1.4.11 | 3:1 | ok |
 
@@ -2290,7 +2290,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.tag.primary.color` | `#00423a` | `ocean.tag.primary.background` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.tag.primary.color` | `#003f55` | `aurora.tag.primary.background` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#0013a0` | `twilight.tag.primary.background` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#6400ae` | `mystic.tag.primary.background` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#85004c` | `mystic.tag.primary.background` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#443225` | `stone.tag.primary.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#000000` | `contrast.tag.primary.background` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -2339,8 +2339,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#ffffff` | `aurora.progressbar.value.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#3346d3` | `progressbar.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#ffffff` | `twilight.progressbar.value.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#972ee1` | `progressbar.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#b8147f` | `progressbar.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#776558` | `progressbar.background` | `#e2e8f0` | **4.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#ffffff` | `stone.progressbar.value.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#0f172a` | `progressbar.background` | `#e2e8f0` | **14.48:1** | 1.4.11 | 3:1 | ok |
@@ -2366,8 +2366,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#ffffff` | `aurora.togglebutton.content.checked.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#3346d3` | `togglebutton.background` | `#fdf8ec` | **6.70:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `twilight.togglebutton.content.checked.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#972ee1` | `togglebutton.background` | `#fdf8ec` | **5.22:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#b8147f` | `togglebutton.background` | `#fdf8ec` | **5.75:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#776558` | `togglebutton.background` | `#fdf8ec` | **5.23:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `stone.togglebutton.content.checked.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#0f172a` | `togglebutton.background` | `#fdf8ec` | **16.84:1** | 1.4.11 | 3:1 | ok |
@@ -2396,8 +2396,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#077288` | `menubar.background` | `#ffffff` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.item.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.item.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.item.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.item.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#0f172a` | `menubar.item.focus.background` | `#f1f5f9` | **16.30:1** | 1.4.11 | 3:1 | ok |
@@ -2436,10 +2436,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `select.option.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.focus.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.overlay.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.option.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.focus.background` | `#fffaff` | **5.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.overlay.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.option.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.focus.background` | `#ffe0ff` | **5.04:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.overlay.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.option.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `stone.select.option.selected.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -2514,12 +2514,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `datatable.row.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#6400ae` | `mystic.datatable.row.selected.background` | `#ffffff` | **9.75:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#85004c` | `mystic.datatable.row.selected.background` | `#fffaff` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#fffaff` | `datatable.row.background` | `#ffffff` | **1.03:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#443225` | `stone.datatable.row.selected.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#ffffff` | `stone.paginator.nav.button.selected.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#776558` | `paginator.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -2550,7 +2550,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#ffffff` | `ocean.badge.primary.background` | `#0a756d` | **5.56:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#ffffff` | `aurora.badge.primary.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#ffffff` | `twilight.badge.primary.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#ffffff` | `stone.badge.primary.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#ffffff` | `contrast.badge.primary.background` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -2619,8 +2619,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#1d4ed8` | `--surface-card` | `#ffffff` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-ground` | `#fffdf6` | **5.09:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-card` | `#ffffff` | **5.18:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-ground` | `#fffdf6` | **6.86:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-ground` | `#fffdf6` | **5.26:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-ground` | `#fffdf6` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#2b2622` | `--surface-ground` | `#fffdf6` | **14.71:1** | 1.4.3 | 4.5:1 | ok |
@@ -2641,8 +2641,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#077288` | `--surface-card` | `#ffffff` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-ground` | `#fffdf6` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-ground` | `#fffdf6` | **5.44:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-ground` | `#fffdf6` | **5.99:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-ground` | `#fffdf6` | **5.45:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#0f172a` | `--surface-ground` | `#fffdf6` | **17.54:1** | 1.4.3 | 4.5:1 | ok |
@@ -2743,16 +2743,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `datatable.row.hover.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `autocomplete.chip.focus.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-ground` | `#fffdf6` | **5.44:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-section` | `#fdf8ec` | **5.22:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `dialog.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `chip.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.hover.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-ground` | `#fffdf6` | **5.99:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-section` | `#fdf8ec` | **5.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `dialog.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `chip.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.hover.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-ground` | `#fffdf6` | **5.45:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-section` | `#fdf8ec` | **5.23:1** | 1.4.11 | 3:1 | ok |
@@ -2799,9 +2799,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-ground` | `#fffdf6` | **6.98:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-section` | `#fdf8ec` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-ground` | `#fffdf6` | **5.44:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-section` | `#fdf8ec` | **5.22:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-ground` | `#fffdf6` | **5.99:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-section` | `#fdf8ec` | **5.75:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-ground` | `#fffdf6` | **5.45:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-section` | `#fdf8ec` | **5.23:1** | 1.4.11 | 3:1 | ok |
@@ -2836,8 +2836,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#86efac` | `--surface-card` | `#292725` | **10.60:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-ground` | `#201e1b` | **8.76:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-card` | `#292725` | **7.84:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-ground` | `#201e1b` | **9.41:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-card` | `#292725` | **8.42:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-ground` | `#201e1b` | **11.47:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-card` | `#292725` | **10.27:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-ground` | `#201e1b` | **9.17:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-card` | `#292725` | **8.21:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -2888,8 +2888,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text` | `#2b2622` | `--gradient-warn-to` | `#f59e0b` | **6.97:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-from` | `#6d645c` | **5.79:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-to` | `#6d645c` | **5.79:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#675ad0` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#675ad0` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#0e7490` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#0e7490` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 
 #### outlined severity
 
@@ -2900,7 +2900,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `info.--outlined-info-fg` | `#7a8ed8` | `--surface-card` | `#292725` | **4.74:1** | 1.4.3 | 4.5:1 | ok |
 | `warn.--outlined-warn-fg` | `#f59e0b` | `--surface-card` | `#292725` | **6.93:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--outlined-secondary-fg` | `#998f86` | `--surface-card` | `#292725` | **4.70:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--outlined-help-fg` | `#8f86dc` | `--surface-card` | `#292725` | **4.68:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--outlined-help-fg` | `#139dc3` | `--surface-card` | `#292725` | **4.70:1** | 1.4.3 | 4.5:1 | ok |
 
 #### severity button (hover)
 
@@ -2916,8 +2916,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text @brightness(1.1)` | `#2f2a25` | `--gradient-warn-to @brightness(1.1)` | `#ffae0c` | **7.65:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-from @brightness(0.92)` | `#645c55` | **5.50:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-to @brightness(0.92)` | `#645c55` | **5.50:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#5f53bf` | **5.07:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#5f53bf` | **5.07:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#0d6b84` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#0d6b84` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
 
 #### brand chip
 
@@ -2957,10 +2957,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#85a7ff` | `--surface-card` | `#292725` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-ground` | `#201e1b` | **9.97:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-card` | `#292725` | **8.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-ground` | `#201e1b` | **6.29:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-card` | `#292725` | **5.63:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-ground` | `#201e1b` | **9.45:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-card` | `#292725` | **8.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-ground` | `#201e1b` | **9.17:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-card` | `#292725` | **8.21:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-ground` | `#201e1b` | **8.79:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-card` | `#292725` | **7.87:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-ground` | `#201e1b` | **11.16:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-card` | `#292725` | **9.99:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#fbbf24` | `--surface-ground` | `#201e1b` | **9.96:1** | 1.4.3 | 4.5:1 | ok |
@@ -2988,8 +2988,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#12683d` | **6.83:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#2638b0` | **9.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#075985` | **7.56:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#7c1cc2` | **7.49:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#ab1378` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#9a116a` | **7.89:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#af133e` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#605247` | **7.51:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#854e17` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#1e293b` | `contrast.--primary-color` | `#f8fafc` | **13.98:1** | 1.4.3 | 4.5:1 | ok |
@@ -3013,8 +3013,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#116038` | **6.40:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2334a2` | **8.45:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#06527a` | **7.06:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#721ab2` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#9d116e` | **6.43:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8e1062` | **7.34:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#a11139` | **6.64:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#584b41` | **7.05:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#7a4815` | **6.37:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#212d41` | `contrast.--primary-color @brightness(1.1)` | `#ffffff` | **13.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -3031,7 +3031,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#a3ffff` | `ocean.--accent-surface` | `#000000` | **18.31:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#a0ffff` | `aurora.--accent-surface` | `#000009` | **18.17:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#ccdfff` | `twilight.--accent-surface` | `#000054` | **13.80:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#ffc7ff` | `mystic.--accent-surface` | `#180062` | **12.23:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#ffadff` | `mystic.--accent-surface` | `#390000` | **10.80:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#fffef1` | `stone.--accent-surface` | `#000000` | **20.70:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#a8b0c3` | `contrast.--accent-surface` | `#000000` | **9.66:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -3062,9 +3062,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#85a7ff` | `--surface-ground` | `#201e1b` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#85a7ff` | `--surface-card` | `#292725` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#18181b` | `twilight.checkbox.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-ground` | `#201e1b` | **6.29:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-card` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-ground` | `#201e1b` | **9.17:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-card` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-ground` | `#201e1b` | **11.16:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-card` | `#292725` | **9.99:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#18181b` | `stone.checkbox.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
@@ -3086,7 +3086,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#18181b` | `ocean.toggleswitch.checked.background` | `#2dd4bf` | **9.52:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#18181b` | `aurora.toggleswitch.checked.background` | `#22d3ee` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#18181b` | `twilight.toggleswitch.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#18181b` | `stone.toggleswitch.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#18181b` | `contrast.toggleswitch.checked.background` | `#f8fafc` | **16.93:1** | 1.4.11 | 3:1 | ok |
 
@@ -3198,8 +3198,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.tag.primary.color` | `#88ffff` | `aurora.tag.primary.background over --surface-card` | `#284345` | **8.99:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-ground` | `#30343f` | **12.01:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-card` | `#383b48` | **10.75:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-ground` | `#3a2e3f` | **11.24:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-card` | `#413647` | **10.02:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-ground` | `#433439` | **11.74:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-card` | `#4a3c41` | **10.43:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-ground` | `#3d3b38` | **11.16:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-card` | `#454341` | **9.85:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#ffffff` | `contrast.tag.primary.background over --surface-ground` | `#43413f` | **10.16:1** | 1.4.3 | 4.5:1 | ok |
@@ -3250,8 +3250,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#18181b` | `aurora.progressbar.value.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#85a7ff` | `progressbar.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#18181b` | `twilight.progressbar.value.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#c084fc` | `progressbar.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#f9a8d4` | `progressbar.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#d6d3d1` | `progressbar.background` | `#3f3f46` | **7.01:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#18181b` | `stone.progressbar.value.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#f8fafc` | `progressbar.background` | `#3f3f46` | **9.98:1** | 1.4.11 | 3:1 | ok |
@@ -3277,8 +3277,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#292725` | `aurora.togglebutton.content.checked.background` | `#22d3ee` | **8.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#85a7ff` | `togglebutton.background` | `#312f2c` | **5.70:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#292725` | `twilight.togglebutton.content.checked.background` | `#85a7ff` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#c084fc` | `togglebutton.background` | `#312f2c` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#292725` | `mystic.togglebutton.content.checked.background` | `#c084fc` | **5.63:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#f9a8d4` | `togglebutton.background` | `#312f2c` | **7.36:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#292725` | `mystic.togglebutton.content.checked.background` | `#f9a8d4` | **8.21:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#d6d3d1` | `togglebutton.background` | `#312f2c` | **8.96:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#292725` | `stone.togglebutton.content.checked.background` | `#d6d3d1` | **9.99:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#f8fafc` | `togglebutton.background` | `#312f2c` | **12.76:1** | 1.4.11 | 3:1 | ok |
@@ -3307,8 +3307,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#22d3ee` | `menubar.background` | `#18181b` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.item.focus.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.background` | `#18181b` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.item.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.item.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.item.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.background` | `#18181b` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#f8fafc` | `menubar.item.focus.background` | `#27272a` | **14.24:1** | 1.4.11 | 3:1 | ok |
@@ -3396,17 +3396,17 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `listbox.background` | `#09090b` | **8.50:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.background` | `#252a32` | **6.16:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.focus.background` | `#333b46` | **4.84:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-card (.dark-theme .p-select-overlay)` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `select.option.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.background` | `#493e48` | **3.85:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.focus.background` | `#493e48` | **3.85:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#373432` | **4.68:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `multiselect.overlay.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.background` | `#3b313f` | **4.68:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.focus.background` | `#4d3e52` | **3.74:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `listbox.background` | `#09090b` | **7.53:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.background` | `#2e2532` | **5.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.focus.background` | `#413346` | **4.45:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-card (.dark-theme .p-select-overlay)` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `select.option.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.background` | `#4b4448` | **5.22:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.focus.background` | `#4b4448` | **5.22:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#373432` | **6.81:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `multiselect.overlay.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.background` | `#3d373f` | **6.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.focus.background` | `#4f4752` | **4.92:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `listbox.background` | `#09090b` | **10.97:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.background` | `#302b32` | **7.63:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.focus.background` | `#443b46` | **5.91:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `--surface-card (.dark-theme .p-select-overlay)` | `#292725` | **9.99:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `select.option.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `stone.select.option.selected.background` | `#4b4a48` | **5.94:1** | 1.4.11 | 3:1 | ok |
@@ -3495,12 +3495,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#404448` | `datatable.row.background` | `#292725` | **1.52:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#404448` | **4.19:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `datatable.row.background` | `#292725` | **6.36:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#e7e6e7` | `mystic.datatable.row.selected.background` | `#493e48` | **8.17:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#c084fc` | `paginator.background` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#493e48` | `datatable.row.background` | `#292725` | **1.46:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#493e48` | **3.85:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `datatable.row.background` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#e8e7e7` | `mystic.datatable.row.selected.background` | `#4b4448` | **7.67:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | `paginator.background` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#4b4448` | `datatable.row.background` | `#292725` | **1.57:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#4b4448` | **5.22:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `datatable.row.background` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#e8e7e7` | `stone.datatable.row.selected.background` | `#4b4a48` | **7.17:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#18181b` | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | `paginator.background` | `#292725` | **9.99:1** | 1.4.11 | 3:1 | ok |
@@ -3531,7 +3531,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#18181b` | `ocean.badge.primary.background` | `#2dd4bf` | **9.52:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#18181b` | `aurora.badge.primary.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#18181b` | `twilight.badge.primary.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#18181b` | `stone.badge.primary.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#18181b` | `contrast.badge.primary.background` | `#f8fafc` | **16.93:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -3600,8 +3600,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#93c5fd` | `--surface-card` | `#292725` | **8.25:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-ground` | `#201e1b` | **9.86:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-card` | `#292725` | **8.82:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-ground` | `#201e1b` | **9.41:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-card` | `#292725` | **8.42:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-ground` | `#201e1b` | **11.47:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-card` | `#292725` | **10.27:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-ground` | `#201e1b` | **8.76:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-card` | `#292725` | **7.84:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#f1efec` | `--surface-ground` | `#201e1b` | **14.49:1** | 1.4.3 | 4.5:1 | ok |
@@ -3622,8 +3622,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#22d3ee` | `--surface-card` | `#292725` | **8.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-ground` | `#201e1b` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-card` | `#292725` | **6.36:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-ground` | `#201e1b` | **6.29:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-card` | `#292725` | **5.63:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-ground` | `#201e1b` | **9.17:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-card` | `#292725` | **8.21:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-ground` | `#201e1b` | **11.16:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-card` | `#292725` | **9.99:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#f8fafc` | `--surface-ground` | `#201e1b` | **15.89:1** | 1.4.3 | 4.5:1 | ok |
@@ -3724,16 +3724,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `datatable.row.hover.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#404448` | **4.19:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `autocomplete.chip.focus.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-ground` | `#201e1b` | **6.29:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-card` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-section` | `#312f2c` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `dialog.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `chip.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `paginator.background` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.background` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.hover.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#493e48` | **3.85:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `autocomplete.chip.focus.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-ground` | `#201e1b` | **9.17:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-card` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-section` | `#312f2c` | **7.36:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `dialog.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `chip.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `paginator.background` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.background` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.hover.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#4b4448` | **5.22:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `autocomplete.chip.focus.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-ground` | `#201e1b` | **11.16:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-card` | `#292725` | **9.99:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-section` | `#312f2c` | **8.96:1** | 1.4.11 | 3:1 | ok |
@@ -3780,9 +3780,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-ground` | `#201e1b` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-card` | `#292725` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-section` | `#312f2c` | **5.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-ground` | `#201e1b` | **6.29:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-card` | `#292725` | **5.63:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-section` | `#312f2c` | **5.05:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-ground` | `#201e1b` | **9.17:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-card` | `#292725` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-section` | `#312f2c` | **7.36:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-ground` | `#201e1b` | **11.16:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-card` | `#292725` | **9.99:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-section` | `#312f2c` | **8.96:1** | 1.4.11 | 3:1 | ok |
@@ -3819,8 +3819,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#15803d` | `--surface-card` | `#ffffff` | **5.02:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-ground` | `#faf7f2` | **6.05:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-ground` | `#faf7f2` | **6.53:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-ground` | `#faf7f2` | **5.01:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-ground` | `#faf7f2` | **5.65:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-card` | `#ffffff` | **6.04:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -3865,8 +3865,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text` | `#7d5813` | `--gradient-warn-to` | `#f5ead2` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#3a3530` | `--gradient-secondary-from` | `#efe8dc` | **9.96:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#3a3530` | `--gradient-secondary-to` | `#efe8dc` | **9.96:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#5b4c92` | `--gradient-help-from` | `#eae4f4` | **5.84:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#5b4c92` | `--gradient-help-to` | `#eae4f4` | **5.84:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#2b6169` | `--gradient-help-from` | `#dcecee` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#2b6169` | `--gradient-help-to` | `#dcecee` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
 
 #### outlined severity
 
@@ -3877,7 +3877,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `info.--outlined-info-fg` | `#4574bd` | `--surface-card` | `#ffffff` | **4.68:1** | 1.4.3 | 4.5:1 | ok |
 | `warn.--outlined-warn-fg` | `#936f21` | `--surface-card` | `#ffffff` | **4.63:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--outlined-secondary-fg` | `#8c7040` | `--surface-card` | `#ffffff` | **4.66:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--outlined-help-fg` | `#8562bf` | `--surface-card` | `#ffffff` | **4.67:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--outlined-help-fg` | `#417e85` | `--surface-card` | `#ffffff` | **4.62:1** | 1.4.3 | 4.5:1 | ok |
 
 #### severity button (hover)
 
@@ -3893,8 +3893,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text @brightness(1.1)` | `#8a6115` | `--gradient-warn-to @brightness(1.1)` | `#ffffe7` | **5.45:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(1.1)` | `#403a35` | `--gradient-secondary-from @brightness(1.1)` | `#fffff2` | **11.12:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(1.1)` | `#403a35` | `--gradient-secondary-to @brightness(1.1)` | `#fffff2` | **11.12:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(1.1)` | `#6454a1` | `--gradient-help-from @brightness(1.1)` | `#fffbff` | **6.16:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(1.1)` | `#6454a1` | `--gradient-help-to @brightness(1.1)` | `#fffbff` | **6.16:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(1.1)` | `#2f6b74` | `--gradient-help-from @brightness(1.1)` | `#f2ffff` | **5.90:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(1.1)` | `#2f6b74` | `--gradient-help-to @brightness(1.1)` | `#f2ffff` | **5.90:1** | 1.4.3 | 4.5:1 | ok |
 
 #### brand chip
 
@@ -3934,10 +3934,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-ground` | `#faf7f2` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-card` | `#ffffff` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-ground` | `#faf7f2` | **5.18:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-ground` | `#faf7f2` | **4.80:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-card` | `#ffffff` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-ground` | `#faf7f2` | **5.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-ground` | `#faf7f2` | **5.03:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-card` | `#ffffff` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-ground` | `#faf7f2` | **5.19:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#a05e1c` | `--surface-ground` | `#faf7f2` | **4.78:1** | 1.4.3 | 4.5:1 | ok |
@@ -3965,8 +3965,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#167e4a` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#0369a1` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#cc1790` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#d0174a` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#a05e1c` | **5.11:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#ffffff` | `contrast.--primary-color` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -3990,8 +3990,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#147444` | **4.88:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2f40c2` | **6.69:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#036194` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8b2acf` | **5.29:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bc1584` | **4.92:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#a91275` | **5.81:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bf1544` | **5.17:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#6d5d51` | **5.28:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#93561a` | **4.91:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#ffffff` | `contrast.--primary-color @brightness(1.1)` | `#11192e` | **17.47:1** | 1.4.3 | 4.5:1 | ok |
@@ -4008,7 +4008,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#00423a` | `ocean.--accent-surface` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#003f55` | `aurora.--accent-surface` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#0013a0` | `twilight.--accent-surface` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#6400ae` | `mystic.--accent-surface` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#85004c` | `mystic.--accent-surface` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#443225` | `stone.--accent-surface` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#000000` | `contrast.--accent-surface` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -4039,9 +4039,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#3346d3` | `--surface-ground` | `#faf7f2` | **6.64:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#ffffff` | `twilight.checkbox.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-ground` | `#faf7f2` | **5.18:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-ground` | `#faf7f2` | **5.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-ground` | `#faf7f2` | **5.19:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#ffffff` | `stone.checkbox.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -4063,7 +4063,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#ffffff` | `ocean.toggleswitch.checked.background` | `#0a756d` | **5.56:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#ffffff` | `aurora.toggleswitch.checked.background` | `#077288` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#ffffff` | `twilight.toggleswitch.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#ffffff` | `stone.toggleswitch.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#ffffff` | `contrast.toggleswitch.checked.background` | `#0f172a` | **17.85:1** | 1.4.11 | 3:1 | ok |
 
@@ -4168,7 +4168,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.tag.primary.color` | `#00423a` | `ocean.tag.primary.background` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.tag.primary.color` | `#003f55` | `aurora.tag.primary.background` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#0013a0` | `twilight.tag.primary.background` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#6400ae` | `mystic.tag.primary.background` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#85004c` | `mystic.tag.primary.background` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#443225` | `stone.tag.primary.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#000000` | `contrast.tag.primary.background` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -4217,8 +4217,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#ffffff` | `aurora.progressbar.value.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#3346d3` | `progressbar.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#ffffff` | `twilight.progressbar.value.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#972ee1` | `progressbar.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#b8147f` | `progressbar.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#776558` | `progressbar.background` | `#e2e8f0` | **4.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#ffffff` | `stone.progressbar.value.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#0f172a` | `progressbar.background` | `#e2e8f0` | **14.48:1** | 1.4.11 | 3:1 | ok |
@@ -4244,8 +4244,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#ffffff` | `aurora.togglebutton.content.checked.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#3346d3` | `togglebutton.background` | `#f5f0e8` | **6.26:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `twilight.togglebutton.content.checked.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#972ee1` | `togglebutton.background` | `#f5f0e8` | **4.88:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#b8147f` | `togglebutton.background` | `#f5f0e8` | **5.37:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#776558` | `togglebutton.background` | `#f5f0e8` | **4.89:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `stone.togglebutton.content.checked.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#0f172a` | `togglebutton.background` | `#f5f0e8` | **15.74:1** | 1.4.11 | 3:1 | ok |
@@ -4274,8 +4274,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#077288` | `menubar.background` | `#ffffff` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.item.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.item.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.item.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.item.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#0f172a` | `menubar.item.focus.background` | `#f1f5f9` | **16.30:1** | 1.4.11 | 3:1 | ok |
@@ -4314,10 +4314,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `select.option.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.focus.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.overlay.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.option.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.focus.background` | `#fffaff` | **5.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.overlay.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.option.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.focus.background` | `#ffe0ff` | **5.04:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.overlay.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.option.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `stone.select.option.selected.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -4392,12 +4392,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `datatable.row.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#6400ae` | `mystic.datatable.row.selected.background` | `#ffffff` | **9.75:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#85004c` | `mystic.datatable.row.selected.background` | `#fffaff` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#fffaff` | `datatable.row.background` | `#ffffff` | **1.03:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#443225` | `stone.datatable.row.selected.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#ffffff` | `stone.paginator.nav.button.selected.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#776558` | `paginator.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -4428,7 +4428,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#ffffff` | `ocean.badge.primary.background` | `#0a756d` | **5.56:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#ffffff` | `aurora.badge.primary.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#ffffff` | `twilight.badge.primary.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#ffffff` | `stone.badge.primary.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#ffffff` | `contrast.badge.primary.background` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -4497,8 +4497,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#1d4ed8` | `--surface-card` | `#ffffff` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-ground` | `#faf7f2` | **4.85:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-card` | `#ffffff` | **5.18:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-ground` | `#faf7f2` | **6.53:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-ground` | `#faf7f2` | **5.01:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-ground` | `#faf7f2` | **6.05:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#3a3530` | `--surface-ground` | `#faf7f2` | **11.35:1** | 1.4.3 | 4.5:1 | ok |
@@ -4519,8 +4519,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#077288` | `--surface-card` | `#ffffff` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-ground` | `#faf7f2` | **6.64:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-ground` | `#faf7f2` | **5.18:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-ground` | `#faf7f2` | **5.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-ground` | `#faf7f2` | **5.19:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#0f172a` | `--surface-ground` | `#faf7f2` | **16.71:1** | 1.4.3 | 4.5:1 | ok |
@@ -4621,16 +4621,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `datatable.row.hover.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `autocomplete.chip.focus.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-ground` | `#faf7f2` | **5.18:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-section` | `#f5f0e8` | **4.88:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `dialog.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `chip.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.hover.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-ground` | `#faf7f2` | **5.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-section` | `#f5f0e8` | **5.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `dialog.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `chip.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.hover.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-ground` | `#faf7f2` | **5.19:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-section` | `#f5f0e8` | **4.89:1** | 1.4.11 | 3:1 | ok |
@@ -4677,9 +4677,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-ground` | `#faf7f2` | **6.64:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-section` | `#f5f0e8` | **6.26:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-ground` | `#faf7f2` | **5.18:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-section` | `#f5f0e8` | **4.88:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-ground` | `#faf7f2` | **5.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-section` | `#f5f0e8` | **5.37:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-ground` | `#faf7f2` | **5.19:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-section` | `#f5f0e8` | **4.89:1** | 1.4.11 | 3:1 | ok |
@@ -4714,8 +4714,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#86efac` | `--surface-card` | `#2f2b26` | **10.01:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-ground` | `#26231f` | **8.24:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-card` | `#2f2b26` | **7.40:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-ground` | `#26231f` | **8.85:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-card` | `#2f2b26` | **7.95:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-ground` | `#26231f` | **10.79:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-card` | `#2f2b26` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-ground` | `#26231f` | **8.62:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-card` | `#2f2b26` | **7.75:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -4766,8 +4766,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text` | `#7d5813` | `--gradient-warn-to` | `#f5ead2` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#3a3530` | `--gradient-secondary-from` | `#efe8dc` | **9.96:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#3a3530` | `--gradient-secondary-to` | `#efe8dc` | **9.96:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#5b4c92` | `--gradient-help-from` | `#eae4f4` | **5.84:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#5b4c92` | `--gradient-help-to` | `#eae4f4` | **5.84:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#2b6169` | `--gradient-help-from` | `#dcecee` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#2b6169` | `--gradient-help-to` | `#dcecee` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
 
 #### outlined severity
 
@@ -4778,7 +4778,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `info.--outlined-info-fg` | `#e3eaf5` | `--surface-card` | `#2f2b26` | **11.61:1** | 1.4.3 | 4.5:1 | ok |
 | `warn.--outlined-warn-fg` | `#f5ead2` | `--surface-card` | `#2f2b26` | **11.77:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--outlined-secondary-fg` | `#efe8dc` | `--surface-card` | `#2f2b26` | **11.54:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--outlined-help-fg` | `#eae4f4` | `--surface-card` | `#2f2b26` | **11.31:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--outlined-help-fg` | `#dcecee` | `--surface-card` | `#2f2b26` | **11.56:1** | 1.4.3 | 4.5:1 | ok |
 
 #### severity button (hover)
 
@@ -4794,8 +4794,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text @brightness(1.1)` | `#8a6115` | `--gradient-warn-to @brightness(1.1)` | `#ffffe7` | **5.45:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(1.1)` | `#403a35` | `--gradient-secondary-from @brightness(1.1)` | `#fffff2` | **11.12:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(1.1)` | `#403a35` | `--gradient-secondary-to @brightness(1.1)` | `#fffff2` | **11.12:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(1.1)` | `#6454a1` | `--gradient-help-from @brightness(1.1)` | `#fffbff` | **6.16:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(1.1)` | `#6454a1` | `--gradient-help-to @brightness(1.1)` | `#fffbff` | **6.16:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(1.1)` | `#2f6b74` | `--gradient-help-from @brightness(1.1)` | `#f2ffff` | **5.90:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(1.1)` | `#2f6b74` | `--gradient-help-to @brightness(1.1)` | `#f2ffff` | **5.90:1** | 1.4.3 | 4.5:1 | ok |
 
 #### brand chip
 
@@ -4835,10 +4835,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#85a7ff` | `--surface-card` | `#2f2b26` | **6.00:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-ground` | `#26231f` | **9.38:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-card` | `#2f2b26` | **8.43:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-ground` | `#26231f` | **5.92:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-card` | `#2f2b26` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-ground` | `#26231f` | **8.89:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-card` | `#2f2b26` | **7.99:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-ground` | `#26231f` | **8.62:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-card` | `#2f2b26` | **7.75:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-ground` | `#26231f` | **8.27:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-card` | `#2f2b26` | **7.43:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-ground` | `#26231f` | **10.50:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-card` | `#2f2b26` | **9.43:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#fbbf24` | `--surface-ground` | `#26231f` | **9.37:1** | 1.4.3 | 4.5:1 | ok |
@@ -4866,8 +4866,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#12683d` | **6.83:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#2638b0` | **9.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#075985` | **7.56:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#7c1cc2` | **7.49:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#ab1378` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#9a116a` | **7.89:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#af133e` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#605247` | **7.51:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#854e17` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#1e293b` | `contrast.--primary-color` | `#f8fafc` | **13.98:1** | 1.4.3 | 4.5:1 | ok |
@@ -4891,8 +4891,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#116038` | **6.40:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2334a2` | **8.45:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#06527a` | **7.06:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#721ab2` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#9d116e` | **6.43:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8e1062` | **7.34:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#a11139` | **6.64:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#584b41` | **7.05:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#7a4815` | **6.37:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#212d41` | `contrast.--primary-color @brightness(1.1)` | `#ffffff` | **13.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -4909,7 +4909,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#a3ffff` | `ocean.--accent-surface` | `#000000` | **18.31:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#a0ffff` | `aurora.--accent-surface` | `#000009` | **18.17:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#ccdfff` | `twilight.--accent-surface` | `#000054` | **13.80:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#ffc7ff` | `mystic.--accent-surface` | `#180062` | **12.23:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#ffadff` | `mystic.--accent-surface` | `#390000` | **10.80:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#fffef1` | `stone.--accent-surface` | `#000000` | **20.70:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#a8b0c3` | `contrast.--accent-surface` | `#000000` | **9.66:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -4940,9 +4940,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#85a7ff` | `--surface-ground` | `#26231f` | **6.68:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#85a7ff` | `--surface-card` | `#2f2b26` | **6.00:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#18181b` | `twilight.checkbox.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-ground` | `#26231f` | **5.92:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-card` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-ground` | `#26231f` | **8.62:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-card` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-ground` | `#26231f` | **10.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-card` | `#2f2b26` | **9.43:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#18181b` | `stone.checkbox.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
@@ -4964,7 +4964,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#18181b` | `ocean.toggleswitch.checked.background` | `#2dd4bf` | **9.52:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#18181b` | `aurora.toggleswitch.checked.background` | `#22d3ee` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#18181b` | `twilight.toggleswitch.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#18181b` | `stone.toggleswitch.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#18181b` | `contrast.toggleswitch.checked.background` | `#f8fafc` | **16.93:1** | 1.4.11 | 3:1 | ok |
 
@@ -5076,8 +5076,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.tag.primary.color` | `#88ffff` | `aurora.tag.primary.background over --surface-card` | `#2d4646` | **8.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-ground` | `#353843` | **11.28:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-card` | `#3d3f49` | **10.11:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-ground` | `#3f3342` | **10.47:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-card` | `#463948` | **9.52:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-ground` | `#48383c` | **11.02:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-card` | `#4f3f42` | **9.90:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-ground` | `#423f3b` | **10.47:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-card` | `#4a4641` | **9.36:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#ffffff` | `contrast.tag.primary.background over --surface-ground` | `#484542` | **9.52:1** | 1.4.3 | 4.5:1 | ok |
@@ -5128,8 +5128,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#18181b` | `aurora.progressbar.value.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#85a7ff` | `progressbar.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#18181b` | `twilight.progressbar.value.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#c084fc` | `progressbar.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#f9a8d4` | `progressbar.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#d6d3d1` | `progressbar.background` | `#3f3f46` | **7.01:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#18181b` | `stone.progressbar.value.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#f8fafc` | `progressbar.background` | `#3f3f46` | **9.98:1** | 1.4.11 | 3:1 | ok |
@@ -5155,8 +5155,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#2f2b26` | `aurora.togglebutton.content.checked.background` | `#22d3ee` | **7.78:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#85a7ff` | `togglebutton.background` | `#38332c` | **5.34:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#2f2b26` | `twilight.togglebutton.content.checked.background` | `#85a7ff` | **6.00:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#c084fc` | `togglebutton.background` | `#38332c` | **4.74:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#2f2b26` | `mystic.togglebutton.content.checked.background` | `#c084fc` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#f9a8d4` | `togglebutton.background` | `#38332c` | **6.90:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#2f2b26` | `mystic.togglebutton.content.checked.background` | `#f9a8d4` | **7.75:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#d6d3d1` | `togglebutton.background` | `#38332c` | **8.40:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#2f2b26` | `stone.togglebutton.content.checked.background` | `#d6d3d1` | **9.43:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#f8fafc` | `togglebutton.background` | `#38332c` | **11.96:1** | 1.4.11 | 3:1 | ok |
@@ -5185,8 +5185,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#22d3ee` | `menubar.background` | `#18181b` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.item.focus.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.background` | `#18181b` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.item.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.item.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.item.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.background` | `#18181b` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#f8fafc` | `menubar.item.focus.background` | `#27272a` | **14.24:1** | 1.4.11 | 3:1 | ok |
@@ -5274,17 +5274,17 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `listbox.background` | `#09090b` | **8.50:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.background` | `#252a32` | **6.16:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.focus.background` | `#333b46` | **4.84:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-card (.dark-theme .p-select-overlay)` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `select.option.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.background` | `#4e4149` | **3.65:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.focus.background` | `#4e4149` | **3.65:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#3c362e` | **4.52:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `multiselect.overlay.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.background` | `#3b313f` | **4.68:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.focus.background` | `#4d3e52` | **3.74:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `listbox.background` | `#09090b` | **7.53:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.background` | `#2e2532` | **5.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.focus.background` | `#413346` | **4.45:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-card (.dark-theme .p-select-overlay)` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `select.option.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.background` | `#504749` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.focus.background` | `#504749` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#3c362e` | **6.58:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `multiselect.overlay.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.background` | `#3d373f` | **6.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.focus.background` | `#4f4752` | **4.92:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `listbox.background` | `#09090b` | **10.97:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.background` | `#302b32` | **7.63:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.focus.background` | `#443b46` | **5.91:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `--surface-card (.dark-theme .p-select-overlay)` | `#2f2b26` | **9.43:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `select.option.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `stone.select.option.selected.background` | `#504d49` | **5.64:1** | 1.4.11 | 3:1 | ok |
@@ -5373,12 +5373,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#454749` | `datatable.row.background` | `#2f2b26` | **1.51:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#454749` | **3.99:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `datatable.row.background` | `#2f2b26` | **6.00:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#e8e6e7` | `mystic.datatable.row.selected.background` | `#4e4149` | **7.77:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#c084fc` | `paginator.background` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#4e4149` | `datatable.row.background` | `#2f2b26` | **1.46:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#4e4149` | **3.65:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `datatable.row.background` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#e8e7e7` | `mystic.datatable.row.selected.background` | `#504749` | **7.28:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | `paginator.background` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#504749` | `datatable.row.background` | `#2f2b26` | **1.56:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#504749` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `datatable.row.background` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#e8e8e7` | `stone.datatable.row.selected.background` | `#504d49` | **6.85:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#18181b` | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | `paginator.background` | `#2f2b26` | **9.43:1** | 1.4.11 | 3:1 | ok |
@@ -5409,7 +5409,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#18181b` | `ocean.badge.primary.background` | `#2dd4bf` | **9.52:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#18181b` | `aurora.badge.primary.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#18181b` | `twilight.badge.primary.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#18181b` | `stone.badge.primary.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#18181b` | `contrast.badge.primary.background` | `#f8fafc` | **16.93:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -5478,8 +5478,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#93c5fd` | `--surface-card` | `#2f2b26` | **7.79:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-ground` | `#26231f` | **9.27:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-card` | `#2f2b26` | **8.33:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-ground` | `#26231f` | **8.85:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-card` | `#2f2b26` | **7.95:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-ground` | `#26231f` | **10.79:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-card` | `#2f2b26` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-ground` | `#26231f` | **8.24:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-card` | `#2f2b26` | **7.40:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#ece6dc` | `--surface-ground` | `#26231f` | **12.60:1** | 1.4.3 | 4.5:1 | ok |
@@ -5500,8 +5500,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#22d3ee` | `--surface-card` | `#2f2b26` | **7.78:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-ground` | `#26231f` | **6.68:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-card` | `#2f2b26` | **6.00:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-ground` | `#26231f` | **5.92:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-card` | `#2f2b26` | **5.32:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-ground` | `#26231f` | **8.62:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-card` | `#2f2b26` | **7.75:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-ground` | `#26231f` | **10.50:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-card` | `#2f2b26` | **9.43:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#f8fafc` | `--surface-ground` | `#26231f` | **14.95:1** | 1.4.3 | 4.5:1 | ok |
@@ -5602,16 +5602,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `datatable.row.hover.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#454749` | **3.99:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `autocomplete.chip.focus.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-ground` | `#26231f` | **5.92:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-card` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-section` | `#38332c` | **4.74:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `dialog.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `chip.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `paginator.background` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.background` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.hover.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#4e4149` | **3.65:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `autocomplete.chip.focus.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-ground` | `#26231f` | **8.62:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-card` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-section` | `#38332c` | **6.90:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `dialog.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `chip.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `paginator.background` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.background` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.hover.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#504749` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `autocomplete.chip.focus.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-ground` | `#26231f` | **10.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-card` | `#2f2b26` | **9.43:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-section` | `#38332c` | **8.40:1** | 1.4.11 | 3:1 | ok |
@@ -5658,9 +5658,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-ground` | `#26231f` | **6.68:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-card` | `#2f2b26` | **6.00:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-section` | `#38332c` | **5.34:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-ground` | `#26231f` | **5.92:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-card` | `#2f2b26` | **5.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-section` | `#38332c` | **4.74:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-ground` | `#26231f` | **8.62:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-card` | `#2f2b26` | **7.75:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-section` | `#38332c` | **6.90:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-ground` | `#26231f` | **10.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-card` | `#2f2b26` | **9.43:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-section` | `#38332c` | **8.40:1** | 1.4.11 | 3:1 | ok |
@@ -5697,8 +5697,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#15803d` | `--surface-card` | `#ffffff` | **5.02:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-ground` | `#f6f8fb` | **6.08:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-ground` | `#f6f8fb` | **6.56:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-ground` | `#f6f8fb` | **5.04:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-ground` | `#f6f8fb` | **5.68:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#be185d` | `--surface-card` | `#ffffff` | **6.04:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -5743,8 +5743,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text` | `#0e2a52` | `--gradient-warn-to` | `#ffd23f` | **9.88:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-from` | `#47617f` | **6.39:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-to` | `#47617f` | **6.39:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#6055c8` | **5.78:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#6055c8` | **5.78:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#a4470c` | **6.03:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#a4470c` | **6.03:1** | 1.4.3 | 4.5:1 | ok |
 
 #### outlined severity
 
@@ -5755,7 +5755,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `info.--outlined-info-fg` | `#1273a8` | `--surface-card` | `#ffffff` | **5.19:1** | 1.4.3 | 4.5:1 | ok |
 | `warn.--outlined-warn-fg` | `#916f00` | `--surface-card` | `#ffffff` | **4.69:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--outlined-secondary-fg` | `#47617f` | `--surface-card` | `#ffffff` | **6.39:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--outlined-help-fg` | `#6055c8` | `--surface-card` | `#ffffff` | **5.78:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--outlined-help-fg` | `#a4470c` | `--surface-card` | `#ffffff` | **6.03:1** | 1.4.3 | 4.5:1 | ok |
 
 #### severity button (hover)
 
@@ -5771,8 +5771,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text @brightness(1.1)` | `#0f2e5a` | `--gradient-warn-to @brightness(1.1)` | `#ffe745` | **10.76:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-from @brightness(0.92)` | `#415975` | **6.05:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-to @brightness(0.92)` | `#415975` | **6.05:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#584eb8` | **5.51:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#584eb8` | **5.51:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#97410b` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#97410b` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
 
 #### brand foreground
 
@@ -5806,10 +5806,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-ground` | `#f6f8fb` | **5.58:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#0369a1` | `--surface-card` | `#ffffff` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-ground` | `#f6f8fb` | **5.20:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-ground` | `#f6f8fb` | **4.82:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#cc1790` | `--surface-card` | `#ffffff` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-ground` | `#f6f8fb` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-ground` | `#f6f8fb` | **5.06:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#d0174a` | `--surface-card` | `#ffffff` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-ground` | `#f6f8fb` | **5.21:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#a05e1c` | `--surface-ground` | `#f6f8fb` | **4.80:1** | 1.4.3 | 4.5:1 | ok |
@@ -5837,8 +5837,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#167e4a` | **5.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#0369a1` | **5.93:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#cc1790` | **5.13:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#d0174a` | **5.38:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#a05e1c` | **5.11:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#ffffff` | `contrast.--primary-color` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -5862,8 +5862,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#147444` | **4.88:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2f40c2` | **6.69:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#036194` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8b2acf` | **5.29:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bc1584` | **4.92:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#a91275` | **5.81:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#bf1544` | **5.17:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#6d5d51` | **5.28:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#93561a` | **4.91:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#ffffff` | `contrast.--primary-color @brightness(1.1)` | `#11192e` | **17.47:1** | 1.4.3 | 4.5:1 | ok |
@@ -5880,7 +5880,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#00423a` | `ocean.--accent-surface` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#003f55` | `aurora.--accent-surface` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#0013a0` | `twilight.--accent-surface` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#6400ae` | `mystic.--accent-surface` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#85004c` | `mystic.--accent-surface` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#443225` | `stone.--accent-surface` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#000000` | `contrast.--accent-surface` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -5911,9 +5911,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#3346d3` | `--surface-ground` | `#f6f8fb` | **6.67:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#ffffff` | `twilight.checkbox.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-ground` | `#f6f8fb` | **5.20:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-ground` | `#f6f8fb` | **5.73:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#ffffff` | `mystic.checkbox.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-ground` | `#f6f8fb` | **5.21:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#ffffff` | `stone.checkbox.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -5935,7 +5935,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#ffffff` | `ocean.toggleswitch.checked.background` | `#0a756d` | **5.56:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#ffffff` | `aurora.toggleswitch.checked.background` | `#077288` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#ffffff` | `twilight.toggleswitch.checked.background` | `#3346d3` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#972ee1` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#ffffff` | `mystic.toggleswitch.checked.background` | `#b8147f` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#ffffff` | `stone.toggleswitch.checked.background` | `#776558` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#ffffff` | `contrast.toggleswitch.checked.background` | `#0f172a` | **17.85:1** | 1.4.11 | 3:1 | ok |
 
@@ -6040,7 +6040,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.tag.primary.color` | `#00423a` | `ocean.tag.primary.background` | `#d6ffff` | **10.65:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.tag.primary.color` | `#003f55` | `aurora.tag.primary.background` | `#d3ffff` | **10.59:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#0013a0` | `twilight.tag.primary.background` | `#ffffff` | **13.12:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#6400ae` | `mystic.tag.primary.background` | `#fffaff` | **9.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#85004c` | `mystic.tag.primary.background` | `#ffe0ff` | **8.26:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#443225` | `stone.tag.primary.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#000000` | `contrast.tag.primary.background` | `#dbe3f6` | **16.33:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -6089,8 +6089,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#ffffff` | `aurora.progressbar.value.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#3346d3` | `progressbar.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#ffffff` | `twilight.progressbar.value.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#972ee1` | `progressbar.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#b8147f` | `progressbar.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#ffffff` | `mystic.progressbar.value.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#776558` | `progressbar.background` | `#e2e8f0` | **4.50:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#ffffff` | `stone.progressbar.value.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#0f172a` | `progressbar.background` | `#e2e8f0` | **14.48:1** | 1.4.11 | 3:1 | ok |
@@ -6116,8 +6116,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#ffffff` | `aurora.togglebutton.content.checked.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#3346d3` | `togglebutton.background` | `#eef2f8` | **6.32:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `twilight.togglebutton.content.checked.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#972ee1` | `togglebutton.background` | `#eef2f8` | **4.93:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#b8147f` | `togglebutton.background` | `#eef2f8` | **5.43:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#ffffff` | `mystic.togglebutton.content.checked.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#776558` | `togglebutton.background` | `#eef2f8` | **4.94:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#ffffff` | `stone.togglebutton.content.checked.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#0f172a` | `togglebutton.background` | `#eef2f8` | **15.89:1** | 1.4.11 | 3:1 | ok |
@@ -6146,8 +6146,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#077288` | `menubar.background` | `#ffffff` | **5.57:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.item.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#3346d3` | `menubar.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.item.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#972ee1` | `menubar.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.item.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#b8147f` | `menubar.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.item.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#776558` | `menubar.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#0f172a` | `menubar.item.focus.background` | `#f1f5f9` | **16.30:1** | 1.4.11 | 3:1 | ok |
@@ -6186,10 +6186,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `select.option.focus.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#3346d3` | `twilight.select.option.selected.focus.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.overlay.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `select.option.focus.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#972ee1` | `mystic.select.option.selected.focus.background` | `#fffaff` | **5.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.overlay.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `select.option.focus.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#b8147f` | `mystic.select.option.selected.focus.background` | `#ffe0ff` | **5.04:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.overlay.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `select.option.focus.background` | `#f1f5f9` | **5.06:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#776558` | `stone.select.option.selected.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -6264,12 +6264,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#3346d3` | `datatable.row.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#6400ae` | `mystic.datatable.row.selected.background` | `#ffffff` | **9.75:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#ffffff` | `datatable.row.background` | `#ffffff` | **1.00:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#85004c` | `mystic.datatable.row.selected.background` | `#fffaff` | **9.69:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#ffffff` | `mystic.paginator.nav.button.selected.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#fffaff` | `datatable.row.background` | `#ffffff` | **1.03:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#443225` | `stone.datatable.row.selected.background` | `#ffffff` | **12.15:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#ffffff` | `stone.paginator.nav.button.selected.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#776558` | `paginator.background` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
@@ -6300,7 +6300,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#ffffff` | `ocean.badge.primary.background` | `#0a756d` | **5.56:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#ffffff` | `aurora.badge.primary.background` | `#077288` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#ffffff` | `twilight.badge.primary.background` | `#3346d3` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#972ee1` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#ffffff` | `mystic.badge.primary.background` | `#b8147f` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#ffffff` | `stone.badge.primary.background` | `#776558` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#ffffff` | `contrast.badge.primary.background` | `#0f172a` | **17.85:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -6369,8 +6369,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#1d4ed8` | `--surface-card` | `#ffffff` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-ground` | `#f6f8fb` | **4.87:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#c2410c` | `--surface-card` | `#ffffff` | **5.18:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-ground` | `#f6f8fb` | **6.56:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#7e22ce` | `--surface-card` | `#ffffff` | **6.98:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-ground` | `#f6f8fb` | **5.04:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#0e7490` | `--surface-card` | `#ffffff` | **5.36:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-ground` | `#f6f8fb` | **6.08:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#b91c1c` | `--surface-card` | `#ffffff` | **6.47:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#17335c` | `--surface-ground` | `#f6f8fb` | **11.86:1** | 1.4.3 | 4.5:1 | ok |
@@ -6391,8 +6391,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#077288` | `--surface-card` | `#ffffff` | **5.57:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-ground` | `#f6f8fb` | **6.67:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-ground` | `#f6f8fb` | **5.20:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-ground` | `#f6f8fb` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-ground` | `#f6f8fb` | **5.21:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#0f172a` | `--surface-ground` | `#f6f8fb` | **16.78:1** | 1.4.3 | 4.5:1 | ok |
@@ -6493,16 +6493,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `datatable.row.hover.background` | `#f1f5f9` | **6.48:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `twilight.datatable.row.selected.background` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#3346d3` | `autocomplete.chip.focus.background` | `#e2e8f0` | **5.76:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-ground` | `#f6f8fb` | **5.20:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `--surface-section` | `#eef2f8` | **4.93:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `dialog.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `chip.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#972ee1` | `paginator.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `datatable.row.hover.background` | `#f1f5f9` | **5.05:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `mystic.datatable.row.selected.background` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#972ee1` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.49:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-ground` | `#f6f8fb` | **5.73:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `--surface-section` | `#eef2f8` | **5.43:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `dialog.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `chip.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#b8147f` | `paginator.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.background` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `datatable.row.hover.background` | `#f1f5f9` | **5.56:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `mystic.datatable.row.selected.background` | `#fffaff` | **5.91:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#b8147f` | `autocomplete.chip.focus.background` | `#e2e8f0` | **4.95:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-ground` | `#f6f8fb` | **5.21:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#776558` | `--surface-section` | `#eef2f8` | **4.94:1** | 1.4.11 | 3:1 | ok |
@@ -6549,9 +6549,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-ground` | `#f6f8fb` | **6.67:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-card` | `#ffffff` | **7.10:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#3346d3` | `--surface-section` | `#eef2f8` | **6.32:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-ground` | `#f6f8fb` | **5.20:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-card` | `#ffffff` | **5.54:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#972ee1` | `--surface-section` | `#eef2f8` | **4.93:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-ground` | `#f6f8fb` | **5.73:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-card` | `#ffffff` | **6.10:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#b8147f` | `--surface-section` | `#eef2f8` | **5.43:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-ground` | `#f6f8fb` | **5.21:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-card` | `#ffffff` | **5.55:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#776558` | `--surface-section` | `#eef2f8` | **4.94:1** | 1.4.11 | 3:1 | ok |
@@ -6586,8 +6586,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `--semantic-green-fg` | `#86efac` | `--surface-card` | `#10305c` | **9.35:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-ground` | `#0e2a52` | **7.52:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-red-fg` | `#fca5a5` | `--surface-card` | `#10305c` | **6.92:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-ground` | `#0e2a52` | **8.07:1** | 1.4.3 | 4.5:1 | ok |
-| `--semantic-purple-fg` | `#d8b4fe` | `--surface-card` | `#10305c` | **7.43:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-ground` | `#0e2a52` | **9.84:1** | 1.4.3 | 4.5:1 | ok |
+| `--semantic-cyan-fg` | `#67e8f9` | `--surface-card` | `#10305c` | **9.06:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-ground` | `#0e2a52` | **7.87:1** | 1.4.3 | 4.5:1 | ok |
 | `--semantic-pink-fg` | `#f9a8d4` | `--surface-card` | `#10305c` | **7.24:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -6638,8 +6638,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text` | `#0e2a52` | `--gradient-warn-to` | `#ffd23f` | **9.88:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-from` | `#47617f` | **6.39:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text` | `#ffffff` | `--gradient-secondary-to` | `#47617f` | **6.39:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#6055c8` | **5.78:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#6055c8` | **5.78:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-from` | `#a4470c` | **6.03:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text` | `#ffffff` | `--gradient-help-to` | `#a4470c` | **6.03:1** | 1.4.3 | 4.5:1 | ok |
 
 #### outlined severity
 
@@ -6650,7 +6650,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `info.--outlined-info-fg` | `#24a2e8` | `--surface-card` | `#10305c` | **4.63:1** | 1.4.3 | 4.5:1 | ok |
 | `warn.--outlined-warn-fg` | `#ffd23f` | `--surface-card` | `#10305c` | **9.09:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--outlined-secondary-fg` | `#829cb9` | `--surface-card` | `#10305c` | **4.63:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--outlined-help-fg` | `#9a93dc` | `--surface-card` | `#10305c` | **4.74:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--outlined-help-fg` | `#f0782c` | `--surface-card` | `#10305c` | **4.64:1** | 1.4.3 | 4.5:1 | ok |
 
 #### severity button (hover)
 
@@ -6666,8 +6666,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `warn.--gradient-warn-text @brightness(1.1)` | `#0f2e5a` | `--gradient-warn-to @brightness(1.1)` | `#ffe745` | **10.76:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-from @brightness(0.92)` | `#415975` | **6.05:1** | 1.4.3 | 4.5:1 | ok |
 | `secondary.--gradient-secondary-text @brightness(0.92)` | `#ebebeb` | `--gradient-secondary-to @brightness(0.92)` | `#415975` | **6.05:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#584eb8` | **5.51:1** | 1.4.3 | 4.5:1 | ok |
-| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#584eb8` | **5.51:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-from @brightness(0.92)` | `#97410b` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
+| `help.--gradient-help-text @brightness(0.92)` | `#ebebeb` | `--gradient-help-to @brightness(0.92)` | `#97410b` | **5.73:1** | 1.4.3 | 4.5:1 | ok |
 
 #### brand foreground
 
@@ -6701,10 +6701,10 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg` | `#85a7ff` | `--surface-card` | `#10305c` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-ground` | `#0e2a52` | **8.56:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--gradient-accent-color-fg` | `#7dd3fc` | `--surface-card` | `#10305c` | **7.88:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-ground` | `#0e2a52` | **5.40:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-fg` | `#c084fc` | `--surface-card` | `#10305c` | **4.97:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-ground` | `#0e2a52` | **8.11:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--gradient-accent-color-fg` | `#f0abfc` | `--surface-card` | `#10305c` | **7.46:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-ground` | `#0e2a52` | **7.87:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-fg` | `#f9a8d4` | `--surface-card` | `#10305c` | **7.24:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-ground` | `#0e2a52` | **7.55:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--gradient-accent-color-fg` | `#fda4af` | `--surface-card` | `#10305c` | **6.94:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-ground` | `#0e2a52` | **9.58:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-fg` | `#d6d3d1` | `--surface-card` | `#10305c` | **8.81:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--gradient-accent-color-fg` | `#fbbf24` | `--surface-ground` | `#0e2a52` | **8.55:1** | 1.4.3 | 4.5:1 | ok |
@@ -6732,8 +6732,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text` | `#ffffff` | `aurora.--gradient-accent-color` | `#12683d` | **6.83:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--primary-color` | `#2638b0` | **9.23:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text` | `#ffffff` | `twilight.--gradient-accent-color` | `#075985` | **7.56:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#7c1cc2` | **7.49:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#ab1378` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--primary-color` | `#9a116a` | **7.89:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text` | `#ffffff` | `mystic.--gradient-accent-color` | `#af133e` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--primary-color` | `#605247` | **7.51:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text` | `#ffffff` | `stone.--gradient-accent-color` | `#854e17` | **6.78:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text` | `#1e293b` | `contrast.--primary-color` | `#f8fafc` | **13.98:1** | 1.4.3 | 4.5:1 | ok |
@@ -6757,8 +6757,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-text @brightness(0.92)` | `#ebebeb` | `aurora.--gradient-accent-color @brightness(0.92)` | `#116038` | **6.40:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--primary-color @brightness(0.92)` | `#2334a2` | **8.45:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--primary-color-text @brightness(0.92)` | `#ebebeb` | `twilight.--gradient-accent-color @brightness(0.92)` | `#06527a` | **7.06:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#721ab2` | **7.03:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#9d116e` | **6.43:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--primary-color @brightness(0.92)` | `#8e1062` | **7.34:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--primary-color-text @brightness(0.92)` | `#ebebeb` | `mystic.--gradient-accent-color @brightness(0.92)` | `#a11139` | **6.64:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--primary-color @brightness(0.92)` | `#584b41` | **7.05:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--primary-color-text @brightness(0.92)` | `#ebebeb` | `stone.--gradient-accent-color @brightness(0.92)` | `#7a4815` | **6.37:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--primary-color-text @brightness(1.1)` | `#212d41` | `contrast.--primary-color @brightness(1.1)` | `#ffffff` | **13.85:1** | 1.4.3 | 4.5:1 | ok |
@@ -6775,7 +6775,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.--accent-on-surface` | `#a3ffff` | `ocean.--accent-surface` | `#000000` | **18.31:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.--accent-on-surface` | `#a0ffff` | `aurora.--accent-surface` | `#000009` | **18.17:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.--accent-on-surface` | `#ccdfff` | `twilight.--accent-surface` | `#000054` | **13.80:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.--accent-on-surface` | `#ffc7ff` | `mystic.--accent-surface` | `#180062` | **12.23:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.--accent-on-surface` | `#ffadff` | `mystic.--accent-surface` | `#390000` | **10.80:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.--accent-on-surface` | `#fffef1` | `stone.--accent-surface` | `#000000` | **20.70:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.--accent-on-surface` | `#a8b0c3` | `contrast.--accent-surface` | `#000000` | **9.66:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -6806,9 +6806,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.primary.color` | `#85a7ff` | `--surface-ground` | `#0e2a52` | **6.09:1** | 1.4.11 | 3:1 | ok |
 | `twilight.primary.color` | `#85a7ff` | `--surface-card` | `#10305c` | **5.61:1** | 1.4.11 | 3:1 | ok |
 | `twilight.checkbox.icon.checked.color` | `#18181b` | `twilight.checkbox.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-ground` | `#0e2a52` | **5.40:1** | 1.4.11 | 3:1 | ok |
-| `mystic.primary.color` | `#c084fc` | `--surface-card` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-ground` | `#0e2a52` | **7.87:1** | 1.4.11 | 3:1 | ok |
+| `mystic.primary.color` | `#f9a8d4` | `--surface-card` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.checkbox.icon.checked.color` | `#18181b` | `mystic.checkbox.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-ground` | `#0e2a52` | **9.58:1** | 1.4.11 | 3:1 | ok |
 | `stone.primary.color` | `#d6d3d1` | `--surface-card` | `#10305c` | **8.81:1** | 1.4.11 | 3:1 | ok |
 | `stone.checkbox.icon.checked.color` | `#18181b` | `stone.checkbox.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
@@ -6830,7 +6830,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.toggleswitch.handle.checked.background` | `#18181b` | `ocean.toggleswitch.checked.background` | `#2dd4bf` | **9.52:1** | 1.4.11 | 3:1 | ok |
 | `aurora.toggleswitch.handle.checked.background` | `#18181b` | `aurora.toggleswitch.checked.background` | `#22d3ee` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.toggleswitch.handle.checked.background` | `#18181b` | `twilight.toggleswitch.checked.background` | `#85a7ff` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#c084fc` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.toggleswitch.handle.checked.background` | `#18181b` | `mystic.toggleswitch.checked.background` | `#f9a8d4` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.toggleswitch.handle.checked.background` | `#18181b` | `stone.toggleswitch.checked.background` | `#d6d3d1` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.toggleswitch.handle.checked.background` | `#18181b` | `contrast.toggleswitch.checked.background` | `#f8fafc` | **16.93:1** | 1.4.11 | 3:1 | ok |
 
@@ -6942,8 +6942,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.tag.primary.color` | `#88ffff` | `aurora.tag.primary.background over --surface-card` | `#134a73` | **7.89:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-ground` | `#213e6e` | **10.25:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.tag.primary.color` | `#ebffff` | `twilight.tag.primary.background over --surface-card` | `#234376` | **9.49:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-ground` | `#2a386d` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.tag.primary.color` | `#ffeaff` | `mystic.tag.primary.background over --surface-card` | `#2c3d76` | **9.07:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-ground` | `#343e67` | **10.34:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.tag.primary.color` | `#ffffff` | `mystic.tag.primary.background over --surface-card` | `#35436f` | **9.62:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-ground` | `#2e4566` | **9.73:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.tag.primary.color` | `#ffffff` | `stone.tag.primary.background over --surface-card` | `#304a6f` | **8.99:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.tag.primary.color` | `#ffffff` | `contrast.tag.primary.background over --surface-ground` | `#334b6d` | **8.87:1** | 1.4.3 | 4.5:1 | ok |
@@ -6994,8 +6994,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.progressbar.label.color` | `#18181b` | `aurora.progressbar.value.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.progressbar.value.background` | `#85a7ff` | `progressbar.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressbar.label.color` | `#18181b` | `twilight.progressbar.value.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.progressbar.value.background` | `#c084fc` | `progressbar.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.progressbar.value.background` | `#f9a8d4` | `progressbar.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressbar.label.color` | `#18181b` | `mystic.progressbar.value.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.progressbar.value.background` | `#d6d3d1` | `progressbar.background` | `#3f3f46` | **7.01:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressbar.label.color` | `#18181b` | `stone.progressbar.value.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.progressbar.value.background` | `#f8fafc` | `progressbar.background` | `#3f3f46` | **9.98:1** | 1.4.11 | 3:1 | ok |
@@ -7021,8 +7021,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `togglebutton.checked.color` | `#10305c` | `aurora.togglebutton.content.checked.background` | `#22d3ee` | **7.27:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.togglebutton.content.checked.background` | `#85a7ff` | `togglebutton.background` | `#173d74` | **4.58:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#10305c` | `twilight.togglebutton.content.checked.background` | `#85a7ff` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.togglebutton.content.checked.background` | `#c084fc` | `togglebutton.background` | `#173d74` | **4.06:1** | 1.4.11 | 3:1 | ok |
-| `togglebutton.checked.color` | `#10305c` | `mystic.togglebutton.content.checked.background` | `#c084fc` | **4.97:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.togglebutton.content.checked.background` | `#f9a8d4` | `togglebutton.background` | `#173d74` | **5.92:1** | 1.4.11 | 3:1 | ok |
+| `togglebutton.checked.color` | `#10305c` | `mystic.togglebutton.content.checked.background` | `#f9a8d4` | **7.24:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.togglebutton.content.checked.background` | `#d6d3d1` | `togglebutton.background` | `#173d74` | **7.21:1** | 1.4.11 | 3:1 | ok |
 | `togglebutton.checked.color` | `#10305c` | `stone.togglebutton.content.checked.background` | `#d6d3d1` | **8.81:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.togglebutton.content.checked.background` | `#f8fafc` | `togglebutton.background` | `#173d74` | **10.26:1** | 1.4.11 | 3:1 | ok |
@@ -7051,8 +7051,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.--primary-color-fg (focus ring)` | `#22d3ee` | `menubar.background` | `#18181b` | **9.80:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.item.focus.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (focus ring)` | `#85a7ff` | `menubar.background` | `#18181b` | **7.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.item.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (focus ring)` | `#c084fc` | `menubar.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.item.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (focus ring)` | `#f9a8d4` | `menubar.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.item.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (focus ring)` | `#d6d3d1` | `menubar.background` | `#18181b` | **11.89:1** | 1.4.11 | 3:1 | ok |
 | `contrast.--primary-color-fg (focus ring)` | `#f8fafc` | `menubar.item.focus.background` | `#27272a` | **14.24:1** | 1.4.11 | 3:1 | ok |
@@ -7140,17 +7140,17 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `listbox.background` | `#09090b` | **8.50:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.background` | `#252a32` | **6.16:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, option)` | `#85a7ff` | `twilight.listbox.option.selected.focus.background` | `#333b46` | **4.84:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-card (.dark-theme .p-select-overlay)` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `select.option.focus.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.background` | `#344676` | **3.48:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.select.option.selected.focus.background` | `#344676` | **3.48:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#1a4179` | **3.83:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `multiselect.overlay.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.background` | `#3b313f` | **4.68:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.multiselect.option.selected.focus.background` | `#4d3e52` | **3.74:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `listbox.background` | `#09090b` | **7.53:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.background` | `#2e2532` | **5.57:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, option)` | `#c084fc` | `mystic.listbox.option.selected.focus.background` | `#413346` | **4.45:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-card (.dark-theme .p-select-overlay)` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `select.option.focus.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.background` | `#364b76` | **4.78:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.select.option.selected.focus.background` | `#364b76` | **4.78:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `--surface-hover (.dark-theme .p-select-option:hover)` | `#1a4179` | **5.58:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `multiselect.overlay.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.background` | `#3d373f` | **6.37:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.multiselect.option.selected.focus.background` | `#4f4752` | **4.92:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `listbox.background` | `#09090b` | **10.97:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.background` | `#302b32` | **7.63:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, option)` | `#f9a8d4` | `mystic.listbox.option.selected.focus.background` | `#443b46` | **5.91:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `--surface-card (.dark-theme .p-select-overlay)` | `#10305c` | **8.81:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `select.option.focus.background` | `#27272a` | **10.00:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring, option)` | `#d6d3d1` | `stone.select.option.selected.background` | `#365176` | **5.43:1** | 1.4.11 | 3:1 | ok |
@@ -7239,12 +7239,12 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.datatable.row.selected.background` | `#2b4b76` | `datatable.row.background` | `#10305c` | **1.48:1** | none | — | info |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#2b4b76` | **3.78:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (selected-row bar)` | `#85a7ff` | `datatable.row.background` | `#10305c` | **5.61:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.color` | `#e5e7ed` | `mystic.datatable.row.selected.background` | `#344676` | **7.44:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.paginator.nav.button.selected.background` | `#c084fc` | `paginator.background` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.datatable.row.selected.background` | `#344676` | `datatable.row.background` | `#10305c` | **1.43:1** | none | — | info |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#344676` | **3.48:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (selected-row bar)` | `#c084fc` | `datatable.row.background` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.color` | `#e5e8ed` | `mystic.datatable.row.selected.background` | `#364b76` | **7.05:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.color` | `#18181b` | `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.paginator.nav.button.selected.background` | `#f9a8d4` | `paginator.background` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.datatable.row.selected.background` | `#364b76` | `datatable.row.background` | `#10305c` | **1.52:1** | none | — | info |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#364b76` | **4.78:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (selected-row bar)` | `#f9a8d4` | `datatable.row.background` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
 | `stone.datatable.row.selected.color` | `#e5e8ed` | `stone.datatable.row.selected.background` | `#365176` | **6.59:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.color` | `#18181b` | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.paginator.nav.button.selected.background` | `#d6d3d1` | `paginator.background` | `#10305c` | **8.81:1** | 1.4.11 | 3:1 | ok |
@@ -7275,7 +7275,7 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `ocean.badge.primary.color` | `#18181b` | `ocean.badge.primary.background` | `#2dd4bf` | **9.52:1** | 1.4.3 | 4.5:1 | ok |
 | `aurora.badge.primary.color` | `#18181b` | `aurora.badge.primary.background` | `#22d3ee` | **9.80:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.badge.primary.color` | `#18181b` | `twilight.badge.primary.background` | `#85a7ff` | **7.57:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#c084fc` | **6.70:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.badge.primary.color` | `#18181b` | `mystic.badge.primary.background` | `#f9a8d4` | **9.77:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.badge.primary.color` | `#18181b` | `stone.badge.primary.background` | `#d6d3d1` | **11.89:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.badge.primary.color` | `#18181b` | `contrast.badge.primary.background` | `#f8fafc` | **16.93:1** | 1.4.3 | 4.5:1 | ok |
 
@@ -7344,8 +7344,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `button.text.info.color` | `#93c5fd` | `--surface-card` | `#10305c` | **7.28:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-ground` | `#0e2a52` | **8.46:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.warn.color` | `#fdba74` | `--surface-card` | `#10305c` | **7.79:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-ground` | `#0e2a52` | **8.07:1** | 1.4.3 | 4.5:1 | ok |
-| `button.text.help.color` | `#d8b4fe` | `--surface-card` | `#10305c` | **7.43:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-ground` | `#0e2a52` | **9.84:1** | 1.4.3 | 4.5:1 | ok |
+| `button.text.help.color` | `#67e8f9` | `--surface-card` | `#10305c` | **9.06:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-ground` | `#0e2a52` | **7.52:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.danger.color` | `#fca5a5` | `--surface-card` | `#10305c` | **6.92:1** | 1.4.3 | 4.5:1 | ok |
 | `button.text.contrast.color` | `#e8f0fb` | `--surface-ground` | `#0e2a52` | **12.43:1** | 1.4.3 | 4.5:1 | ok |
@@ -7366,8 +7366,8 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `aurora.button.text.primary.color` | `#22d3ee` | `--surface-card` | `#10305c` | **7.27:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-ground` | `#0e2a52` | **6.09:1** | 1.4.3 | 4.5:1 | ok |
 | `twilight.button.text.primary.color` | `#85a7ff` | `--surface-card` | `#10305c` | **5.61:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-ground` | `#0e2a52` | **5.40:1** | 1.4.3 | 4.5:1 | ok |
-| `mystic.button.text.primary.color` | `#c084fc` | `--surface-card` | `#10305c` | **4.97:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-ground` | `#0e2a52` | **7.87:1** | 1.4.3 | 4.5:1 | ok |
+| `mystic.button.text.primary.color` | `#f9a8d4` | `--surface-card` | `#10305c` | **7.24:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-ground` | `#0e2a52` | **9.58:1** | 1.4.3 | 4.5:1 | ok |
 | `stone.button.text.primary.color` | `#d6d3d1` | `--surface-card` | `#10305c` | **8.81:1** | 1.4.3 | 4.5:1 | ok |
 | `contrast.button.text.primary.color` | `#f8fafc` | `--surface-ground` | `#0e2a52` | **13.64:1** | 1.4.3 | 4.5:1 | ok |
@@ -7468,16 +7468,16 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `datatable.row.hover.background` | `#27272a` | **6.36:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `twilight.datatable.row.selected.background` | `#2b4b76` | **3.78:1** | 1.4.11 | 3:1 | ok |
 | `twilight.--primary-color-fg (kit focus ring, inset)` | `#85a7ff` | `autocomplete.chip.focus.background` | `#3f3f46` | **4.46:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-ground` | `#0e2a52` | **5.40:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-card` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `--surface-section` | `#173d74` | **4.06:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `dialog.background` | `#18181b` | **6.70:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `chip.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring)` | `#c084fc` | `paginator.background` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.background` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `datatable.row.hover.background` | `#27272a` | **5.64:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `mystic.datatable.row.selected.background` | `#344676` | **3.48:1** | 1.4.11 | 3:1 | ok |
-| `mystic.--primary-color-fg (kit focus ring, inset)` | `#c084fc` | `autocomplete.chip.focus.background` | `#3f3f46` | **3.95:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-ground` | `#0e2a52` | **7.87:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-card` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `--surface-section` | `#173d74` | **5.92:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `dialog.background` | `#18181b` | **9.77:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `chip.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring)` | `#f9a8d4` | `paginator.background` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.background` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `datatable.row.hover.background` | `#27272a` | **8.21:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `mystic.datatable.row.selected.background` | `#364b76` | **4.78:1** | 1.4.11 | 3:1 | ok |
+| `mystic.--primary-color-fg (kit focus ring, inset)` | `#f9a8d4` | `autocomplete.chip.focus.background` | `#3f3f46` | **5.76:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-ground` | `#0e2a52` | **9.58:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-card` | `#10305c` | **8.81:1** | 1.4.11 | 3:1 | ok |
 | `stone.--primary-color-fg (kit focus ring)` | `#d6d3d1` | `--surface-section` | `#173d74` | **7.21:1** | 1.4.11 | 3:1 | ok |
@@ -7524,9 +7524,9 @@ headroom than a 4.6:1 text pair (SC 1.4.3, needs 4.5:1), so read the number with
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-ground` | `#0e2a52` | **6.09:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-card` | `#10305c` | **5.61:1** | 1.4.11 | 3:1 | ok |
 | `twilight.progressspinner.color.one…four` | `#85a7ff` | `--surface-section` | `#173d74` | **4.58:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-ground` | `#0e2a52` | **5.40:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-card` | `#10305c` | **4.97:1** | 1.4.11 | 3:1 | ok |
-| `mystic.progressspinner.color.one…four` | `#c084fc` | `--surface-section` | `#173d74` | **4.06:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-ground` | `#0e2a52` | **7.87:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-card` | `#10305c` | **7.24:1** | 1.4.11 | 3:1 | ok |
+| `mystic.progressspinner.color.one…four` | `#f9a8d4` | `--surface-section` | `#173d74` | **5.92:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-ground` | `#0e2a52` | **9.58:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-card` | `#10305c` | **8.81:1** | 1.4.11 | 3:1 | ok |
 | `stone.progressspinner.color.one…four` | `#d6d3d1` | `--surface-section` | `#173d74` | **7.21:1** | 1.4.11 | 3:1 | ok |

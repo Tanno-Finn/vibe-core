@@ -7,7 +7,280 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
 /** The declared type of `value` on both p-accordion and p-accordion-panel
  *  (openng-optimus-ui-accordion.d.ts:120, :212). */
-type PanelValue = string | number | string[] | number[] | null | undefined;
+export type PanelValue = string | number | string[] | number[] | null | undefined;
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [FormsModule, AccordionModule, ToggleSwitchModule, GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      kbd {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-bottom-width: 2px;
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.4em;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__row {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        font-size: 0.9rem;
+      }
+      .pg__stage {
+        min-width: 0;
+        padding: var(--space-4);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .pg__readout {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+        margin: 0;
+      }
+      .pg__readout-label {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .pg__readout-value {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex__stage {
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      p-accordion {
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+      .narrow {
+        max-width: 22rem;
+      }
+      .panel-body {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      .plain-head {
+        margin: 0 0 0.25rem;
+        font-size: 0.95rem;
+      }
+      .plain-head + .panel-body {
+        margin-bottom: 0.75rem;
+      }
+      .field-label {
+        display: block;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin-bottom: 0.25rem;
+      }
+      .field {
+        width: 100%;
+        font: inherit;
+        font-size: 0.85rem;
+        padding: 0.35rem 0.5rem;
+        color: var(--text-color);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-sm);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+        min-width: 0;
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-width: 0;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sources a {
+        color: var(--primary-color-fg);
+      }
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
 
 /**
  * Guide article: Accordion (SPEC N5, Guides).
@@ -47,7 +320,7 @@ type PanelValue = string | number | string[] | number[] | null | undefined;
   selector: 'app-accordion-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, AccordionModule, ToggleSwitchModule, GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'accordion'">
@@ -730,276 +1003,7 @@ type PanelValue = string | number | string[] | number[] | null | undefined;
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      kbd {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-bottom-width: 2px;
-        border-radius: var(--radius-sm);
-        padding: 0.05em 0.4em;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__row {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-        font-size: 0.9rem;
-      }
-      .pg__stage {
-        min-width: 0;
-        padding: var(--space-4);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .pg__readout {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-        flex-wrap: wrap;
-        margin: 0;
-      }
-      .pg__readout-label {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .pg__readout-value {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex__stage {
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      p-accordion {
-        display: block;
-        width: 100%;
-        min-width: 0;
-      }
-      .narrow {
-        max-width: 22rem;
-      }
-      .panel-body {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-      .plain-head {
-        margin: 0 0 0.25rem;
-        font-size: 0.95rem;
-      }
-      .plain-head + .panel-body {
-        margin-bottom: 0.75rem;
-      }
-      .field-label {
-        display: block;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin-bottom: 0.25rem;
-      }
-      .field {
-        width: 100%;
-        font: inherit;
-        font-size: 0.85rem;
-        padding: 0.35rem 0.5rem;
-        color: var(--text-color);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-sm);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-        min-width: 0;
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-width: 0;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .sources a {
-        color: var(--primary-color-fg);
-      }
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class AccordionArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -1072,7 +1076,7 @@ export class AccordionArticleComponent {
   }
 
   // --- Snippets (flat constants, so the tab extractor resolves them) ---------
-  readonly anatomySnippet = `<p-accordion class="p-accordion p-component">
+  readonly anatomySnippet: string = `<p-accordion class="p-accordion p-component">
   <p-accordion-panel class="p-accordionpanel p-accordionpanel-active"
       data-p-active="true">                            <- the class the eight rules key on
     <p-accordion-header class="p-accordionheader"      <- the focusable element
@@ -1100,7 +1104,7 @@ export class AccordionArticleComponent {
 
 No heading element anywhere: the outline sees nothing.`;
 
-  readonly focusRuleSnippet = `/* Aura: the one header rule written as a descendant selector. */
+  readonly focusRuleSnippet: string = `/* Aura: the one header rule written as a descendant selector. */
 .p-accordionpanel:not(.p-disabled) .p-accordionheader:focus-visible {
   outline: dt('accordion.header.focus.ring.width') ...;   /* 1px */
   outline-offset: dt('accordion.header.focus.ring.offset');   /* -1px */
@@ -1112,7 +1116,7 @@ No heading element anywhere: the outline sees nothing.`;
   outline-offset: -2px !important;
 }`;
 
-  readonly deadLookupSnippet = `// Accordion (the root), :566 — what it looks for:
+  readonly deadLookupSnippet: string = `// Accordion (the root), :566 — what it looks for:
 findSingle(nextTabElement, '[data-pc-section="accordionheader"]')
 
 // BaseComponent, :355 and :359 — what the header host actually carries:
@@ -1125,7 +1129,7 @@ findSingle(panelElement, '[data-pc-name="accordionheader"]')
 // So the root finds null, focuses nothing, and still runs:
 event.preventDefault();`;
 
-  readonly motionSnippet = `<!-- AccordionContent's template, :409-416 -->
+  readonly motionSnippet: string = `<!-- AccordionContent's template, :409-416 -->
 <p-motion [visible]="active()" name="p-collapsible"
           hideStrategy="visibility"
           [mountOnEnter]="false" [unmountOnLeave]="false">
@@ -1135,7 +1139,7 @@ visibility: hidden;
 max-height: 0;
 overflow: hidden;`;
 
-  readonly wiringSnippet = `import { AccordionModule } from '@openng/optimus-ui/accordion';
+  readonly wiringSnippet: string = `import { AccordionModule } from '@openng/optimus-ui/accordion';
 
 @Component({
   standalone: true,
@@ -1153,7 +1157,7 @@ export class FaqComponent {
   }
 }`;
 
-  readonly i18nSnippet = `// translate() reads translationsVersion(), so this computed() tracks it and the
+  readonly i18nSnippet: string = `// translate() reads translationsVersion(), so this computed() tracks it and the
 // label rebuilds on a language switch;
 // the value stays numeric, because it becomes part of two DOM ids.
 readonly sections = computed(() => [

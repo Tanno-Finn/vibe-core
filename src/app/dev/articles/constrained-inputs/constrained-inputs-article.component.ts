@@ -8,6 +8,123 @@ import { InputTextModule } from '@openng/optimus-ui/inputtext';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    InputMaskModule,
+    InputOtpModule,
+    PasswordModule,
+    KeyFilterModule,
+    InputTextModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-constrained-inputs-article .stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      app-constrained-inputs-article .stage--col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
+      }
+
+      app-constrained-inputs-article .stage--row {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      app-constrained-inputs-article .stage--wrap {
+        flex-wrap: wrap;
+      }
+
+      app-constrained-inputs-article .col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      app-constrained-inputs-article .field-label {
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      app-constrained-inputs-article .hint,
+      app-constrained-inputs-article .note {
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+        max-width: 30rem;
+      }
+
+      app-constrained-inputs-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      app-constrained-inputs-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      app-constrained-inputs-article .dd__stage {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 4.5rem;
+      }
+
+      app-constrained-inputs-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-constrained-inputs-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-constrained-inputs-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-constrained-inputs-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-constrained-inputs-article .checklist,
+      app-constrained-inputs-article .history {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-constrained-inputs-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Constrained Inputs (Guides, category `library`).
  *
@@ -110,16 +227,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-constrained-inputs-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    InputMaskModule,
-    InputOtpModule,
-    PasswordModule,
-    KeyFilterModule,
-    InputTextModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'constrained-inputs'">
@@ -877,111 +985,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-constrained-inputs-article .stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        border-radius: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
-
-      app-constrained-inputs-article .stage--col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        align-items: flex-start;
-      }
-
-      app-constrained-inputs-article .stage--row {
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-      }
-
-      app-constrained-inputs-article .stage--wrap {
-        flex-wrap: wrap;
-      }
-
-      app-constrained-inputs-article .col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-
-      app-constrained-inputs-article .field-label {
-        font-weight: 600;
-        font-size: 0.85rem;
-      }
-
-      app-constrained-inputs-article .hint,
-      app-constrained-inputs-article .note {
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-        max-width: 30rem;
-      }
-
-      app-constrained-inputs-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      app-constrained-inputs-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      app-constrained-inputs-article .dd__stage {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        align-items: flex-start;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 4.5rem;
-      }
-
-      app-constrained-inputs-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-constrained-inputs-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-constrained-inputs-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-constrained-inputs-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-constrained-inputs-article .checklist,
-      app-constrained-inputs-article .history {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-constrained-inputs-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ConstrainedInputsArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -1071,8 +1075,7 @@ export class ConstrainedInputsArticleComponent {
       'The named masks alpha and alphanum accept the Latin letters a–z plus the underscore, and nothing else — no ä, no ø, no ł, no Cyrillic, Greek, Arabic, or CJK. A name field carrying either of them is unusable for a large share of the people it is meant for, and the refusal is silent. Restrict a license key or a slug if you must; never a name, a place, or free text. Where a class really is needed across languages, pass your own RegExp with the Unicode property escapes for the script you accept, and remember that the filter is not a validator.',
   };
 
-  readonly formSnippet =
-    "// Reactive forms: the three components are value accessors, the filter is not.\n" +
+  readonly formSnippet: string = "// Reactive forms: the three components are value accessors, the filter is not.\n" +
     "form = this.fb.group({\n" +
     "  telephone: ['', [Validators.required, Validators.pattern(/^\\d{10}$/)]],\n" +
     "  code:      ['', [Validators.required, Validators.minLength(6)]],\n" +
@@ -1088,8 +1091,7 @@ export class ConstrainedInputsArticleComponent {
     "//   -> control error { validatePattern: false } when the value breaks the mask.\n" +
     "// Without pValidateOnly the control is valid whatever it holds.";
 
-  readonly ptSnippet =
-    '<!-- The OTP boxes take no attributes through the public API. -->\n' +
+  readonly ptSnippet: string = '<!-- The OTP boxes take no attributes through the public API. -->\n' +
     '<div role="group" [attr.aria-labelledby]="\'code-label\'">\n' +
     '  <p-inputOtp\n' +
     '    [length]="6"\n' +
@@ -1101,8 +1103,7 @@ export class ConstrainedInputsArticleComponent {
     '// component class\n' +
     "readonly otpPassThrough = { pcInputText: { root: { autocomplete: 'one-time-code' } } };";
 
-  readonly testSnippet =
-    "it('keeps a partial masked value when autoClear is off', async () => {\n" +
+  readonly testSnippet: string = "it('keeps a partial masked value when autoClear is off', async () => {\n" +
     "  const fixture = TestBed.createComponent(HostComponent);\n" +
     "  fixture.detectChanges();\n" +
     "\n" +
@@ -1118,8 +1119,7 @@ export class ConstrainedInputsArticleComponent {
     "  expect(fixture.componentInstance.form.controls.telephone.value).toContain('123');\n" +
     "});";
 
-  readonly i18nSnippet =
-    "// Resolve the library's four strings through the kit's TranslationService,\n" +
+  readonly i18nSnippet: string = "// Resolve the library's four strings through the kit's TranslationService,\n" +
     "// so they follow a language switch like every other label.\n" +
     "readonly labels = computed(() => ({\n" +
     "  secret:  this.i18n.translate('your-module.password.label'),\n" +

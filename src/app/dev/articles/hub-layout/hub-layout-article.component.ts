@@ -2,6 +2,110 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+    :host { display: block; }
+    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
+
+    /* --- Page skeleton --- */
+    .skel { margin: 0 0 var(--space-4); }
+    .skel__band {
+      position: relative;
+      padding: var(--space-5) var(--space-4) var(--space-4);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      background: var(--surface-section);
+    }
+    .skel__band--body {
+      margin: var(--space-3) 0 0;
+      background: var(--surface-card);
+      border-style: dashed;
+    }
+    .skel__cap {
+      position: absolute; top: var(--space-2); left: var(--space-4);
+      font-size: var(--font-size-sm); color: var(--text-color-secondary);
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .skel__row {
+      margin: var(--space-2) 0; padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--surface-border); border-radius: var(--radius-md);
+      background: var(--surface-card); font-size: 0.9rem; overflow-wrap: anywhere;
+    }
+    .skel__band--body .skel__row { background: var(--surface-section); }
+
+    /* --- Three wrappers, one shared grid rule --- */
+    .gd-row {
+      display: flex; flex-wrap: wrap; align-items: flex-start;
+      gap: var(--space-4); margin: 0 0 var(--space-4);
+    }
+    .gd-box {
+      flex: 0 1 auto; min-width: 0;
+      box-sizing: border-box;
+      padding: var(--space-3);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      background: var(--surface-card);
+    }
+    .gd-box--s { width: 9rem; }
+    .gd-box--m { width: 19rem; }
+    .gd-box--l { width: 26rem; max-width: 100%; }
+    .gd-cap {
+      margin: 0 0 var(--space-2);
+      font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
+      color: var(--text-color-secondary);
+    }
+    .gd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(7rem, 100%), 1fr));
+      gap: var(--space-3);
+    }
+    .gd-cell {
+      padding: var(--space-3);
+      border: 1px dashed var(--surface-border);
+      border-radius: var(--radius-md);
+      background: var(--surface-section);
+      font-size: 0.8rem; color: var(--text-color); text-align: center;
+    }
+
+    /* --- Do / Don't --- */
+    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
+    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
+    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
+    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
+    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
+    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
+    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; white-space: pre-wrap; }
+    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
+    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
+    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
+    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
+
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { margin: 0.3rem 0; }
+
+    .code-block {
+      margin: 0 0 var(--space-4);
+      padding: var(--space-4);
+      overflow-x: auto;
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text-color);
+    }
+    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
+    .history strong { color: var(--primary-color-fg); }
+    .sources a { color: var(--primary-color-fg); }
+  `;
+
 /**
  * Guide article: Hub Layout (layouts).
  *
@@ -45,7 +149,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-hub-layout-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'hub-layout'">
@@ -664,105 +768,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
     </app-guide-shell>
   `,
-  styles: [`
-    :host { display: block; }
-    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
-
-    /* --- Page skeleton --- */
-    .skel { margin: 0 0 var(--space-4); }
-    .skel__band {
-      position: relative;
-      padding: var(--space-5) var(--space-4) var(--space-4);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      background: var(--surface-section);
-    }
-    .skel__band--body {
-      margin: var(--space-3) 0 0;
-      background: var(--surface-card);
-      border-style: dashed;
-    }
-    .skel__cap {
-      position: absolute; top: var(--space-2); left: var(--space-4);
-      font-size: var(--font-size-sm); color: var(--text-color-secondary);
-      text-transform: uppercase; letter-spacing: 0.04em;
-    }
-    .skel__row {
-      margin: var(--space-2) 0; padding: var(--space-3) var(--space-4);
-      border: 1px solid var(--surface-border); border-radius: var(--radius-md);
-      background: var(--surface-card); font-size: 0.9rem; overflow-wrap: anywhere;
-    }
-    .skel__band--body .skel__row { background: var(--surface-section); }
-
-    /* --- Three wrappers, one shared grid rule --- */
-    .gd-row {
-      display: flex; flex-wrap: wrap; align-items: flex-start;
-      gap: var(--space-4); margin: 0 0 var(--space-4);
-    }
-    .gd-box {
-      flex: 0 1 auto; min-width: 0;
-      box-sizing: border-box;
-      padding: var(--space-3);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      background: var(--surface-card);
-    }
-    .gd-box--s { width: 9rem; }
-    .gd-box--m { width: 19rem; }
-    .gd-box--l { width: 26rem; max-width: 100%; }
-    .gd-cap {
-      margin: 0 0 var(--space-2);
-      font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
-      color: var(--text-color-secondary);
-    }
-    .gd-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(min(7rem, 100%), 1fr));
-      gap: var(--space-3);
-    }
-    .gd-cell {
-      padding: var(--space-3);
-      border: 1px dashed var(--surface-border);
-      border-radius: var(--radius-md);
-      background: var(--surface-section);
-      font-size: 0.8rem; color: var(--text-color); text-align: center;
-    }
-
-    /* --- Do / Don't --- */
-    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
-    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
-    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
-    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
-    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
-    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
-    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; white-space: pre-wrap; }
-    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
-    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
-    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
-    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
-
-    .checklist { list-style: none; padding-left: 0; }
-    .checklist li { margin: 0.3rem 0; }
-
-    .code-block {
-      margin: 0 0 var(--space-4);
-      padding: var(--space-4);
-      overflow-x: auto;
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--text-color);
-    }
-    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
-    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
-    .history strong { color: var(--primary-color-fg); }
-    .sources a { color: var(--primary-color-fg); }
-  `],
+  styles: [ARTICLE_STYLES],
 })
 export class HubLayoutArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -770,42 +776,42 @@ export class HubLayoutArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly badDerive = '@Input() items: Item[] = [];\n' +
+  readonly badDerive: string = '@Input() items: Item[] = [];\n' +
     '\n' +
     '// Reads no signal, so it never becomes dirty.\n' +
     'categories = computed(() =>\n' +
     '  [...new Set(this.items.map(i => i.category))]);';
 
-  readonly goodDerive = 'items = input.required<Item[]>();\n' +
+  readonly goodDerive: string = 'items = input.required<Item[]>();\n' +
     '\n' +
     '// Reads a signal, so it tracks it.\n' +
     'categories = computed(() =>\n' +
     '  [...new Set(this.items().map(i => i.category))]);';
 
-  readonly badStates = 'loading = computed(() => this.items().length === 0);\n' +
+  readonly badStates: string = 'loading = computed(() => this.items().length === 0);\n' +
     '\n' +
     '// A failed load leaves items empty, so this never ends.\n' +
     '// And the one empty branch tells every reader to\n' +
     '// change a filter, whatever actually went wrong.';
 
-  readonly goodStates = 'loadFailed = signal(false);\n' +
+  readonly goodStates: string = 'loadFailed = signal(false);\n' +
     'loading = computed(() =>\n' +
     '  this.items().length === 0 && !this.loadFailed());\n' +
     '\n' +
     '// no match  = !loading() && !loadFailed()\n' +
     '//             && filtered().length === 0';
 
-  readonly badCard = '<div class="card" role="button" tabindex="0"\n' +
+  readonly badCard: string = '<div class="card" role="button" tabindex="0"\n' +
     '     (click)="go(item)" (keydown.enter)="go(item)">\n' +
     '  <span class="card-title">{{ t(item.titleKey) }}</span>\n' +
     '</div>';
 
-  readonly goodCard = '<a class="card" [routerLink]="[\'/\' + item.path]">\n' +
+  readonly goodCard: string = '<a class="card" [routerLink]="[\'/\' + item.path]">\n' +
     '  <h3 class="card-title">{{ t(item.titleKey) }}</h3>\n' +
     '  <p class="card-desc">{{ t(item.descriptionKey) }}</p>\n' +
     '</a>';
 
-  readonly deadApiSnippet = '// src/styles/design-tokens.scss - never callable, deleted 2026-08-20.\n' +
+  readonly deadApiSnippet: string = '// src/styles/design-tokens.scss - never callable, deleted 2026-08-20.\n' +
     '$breakpoints: (\n' +
     '  \'xs\': 0, \'sm\': 576px, \'md\': 768px,\n' +
     '  \'lg\': 992px, \'xl\': 1200px, \'2xl\': 1400px\n' +
@@ -817,7 +823,7 @@ export class HubLayoutArticleComponent {
     '// Write the number, and keep it on the kit steps:\n' +
     '//   768px for the one-column collapse, 480px below it.';
 
-  readonly hubSnippet = '<!-- One h1, one filter region, one collection band. -->\n' +
+  readonly hubSnippet: string = '<!-- One h1, one filter region, one collection band. -->\n' +
     '<app-page-header [titleKey]="\'myHub.title\'"\n' +
     '                 [subtitleKey]="\'myHub.subtitle\'" />\n' +
     '\n' +
@@ -870,7 +876,7 @@ export class HubLayoutArticleComponent {
     '  .hub-grid { grid-template-columns: 1fr; }\n' +
     '}';
 
-  readonly checkSnippet = '# Can any track floor overflow a narrow container?\n' +
+  readonly checkSnippet: string = '# Can any track floor overflow a narrow container?\n' +
     'grep -n "minmax(" src/app/pages/my-hub/*.ts\n' +
     '\n' +
     '# Does every card path resolve to a route?\n' +
@@ -880,7 +886,7 @@ export class HubLayoutArticleComponent {
     '# Does the card you are about to build already exist?\n' +
     'node scripts/design-guides.mjs list --layer kit';
 
-  readonly categorySnippet = '<!-- The value is half a key, so an untranslated\n' +
+  readonly categorySnippet: string = '<!-- The value is half a key, so an untranslated\n' +
     '     category renders as "categories.my-new-topic". -->\n' +
     '<span class="meta">{{ t("categories." + item.category) }}</span>\n' +
     '\n' +

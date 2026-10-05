@@ -197,7 +197,7 @@ export class CatalogEntryPresenter {
   getToolCategoryColor(category: string): string {
     const colors: { [key: string]: string } = {
       'text-ai': '#10B981',
-      'image-generation': '#8B5CF6',
+      'image-generation': '#14B8A6',
       coding: '#3B82F6',
       'audio-video': '#EF4444',
       productivity: '#F59E0B',
@@ -257,10 +257,10 @@ export class CatalogEntryPresenter {
         'box-shadow': '0 2px 4px rgba(245, 158, 11, 0.3)',
       },
       enterprise: {
-        background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+        background: 'linear-gradient(135deg, #be123c 0%, #9f1239 100%)',
         color: 'white',
         'font-weight': '600',
-        'box-shadow': '0 2px 4px rgba(139, 92, 246, 0.3)',
+        'box-shadow': '0 2px 4px rgba(190, 18, 60, 0.3)',
       },
     };
 
@@ -292,7 +292,7 @@ export class CatalogEntryPresenter {
       free: '#22c55e',
       freemium: '#3b82f6',
       premium: '#f59e0b',
-      enterprise: '#8b5cf6',
+      enterprise: '#e11d48',
     };
     return colors[this.canonicalPricing(pricing)] || '#a3a3a3';
   }
@@ -321,10 +321,10 @@ export class CatalogEntryPresenter {
         'box-shadow': '0 2px 4px rgba(16, 185, 129, 0.3)',
       },
       hybrid: {
-        background: 'linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%)',
+        background: 'linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)',
         color: 'white',
         'font-weight': '600',
-        'box-shadow': '0 2px 4px rgba(139, 92, 246, 0.3)',
+        'box-shadow': '0 2px 4px rgba(37, 99, 235, 0.3)',
       },
     };
 
@@ -353,7 +353,7 @@ export class CatalogEntryPresenter {
     const colors: { [key: string]: string } = {
       cloud: '#06b6d4',
       'on-premise': '#10b981',
-      hybrid: '#8b5cf6',
+      hybrid: '#3b82f6',
     };
     return colors[deployment] || '#a3a3a3';
   }
@@ -445,7 +445,7 @@ export class CatalogEntryPresenter {
       video: '#EF4444',
       infographic: '#F59E0B',
       document: '#DC2626',
-      course: '#7C3AED',
+      course: '#DB2777',
       podcast: '#059669',
       'tool-guide': '#0891B2',
       'research-paper': '#1D4ED8',
@@ -465,7 +465,7 @@ export class CatalogEntryPresenter {
       ethics: '#3B82F6',
       technology: '#6B7280',
       business: '#10B981',
-      research: '#8B5CF6',
+      research: '#14B8A6',
       education: '#F59E0B',
       society: '#EC4899',
       tools: '#06B6D4',

@@ -276,9 +276,9 @@ const LANG_SCRIPT: Record<string, string> = {
               <article
                 class="path-card drop-card kind-mystery"
                 appCursorGlow
-                [style.--cursor-glow-color]="'var(--p-purple-500)'"
+                [style.--cursor-glow-color]="'var(--p-rose-500)'"
               >
-                <div class="path-status-indicator" style="background:var(--p-purple-500)"></div>
+                <div class="path-status-indicator" style="background:var(--p-rose-500)"></div>
                 <div class="path-content">
                   <div class="path-header">
                     <span class="path-name">
@@ -930,20 +930,20 @@ const LANG_SCRIPT: Record<string, string> = {
         opacity: 1;
         position: relative;
         overflow: hidden;
-        border: 1.5px dashed color-mix(in srgb, var(--p-purple-500) 55%, var(--surface-border));
-        border-left: 4px solid var(--p-purple-500);
+        border: 1.5px dashed color-mix(in srgb, var(--p-rose-500) 55%, var(--surface-border));
+        border-left: 4px solid var(--p-rose-500);
         background:
           radial-gradient(
             135% 130% at 100% 0%,
-            color-mix(in srgb, var(--p-purple-500) 18%, transparent) 0%,
+            color-mix(in srgb, var(--p-rose-500) 18%, transparent) 0%,
             transparent 55%
           ),
           linear-gradient(
             135deg,
-            color-mix(in srgb, var(--p-purple-500) 10%, var(--surface-card)) 0%,
+            color-mix(in srgb, var(--p-rose-500) 10%, var(--surface-card)) 0%,
             var(--surface-card) 62%
           );
-        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--p-purple-500) 10%, transparent);
+        box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--p-rose-500) 10%, transparent);
       }
 
       .path-card.drop-card.kind-mystery .path-content {
@@ -952,14 +952,14 @@ const LANG_SCRIPT: Record<string, string> = {
       }
 
       .path-card.drop-card.kind-mystery .path-name {
-        color: var(--p-purple-700);
+        color: var(--p-rose-700);
       }
       .dark-theme app-roadmap .path-card.drop-card.kind-mystery .path-name {
-        color: var(--p-purple-200);
+        color: var(--p-rose-200);
       }
 
       .path-card.drop-card.kind-mystery .path-name i {
-        color: var(--p-purple-500);
+        color: var(--p-rose-500);
         font-size: 1.3rem;
       }
 
@@ -980,11 +980,11 @@ const LANG_SCRIPT: Record<string, string> = {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: color-mix(in srgb, var(--p-purple-500) 10%, var(--surface-card));
+        background: color-mix(in srgb, var(--p-rose-500) 10%, var(--surface-card));
         border: 1px solid var(--surface-border);
       }
       .dark-theme app-roadmap .mystery-thumb {
-        background: color-mix(in srgb, var(--p-purple-500) 18%, var(--surface-card));
+        background: color-mix(in srgb, var(--p-rose-500) 18%, var(--surface-card));
       }
 
       /* Gift icon carries the gradient (clipped to the glyph via ::before). */
@@ -992,10 +992,10 @@ const LANG_SCRIPT: Record<string, string> = {
         position: relative;
         z-index: 1;
         font-size: 2.9rem;
-        filter: drop-shadow(0 2px 5px color-mix(in srgb, var(--p-purple-700) 35%, transparent));
+        filter: drop-shadow(0 2px 5px color-mix(in srgb, var(--p-rose-700) 35%, transparent));
       }
       .mystery-thumb i::before {
-        background: linear-gradient(135deg, var(--p-purple-400) 0%, var(--p-purple-700) 100%);
+        background: linear-gradient(135deg, var(--p-rose-400) 0%, var(--p-rose-700) 100%);
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -1007,7 +1007,7 @@ const LANG_SCRIPT: Record<string, string> = {
         position: absolute;
         font-weight: 800;
         line-height: 1;
-        color: color-mix(in srgb, var(--p-purple-500) 22%, transparent);
+        color: color-mix(in srgb, var(--p-rose-500) 22%, transparent);
         user-select: none;
         pointer-events: none;
       }
@@ -1068,13 +1068,13 @@ const LANG_SCRIPT: Record<string, string> = {
       }
 
       .type-chip.type-mystery {
-        color: var(--p-purple-700);
-        background: color-mix(in srgb, var(--p-purple-500) 14%, transparent);
+        color: var(--p-rose-700);
+        background: color-mix(in srgb, var(--p-rose-500) 14%, transparent);
       }
 
       .dark-theme app-roadmap .type-chip.type-mystery {
-        color: var(--p-purple-300);
-        background: color-mix(in srgb, var(--p-purple-500) 22%, transparent);
+        color: var(--p-rose-300);
+        background: color-mix(in srgb, var(--p-rose-500) 22%, transparent);
       }
 
       /* Title becomes the card's primary link (whole card is no longer an <a>) */

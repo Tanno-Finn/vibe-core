@@ -6,6 +6,150 @@ import { OverlayBadgeModule } from '@openng/optimus-ui/overlaybadge';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, BadgeModule, ButtonModule, OverlayBadgeModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-badge-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-badge-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-badge-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      app-badge-article .lbl {
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+
+      app-badge-article button.plain {
+        font: inherit;
+        color: inherit;
+        background: var(--surface-section);
+        border: 1px solid var(--control-border);
+        padding: 0.35rem 0.7rem;
+        cursor: pointer;
+      }
+
+      app-badge-article .matrix {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      app-badge-article .matrix--sizes {
+        margin-top: 1rem;
+        align-items: center;
+      }
+
+      app-badge-article .matrix__cell {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      app-badge-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-badge-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-badge-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-badge-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-badge-article .dd__stage {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-badge-article .dd__icon {
+        font-size: 1.5rem;
+      }
+
+      app-badge-article .dd__box {
+        display: inline-block;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: var(--surface-border);
+      }
+
+      app-badge-article .dd__caption {
+        font-size: 0.85rem;
+      }
+
+      app-badge-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-badge-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-badge-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-badge-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-badge-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-badge-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Badge, pBadge, and Overlay Badge (Guides, category `library`).
  *
@@ -63,7 +207,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-badge-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, BadgeModule, ButtonModule, OverlayBadgeModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'badge'">
@@ -548,147 +692,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-badge-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-badge-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-badge-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.9rem;
-      }
-
-      app-badge-article .lbl {
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-
-      app-badge-article button.plain {
-        font: inherit;
-        color: inherit;
-        background: var(--surface-section);
-        border: 1px solid var(--control-border);
-        padding: 0.35rem 0.7rem;
-        cursor: pointer;
-      }
-
-      app-badge-article .matrix {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-      }
-
-      app-badge-article .matrix--sizes {
-        margin-top: 1rem;
-        align-items: center;
-      }
-
-      app-badge-article .matrix__cell {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      app-badge-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-badge-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-badge-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-badge-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-badge-article .dd__stage {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-badge-article .dd__icon {
-        font-size: 1.5rem;
-      }
-
-      app-badge-article .dd__box {
-        display: inline-block;
-        width: 2.5rem;
-        height: 2.5rem;
-        background: var(--surface-border);
-      }
-
-      app-badge-article .dd__caption {
-        font-size: 0.85rem;
-      }
-
-      app-badge-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-badge-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-badge-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-badge-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-badge-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-badge-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class BadgeArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -754,16 +758,14 @@ export class BadgeArticleComponent {
       'Length: a translated sentence may grow, and the badge itself has a fixed height and no wrapping, so a long value widens rather than reflows.',
   };
 
-  readonly emittedMarkupSnippet =
-    '<!-- p-badge: the host element IS the badge -->\n' +
+  readonly emittedMarkupSnippet: string = '<!-- p-badge: the host element IS the badge -->\n' +
     '<p-badge class="p-badge p-component" data-p="...">3</p-badge>\n\n' +
     '<!-- [pBadge]: the span is appended as the host\'s last child -->\n' +
     '<button class="p-overlay-badge">Inbox<span id="pn_id_1_badge" class="p-badge p-component p-badge-circle">3</span></button>\n\n' +
     '<!-- p-overlayBadge: a wrapper div, the content, then the badge as a sibling -->\n' +
     '<p-overlaybadge><div class="p-overlaybadge"><i class="pi pi-envelope"></i><p-badge class="p-badge p-component p-badge-circle">3</p-badge></div></p-overlaybadge>';
 
-  readonly usageSnippet =
-    '// The badge never carries the meaning on its own.\n' +
+  readonly usageSnippet: string = '// The badge never carries the meaning on its own.\n' +
     'readonly unread = signal(0);\n' +
     "readonly badgeText = computed(() => (this.unread() > 99 ? '99+' : String(this.unread())));\n\n" +
     '<!-- aria-label replaces the name; aria-hidden keeps the badge text out of the tree as well -->\n' +
@@ -776,8 +778,7 @@ export class BadgeArticleComponent {
     '<!-- and, for a count that changes while the page is open -->\n' +
     '<span class="sr-only" aria-live="polite" aria-atomic="true">{{ liveAnnouncement() }}</span>';
 
-  readonly deadInputSnippet =
-    '// p-overlayBadge, own template: only badgeSize is forwarded\n' +
+  readonly deadInputSnippet: string = '// p-overlayBadge, own template: only badgeSize is forwarded\n' +
     '<p-badge [pt]="ptm(\'pcBadge\')" [styleClass]="styleClass" [style]="style"\n' +
     '         [badgeSize]="badgeSize" [severity]="severity" [value]="value"\n' +
     '         [badgeDisabled]="badgeDisabled" />\n\n' +
@@ -786,8 +787,7 @@ export class BadgeArticleComponent {
     '// and this is the one that arrives\n' +
     '<p-overlayBadge value="9" badgeSize="xlarge">...</p-overlayBadge>';
 
-  readonly positionCssSnippet =
-    '/* injected by the directive, applied to the element pBadge sits on */\n' +
+  readonly positionCssSnippet: string = '/* injected by the directive, applied to the element pBadge sits on */\n' +
     '.p-overlay-badge > .p-badge { position: absolute; top: 0; inset-inline-end: 0;\n' +
     '                              transform: translate(50%, -50%); transform-origin: 100% 0;\n' +
     '                              margin: 0; }\n\n' +
@@ -799,8 +799,7 @@ export class BadgeArticleComponent {
     '                           outline-style: solid;\n' +
     "                           outline-color: dt('overlaybadge.outline.color'); }";
 
-  readonly i18nSnippet =
-    '// translate() takes a key and nothing else, so the placeholder lives in the string\n' +
+  readonly i18nSnippet: string = '// translate() takes a key and nothing else, so the placeholder lives in the string\n' +
     '// modules/en/notifications.json -> "labelWithCount": "Notifications, {count} unread"\n' +
     'readonly bellLabel = computed(() =>\n' +
     "  this.i18n.translate('notifications.bell.labelWithCount').replace('{count}', String(this.unread())),\n" +

@@ -162,16 +162,19 @@ export const THEME_COLORS: ThemeColorOption[] = [
   },
 
   // === RICH ===
+  // Mystic = magenta→rose gradient, no purple. It stays apart from coral
+  // (crimson→pink) by running the other way: bright magenta first, a
+  // red-leaning rose at the accent end.
   {
     name: 'mystic',
-    primaryColor: '#972ee1',
-    primaryColorDark: '#7c1cc2',
-    gradientAccent: '#cc1790',
-    gradientAccentDark: '#ab1378',
-    primaryFg: '#972ee1',
-    primaryFgDark: '#c084fc',
-    accentFg: '#cc1790',
-    accentFgDark: '#f0abfc',
+    primaryColor: '#b8147f',
+    primaryColorDark: '#9a116a',
+    gradientAccent: '#d0174a',
+    gradientAccentDark: '#af133e',
+    primaryFg: '#b8147f',
+    primaryFgDark: '#f9a8d4',
+    accentFg: '#d0174a',
+    accentFgDark: '#fda4af',
   },
   {
     name: 'stone',

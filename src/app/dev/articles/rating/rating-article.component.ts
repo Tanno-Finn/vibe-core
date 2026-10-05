@@ -4,6 +4,131 @@ import { RatingModule } from '@openng/optimus-ui/rating';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, RatingModule, FormsModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-rating-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-rating-article .stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-rating-article .rating-field {
+        border: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      app-rating-article .rating-field legend {
+        padding: 0;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+
+      app-rating-article .stage-note {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-rating-article .checklist,
+      app-rating-article .history {
+        line-height: 1.7;
+      }
+
+      app-rating-article .static-score i {
+        color: var(--primary-color);
+        font-size: 1rem;
+        margin-inline-end: 0.25rem;
+      }
+
+      app-rating-article .static-score .static-score__off {
+        color: var(--text-color-secondary);
+      }
+
+      app-rating-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-rating-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-rating-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-rating-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-rating-article .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-rating-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-rating-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-rating-article .sources a {
+        color: var(--primary-color-fg);
+      }
+
+      app-rating-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-rating-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      @media (max-width: 640px) {
+        app-rating-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Rating (Guides, category `library`).
  *
@@ -56,7 +181,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-rating-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, RatingModule, FormsModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'rating'">
@@ -446,128 +571,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-rating-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-rating-article .stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-rating-article .rating-field {
-        border: 0;
-        margin: 0;
-        padding: 0;
-      }
-
-      app-rating-article .rating-field legend {
-        padding: 0;
-        font-weight: 600;
-        margin-bottom: 0.35rem;
-      }
-
-      app-rating-article .stage-note {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-rating-article .checklist,
-      app-rating-article .history {
-        line-height: 1.7;
-      }
-
-      app-rating-article .static-score i {
-        color: var(--primary-color);
-        font-size: 1rem;
-        margin-inline-end: 0.25rem;
-      }
-
-      app-rating-article .static-score .static-score__off {
-        color: var(--text-color-secondary);
-      }
-
-      app-rating-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-rating-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-rating-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-rating-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-rating-article .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-rating-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-rating-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-rating-article .sources a {
-        color: var(--primary-color-fg);
-      }
-
-      app-rating-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-rating-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      @media (max-width: 640px) {
-        app-rating-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class RatingArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -673,7 +677,7 @@ export class RatingArticleComponent {
     i18nGroup:
       'An ordinary string in your markup — translate it the way every other label in the kit is translated, through the translation service, read inside a computed.',
     i18nStar:
-      'Not yours: the component builds it from the aria.star and aria.stars entries of the Optimus configuration, which default to English and are the same for the whole application.',
+      'Not yours: the component builds it from the aria.star and aria.stars entries of the Optimus configuration, which are the same for the whole application. Optimus defaults them to English; this kit\'s OptimusA11yService hands them over in the page language from optimus.json, so a German page names the first star "1 Stern".',
     i18nValue:
       'The sentence that states the score in words is yours as well, and it is what carries the value to a reader who does not hear the radio labels.',
     i18nPlural:
@@ -684,7 +688,7 @@ export class RatingArticleComponent {
 
   // --- code samples, flat constants for the same reason ----------------------
 
-  readonly anatomySnippet = `<!-- One p-rating, once per star, five times over. -->
+  readonly anatomySnippet: string = `<!-- One p-rating, once per star, five times over. -->
 <p-rating class="p-rating" data-p="...">          <!-- no role, no aria-* -->
   <div class="p-rating-option">                   <!-- (click) lives here -->
     <span class="p-hidden-accessible">            <!-- clip: rect(0 0 0 0) -->
@@ -696,7 +700,7 @@ export class RatingArticleComponent {
   ...
 </p-rating>`;
 
-  readonly ddImgSnippet = `<!-- One node, one name, no tab stop. -->
+  readonly ddImgSnippet: string = `<!-- One node, one name, no tab stop. -->
 <span role="img" [attr.aria-label]="scoreLabel()">
   <span aria-hidden="true">
     <i class="pi pi-star-fill"></i><i class="pi pi-star-fill"></i>
@@ -705,7 +709,7 @@ export class RatingArticleComponent {
   </span>
 </span>`;
 
-  readonly recommendedSnippet = `<fieldset class="score">
+  readonly recommendedSnippet: string = `<fieldset class="score">
   <legend>{{ groupLabel() }}</legend>
 
   <p-rating [ngModel]="score()" (ngModelChange)="score.set($event)"
@@ -719,7 +723,7 @@ export class RatingArticleComponent {
   <button type="button" (click)="score.set(null)">{{ clearLabel() }}</button>
 </fieldset>`;
 
-  readonly translationSnippet = `// app.config.ts — the whole application shares one star vocabulary.
+  readonly translationSnippet: string = `// app.config.ts — the whole application shares one star vocabulary.
 provideOptimus({
   theme: { preset: Aura, options: { prefix: 'p' } },
   translation: { aria: { star: 'Ein Stern', stars: '{star} Sterne' } },
@@ -733,7 +737,7 @@ config.setTranslation({
           stars: '{star} Sterne' },
 });`;
 
-  readonly i18nGroupSnippet = `// The group name is yours, so it follows the kit's ordinary pattern:
+  readonly i18nGroupSnippet: string = `// The group name is yours, so it follows the kit's ordinary pattern:
 // translate() is read INSIDE a computed, which makes the computed depend on
 // the translation version signal and re-run on a language switch.
 private readonly i18n = inject(TranslationService);

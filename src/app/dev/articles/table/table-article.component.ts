@@ -9,7 +9,7 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
-interface Bird {
+export interface Bird {
   id: number;
   name: string;
   family: string;
@@ -17,16 +17,414 @@ interface Bird {
   status: string;
 }
 
-interface RowReadout {
+export interface RowReadout {
   row: string;
   visual: string;
   aria: string;
 }
 
-interface TableReadout {
+export interface TableReadout {
   role: string;
   rows: RowReadout[];
 }
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    TableModule,
+    ButtonModule,
+    SelectModule,
+    ToggleSwitchModule,
+    InputTextModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-4);
+      }
+      .scope-note {
+        max-width: 46rem;
+        margin: 0 0 var(--space-5);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-left: 3px solid var(--primary-color-fg);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        font-size: var(--font-size-sm);
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__aside {
+        font-weight: 400;
+        color: var(--text-color-secondary);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-3);
+        min-width: 0;
+        padding: var(--space-4);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        overflow-x: auto;
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 860px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: block;
+        padding: var(--space-4);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .row__tag {
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+
+      .two {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-5);
+      }
+      .three {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-5);
+      }
+      .two__col {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .two__col--wide {
+        align-items: flex-start;
+      }
+      .two__col--wide > p-table,
+      .two__col--wide > .filter-input {
+        width: 100%;
+      }
+      @media (max-width: 1100px) {
+        .three {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 860px) {
+        .two {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .journal {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        font-size: 0.78rem;
+      }
+      .journal li {
+        margin: 0.2rem 0;
+        color: var(--text-color);
+        overflow-wrap: anywhere;
+      }
+      .journal__verdict {
+        margin-top: 0.45rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color);
+      }
+
+      .cell--num {
+        text-align: right;
+      }
+      .cell--pick {
+        width: 3rem;
+      }
+      .empty-cell {
+        text-align: center;
+        color: var(--text-color-secondary);
+      }
+      .filter-label {
+        font-size: 0.85rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color);
+      }
+      .filter-input {
+        max-width: 18rem;
+      }
+      .narrow {
+        max-width: 24rem;
+        overflow-x: auto;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      .table-wrap > table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      .table-wrap > table th,
+      .table-wrap > table td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      .table-wrap > table th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
 
 /**
  * Guide article: Table — p-table (SPEC N5, Guides).
@@ -99,16 +497,7 @@ interface TableReadout {
   selector: 'app-table-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    TableModule,
-    ButtonModule,
-    SelectModule,
-    ToggleSwitchModule,
-    InputTextModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'table'">
@@ -1752,402 +2141,17 @@ interface TableReadout {
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-4);
-      }
-      .scope-note {
-        max-width: 46rem;
-        margin: 0 0 var(--space-5);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-left: 3px solid var(--primary-color-fg);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        font-size: var(--font-size-sm);
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__aside {
-        font-weight: 400;
-        color: var(--text-color-secondary);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-3);
-        min-width: 0;
-        padding: var(--space-4);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        overflow-x: auto;
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: 0.78rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 860px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: block;
-        padding: var(--space-4);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .row__tag {
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-
-      .two {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--space-5);
-      }
-      .three {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: var(--space-5);
-      }
-      .two__col {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .two__col--wide {
-        align-items: flex-start;
-      }
-      .two__col--wide > p-table,
-      .two__col--wide > .filter-input {
-        width: 100%;
-      }
-      @media (max-width: 1100px) {
-        .three {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 860px) {
-        .two {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .journal {
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-        font-size: 0.78rem;
-      }
-      .journal li {
-        margin: 0.2rem 0;
-        color: var(--text-color);
-        overflow-wrap: anywhere;
-      }
-      .journal__verdict {
-        margin-top: 0.45rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color);
-      }
-
-      .cell--num {
-        text-align: right;
-      }
-      .cell--pick {
-        width: 3rem;
-      }
-      .empty-cell {
-        text-align: center;
-        color: var(--text-color-secondary);
-      }
-      .filter-label {
-        font-size: 0.85rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color);
-      }
-      .filter-input {
-        max-width: 18rem;
-      }
-      .narrow {
-        max-width: 24rem;
-        overflow-x: auto;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      .table-wrap > table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      .table-wrap > table th,
-      .table-wrap > table td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      .table-wrap > table th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TableArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -2307,7 +2311,7 @@ export class TableArticleComponent {
   readonly attrSelection = signal<Bird | null>(null);
   readonly gridSelection = signal<Bird | null>(null);
 
-  private readonly empty: TableReadout = { role: '—', rows: [] };
+  protected readonly empty: TableReadout = { role: '—', rows: [] };
   readonly bareReadout = signal<TableReadout>(this.empty);
   readonly attrReadout = signal<TableReadout>(this.empty);
   readonly gridReadout = signal<TableReadout>(this.empty);
@@ -2327,13 +2331,13 @@ export class TableArticleComponent {
     this.scheduleReadout('ax-grid', this.gridReadout);
   }
 
-  private scheduleReadout(scope: string, target: { set: (v: TableReadout) => void }): void {
+  protected scheduleReadout(scope: string, target: { set: (v: TableReadout) => void }): void {
     if (!this.isBrowser) return;
     setTimeout(() => target.set(this.describeTable(scope)), 60);
   }
 
   /** Reads a rendered table back: its role, and what each row looks like and says. */
-  private describeTable(scope: string): TableReadout {
+  protected describeTable(scope: string): TableReadout {
     if (!this.isBrowser) return this.empty;
     const table = document.querySelector<HTMLElement>('.' + scope + ' table');
     const rows = Array.from(document.querySelectorAll<HTMLElement>('.' + scope + ' tbody > tr'));
@@ -2381,7 +2385,7 @@ export class TableArticleComponent {
   readonly reportTemplate = signal('{currentPage} of {totalPages}');
 
   /** The playground's own report string; a literal here, bound in real code. */
-  readonly pgReport = '{first}-{last} of {totalRecords}';
+  readonly pgReport: string = '{first}-{last} of {totalRecords}';
 
   // ---------------------------------------------------------------- snippets
 
@@ -2592,8 +2596,7 @@ export class TableArticleComponent {
     },
   ];
 
-  readonly tokenNote =
-    'Aliases from the Aura preset in @openng/optimus-ui-themes (the datatable and base modules). The text, striping, hover and border rows are the Aura stock palette (slate light, zinc dark); the header, row and footer fills take the style\'s own --surface-card (styles.scss, the block before the selected-row bar), because Aura\'s dark content.background (#18181b) is no style\'s card and a table on a card showed as a darker slab. The highlight, selected-border, and focus-ring rows derive from {primary.*}, which theme.service.ts builds from the chosen accent; the values shown are the default sunset accent. Two things follow from the aliases rather than from any rule: the sorted header cell and the selected row resolve to the same {highlight.*} pair, so they are one material and must be restyled together; and there is no striped-row text token, so a striped row keeps the ordinary row color on a different background. The dark selected background is not a flat color but a 16 % tint of the primary over the card — see the contrast note.';
+  readonly tokenNote: string = 'Aliases from the Aura preset in @openng/optimus-ui-themes (the datatable and base modules). The text, striping, hover and border rows are the Aura stock palette (slate light, zinc dark); the header, row and footer fills take the style\'s own --surface-card (styles.scss, the block before the selected-row bar), because Aura\'s dark content.background (#18181b) is no style\'s card and a table on a card showed as a darker slab. The highlight, selected-border, and focus-ring rows derive from {primary.*}, which theme.service.ts builds from the chosen accent; the values shown are the default sunset accent. Two things follow from the aliases rather than from any rule: the sorted header cell and the selected row resolve to the same {highlight.*} pair, so they are one material and must be restyled together; and there is no striped-row text token, so a striped row keeps the ordinary row color on a different background. The dark selected background is not a flat color but a 16 % tint of the primary over the card — see the contrast note.';
 
   readonly contrastRows = [
     {
@@ -2625,8 +2628,7 @@ export class TableArticleComponent {
     },
   ];
 
-  readonly contrastNote =
-    'Default sunset accent, each pair against the surface that row variant actually paints. The rows marked gated are measured on every build in docs/generated/CONTRAST.MD: "table & paginator" (datatable.row.color on datatable.row.background; datatable.row.selected.color on its background, 6.59–20.38:1 across all accents; the selected-row bar, 3.48–17.85:1) and "focus ring" (kit focus ring, inset, on the rest, hover and selected fills, 3.48–17.85:1). The sort icon is {text.muted.color} on the card, the same values the gate measures as paginator.nav.button.color. Striped and hovered rows keep Aura\'s opaque tints and are not gated. In dark mode the selected row and the sorted header are a 16 % tint of the primary; since the kit paints the row itself --surface-card, the tint always lies over the style\'s card, so the ratio follows the style and the accent — no longer the surface behind the table.';
+  readonly contrastNote: string = 'Default sunset accent, each pair against the surface that row variant actually paints. The rows marked gated are measured on every build in docs/generated/CONTRAST.MD: "table & paginator" (datatable.row.color on datatable.row.background; datatable.row.selected.color on its background, 6.59–20.38:1 across all accents; the selected-row bar, 3.48–17.85:1) and "focus ring" (kit focus ring, inset, on the rest, hover and selected fills, 3.48–17.85:1). The sort icon is {text.muted.color} on the card, the same values the gate measures as paginator.nav.button.color. Striped and hovered rows keep Aura\'s opaque tints and are not gated. In dark mode the selected row and the sorted header are a 16 % tint of the primary; since the kit paints the row itself --surface-card, the tint always lies over the style\'s card, so the ratio follows the style and the accent — no longer the surface behind the table.';
 
   readonly geometryRows = [
     {
@@ -2660,11 +2662,9 @@ export class TableArticleComponent {
     },
   ];
 
-  readonly geometryNote =
-    'Computed style at a 1440 x 900 viewport. The scroll container is worth noting: the overflow is there without [scrollable], which is why a min-width on the table is all a wide table needs.';
+  readonly geometryNote: string = 'Computed style at a 1440 x 900 viewport. The scroll container is worth noting: the overflow is there without [scrollable], which is why a min-width on the table is all a wide table needs.';
 
-  readonly focusRingNote =
-    'Nothing at rest. Focused from the keyboard, a sortable header cell and a selectable row both draw the kit\'s one ring — 2px solid --primary-color-fg, the ring every focusable Optimus part wears — replacing Aura\'s 1px {primary.color} ring. It keeps Aura\'s placement, just inside the part (outline-offset: -2px, the kit\'s inset rule), which is the only place it can go: the rows and headers sit in a scrolling wrapper that would clip an outer ring, and a ring outside a cell would spill onto the neighboring row. Inside, it meets the row\'s own fill — plain, hovered or selected — and the gate measures it on all three ("focus ring", kit focus ring, inset: 3.48–17.85:1 across every style, mode and accent). The row-expansion toggle button takes the same ring outside itself.';
+  readonly focusRingNote: string = 'Nothing at rest. Focused from the keyboard, a sortable header cell and a selectable row both draw the kit\'s one ring — 2px solid --primary-color-fg, the ring every focusable Optimus part wears — replacing Aura\'s 1px {primary.color} ring. It keeps Aura\'s placement, just inside the part (outline-offset: -2px, the kit\'s inset rule), which is the only place it can go: the rows and headers sit in a scrolling wrapper that would clip an outer ring, and a ring outside a cell would spill onto the neighboring row. Inside, it meets the row\'s own fill — plain, hovered or selected — and the gate measures it on all three ("focus ring", kit focus ring, inset: 3.48–17.85:1 across every style, mode and accent). The row-expansion toggle button takes the same ring outside itself.';
 
   readonly axRows = [
     { markup: 'the table element, as shipped', node: 'table, name "" — the generated id names nothing' },
@@ -2685,8 +2685,7 @@ export class TableArticleComponent {
     },
   ];
 
-  readonly axNote =
-    'Read from the browser accessibility tree, once per variant, with a row selected. The middle three rows are the whole selection argument in one place: the attribute is in the DOM and not in the tree, because aria-selected on a row is only supported inside a grid or a treegrid. The last row is the measured cost of the deprecated stack layout — display:none on the header cells removes them from the tree entirely, so the cells survive but lose the headers that gave them meaning.';
+  readonly axNote: string = 'Read from the browser accessibility tree, once per variant, with a row selected. The middle three rows are the whole selection argument in one place: the attribute is in the DOM and not in the tree, because aria-selected on a row is only supported inside a grid or a treegrid. The last row is the measured cost of the deprecated stack layout — display:none on the header cells removes them from the tree entirely, so the cells survive but lose the headers that gave them meaning.';
 
   readonly rtlRows = [
     {
@@ -2712,6 +2711,5 @@ export class TableArticleComponent {
     },
   ];
 
-  readonly rtlNote =
-    'Computed style and rendered box positions on the same cells with dir="rtl" on the document element, against the same cells in dir="ltr". What survives the flip is what is written logically or symmetrically — text-align: start, the bottom-edge border, the equal padding on both sides. What does not is the gridlines variant: the shipped stylesheet carries no border-inline declaration under any .p-datatable selector, and exactly one :dir(rtl) rule in the whole component, on the row-toggle chevron. Numeric alignment is yours in both directions; nothing in the library knows which columns are numbers.';
+  readonly rtlNote: string = 'Computed style and rendered box positions on the same cells with dir="rtl" on the document element, against the same cells in dir="ltr". What survives the flip is what is written logically or symmetrically — text-align: start, the bottom-edge border, the equal padding on both sides. What does not is the gridlines variant: the shipped stylesheet carries no border-inline declaration under any .p-datatable selector, and exactly one :dir(rtl) rule in the whole component, on the row-toggle chevron. Numeric alignment is yours in both directions; nothing in the library knows which columns are numbers.';
 }

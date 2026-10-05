@@ -170,7 +170,7 @@ export class MetaSeoService {
 
   /**
    * Fallback meta built from the matched route's own title: either a literal
-   * `data.staticTitle` (dev guide pages) or the translated `titleKey` (the
+   * `data.staticTitle` / `data.staticTitleDe` (dev guide pages) or the translated `titleKey` (the
    * same key the navigation shows). Produces "<Page> - <site>" so no route is
    * left with the generic default title. Returns null when the route carries
    * no usable title or translations are not loaded yet.
@@ -180,7 +180,9 @@ export class MetaSeoService {
     if (!route) return null;
 
     let pageTitle: string | null = null;
-    const staticTitle = route.data?.['staticTitle'];
+    // A dev guide carries a German title beside the English one (staticTitleDe).
+    const german = LANGUAGE_RULES.baseLanguageOf(this.translationService.currentLanguage) === 'de';
+    const staticTitle = (german && route.data?.['staticTitleDe']) || route.data?.['staticTitle'];
     if (typeof staticTitle === 'string' && staticTitle) {
       pageTitle = staticTitle;
     } else if (route.titleKey) {

@@ -475,7 +475,7 @@ import { FocusReturn } from '../../utils/focus-return';
        Light theme: 700-shade text on light card-bg = WCAG AA contrast.
        Dark theme: 100-shade text + 20% bg + 50% border → readable on dark card. */
       /* Per-type chips. Colors come from the UNPREFIXED palette
-       (--yellow-*, --purple-*, --blue-*, --green-*) which is
+       (--yellow-*, --blue-*, --green-*) which is
        theme-aware via global overrides in styles.scss:
          - --*-500 stays FIXED (so article-amber stays amber even when
            the user picks a different primary theme)
@@ -490,11 +490,13 @@ import { FocusReturn } from '../../utils/focus-return';
         color: var(--yellow-700);
         border-color: color-mix(in srgb, var(--yellow-500) 45%, transparent);
       }
-      /* F.5: theme-aware via unprefixed palette (force-rebuild marker 2026-05-14a) */
+      /* Glossary — pink. The kit has no unprefixed pink scale, so the ink is
+       --semantic-pink-fg (mode-aware, contrast-gated) and the tint Aura's
+       fixed --p-pink-500. */
       .related-refs-tag[data-type='glossary'] {
-        background: color-mix(in srgb, var(--purple-500) 14%, transparent);
-        color: var(--purple-700);
-        border-color: color-mix(in srgb, var(--purple-500) 45%, transparent);
+        background: color-mix(in srgb, var(--p-pink-500) 14%, transparent);
+        color: var(--semantic-pink-fg);
+        border-color: color-mix(in srgb, var(--p-pink-500) 45%, transparent);
       }
       .related-refs-tag[data-type='timeline'] {
         background: color-mix(in srgb, var(--blue-500) 14%, transparent);
@@ -505,10 +507,10 @@ import { FocusReturn } from '../../utils/focus-return';
        states instead of falling back to the global amber --primary-color
        outline. Border darkens to the -700 shade for a clear "active" cue. */
       .related-refs-tag[data-type='glossary']:hover {
-        border-color: var(--purple-700);
+        border-color: var(--semantic-pink-fg);
       }
       .related-refs-tag[data-type='glossary']:focus-visible {
-        outline-color: var(--purple-700);
+        outline-color: var(--semantic-pink-fg);
       }
       .related-refs-tag[data-type='timeline']:hover {
         border-color: var(--blue-700);
@@ -557,7 +559,7 @@ import { FocusReturn } from '../../utils/focus-return';
         background: color-mix(in srgb, var(--yellow-500) 22%, transparent);
       }
       .dark-theme .related-refs-tag[data-type='glossary'] {
-        background: color-mix(in srgb, var(--purple-500) 22%, transparent);
+        background: color-mix(in srgb, var(--p-pink-500) 22%, transparent);
       }
       .dark-theme .related-refs-tag[data-type='timeline'] {
         background: color-mix(in srgb, var(--blue-500) 22%, transparent);

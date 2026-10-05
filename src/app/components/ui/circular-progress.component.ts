@@ -144,7 +144,7 @@ export class CircularProgressComponent {
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   // Optional fixed color. When set, overrides the value-based interpolation;
   // when undefined (default), the ring color is interpolated from the value.
-  @Input() color?: 'green' | 'blue' | 'orange' | 'purple';
+  @Input() color?: 'green' | 'blue' | 'orange' | 'pink';
 
   // Rendered ring diameter per size step (px).
   private readonly sizeMap: Record<'small' | 'medium' | 'large', number> = {
@@ -155,11 +155,11 @@ export class CircularProgressComponent {
 
   // Fixed colors for the `color` override, as rgb() so getBoxShadow's regex
   // can extract the channels for the glow.
-  private readonly colorMap: Record<'green' | 'blue' | 'orange' | 'purple', string> = {
+  private readonly colorMap: Record<'green' | 'blue' | 'orange' | 'pink', string> = {
     green: 'rgb(34, 197, 94)',
     blue: 'rgb(59, 130, 246)',
     orange: 'rgb(249, 115, 22)',
-    purple: 'rgb(168, 85, 247)',
+    pink: 'rgb(236, 72, 153)',
   };
 
   get ringSizePx(): number {

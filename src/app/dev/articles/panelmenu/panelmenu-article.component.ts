@@ -5,6 +5,113 @@ import { PanelMenuModule } from '@openng/optimus-ui/panelmenu';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, PanelMenuModule, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-panelmenu-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-panelmenu-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-panelmenu-article .pm-demo {
+        display: block;
+        max-width: 22rem;
+      }
+
+      app-panelmenu-article .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-block-end: 0.75rem;
+      }
+
+      app-panelmenu-article .readout {
+        margin-block: 0.75rem 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-panelmenu-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-panelmenu-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-panelmenu-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-panelmenu-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-panelmenu-article .dd__stage {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-panelmenu-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-panelmenu-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-panelmenu-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-panelmenu-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-panelmenu-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-panelmenu-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: PanelMenu (Guides, category `library`).
  *
@@ -79,7 +186,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-panelmenu-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, PanelMenuModule, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'panelmenu'">
@@ -546,110 +653,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-panelmenu-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-panelmenu-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-panelmenu-article .pm-demo {
-        display: block;
-        max-width: 22rem;
-      }
-
-      app-panelmenu-article .controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-block-end: 0.75rem;
-      }
-
-      app-panelmenu-article .readout {
-        margin-block: 0.75rem 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-panelmenu-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-panelmenu-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-panelmenu-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-panelmenu-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-panelmenu-article .dd__stage {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-panelmenu-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-panelmenu-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-panelmenu-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-panelmenu-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-panelmenu-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-panelmenu-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class PanelmenuArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -672,9 +676,9 @@ export class PanelmenuArticleComponent {
   readonly multiple = signal(true);
 
   /** Which panels the caller-owned model keeps open, keyed by section id. */
-  private readonly open = signal<Record<string, boolean>>({ guides: true });
+  protected readonly open = signal<Record<string, boolean>>({ guides: true });
 
-  private readonly lang = signal(0);
+  protected readonly lang = signal(0);
 
   readonly docs: MenuItem[] = [
     {
@@ -712,7 +716,7 @@ export class PanelmenuArticleComponent {
   ];
 
   /** The two sections both do/don't models are built from. */
-  private readonly sections = [
+  protected readonly sections = [
     { id: 'guides', labels: ['Guides', 'Anleitungen'], children: ['Forms', 'Navigation'] },
     { id: 'reference', labels: ['Reference', 'Referenz'], children: ['Tokens', 'Utilities'] },
   ];
@@ -832,7 +836,7 @@ export class PanelmenuArticleComponent {
       'The typeahead lowercases and compares from the start of the label, so it matches neither a middle word nor a diacritic-folded form.',
   };
 
-  readonly emittedMarkupSnippet = `<!-- one panel: a disclosure button, a region, and a tree inside it -->
+  readonly emittedMarkupSnippet: string = `<!-- one panel: a disclosure button, a region, and a tree inside it -->
 <div class="p-panelmenu-panel">
   <div id="pn_id_1_0_header" role="button" tabindex="0"
        aria-expanded="true" aria-controls="pn_id_1_0_content" aria-label="Guides"
@@ -861,7 +865,7 @@ export class PanelmenuArticleComponent {
   </div>
 </div>`;
 
-  readonly focusRingSnippet = `/* Already in the kit (src/styles.scss, the one ring list):
+  readonly focusRingSnippet: string = `/* Already in the kit (src/styles.scss, the one ring list):
    .p-panelmenu-header:not(.p-disabled):focus-visible .p-panelmenu-header-content
    .p-panelmenu-item.p-focus > .p-panelmenu-item-content
    .p-panelmenu-item-content:has(> .p-panelmenu-item-link:focus-visible)
@@ -869,7 +873,7 @@ export class PanelmenuArticleComponent {
 
    Add no rule of your own: a second ring would drift from this one. */`;
 
-  readonly i18nSnippet = `// The open state belongs to the caller: the component only writes it into
+  readonly i18nSnippet: string = `// The open state belongs to the caller: the component only writes it into
 // the MenuItem objects, which a rebuilt model replaces.
 readonly open = signal<Record<string, boolean>>({ guides: true });
 

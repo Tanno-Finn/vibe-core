@@ -22,6 +22,430 @@ import { StripInvalidAriaDirective } from '../../../directives/strip-invalid-ari
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    ProgressBarModule,
+    ProgressSpinnerModule,
+    MeterGroupModule,
+    StripInvalidAriaDirective,
+    SelectModule,
+    SliderModule,
+    ToggleSwitchModule,
+    ButtonModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__field p-slider {
+        margin: 0.6rem 0.2rem 0.2rem;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-3);
+        min-height: 9rem;
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .pg__bar {
+        width: 100%;
+      }
+      .pg__bar--thin {
+        --p-progressbar-height: 4px;
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .ex__stage--block {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .rows {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        width: 100%;
+      }
+      .row {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        min-width: 0;
+      }
+      .row__tag {
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+      .row__bar {
+        width: 100%;
+        min-width: 0;
+      }
+      .row__bar--narrow {
+        max-width: 200px;
+      }
+      .row__bar--thin {
+        --p-progressbar-height: 4px;
+      }
+      .row__bar--split {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+      }
+      .row__bar--split p-progressbar {
+        flex: 1;
+      }
+      .row__pct {
+        flex: 0 0 auto;
+        font-size: 0.8rem;
+        font-variant-numeric: tabular-nums;
+        color: var(--text-color);
+      }
+      .bar__custom {
+        font-size: 0.7rem;
+        white-space: nowrap;
+      }
+
+      .jump__bar {
+        width: 100%;
+      }
+      .jump__read {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        font-size: 0.82rem;
+        color: var(--text-color);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .spin-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--space-4);
+        width: 100%;
+        align-items: start;
+      }
+      .spin-cell {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      @media (max-width: 900px) {
+        .spin-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__stage .copy-btn {
+        align-self: flex-start;
+      }
+      .dd__pair {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+      }
+      .dd__aside {
+        font-size: 0.75rem;
+        color: var(--text-color-secondary);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Progress — p-progressbar and p-progressspinner (SPEC N5, Guides).
  *
@@ -82,19 +506,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-progress-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    ProgressBarModule,
-    ProgressSpinnerModule,
-    MeterGroupModule,
-    StripInvalidAriaDirective,
-    SelectModule,
-    SliderModule,
-    ToggleSwitchModule,
-    ButtonModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'progress'">
@@ -179,7 +591,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
                     [value]="pgValue()"
                     [showValue]="pgShowValue()"
                     [unit]="pgUnit()"
-                    [color]="pgColor() ? '#7c3aed' : undefined"
+                    [color]="pgColor() ? '#0f766e' : undefined"
                     [attr.aria-label]="'Importing sources'"
                     [attr.aria-valuetext]="pgMode() === 'determinate' ? pgValue() + ' percent imported' : null"
                   />
@@ -1472,427 +1884,19 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__field p-slider {
-        margin: 0.6rem 0.2rem 0.2rem;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: var(--space-3);
-        min-height: 9rem;
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .pg__bar {
-        width: 100%;
-      }
-      .pg__bar--thin {
-        --p-progressbar-height: 4px;
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: 0.78rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .ex__stage--block {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .rows {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-        width: 100%;
-      }
-      .row {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-        min-width: 0;
-      }
-      .row__tag {
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-      .row__bar {
-        width: 100%;
-        min-width: 0;
-      }
-      .row__bar--narrow {
-        max-width: 200px;
-      }
-      .row__bar--thin {
-        --p-progressbar-height: 4px;
-      }
-      .row__bar--split {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-      }
-      .row__bar--split p-progressbar {
-        flex: 1;
-      }
-      .row__pct {
-        flex: 0 0 auto;
-        font-size: 0.8rem;
-        font-variant-numeric: tabular-nums;
-        color: var(--text-color);
-      }
-      .bar__custom {
-        font-size: 0.7rem;
-        white-space: nowrap;
-      }
-
-      .jump__bar {
-        width: 100%;
-      }
-      .jump__read {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-        font-size: 0.82rem;
-        color: var(--text-color);
-        font-variant-numeric: tabular-nums;
-      }
-
-      .spin-grid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: var(--space-4);
-        width: 100%;
-        align-items: start;
-      }
-      .spin-cell {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      @media (max-width: 900px) {
-        .spin-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__stage .copy-btn {
-        align-self: flex-start;
-      }
-      .dd__pair {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-      }
-      .dd__aside {
-        font-size: 0.75rem;
-        color: var(--text-color-secondary);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:disabled {
-        opacity: 0.6;
-        cursor: default;
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ProgressArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
-  private fakeTimer: ReturnType<typeof setInterval> | null = null;
-  private rafId: number | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected fakeTimer: ReturnType<typeof setInterval> | null = null;
+  protected rafId: number | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1928,7 +1932,7 @@ export class ProgressArticleComponent {
     const value = indet ? '' : `\n  [value]="imported()"`;
     const show = this.pgShowValue() ? '' : `\n  [showValue]="false"`;
     const unit = this.pgUnit() === '%' ? '' : `\n  unit="${this.pgUnit()}"`;
-    const color = this.pgColor() ? `\n  color="#7c3aed"  <!-- bypasses the token: no theme, no dark mode -->` : '';
+    const color = this.pgColor() ? `\n  color="#0f766e"  <!-- bypasses the token: no theme, no dark mode -->` : '';
     const mode = indet ? `\n  mode="indeterminate"` : '';
     const valuetext = indet
       ? ''
@@ -1940,7 +1944,7 @@ export class ProgressArticleComponent {
   // --- The value/fill gap ----------------------------------------------------
   readonly jumpValue = signal(0);
   readonly jumpFillPct = signal(0);
-  private readonly jumpBar = viewChild<ElementRef<HTMLElement>>('jumpBar');
+  protected readonly jumpBar = viewChild<ElementRef<HTMLElement>>('jumpBar');
 
   /** Sets the value in one tick and samples the rendered fill for 1.4 s. */
   jump(): void {
@@ -1991,27 +1995,25 @@ export class ProgressArticleComponent {
   }
 
   // --- Measured values -------------------------------------------------------
-  readonly tokenHeight = '1.25rem';
-  readonly measuredHeight = '20px';
-  readonly tokenRadius =
-    'border.radius.md of the visual style: 0 werkbund, 12px lernwerkstatt (default), 10px skizzenbuch, ' +
+  readonly tokenHeight: string = '1.25rem';
+  readonly measuredHeight: string = '20px';
+  readonly tokenRadius: string = 'border.radius.md of the visual style: 0 werkbund, 12px lernwerkstatt (default), 10px skizzenbuch, ' +
     '2px blaupause (Aura stock 6px)';
-  readonly labelFont = '12px / 600';
-  readonly trackLight = '#e2e8f0';
-  readonly trackDark = '#3f3f46';
-  readonly fillLight = '#c2410c';
-  readonly fillDark = '#fb923c';
-  readonly labelLight = '#ffffff';
-  readonly labelDark = '#18181b';
+  readonly labelFont: string = '12px / 600';
+  readonly trackLight: string = '#e2e8f0';
+  readonly trackDark: string = '#3f3f46';
+  readonly fillLight: string = '#c2410c';
+  readonly fillDark: string = '#fb923c';
+  readonly labelLight: string = '#ffffff';
+  readonly labelDark: string = '#18181b';
 
-  readonly contrastFillTrackLight = '4.20';
-  readonly contrastFillTrackDark = '4.61';
-  readonly contrastLabelLight = '5.18';
-  readonly contrastLabelDark = '7.83';
-  readonly contrastTrackSurfaceLight = '1.05–1.16';
-  readonly contrastTrackSurfaceDark = '1.03–1.44';
-  readonly contrastNote =
-    'Default accent sunset. The first two rows are gated in docs/generated/CONTRAST.MD, group ' +
+  readonly contrastFillTrackLight: string = '4.20';
+  readonly contrastFillTrackDark: string = '4.61';
+  readonly contrastLabelLight: string = '5.18';
+  readonly contrastLabelDark: string = '7.83';
+  readonly contrastTrackSurfaceLight: string = '1.05–1.16';
+  readonly contrastTrackSurfaceDark: string = '1.03–1.44';
+  readonly contrastNote: string = 'Default accent sunset. The first two rows are gated in docs/generated/CONTRAST.MD, group ' +
     '"progressbar & slider" (<accent>.progressbar.value.background on progressbar.background, ' +
     'and the label on the fill), for every accent and style: fill vs track 3.78–14.48:1, readout ' +
     '5.18–17.85:1. They compare the bar against itself and hold on any background. The third ' +
@@ -2020,75 +2022,68 @@ export class ProgressArticleComponent {
     "four styles' --surface-section it is 1.05–1.16:1 in light and 1.03–1.44:1 in dark — " +
     'effectively invisible, which is exactly why an EMPTY bar reads as no bar at all.';
 
-  readonly spinOneLight = '#ef4444';
-  readonly spinTwoLight = '#3b82f6';
-  readonly spinThreeLight = '#22c55e';
-  readonly spinFourLight = '#eab308';
-  readonly spinOneDark = '#f87171';
-  readonly spinTwoDark = '#60a5fa';
-  readonly spinThreeDark = '#4ade80';
-  readonly spinFourDark = '#facc15';
-  readonly spinOneLightCr = '3.21–3.55';
-  readonly spinTwoLightCr = '3.14–3.47';
-  readonly spinThreeLightCr = '1.95–2.15';
-  readonly spinFourLightCr = '1.64–1.81';
-  readonly spinOneDarkCr = '3.88–5.44';
-  readonly spinTwoDarkCr = '4.22–5.92';
-  readonly spinThreeDarkCr = '6.16–8.64';
-  readonly spinFourDarkCr = '7.01–9.83';
-  readonly brandLight = '#c2410c';
-  readonly brandDark = '#fb923c';
-  readonly contrastBrandLight = '4.42–4.89';
-  readonly contrastBrandDark = '4.74–6.65';
-  readonly brandWrongLight = '#c2410c';
-  readonly brandWrongDark = '#9a3412';
-  readonly contrastBrandWrongLight = '4.42–4.89';
-  readonly contrastBrandWrongDark = '1.47–2.06';
-  readonly recolourCaution =
-    'the fill/track pair is the one nearest its 3:1 floor (4.20:1 light for the default accent, ' +
+  readonly spinOneLight: string = '#ef4444';
+  readonly spinTwoLight: string = '#3b82f6';
+  readonly spinThreeLight: string = '#22c55e';
+  readonly spinFourLight: string = '#eab308';
+  readonly spinOneDark: string = '#f87171';
+  readonly spinTwoDark: string = '#60a5fa';
+  readonly spinThreeDark: string = '#4ade80';
+  readonly spinFourDark: string = '#facc15';
+  readonly spinOneLightCr: string = '3.21–3.55';
+  readonly spinTwoLightCr: string = '3.14–3.47';
+  readonly spinThreeLightCr: string = '1.95–2.15';
+  readonly spinFourLightCr: string = '1.64–1.81';
+  readonly spinOneDarkCr: string = '3.88–5.44';
+  readonly spinTwoDarkCr: string = '4.22–5.92';
+  readonly spinThreeDarkCr: string = '6.16–8.64';
+  readonly spinFourDarkCr: string = '7.01–9.83';
+  readonly brandLight: string = '#c2410c';
+  readonly brandDark: string = '#fb923c';
+  readonly contrastBrandLight: string = '4.42–4.89';
+  readonly contrastBrandDark: string = '4.74–6.65';
+  readonly brandWrongLight: string = '#c2410c';
+  readonly brandWrongDark: string = '#9a3412';
+  readonly contrastBrandWrongLight: string = '4.42–4.89';
+  readonly contrastBrandWrongDark: string = '1.47–2.06';
+  readonly recolourCaution: string = 'the fill/track pair is the one nearest its 3:1 floor (4.20:1 light for the default accent, ' +
     '3.78:1 at the lowest, the fire accent in dark mode), so a lighter track or a darker fill can drop it below — and a ' +
     'recolor outside the tokens is no longer what the gate measures. The height override costs ' +
     'nothing; every color override has to be recomputed in both schemes.';
-  readonly surfaceBasis =
-    "Ratios against a surface are computed from the token values, against each visual style's " +
+  readonly surfaceBasis: string = "Ratios against a surface are computed from the token values, against each visual style's " +
     '--surface-section (werkbund, lernwerkstatt, skizzenbuch, blaupause), and given as the range ' +
     'across the four; the last two rows use the default accent sunset. The kit row is gated ' +
     '("progress spinner", every accent: 3.88–17.85:1 across ground, card and section); the ' +
     'stock stops and the --primary-color trap are computed here, outside the gate.';
 
-  readonly transitionNormal = 'width 1s ease-in-out';
-  readonly transitionReduced = '1e-05s';
-  readonly indetNormal = '2.1s infinite, second sweep delayed 1.15s';
-  readonly indetReduced = '1e-05s, 1 iteration — and both sweeps 0px wide';
-  readonly spinNormal = 'p-progressspinner-rotate 2s linear infinite';
-  readonly spinReduced = '1e-05s, 1 iteration';
-  readonly circleNormal = 'p-progressspinner-dash 1.5s + p-progressspinner-color 6s, both infinite';
-  readonly circleReduced = '1e-05s, 1 iteration';
-  readonly motionNote =
-    'Durations and iteration counts are the computed style of the rendered elements — the ' +
+  readonly transitionNormal: string = 'width 1s ease-in-out';
+  readonly transitionReduced: string = '1e-05s';
+  readonly indetNormal: string = '2.1s infinite, second sweep delayed 1.15s';
+  readonly indetReduced: string = '1e-05s, 1 iteration — and both sweeps 0px wide';
+  readonly spinNormal: string = 'p-progressspinner-rotate 2s linear infinite';
+  readonly spinReduced: string = '1e-05s, 1 iteration';
+  readonly circleNormal: string = 'p-progressspinner-dash 1.5s + p-progressspinner-color 6s, both infinite';
+  readonly circleReduced: string = '1e-05s, 1 iteration';
+  readonly motionNote: string = 'Durations and iteration counts are the computed style of the rendered elements — the ' +
     'fill, its ::before and ::after, the svg, and the circle — under each value of the ' +
     "media feature. The 1e-05s reading is the CSSOM serialization of the kit's 0.01ms; the " +
     'finding is not the exact number but that nothing here honors reduced motion on its own: ' +
     'without the global catch-all every row would read as the shipped column. Note that the ' +
     "spinner's animationDuration input only ever touches the rotation — the dash and color " +
     'cycles keep 1.5s and 6s whatever you pass.';
-  readonly reducedIndeterminateFinding =
-    'With the animation capped, both sweeping pseudo-elements compute to 0px wide, so the ' +
+  readonly reducedIndeterminateFinding: string = 'With the animation capped, both sweeping pseudo-elements compute to 0px wide, so the ' +
     'strip renders as an unfilled track.';
 
-  readonly axDeterminate = 'the node carries the value from aria-valuenow and, when set, aria-valuetext beside it';
-  readonly axIndeterminate = 'no value key at all — nothing in the node claims a position';
-  readonly spinCycleFinding =
-    'The keyframes interpolate between the stops, so the untouched stroke also passes through ' +
+  readonly axDeterminate: string = 'the node carries the value from aria-valuenow and, when set, aria-valuetext beside it';
+  readonly axIndeterminate: string = 'no value key at all — nothing in the node claims a position';
+  readonly spinCycleFinding: string = 'The keyframes interpolate between the stops, so the untouched stroke also passes through ' +
     "intermediate mixes; with the kit's four identical stops the stroke stays on the one accent " +
     'color throughout.';
-  readonly axSpinner = 'name from ariaLabel, no value — indistinguishable from an indeterminate bar';
-  readonly axUnnamedFinding =
-    'In an accessibility-tree read, an unnamed BAR comes back with an empty name and its value ' +
+  readonly axSpinner: string = 'name from ariaLabel, no value — indistinguishable from an indeterminate bar';
+  readonly axUnnamedFinding: string = 'In an accessibility-tree read, an unnamed BAR comes back with an empty name and its value ' +
     'still attached — a position with nothing it belongs to; an unnamed spinner comes back ' +
     'empty-named with no value either.';
-  readonly axNote =
-    'Accessibility-tree snapshots of the rendered examples on this page, one node per ' +
+  readonly axNote: string = 'Accessibility-tree snapshots of the rendered examples on this page, one node per ' +
     'indicator. Two things are worth carrying away. Both value and value text sit on the node ' +
     'at the same time — aria-valuetext does not replace aria-valuenow there; ARIA gives it ' +
     'precedence when the value is SPOKEN, so a screen reader says the sentence instead of the ' +
@@ -2097,11 +2092,9 @@ export class ProgressArticleComponent {
     'it by snapshotting the accessibility tree rooted on the indicator and reading name, value ' +
     'and value text.';
 
-  readonly ariaLevelIndeterminate = 'the literal string aria-level="undefined%"';
-  readonly ariaLevelGuarded =
-    'no aria-level on any rendered bar, determinate or indeterminate, while aria-valuenow kept ' + 'updating.';
-  readonly clipFinding =
-    'Measured on a 200px-wide bar at value 3: the fill is 6px and the readout box is 17px, so ' +
+  readonly ariaLevelIndeterminate: string = 'the literal string aria-level="undefined%"';
+  readonly ariaLevelGuarded: string = 'no aria-level on any rendered bar, determinate or indeterminate, while aria-valuenow kept ' + 'updating.';
+  readonly clipFinding: string = 'Measured on a 200px-wide bar at value 3: the fill is 6px and the readout box is 17px, so ' +
     'the number is cut off — while the same value on a 910px bar has 27px of fill and shows it. ' +
     'The threshold is the text width, not the value.';
 
@@ -2195,9 +2188,9 @@ export class ProgressArticleComponent {
     { label: 'System prompt', value: 12, color: 'var(--p-primary-color)' },
     { label: 'Conversation', value: 38, color: 'var(--text-color-secondary)' },
   ];
-  readonly meterValuetext = '50% of the context window used: system prompt 12%, conversation 38%';
+  readonly meterValuetext: string = '50% of the context window used: system prompt 12%, conversation 38%';
 
-  readonly devImport = `import { ProgressBarModule } from '@openng/optimus-ui/progressbar';
+  readonly devImport: string = `import { ProgressBarModule } from '@openng/optimus-ui/progressbar';
 import { ProgressSpinnerModule } from '@openng/optimus-ui/progressspinner';
 // Not optional next to ProgressBarModule - see "the invalid attribute" below.
 import { StripInvalidAriaDirective } from '../../directives/strip-invalid-aria.directive';
@@ -2208,7 +2201,7 @@ import { StripInvalidAriaDirective } from '../../directives/strip-invalid-aria.d
   // ...
 })`;
 
-  readonly hostSnippet = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-progressbar.mjs:136 (host block, 2.0.2)
+  readonly hostSnippet: string = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-progressbar.mjs:136 (host block, 2.0.2)
 host: {
     role: 'progressbar',                          // static: always in the tree
     '[attr.aria-valuemin]': '0',
@@ -2227,7 +2220,7 @@ host: {
     '[class]': "cn(cx('root'), styleClass)"       // no aria-value* — no determinate spinner here
 }`;
 
-  readonly namingSnippet = `<!-- WRONG on the bar: no such input. Compiles to a DOM-property binding and
+  readonly namingSnippet: string = `<!-- WRONG on the bar: no such input. Compiles to a DOM-property binding and
      depends on the browser reflecting ariaLabel onto the attribute. -->
 <p-progressbar [value]="pct()" [ariaLabel]="label()" />
 
@@ -2237,7 +2230,7 @@ host: {
 <!-- RIGHT on the spinner: ariaLabel IS an input here. -->
 <p-progressspinner [ariaLabel]="label()" />`;
 
-  readonly wiringSnippet = `// The value is counted work, so it cannot lie.
+  readonly wiringSnippet: string = `// The value is counted work, so it cannot lie.
 readonly done  = signal(0);
 readonly total = signal(0);
 readonly percent = computed(() => {
@@ -2268,7 +2261,7 @@ readonly finished = computed(() =>
   }
 </section>`;
 
-  readonly themingSnippet = `/* Scoped to one region: height, colors, and radius are ordinary tokens.
+  readonly themingSnippet: string = `/* Scoped to one region: height, colors, and radius are ordinary tokens.
    Height is the safe one - it moves no contrast pair. Recoloring the track or
    the fill moves BOTH the fill/track pair and the readout, so measure after. */
 .reading-progress-region {
@@ -2287,7 +2280,7 @@ readonly finished = computed(() =>
    rule cannot move it. Its transition, however, is yours: */
 .reading-progress-region .p-progressbar-value { transition: width 0.3s ease; }`;
 
-  readonly i18nSnippet = `// Four strings, none of them from the library.
+  readonly i18nSnippet: string = `// Four strings, none of them from the library.
 readonly label = computed(() => this.i18n.translate('import.label'));
 // "Importing sources"
 readonly valuetext = computed(() =>
@@ -2302,7 +2295,7 @@ readonly finished = computed(() =>
 <p-progressbar [value]="percent()" [showValue]="false"
   [attr.aria-label]="label()" [attr.aria-valuetext]="valuetext()" />`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component, signal } from '@angular/core';
 import { ProgressBarModule } from '@openng/optimus-ui/progressbar';
 import { StripInvalidAriaDirective } from './directives/strip-invalid-aria.directive';

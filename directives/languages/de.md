@@ -470,7 +470,8 @@ without a `FOREIGN_PARTS` part, and any `STOP_LIST` word split by a dot, also in
 compound); `de-easy-split` (a closed word and a Mediopunkt word that share a stem, e.g.
 *Testdatei* beside *Test·dateien*); `de-easy-deep` (a long part that the corpus splits elsewhere,
 or two parts of a 3-part compound that it writes closed elsewhere); `de-easy-hyphen` (rule 6);
-`de-mediopunkt` (any Mediopunkt in standard `de`). **Not checked:** a long compound written
+`de-mediopunkt` (any Mediopunkt in standard `de`, except a string that quotes the `de-easy`
+spelling as an example — each such string sits in `MEDIOPUNKT_ALLOW` with its reason). **Not checked:** a long compound written
 closed that never appears split (*Laufzeitumgebung* before this pass) — telling a compound from
 a derivation needs a dictionary, so that stays with the reader; and the base-form length of an
 inflected word, which the gate only approximates by stems. **Search:** the glossary search folds

@@ -29,6 +29,12 @@
  * (markup, CSS, prose, a bare identifier) means the literal ended somewhere it
  * should not have. A literal that never closes at all is reported the same way.
  *
+ * The guide articles hold their styles in a shared top-level constant instead
+ * (`export const ARTICLE_STYLES = <backtick>…<backtick>;`), so the English article and
+ * its German twin render with the same rules. A backtick opened right after
+ * `const <NAME>_STYLES =` is tracked as a styles literal too; its healthy
+ * continuation is the closing `;`.
+ *
  * The lexer matters: this kit's guide articles legitimately embed the TEXT
  * "template: <escaped backtick>" inside snippet strings they render on the page.
  * Those live inside another literal, so the lexer never treats them as code and
@@ -61,6 +67,8 @@ const TEMPLATE_PROP = /template\s*:\s*$/;
 const STYLES_PROP = /styles\s*:\s*$/;
 /** …and after this, the FIRST element of a `styles: [ … ]` array. */
 const STYLES_ARRAY_OPEN = /styles\s*:\s*\[\s*$/;
+/** …and after this, a shared styles constant (`const ARTICLE_STYLES =`). */
+const STYLES_CONST = /\bconst\s+[A-Z][A-Z0-9_]*_STYLES\s*=\s*$/;
 /** How far back the lexer looks for one of the property markers above. */
 const LOOKBEHIND = 60;
 
@@ -203,7 +211,7 @@ function scan(src) {
       } else if (STYLES_ARRAY_OPEN.test(behind)) {
         kind = 'styles';
         frame.stylesArray = true; // the remaining elements are styles too
-      } else if (STYLES_PROP.test(behind) || frame.stylesArray) {
+      } else if (STYLES_PROP.test(behind) || STYLES_CONST.test(behind) || frame.stylesArray) {
         kind = 'styles';
       }
       if (kind) counts[kind]++;
@@ -260,7 +268,7 @@ const total = { template: 0, styles: 0 };
 
 for (const file of files) {
   const src = fs.readFileSync(file, 'utf8');
-  if (!src.includes('template:') && !src.includes('styles:')) continue;
+  if (!src.includes('template:') && !src.includes('styles:') && !src.includes('_STYLES =')) continue;
   const { findings, counts } = scan(src);
   total.template += counts.template;
   total.styles += counts.styles;
@@ -306,6 +314,7 @@ if (process.env.SELFTEST) {
     ],
     ['styles, array second element, backtick', `@Component({ styles: [${B}.a{}${B}, ${B}/* ${B}x${B} */ .b{}${B}] })`],
     ['styles, bare, never closed', `@Component({ styles: ${B}.a { color: red; } })`],
+    ['styles constant, backtick in a CSS comment', `export const ARTICLE_STYLES = ${B}/* ${B}--gap${B} */ .a{}${B};`],
   ];
   const healthy = [
     ['template + bare styles', `@Component({ template: ${B}<p>hi</p>${B}, styles: ${B}p { margin: 0; }${B} })`],
@@ -318,6 +327,10 @@ if (process.env.SELFTEST) {
     [
       'a snippet that quotes the syntax as TEXT',
       `const doc = ${B}Write it as template: \\${B}<p>x</p>\\${B} in the decorator, and styles: \\${B}p{}\\${B}.${B};`,
+    ],
+    [
+      'a shared styles constant',
+      `export const ARTICLE_STYLES = ${B}p { margin: 0; }${B};\n@Component({ styles: [ARTICLE_STYLES] })`,
     ],
   ];
   for (const [label, src] of damage) {
@@ -360,7 +373,7 @@ console.log(line);
 if (errors.length === 0) {
   console.log(`  PASS — ${files.length} .ts file(s) lexed, ${total.template} inline template(s)`);
   console.log(`         and ${total.styles} inline styles literal(s) checked, none terminates early.`);
-  if (process.env.SELFTEST) console.log('  ok   SELFTEST: 5 damage patterns flagged, 5 healthy shapes silent.');
+  if (process.env.SELFTEST) console.log('  ok   SELFTEST: 6 damage patterns flagged, 6 healthy shapes silent.');
   console.log(line);
   process.exit(0);
 }

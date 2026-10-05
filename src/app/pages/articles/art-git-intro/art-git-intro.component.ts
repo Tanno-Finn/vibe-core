@@ -434,7 +434,7 @@ export class ArtGitIntroComponent implements OnInit {
       {
         id: 'push',
         year: 'push',
-        color: 'var(--semantic-purple-fg)',
+        color: 'var(--semantic-cyan-fg)',
         translationKeyPrefix: 'articleGitIntro.enrichment.event.push',
       },
     ],

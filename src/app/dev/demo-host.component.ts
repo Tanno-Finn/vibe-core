@@ -40,8 +40,9 @@ import { StepIndicatorComponent } from '../components/didactic/step-indicator.co
  * both sides are compared with whitespace collapsed, so indentation and line
  * wrapping are free and any token difference fails the build.
  *
- * i18n NOTE: dev tooling is exempt from the translation system (English-only) by
- * design — see dev-hub.component.ts. Some demoed components take *Key inputs that
+ * i18n NOTE: these component demos are exempt from the translation system (English-only)
+ * by design — see dev-hub.component.ts; only the design guides ship a German twin
+ * (ADR-0018). Some demoed components take *Key inputs that
  * run through TranslationService; because `translate()` returns the key verbatim
  * when no translation exists, plain-English strings are passed as "keys" so the
  * demo reads naturally without a translation backend.

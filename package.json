@@ -1,6 +1,6 @@
 {
   "name": "vibecore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An agent-first Angular starter kit for an educational companion portal: interactive demos, a glossary, a timeline and didactic article pages, plus the standards, safety model and skills an AI coding agent needs to work in the repo.",
   "license": "MIT AND CC-BY-4.0",
   "repository": {
@@ -18,7 +18,7 @@
     "start:codespaces": "npm run prebuild && concurrently \"npm run content:watch\" \"ng serve --host 0.0.0.0 --port 2000\"",
     "build": "node scripts/ng-guard.js build --configuration development",
     "build:prod": "ng build --configuration production && npm run dist:prepare:prod && npm run build:verify && node scripts/check-test-baseline.mjs && node scripts/write-build-manifest.js && node scripts/verify-build.js",
-    "build:verify": "node scripts/verify-harness.mjs --skip check-design-system.mjs,check-design-guides.mjs,check-contrast.mjs && node scripts/check-inline-templates.mjs && node scripts/check-site-config.mjs && node scripts/check-design-system.mjs && node scripts/check-design-guides.mjs && node scripts/check-contrast.mjs && node scripts/check-i18n-keys.mjs && node scripts/check-content-coverage.mjs && node scripts/check-genericity.mjs && node scripts/check-storage-keys.mjs && node scripts/check-language-guide.mjs && node scripts/check-house-style.mjs && node scripts/verify-build.js --mid-chain",
+    "build:verify": "node scripts/verify-harness.mjs --skip check-design-system.mjs,check-design-guides.mjs,check-guide-translations.mjs,check-contrast.mjs && node scripts/check-inline-templates.mjs && node scripts/check-site-config.mjs && node scripts/check-design-system.mjs && node scripts/check-design-guides.mjs && node scripts/check-guide-translations.mjs && node scripts/check-contrast.mjs && node scripts/check-i18n-keys.mjs && node scripts/check-content-coverage.mjs && node scripts/check-genericity.mjs && node scripts/check-storage-keys.mjs && node scripts/check-language-guide.mjs && node scripts/check-house-style.mjs && node scripts/verify-build.js --mid-chain",
     "build:manifest": "node scripts/write-build-manifest.js",
     "dist:prepare:prod": "node -e \"require('fs').copyFileSync('dist/vibecore/browser/index.csr.html', 'dist/vibecore/browser/index.html')\"",
     "watch": "ng build --watch --configuration development",
@@ -45,6 +45,8 @@
     "check:packs": "node scripts/check-packs.mjs",
     "check:a11y": "node scripts/check-a11y.mjs",
     "check:house-style": "node scripts/check-house-style.mjs",
+    "check:guide-translations": "node scripts/check-guide-translations.mjs",
+    "guides:sync-translations": "node scripts/sync-guide-translations.mjs",
     "check:site": "node scripts/check-site-config.mjs",
     "tools": "node tools/index.mjs",
     "test:tools": "node --test --test-concurrency=1 \"tools/test/*.test.mjs\"",

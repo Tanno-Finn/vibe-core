@@ -2,8 +2,8 @@
 name: new-guide
 description: >
   Add a pattern guide to the design system the right way — corpus check first, the category
-  decision, then the registry entry, the article component, and the agent doc in one pass,
-  proven by the gate. Run it when the user says "new guide" / "write a design guide" /
+  decision, then the registry entry, the article component, its German twin, and the agent
+  doc in one pass, proven by the gates. Run it when the user says "new guide" / "write a design guide" /
   "document how to use <thing>" / "add a foundations guide".
 layer: kit
 capabilitiesUsed: ["file:markdown"]
@@ -13,10 +13,10 @@ capabilitiesUsed: ["file:markdown"]
 
 Your job: help the user add a **guide** — a long-form article on how to wield a building block
 the kit does not itself own — without writing a second document about a subject the corpus
-already answers, and with its three artifacts in step so `check-design-guides.mjs` stays
-green. The guide path is the steeper of the two scaffolds: a component gets four small
-artifacts, a guide gets a contract, an article, and a registry entry that must agree with each
-other field by field.
+already answers, and with its four artifacts in step so `check-design-guides.mjs` and
+`check-guide-translations.mjs` stay green. The guide path is the steeper of the two
+scaffolds: a component gets four small artifacts, a guide gets a contract, an article, its
+German twin, and a registry entry that must agree with each other field by field.
 
 **A guide is not a component doc.** `/new-component` documents a primitive **this kit ships**
 (one canonical doc, six sections, a live demo in the gallery). A guide documents how to **use**
@@ -29,8 +29,8 @@ tabs, harvest markers, byte ceiling, the provenance register) and `directives/de
 (the map of both layers). The Button guide is the reference implementation:
 `src/app/dev/articles/button/button-article.component.ts` plus
 `src/assets/design-system/guides/button.agent.md`. Speak the user's language
-(`profile/USER-MANIFEST.MD` → Zone 1 `language`); the guide itself is English-canonical
-regardless (hub rule).
+(`profile/USER-MANIFEST.MD` → Zone 1 `language`); the guide itself ships an English
+canonical article plus a German twin, and its agent doc stays English (ADR-0018).
 
 ## Step 1 — ask the corpus first (do NOT skip)
 
@@ -75,18 +75,19 @@ the three needs **no** new translation keys. A *fourth* category is a framework 
 guide: the type union in `article-registry.ts`, `GUIDE_CATEGORIES`, and four new label keys.
 Stop and ask if the subject seems to need one.
 
-## Step 3 — scaffold the three artifacts in one pass
+## Step 3 — scaffold the four artifacts in one pass
 
 Pick an `id` (kebab-case). It is the route literal, the doc filename stem, the folder name, and
 the class-name stem all at once — confirm it with the user before writing anything. Then
-create all three artifacts together, so the gate never sees a half-state.
+create all four artifacts together, so the gates never see a half-state.
 
 ### 3.1 Registry entry
 
 Append to `articleRegistry` in `src/app/dev/articles/article-registry.ts`, **respecting the
 PARSER CONTRACT** (the gate reads this file as text, it cannot run TypeScript): field order
-exactly `id, title, category, tags, summary, related, agentDocPath, loadComponent`; every
-scalar a single-quoted string literal; `tags` and `related` each a single-quoted array on ONE
+exactly `id, title, titleDe, category, tags, summary, summaryDe, related, agentDocPath,
+loadComponent`; every scalar a single-quoted string literal (the German `titleDe` /
+`summaryDe` write „…“ and ’, never a straight `'`); `tags` and `related` each a single-quoted array on ONE
 logical line; `loadComponent` a one-line arrow with a single-quoted `import('...')`.
 `agentDocPath` is `assets/design-system/guides/<id>.agent.md`.
 
@@ -123,7 +124,11 @@ ng generate component dev/articles/<id>/<id>-article --flat --skip-tests
 (`--flat` keeps the file in the guide's own folder instead of nesting another one.) A checkout
 without `node_modules` has no CLI to run — the kit ships without an installed tree — so there,
 copy the shape from a sibling article instead. The file path, class name, and selector above are
-the contract either way.
+the contract either way. Give the decorator the shape every article has, so the German twin
+can share it: `imports: ARTICLE_IMPORTS` and `styles: [ARTICLE_STYLES]`, two constants
+exported right above the class (`export const ARTICLE_IMPORTS = [ … ];` and
+`export const ARTICLE_STYLES = <backtick>…<backtick>;`); keep members that hold visible
+English text `protected` or public, never `private`, so the twin can override them.
 
 Then write the tabs, under the conventions the gate and the harvesters hold you to:
 
@@ -151,14 +156,32 @@ Then write the tabs, under the conventions the gate and the harvesters hold you 
    breakpoint or its absence, and what the caller must do. "No intrinsic responsive behavior"
    is a legitimate answer; silence is not. Not gated — carried by new guides from the first
    commit.
-6. **No backtick inside the `template:` or `styles:` literals** — both are lexed by
+6. **No backtick inside the `template:` literal or the `ARTICLE_STYLES` constant** — both are lexed by
    `check-inline-templates.mjs`, and a stray backtick in a CSS comment has broken this build
    twice.
 7. **Cite only what exists.** Every kit file (`*.ts|scss|mjs|json`) and every `app-…` selector
    the doc or a tab body names is checked against the tree. Library citations under
    `node_modules` are out of scope by construction; kit citations are not.
 
-### 3.3 Agent doc
+### 3.3 German twin
+
+`src/app/dev/articles/<id>/<id>-article.de.component.ts` — class `<Id>ArticleDeComponent
+extends <Id>ArticleComponent`, selector `app-<id>-article-de`, `standalone`, `OnPush`,
+`imports: ARTICLE_IMPORTS`, `styles: [ARTICLE_STYLES]` (both imported from the English file),
+and a German `template:` with the **same skeleton** as the English one: same tabs, same
+elements, attributes and bindings; only prose and translatable attribute values (aria-label,
+title, alt, placeholder, label-like inputs) change. English text in class fields (`m`, menu
+items, option labels) is overridden with `override readonly …`, complete. Code, citations,
+CSS values and everything in `<pre>`/`<code>`/`<kbd>` stay verbatim. German per
+`directives/languages/de.md` (*du*, generic masculine, „…“, decimal comma in prose numbers).
+`directives/guide-authoring.md` → "English canonical, German twin" is the authority. Then
+register it:
+
+```
+node scripts/sync-guide-translations.mjs   # rewrites guide-translations.generated.ts (never edit it by hand)
+```
+
+### 3.4 Agent doc
 
 `src/assets/design-system/guides/<id>.agent.md` — the contract an agent keeps loaded, while the
 tabs are the encyclopaedia it opens when a task lands on their ground. Frontmatter:
@@ -201,6 +224,8 @@ Run the gates and show the real output:
 
 ```
 node scripts/check-design-guides.mjs      # registry <-> component <-> doc <-> routes + harvest contracts
+node scripts/check-guide-translations.mjs <id>   # German twin <-> English skeleton, loader map current
+node scripts/check-house-style.mjs        # German house style, twins included
 node scripts/check-inline-templates.mjs   # backticks in the article's inline template / styles
 node scripts/verify-harness.mjs           # harness integrity
 ```
@@ -227,12 +252,12 @@ above are the fast proof; a full build is `/ship`'s job.
 ## Boundaries
 
 **Green (just do it, once Steps 1 and 2 are settled):**
-- Create the registry entry, the article component, and the agent doc locally, and run the
+- Create the registry entry, the article component, its German twin, and the agent doc locally, and run the
   gates. These are local, reversible edits — tell the user which files you touched.
 
 **Ask first:**
 - The `id` — it is the route, the doc stem, the folder, and the class name at once, and changing
-  it later touches all three artifacts.
+  it later touches all four artifacts.
 - The category (Step 2) — it decides the shelf and, for `foundations`, an automatic relation to
   every library guide.
 - The tab set and the `related` list, before writing the frontmatter that must match them.

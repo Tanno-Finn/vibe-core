@@ -84,7 +84,7 @@ export class SimpleCompareFabComponent implements OnChanges, OnDestroy {
           priority: FAB_PRIORITIES.COMPARE,
           icon: 'pi-balance-scale',
           labelKey: this.labelKey,
-          color: 'purple',
+          color: 'blue',
           badge: this.compareCount,
           onClick: () => this.handleCompare(),
         });

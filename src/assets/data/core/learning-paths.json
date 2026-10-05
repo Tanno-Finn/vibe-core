@@ -356,7 +356,7 @@
     "icon": "pi pi-share-alt",
     "difficulty": "beginner",
     "sector": "society",
-    "color": "#A855F7",
+    "color": "#14B8A6",
     "order": 6,
     "learningPromiseKey": "learningPaths.knowledgeConcepts.learningPromise",
     "targetAudienceKey": "learningPaths.knowledgeConcepts.targetAudience",

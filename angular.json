@@ -286,6 +286,7 @@
               "src/app/pages/user-settings/user-settings.component.spec.ts",
               "src/app/dev/articles/listbox/cascade-select-demo.component.spec.ts",
               "src/app/dev/articles/scroll-regions.spec.ts",
+              "src/app/dev/articles/guide-language-switch.component.spec.ts",
               "src/app/utils/safe-storage.spec.ts",
               "src/app/utils/translate-or.spec.ts",
               "src/app/utils/search-fold.spec.ts",

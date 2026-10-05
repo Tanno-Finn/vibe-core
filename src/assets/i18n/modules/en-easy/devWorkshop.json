@@ -129,6 +129,7 @@
     "notFoundNote": "There is no guide with this id:",
     "relatedTitle": "Goes with",
     "agentTabHint": "Agents get the same text from the command too:",
+    "agentTabLanguageNote": "This tab is for AI agents. It stays in English.",
     "agentsTitle": "Guides for questions about parts and layouts",
     "agentsLede": "Do you have a question about Optimus UI parts, about basics, or about layouts? Then the guides help. Each guide has one agent guide. Read in small steps: the list first. Then one part. Then the whole guide only if you need it.",
     "cliTopicsNote": "shows what there is, in one view",

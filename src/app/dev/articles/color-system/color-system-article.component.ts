@@ -3,6 +3,304 @@ import { ButtonModule } from '@openng/optimus-ui/button';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Ground panels --- */
+      .grounds {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .gr {
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-4);
+        color: var(--text-color);
+      }
+      .gr--ground {
+        background: var(--surface-ground);
+      }
+      .gr--card {
+        background: var(--surface-card);
+      }
+      .gr--section {
+        background: var(--surface-section);
+      }
+      .gr--hover {
+        background: var(--surface-hover);
+      }
+      .gr strong {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+      .gr__body {
+        margin: 0.5rem 0 0.2rem;
+      }
+      .gr__sec {
+        margin: 0 0 0.5rem;
+        color: var(--text-color-secondary);
+        font-size: var(--font-size-sm);
+      }
+      .gr__num {
+        font-size: 0.75rem;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 640px) {
+        .grounds {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Semantic hue spans --- */
+      .sem {
+        font-weight: var(--font-weight-medium);
+      }
+      .sem--blue {
+        color: var(--semantic-blue-fg);
+      }
+      .sem--orange {
+        color: var(--semantic-orange-fg);
+      }
+      .sem--green {
+        color: var(--semantic-green-fg);
+      }
+      .sem--red {
+        color: var(--semantic-red-fg);
+      }
+      .sem--cyan {
+        color: var(--semantic-cyan-fg);
+      }
+      .sem--pink {
+        color: var(--semantic-pink-fg);
+      }
+
+      /* --- Style-brand-versus-accent swatches --- */
+      .demo2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .swatch-fig {
+        margin: 0;
+      }
+      .swatch {
+        min-height: 4.5rem;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--surface-border);
+      }
+      .swatch-fig figcaption {
+        margin-top: var(--space-2);
+        font-size: var(--font-size-sm);
+        color: var(--text-color);
+      }
+      .swatch--palette {
+        background: var(--primary-500);
+      }
+      .swatch--brand {
+        background: var(--primary-bg);
+      }
+      @media (max-width: 640px) {
+        .demo2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Status row (color-alone demo) --- */
+      .insp {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        margin: 0 0 var(--space-3);
+      }
+      .insp__state {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .states {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-3);
+      }
+      .st {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: var(--font-size-sm);
+      }
+      .st__dot {
+        display: inline-block;
+        width: 0.85rem;
+        height: 0.85rem;
+        border-radius: 999px;
+        background: currentColor;
+      }
+      .st--ok {
+        color: var(--semantic-green-fg);
+      }
+      .st--warn {
+        color: var(--semantic-orange-fg);
+      }
+      .st--bad {
+        color: var(--semantic-red-fg);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .dd__code {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
+        color: var(--semantic-red-fg, #b91c1c);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: Color System (foundations).
  *
@@ -43,7 +341,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-color-system-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'color-system'">
@@ -136,7 +434,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
           card of all four. They are foregrounds:
           <span class="sem sem--blue">blue</span>, <span class="sem sem--orange">orange</span>,
           <span class="sem sem--green">green</span>, <span class="sem sem--red">red</span>,
-          <span class="sem sem--purple">purple</span> and <span class="sem sem--pink">pink</span> — inline highlights
+          <span class="sem sem--cyan">cyan</span> and <span class="sem sem--pink">pink</span> — inline highlights
           inside running text, and the severity text of buttons, badges, and messages.
         </p>
         <div class="table-wrap">
@@ -185,12 +483,12 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
                 <td>6.92:1</td>
               </tr>
               <tr>
-                <td><code>--semantic-purple-fg</code></td>
-                <td><code>#7e22ce</code></td>
-                <td>6.40:1 / 6.98:1</td>
-                <td><code>#d8b4fe</code></td>
-                <td>10.41:1 / 9.50:1</td>
-                <td>7.43:1</td>
+                <td><code>--semantic-cyan-fg</code></td>
+                <td><code>#0e7490</code></td>
+                <td>4.91:1 / 5.36:1</td>
+                <td><code>#67e8f9</code></td>
+                <td>12.69:1 / 11.59:1</td>
+                <td>9.06:1</td>
               </tr>
               <tr>
                 <td><code>--semantic-pink-fg</code></td>
@@ -372,7 +670,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
                 <td>Keyboard focus</td>
                 <td>2px <code>--primary-color-fg</code> ring on any surface, inset on a selected row</td>
                 <td>focus ring, menu focus</td>
-                <td>4.42:1 / 3.48:1</td>
+                <td>4.42:1 / 3.52:1</td>
                 <td>1.4.11</td>
               </tr>
               <tr>
@@ -386,7 +684,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
                 <td>Selected table row</td>
                 <td>4px <code>--primary-color-fg</code> bar on the row tint</td>
                 <td>table &amp; paginator</td>
-                <td>5.14:1 / 3.48:1</td>
+                <td>5.14:1 / 3.52:1</td>
                 <td>1.4.11</td>
               </tr>
             </tbody>
@@ -707,10 +1005,10 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
               </tr>
               <tr>
                 <td>mystic</td>
-                <td><code>#972ee1</code></td>
-                <td><code>#7c1cc2</code></td>
-                <td><code>#972ee1</code></td>
-                <td><code>#c084fc</code></td>
+                <td><code>#b8147f</code></td>
+                <td><code>#9a116a</code></td>
+                <td><code>#b8147f</code></td>
+                <td><code>#f9a8d4</code></td>
               </tr>
               <tr>
                 <td>stone</td>
@@ -1005,301 +1303,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Ground panels --- */
-      .grounds {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .gr {
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        padding: var(--space-4);
-        color: var(--text-color);
-      }
-      .gr--ground {
-        background: var(--surface-ground);
-      }
-      .gr--card {
-        background: var(--surface-card);
-      }
-      .gr--section {
-        background: var(--surface-section);
-      }
-      .gr--hover {
-        background: var(--surface-hover);
-      }
-      .gr strong {
-        font-family: var(--font-mono);
-        font-size: 0.85rem;
-      }
-      .gr__body {
-        margin: 0.5rem 0 0.2rem;
-      }
-      .gr__sec {
-        margin: 0 0 0.5rem;
-        color: var(--text-color-secondary);
-        font-size: var(--font-size-sm);
-      }
-      .gr__num {
-        font-size: 0.75rem;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 640px) {
-        .grounds {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Semantic hue spans --- */
-      .sem {
-        font-weight: var(--font-weight-medium);
-      }
-      .sem--blue {
-        color: var(--semantic-blue-fg);
-      }
-      .sem--orange {
-        color: var(--semantic-orange-fg);
-      }
-      .sem--green {
-        color: var(--semantic-green-fg);
-      }
-      .sem--red {
-        color: var(--semantic-red-fg);
-      }
-      .sem--purple {
-        color: var(--semantic-purple-fg);
-      }
-      .sem--pink {
-        color: var(--semantic-pink-fg);
-      }
-
-      /* --- Style-brand-versus-accent swatches --- */
-      .demo2 {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .swatch-fig {
-        margin: 0;
-      }
-      .swatch {
-        min-height: 4.5rem;
-        border-radius: var(--radius-lg);
-        border: 1px solid var(--surface-border);
-      }
-      .swatch-fig figcaption {
-        margin-top: var(--space-2);
-        font-size: var(--font-size-sm);
-        color: var(--text-color);
-      }
-      .swatch--palette {
-        background: var(--primary-500);
-      }
-      .swatch--brand {
-        background: var(--primary-bg);
-      }
-      @media (max-width: 640px) {
-        .demo2 {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Status row (color-alone demo) --- */
-      .insp {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        margin: 0 0 var(--space-3);
-      }
-      .insp__state {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .states {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-3);
-      }
-      .st {
-        display: inline-flex;
-        align-items: center;
-        gap: var(--space-2);
-        font-size: var(--font-size-sm);
-      }
-      .st__dot {
-        display: inline-block;
-        width: 0.85rem;
-        height: 0.85rem;
-        border-radius: 999px;
-        background: currentColor;
-      }
-      .st--ok {
-        color: var(--semantic-green-fg);
-      }
-      .st--warn {
-        color: var(--semantic-orange-fg);
-      }
-      .st--bad {
-        color: var(--semantic-red-fg);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .dd__code {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
-        color: var(--semantic-red-fg, #b91c1c);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ColorSystemArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -1320,7 +1324,7 @@ export class ColorSystemArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly amberSnippet = `/* The name says primary; the value is the VISUAL STYLE's brand
+  readonly amberSnippet: string = `/* The name says primary; the value is the VISUAL STYLE's brand
    step, written at runtime from ui-styles.ts brandScale. It does not
    follow the accent, and no pair measures it as text. */
 .badge { background: var(--primary-500); }
@@ -1330,7 +1334,7 @@ export class ColorSystemArticleComponent {
 .badge { background: var(--primary-bg); color: var(--primary-color-text); }
 .link  { color: var(--primary-fg); }`;
 
-  readonly addColorSnippet = `/* 1. The value, where its axis lives. A kit-wide ink goes into
+  readonly addColorSnippet: string = `/* 1. The value, where its axis lives. A kit-wide ink goes into
    styles.scss, in BOTH blocks; a per-style value into every style
    of ui-styles.ts instead. */
 :root       { --control-accent: #0a756d; }
@@ -1347,7 +1351,7 @@ add(mode, 'control accent', '1.4.3', AA_NORMAL,
    the next build on a stale file. */
 node scripts/check-contrast.mjs --write`;
 
-  readonly citeSnippet = `/* Cite the pair, the style, and the criterion. */
+  readonly citeSnippet: string = `/* Cite the pair, the style, and the criterion. */
 .term { color: var(--semantic-green-fg); }
 /* --semantic-green-fg on --surface-card: 5.02:1 light, 11.97:1 dark
    (werkbund); SC 1.4.3 needs 4.5:1. Source: docs/generated/CONTRAST.MD */
@@ -1356,7 +1360,7 @@ node scripts/check-contrast.mjs --write`;
    when the token moves.
    .term { color: var(--semantic-green-fg); }  // contrast is fine */`;
 
-  readonly exceptionSnippet = `/* scripts/check-contrast.mjs — a pair that cannot pass yet is
+  readonly exceptionSnippet: string = `/* scripts/check-contrast.mjs — a pair that cannot pass yet is
    DECLARED. It is not re-thresholded, and it is not dropped from
    the measured set. Both registers are empty today; this is the
    shape of an entry, keyed by the pair id of the report line. */

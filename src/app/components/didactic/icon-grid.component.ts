@@ -27,7 +27,7 @@ export interface IconGridItem {
 }
 
 export type IconGridSize = 'small' | 'medium' | 'large';
-export type IconGridColor = 'primary' | 'orange' | 'green' | 'blue' | 'purple' | 'teal';
+export type IconGridColor = 'primary' | 'orange' | 'green' | 'blue' | 'pink' | 'teal';
 
 @Component({
   selector: 'app-icon-grid',
@@ -223,9 +223,9 @@ export type IconGridColor = 'primary' | 'orange' | 'green' | 'blue' | 'purple' |
         --icon-bg: var(--blue-100);
         --icon-color: var(--blue-500);
       }
-      .color-purple .item-icon {
-        --icon-bg: var(--purple-100);
-        --icon-color: var(--purple-500);
+      .color-pink .item-icon {
+        --icon-bg: var(--p-pink-100);
+        --icon-color: var(--p-pink-500);
       }
       .color-teal .item-icon {
         --icon-bg: var(--teal-100);
@@ -245,8 +245,8 @@ export type IconGridColor = 'primary' | 'orange' | 'green' | 'blue' | 'purple' |
       :host-context(.dark-theme) .color-blue .item-icon {
         --icon-bg: rgba(var(--blue-500-rgb), 0.2);
       }
-      :host-context(.dark-theme) .color-purple .item-icon {
-        --icon-bg: rgba(var(--purple-500-rgb), 0.2);
+      :host-context(.dark-theme) .color-pink .item-icon {
+        --icon-bg: color-mix(in srgb, var(--p-pink-500) 20%, transparent);
       }
       :host-context(.dark-theme) .color-teal .item-icon {
         --icon-bg: rgba(var(--teal-500-rgb), 0.2);

@@ -87,7 +87,7 @@ interface TableRow {
 const TYPE_COLOURS: Record<OntologyNodeType, string> = {
   article: '#f59e0b', // primary amber
   demo: '#22c55e', // green-500
-  glossary: '#a855f7', // purple-500
+  glossary: '#ec4899', // pink-500
   timeline: '#3b82f6', // blue-500
   source: '#10b981', // emerald-500
 };
@@ -483,8 +483,8 @@ type CyAnimCollection = {
         border-color: color-mix(in srgb, #22c55e 35%, var(--surface-border));
       }
       .ontology-map-legend-inline .ontology-map-legend-item[data-type='glossary'] {
-        background: color-mix(in srgb, #a855f7 12%, var(--surface-section));
-        border-color: color-mix(in srgb, #a855f7 35%, var(--surface-border));
+        background: color-mix(in srgb, #ec4899 12%, var(--surface-section));
+        border-color: color-mix(in srgb, #ec4899 35%, var(--surface-border));
       }
       .ontology-map-legend-inline .ontology-map-legend-item[data-type='timeline'] {
         background: color-mix(in srgb, #3b82f6 12%, var(--surface-section));
@@ -536,7 +536,7 @@ type CyAnimCollection = {
         background:
         /* Sub-Radials für Type-Cluster (top layer, sehr blass) */
           radial-gradient(circle 50% at 25% 30%, color-mix(in srgb, #f59e0b 14%, transparent) 0%, transparent 60%),
-          radial-gradient(circle 50% at 78% 28%, color-mix(in srgb, #a855f7 12%, transparent) 0%, transparent 60%),
+          radial-gradient(circle 50% at 78% 28%, color-mix(in srgb, #ec4899 12%, transparent) 0%, transparent 60%),
           radial-gradient(circle 45% at 22% 75%, color-mix(in srgb, #22c55e 12%, transparent) 0%, transparent 55%),
           radial-gradient(circle 48% at 78% 72%, color-mix(in srgb, #3b82f6 12%, transparent) 0%, transparent 60%),
           /* Basis: warmer Center-Glow + dunklerer Rand */
@@ -2088,7 +2088,7 @@ export class OntologyMapComponent implements OnInit, OnChanges, OnDestroy {
       },
       {
         selector: 'edge.cluster-glossary',
-        style: { 'line-color': '#a855f7' },
+        style: { 'line-color': '#ec4899' },
       },
       {
         selector: 'edge.cluster-timeline',

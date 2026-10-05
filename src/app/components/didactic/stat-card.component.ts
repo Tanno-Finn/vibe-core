@@ -12,7 +12,7 @@ import { CursorGlowDirective } from '../../directives/cursor-glow.directive';
 
 export type StatTrend = 'up' | 'down' | 'neutral';
 export type StatVariant = 'default' | 'gradient' | 'outlined' | 'minimal';
-export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'purple' | 'teal' | 'red';
+export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'pink' | 'teal' | 'red';
 
 @Component({
   selector: 'app-stat-card',
@@ -136,8 +136,8 @@ export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'purple' | 'te
       .variant-gradient.color-orange {
         background: linear-gradient(135deg, #c2410c 0%, #9a3412 100%);
       }
-      .variant-gradient.color-purple {
-        background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+      .variant-gradient.color-pink {
+        background: linear-gradient(135deg, #be185d 0%, #9d174d 100%);
       }
       .variant-gradient.color-teal {
         background: linear-gradient(135deg, #0f766e 0%, #115e59 100%);
@@ -202,8 +202,8 @@ export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'purple' | 'te
       .variant-outlined.color-orange {
         border-color: #fb923c;
       }
-      .variant-outlined.color-purple {
-        border-color: #c084fc;
+      .variant-outlined.color-pink {
+        border-color: #f472b6;
       }
       .variant-outlined.color-teal {
         border-color: #2dd4bf;
@@ -298,11 +298,11 @@ export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'purple' | 'te
       .variant-default.color-orange .stat-icon i {
         color: #f97316;
       }
-      .variant-default.color-purple .stat-icon {
-        background: #faf5ff;
+      .variant-default.color-pink .stat-icon {
+        background: #fdf2f8;
       }
-      .variant-default.color-purple .stat-icon i {
-        color: #a855f7;
+      .variant-default.color-pink .stat-icon i {
+        color: #ec4899;
       }
       .variant-default.color-teal .stat-icon {
         background: #f0fdfa;
@@ -442,8 +442,8 @@ export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'purple' | 'te
       .color-orange .progress-fill {
         background: #f97316;
       }
-      .color-purple .progress-fill {
-        background: #a855f7;
+      .color-pink .progress-fill {
+        background: #ec4899;
       }
       .color-teal .progress-fill {
         background: #14b8a6;
@@ -515,8 +515,8 @@ export type StatColor = 'primary' | 'blue' | 'green' | 'orange' | 'purple' | 'te
         .variant-gradient.color-orange {
           border-left-color: #c2410c !important;
         }
-        .variant-gradient.color-purple {
-          border-left-color: #a855f7 !important;
+        .variant-gradient.color-pink {
+          border-left-color: #be185d !important;
         }
         .variant-gradient.color-teal {
           border-left-color: #0f766e !important;

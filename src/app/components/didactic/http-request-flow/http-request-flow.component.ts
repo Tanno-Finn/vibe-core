@@ -363,7 +363,7 @@ const DEFAULT_VIEW_BOX = '0 0 800 400';
         fill: color-mix(in srgb, var(--semantic-blue-fg) 8%, var(--surface-ground));
       }
       .dns-box {
-        fill: color-mix(in srgb, var(--semantic-purple-fg) 8%, var(--surface-ground));
+        fill: color-mix(in srgb, var(--semantic-cyan-fg) 8%, var(--surface-ground));
       }
       .tls-box {
         fill: color-mix(in srgb, var(--semantic-pink-fg) 8%, var(--surface-ground));
@@ -383,7 +383,7 @@ const DEFAULT_VIEW_BOX = '0 0 800 400';
         stroke-width: 2.5;
       }
       .stage.active .dns-box {
-        stroke: var(--semantic-purple-fg);
+        stroke: var(--semantic-cyan-fg);
         stroke-width: 2.5;
       }
       .stage.active .tls-box {
@@ -501,7 +501,7 @@ const DEFAULT_VIEW_BOX = '0 0 800 400';
           stroke: var(--semantic-blue-fg);
         }
         .stage .dns-box {
-          stroke: var(--semantic-purple-fg);
+          stroke: var(--semantic-cyan-fg);
         }
         .stage .tls-box {
           stroke: var(--semantic-pink-fg);

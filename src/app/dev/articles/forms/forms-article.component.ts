@@ -8,6 +8,225 @@ import { InputTextModule } from '@openng/optimus-ui/inputtext';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    FormsModule,
+    AutoFocus,
+    ButtonModule,
+    InputTextModule,
+    FloatLabelModule,
+    IftaLabelModule,
+    GuideShellComponent,
+    GuideTabDirective,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      .lead {
+        margin: 0 0 var(--space-5);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-color-secondary);
+      }
+      h3 {
+        margin: var(--space-6) 0 var(--space-3);
+        font-size: 1.05rem;
+      }
+      p {
+        line-height: 1.65;
+      }
+
+      /* --- Live form demos --- */
+      .demo-form {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-4);
+        padding: var(--space-4);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        max-width: 30rem;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .field > label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+      .field input {
+        width: 100%;
+      }
+      .field-error {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-2);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--red-600);
+      }
+      .field-error i {
+        margin-top: 0.15em;
+        font-size: 0.85rem;
+      }
+      .demo-actions {
+        display: flex;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+      }
+      .hull-toggle {
+        display: flex;
+        align-items: center;
+        gap: var(--space-2);
+        font-size: var(--font-size-sm);
+      }
+      .demo-state {
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-color-secondary);
+      }
+
+      .stage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        padding: var(--space-4);
+        background: var(--surface-section);
+        border-radius: var(--radius-md);
+        margin: 0 0 var(--space-3);
+      }
+      .stage__item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+        flex: 1 1 14rem;
+      }
+      .stage__cap {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
+        color: var(--semantic-red-fg, #b91c1c);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sources {
+        padding-left: 1.1rem;
+      }
+      .sources li {
+        margin: 0 0 var(--space-3);
+        line-height: 1.6;
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .src-note {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-4);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: Forms (foundations).
  *
@@ -66,16 +285,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-forms-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    FormsModule,
-    AutoFocus,
-    ButtonModule,
-    InputTextModule,
-    FloatLabelModule,
-    IftaLabelModule,
-    GuideShellComponent,
-    GuideTabDirective,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'forms'">
@@ -1128,213 +1338,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      .lead {
-        margin: 0 0 var(--space-5);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: var(--text-color-secondary);
-      }
-      h3 {
-        margin: var(--space-6) 0 var(--space-3);
-        font-size: 1.05rem;
-      }
-      p {
-        line-height: 1.65;
-      }
-
-      /* --- Live form demos --- */
-      .demo-form {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-4);
-        padding: var(--space-4);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        max-width: 30rem;
-      }
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .field > label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-      .field input {
-        width: 100%;
-      }
-      .field-error {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-2);
-        font-size: 0.85rem;
-        line-height: 1.5;
-        color: var(--red-600);
-      }
-      .field-error i {
-        margin-top: 0.15em;
-        font-size: 0.85rem;
-      }
-      .demo-actions {
-        display: flex;
-        gap: var(--space-3);
-        flex-wrap: wrap;
-      }
-      .hull-toggle {
-        display: flex;
-        align-items: center;
-        gap: var(--space-2);
-        font-size: var(--font-size-sm);
-      }
-      .demo-state {
-        margin: 0;
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-        color: var(--text-color-secondary);
-      }
-
-      .stage {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-        padding: var(--space-4);
-        background: var(--surface-section);
-        border-radius: var(--radius-md);
-        margin: 0 0 var(--space-3);
-      }
-      .stage__item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-        flex: 1 1 14rem;
-      }
-      .stage__cap {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
-        color: var(--semantic-red-fg, #b91c1c);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .sources {
-        padding-left: 1.1rem;
-      }
-      .sources li {
-        margin: 0 0 var(--space-3);
-        line-height: 1.6;
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .src-note {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-4);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class FormsArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -1374,8 +1378,8 @@ export class FormsArticleComponent {
   }
 
   // --- Static invalid matrix ----------------------------------------------
-  readonly staticOk = '2024-11-03';
-  readonly staticBad = '2044-11-03';
+  readonly staticOk: string = '2024-11-03';
+  readonly staticBad: string = '2044-11-03';
 
   // --- Do/Don't: eager vs calm validation ---------------------------------
   readonly eagerName = signal('');
@@ -1399,8 +1403,7 @@ export class FormsArticleComponent {
   };
 
   // --- Flat string constants: these resolve wherever the tab is read ------
-  readonly fieldSnippet =
-    '<div class="field">\n' +
+  readonly fieldSnippet: string = '<div class="field">\n' +
     '  <label for="fx-email">{{ t(\'form.emailLabel\') }}</label>\n' +
     '  <input pInputText id="fx-email" type="email" name="email" autocomplete="email"\n' +
     '    [invalid]="shows(\'email\')"\n' +
@@ -1415,8 +1418,7 @@ export class FormsArticleComponent {
     '  }\n' +
     '</div>';
 
-  readonly modelSnippet =
-    '// One signal per field; the draft is a plain object over them.\n' +
+  readonly modelSnippet: string = '// One signal per field; the draft is a plain object over them.\n' +
     "readonly email = signal('');\n" +
     "readonly message = signal('');\n" +
     'private readonly touched = signal<ReadonlySet<Field>>(new Set());\n' +
@@ -1435,8 +1437,7 @@ export class FormsArticleComponent {
     '  // ... idle -> sending -> sent | error\n' +
     '}';
 
-  readonly machineSnippet =
-    "type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';\n" +
+  readonly machineSnippet: string = "type SubmitStatus = 'idle' | 'sending' | 'sent' | 'error';\n" +
     "readonly status = signal<SubmitStatus>('idle');\n" +
     '\n' +
     '// One polite region announces every state change; empty while idle.\n' +
@@ -1456,15 +1457,13 @@ export class FormsArticleComponent {
     '  }\n' +
     '}';
 
-  readonly focusSnippet =
-    '/** Render the pending branch, then focus what it put on screen. */\n' +
+  readonly focusSnippet: string = '/** Render the pending branch, then focus what it put on screen. */\n' +
     'private moveFocusTo(target: () => ElementRef<HTMLElement> | undefined): void {\n' +
     '  this.cdr.detectChanges();   // the target does not exist until the @if renders\n' +
     '  target()?.nativeElement.focus();\n' +
     '}';
 
-  readonly errorNodeSnippet =
-    '<!-- One field: a plain node, reached only through aria-describedby. -->\n' +
+  readonly errorNodeSnippet: string = '<!-- One field: a plain node, reached only through aria-describedby. -->\n' +
     '<input pInputText id="fx-city" name="city" required\n' +
     '  [invalid]="shows(\'city\')"\n' +
     '  [attr.aria-invalid]="shows(\'city\')"\n' +
@@ -1478,8 +1477,7 @@ export class FormsArticleComponent {
     '  <p-message severity="error">{{ t(\'form.error.submit\') }}</p-message>\n' +
     '}';
 
-  readonly autofocusSnippet =
-    "import { AutoFocus } from '@openng/optimus-ui/autofocus';\n" +
+  readonly autofocusSnippet: string = "import { AutoFocus } from '@openng/optimus-ui/autofocus';\n" +
     '\n' +
     '<!-- Bind it. A bare attribute passes the empty string, which the\n' +
     '     directive reads as false: nothing is focused. -->\n' +
@@ -1493,8 +1491,7 @@ export class FormsArticleComponent {
     '  <input pInputText id="note" [pAutoFocus]="true" />\n' +
     '}';
 
-  readonly ptSnippet =
-    '<p-checkbox inputId="fx-consent" [binary]="true" name="consent"\n' +
+  readonly ptSnippet: string = '<p-checkbox inputId="fx-consent" [binary]="true" name="consent"\n' +
     '  [invalid]="shows(\'consent\')"\n' +
     "  [pt]=\"{ input: { 'aria-describedby': shows('consent') ? 'fx-consent-error' : null } }\"\n" +
     '  [ngModel]="consent()" (ngModelChange)="onConsentChange($event)" />\n' +

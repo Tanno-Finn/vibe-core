@@ -4,6 +4,195 @@ import { MultiSelectModule } from '@openng/optimus-ui/multiselect';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [FormsModule, MultiSelectModule, GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      .lead {
+        margin: 0 0 var(--space-5);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-color-secondary);
+      }
+      h3 {
+        margin: var(--space-6) 0 var(--space-3);
+        font-size: 1.05rem;
+      }
+      p {
+        line-height: 1.65;
+      }
+
+      .stage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        padding: var(--space-4);
+        background: var(--surface-section);
+        border-radius: var(--radius-md);
+        margin: 0 0 var(--space-3);
+      }
+      .stage__item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+        flex: 1 1 16rem;
+        max-width: 26rem;
+      }
+      .stage__cap {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+      .stage__note {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .stage__item p-multiselect {
+        width: 100%;
+      }
+
+      .field-label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+      .field-error {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-2);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--red-600);
+      }
+      .field-error i {
+        margin-top: 0.15em;
+        font-size: 0.85rem;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .dd__stage--stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .dd__stage p-multiselect {
+        width: 100%;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
+        color: var(--semantic-red-fg, #b91c1c);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sources {
+        padding-left: 1.1rem;
+      }
+      .sources li {
+        margin: 0 0 var(--space-3);
+        line-height: 1.6;
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .src-note {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-4);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: MultiSelect (Optimus UI).
  *
@@ -35,7 +224,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-multiselect-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, MultiSelectModule, GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'multiselect'">
@@ -716,192 +905,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      .lead {
-        margin: 0 0 var(--space-5);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: var(--text-color-secondary);
-      }
-      h3 {
-        margin: var(--space-6) 0 var(--space-3);
-        font-size: 1.05rem;
-      }
-      p {
-        line-height: 1.65;
-      }
-
-      .stage {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-        padding: var(--space-4);
-        background: var(--surface-section);
-        border-radius: var(--radius-md);
-        margin: 0 0 var(--space-3);
-      }
-      .stage__item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-        flex: 1 1 16rem;
-        max-width: 26rem;
-      }
-      .stage__cap {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        text-transform: uppercase;
-        letter-spacing: 0.04em;
-      }
-      .stage__note {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .stage__item p-multiselect {
-        width: 100%;
-      }
-
-      .field-label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-      .field-error {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-2);
-        font-size: 0.85rem;
-        line-height: 1.5;
-        color: var(--red-600);
-      }
-      .field-error i {
-        margin-top: 0.15em;
-        font-size: 0.85rem;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .dd__stage--stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .dd__stage p-multiselect {
-        width: 100%;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
-        color: var(--semantic-red-fg, #b91c1c);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .sources {
-        padding-left: 1.1rem;
-      }
-      .sources li {
-        margin: 0 0 var(--space-3);
-        line-height: 1.6;
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .src-note {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-4);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class MultiselectArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -968,8 +972,7 @@ export class MultiselectArticleComponent {
   };
 
   // --- Flat string constants: these resolve wherever the tab is read ------
-  readonly wiringSnippet =
-    '<span class="field-label" id="fx-topics-label">{{ t(\'form.topicsLabel\') }}</span>\n' +
+  readonly wiringSnippet: string = '<span class="field-label" id="fx-topics-label">{{ t(\'form.topicsLabel\') }}</span>\n' +
     '<p-multiselect\n' +
     '  inputId="fx-topics"\n' +
     '  [ariaLabelledBy]="shows(\'topics\') ? \'fx-topics-label fx-topics-err\' : \'fx-topics-label\'"\n' +

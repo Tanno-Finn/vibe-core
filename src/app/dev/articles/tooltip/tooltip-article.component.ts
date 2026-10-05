@@ -4,6 +4,111 @@ import { TooltipModule } from '@openng/optimus-ui/tooltip';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, TooltipModule, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-tooltip-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-tooltip-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-tooltip-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      app-tooltip-article .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 1px solid var(--control-border);
+        border-radius: 6px;
+        background: var(--surface-card);
+        color: var(--text-color);
+        cursor: pointer;
+      }
+
+      app-tooltip-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-tooltip-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-tooltip-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-tooltip-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-tooltip-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-tooltip-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-tooltip-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-tooltip-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-tooltip-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-tooltip-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-tooltip-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Tooltip (Guides, category `library`).
  *
@@ -71,7 +176,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-tooltip-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, TooltipModule, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'tooltip'">
@@ -562,108 +667,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-tooltip-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-tooltip-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-tooltip-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      app-tooltip-article .icon-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2.5rem;
-        height: 2.5rem;
-        border: 1px solid var(--control-border);
-        border-radius: 6px;
-        background: var(--surface-card);
-        color: var(--text-color);
-        cursor: pointer;
-      }
-
-      app-tooltip-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-tooltip-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-tooltip-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-tooltip-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-tooltip-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-tooltip-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-tooltip-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-tooltip-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-tooltip-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-tooltip-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-tooltip-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TooltipArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -769,8 +773,7 @@ export class TooltipArticleComponent {
       'Plan for the cap, not for your language. The bubble is 12.5rem wide at most and wraps; a German compound or a Finnish case form does not widen it, it makes it taller, and a word longer than the cap is broken mid-word rather than allowed to overflow. Newlines in your string survive, because the text node is pre-line — that is the one formatting lever you have, and it is worth using instead of hoping the wrap falls well. Direction is not part of the deal: the four position keywords are physical and placement is computed from physical coordinates, so a right-placed tooltip stays on the physical right in an RTL page. Choose top or bottom wherever the reading direction may flip.',
   };
 
-  readonly anatomySnippet =
-    '<!-- What pTooltip appends to <body> while the tooltip is shown. -->\n' +
+  readonly anatomySnippet: string = '<!-- What pTooltip appends to <body> while the tooltip is shown. -->\n' +
     '<div class="p-tooltip p-component p-tooltip-bottom" role="tooltip"\n' +
     '     data-pc-section="root"\n' +
     '     style="width: fit-content; pointer-events: none; display: inline-block;\n' +
@@ -781,8 +784,7 @@ export class TooltipArticleComponent {
     '<!-- No id, no aria-*, and nothing on the trigger points here. -->\n' +
     '<!-- The whole node is removed again when the tooltip hides. -->';
 
-  readonly usageSnippet =
-    '<!-- The name is on the control; the tooltip restates it. -->\n' +
+  readonly usageSnippet: string = '<!-- The name is on the control; the tooltip restates it. -->\n' +
     '<button type="button" [attr.aria-label]="deleteLabel()"\n' +
     '        [pTooltip]="deleteLabel()" tooltipEvent="both" tooltipPosition="bottom">\n' +
     '  <i class="pi pi-trash" aria-hidden="true"></i>\n' +
@@ -792,8 +794,7 @@ export class TooltipArticleComponent {
     '<!-- Neither "content" nor "disabled" binds this directive. -->\n' +
     '<p-button label="Export" [pTooltip]="exportHint()" [tooltipDisabled]="busy()" />';
 
-  readonly disabledSnippet =
-    '<!-- The directive listens on its own host element. Here that host IS the -->\n' +
+  readonly disabledSnippet: string = '<!-- The directive listens on its own host element. Here that host IS the -->\n' +
     '<!-- disabled control, which is neither focusable nor a pointer-event target. -->\n' +
     '<button type="button" disabled pTooltip="Pick a row first">Delete</button>\n' +
     '\n' +
@@ -807,8 +808,7 @@ export class TooltipArticleComponent {
     '  <button type="button" disabled>Delete</button>\n' +
     '</span>';
 
-  readonly i18nSnippet =
-    '// translate() inside a computed, so the label re-runs on a language switch.\n' +
+  readonly i18nSnippet: string = '// translate() inside a computed, so the label re-runs on a language switch.\n' +
     'private readonly i18n = inject(TranslationService);\n' +
     'readonly deleteLabel = computed(() => this.i18n.translate("table.row.delete"));\n' +
     '\n' +

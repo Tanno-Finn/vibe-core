@@ -2,6 +2,66 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-chart-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-chart-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-chart-article .demo-fig {
+        margin: 0;
+      }
+
+      app-chart-article .sources a {
+        color: var(--primary-color-fg);
+      }
+
+      app-chart-article .demo-fig figcaption {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      app-chart-article .demo-canvas {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        max-height: 12rem;
+        border: 1px dashed var(--control-border);
+        background: var(--surface-section);
+        color: var(--text-color-secondary);
+        font-size: 0.85rem;
+      }
+
+      app-chart-article .demo-details {
+        margin-top: 0.75rem;
+      }
+
+      app-chart-article .demo-details summary {
+        cursor: pointer;
+      }
+
+      app-chart-article .checklist {
+        line-height: 1.7;
+      }
+
+      app-chart-article .history {
+        line-height: 1.7;
+      }
+    `;
+
 /**
  * Guide article: Chart (Guides, category `library`).
  *
@@ -54,7 +114,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-chart-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'chart'">
@@ -195,7 +255,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
               <pre class="code-block"><code>{{ ddNameOnlySnippet }}</code></pre>
             </div>
             <p class="dd__why">
-              A screen reader announces six words and the four quarters, two regions, and eight values are gone. SC 1.1.1
+              A screen reader announces four words and the four quarters, two regions, and eight values are gone. SC 1.1.1
               asks for an alternative serving the equivalent purpose, and a canvas has no structure to fall back on.
             </p>
           </div>
@@ -388,7 +448,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
               <tr><td><code>--semantic-orange-fg</code></td><td><code>#c2410c</code></td><td>5.18:1</td><td>7.79:1 – 9.96:1</td></tr>
               <tr><td><code>--semantic-green-fg</code></td><td><code>#15803d</code></td><td>5.02:1</td><td>9.35:1 – 11.97:1</td></tr>
               <tr><td><code>--semantic-red-fg</code></td><td><code>#b91c1c</code></td><td>6.47:1</td><td>6.92:1 – 8.85:1</td></tr>
-              <tr><td><code>--semantic-purple-fg</code></td><td><code>#7e22ce</code></td><td>6.98:1</td><td>7.43:1 – 9.50:1</td></tr>
+              <tr><td><code>--semantic-cyan-fg</code></td><td><code>#0e7490</code></td><td>5.36:1</td><td>9.06:1 – 11.59:1</td></tr>
               <tr><td><code>--semantic-pink-fg</code></td><td><code>#be185d</code></td><td>6.04:1</td><td>7.24:1 – 9.26:1</td></tr>
             </tbody>
           </table>
@@ -627,63 +687,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-chart-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-chart-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-chart-article .demo-fig {
-        margin: 0;
-      }
-
-      app-chart-article .sources a {
-        color: var(--primary-color-fg);
-      }
-
-      app-chart-article .demo-fig figcaption {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-
-      app-chart-article .demo-canvas {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        aspect-ratio: 3 / 2;
-        max-height: 12rem;
-        border: 1px dashed var(--control-border);
-        background: var(--surface-section);
-        color: var(--text-color-secondary);
-        font-size: 0.85rem;
-      }
-
-      app-chart-article .demo-details {
-        margin-top: 0.75rem;
-      }
-
-      app-chart-article .demo-details summary {
-        cursor: pointer;
-      }
-
-      app-chart-article .checklist {
-        line-height: 1.7;
-      }
-
-      app-chart-article .history {
-        line-height: 1.7;
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ChartArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -758,7 +762,7 @@ export class ChartArticleComponent {
       'Direction is not inherited either. Chart.js reverses the legend and tooltip only when told to, through their own rtl and textDirection options; the wrapper passes neither, so an RTL page renders a left-to-right chart unless the caller sets them in options. Numbers are the same story — format them with Intl.NumberFormat in a tick or tooltip callback, because the canvas has no locale of its own.',
   };
 
-  readonly anatomySnippet = `<!-- p-chart, in full. The host carries class and inline style; the view is one canvas. -->
+  readonly anatomySnippet: string = `<!-- p-chart, in full. The host carries class and inline style; the view is one canvas. -->
 <p-chart class="p-chart" style="display: block; position: relative">
   <canvas
     role="img"
@@ -772,7 +776,7 @@ export class ChartArticleComponent {
   </canvas>
 </p-chart>`;
 
-  readonly compositionSnippet = `<figure class="revenue">
+  readonly compositionSnippet: string = `<figure class="revenue">
   <figcaption id="revenue-cap">Reported incidents per quarter, 2025</figcaption>
 
   <p-chart type="bar"
@@ -789,7 +793,7 @@ export class ChartArticleComponent {
   </details>
 </figure>`;
 
-  readonly passthroughSnippet = `// openng-optimus-ui-chart.mjs:144-161 — the whole of initChart().
+  readonly passthroughSnippet: string = `// openng-optimus-ui-chart.mjs:144-161 — the whole of initChart().
 initChart() {
     if (isPlatformBrowser(this.platformId)) {
         let opts = this.options || {};
@@ -806,13 +810,13 @@ initChart() {
     }
 }`;
 
-  readonly ddNameOnlySnippet = `<p-chart type="bar" [data]="data"
+  readonly ddNameOnlySnippet: string = `<p-chart type="bar" [data]="data"
          ariaLabel="Incidents per quarter"></p-chart>
 
 <!-- Announced: "Incidents per quarter, image". Eight values, four
      quarters and two regions never reach the reader. -->`;
 
-  readonly ddFigureSnippet = `<figure>
+  readonly ddFigureSnippet: string = `<figure>
   <figcaption id="cap">Incidents per quarter, 2025</figcaption>
   <p-chart type="bar" [data]="data" ariaLabelledBy="cap"></p-chart>
   <details><summary>Data table</summary>
@@ -820,23 +824,23 @@ initChart() {
   </details>
 </figure>`;
 
-  readonly ddMutateSnippet = `// The chart keeps painting last quarter.
+  readonly ddMutateSnippet: string = `// The chart keeps painting last quarter.
 addQuarter(v: number) {
   this.data.labels.push('Q4');
   this.data.datasets[0].data.push(v);
 }`;
 
-  readonly ddAssignSnippet = `// A new reference reaches the setter at :100-103.
+  readonly ddAssignSnippet: string = `// A new reference reaches the setter at :100-103.
 readonly chartData = computed(() => ({
   labels: [...this.labels()],
   datasets: [{ label: this.t('series.a'), data: [...this.values()] }],
 }));`;
 
-  readonly ddEagerSnippet = `// app.config.ts, main.ts, the shell component, a shared barrel —
+  readonly ddEagerSnippet: string = `// app.config.ts, main.ts, the shell component, a shared barrel —
 // anything the initial bundle reaches.
 import { ChartModule } from '@openng/optimus-ui/chart';`;
 
-  readonly ddLazySnippet = `// The route defers the component, so the component's imports defer with it.
+  readonly ddLazySnippet: string = `// The route defers the component, so the component's imports defer with it.
 // in app.routes.ts
 { path: 'report',
   loadComponent: () => import('./report/report-page')
@@ -845,7 +849,7 @@ import { ChartModule } from '@openng/optimus-ui/chart';`;
 // and inside that lazily loaded component, the import is safe:
 import { ChartModule } from '@openng/optimus-ui/chart';`;
 
-  readonly tokenReadSnippet = `// Resolve tokens to strings inside the rebuilding computed, so a theme,
+  readonly tokenReadSnippet: string = `// Resolve tokens to strings inside the rebuilding computed, so a theme,
 // visual-style, or language switch produces a NEW options object.
 private readonly platformId = inject(PLATFORM_ID);
 private readonly theme = inject(ThemeService);
@@ -869,7 +873,7 @@ readonly chartOptions = computed(() => {
   };
 });`;
 
-  readonly lifecycleSnippet = `// openng-optimus-ui-chart.mjs — the redraw path, in the order it runs.
+  readonly lifecycleSnippet: string = `// openng-optimus-ui-chart.mjs — the redraw path, in the order it runs.
 
 set data(val)    { this._data = val;    this.reinit(); }   // :100-103
 set options(val) { this._options = val; this.reinit(); }   // :111-114
@@ -885,7 +889,7 @@ onAfterViewInit() { this.initChart(); this.initialized = true; }  // :131-134
 refresh()  { if (this.chart) { this.chart.update(); } }           // :173-177
 onDestroy(){ if (this.chart) { this.chart.destroy(); … } }        // :184-190`;
 
-  readonly lazySnippet = `// The rule in one line: @openng/optimus-ui/chart may only be reached from
+  readonly lazySnippet: string = `// The rule in one line: @openng/optimus-ui/chart may only be reached from
 // code that is itself lazily loaded.
 
 // GOOD — inside a lazily loaded route component (rides in that chunk):
@@ -901,7 +905,7 @@ if (isDevMode()) {
 // runs Chart.register(...registerables) at module scope and chart.js lists
 // that entry in sideEffects, so nothing tree-shakes it away.`;
 
-  readonly i18nSnippet = `// Both computeds read translate(), so both re-run on a language switch and
+  readonly i18nSnippet: string = `// Both computeds read translate(), so both re-run on a language switch and
 // hand the setters a new object. A cached string would freeze the canvas.
 readonly chartData = computed(() => ({
   labels: [this.t('quarter.q1'), this.t('quarter.q2')],

@@ -155,7 +155,7 @@ export interface DefinitionOption {
       }
 
       app-definition .definition-icon {
-        color: var(--purple-500);
+        color: var(--p-pink-500);
         font-size: 1.25rem;
         flex-shrink: 0;
       }

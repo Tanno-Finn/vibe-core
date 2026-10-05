@@ -5,6 +5,128 @@ import { PanelModule } from '@openng/optimus-ui/panel';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, FieldsetModule, PanelModule, InputTextModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-fieldset-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-fieldset-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-fieldset-article .stage--row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        align-items: start;
+      }
+
+      app-fieldset-article .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        margin-block-end: 0.6rem;
+        font-size: 0.85rem;
+      }
+
+      app-fieldset-article .tight {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      app-fieldset-article .fake-group {
+        border: 1px solid var(--surface-border);
+        padding: 0.75rem 1rem 1rem;
+        background: var(--surface-card);
+      }
+
+      app-fieldset-article .fake-legend {
+        display: block;
+        font-weight: 600;
+        margin-block-end: 0.6rem;
+      }
+
+      app-fieldset-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-fieldset-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-fieldset-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-fieldset-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-fieldset-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 6rem;
+      }
+
+      app-fieldset-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-fieldset-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-fieldset-article .sources a {
+        color: var(--primary-color-fg);
+      }
+
+      app-fieldset-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-fieldset-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-fieldset-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-fieldset-article .dd,
+        app-fieldset-article .stage--row {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Fieldset and Panel (Guides, category `library`).
  *
@@ -59,7 +181,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-fieldset-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, FieldsetModule, PanelModule, InputTextModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'fieldset'">
@@ -514,125 +636,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-fieldset-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-fieldset-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-fieldset-article .stage--row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        align-items: start;
-      }
-
-      app-fieldset-article .field {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-        margin-block-end: 0.6rem;
-        font-size: 0.85rem;
-      }
-
-      app-fieldset-article .tight {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-
-      app-fieldset-article .fake-group {
-        border: 1px solid var(--surface-border);
-        padding: 0.75rem 1rem 1rem;
-        background: var(--surface-card);
-      }
-
-      app-fieldset-article .fake-legend {
-        display: block;
-        font-weight: 600;
-        margin-block-end: 0.6rem;
-      }
-
-      app-fieldset-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-fieldset-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-fieldset-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-fieldset-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-fieldset-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 6rem;
-      }
-
-      app-fieldset-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-fieldset-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-fieldset-article .sources a {
-        color: var(--primary-color-fg);
-      }
-
-      app-fieldset-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-fieldset-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-fieldset-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-fieldset-article .dd,
-        app-fieldset-article .stage--row {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class FieldsetArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -695,8 +699,7 @@ export class FieldsetArticleComponent {
       'longest locale at the narrowest layout, because a two-line legend changes the height of everything beside it.',
   };
 
-  readonly emittedMarkupSnippet =
-    '<!-- p-fieldset legend="Contact details" -->\n' +
+  readonly emittedMarkupSnippet: string = '<!-- p-fieldset legend="Contact details" -->\n' +
     '<p-fieldset>            <!-- host: no class, no shipped rule -->\n' +
     '  <fieldset class="p-fieldset p-component">\n' +
     '    <legend class="p-fieldset-legend">\n' +
@@ -719,8 +722,7 @@ export class FieldsetArticleComponent {
     '  <div class="p-panel-content-container" role="region" aria-labelledby="pn_id_2_header">…</div>\n' +
     '</p-panel>';
 
-  readonly usageSnippet =
-    '// A group of controls: fieldset, legend translated, never collapsible.\n' +
+  readonly usageSnippet: string = '// A group of controls: fieldset, legend translated, never collapsible.\n' +
     "readonly legendText = computed(() => this.i18n.translate('checkout.address.legend'));\n\n" +
     '<p-fieldset [legend]="legendText()">\n' +
     '  <label for="street">{{ streetLabel() }}</label>\n' +
@@ -740,8 +742,7 @@ export class FieldsetArticleComponent {
     '  <p>{{ notesBody() }}</p>\n' +
     '</p-panel>';
 
-  readonly collapseSnippet =
-    '// collapsed = true  ->  the CONTENT CONTAINER, not the content, is hidden:\n' +
+  readonly collapseSnippet: string = '// collapsed = true  ->  the CONTENT CONTAINER, not the content, is hidden:\n' +
     '<div class="p-fieldset-content-container" style="display: none"\n' +
     '     role="region" aria-hidden="true" tabindex="-1">\n' +
     '  <div class="p-fieldset-content-wrapper">\n' +
@@ -760,8 +761,7 @@ export class FieldsetArticleComponent {
     '//      runs only from expand()/collapse()\n' +
     '// If the content must really be gone, use your own @if — there is no lazy input.';
 
-  readonly i18nSnippet =
-    '// translate() takes a key and nothing else, so composition happens first.\n' +
+  readonly i18nSnippet: string = '// translate() takes a key and nothing else, so composition happens first.\n' +
     "readonly legendText = computed(() => this.i18n.translate('address.legend'));\n" +
     'readonly toggleProps = computed(() => ({\n' +
     "  ariaLabel: this.i18n.translate('notes.toggle'),\n" +

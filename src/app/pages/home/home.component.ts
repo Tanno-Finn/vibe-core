@@ -677,8 +677,8 @@ export class HomeComponent {
   });
 
   // Fixed 700-shade hex values for CTA backgrounds: theme-stable + WCAG AA on white text.
-  // blue-700 #1d4ed8 → 8.59:1 AAA · indigo-700 #4338ca → 7.40:1 AAA ·
-  // cyan-700 #0e7490 → 6.51:1 AA · orange-700 (peach) #c2410c → 5.69:1 AA.
+  // blue-700 #1d4ed8 → 6.70:1 · green-700 #15803d → 5.02:1 ·
+  // cyan-700 #0e7490 → 5.36:1 · orange-700 (peach) #c2410c → 5.18:1, all AA.
   // Only the cards of features that are on (site.json); the article card always stays.
   quickStartItems: QuickStartItem[] = (
     [
@@ -699,7 +699,7 @@ export class HomeComponent {
         route: '/glossary',
         fragment: 'seed-term-1',
         visualType: 'qs-glossary-term',
-        accent: '#4338ca',
+        accent: '#15803d',
       },
       {
         id: 'qs-timeline',
@@ -795,19 +795,19 @@ export class HomeComponent {
   ];
 
   // Rotating glow colors for the quick-navigation example tiles.
-  private readonly exampleGlowColors = ['var(--p-violet-500)', 'var(--p-orange-500)', 'var(--p-teal-500)'];
+  private readonly exampleGlowColors = ['var(--p-blue-500)', 'var(--p-orange-500)', 'var(--p-teal-500)'];
   getExampleGlowColor(index: number): string {
     return this.exampleGlowColors[index % this.exampleGlowColors.length];
   }
 
   getShowcaseGlowColor(item: ShowcaseItem): string {
     const map: Record<string, string> = {
-      learningPaths: 'var(--semantic-purple-fg)',
+      learningPaths: 'var(--semantic-cyan-fg)',
       demos: 'var(--semantic-blue-fg)',
       lessons: 'var(--semantic-green-fg)',
       tools: 'var(--semantic-orange-fg)',
-      timeline: 'var(--p-cyan-500)',
-      glossary: 'var(--p-indigo-500)',
+      timeline: 'var(--p-yellow-500)',
+      glossary: 'var(--p-slate-500)',
       sources: 'var(--p-rose-500)',
       roadmap: 'var(--p-teal-500)',
     };

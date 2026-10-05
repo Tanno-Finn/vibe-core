@@ -6,6 +6,55 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [FormsModule, BreadcrumbModule, ToggleSwitchModule, GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-breadcrumb-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-breadcrumb-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-breadcrumb-article .stage--narrow {
+        width: 360px;
+        max-width: 100%;
+      }
+
+      app-breadcrumb-article .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-block: 0.5rem 1rem;
+      }
+
+      app-breadcrumb-article .ctl {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      app-breadcrumb-article .slash {
+        color: var(--text-color-secondary);
+      }
+
+      app-breadcrumb-article .checklist {
+        line-height: 1.7;
+      }
+
+      app-breadcrumb-article .history {
+        line-height: 1.7;
+      }
+    `;
+
 /**
  * Guide article: Breadcrumb (Guides, category `library`).
  *
@@ -48,7 +97,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-breadcrumb-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, BreadcrumbModule, ToggleSwitchModule, GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'breadcrumb'">
@@ -636,52 +685,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-breadcrumb-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-breadcrumb-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-breadcrumb-article .stage--narrow {
-        width: 360px;
-        max-width: 100%;
-      }
-
-      app-breadcrumb-article .controls {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-block: 0.5rem 1rem;
-      }
-
-      app-breadcrumb-article .ctl {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 0.9rem;
-      }
-
-      app-breadcrumb-article .slash {
-        color: var(--text-color-secondary);
-      }
-
-      app-breadcrumb-article .checklist {
-        line-height: 1.7;
-      }
-
-      app-breadcrumb-article .history {
-        line-height: 1.7;
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class BreadcrumbArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -694,12 +698,12 @@ export class BreadcrumbArticleComponent {
   readonly deepModel = signal(false);
   readonly inertLastModel = signal(true);
 
-  private readonly shallow: MenuItem[] = [
+  protected readonly shallow: MenuItem[] = [
     { label: 'Catalog', routerLink: '/dev/design' },
     { label: 'Navigation', routerLink: '/dev/design' },
   ];
 
-  private readonly deep: MenuItem[] = [
+  protected readonly deep: MenuItem[] = [
     { label: 'Catalog', routerLink: '/dev/design' },
     { label: 'Navigation', routerLink: '/dev/design' },
     { label: 'Wayfinding', routerLink: '/dev/design' },
@@ -776,7 +780,7 @@ export class BreadcrumbArticleComponent {
     ariaHomeWhen: 'Only when home has no visible label and no homeAriaLabel was passed',
   };
 
-  readonly anatomySnippet = `<nav class="p-breadcrumb p-component" aria-label="…">   <!-- the component root IS the landmark -->
+  readonly anatomySnippet: string = `<nav class="p-breadcrumb p-component" aria-label="…">   <!-- the component root IS the landmark -->
   <ol class="p-breadcrumb-list">
     <li class="p-breadcrumb-home-item">          <!-- only when [home] is set -->
       <a class="p-breadcrumb-item-link" tabindex="0" aria-label="…">
@@ -798,7 +802,7 @@ export class BreadcrumbArticleComponent {
   </ol>
 </nav>`;
 
-  readonly wiringSnippet = `import { BreadcrumbModule } from '@openng/optimus-ui/breadcrumb';
+  readonly wiringSnippet: string = `import { BreadcrumbModule } from '@openng/optimus-ui/breadcrumb';
 import { MenuItem } from '@openng/optimus-ui/api';
 
 @Component({ imports: [BreadcrumbModule], /* … */ })
@@ -811,7 +815,7 @@ export class ProductPage {
   ]);
 }`;
 
-  readonly ptSnippet = `<!-- There is no [ariaLabel] on p-breadcrumb. This is the input-level naming route. -->
+  readonly ptSnippet: string = `<!-- There is no [ariaLabel] on p-breadcrumb. This is the input-level naming route. -->
 <p-breadcrumb
   [model]="crumbs()"
   [pt]="{ root: { 'aria-label': labels().breadcrumbNav } }">
@@ -820,7 +824,7 @@ export class ProductPage {
 <!-- And NOT this — the component root is already a nav: -->
 <!-- <nav aria-label="breadcrumb"><p-breadcrumb …/></nav> -->`;
 
-  readonly currentSnippet = `// openng-optimus-ui-breadcrumb.mjs:190-200 — the last VISIBLE item wins.
+  readonly currentSnippet: string = `// openng-optimus-ui-breadcrumb.mjs:190-200 — the last VISIBLE item wins.
 isCurrentPage(index) {
     if (!this.model) { return false; }
     for (let i = this.model.length - 1; i >= 0; i--) {
@@ -832,7 +836,7 @@ isCurrentPage(index) {
 // :316  plain anchor   [attr.aria-current]="isCurrentPage(i) ? 'page' : undefined"
 // :355  router anchor  [ariaCurrentWhenActive]="isCurrentPage(i) ? 'page' : undefined"`;
 
-  readonly focusRuleSnippet = `/* Aura: the item ring, pointed at the global 1px focus.ring. */
+  readonly focusRuleSnippet: string = `/* Aura: the item ring, pointed at the global 1px focus.ring. */
 .p-breadcrumb-item-link:focus-visible {
     outline: dt('breadcrumb.item.focus.ring.width') dt('breadcrumb.item.focus.ring.style') dt('breadcrumb.item.focus.ring.color');
     outline-offset: dt('breadcrumb.item.focus.ring.offset');
@@ -844,7 +848,7 @@ isCurrentPage(index) {
     outline-offset: 2px !important;
 }`;
 
-  readonly i18nSnippet = `// translate() reads the service's translationsVersion signal, so this computed()
+  readonly i18nSnippet: string = `// translate() reads the service's translationsVersion signal, so this computed()
 // re-runs on a language switch — and the new array is what the plain @Input() needs.
 readonly crumbs = computed<MenuItem[]>(() => [
   { label: this.i18n.translate('nav.catalog'), routerLink: '/catalog' },

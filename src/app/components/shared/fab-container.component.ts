@@ -233,9 +233,9 @@ const SPEED_DIAL_THRESHOLD = 3;
         color: var(--orange-600);
       }
 
-      /* Purple (Compare) */
-      .fab-purple {
-        color: var(--purple-600);
+      /* Blue (Compare) */
+      .fab-blue {
+        color: var(--blue-600);
       }
 
       /* Green */
@@ -255,8 +255,8 @@ const SPEED_DIAL_THRESHOLD = 3;
       :host-context(.dark-theme) .fab-orange {
         color: var(--orange-300);
       }
-      :host-context(.dark-theme) .fab-purple {
-        color: var(--purple-300);
+      :host-context(.dark-theme) .fab-blue {
+        color: var(--blue-300);
       }
       :host-context(.dark-theme) .fab-green {
         color: var(--green-300);

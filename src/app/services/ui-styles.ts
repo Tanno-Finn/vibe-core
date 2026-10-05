@@ -621,7 +621,7 @@ export const LERNWERKSTATT: UiStyle = {
     info: { from: '#4762c9', to: '#4762c9' },
     warn: { from: '#f59e0b', to: '#f59e0b', text: '#2b2622' },
     secondary: { from: '#6d645c', to: '#6d645c' },
-    help: { from: '#675ad0', to: '#675ad0' },
+    help: { from: '#0e7490', to: '#0e7490' },
   },
 
   extraTokens: {
@@ -642,7 +642,7 @@ export const LERNWERKSTATT: UiStyle = {
       '--button-border': '2px solid #2b2622',
       '--style-candy-coral': '#f0617a',
       '--style-candy-teal': '#23a094',
-      '--style-candy-purple': '#7c6fe0',
+      '--style-candy-blue': '#4a85e6',
     },
     dark: {
       // The sticker outline is the edge of every card, dialog, drawer and
@@ -657,7 +657,7 @@ export const LERNWERKSTATT: UiStyle = {
       '--button-border': '2px solid #969491',
       '--style-candy-coral': '#f889a9',
       '--style-candy-teal': '#43c6b9',
-      '--style-candy-purple': '#a89bf0',
+      '--style-candy-blue': '#8fb3f5',
     },
   },
 
@@ -766,7 +766,7 @@ export const SKIZZENBUCH: UiStyle = {
     info: { from: '#e3eaf5', to: '#e3eaf5', text: '#425c86' },
     warn: { from: '#f5ead2', to: '#f5ead2', text: '#7d5813' },
     secondary: { from: '#efe8dc', to: '#efe8dc', text: '#3a3530' },
-    help: { from: '#eae4f4', to: '#eae4f4', text: '#5b4c92' },
+    help: { from: '#dcecee', to: '#dcecee', text: '#2b6169' },
   },
 
   extraTokens: {
@@ -791,7 +791,7 @@ export const SKIZZENBUCH: UiStyle = {
       '--style-wash-1': 'rgba(220, 184, 120, 0.15)',
       '--style-wash-2': 'rgba(157, 184, 156, 0.13)',
       '--style-wash-3': 'rgba(224, 169, 173, 0.12)',
-      '--style-wash-4': 'rgba(179, 165, 214, 0.11)',
+      '--style-wash-4': 'rgba(160, 188, 214, 0.11)',
     },
     dark: {
       '--style-outline': '#ece6dc',
@@ -804,7 +804,7 @@ export const SKIZZENBUCH: UiStyle = {
       '--style-wash-1': 'rgba(230, 200, 144, 0.08)',
       '--style-wash-2': 'rgba(179, 203, 178, 0.07)',
       '--style-wash-3': 'rgba(232, 191, 195, 0.06)',
-      '--style-wash-4': 'rgba(201, 189, 230, 0.06)',
+      '--style-wash-4': 'rgba(186, 206, 230, 0.06)',
     },
   },
 
@@ -919,7 +919,7 @@ export const BLAUPAUSE: UiStyle = {
     info: { from: '#1273a8', to: '#1273a8' },
     warn: { from: '#ffd23f', to: '#ffd23f', text: '#0e2a52' },
     secondary: { from: '#47617f', to: '#47617f' },
-    help: { from: '#6055c8', to: '#6055c8' },
+    help: { from: '#a4470c', to: '#a4470c' },
   },
 
   extraTokens: {

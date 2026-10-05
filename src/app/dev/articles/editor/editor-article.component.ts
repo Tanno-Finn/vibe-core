@@ -2,6 +2,63 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-editor-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-editor-article .fac {
+        width: 100%;
+        max-width: 22rem;
+      }
+
+      app-editor-article .fac__label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-block-end: 0.35rem;
+      }
+
+      app-editor-article .fac__bar {
+        display: flex;
+        gap: 0.35rem;
+        padding: 0.3rem 0.5rem;
+        border: 1px solid var(--surface-border);
+        border-block-end: 0;
+        background: var(--surface-section);
+        font-weight: 700;
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-editor-article .fac__box {
+        min-height: 4.5rem;
+        padding: 0.6rem 0.7rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+      }
+
+      app-editor-article .fac__box:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+
+      app-editor-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      app-editor-article .checklist li {
+        margin-block: 0.3rem;
+      }
+    `;
+
 /**
  * Guide article: Editor (Guides, category `library`).
  *
@@ -68,7 +125,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-editor-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'editor'">
@@ -461,60 +518,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-editor-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-editor-article .fac {
-        width: 100%;
-        max-width: 22rem;
-      }
-
-      app-editor-article .fac__label {
-        display: block;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-block-end: 0.35rem;
-      }
-
-      app-editor-article .fac__bar {
-        display: flex;
-        gap: 0.35rem;
-        padding: 0.3rem 0.5rem;
-        border: 1px solid var(--surface-border);
-        border-block-end: 0;
-        background: var(--surface-section);
-        font-weight: 700;
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-editor-article .fac__box {
-        min-height: 4.5rem;
-        padding: 0.6rem 0.7rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-      }
-
-      app-editor-article .fac__box:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-
-      app-editor-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      app-editor-article .checklist li {
-        margin-block: 0.3rem;
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class EditorArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -566,8 +570,7 @@ export class EditorArticleComponent {
     checkDisabled: 'Locking uses readonly; no code path relies on [disabled] or a disabled FormControl.',
   };
 
-  readonly toolbarSnippet =
-    '<div class="p-editor-toolbar">\n' +
+  readonly toolbarSnippet: string = '<div class="p-editor-toolbar">\n' +
     '  <span class="ql-formats">\n' +
     '    <select class="ql-header">…</select>   <!-- no label -->\n' +
     '    <select class="ql-font">…</select>     <!-- no label -->\n' +
@@ -585,8 +588,7 @@ export class EditorArticleComponent {
     '</div>\n' +
     '<div [class]="cx(\'content\')"></div>      <!-- no role, no name, empty -->';
 
-  readonly failureSnippet =
-    '// openng-optimus-ui-editor.mjs, initQuillEditor\n' +
+  readonly failureSnippet: string = '// openng-optimus-ui-editor.mjs, initQuillEditor\n' +
     "import('quill')\n" +
     '  .then((quillModule) => {\n' +
     '    this.dynamicQuill = quillModule.default;\n' +
@@ -601,8 +603,7 @@ export class EditorArticleComponent {
     '//     everything after this.value = value sits inside if (this.quill)\n' +
     '//   - the form control keeps whatever value it had, and never changes';
 
-  readonly namingSnippet =
-    '<p-editor\n' +
+  readonly namingSnippet: string = '<p-editor\n' +
     '  formControlName="body"\n' +
     "  [style]=\"{ height: '18rem' }\"\n" +
     '  [placeholder]="i18n.translate(placeholderKey)"\n' +
@@ -614,8 +615,7 @@ export class EditorArticleComponent {
     "  e.editor.root.setAttribute('aria-multiline', 'true');\n" +
     '}';
 
-  readonly roundTripSnippet =
-    '// IN — writeControlValue, called by the forms API\n' +
+  readonly roundTripSnippet: string = '// IN — writeControlValue, called by the forms API\n' +
     'if (this.quill) {                       // no engine yet: the value is kept on the instance only\n' +
     '  if (value) { setContents(clipboard.convert(...)) } else { setText("") }\n' +
     '  // and each of those runs now only if the content element is connected;\n' +
@@ -628,8 +628,7 @@ export class EditorArticleComponent {
     '  emit onTextChange; onModelChange(html); onModelTouched();\n' +
     '}';
 
-  readonly branchSnippet =
-    '// 1. A write while the editor element is detached\n' +
+  readonly branchSnippet: string = '// 1. A write while the editor element is detached\n' +
     'this.delayedCommand = command;   // assigned at :227 and :238\n' +
     '// ...and read nowhere. The value never reaches the editor;\n' +
     '// re-patch the control once the editor is on screen.\n\n' +
@@ -639,8 +638,7 @@ export class EditorArticleComponent {
     '  // no else: setContents/setText through getQuill() leave the control stale\n' +
     '});';
 
-  readonly i18nSnippet =
-    '<!-- Replacing the toolbar replaces ALL of it, including the nine English labels -->\n' +
+  readonly i18nSnippet: string = '<!-- Replacing the toolbar replaces ALL of it, including the nine English labels -->\n' +
     '<p-editor formControlName="body">\n' +
     '  <p-header>\n' +
     '    <span class="ql-formats">\n' +

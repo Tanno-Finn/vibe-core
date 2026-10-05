@@ -15,7 +15,7 @@ export interface PromptTag {
   /** Tag label (e.g., "[ROLE]", "[ACTION]") */
   label: string;
   /** Tag color */
-  color?: 'blue' | 'green' | 'orange' | 'purple' | 'teal' | 'pink';
+  color?: 'blue' | 'green' | 'orange' | 'yellow' | 'teal' | 'pink';
   /** Translation key for tag content */
   contentKey?: string;
   /** Static content */
@@ -231,17 +231,17 @@ export interface PromptTag {
         background: var(--orange-100);
         color: var(--orange-700);
       }
-      .tag-purple .tag-label {
-        background: var(--purple-100);
-        color: var(--purple-700);
+      .tag-yellow .tag-label {
+        background: var(--yellow-100);
+        color: var(--yellow-800);
       }
       .tag-teal .tag-label {
         background: var(--teal-100);
         color: var(--teal-700);
       }
       .tag-pink .tag-label {
-        background: var(--pink-100);
-        color: var(--pink-700);
+        background: var(--p-pink-100);
+        color: var(--p-pink-700);
       }
 
       /* CTM-2: Dark mode tag overrides */
@@ -257,9 +257,9 @@ export interface PromptTag {
         background: rgba(249, 115, 22, 0.15);
         color: var(--orange-400);
       }
-      :host-context(.dark-theme) .tag-purple .tag-label {
-        background: rgba(168, 85, 247, 0.15);
-        color: var(--purple-400);
+      :host-context(.dark-theme) .tag-yellow .tag-label {
+        background: rgba(245, 158, 11, 0.15);
+        color: var(--yellow-300);
       }
       :host-context(.dark-theme) .tag-teal .tag-label {
         background: rgba(20, 184, 166, 0.15);
@@ -267,7 +267,7 @@ export interface PromptTag {
       }
       :host-context(.dark-theme) .tag-pink .tag-label {
         background: rgba(236, 72, 153, 0.15);
-        color: var(--pink-400);
+        color: var(--p-pink-400);
       }
 
       .copy-button {

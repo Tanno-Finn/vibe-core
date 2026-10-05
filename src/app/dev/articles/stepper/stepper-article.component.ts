@@ -6,6 +6,118 @@ import { StepsModule } from '@openng/optimus-ui/steps';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, StepperModule, StepsModule, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-stepper-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-stepper-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-stepper-article .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+      }
+
+      app-stepper-article .pane {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      app-stepper-article .fld {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        font-size: 0.85rem;
+      }
+
+      app-stepper-article .fld__in {
+        font: inherit;
+        padding: 0.35rem 0.5rem;
+        border: 1px solid var(--control-border, var(--surface-border));
+        background: var(--surface-card);
+        color: var(--text-color);
+      }
+
+      app-stepper-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-stepper-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-stepper-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-stepper-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-stepper-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-stepper-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-stepper-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-stepper-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-stepper-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-stepper-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-stepper-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Stepper and Steps (Guides, category `library`).
  *
@@ -71,7 +183,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-stepper-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, StepperModule, StepsModule, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'stepper'">
@@ -551,115 +663,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-stepper-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-stepper-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-stepper-article .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-top: 0.75rem;
-      }
-
-      app-stepper-article .pane {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-
-      app-stepper-article .fld {
-        display: flex;
-        flex-direction: column;
-        gap: 0.25rem;
-        font-size: 0.85rem;
-      }
-
-      app-stepper-article .fld__in {
-        font: inherit;
-        padding: 0.35rem 0.5rem;
-        border: 1px solid var(--control-border, var(--surface-border));
-        background: var(--surface-card);
-        color: var(--text-color);
-      }
-
-      app-stepper-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-stepper-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-stepper-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-stepper-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-stepper-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-stepper-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-stepper-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-stepper-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-stepper-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-stepper-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-stepper-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class StepperArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -755,8 +759,7 @@ export class StepperArticleComponent {
       'Both bars follow the writing direction because they are flex rows; the only direction-aware rule in either stylesheet is the offset of the vertical separator in the p-step-item arrangement.',
   };
 
-  readonly emittedMarkupSnippet =
-    '<!-- role="tablist" is on the OUTER element, around bar and panels -->\n' +
+  readonly emittedMarkupSnippet: string = '<!-- role="tablist" is on the OUTER element, around bar and panels -->\n' +
     '<p-stepper class="p-stepper p-component" role="tablist" id="pn_id_1">\n' +
     '  <p-step-list class="p-steplist">        <!-- no role at all -->\n' +
     '    <p-step class="p-step p-step-active" role="presentation" aria-current="step">\n' +
@@ -773,8 +776,7 @@ export class StepperArticleComponent {
     '  </p-step-panels>\n' +
     '</p-stepper>';
 
-  readonly usageSnippet =
-    '// Every stage model lives here, not in the panels.\n' +
+  readonly usageSnippet: string = '// Every stage model lives here, not in the panels.\n' +
     'readonly step = signal(1);\n' +
     "readonly form = signal({ name: '', street: '' });\n\n" +
     '// translate() takes a key only, so the numbers go in afterwards.\n' +
@@ -797,8 +799,7 @@ export class StepperArticleComponent {
     '<!-- linear disables every other head, so Back has to be yours -->\n' +
     '<p-button label="Back" [disabled]="step() === 1" (onClick)="step.set(step() - 1)" />';
 
-  readonly unmountSnippet =
-    '// StepPanel template — openng-optimus-ui-stepper.mjs:592\n' +
+  readonly unmountSnippet: string = '// StepPanel template — openng-optimus-ui-stepper.mjs:592\n' +
     '<p-motion [visible]="active()" name="p-collapsible" [disabled]="!isVertical()" [options]="computedMotionOptions()">\n\n' +
     '// Motion template — openng-optimus-ui-motion.mjs:404-406\n' +
     '@if (rendered()) { <ng-content /> }\n\n' +
@@ -807,8 +808,7 @@ export class StepperArticleComponent {
     'unmountOnLeave = input(true);\n' +
     '// StepPanel sets neither, so rendered() falls to false after the leave.';
 
-  readonly i18nSnippet =
-    "// One key, one pattern string: \"Schritt {n} von {of}\"\n" +
+  readonly i18nSnippet: string = "// One key, one pattern string: \"Schritt {n} von {of}\"\n" +
     'readonly position = computed(() =>\n' +
     "  this.i18n\n" +
     "    .translate('wizard.position')\n" +

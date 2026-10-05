@@ -4,6 +4,114 @@ import { DatePickerModule } from '@openng/optimus-ui/datepicker';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, DatePickerModule, FormsModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-datepicker-article .stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      app-datepicker-article .stage--col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
+      }
+
+      app-datepicker-article .stage--row {
+        display: flex;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      app-datepicker-article .stage--wrap {
+        flex-wrap: wrap;
+      }
+
+      app-datepicker-article .col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      app-datepicker-article .field-label {
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      app-datepicker-article .hint,
+      app-datepicker-article .note {
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+        max-width: 28rem;
+      }
+
+      app-datepicker-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      app-datepicker-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      app-datepicker-article .dd__stage {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        align-items: flex-start;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 4.5rem;
+      }
+
+      app-datepicker-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-datepicker-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-datepicker-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-datepicker-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-datepicker-article .checklist,
+      app-datepicker-article .history {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-datepicker-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: DatePicker (Guides, category `library`).
  *
@@ -100,7 +208,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-datepicker-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, DatePickerModule, FormsModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'datepicker'">
@@ -704,111 +812,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-datepicker-article .stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        border-radius: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
-
-      app-datepicker-article .stage--col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        align-items: flex-start;
-      }
-
-      app-datepicker-article .stage--row {
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-      }
-
-      app-datepicker-article .stage--wrap {
-        flex-wrap: wrap;
-      }
-
-      app-datepicker-article .col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-
-      app-datepicker-article .field-label {
-        font-weight: 600;
-        font-size: 0.85rem;
-      }
-
-      app-datepicker-article .hint,
-      app-datepicker-article .note {
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-        max-width: 28rem;
-      }
-
-      app-datepicker-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      app-datepicker-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      app-datepicker-article .dd__stage {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        align-items: flex-start;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 4.5rem;
-      }
-
-      app-datepicker-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-datepicker-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-datepicker-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-datepicker-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-datepicker-article .checklist,
-      app-datepicker-article .history {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-datepicker-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class DatePickerArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -886,8 +890,7 @@ export class DatePickerArticleComponent {
       'The button bar renders Clear and Today as real buttons inside the panel, so both are reachable in the tab cycle and both announce a name from the translation config; the bar is the same in an overlay picker, it is shown inline here so it is on screen.',
   };
 
-  readonly usageSnippet =
-    '<!-- labels() is a computed() map resolved through the kit TranslationService -->\n' +
+  readonly usageSnippet: string = '<!-- labels() is a computed() map resolved through the kit TranslationService -->\n' +
     '<label class="field-label" for="invoice-date">{{ labels().invoiceDate }}</label>\n' +
     '<p-datepicker\n' +
     '  inputId="invoice-date"\n' +
@@ -899,16 +902,14 @@ export class DatePickerArticleComponent {
     '  [(ngModel)]="invoiceDate" />\n' +
     '<p class="hint">{{ labels().dateFormatHint }}</p>';
 
-  readonly openSnippet =
-    '// showOnFocus is on by default; keep it, or ship the trigger button.\n' +
+  readonly openSnippet: string = '// showOnFocus is on by default; keep it, or ship the trigger button.\n' +
     '// This combination leaves no keyboard route into the calendar:\n' +
     '<p-datepicker [showOnFocus]="false" />\n\n' +
     '// Either of these does have one:\n' +
     '<p-datepicker />                                        <!-- focus opens it -->\n' +
     '<p-datepicker [showOnFocus]="false" [showIcon]="true" iconDisplay="button" />';
 
-  readonly i18nSnippet =
-    '// The kit pushes only the aria block; the date vocabulary is top-level.\n' +
+  readonly i18nSnippet: string = '// The kit pushes only the aria block; the date vocabulary is top-level.\n' +
     '// Extend the same sync method, do not add a second one.\n' +
     "import { dateLocaleFor } from '../utils/date-locale';\n\n" +
     'const lang = this.translationService.currentLanguage;\n' +

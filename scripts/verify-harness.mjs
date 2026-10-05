@@ -31,6 +31,9 @@
  *      provides only declared capabilities, answers --help, has a test and is documented.
  *  18. The site-config gate (check-site-config.mjs) passes its --selftest, so the rules
  *      over src/config/site.json and the index.html / og-image drift check still bite.
+ *  19. The guide-translation gate (check-guide-translations.mjs): every German guide twin
+ *      keeps its English skeleton and the generated loader map is current; its
+ *      --selftest proves the parity detector still bites (ADR-0018).
  *
  * Two rules hold throughout:
  *   - The registry indexes (base/standards, directives) are PARSED, not regexed. A
@@ -567,6 +570,35 @@ if (!fs.existsSync(PACKS_DIR)) {
         .filter((l) => /FAIL/.test(l))
         .join(' | ');
       errors.push(`design-guides gate failed (check-design-guides.mjs)${tail ? ': ' + tail : ''}`);
+    }
+  } else {
+    errors.push(`MISSING gate script: ${gate}`);
+  }
+}
+
+// --- 7d. guide-translation parity gate (ADR-0018) ---------------------------
+// Every German guide twin (<id>-article.de.component.ts) must keep the English
+// article's tabs and element/binding skeleton, and the generated id -> twin loader map
+// must match the twins on disk. The --selftest runs always; the real run can be
+// skipped by build:verify, which runs the gate itself.
+{
+  const gate = path.join('scripts', 'check-guide-translations.mjs');
+  if (exists(gate)) {
+    const runs = [['--selftest', 'self-test']];
+    if (skipGate('check-guide-translations.mjs'))
+      skipped.push('guide-translation gate (--skip — the caller runs it itself)');
+    else runs.unshift([null, 'parity']);
+    for (const [arg, label] of runs) {
+      const res = spawnSync(process.execPath, [path.join(ROOT, gate), ...(arg ? [arg] : [])], { encoding: 'utf8' });
+      if (res.status === 0) {
+        ok.push(`guide-translation gate ${label} green (check-guide-translations.mjs)`);
+      } else {
+        const tail = (res.stdout || '')
+          .split(/\r?\n/)
+          .filter((l) => /FAIL/.test(l))
+          .join(' | ');
+        errors.push(`guide-translation gate ${label} failed (check-guide-translations.mjs)${tail ? ': ' + tail : ''}`);
+      }
     }
   } else {
     errors.push(`MISSING gate script: ${gate}`);

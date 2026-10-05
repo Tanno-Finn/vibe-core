@@ -58,7 +58,7 @@ const TYPE_ICONS: Record<NotificationType, string> = {
  * re-exports — fixed colors that do NOT auto-flip in dark mode).
  */
 const TYPE_GLOW_COLOR: Record<NotificationType, string> = {
-  launch: 'var(--p-violet-500)',
+  launch: 'var(--p-rose-500)',
   feature: 'var(--p-amber-500)',
   release: 'var(--p-yellow-500)',
   bugfix: 'var(--p-red-500)',
@@ -68,7 +68,7 @@ const TYPE_GLOW_COLOR: Record<NotificationType, string> = {
   glossary: 'var(--p-emerald-500)',
   timeline: 'var(--p-teal-500)',
   tool: 'var(--p-orange-500)',
-  language: 'var(--p-indigo-500)',
+  language: 'var(--p-sky-500)',
   quality: 'var(--p-green-500)',
   maintenance: 'var(--p-slate-500)',
 };

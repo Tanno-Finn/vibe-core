@@ -11,6 +11,484 @@ import { StripInvalidAriaDirective } from '../../../directives/strip-invalid-ari
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    SkeletonModule,
+    ProgressSpinnerModule,
+    ProgressBarModule,
+    StripInvalidAriaDirective,
+    SelectModule,
+    ToggleSwitchModule,
+    ButtonModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        min-height: 11rem;
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- The author card (real + placeholder) --- */
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        width: 100%;
+      }
+      .card__row {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+      }
+      .card__lines {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .card__name {
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      .card__role {
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+      .card__bio {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      .avatar {
+        flex: 0 0 auto;
+        width: 3rem;
+        height: 3rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--surface-border);
+        color: var(--text-color);
+        font-size: 0.9rem;
+        font-weight: var(--font-weight-medium);
+      }
+
+      /* --- Four strategies --- */
+      .strat {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: var(--space-3);
+        margin: 0 0 var(--space-4);
+      }
+      .strat__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-3);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .strat__tag {
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+      .strat__stage {
+        min-height: 6.5rem;
+        padding: var(--space-3);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .strat__why {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 900px) {
+        .strat {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 520px) {
+        .strat {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .mini {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        width: 100%;
+      }
+      .mini--center {
+        align-items: center;
+        justify-content: center;
+        min-height: 4rem;
+      }
+      .mini__title {
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      .mini__body {
+        margin: 0;
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      .mini__pct {
+        font-size: 0.78rem;
+        color: var(--text-color-secondary);
+      }
+      .mini__blank {
+        display: block;
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        width: 100%;
+        max-width: 26rem;
+      }
+      .stack--row {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-4);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__stage .copy-btn {
+        align-self: flex-start;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .shift {
+        display: flex;
+        flex-direction: column;
+      }
+      .shift__box {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      /* 3 bars x 1rem + 2 gaps x 0.75rem == 3 text lines x 1.5rem line-height. */
+      .shift__box--lines {
+        gap: 0.75rem;
+      }
+      .shift__text {
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.5rem;
+        color: var(--text-color);
+      }
+      .shift__marker {
+        margin-top: var(--space-2);
+        font-size: 0.72rem;
+        color: var(--text-color-secondary);
+        border-top: 1px dashed var(--surface-border);
+        padding-top: var(--space-1);
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .code-block--inline {
+        margin: 0;
+        font-size: 0.75rem;
+        background: var(--surface-card);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Skeleton / loading states (SPEC N5, Guides extension).
  *
@@ -59,18 +537,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-skeleton-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    SkeletonModule,
-    ProgressSpinnerModule,
-    ProgressBarModule,
-    StripInvalidAriaDirective,
-    SelectModule,
-    ToggleSwitchModule,
-    ButtonModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'skeleton'">
@@ -1000,7 +1467,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
           <strong>no outputs at all</strong> — a skeleton is pure presentation with nothing to listen to.
         </p>
 
-        <h3>Inputs — all six of them</h3>
+        <h3>Inputs — all seven of them</h3>
         <div class="table-wrap">
           <table>
             <thead>
@@ -1327,481 +1794,18 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        min-height: 11rem;
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- The author card (real + placeholder) --- */
-      .card {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-        width: 100%;
-      }
-      .card__row {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-      }
-      .card__lines {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .card__name {
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      .card__role {
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-      .card__bio {
-        margin: 0;
-        font-size: 0.9rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      .avatar {
-        flex: 0 0 auto;
-        width: 3rem;
-        height: 3rem;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--surface-border);
-        color: var(--text-color);
-        font-size: 0.9rem;
-        font-weight: var(--font-weight-medium);
-      }
-
-      /* --- Four strategies --- */
-      .strat {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        gap: var(--space-3);
-        margin: 0 0 var(--space-4);
-      }
-      .strat__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-3);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .strat__tag {
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-      .strat__stage {
-        min-height: 6.5rem;
-        padding: var(--space-3);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .strat__why {
-        margin: 0;
-        font-size: 0.78rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 900px) {
-        .strat {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-      @media (max-width: 520px) {
-        .strat {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .mini {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        width: 100%;
-      }
-      .mini--center {
-        align-items: center;
-        justify-content: center;
-        min-height: 4rem;
-      }
-      .mini__title {
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      .mini__body {
-        margin: 0;
-        font-size: 0.82rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      .mini__pct {
-        font-size: 0.78rem;
-        color: var(--text-color-secondary);
-      }
-      .mini__blank {
-        display: block;
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        width: 100%;
-        max-width: 26rem;
-      }
-      .stack--row {
-        flex-direction: row;
-        align-items: center;
-        gap: var(--space-4);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__stage .copy-btn {
-        align-self: flex-start;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .shift {
-        display: flex;
-        flex-direction: column;
-      }
-      .shift__box {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      /* 3 bars x 1rem + 2 gaps x 0.75rem == 3 text lines x 1.5rem line-height. */
-      .shift__box--lines {
-        gap: 0.75rem;
-      }
-      .shift__text {
-        margin: 0;
-        font-size: 0.85rem;
-        line-height: 1.5rem;
-        color: var(--text-color);
-      }
-      .shift__marker {
-        margin-top: var(--space-2);
-        font-size: 0.72rem;
-        color: var(--text-color-secondary);
-        border-top: 1px dashed var(--surface-border);
-        padding-top: var(--space-1);
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:disabled {
-        opacity: 0.6;
-        cursor: default;
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .code-block--inline {
-        margin: 0;
-        font-size: 0.75rem;
-        background: var(--surface-card);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class SkeletonArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
-  private runTimer: ReturnType<typeof setInterval> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected runTimer: ReturnType<typeof setInterval> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1896,27 +1900,25 @@ export class SkeletonArticleComponent {
   readonly shiftGoodSkeletonPx = 72;
   readonly shiftGoodRealPx = 72;
   readonly shiftGoodDeltaPx = 0;
-  readonly shiftNote =
-    'Heights read with getBoundingClientRect() at a 16px root font size: 16 -> 72 for the ' +
+  readonly shiftNote: string = 'Heights read with getBoundingClientRect() at a 16px root font size: 16 -> 72 for the ' +
     'mismatched pair, 72 -> 72 for the matched one. The matched pair is arithmetic, not ' +
     'eyeballing: 3 bars x 1rem + 2 gaps x 0.75rem equals 3 text lines x 1.5rem line-height. ' +
     'Change the type scale and you have to redo the sum.';
 
   // --- Design values, as read from the running theme --------------------------
-  readonly measuredDefaultHeight = '16px (100% x 1rem: 416 x 16 in a 1280px viewport)';
-  readonly tokenBgLight = '{surface.200}';
-  readonly tokenBgDark = 'rgba(255,255,255,0.06)';
-  readonly computedBgLight = "Aura's stock surface.200 (slate.200 #e2e8f0) in every style";
-  readonly computedBgDark = '6% white, composited over the surface below';
-  readonly surfaceLight = '--surface-ground / --surface-card';
-  readonly surfaceDark = '--surface-ground / --surface-card';
-  readonly contrastLight = '1.13–1.23';
-  readonly contrastDark = '1.16–1.20';
-  readonly tokenShimmerLight = 'rgba(255,255,255,0.4)';
-  readonly tokenShimmerDark = 'rgba(255,255,255,0.04)';
-  readonly tokenRadius = '{content.border.radius} (Aura 6px; 0 in the default visual style)';
-  readonly contrastNote =
-    'Token values from @openng/optimus-ui-themes/dist/aura/skeleton/index.mjs — the whole file ' +
+  readonly measuredDefaultHeight: string = '16px (100% x 1rem: 416 x 16 in a 1280px viewport)';
+  readonly tokenBgLight: string = '{surface.200}';
+  readonly tokenBgDark: string = 'rgba(255,255,255,0.06)';
+  readonly computedBgLight: string = "Aura's stock surface.200 (slate.200 #e2e8f0) in every style";
+  readonly computedBgDark: string = '6% white, composited over the surface below';
+  readonly surfaceLight: string = '--surface-ground / --surface-card';
+  readonly surfaceDark: string = '--surface-ground / --surface-card';
+  readonly contrastLight: string = '1.13–1.23';
+  readonly contrastDark: string = '1.16–1.20';
+  readonly tokenShimmerLight: string = 'rgba(255,255,255,0.4)';
+  readonly tokenShimmerDark: string = 'rgba(255,255,255,0.04)';
+  readonly tokenRadius: string = '{content.border.radius} (Aura 6px; 0 in the default visual style)';
+  readonly contrastNote: string = 'Token values from @openng/optimus-ui-themes/dist/aura/skeleton/index.mjs — the whole file ' +
     'is three values: the light background resolves {surface.200}, the dark one is a hard-coded ' +
     "6% white. {surface.200} is Aura's own scale, which the visual styles do not replace; the " +
     "page surfaces are the kit's, written by ThemeService from the active style. The dark " +
@@ -1928,12 +1930,11 @@ export class SkeletonArticleComponent {
     'SC 1.4.3 and SC 1.4.11 do not apply to it. They are quoted because a placeholder you ' +
     'cannot see is a placeholder that is not doing its job.';
 
-  readonly motionNormalDuration = '1.2s';
-  readonly motionNormalIterations = 'infinite';
-  readonly motionReducedDuration = '1e-05s';
-  readonly motionReducedIterations = '1';
-  readonly motionNote =
-    "Read from getComputedStyle(el, '::after').animationDuration and " +
+  readonly motionNormalDuration: string = '1.2s';
+  readonly motionNormalIterations: string = 'infinite';
+  readonly motionReducedDuration: string = '1e-05s';
+  readonly motionReducedIterations: string = '1';
+  readonly motionNote: string = "Read from getComputedStyle(el, '::after').animationDuration and " +
     '.animationIterationCount on a rendered skeleton, once per emulated value of the media ' +
     "feature. The reduced reading is the CSSOM's serialization of the kit's 0.01ms; the " +
     'finding is not the exact number but that it is not 1.2s and that the shimmer runs once ' +
@@ -1945,12 +1946,10 @@ export class SkeletonArticleComponent {
     '.p-skeleton-animation-none), while animation="shimmer" computes to ' +
     'p-skeleton-animation 1.2s — identical to the untouched default.';
 
-  readonly a11yTreeFinding =
-    'a snapshot rooted on a <p-skeleton> returns null. The element is not in the tree, and ' +
+  readonly a11yTreeFinding: string = 'a snapshot rooted on a <p-skeleton> returns null. The element is not in the tree, and ' +
     'neither is anything inside it; the wrapping status region, by contrast, appears with its ' +
     '.sr-only sentence as its name.';
-  readonly a11yTreeNote =
-    'The mechanism is the host binding quoted above, not a heuristic: aria-hidden="true" ' +
+  readonly a11yTreeNote: string = 'The mechanism is the host binding quoted above, not a heuristic: aria-hidden="true" ' +
     'prunes the element and all of its descendants, which is also why a label or a role you ' +
     'add to a skeleton can never surface. To confirm it in your own build, snapshot the ' +
     'accessibility tree rooted on the placeholder and again on its container.';
@@ -1998,7 +1997,7 @@ export class SkeletonArticleComponent {
     },
   ];
 
-  readonly devImport = `import { SkeletonModule } from '@openng/optimus-ui/skeleton';
+  readonly devImport: string = `import { SkeletonModule } from '@openng/optimus-ui/skeleton';
 
 @Component({
   standalone: true,
@@ -2006,7 +2005,7 @@ export class SkeletonArticleComponent {
   // ...
 })`;
 
-  readonly animationSourceSnippet = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-skeleton.mjs:14-21
+  readonly animationSourceSnippet: string = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-skeleton.mjs:14-21
 const classes = {
     root: ({ instance }) => [
         'p-skeleton p-component',
@@ -2017,7 +2016,7 @@ const classes = {
     ]
 };`;
 
-  readonly ariaHostSnippet = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-skeleton.mjs:128-133 (Optimus 2.0.2)
+  readonly ariaHostSnippet: string = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-skeleton.mjs:128-133 (Optimus 2.0.2)
 host: {
     '[attr.aria-hidden]': 'true',
     '[class]': "cn(cx('root'), styleClass)",
@@ -2025,7 +2024,7 @@ host: {
     '[attr.data-p]': 'dataP'
 }`;
 
-  readonly containerSnippet = `<!-- The container owns the announcement. The skeletons are decoration. -->
+  readonly containerSnippet: string = `<!-- The container owns the announcement. The skeletons are decoration. -->
 <section
   class="entries"
   role="status"
@@ -2047,13 +2046,13 @@ host: {
   }
 </section>`;
 
-  readonly emptyBadSnippet = `// "Loading" inferred from an empty collection:
+  readonly emptyBadSnippet: string = `// "Loading" inferred from an empty collection:
 isLoadingEntries = computed(() => this.allEntries().length === 0);
 
 // ...and the error handler, which now turns the shimmer back ON:
 this.allEntries.set([]); // "Will trigger isLoadingEntries to false" — it will not`;
 
-  readonly emptyGoodSnippet = `readonly loading = signal(true);
+  readonly emptyGoodSnippet: string = `readonly loading = signal(true);
 readonly error   = signal<string | null>(null);
 readonly entries = signal<Entry[]>([]);
 
@@ -2061,7 +2060,7 @@ readonly entries = signal<Entry[]>([]);
 this.loading.set(false);
 this.error.set('entryList.loadFailed');`;
 
-  readonly themingSnippet = `/* Scoped to one region. Color and the radius FALLBACK are tokens... */
+  readonly themingSnippet: string = `/* Scoped to one region. Color and the radius FALLBACK are tokens... */
 .report-placeholder {
   --p-skeleton-background: var(--surface-border);
   --p-skeleton-animation-background: rgba(255, 255, 255, 0.18);
@@ -2075,7 +2074,7 @@ this.error.set('entryList.loadFailed');`;
 /* template */
 <div class="report-placeholder"><p-skeleton /></div>`;
 
-  readonly shipedCss = `/* @openng/optimus-ui-styles/dist/skeleton/index.mjs — the complete stylesheet */
+  readonly shipedCss: string = `/* @openng/optimus-ui-styles/dist/skeleton/index.mjs — the complete stylesheet */
 .p-skeleton {
     display: block;
     overflow: hidden;
@@ -2115,7 +2114,7 @@ this.error.set('entryList.loadFailed');`;
     to   { transform: translateX(-100%); }
 }`;
 
-  readonly i18nSnippet = `// The live-region text is the translatable part of a loading state.
+  readonly i18nSnippet: string = `// The live-region text is the translatable part of a loading state.
 readonly loadingLabel = computed(() =>
   this.i18n.translate('entryList.loading'));          // "Glossar wird geladen"
 
@@ -2128,7 +2127,7 @@ readonly loadedLabel = computed(() =>
   ...
 </section>`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component, signal } from '@angular/core';
 import { SkeletonModule } from '@openng/optimus-ui/skeleton';
 

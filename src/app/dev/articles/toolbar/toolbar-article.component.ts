@@ -7,6 +7,151 @@ import { ToolbarModule } from '@openng/optimus-ui/toolbar';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, ToolbarModule, ButtonModule, ButtonGroupModule, SplitButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-toolbar-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+      app-toolbar-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+      }
+      app-toolbar-article .stage > p-toolbar {
+        align-self: stretch;
+      }
+      app-toolbar-article .bar-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      app-toolbar-article .stage__label {
+        margin: 0;
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+      app-toolbar-article .stage__status {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+      app-toolbar-article kbd {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        border: 1px solid var(--surface-border);
+        border-bottom-width: 2px;
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.4em;
+      }
+      app-toolbar-article code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+      }
+      app-toolbar-article .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+      app-toolbar-article .code-block {
+        margin: 0 0 1rem;
+        padding: 1rem;
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+      app-toolbar-article .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      app-toolbar-article table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      app-toolbar-article th,
+      app-toolbar-article td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      app-toolbar-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+      app-toolbar-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+      app-toolbar-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      app-toolbar-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+      app-toolbar-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      app-toolbar-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+      app-toolbar-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      app-toolbar-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      app-toolbar-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+      app-toolbar-article .sources a,
+      app-toolbar-article .history strong {
+        color: var(--primary-color-fg);
+      }
+      app-toolbar-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+      @media (max-width: 640px) {
+        app-toolbar-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Toolbar, Button Group, and Split Button (Guides, category `library`).
  *
@@ -53,7 +198,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-toolbar-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, ToolbarModule, ButtonModule, ButtonGroupModule, SplitButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'toolbar'">
@@ -466,148 +611,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-toolbar-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-      app-toolbar-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
-      }
-      app-toolbar-article .stage > p-toolbar {
-        align-self: stretch;
-      }
-      app-toolbar-article .bar-group {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-      }
-      app-toolbar-article .stage__label {
-        margin: 0;
-        font-weight: 600;
-        font-size: 0.9rem;
-      }
-      app-toolbar-article .stage__status {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-      app-toolbar-article kbd {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        border: 1px solid var(--surface-border);
-        border-bottom-width: 2px;
-        border-radius: var(--radius-sm);
-        padding: 0.05em 0.4em;
-      }
-      app-toolbar-article code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-      }
-      app-toolbar-article .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-      app-toolbar-article .code-block {
-        margin: 0 0 1rem;
-        padding: 1rem;
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        font-size: 0.82rem;
-        line-height: 1.55;
-      }
-      app-toolbar-article .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      app-toolbar-article table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      app-toolbar-article th,
-      app-toolbar-article td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      app-toolbar-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-      app-toolbar-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-      app-toolbar-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      app-toolbar-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-      app-toolbar-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-      app-toolbar-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-      app-toolbar-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      app-toolbar-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      app-toolbar-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-      app-toolbar-article .sources a,
-      app-toolbar-article .history strong {
-        color: var(--primary-color-fg);
-      }
-      app-toolbar-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-      @media (max-width: 640px) {
-        app-toolbar-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ToolbarArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -615,7 +619,7 @@ export class ToolbarArticleComponent {
 
   readonly lastAction = signal('none');
   readonly activeTool = signal(0);
-  private readonly saveSplit = viewChild('saveSplit', { read: ElementRef });
+  protected readonly saveSplit = viewChild('saveSplit', { read: ElementRef });
 
   readonly tools = [
     { id: 'run', label: 'Run', icon: 'pi pi-play' },
@@ -761,8 +765,7 @@ export class ToolbarArticleComponent {
       'The split button mirrors correctly: its radii and the removed inner border are logical properties. The button group mirrors for native pButton children (logical rules), but not for p-button components: the extra rule that joins p-button children removes border-right, a physical side, so under dir="rtl" it would strip the outer edge instead of the joint. In this kit the forced button borders (Design tab) override both library rules, and the kit’s own joint rule that replaces them is written with logical properties, so the single joint lands on the inner edge in either direction. The roving recipe above reads the computed direction and swaps ArrowLeft and ArrowRight, which the APG pattern expects in a right-to-left toolbar.',
   };
 
-  readonly groupAnatomySnippet =
-    '<!-- What <p-buttonGroup> renders around three p-button children -->\n' +
+  readonly groupAnatomySnippet: string = '<!-- What <p-buttonGroup> renders around three p-button children -->\n' +
     '<p-buttongroup>\n' +
     '  <span class="p-buttongroup p-component" role="group">  <!-- no name, no input to give one -->\n' +
     '    <p-button>…</p-button>\n' +
@@ -771,8 +774,7 @@ export class ToolbarArticleComponent {
     '  </span>\n' +
     '</p-buttongroup>';
 
-  readonly rovingSnippet =
-    '<p-toolbar [attr.aria-label]="labels().controls" (keydown)="onToolbarKeydown($event)">\n' +
+  readonly rovingSnippet: string = '<p-toolbar [attr.aria-label]="labels().controls" (keydown)="onToolbarKeydown($event)">\n' +
     '  <ng-template #start>\n' +
     '    @for (tool of tools; track tool.id; let i = $index) {\n' +
     '      <button pButton type="button" data-roving\n' +
@@ -797,8 +799,7 @@ export class ToolbarArticleComponent {
     '  items[next].focus(); // (focus) moves the tabindex="0"\n' +
     '}';
 
-  readonly restoreSnippet =
-    '<p-splitbutton #save [label]="labels().save" [expandAriaLabel]="labels().moreSave"\n' +
+  readonly restoreSnippet: string = '<p-splitbutton #save [label]="labels().save" [expandAriaLabel]="labels().moreSave"\n' +
     '               [model]="saveItems()" (onClick)="save()" (onMenuHide)="onSaveMenuHide()" />\n' +
     '\n' +
     'private readonly save = viewChild("save", { read: ElementRef });\n' +
@@ -813,8 +814,7 @@ export class ToolbarArticleComponent {
     '  }\n' +
     '}';
 
-  readonly i18nSnippet =
-    '// One computed, so a language switch rebuilds the whole model.\n' +
+  readonly i18nSnippet: string = '// One computed, so a language switch rebuilds the whole model.\n' +
     'private readonly i18n = inject(TranslationService);\n' +
     'readonly saveItems = computed<MenuItem[]>(() => [\n' +
     '  { label: this.i18n.translate("editor.saveDraft"), escape: true, command: () => this.saveDraft() },\n' +

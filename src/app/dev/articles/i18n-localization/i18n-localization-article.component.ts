@@ -8,6 +8,82 @@ import { GuideShellComponent, GuideTabDirective } from '../article-shell.compone
 import { TranslationService } from '../../../services/translation.service';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+    :host { display: block; }
+    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
+
+    /* --- Live probe --- */
+    .probe {
+      display: flex; flex-direction: column; gap: var(--space-2);
+      margin: 0 0 var(--space-4); padding: var(--space-4);
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+    }
+    .probe__head { display: flex; align-items: baseline; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-2); }
+    .probe__label { font-size: var(--font-size-sm); color: var(--text-color-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+    .probe__lang { font-family: var(--font-mono); font-size: var(--font-size-lg); color: var(--primary-color-fg); }
+    .probe__row {
+      display: flex; align-items: baseline; gap: var(--space-4); flex-wrap: wrap;
+      padding: var(--space-2) var(--space-3);
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+    }
+    .probe__row code { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-color-secondary); flex: 0 0 12rem; min-width: 0; }
+    .probe__val { min-width: 0; overflow-wrap: anywhere; }
+
+    /* --- Missing-key box --- */
+    .miss {
+      display: flex; align-items: baseline; gap: var(--space-4); flex-wrap: wrap;
+      margin: 0 0 var(--space-4); padding: var(--space-4);
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      border-radius: var(--radius-md);
+    }
+    .miss__what { font-size: var(--font-size-sm); color: var(--text-color-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
+    .miss__out { font-family: var(--font-mono); overflow-wrap: anywhere; }
+
+    /* --- Do / Don't --- */
+    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
+    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
+    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
+    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
+    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
+    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
+    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; }
+    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
+    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
+    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
+    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
+
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { margin: 0.3rem 0; }
+
+    .code-block {
+      margin: 0 0 var(--space-4);
+      padding: var(--space-4);
+      overflow-x: auto;
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text-color);
+    }
+    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
+    .history strong { color: var(--primary-color-fg); }
+  `;
+
 /**
  * Guide article: I18n & Localization (foundations).
  *
@@ -76,7 +152,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-i18n-localization-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'i18n-localization'">
@@ -663,83 +739,13 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
     </app-guide-shell>
   `,
-  styles: [`
-    :host { display: block; }
-    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
-
-    /* --- Live probe --- */
-    .probe {
-      display: flex; flex-direction: column; gap: var(--space-2);
-      margin: 0 0 var(--space-4); padding: var(--space-4);
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-    }
-    .probe__head { display: flex; align-items: baseline; gap: var(--space-3); flex-wrap: wrap; margin-bottom: var(--space-2); }
-    .probe__label { font-size: var(--font-size-sm); color: var(--text-color-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
-    .probe__lang { font-family: var(--font-mono); font-size: var(--font-size-lg); color: var(--primary-color-fg); }
-    .probe__row {
-      display: flex; align-items: baseline; gap: var(--space-4); flex-wrap: wrap;
-      padding: var(--space-2) var(--space-3);
-      background: var(--surface-card);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-    }
-    .probe__row code { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-color-secondary); flex: 0 0 12rem; min-width: 0; }
-    .probe__val { min-width: 0; overflow-wrap: anywhere; }
-
-    /* --- Missing-key box --- */
-    .miss {
-      display: flex; align-items: baseline; gap: var(--space-4); flex-wrap: wrap;
-      margin: 0 0 var(--space-4); padding: var(--space-4);
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      border-radius: var(--radius-md);
-    }
-    .miss__what { font-size: var(--font-size-sm); color: var(--text-color-secondary); text-transform: uppercase; letter-spacing: 0.04em; }
-    .miss__out { font-family: var(--font-mono); overflow-wrap: anywhere; }
-
-    /* --- Do / Don't --- */
-    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
-    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
-    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
-    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
-    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
-    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
-    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; }
-    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
-    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
-    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
-    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
-
-    .checklist { list-style: none; padding-left: 0; }
-    .checklist li { margin: 0.3rem 0; }
-
-    .code-block {
-      margin: 0 0 var(--space-4);
-      padding: var(--space-4);
-      overflow-x: auto;
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--text-color);
-    }
-    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
-    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
-    .history strong { color: var(--primary-color-fg); }
-  `],
+  styles: [ARTICLE_STYLES],
 })
 export class I18nLocalizationArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly i18n = inject(TranslationService);
+  protected readonly i18n = inject(TranslationService);
 
   // --- Live example state: the block IS the output ---------------------------
 
@@ -767,7 +773,7 @@ export class I18nLocalizationArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly labelPatternSnippet = `// One computed for every string the template needs.
+  readonly labelPatternSnippet: string = `// One computed for every string the template needs.
 readonly labels = computed(() => ({
   title:  this.i18n.translate('widget.title'),
   empty:  this.i18n.translate('widget.empty'),
@@ -788,7 +794,7 @@ readonly labels = computed(() => ({
    Same lookup, same signals — but hold the RESULT in a computed when a
    template reads it, so the value is recomputed rather than remembered. */`;
 
-  readonly placeholderSnippet = `// The module file owns the whole sentence, placeholder included.
+  readonly placeholderSnippet: string = `// The module file owns the whole sentence, placeholder included.
 // src/assets/i18n/modules/en/<ns>.json
 { "selected": "{n} of {total} selected" }
 
@@ -806,7 +812,7 @@ readonly caption = computed(() =>
    the count needs one key per form and a branch you write, and which forms a
    language needs is stated in its own guide under directives/languages/. */`;
 
-  readonly searchSnippet = `import { foldForSearch } from '../../utils/search-fold';
+  readonly searchSnippet: string = `import { foldForSearch } from '../../utils/search-fold';
 
 // Fold BOTH sides: the query as typed, and the translated text it is matched against.
 readonly hits = computed(() => {
@@ -820,7 +826,7 @@ readonly hits = computed(() => {
 // middle dot and the hyphen family are dropped; whitespace is kept, so
 // "code review" with a space still matches none of them.`;
 
-  readonly addKeySnippet = `# A key: add it to the SAME path in all four variant directories.
+  readonly addKeySnippet: string = `# A key: add it to the SAME path in all four variant directories.
 src/assets/i18n/modules/en/<ns>.json        <- the gate's reference
 src/assets/i18n/modules/de/<ns>.json
 src/assets/i18n/modules/en-easy/<ns>.json
@@ -842,7 +848,7 @@ node scripts/check-genericity.mjs       # no branding in the values
 # namespace. 'widgt.title' has no module called widgt, so it is not treated as
 # a key at all — it is skipped, and it renders raw in the UI.`;
 
-  readonly addLanguageSnippet = `// 1. src/config/languages.json — the single source for languages. Every list,
+  readonly addLanguageSnippet: string = `// 1. src/config/languages.json — the single source for languages. Every list,
 //    URL prefix, SEO flag, and fallback chain in the app AND the build scripts is
 //    derived from it (src/config/language-rules.mts).
 {
@@ -865,7 +871,7 @@ node scripts/check-genericity.mjs       # no branding in the values
 // 3. src/index.html: the bare-URL redirect is inline script and cannot import;
 //    add the code to its list. check-i18n-keys.mjs fails until you do.`;
 
-  readonly primeNgSnippet = `// The library reads its own config, not your modules. Bridge the two once,
+  readonly primeNgSnippet: string = `// The library reads its own config, not your modules. Bridge the two once,
 // in an effect, so it re-runs when the bundle lands and on every switch.
 // app.component.ts
 effect(() => this.optimusA11y.syncAriaStrings());

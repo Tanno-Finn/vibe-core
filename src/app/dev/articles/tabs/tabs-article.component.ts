@@ -17,7 +17,340 @@ import { GuideShellComponent, GuideTabDirective } from '../article-shell.compone
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
 /** What every `value` in the tabs family is declared as (openng-optimus-ui-tabs.d.ts:89). */
-type TabValue = string | number | undefined;
+export type TabValue = string | number | undefined;
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    TabsModule,
+    AccordionModule,
+    SelectModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      kbd {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-bottom-width: 2px;
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.4em;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        min-width: 0;
+        padding: var(--space-4);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .pg__readout {
+        display: flex;
+        align-items: center;
+        gap: var(--space-3);
+        flex-wrap: wrap;
+      }
+      .pg__readout-value {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      p-tabs {
+        display: block;
+        width: 100%;
+        min-width: 0;
+      }
+      .narrow {
+        max-width: 22rem;
+      }
+      .panel-body {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+      .count-chip {
+        margin-left: 0.35rem;
+        padding: 0.05em 0.45em;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        background: color-mix(in srgb, var(--primary-color) 18%, transparent);
+        color: var(--primary-color-fg);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+        min-width: 0;
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-width: 0;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
 
 /**
  * Guide article: Tabs (SPEC N5, Guides extension).
@@ -71,15 +404,7 @@ type TabValue = string | number | undefined;
   selector: 'app-tabs-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    TabsModule,
-    AccordionModule,
-    SelectModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'tabs'">
@@ -1531,339 +1856,18 @@ type TabValue = string | number | undefined;
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      kbd {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-bottom-width: 2px;
-        border-radius: var(--radius-sm);
-        padding: 0.05em 0.4em;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        min-width: 0;
-        padding: var(--space-4);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .pg__readout {
-        display: flex;
-        align-items: center;
-        gap: var(--space-3);
-        flex-wrap: wrap;
-      }
-      .pg__readout-value {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      p-tabs {
-        display: block;
-        width: 100%;
-        min-width: 0;
-      }
-      .narrow {
-        max-width: 22rem;
-      }
-      .panel-body {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-      .count-chip {
-        margin-left: 0.35rem;
-        padding: 0.05em 0.45em;
-        border-radius: 999px;
-        font-size: 0.72rem;
-        background: color-mix(in srgb, var(--primary-color) 18%, transparent);
-        color: var(--primary-color-fg);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-        min-width: 0;
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-width: 0;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TabsArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly router = inject(Router);
-  private readonly route = inject(ActivatedRoute);
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly router = inject(Router);
+  protected readonly route = inject(ActivatedRoute);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1917,7 +1921,7 @@ export class TabsArticleComponent {
   readonly pgValue = signal(0);
   readonly panelReadout = signal('not counted yet');
 
-  private static readonly TAB_LABELS = [
+  protected static readonly TAB_LABELS = [
     'Overview',
     'Activity',
     'Settings',
@@ -2107,7 +2111,7 @@ ${panels}
     },
   ];
 
-  readonly anatomySnippet = `<p-tabs class="p-tabs p-component" id="pn_id_12">      ← state holder
+  readonly anatomySnippet: string = `<p-tabs class="p-tabs p-component" id="pn_id_12">      ← state holder
   <p-tablist class="p-tablist">                        ← overflow: hidden
     <button class="p-tablist-prev-button">…</button>    ← only while overflowing
     <div class="p-tablist-content p-tablist-viewport">  ← overflow-x: auto
@@ -2128,7 +2132,7 @@ ${panels}
   </p-tabpanels>
 </p-tabs>`;
 
-  readonly devImport = `import { TabsModule } from '@openng/optimus-ui/tabs';
+  readonly devImport: string = `import { TabsModule } from '@openng/optimus-ui/tabs';
 
 @Component({
   standalone: true,
@@ -2136,7 +2140,7 @@ ${panels}
   // ...
 })`;
 
-  readonly lazySnippet = `<!-- Whole set: nothing but the initial panel is created up front. -->
+  readonly lazySnippet: string = `<!-- Whole set: nothing but the initial panel is created up front. -->
 <p-tabs [(value)]="view" [lazy]="true"> … </p-tabs>
 
 <!-- Or one expensive panel out of several. -->
@@ -2147,7 +2151,7 @@ ${panels}
 <!-- Once rendered, a panel is never destroyed again:
      shouldRender = !lazy || hasBeenRendered || active   (openng-optimus-ui-tabs.mjs:797-805) -->`;
 
-  readonly urlSnippet = `private readonly router = inject(Router);
+  readonly urlSnippet: string = `private readonly router = inject(Router);
 private readonly route = inject(ActivatedRoute);
 
 // Initial value from the URL, so a reload or a shared link lands correctly.
@@ -2167,7 +2171,7 @@ onView(value: 'chart' | 'table'): void {
 
 // template: <p-tabs [value]="view()" (valueChange)="onView($event)"> … </p-tabs>`;
 
-  readonly i18nSnippet = `// Labels rebuild on a language switch because the array is a computed().
+  readonly i18nSnippet: string = `// Labels rebuild on a language switch because the array is a computed().
 // The VALUES stay English/stable — they become DOM ids and URL parameters.
 readonly tabs = computed(() => [
   { value: 'overview', label: this.i18n.translate('record.tab.overview') },
@@ -2175,7 +2179,7 @@ readonly tabs = computed(() => [
   { value: 'settings', label: this.i18n.translate('record.tab.settings') },
 ]);`;
 
-  readonly primengTranslationSnippet = `// Static, for a single-language app: app.config.ts
+  readonly primengTranslationSnippet: string = `// Static, for a single-language app: app.config.ts
 // These two name the tab strip's scroll chevrons; the defaults are the
 // English literals 'Previous' and 'Next' (openng-optimus-ui-config.mjs:185-186).
 provideOptimus({
@@ -2196,7 +2200,7 @@ this.primeng.setTranslation({
   },
 });`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component, signal } from '@angular/core';
 import { TabsModule } from '@openng/optimus-ui/tabs';
 

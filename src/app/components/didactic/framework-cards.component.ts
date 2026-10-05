@@ -32,11 +32,11 @@ const RAINBOW_COLORS = [
   'var(--blue-500)',
   'var(--green-500)',
   'var(--orange-500)',
-  'var(--purple-500)',
+  'var(--yellow-500)',
   'var(--teal-500)',
-  'var(--pink-500)',
-  'var(--cyan-500)',
-  'var(--indigo-500)',
+  'var(--p-pink-500)',
+  'var(--p-cyan-500)',
+  'var(--red-500)',
 ];
 
 @Component({

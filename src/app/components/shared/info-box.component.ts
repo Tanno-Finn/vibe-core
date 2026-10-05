@@ -210,8 +210,8 @@ export interface InfoBoxData {
       }
       app-info-box .info-box-definitions .info-box-icon,
       app-info-box .info-box-definition .info-box-icon {
-        color: var(--p-purple-600, #9333ea);
-        background: var(--p-purple-50, #faf5ff);
+        color: var(--p-green-600, #16a34a);
+        background: var(--p-green-50, #f0fdf4);
       }
       app-info-box .info-box-info .info-box-icon {
         color: var(--p-cyan-600, #0891b2);

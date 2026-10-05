@@ -405,7 +405,7 @@ export class ArtVibecodingComponent implements OnInit {
       {
         id: 'expertise',
         icon: 'pi pi-server',
-        color: 'var(--semantic-purple-fg)',
+        color: 'var(--semantic-cyan-fg)',
         labelKey: 'articleVibecoding.enrichment.category.expertise.label',
         qualityLabelKey: 'articleVibecoding.enrichment.category.expertise.quality',
         missingLabelKey: 'articleVibecoding.enrichment.category.expertise.missing',

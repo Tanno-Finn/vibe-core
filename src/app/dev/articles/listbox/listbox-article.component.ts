@@ -7,6 +7,101 @@ import { GuideShellComponent, GuideTabDirective } from '../article-shell.compone
 import { CascadeSelectDemoComponent } from './cascade-select-demo.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [FormsModule, GuideShellComponent, GuideTabDirective, ListboxModule, MegaMenuModule, CascadeSelectDemoComponent];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-listbox-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-listbox-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-listbox-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      app-listbox-article .col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      app-listbox-article .lbl {
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+
+      app-listbox-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-listbox-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.9rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-listbox-article .dd__stage {
+        padding: 0.6rem 0;
+      }
+
+      app-listbox-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-listbox-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-listbox-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-listbox-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-listbox-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-listbox-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Listbox, MegaMenu, and CascadeSelect (Guides, category `library`).
  *
@@ -85,7 +180,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-listbox-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, GuideShellComponent, GuideTabDirective, ListboxModule, MegaMenuModule, CascadeSelectDemoComponent],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'listbox'">
@@ -587,98 +682,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-listbox-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-listbox-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-listbox-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-
-      app-listbox-article .col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-      }
-
-      app-listbox-article .lbl {
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-
-      app-listbox-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-listbox-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0.9rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-listbox-article .dd__stage {
-        padding: 0.6rem 0;
-      }
-
-      app-listbox-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-listbox-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-listbox-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-listbox-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-listbox-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-listbox-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ListboxArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -858,8 +862,7 @@ export class ListboxArticleComponent {
     i18nListLabel: 'The accessible name of the overlay tree',
   };
 
-  readonly modelShapeSnippet =
-    '// MegaMenuItem.items is MenuItem[][] — an array of COLUMNS, not of links.\n' +
+  readonly modelShapeSnippet: string = '// MegaMenuItem.items is MenuItem[][] — an array of COLUMNS, not of links.\n' +
     'readonly model: MegaMenuItem[] = [\n' +
     '  {\n' +
     "    label: 'Hardware',            // level 1: the bar entry\n" +
@@ -884,21 +887,18 @@ export class ListboxArticleComponent {
    * harvest substitutes string constants, so putting the real markup in one puts
    * `p-cascadeSelect` back in front of whoever reads the pair.
    */
-  readonly ddCascadeBadSnippet =
-    '<!-- what this stage is: no placeholder, and no name on the hidden input -->\n' +
+  readonly ddCascadeBadSnippet: string = '<!-- what this stage is: no placeholder, and no name on the hidden input -->\n' +
     '<p-cascadeSelect\n' +
     '  [options]="regions" optionLabel="city" optionGroupLabel="name"\n' +
     '  [optionGroupChildren]="[\'states\', \'cities\']" />';
 
-  readonly ddCascadeGoodSnippet =
-    '<!-- the visible span and the accessible name are two different nodes -->\n' +
+  readonly ddCascadeGoodSnippet: string = '<!-- the visible span and the accessible name are two different nodes -->\n' +
     '<p-cascadeSelect\n' +
     '  [options]="regions" optionLabel="city" optionGroupLabel="name"\n' +
     '  [optionGroupChildren]="[\'states\', \'cities\']"\n' +
     '  placeholder="Select a city" ariaLabel="Delivery city" />';
 
-  readonly namingSnippet =
-    '<!-- listbox: ariaLabel is the only naming input; there is no ariaLabelledBy -->\n' +
+  readonly namingSnippet: string = '<!-- listbox: ariaLabel is the only naming input; there is no ariaLabelledBy -->\n' +
     '<p-listbox [options]="cities" optionLabel="name" ariaLabel="Delivery city" />\n\n' +
     '<!-- cascade select: the name goes on the hidden combobox input -->\n' +
     '<label [attr.for]="\'city-input\'">Delivery city</label>\n' +
@@ -906,8 +906,7 @@ export class ListboxArticleComponent {
     '<!-- mega menu: the component renders no name, so the landmark carries it -->\n' +
     '<nav aria-label="Product"><p-megaMenu [model]="model" /></nav>';
 
-  readonly matchMediaSnippet =
-    '// MegaMenu — guarded by the Angular platform id\n' +
+  readonly matchMediaSnippet: string = '// MegaMenu — guarded by the Angular platform id\n' +
     'bindMatchMediaListener() {\n' +
     '  if (isPlatformBrowser(this.platformId)) {\n' +
     '    const query = window.matchMedia(`(max-width: ${this.breakpoint})`);\n' +
@@ -921,8 +920,7 @@ export class ListboxArticleComponent {
     '  }\n' +
     '}';
 
-  readonly i18nSnippet =
-    '// Listbox builds its live-region message by positional replacement, not by key\n' +
+  readonly i18nSnippet: string = '// Listbox builds its live-region message by positional replacement, not by key\n' +
     "// selectionMessage input, else config.translation.selectionMessage, else ''\n" +
     '//   "{0} items selected"  ->  "3 items selected"\n' +
     '//   a translation without {0} renders without the number, and nothing warns\n\n' +

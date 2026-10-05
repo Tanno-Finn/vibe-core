@@ -10,11 +10,12 @@ The scaffold is a skill: **`/new-guide`** walks the corpus check, the category d
 three artifacts and the closing gate run in one pass. This directive stays the authority on
 what each artifact must contain — the skill executes it, it does not restate it.
 
-## The four artifacts (shipped together, one commit)
+## The five artifacts (shipped together, one commit)
 
 1. **Registry entry** — `src/app/dev/articles/article-registry.ts`, under its PARSER
-   CONTRACT: fixed field order `id, title, category, tags, summary, related,
-   agentDocPath, loadComponent`, single-quoted literals, single-line arrays. The route
+   CONTRACT: fixed field order `id, title, titleDe, category, tags, summary, summaryDe,
+   related, agentDocPath, loadComponent`, single-quoted literals (German text uses „…“
+   and the typographic ’, never a straight `'`), single-line arrays. The route
    `/dev/design/guide/<id>` is generated from the entry — no manual route work. `related`
    may point at guides that do not exist yet, and then the id carries the **`planned:`
    prefix** (`'planned:multiselect'`) in the registry AND in the doc frontmatter. The gate
@@ -27,8 +28,12 @@ what each artifact must contain — the skill executes it, it does not restate i
    `development`, `i18n` (a subset is fine — only delivered tabs render) plus an optional
    `history` template that renders as a quiet footer. Conventions: annotated sources
    close the Usage tab; the accessibility/quality checklist closes Development; the
-   Agent tab is always provided by the shell itself.
-3. **Agent doc** — `src/assets/design-system/guides/<id>.agent.md`: frontmatter
+   Agent tab is always provided by the shell itself. The decorator takes
+   `imports: ARTICLE_IMPORTS` and `styles: [ARTICLE_STYLES]`, two exported constants
+   above the class, so the German twin shares them.
+3. **German twin** — `src/app/dev/articles/<id>/<id>-article.de.component.ts`, the
+   same article in German; see "English canonical, German twin" below.
+4. **Agent doc** — `src/assets/design-system/guides/<id>.agent.md`: frontmatter
    (`id, title, category, tags, summary, related` — must equal the registry — plus
    `tabs`, see "Contract and encyclopedia", plus `measured-against`, see "The version
    pin", plus `covers`, see "What a guide covers") + the nine
@@ -50,13 +55,49 @@ what each artifact must contain — the skill executes it, it does not restate i
    measurement story; see "Provenance, not process".
    imperative, agent-first — this file is what `scripts/design-guides.mjs` serves, and
    the UI's Agent tab renders the same bytes (single source, drift-free by design).
-4. **Green gate** — `node scripts/check-design-guides.mjs` enforces all of the above
-   (registry ↔ component ↔ doc ↔ metadata ↔ sections ↔ routes). It runs inside
-   `build:verify` and the harness; a guide that fails it doesn't ship.
+5. **Green gates** — `node scripts/check-design-guides.mjs` enforces all of the above
+   (registry ↔ component ↔ doc ↔ metadata ↔ sections ↔ routes), and
+   `node scripts/check-guide-translations.mjs` the English ↔ German parity. Both run
+   inside `build:verify` and the harness; a guide that fails either doesn't ship.
 
 Chrome i18n (tab labels, category names) already exists ×4 languages — a new guide needs
-new keys only for a new *category*, nothing per-article. Canonical guide content is
-English by design.
+new keys only for a new *category*, nothing per-article.
+
+## English canonical, German twin
+
+Every guide ships an English canonical article and a German twin
+([ADR-0018](../docs/adr/0018-german-guide-twins-by-inheritance.md)). The route renders the
+twin when the base language is `de` (`de` and `de-easy`) and the English article for `en`
+and `en-easy`; a guide without a twin falls back to English. The **agent doc stays
+English** — it is the contract for AI agents, and the Agent tab tells a German reader so.
+
+- **The twin extends the English class** (`export class <Name>ArticleDeComponent extends
+  <Name>ArticleComponent`), with its own `selector` (`app-<id>-article-de`), the shared
+  `imports: ARTICLE_IMPORTS` and `styles: [ARTICLE_STYLES]`, and a German `template`.
+  State, handlers, measured values and code snippets are inherited. Copy `providers` and
+  `encapsulation` from the English decorator when it has them.
+- **English text held in class fields** (a measured-values object such as `m`, menu
+  items, option labels, readout strings) is overridden in the twin with `override
+  readonly …`, complete, every key — not spread from the parent.
+- **Translate** all visible prose, headings, table text, demo labels and the values of
+  `aria-label`, `title`, `alt`, `placeholder` and label-like inputs, per
+  [`languages/de.md`](languages/de.md): *du*, generic masculine, „…“, decimal comma in
+  prose numbers. **Keep verbatim** code identifiers, API names, CSS values, versions,
+  file:line citations, the titles of cited sources, and everything inside `<pre>`,
+  `<code>`, `<kbd>` — including the inherited code snippets.
+- **Same skeleton.** The twin has the same tabs and the same element / attribute /
+  binding tree as the English template; only text and translatable attribute values
+  differ, and inline elements (`code`, `strong`, `a`, `{{ … }}` …) may move within their
+  sentence. `node scripts/check-guide-translations.mjs <id>` checks one guide and names
+  the first divergence with a line in each file; `check-house-style.mjs` checks the
+  German style of every twin.
+- **Register the twin** by running `node scripts/sync-guide-translations.mjs`: it writes
+  the generated id → twin loader map (`guide-translations.generated.ts`); never edit that
+  file by hand. The parity gate fails while the map is stale.
+- **Keeping the pair in step.** A change to an English article changes its twin in the
+  same commit — a new paragraph, a renamed binding, a new measured value. The parity gate
+  catches structural drift; reworded prose it cannot see, so the commit that rewords the
+  English updates the German too.
 
 ## Contract and encyclopedia
 

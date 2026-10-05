@@ -30,7 +30,7 @@ A metric/KPI display card with four visual variants (`default`, `gradient`, `out
 | `value` | `number\|string` | `0` | The headline value; strings are shown as-is, numbers go through `decimals`/`toLocaleString` |
 | `description` / `descriptionKey` | `string?` | — | Extra caption below the label |
 | `icon` | `string?` | — | Icon class shown in the corner |
-| `color` | `'primary'\|'blue'\|'green'\|'orange'\|'purple'\|'teal'\|'red'` | `'primary'` | Accent color for icon, progress fill, and gradient variant |
+| `color` | `'primary'\|'blue'\|'green'\|'orange'\|'pink'\|'teal'\|'red'` | `'primary'` | Accent color for icon, progress fill, and gradient variant |
 | `variant` | `'default'\|'gradient'\|'outlined'\|'minimal'` | `'default'` | Visual style |
 | `trend` | `'up'\|'down'\|'neutral'?` | — | Shows an arrow badge; `'neutral'` renders nothing |
 | `trendValue` | `string?` | — | Optional value shown next to the trend arrow |

@@ -4,6 +4,166 @@ import { AvatarGroupModule } from '@openng/optimus-ui/avatargroup';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, AvatarModule, AvatarGroupModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-avatar-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-avatar-article .stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-avatar-article .stage--col {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      app-avatar-article .grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      app-avatar-article .grid li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-avatar-article .byline {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0;
+      }
+
+      app-avatar-article .muted {
+        color: var(--text-color-secondary);
+        font-size: 0.85rem;
+      }
+
+      app-avatar-article .people {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      app-avatar-article .people li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      app-avatar-article .demo-btn {
+        font: inherit;
+        padding: 0.4rem 0.8rem;
+        border: 1px solid var(--control-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+        cursor: pointer;
+      }
+
+      app-avatar-article .demo-btn[aria-pressed='true'] {
+        background: var(--surface-section);
+        font-weight: 600;
+      }
+
+      app-avatar-article .demo-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+
+      app-avatar-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-avatar-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        min-width: 0;
+      }
+
+      app-avatar-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-avatar-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-avatar-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+        overflow-x: auto;
+      }
+
+      app-avatar-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-avatar-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-avatar-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-avatar-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-avatar-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-avatar-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Avatar and AvatarGroup (Guides, category `library`).
  *
@@ -35,7 +195,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-avatar-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, AvatarModule, AvatarGroupModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'avatar'">
@@ -470,163 +630,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-avatar-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-avatar-article .stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-avatar-article .stage--col {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      app-avatar-article .grid {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.25rem;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      app-avatar-article .grid li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 0.35rem;
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-avatar-article .byline {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin: 0;
-      }
-
-      app-avatar-article .muted {
-        color: var(--text-color-secondary);
-        font-size: 0.85rem;
-      }
-
-      app-avatar-article .people {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      app-avatar-article .people li {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      app-avatar-article .demo-btn {
-        font: inherit;
-        padding: 0.4rem 0.8rem;
-        border: 1px solid var(--control-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-        cursor: pointer;
-      }
-
-      app-avatar-article .demo-btn[aria-pressed='true'] {
-        background: var(--surface-section);
-        font-weight: 600;
-      }
-
-      app-avatar-article .demo-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-
-      app-avatar-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-avatar-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        min-width: 0;
-      }
-
-      app-avatar-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-avatar-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-avatar-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-        overflow-x: auto;
-      }
-
-      app-avatar-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-avatar-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-avatar-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-avatar-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-avatar-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-avatar-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class AvatarArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -643,8 +647,7 @@ export class AvatarArticleComponent {
   }
 
   /** Synthetic portrait, inline so no request leaves the page (PRIV-001). */
-  readonly portraitUri =
-    'data:image/svg+xml;utf8,' +
+  readonly portraitUri: string = 'data:image/svg+xml;utf8,' +
     encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' +
         '<rect width="64" height="64" fill="#475569"/>' +
@@ -654,7 +657,7 @@ export class AvatarArticleComponent {
     );
 
   /** A data URI that cannot decode — fires the error event without a request. */
-  readonly brokenUri = 'data:image/png;base64,AAAA';
+  readonly brokenUri: string = 'data:image/png;base64,AAAA';
 
   // --- rulings and readings, as flat constants so the tab extractor resolves them ---
   readonly m = {
@@ -742,36 +745,31 @@ export class AvatarArticleComponent {
       'The group overlap uses margin-inline-start, so under dir="rtl" the stack runs from the right with the same overlap. The avatar itself has no directional rule.',
   };
 
-  readonly anatomySnippet =
-    '<!-- <p-avatar [image]="url" ariaLabel="Ada Example" shape="circle" /> renders: -->\n' +
+  readonly anatomySnippet: string = '<!-- <p-avatar [image]="url" ariaLabel="Ada Example" shape="circle" /> renders: -->\n' +
     '<p-avatar class="p-avatar p-component p-avatar-image p-avatar-circle"\n' +
     '          aria-label="Ada Example" data-p="circle normal">\n' +
     '  <img src="…" aria-label="Ada Example" />   <!-- no alt attribute -->\n' +
     '</p-avatar>\n' +
     '<!-- no role on the host: the aria-label sits on a generic element -->';
 
-  readonly clickBadSnippet = '<p-avatar label="AE" (click)="openProfile()" />';
+  readonly clickBadSnippet: string = '<p-avatar label="AE" (click)="openProfile()" />';
 
-  readonly clickGoodSnippet =
-    '<a routerLink="/people/ada" class="person">\n' +
+  readonly clickGoodSnippet: string = '<a routerLink="/people/ada" class="person">\n' +
     '  <p-avatar label="AE" shape="circle" aria-hidden="true" />\n' +
     '  Ada Example\n' +
     '</a>';
 
-  readonly coverSnippet =
-    '<p-avatar [image]="url" shape="circle" aria-hidden="true"\n' +
+  readonly coverSnippet: string = '<p-avatar [image]="url" shape="circle" aria-hidden="true"\n' +
     '          [pt]="{ image: { style: { \'object-fit\': \'cover\' } } }" />';
 
-  readonly fallbackSnippet =
-    'readonly failed = signal(false);\n' +
+  readonly fallbackSnippet: string = 'readonly failed = signal(false);\n' +
     '\n' +
     '<p-avatar [image]="person.photo"\n' +
     '          [label]="failed() ? person.initials : undefined"\n' +
     '          role="img" [ariaLabel]="person.name"\n' +
     '          (onImageError)="failed.set(true)" />';
 
-  readonly i18nSnippet =
-    'private readonly i18n = inject(TranslationService);\n' +
+  readonly i18nSnippet: string = 'private readonly i18n = inject(TranslationService);\n' +
     'readonly editedBy = computed(() =>\n' +
     '  this.i18n.translate(this.keys.editedBy).replace("%names", this.names()),\n' +
     ');\n' +

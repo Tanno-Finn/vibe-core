@@ -6,15 +6,376 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
-interface City {
+export interface City {
   name: string;
   region: string;
 }
 
-interface CityGroup {
+export interface CityGroup {
   region: string;
   items: City[];
 }
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, AutoCompleteModule, SelectModule, ToggleSwitchModule, FormsModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul,
+      ol {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      kbd {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-bottom-width: 2px;
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.4em;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        min-height: 8rem;
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .pg__stage p-autocomplete {
+        width: 100%;
+        max-width: 22rem;
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        min-width: 14rem;
+      }
+      .field--wide {
+        flex: 1 1 20rem;
+      }
+      .field p-autocomplete {
+        width: 100%;
+      }
+      .field__hint {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .field__hint--error {
+        color: var(--semantic-red-fg);
+      }
+      .sizes {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        width: 100%;
+        max-width: 22rem;
+      }
+      .sizes__row {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .sizes__row p-autocomplete {
+        width: 100%;
+      }
+      .opt {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 0.5rem;
+      }
+      .opt__meta {
+        font-size: 0.8em;
+        color: var(--text-color-secondary);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__stage .field {
+        min-width: 0;
+        width: 100%;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
 
 /**
  * Guide article: AutoComplete (SPEC N5, Guides extension).
@@ -105,7 +466,7 @@ interface CityGroup {
   selector: 'app-autocomplete-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, AutoCompleteModule, SelectModule, ToggleSwitchModule, FormsModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'autocomplete'">
@@ -2317,374 +2678,17 @@ interface CityGroup {
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul,
-      ol {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      kbd {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-bottom-width: 2px;
-        border-radius: var(--radius-sm);
-        padding: 0.05em 0.4em;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        min-height: 8rem;
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .pg__stage p-autocomplete {
-        width: 100%;
-        max-width: 22rem;
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-        min-width: 14rem;
-      }
-      .field--wide {
-        flex: 1 1 20rem;
-      }
-      .field p-autocomplete {
-        width: 100%;
-      }
-      .field__hint {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .field__hint--error {
-        color: var(--semantic-red-fg);
-      }
-      .sizes {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-        width: 100%;
-        max-width: 22rem;
-      }
-      .sizes__row {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .sizes__row p-autocomplete {
-        width: 100%;
-      }
-      .opt {
-        display: inline-flex;
-        align-items: baseline;
-        gap: 0.5rem;
-      }
-      .opt__meta {
-        font-size: 0.8em;
-        color: var(--text-color-secondary);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__stage .field {
-        min-width: 0;
-        width: 100%;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class AutoCompleteArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
+  protected readonly destroyRef = inject(DestroyRef);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
-  private asyncTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected asyncTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -2785,7 +2789,7 @@ export class AutoCompleteArticleComponent {
    * Prefix matches first, then substring matches — the ranking the Usage tab
    * asks for, kept in one place so every example demonstrates it.
    */
-  private rank(query: string, limit = 10): City[] {
+  protected rank(query: string, limit = 10): City[] {
     const q = query.trim().toLowerCase();
     if (!q) return this.allCities.slice(0, limit);
     const starts: City[] = [];
@@ -2798,7 +2802,7 @@ export class AutoCompleteArticleComponent {
     return [...starts, ...contains].slice(0, limit);
   }
 
-  private groupByRegion(cities: City[]): CityGroup[] {
+  protected groupByRegion(cities: City[]): CityGroup[] {
     const byRegion = new Map<string, City[]>();
     for (const city of cities) {
       const bucket = byRegion.get(city.region);
@@ -2915,7 +2919,7 @@ export class AutoCompleteArticleComponent {
    * every path assigns a NEW array (so the overlay opens and the spinner stops),
    * and a superseded response is dropped instead of overwriting a newer one.
    */
-  private asyncQuery = '';
+  protected asyncQuery = '';
   completeAsync(event: { query: string }): void {
     this.asyncQuery = event.query;
     if (this.asyncTimer !== null) clearTimeout(this.asyncTimer);
@@ -3109,11 +3113,11 @@ searchCities(event: AutoCompleteCompleteEvent): void {
     },
   ];
 
-  readonly sizesCode = `<p-autocomplete inputId="sz-small"  size="small" [dropdown]="true" … />
+  readonly sizesCode: string = `<p-autocomplete inputId="sz-small"  size="small" [dropdown]="true" … />
 <p-autocomplete inputId="sz-normal"            [dropdown]="true" … />
 <p-autocomplete inputId="sz-large"  size="large" [dropdown]="true" … />`;
 
-  readonly devImport = `import { AutoCompleteModule } from '@openng/optimus-ui/autocomplete';
+  readonly devImport: string = `import { AutoCompleteModule } from '@openng/optimus-ui/autocomplete';
 import type { AutoCompleteCompleteEvent } from '@openng/optimus-ui/autocomplete';
 
 @Component({
@@ -3122,7 +3126,7 @@ import type { AutoCompleteCompleteEvent } from '@openng/optimus-ui/autocomplete'
   // ...
 })`;
 
-  readonly completeSnippet = `readonly cities = signal<City[]>([]);
+  readonly completeSnippet: string = `readonly cities = signal<City[]>([]);
 private pending = '';
 
 searchCities(event: AutoCompleteCompleteEvent): void {
@@ -3138,7 +3142,7 @@ searchCities(event: AutoCompleteCompleteEvent): void {
   });
 }`;
 
-  readonly templateSnippet = `<p-autocomplete inputId="city" [multiple]="true"
+  readonly templateSnippet: string = `<p-autocomplete inputId="city" [multiple]="true"
   [suggestions]="cities()" (completeMethod)="searchCities($event)"
   optionLabel="name" [(ngModel)]="selected">
 
@@ -3158,7 +3162,7 @@ searchCities(event: AutoCompleteCompleteEvent): void {
   </ng-template>
 </p-autocomplete>`;
 
-  readonly themingSnippet = `/* Scoped to one form: suggestion rows, plus — for an app WITHOUT this
+  readonly themingSnippet: string = `/* Scoped to one form: suggestion rows, plus — for an app WITHOUT this
    kit's styles.scss, which already rings both modes — the focus ring Aura
    ships at zero on the multiple-mode box. Do NOT put these on :root:
    Optimus re-declares its tokens from a runtime <style> element that lands
@@ -3172,7 +3176,7 @@ searchCities(event: AutoCompleteCompleteEvent): void {
   --p-autocomplete-focus-ring-offset: 2px;
 }`;
 
-  readonly i18nSnippet = `// Every visible string is yours. The two selection messages are
+  readonly i18nSnippet: string = `// Every visible string is yours. The two selection messages are
 // announced but never seen, which is exactly why they get forgotten.
 readonly labels = computed(() => ({
   city: this.i18n.translate('form.city.label'),
@@ -3183,7 +3187,7 @@ readonly labels = computed(() => ({
   nothingSelected: this.i18n.translate('form.city.nothingSelected'),
 }));`;
 
-  readonly primengTranslationSnippet = `<!-- These root-level library messages are not in the kit's aria push, so pass
+  readonly primengTranslationSnippet: string = `<!-- These root-level library messages are not in the kit's aria push, so pass
      them here — or extend the push to cover them app-wide. searchMessage is
      omitted on purpose: in Optimus 2.0.2 nothing renders it. -->
 <p-autocomplete
@@ -3197,7 +3201,7 @@ readonly labels = computed(() => ({
   optionLabel="name"
   [(ngModel)]="city" />`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { AutoCompleteModule } from '@openng/optimus-ui/autocomplete';
 

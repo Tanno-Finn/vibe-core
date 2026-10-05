@@ -4,6 +4,145 @@ import { ImageCompareModule } from '@openng/optimus-ui/imagecompare';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, ImageModule, ImageCompareModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-image-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-image-article .fig {
+        margin: 0.75rem 0;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        max-width: 40rem;
+      }
+
+      app-image-article .fig figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-image-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+        max-width: 40rem;
+      }
+
+      app-image-article .zoom-host,
+      app-image-article .fig .p-image,
+      app-image-article .stage .p-image,
+      app-image-article .dd__stage .p-image {
+        display: flex;
+      }
+
+      app-image-article .compare {
+        display: block;
+      }
+
+      app-image-article .pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+
+      app-image-article .pair figure {
+        margin: 0;
+      }
+
+      app-image-article .pair img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      app-image-article .pair figcaption {
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-image-article .pair__note {
+        margin: 0.5rem 0 0;
+        font-size: 0.85rem;
+      }
+
+      app-image-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-image-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        min-width: 0;
+      }
+
+      app-image-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-image-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-image-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-image-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-image-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-image-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-image-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-image-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-image-article .dd,
+        app-image-article .pair {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Image and ImageCompare (Guides, category `library`).
  *
@@ -58,7 +197,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   // Unencapsulated so the layout rules below reach the library's subtree; every
   // selector is prefixed with the host tag instead.
   encapsulation: ViewEncapsulation.None,
-  imports: [GuideShellComponent, GuideTabDirective, ImageModule, ImageCompareModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'image'">
@@ -492,142 +631,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-image-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-image-article .fig {
-        margin: 0.75rem 0;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        max-width: 40rem;
-      }
-
-      app-image-article .fig figcaption {
-        margin-top: 0.5rem;
-        font-size: 0.9rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-image-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-        max-width: 40rem;
-      }
-
-      app-image-article .zoom-host,
-      app-image-article .fig .p-image,
-      app-image-article .stage .p-image,
-      app-image-article .dd__stage .p-image {
-        display: flex;
-      }
-
-      app-image-article .compare {
-        display: block;
-      }
-
-      app-image-article .pair {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.5rem;
-      }
-
-      app-image-article .pair figure {
-        margin: 0;
-      }
-
-      app-image-article .pair img {
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
-      app-image-article .pair figcaption {
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-image-article .pair__note {
-        margin: 0.5rem 0 0;
-        font-size: 0.85rem;
-      }
-
-      app-image-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-image-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        min-width: 0;
-      }
-
-      app-image-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-image-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-image-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-image-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-image-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-image-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-image-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-image-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-image-article .dd,
-        app-image-article .pair {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ImageArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -669,8 +673,7 @@ export class ImageArticleComponent {
   };
 
   /** Synthetic bar chart, no text in the picture (SC 1.4.5). */
-  readonly chartUri =
-    'data:image/svg+xml;utf8,' +
+  readonly chartUri: string = 'data:image/svg+xml;utf8,' +
     encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">' +
         '<rect width="640" height="360" fill="#f8fafc"/>' +
@@ -684,8 +687,7 @@ export class ImageArticleComponent {
     );
 
   /** Synthetic decorative wave. */
-  readonly waveUri =
-    'data:image/svg+xml;utf8,' +
+  readonly waveUri: string = 'data:image/svg+xml;utf8,' +
     encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 120">' +
         '<rect width="640" height="120" fill="#e2e8f0"/>' +
@@ -693,7 +695,7 @@ export class ImageArticleComponent {
         '</svg>',
     );
 
-  private scene(sky: string, sun: string, hill: string, wall: string, roof: string): string {
+  protected scene(sky: string, sun: string, hill: string, wall: string, roof: string): string {
     return (
       'data:image/svg+xml;utf8,' +
       encodeURIComponent(
@@ -825,8 +827,7 @@ export class ImageArticleComponent {
       'The preview toolbar is placed with inset-inline-end, so it moves to the left under dir="rtl". ImageCompare reads dir="rtl" from its closest ancestor and watches the document element for changes, and mirrors the clip: the top image is revealed from the right edge.',
   };
 
-  readonly anatomySnippet =
-    '<!-- p-image [preview]="true", after Enter on the preview button -->\n' +
+  readonly anatomySnippet: string = '<!-- p-image [preview]="true", after Enter on the preview button -->\n' +
     '<div class="p-image-mask p-overlay-mask" role="dialog" aria-modal="true">  <!-- no name -->\n' +
     '  <div class="p-image-toolbar">\n' +
     '    <button aria-label="Rotate Right">…</button>\n' +
@@ -838,8 +839,7 @@ export class ImageArticleComponent {
     '  <img class="p-image-original" src="…" style="transform: rotate(0deg) scale(1)" />  <!-- no alt -->\n' +
     '</div>';
 
-  readonly focusCssSnippet =
-    '/* Already in the kit (src/styles.scss) — do not repeat it. The preview button\n' +
+  readonly focusCssSnippet: string = '/* Already in the kit (src/styles.scss) — do not repeat it. The preview button\n' +
     '   is one entry of the one ring list; the toolbar buttons sit on the dark plate\n' +
     '   and ring in their own ink, like the notice close buttons. */\n' +
     '.p-image-preview-mask:focus-visible {   /* one of the list */\n' +
@@ -852,8 +852,7 @@ export class ImageArticleComponent {
     '}\n' +
     '.p-image-toolbar { --p-image-toolbar-background: rgba(0, 0, 0, 0.6); }';
 
-  readonly compareDtSnippet =
-    'readonly compareDt = {\n' +
+  readonly compareDtSnippet: string = 'readonly compareDt = {\n' +
     '  handle: {\n' +
     '    size: "24px", background: "#ffffff", hoverBackground: "#ffffff",\n' +
     '    borderWidth: "2px", borderStyle: "solid", borderColor: "#121212", hoverBorderColor: "#121212",\n' +
@@ -861,8 +860,7 @@ export class ImageArticleComponent {
     '  },\n' +
     '};';
 
-  readonly previewFixSnippet =
-    '<figure>\n' +
+  readonly previewFixSnippet: string = '<figure>\n' +
     '  <span #zoomHost>\n' +
     '    <p-image [src]="src" [alt]="alt()" [preview]="true"\n' +
     '             [imageStyle]="{ width: \'100%\', height: \'auto\', aspectRatio: \'16 / 9\' }"\n' +
@@ -878,8 +876,7 @@ export class ImageArticleComponent {
     '  host.querySelector<HTMLButtonElement>(".p-image-preview-mask")?.focus();\n' +
     '}';
 
-  readonly compareSnippet =
-    '<figure>\n' +
+  readonly compareSnippet: string = '<figure>\n' +
     '  <p-imagecompare [pt]="{ slider: { \'aria-label\': sliderName() } }" [dt]="compareDt">\n' +
     '    <ng-template #left><img [src]="before" [alt]="beforeAlt()" /></ng-template>\n' +
     '    <ng-template #right><img [src]="after" [alt]="afterAlt()" /></ng-template>\n' +
@@ -887,8 +884,7 @@ export class ImageArticleComponent {
     '  <figcaption>{{ difference() }}</figcaption>\n' +
     '</figure>';
 
-  readonly i18nSnippet =
-    'private readonly i18n = inject(TranslationService);\n' +
+  readonly i18nSnippet: string = 'private readonly i18n = inject(TranslationService);\n' +
     'readonly alt = computed(() => this.i18n.translate(this.keys.chartAlt));\n' +
     'readonly caption = computed(() => this.i18n.translate(this.keys.chartCaption));';
 }

@@ -9,6 +9,13 @@
  *
  *   src/assets/i18n/modules/<locale>/*.json            (except searchTerms.json)
  *   src/assets/data/translations/<collection>/<locale>/*.json   (except `sources`)
+ *   src/app/dev/articles/<id>/<id>-article.de.component.ts      (German guide twins, ADR-0018)
+ *
+ * A German guide twin is checked as `de`: its inline template line by line, with
+ * markup, {{bindings}}, comments and everything inside <pre>, <code> and <kbd> blanked
+ * first (code stays verbatim, never restyled), plus its translatable attribute values
+ * (aria-label, title, alt, placeholder, label-like inputs) and the single-quoted prose strings
+ * of the class body (the overridden measured-value texts). A finding names file:line.
  *
  * `searchTerms.json` is a keyword list, not prose (it deliberately carries English and
  * misspelled search words), and `sources` holds bibliographic titles, which are quoted
@@ -27,7 +34,8 @@
  *                    slash or Binnen-I form, and no pair form („Nutzerinnen und Nutzer“).
  *                    Participle nouns (Lernende) are allowed and not matched.
  *   de-mediopunkt    de: the Mediopunkt is a de-easy device only; standard German
- *                    writes no letter·letter compound.
+ *                    writes no letter·letter compound, except where a string quotes the
+ *                    de-easy spelling as an example (MEDIOPUNKT_ALLOW).
  *   de-easy-hyphen   de-easy: a two-part hyphenated compound of two full words is
  *                    written closed (≤ 10 letters) or with the Mediopunkt (longer:
  *                    Computer·programm). The hyphen stays when a part is an abbreviation
@@ -95,6 +103,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const MODULES_DIR = path.join(ROOT, 'src', 'assets', 'i18n', 'modules');
 const DATA_DIR = path.join(ROOT, 'src', 'assets', 'data', 'translations');
+const ARTICLES_DIR = path.join(ROOT, 'src', 'app', 'dev', 'articles');
 
 const LOCALES = ['de', 'de-easy', 'en', 'en-easy'];
 const SKIP_MODULES = new Set(['searchTerms.json']);
@@ -286,6 +295,19 @@ const REGISTER_ALLOW = new Map(Object.entries({}));
  */
 const BRITISH_ALLOW = new Map(Object.entries({}));
 
+/**
+ * de-mediopunkt: standard-German strings that may show a Mediopunkt because they QUOTE
+ * the de-easy spelling as an example, not use it. Keyed like REGISTER_ALLOW (for a
+ * guide twin that is "<file>:<line>", as a finding prints it). A stale entry is a WARN.
+ */
+const MEDIOPUNKT_ALLOW = new Map(
+  Object.entries({
+    'src/app/dev/articles/i18n-localization/i18n-localization-article.de.component.ts:170':
+      'The I18n guide names the three spellings of one compound across the variants; ' +
+      '„Code·review“ is the quoted de-easy form, the example the search folding must match.',
+  }),
+);
+
 // ---------------------------------------------------------------------------
 // Rule patterns
 // ---------------------------------------------------------------------------
@@ -404,6 +426,60 @@ function collectFiles() {
   return files;
 }
 
+/** Every German guide twin on disk (`<id>/<id>-article.de.component.ts`). */
+function collectTwins() {
+  const out = [];
+  if (!fs.existsSync(ARTICLES_DIR)) return out;
+  for (const dir of fs
+    .readdirSync(ARTICLES_DIR, { withFileTypes: true })
+    .sort((a, b) => a.name.localeCompare(b.name))) {
+    if (!dir.isDirectory()) continue;
+    const file = path.join(ARTICLES_DIR, dir.name, `${dir.name}-article.de.component.ts`);
+    if (fs.existsSync(file)) out.push(file);
+  }
+  return out;
+}
+
+/**
+ * The German prose of one guide twin, one string per template line (markup, bindings,
+ * comments and the verbatim <pre>/<code>/<kbd> content blanked, line count kept), each
+ * translatable attribute value (aria-label, title, alt, placeholder, label-like inputs),
+ * and each single-quoted class-body string that holds a space. `rel` names the file.
+ */
+function twinStrings(src, rel) {
+  const strings = [];
+  const keepLines = (m) => m.replace(/[^\n]/g, ' ');
+  const tm = /template:\s*`([\s\S]*?)`/.exec(src);
+  const before = tm ? src.slice(0, tm.index + tm[0].indexOf('`') + 1) : '';
+  const firstLine = before.split('\n').length;
+  if (tm) {
+    const blanked = tm[1]
+      .replace(/<!--[\s\S]*?-->/g, keepLines)
+      .replace(/<(pre|code|kbd)\b[\s\S]*?<\/\1>/g, keepLines)
+      .replace(/\{\{[\s\S]*?\}\}/g, keepLines)
+      .replace(/<[^>]*>/g, keepLines);
+    blanked.split('\n').forEach((text, i) => {
+      if (text.trim())
+        strings.push({ locale: 'de', base: path.basename(rel), id: `${rel}:${firstLine + i}`, keyPath: '', text });
+    });
+    const ATTR =
+      /\s(aria-label|title|alt|placeholder|label|header|legend|pTooltip|[a-zA-Z]+(?:Label|Message|Placeholder))="([^"]*)"/g;
+    for (const m of tm[1].matchAll(ATTR)) {
+      const line = firstLine + tm[1].slice(0, m.index).split('\n').length - 1;
+      strings.push({ locale: 'de', base: path.basename(rel), id: `${rel}:${line}`, keyPath: m[1], text: m[2] });
+    }
+  }
+  const rest = tm ? src.slice(tm.index + tm[0].length) : src;
+  const restLine = tm ? src.slice(0, tm.index + tm[0].length).split('\n').length : 1;
+  rest.split('\n').forEach((line, i) => {
+    if (/^\s*import\b/.test(line)) return;
+    for (const m of line.matchAll(/'((?:[^'\\]|\\.)*)'/g))
+      if (/\s/.test(m[1]))
+        strings.push({ locale: 'de', base: path.basename(rel), id: `${rel}:${restLine + i}`, keyPath: '', text: m[1] });
+  });
+  return strings;
+}
+
 // ---------------------------------------------------------------------------
 // Rules
 // ---------------------------------------------------------------------------
@@ -440,8 +516,11 @@ function checkString(s, ctx) {
   }
 
   if (s.locale === 'de') {
-    for (const m of t.matchAll(MEDIOPUNKT))
-      hit('de-mediopunkt', m[0], 'Mediopunkt in standard German; it is a de-easy device only');
+    const found = [...t.matchAll(MEDIOPUNKT)];
+    if (MEDIOPUNKT_ALLOW.has(s.id)) {
+      if (found.length) ctx.usedAllow.add(s.id);
+    } else
+      for (const m of found) hit('de-mediopunkt', m[0], 'Mediopunkt in standard German; it is a de-easy device only');
   }
 
   if (s.locale === 'de-easy') {
@@ -594,6 +673,7 @@ function run(strings, { reportStale = false } = {}) {
     for (const [rule, list] of [
       ['de-register', REGISTER_ALLOW],
       ['en-spelling', BRITISH_ALLOW],
+      ['de-mediopunkt', MEDIOPUNKT_ALLOW],
     ])
       for (const id of list.keys())
         if (!ctx.usedAllow.has(id))
@@ -775,6 +855,53 @@ function selftest() {
       detail: '',
     });
   }
+  const [quotedId] = MEDIOPUNKT_ALLOW.keys();
+  if (quotedId) {
+    const quoted = { ...S('de', 'In einfachem Deutsch heißt es Code·review.'), id: quotedId };
+    const withIt = run([quoted], { reportStale: true });
+    results.push({ name: 'an allowlisted quoted Mediopunkt is not flagged', ok: withIt.length === 0, detail: '' });
+    const elsewhere = run([S('de', 'In einfachem Deutsch heißt es Code·review.')]).map((f) => f.rule);
+    results.push({
+      name: 'the same Mediopunkt outside its allowlisted string is still flagged',
+      ok: elsewhere.length === 1 && elsewhere[0] === 'de-mediopunkt',
+      detail: '',
+    });
+    const without = run([S('de', 'Nichts hier.')], { reportStale: true });
+    results.push({
+      name: 'a Mediopunkt allowlist entry that suppresses nothing is a WARN, not an ERROR',
+      ok: without.some((f) => f.level === 'WARN' && f.where === quotedId) && !without.some((f) => f.level === 'ERROR'),
+      detail: '',
+    });
+  }
+
+  // German guide twins (ADR-0018): template prose is checked, markup and code are not.
+  {
+    const twin = [
+      '@Component({',
+      '  template: `',
+      '    <p class="lead">Wählen Sie ein Panel. Tippe <code>Sie</code> oder <kbd>Ihr</kbd>.</p>',
+      '    <pre class="code-block"><code>// Wählen Sie</code></pre>',
+      '    <section aria-label="Nutzer:innen">{{ m.a }}</section>',
+      '  `,',
+      '})',
+      'export class XArticleDeComponent extends XArticleComponent {',
+      "  override readonly m = { a: 'Für Nutzer:innen gedacht.', b: '1.125rem' };",
+      '}',
+    ].join('\n');
+    const strings = twinStrings(twin, 'x/x-article.de.component.ts');
+    const got = run(strings).map((x) => `${x.rule}@${x.where}`);
+    const want = [
+      'de-register@x/x-article.de.component.ts:3',
+      'de-gender@x/x-article.de.component.ts:5',
+      'de-gender@x/x-article.de.component.ts:9',
+    ];
+    const ok = want.length === got.length && want.every((w, i) => got[i] === w);
+    results.push({
+      name: 'a German guide twin: template prose, translatable attributes and class strings are checked, code is not',
+      ok,
+      detail: ok ? '' : `expected [${want}] got [${got}]`,
+    });
+  }
 
   for (const r of results)
     console.log(`  ${r.ok ? 'ok  ' : 'FAIL'} SELFTEST: ${r.name}${r.detail ? ' — ' + r.detail : ''}`);
@@ -808,10 +935,18 @@ function main() {
       strings.push({ locale, base: path.basename(file), id: `${rel}#${keyPath}`, keyPath, text });
   }
 
+  const twins = collectTwins();
+  for (const file of twins) {
+    const rel = path.relative(ROOT, file).replace(/\\/g, '/');
+    strings.push(...twinStrings(fs.readFileSync(file, 'utf8'), rel));
+  }
+
   const findings = run(strings, { reportStale: true });
   const line = '='.repeat(74);
   console.log(line);
-  console.log(`  check-house-style - ${strings.length} strings in ${files.length} files (de, de-easy, en, en-easy)`);
+  console.log(
+    `  check-house-style - ${strings.length} strings in ${files.length} files (de, de-easy, en, en-easy) + ${twins.length} German guide twin(s)`,
+  );
   console.log(line);
   for (const f of findings)
     console.log(`  ${f.level.padEnd(5)} [${f.rule}] "${f.match}" - ${f.msg}\n        ${f.where}`);

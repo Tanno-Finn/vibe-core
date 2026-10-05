@@ -6,6 +6,140 @@ import { ConfirmPopupModule } from '@openng/optimus-ui/confirmpopup';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, ButtonModule, ConfirmDialogModule, ConfirmPopupModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-confirmdialog-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-confirmdialog-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-confirmdialog-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      app-confirmdialog-article .outcome {
+        margin: 0 0 0.75rem;
+        font-size: 0.9rem;
+        color: var(--text-color-secondary);
+        min-height: 1.4em;
+      }
+
+      app-confirmdialog-article .mock {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      app-confirmdialog-article .mock__title {
+        margin: 0;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--surface-border);
+        font-weight: 600;
+      }
+
+      app-confirmdialog-article .mock__title--empty {
+        min-height: 1.4em;
+      }
+
+      app-confirmdialog-article .mock__note {
+        font-weight: 400;
+        font-size: 0.78rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-confirmdialog-article .mock__msg {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      app-confirmdialog-article .mock__row {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      app-confirmdialog-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-confirmdialog-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-confirmdialog-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-confirmdialog-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-confirmdialog-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-confirmdialog-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-confirmdialog-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-confirmdialog-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-confirmdialog-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-confirmdialog-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-confirmdialog-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Confirm Dialog and Confirm Popup (Guides, category `library`).
  *
@@ -71,7 +205,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-confirmdialog-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, ButtonModule, ConfirmDialogModule, ConfirmPopupModule],
+  imports: ARTICLE_IMPORTS,
   providers: [ConfirmationService],
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
@@ -574,145 +708,15 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-confirmdialog-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-confirmdialog-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-confirmdialog-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.75rem;
-      }
-
-      app-confirmdialog-article .outcome {
-        margin: 0 0 0.75rem;
-        font-size: 0.9rem;
-        color: var(--text-color-secondary);
-        min-height: 1.4em;
-      }
-
-      app-confirmdialog-article .mock {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      app-confirmdialog-article .mock__title {
-        margin: 0;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--surface-border);
-        font-weight: 600;
-      }
-
-      app-confirmdialog-article .mock__title--empty {
-        min-height: 1.4em;
-      }
-
-      app-confirmdialog-article .mock__note {
-        font-weight: 400;
-        font-size: 0.78rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-confirmdialog-article .mock__msg {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-
-      app-confirmdialog-article .mock__row {
-        display: flex;
-        justify-content: flex-end;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      app-confirmdialog-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-confirmdialog-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-confirmdialog-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-confirmdialog-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-confirmdialog-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-confirmdialog-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-confirmdialog-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-confirmdialog-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-confirmdialog-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-confirmdialog-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-confirmdialog-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ConfirmdialogArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  readonly emptyLog = 'No answer yet.';
+  readonly emptyLog: string = 'No answer yet.';
   readonly outcome = signal(this.emptyLog);
 
-  private readonly confirmationService = inject(ConfirmationService);
+  protected readonly confirmationService = inject(ConfirmationService);
 
   askDialog(): void {
     this.confirmationService.confirm({
@@ -885,8 +889,7 @@ export class ConfirmdialogArticleComponent {
       'Plan for the popup, not for the dialog. The dialog wraps inside whatever width it has and grows downwards, which is the well-behaved case. The popup has no width of its own, so a message that doubles in length in German or Finnish doubles the width of the overlay. Keep the popup to a short question and put the detail in the page. Direction is not part of the deal in either: the popup is placed from physical coordinates and its arrow is positioned with left, both in the rule and in the value the component computes, so a right-to-left page gets the same geometry as a left-to-right one.',
   };
 
-  readonly dialogMarkupSnippet =
-    '<!-- What p-confirmDialog renders while it is open (elided). -->\n' +
+  readonly dialogMarkupSnippet: string = '<!-- What p-confirmDialog renders while it is open (elided). -->\n' +
     '<div class="p-dialog p-component p-confirmdialog" role="alertdialog"\n' +
     '     aria-modal="true" aria-labelledby="pn_id_7_header">\n' +
     '  <div class="p-dialog-header">\n' +
@@ -905,8 +908,7 @@ export class ConfirmdialogArticleComponent {
     '<!-- The message span has no id, and nothing describes the dialog. -->\n' +
     '<!-- The reject button is first in the footer, which is where focus lands. -->';
 
-  readonly popupMarkupSnippet =
-    '<!-- What p-confirmpopup renders while it is open (elided). -->\n' +
+  readonly popupMarkupSnippet: string = '<!-- What p-confirmpopup renders while it is open (elided). -->\n' +
     '<div class="p-confirmpopup p-component" role="alertdialog"\n' +
     '     style="--p-confirmpopup-arrow-left: 24px">\n' +
     '  <div class="p-confirmpopup-content">\n' +
@@ -920,8 +922,7 @@ export class ConfirmdialogArticleComponent {
     '</div>\n' +
     '<!-- No aria-modal and no aria-labelledby: an alertdialog with no name. -->';
 
-  readonly usageSnippet =
-    '// One instance per surface, each with its own key.\n' +
+  readonly usageSnippet: string = '// One instance per surface, each with its own key.\n' +
     '//   <p-confirmDialog key="destructive" [header]="title()" />\n' +
     '//   <p-confirmpopup key="rowAction" />\n' +
     '\n' +
@@ -936,8 +937,7 @@ export class ConfirmdialogArticleComponent {
     '  reject: () => this.trigger()?.focus(),\n' +
     '});';
 
-  readonly deadInputSnippet =
-    '<!-- defaultFocus: read only by a method nothing calls. -->\n' +
+  readonly deadInputSnippet: string = '<!-- defaultFocus: read only by a method nothing calls. -->\n' +
     '<!-- focusTrap, rtl, transitionOptions: never bound to the inner p-dialog. -->\n' +
     '<p-confirmDialog\n' +
     '  defaultFocus="reject"\n' +
@@ -952,8 +952,7 @@ export class ConfirmdialogArticleComponent {
     '<!-- any input, so pass closable: false rather than ship it unnamed —  -->\n' +
     '<!-- which also disables Escape, leaving the reject button as the exit. -->';
 
-  readonly routingSnippet =
-    '// Two instances, two keys — a keyed call reaches exactly one of them.\n' +
+  readonly routingSnippet: string = '// Two instances, two keys — a keyed call reaches exactly one of them.\n' +
     '//   <p-confirmDialog key="destructive" />\n' +
     '//   <p-confirmpopup  key="rowAction" />\n' +
     '\n' +
@@ -968,8 +967,7 @@ export class ConfirmdialogArticleComponent {
     '// A second confirm() while one is open replaces the first silently:\n' +
     '// its accept and reject callbacks are dropped without being called.';
 
-  readonly rejectSnippet =
-    'import { ConfirmEventType } from "@openng/optimus-ui/api";\n' +
+  readonly rejectSnippet: string = 'import { ConfirmEventType } from "@openng/optimus-ui/api";\n' +
     '\n' +
     '// Dialog: reject() also runs for Escape, the close icon, and the mask.\n' +
     'reject: (type: ConfirmEventType) => {\n' +
@@ -983,8 +981,7 @@ export class ConfirmdialogArticleComponent {
     '// Popup: the same callback is called with nothing at all.\n' +
     'reject: (type?: ConfirmEventType) => this.log(type === undefined ? "popup" : "dialog");';
 
-  readonly i18nSnippet =
-    '// translate() inside a computed, so the label re-runs on a language switch.\n' +
+  readonly i18nSnippet: string = '// translate() inside a computed, so the label re-runs on a language switch.\n' +
     'private readonly i18n = inject(TranslationService);\n' +
     'readonly deleteVerb = computed(() => this.i18n.translate("lesson.delete.accept"));\n' +
     'readonly keepVerb = computed(() => this.i18n.translate("lesson.delete.reject"));\n' +

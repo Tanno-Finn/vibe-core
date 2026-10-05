@@ -34,7 +34,7 @@ A code/prompt display box purpose-built for showing example prompts, with `good`
 | `copyable` | `boolean` | `false` | Shows a floating copy-to-clipboard button |
 | `tags` | `PromptTag[]?` | — | Segmented display: `{ label, color?, contentKey?, content? }`; presence switches the component out of single-code-block mode |
 
-`PromptTag.color`: `'blue'\|'green'\|'orange'\|'purple'\|'teal'\|'pink'`.
+`PromptTag.color`: `'blue'\|'green'\|'orange'\|'yellow'\|'teal'\|'pink'`.
 
 No `@Output()`s. No content projection — content comes only from `code`/`codeKey` or `tags`.
 

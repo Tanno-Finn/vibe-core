@@ -9,6 +9,84 @@ import { InputTextModule } from '@openng/optimus-ui/inputtext';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    FloatLabelModule,
+    IftaLabelModule,
+    InputTextModule,
+    IconFieldModule,
+    InputIconModule,
+    ButtonModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-input-labels-article .stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      app-input-labels-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        align-items: flex-start;
+      }
+
+      app-input-labels-article .col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        min-width: 0;
+        flex: 1 1 14rem;
+      }
+
+      app-input-labels-article p-floatlabel {
+        margin-top: 0.75rem;
+      }
+
+      app-input-labels-article .cap {
+        font-size: 0.75rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-input-labels-article .hint {
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-input-labels-article .il-bare {
+        font: inherit;
+        padding: 0.5rem 0.75rem;
+        border: 1px solid var(--control-border);
+        border-radius: 0.25rem;
+        background: var(--surface-card);
+        color: var(--text-color);
+        width: 100%;
+      }
+
+      app-input-labels-article .dd__stage {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding-top: 1.5rem;
+      }
+
+      app-input-labels-article .src-list {
+        margin: 0.5rem 0 0;
+        padding-inline-start: 1.1rem;
+      }
+
+      app-input-labels-article .src-list li {
+        margin-bottom: 0.4rem;
+      }
+    `;
+
 /**
  * Guide article: Input Labels (Guides, category `library`).
  *
@@ -89,17 +167,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-input-labels-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    FloatLabelModule,
-    IftaLabelModule,
-    InputTextModule,
-    IconFieldModule,
-    InputIconModule,
-    ButtonModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'input-labels'">
@@ -761,71 +829,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-input-labels-article .stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        border-radius: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
-
-      app-input-labels-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        align-items: flex-start;
-      }
-
-      app-input-labels-article .col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        min-width: 0;
-        flex: 1 1 14rem;
-      }
-
-      app-input-labels-article p-floatlabel {
-        margin-top: 0.75rem;
-      }
-
-      app-input-labels-article .cap {
-        font-size: 0.75rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-input-labels-article .hint {
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-input-labels-article .il-bare {
-        font: inherit;
-        padding: 0.5rem 0.75rem;
-        border: 1px solid var(--control-border);
-        border-radius: 0.25rem;
-        background: var(--surface-card);
-        color: var(--text-color);
-        width: 100%;
-      }
-
-      app-input-labels-article .dd__stage {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        padding-top: 1.5rem;
-      }
-
-      app-input-labels-article .src-list {
-        margin: 0.5rem 0 0;
-        padding-inline-start: 1.1rem;
-      }
-
-      app-input-labels-article .src-list li {
-        margin-bottom: 0.4rem;
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class InputLabelsArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -889,8 +893,7 @@ export class InputLabelsArticleComponent {
       'not in a CSS rule.',
   };
 
-  readonly fieldSnippet =
-    '<!-- The hull renders nothing: the label, the id, and the for are all yours. -->\n' +
+  readonly fieldSnippet: string = '<!-- The hull renders nothing: the label, the id, and the for are all yours. -->\n' +
     '<p-iftaLabel>\n' +
     '  <input pInputText\n' +
     '         id="acct-name"\n' +
@@ -908,8 +911,7 @@ export class InputLabelsArticleComponent {
     '  <label for="acct-city">{{ translate(\'your-module.account.cityLabel\') }}</label>\n' +
     '</p-floatLabel>';
 
-  readonly debugSnippet =
-    '// Three checks, in this order, on the rendered input element.\n' +
+  readonly debugSnippet: string = '// Three checks, in this order, on the rendered input element.\n' +
     '// 1. Is it a library control at all?\n' +
     "el.classList.contains('p-filled')              // pInputText / pTextarea, once non-empty\n" +
     "el.closest('.p-inputwrapper-filled')           // select, datepicker, password, …\n\n" +
@@ -919,8 +921,7 @@ export class InputLabelsArticleComponent {
     "getComputedStyle(el).paddingBlockStart         // 1.5rem under p-iftaLabel and\n" +
     '                                               // under p-floatLabel variant="in"';
 
-  readonly i18nSnippet =
-    '// One key per label, owned by your module. The `your-module.` prefix is a\n' +
+  readonly i18nSnippet: string = '// One key per label, owned by your module. The `your-module.` prefix is a\n' +
     '// placeholder: no such key exists in this kit.\n' +
     "// Note the budget in the key's translation instructions, not in CSS:\n" +
     "//   your-module.account.nameLabel — in-field label, max ~18 characters\n" +

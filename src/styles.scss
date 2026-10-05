@@ -388,7 +388,7 @@ input:disabled + .cookie-slider {
   --semantic-orange-fg: #c2410c;
   --semantic-green-fg: #15803d;
   --semantic-red-fg: #b91c1c;
-  --semantic-purple-fg: #7e22ce;
+  --semantic-cyan-fg: #0e7490;
   --semantic-pink-fg: #be185d;
 
   /* The DEFAULT style's free tokens (lernwerkstatt `extraTokens`, ui-styles.ts),
@@ -415,7 +415,7 @@ input:disabled + .cookie-slider {
   --button-border: 2px solid #2b2622;
   --style-candy-coral: #f0617a;
   --style-candy-teal: #23a094;
-  --style-candy-purple: #7c6fe0;
+  --style-candy-blue: #4a85e6;
 }
 
 /* `html.`, not a bare `.dark-theme`: ThemeService puts the mode class on <body>
@@ -454,7 +454,7 @@ html.dark-theme {
   --semantic-orange-fg: #fdba74;
   --semantic-green-fg: #86efac;
   --semantic-red-fg: #fca5a5;
-  --semantic-purple-fg: #d8b4fe;
+  --semantic-cyan-fg: #67e8f9;
   --semantic-pink-fg: #f9a8d4;
 
   /* Dark half of the default style's free tokens — see the :root block above. */
@@ -464,7 +464,7 @@ html.dark-theme {
   --button-border: 2px solid #969491;
   --style-candy-coral: #f889a9;
   --style-candy-teal: #43c6b9;
-  --style-candy-purple: #a89bf0;
+  --style-candy-blue: #8fb3f5;
 }
 
 /* Ensure HTML element also gets theme classes for deep CSS selectors */
@@ -583,7 +583,7 @@ h6 {
   --advanced-text: #d32f2f;
 
   /* Achievement Rarity Colors */
-  --rarity-epic: #9333ea;
+  --rarity-epic: #db2777;
   --rarity-legendary: #ea580c;
 
   /* Surface Scale (theme-adaptive — see .dark-theme for dark counterparts).
@@ -693,12 +693,6 @@ html.dark-theme {
   --orange-600: #fb923c;
   --orange-700: #fdba74;
 
-  --purple-50: rgba(168, 85, 247, 0.1);
-  --purple-100: rgba(168, 85, 247, 0.18);
-  --purple-200: rgba(168, 85, 247, 0.3);
-  --purple-600: #c084fc;
-  --purple-700: #d8b4fe;
-
   --yellow-50: rgba(245, 158, 11, 0.1);
   --yellow-100: rgba(245, 158, 11, 0.18);
   --yellow-200: rgba(245, 158, 11, 0.3);
@@ -776,12 +770,6 @@ html.dark-theme {
   --orange-200: #fed7aa;
   --orange-600: #ea580c;
   --orange-700: #c2410c;
-
-  --purple-50: #faf5ff;
-  --purple-100: #f3e8ff;
-  --purple-200: #e9d5ff;
-  --purple-600: #9333ea;
-  --purple-700: #7c3aed;
 
   --yellow-50: #fefce8;
   --yellow-100: #fef3c7;
@@ -1720,7 +1708,7 @@ input.p-inputtext.p-invalid {
   --p-button-text-success-color: var(--semantic-green-fg);
   --p-button-text-info-color: var(--semantic-blue-fg);
   --p-button-text-warn-color: var(--semantic-orange-fg);
-  --p-button-text-help-color: var(--semantic-purple-fg);
+  --p-button-text-help-color: var(--semantic-cyan-fg);
   --p-button-text-danger-color: var(--semantic-red-fg);
   --p-button-text-contrast-color: var(--text-color);
   --p-button-text-plain-color: var(--text-color);
@@ -2622,7 +2610,7 @@ app-theme-picker .p-button:hover .theme-dropdown-icon::before {
 
 /* -----------------------------------------------------------------------------
    Lernwerkstatt — sticker outlines, confetti ground, round shapes
-   Tokens: --style-outline, --style-candy-teal/-coral/-purple, --primary-500,
+   Tokens: --style-outline, --style-candy-teal/-coral/-blue, --primary-500,
    --font-heading.
    This is the kit's DEFAULT style (ADR-0016 D3, amended 2026-09-24).
    -------------------------------------------------------------------------- */
@@ -2640,7 +2628,7 @@ html.style-lernwerkstatt {
       radial-gradient(3px 3px at 40px 60px, var(--primary-500) 50%, transparent 51%),
       radial-gradient(3px 3px at 260px 30px, var(--style-candy-teal) 50%, transparent 51%),
       radial-gradient(3px 3px at 190px 190px, var(--style-candy-coral) 50%, transparent 51%),
-      radial-gradient(3px 3px at 90px 240px, var(--style-candy-purple) 50%, transparent 51%);
+      radial-gradient(3px 3px at 90px 240px, var(--style-candy-blue) 50%, transparent 51%);
     background-size: 340px 280px;
     background-repeat: repeat;
   }

@@ -263,8 +263,8 @@ const TYPE_ICONS: Record<string, string> = {
         --cursor-glow-color: #06b6d4;
       }
       app-sources .source-card[data-type='wikipedia'] {
-        border-left-color: #6366f1;
-        --cursor-glow-color: #6366f1;
+        border-left-color: #64748b;
+        --cursor-glow-color: #64748b;
       }
       app-sources .source-card[data-type='blog'] {
         border-left-color: #f59e0b;
@@ -275,8 +275,8 @@ const TYPE_ICONS: Record<string, string> = {
         --cursor-glow-color: #ef4444;
       }
       app-sources .source-card[data-type='interview'] {
-        border-left-color: #8b5cf6;
-        --cursor-glow-color: #8b5cf6;
+        border-left-color: #ec4899;
+        --cursor-glow-color: #ec4899;
       }
       app-sources .source-card[data-type='article'] {
         border-left-color: #14b8a6;
@@ -322,7 +322,7 @@ const TYPE_ICONS: Record<string, string> = {
       }
 
       app-sources .source-card[data-type='wikipedia'] .source-type-icon {
-        background: #6366f1;
+        background: #64748b;
       }
 
       app-sources .source-card[data-type='blog'] .source-type-icon {
@@ -334,7 +334,7 @@ const TYPE_ICONS: Record<string, string> = {
       }
 
       app-sources .source-card[data-type='interview'] .source-type-icon {
-        background: #8b5cf6;
+        background: #ec4899;
       }
 
       app-sources .source-card[data-type='article'] .source-type-icon {

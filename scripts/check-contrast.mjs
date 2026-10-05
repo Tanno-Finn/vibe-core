@@ -1386,7 +1386,7 @@ function buildPairs(style, scss, colors, chipSteps) {
     // Inline coloured text inside prose (glossary terms, timeline events, formula
     // tokens). Text on the surface it sits on — ground for running prose, card inside
     // a container.
-    for (const hue of ['blue', 'orange', 'green', 'red', 'purple', 'pink']) {
+    for (const hue of ['blue', 'orange', 'green', 'red', 'cyan', 'pink']) {
       const fg = t[`--semantic-${hue}-fg`];
       if (!fg) continue;
       add(mode, 'semantic text', '1.4.3', AA_NORMAL, `--semantic-${hue}-fg`, fg, '--surface-ground', ground);

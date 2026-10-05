@@ -228,7 +228,7 @@ function mapPathToVisual(path: string): ThumbnailResolution {
         --thumb-hue: var(--p-blue-500);
       }
       .thumb-fallback[data-type='Demo'] {
-        --thumb-hue: var(--p-purple-500);
+        --thumb-hue: var(--p-pink-500);
       }
       .thumb-fallback[data-type='AI Tools'],
       .thumb-fallback[data-type='AI Resources'] {
@@ -244,7 +244,7 @@ function mapPathToVisual(path: string): ThumbnailResolution {
         --thumb-hue: var(--p-cyan-500);
       }
       .thumb-fallback[data-type='Timeline'] {
-        --thumb-hue: var(--p-indigo-500);
+        --thumb-hue: var(--p-teal-500);
       }
     `,
   ],

@@ -7,6 +7,370 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    CheckboxModule,
+    RadioButtonModule,
+    SelectModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul,
+      ol {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      kbd {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-bottom-width: 2px;
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.4em;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- The checkbox row: the kit convention this guide documents --- */
+      .cb-row {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-2);
+      }
+      .cb-row label {
+        cursor: pointer;
+        line-height: 1.35;
+      }
+      .cb-col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .cb-group {
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        margin: 0;
+        padding: var(--space-4);
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .cb-group legend {
+        padding: 0 var(--space-2);
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .cb-group--tight {
+        border: 0;
+        padding: 0;
+      }
+      .cb-group--tight legend {
+        padding: 0;
+        margin-bottom: var(--space-1);
+      }
+      .cb-children {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding-left: var(--space-5);
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 8rem;
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4) var(--space-6);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .sizes {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Checkbox (SPEC N5, Guides extension).
  *
@@ -57,15 +421,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-checkbox-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    CheckboxModule,
-    RadioButtonModule,
-    SelectModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'checkbox'">
@@ -1834,368 +2190,16 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul,
-      ol {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      kbd {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-bottom-width: 2px;
-        border-radius: var(--radius-sm);
-        padding: 0.05em 0.4em;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- The checkbox row: the kit convention this guide documents --- */
-      .cb-row {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-2);
-      }
-      .cb-row label {
-        cursor: pointer;
-        line-height: 1.35;
-      }
-      .cb-col {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .cb-group {
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        margin: 0;
-        padding: var(--space-4);
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .cb-group legend {
-        padding: 0 var(--space-2);
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .cb-group--tight {
-        border: 0;
-        padding: 0;
-      }
-      .cb-group--tight legend {
-        padding: 0;
-        margin-bottom: var(--space-1);
-      }
-      .cb-children {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding-left: var(--space-5);
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 8rem;
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4) var(--space-6);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .sizes {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class CheckboxArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
+  protected readonly destroyRef = inject(DestroyRef);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -2275,7 +2279,7 @@ export class CheckboxArticleComponent {
   };
 
   /** The measured name of the "Don't" naming example, quoted in the Usage tab. */
-  readonly ddNameBadMeasured = '"" — empty, an unnamed checkbox';
+  readonly ddNameBadMeasured: string = '"" — empty, an unnamed checkbox';
 
   // --- Playground state ------------------------------------------------------
   readonly sizeOptions = [
@@ -2346,7 +2350,7 @@ export class CheckboxArticleComponent {
   readonly treeNone = computed(() => this.events.every((e) => !this.treeState()[e.key]));
   /** Mixed = at least one on and at least one off. Derived, never hand-maintained. */
   readonly treeSome = computed(() => !this.treeAll() && !this.treeNone());
-  readonly treeStateText = computed(() =>
+  readonly treeStateText = computed<string>(() =>
     this.treeAll() ? 'checked' : this.treeSome() ? 'indeterminate (visually)' : 'unchecked',
   );
 
@@ -2385,11 +2389,11 @@ export class CheckboxArticleComponent {
   readonly gpC = signal(true);
 
   // --- Code snippets ---------------------------------------------------------
-  readonly sizesCode = `<p-checkbox inputId="s"  size="small" [binary]="true" [(ngModel)]="a" />
+  readonly sizesCode: string = `<p-checkbox inputId="s"  size="small" [binary]="true" [(ngModel)]="a" />
 <p-checkbox inputId="m"              [binary]="true" [(ngModel)]="b" />
 <p-checkbox inputId="l"  size="large" [binary]="true" [(ngModel)]="c" />`;
 
-  readonly groupArrayCode = `<!-- One array, four boxes. No [binary]. -->
+  readonly groupArrayCode: string = `<!-- One array, four boxes. No [binary]. -->
 <fieldset class="cb-group">
   <legend>{{ t('notify.legend') }}</legend>
   @for (ch of channels; track ch.value) {
@@ -2403,7 +2407,7 @@ export class CheckboxArticleComponent {
 
 // selectedChannels: string[] = ['email'];`;
 
-  readonly groupBoolCode = `<!-- Independent flags: [binary]="true", one signal each. -->
+  readonly groupBoolCode: string = `<!-- Independent flags: [binary]="true", one signal each. -->
 <fieldset class="cb-group">
   <legend>{{ t('account.legend') }}</legend>
   <div class="cb-row">
@@ -2412,7 +2416,7 @@ export class CheckboxArticleComponent {
   </div>
 </fieldset>`;
 
-  readonly indeterminateCode = `<!-- The parent's indeterminate state is DERIVED, never stored. -->
+  readonly indeterminateCode: string = `<!-- The parent's indeterminate state is DERIVED, never stored. -->
 <p-checkbox inputId="all" [binary]="true"
   [indeterminate]="someButNotAll()"
   [ngModel]="allChecked()" (ngModelChange)="setAll($event)" />
@@ -2423,17 +2427,17 @@ readonly allChecked  = computed(() => this.events.every(e => this.state()[e.key]
 readonly noneChecked = computed(() => this.events.every(e => !this.state()[e.key]));
 readonly someButNotAll = computed(() => !this.allChecked() && !this.noneChecked());`;
 
-  readonly trueFalseCode = `<p-checkbox inputId="digest" [binary]="true"
+  readonly trueFalseCode: string = `<p-checkbox inputId="digest" [binary]="true"
   trueValue="yes" falseValue="no" [(ngModel)]="digest" />
 <label for="digest">Subscribe to the digest</label>
 
 // digest: 'yes' | 'no' = 'no';`;
 
-  readonly statesCode = `<p-checkbox inputId="a" [binary]="true" [disabled]="true" [(ngModel)]="a" />
+  readonly statesCode: string = `<p-checkbox inputId="a" [binary]="true" [disabled]="true" [(ngModel)]="a" />
 <p-checkbox inputId="b" [binary]="true" [invalid]="form.controls.terms.invalid" [(ngModel)]="b" />
 <p-checkbox inputId="c" [binary]="true" [readonly]="true" [(ngModel)]="c" />`;
 
-  readonly rowSnippet = `<div class="cb-row">
+  readonly rowSnippet: string = `<div class="cb-row">
   <p-checkbox inputId="terms" [binary]="true" [(ngModel)]="acceptedTerms" />
   <label for="terms">I accept the terms</label>
 </div>
@@ -2442,7 +2446,7 @@ readonly someButNotAll = computed(() => !this.allChecked() && !this.noneChecked(
 .cb-row { display: flex; align-items: flex-start; gap: var(--space-2); }
 .cb-row label { cursor: pointer; line-height: 1.35; }`;
 
-  readonly devImport = `import { CheckboxModule } from '@openng/optimus-ui/checkbox';
+  readonly devImport: string = `import { CheckboxModule } from '@openng/optimus-ui/checkbox';
 
 @Component({
   standalone: true,
@@ -2450,7 +2454,7 @@ readonly someButNotAll = computed(() => !this.allChecked() && !this.noneChecked(
   // ...
 })`;
 
-  readonly bindingSnippet = `// A) The answer is a SET -> one array, a value per box, no [binary]
+  readonly bindingSnippet: string = `// A) The answer is a SET -> one array, a value per box, no [binary]
 selectedChannels: string[] = [];
 // <p-checkbox [value]="'email'" [(ngModel)]="selectedChannels" inputId="ch-email" />
 
@@ -2459,7 +2463,7 @@ acceptedTerms = signal(false);
 // <p-checkbox [binary]="true" [ngModel]="acceptedTerms()"
 //   (ngModelChange)="acceptedTerms.set($event)" inputId="terms" />`;
 
-  readonly indeterminateWireSnippet = `readonly allChecked  = computed(() => this.rows().every(r => r.selected));
+  readonly indeterminateWireSnippet: string = `readonly allChecked  = computed(() => this.rows().every(r => r.selected));
 readonly noneChecked = computed(() => this.rows().every(r => !r.selected));
 readonly mixed       = computed(() => !this.allChecked() && !this.noneChecked());
 
@@ -2467,7 +2471,7 @@ readonly mixed       = computed(() => !this.allChecked() && !this.noneChecked())
 // <p-checkbox inputId="all" [binary]="true" [indeterminate]="mixed()"
 //   [ngModel]="allChecked()" (ngModelChange)="setAll($event)" />`;
 
-  readonly indeterminateFixSnippet = `// Optimus draws the minus but tells assistive technology nothing.
+  readonly indeterminateFixSnippet: string = `// Optimus draws the minus but tells assistive technology nothing.
 // Set the DOM property AND the ARIA state on the real input yourself.
 private readonly doc = inject(DOCUMENT);
 
@@ -2480,7 +2484,7 @@ private syncMixed(inputId: string, mixed: boolean, checked: boolean): void {
 
 // Call it from an effect() that reads the same computed the template binds.`;
 
-  readonly i18nSnippet = `// Labels rebuild on a language switch because they are read through a computed().
+  readonly i18nSnippet: string = `// Labels rebuild on a language switch because they are read through a computed().
 readonly labels = computed(() => ({
   legend: this.i18n.translate('notify.legend'),
   email: this.i18n.translate('notify.channel.email'),
@@ -2490,13 +2494,13 @@ readonly labels = computed(() => ({
 // <legend>{{ labels().legend }}</legend>
 // <label for="ch-email">{{ labels().email }}</label>`;
 
-  readonly ptSnippet = `<p-checkbox inputId="pt-demo" [binary]="true"
+  readonly ptSnippet: string = `<p-checkbox inputId="pt-demo" [binary]="true"
   [pt]="{ input: { 'aria-describedby': 'pt-demo-desc' } }"
   [(ngModel)]="deleteArchive" />
 <label for="pt-demo">Delete the archive as well</label>
 <p id="pt-demo-desc">This cannot be undone once the job has run.</p>`;
 
-  readonly fragmentSnippet = `<!-- Don't: three fragments, one of them outside the label. -->
+  readonly fragmentSnippet: string = `<!-- Don't: three fragments, one of them outside the label. -->
 <label for="terms">{{ t('consent.iAccept') }}</label>
 <a href="/terms">{{ t('consent.terms') }}</a>
 
@@ -2504,13 +2508,13 @@ readonly labels = computed(() => ({
 <label for="terms">{{ t('consent.full') }}</label>
 <!-- consent.full = "I accept the terms of service." -->`;
 
-  readonly wrapSnippet = `/* The box stays on the first line when the sentence wraps. */
+  readonly wrapSnippet: string = `/* The box stays on the first line when the sentence wraps. */
 .cb-row { display: flex; align-items: flex-start; gap: var(--space-2); }
 
 /* Not this: the box drifts to the vertical center of a two-line label. */
 .cb-row--wrong { display: flex; align-items: center; }`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { CheckboxModule } from '@openng/optimus-ui/checkbox';
 

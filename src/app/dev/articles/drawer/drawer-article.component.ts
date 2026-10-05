@@ -9,6 +9,401 @@ import { FocusReturn } from '../../../utils/focus-return';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    DrawerModule,
+    ButtonModule,
+    SelectModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__aside {
+        font-weight: 400;
+        color: var(--text-color-secondary);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--space-3);
+        min-height: 9rem;
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .row__tag {
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+
+      /* --- Focus journal --- */
+      .fj {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-5);
+        width: 100%;
+      }
+      .fj__col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .fj__journal {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        font-size: 0.8rem;
+      }
+      .fj__journal li {
+        margin: 0.2rem 0;
+        color: var(--text-color);
+        overflow-wrap: anywhere;
+      }
+      @media (max-width: 640px) {
+        .fj {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Drawer demo internals --- */
+      .navdemo ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+      }
+      .navdemo li {
+        margin: 0;
+      }
+      .navdemo a {
+        display: block;
+        padding: 0.5rem 0.6rem;
+        border-radius: var(--radius-md);
+        color: var(--text-color);
+        text-decoration: none;
+      }
+      .navdemo a:hover {
+        background: var(--surface-section);
+      }
+      .navdemo a:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .drawer-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: var(--space-3);
+      }
+      .headless {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+      .headless__bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-bottom: 1px solid var(--surface-border);
+      }
+      .headless__title {
+        margin: 0;
+        font-size: 1.05rem;
+      }
+      .headless__body {
+        flex: 1;
+        overflow-y: auto;
+        padding: var(--space-4);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Drawer — p-drawer (SPEC N5, Guides).
  *
@@ -63,15 +458,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-drawer-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    DrawerModule,
-    ButtonModule,
-    SelectModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'drawer'">
@@ -1498,400 +1885,17 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__aside {
-        font-weight: 400;
-        color: var(--text-color-secondary);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: var(--space-3);
-        min-height: 9rem;
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: 0.78rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .row__tag {
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-
-      /* --- Focus journal --- */
-      .fj {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: var(--space-5);
-        width: 100%;
-      }
-      .fj__col {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .fj__journal {
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-        font-size: 0.8rem;
-      }
-      .fj__journal li {
-        margin: 0.2rem 0;
-        color: var(--text-color);
-        overflow-wrap: anywhere;
-      }
-      @media (max-width: 640px) {
-        .fj {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Drawer demo internals --- */
-      .navdemo ul {
-        list-style: none;
-        padding-left: 0;
-        margin: 0;
-      }
-      .navdemo li {
-        margin: 0;
-      }
-      .navdemo a {
-        display: block;
-        padding: 0.5rem 0.6rem;
-        border-radius: var(--radius-md);
-        color: var(--text-color);
-        text-decoration: none;
-      }
-      .navdemo a:hover {
-        background: var(--surface-section);
-      }
-      .navdemo a:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .drawer-footer {
-        display: flex;
-        justify-content: flex-end;
-        gap: var(--space-3);
-      }
-      .headless {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-      .headless__bar {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-bottom: 1px solid var(--surface-border);
-      }
-      .headless__title {
-        margin: 0;
-        font-size: 1.05rem;
-      }
-      .headless__body {
-        flex: 1;
-        overflow-y: auto;
-        padding: var(--space-4);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class DrawerArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1950,7 +1954,7 @@ export class DrawerArticleComponent {
     }
   });
 
-  private readonly playgroundFocus = new FocusReturn();
+  protected readonly playgroundFocus = new FocusReturn();
 
   readonly pgSize = computed<Record<string, string>>(() => {
     const pos = this.pgPosition();
@@ -2027,7 +2031,7 @@ export class DrawerArticleComponent {
   readonly fjBare = signal({ before: '—', opened: '—', closed: '—' });
   readonly fjWired = signal({ before: '—', opened: '—', closed: '—' });
 
-  private readonly fjFocusReturn = new FocusReturn();
+  protected readonly fjFocusReturn = new FocusReturn();
 
   openFocusDemo(wired: boolean): void {
     const before = this.describeActive();
@@ -2062,7 +2066,7 @@ export class DrawerArticleComponent {
   }
 
   /** A short, readable name for whatever currently has focus. */
-  private describeActive(): string {
+  protected describeActive(): string {
     if (!this.isBrowser) return '—';
     const el = document.activeElement;
     if (!el || el === document.body) return 'body — nothing is focused';
@@ -2309,8 +2313,7 @@ export class DrawerArticleComponent {
     },
   ];
 
-  readonly tokenNote =
-    'Every surface token is an alias of overlay.modal.*, so the drawer and the dialog are the same material by construction — and neither the group nor the base stylesheet gives the panel a border radius, which is why the corners are square. The resolved values are the Aura stock surface palette (slate light, zinc dark): no visual style overrides these tokens, and the accent does not reach them. The mask is not styled from a drawer token at all: it takes the shared overlay mask background, and --px-mask-background is the variable both the rule and its keyframes read.';
+  readonly tokenNote: string = 'Every surface token is an alias of overlay.modal.*, so the drawer and the dialog are the same material by construction — and neither the group nor the base stylesheet gives the panel a border radius, which is why the corners are square. The resolved values are the Aura stock surface palette (slate light, zinc dark): no visual style overrides these tokens, and the accent does not reach them. The mask is not styled from a drawer token at all: it takes the shared overlay mask background, and --px-mask-background is the variable both the rule and its keyframes read.';
 
   readonly contrastRows = [
     { pair: 'panel text (the inherited --p-drawer-color)', light: '10.35:1', dark: '17.72:1', floor: '4.5:1' },
@@ -2318,8 +2321,7 @@ export class DrawerArticleComponent {
     { pair: 'close-button focus ring (kit ring) against the panel', light: '5.18–17.85:1', dark: '6.40–16.93:1', floor: '3:1' },
   ];
 
-  readonly contrastNote =
-    'Quoted from the contrast gate, docs/generated/CONTRAST.MD. The drawer panel is the overlay.modal surface, the same value as the dialog panel (the "panel outline" rows list drawer.background beside the card), so the gate\'s dialog.background rows are the drawer\'s: "dialog" for the panel text and the close icon (the secondary text button\'s kit color, --text-color-secondary), "focus ring" for the kit\'s 2px --primary-color-fg ring on dialog.background, ranges across the four visual styles and, for the ring, the accents. Content that sets its own color is outside these numbers — measure it against the panel background, not against the page.';
+  readonly contrastNote: string = 'Quoted from the contrast gate, docs/generated/CONTRAST.MD. The drawer panel is the overlay.modal surface, the same value as the dialog panel (the "panel outline" rows list drawer.background beside the card), so the gate\'s dialog.background rows are the drawer\'s: "dialog" for the panel text and the close icon (the secondary text button\'s kit color, --text-color-secondary), "focus ring" for the kit\'s 2px --primary-color-fg ring on dialog.background, ranges across the four visual styles and, for the ring, the accents. Content that sets its own color is outside these numbers — measure it against the panel background, not against the page.';
 
   readonly geometryRows = [
     {
@@ -2348,11 +2350,9 @@ export class DrawerArticleComponent {
     { what: 'close button / its icon', value: '40 x 40px / 16 x 16px', origin: 'p-button, rounded + text' },
   ];
 
-  readonly geometryNote =
-    'Computed style on the position classes at a 1440 x 900 viewport. The three 3px edges are the CSS initial medium width showing through, and box-sizing is border-box, so they come out of the content width you set.';
+  readonly geometryNote: string = 'Computed style on the position classes at a 1440 x 900 viewport. The three 3px edges are the CSS initial medium width showing through, and box-sizing is border-box, so they come out of the content width you set.';
 
-  readonly focusRingNote =
-    'Nothing at rest. Focused from the keyboard, the close button takes the kit focus ring: .p-button:focus-visible is in the one ring rule of styles.scss, a 2px solid --primary-color-fg outline at 2px offset with !important, drawn over the secondary button\'s own 1px ring (Aura {surface.600} / {surface.300}). The gate measures it on the panel surface (CONTRAST.MD, "focus ring" on dialog.background, lowest 5.18:1). Retuning --p-focus-ring-color therefore changes nothing here. Anything you project into the panel keeps the ring it would have had on the page.';
+  readonly focusRingNote: string = 'Nothing at rest. Focused from the keyboard, the close button takes the kit focus ring: .p-button:focus-visible is in the one ring rule of styles.scss, a 2px solid --primary-color-fg outline at 2px offset with !important, drawn over the secondary button\'s own 1px ring (Aura {surface.600} / {surface.300}). The gate measures it on the panel surface (CONTRAST.MD, "focus ring" on dialog.background, lowest 5.18:1). Retuning --p-focus-ring-color therefore changes nothing here. Anything you project into the panel keeps the ring it would have had on the page.';
 
   readonly motionRows = [
     {
@@ -2380,8 +2380,7 @@ export class DrawerArticleComponent {
     { markup: 'close button without it', node: 'no aria-label attribute at all; the only content is an <svg>' },
   ];
 
-  readonly axNote =
-    'Read from the browser accessibility tree with a drawer open, once per variant. aria-modal never appears unless you add it — and adding it is a claim about the rest of the page that nothing in the component backs up.';
+  readonly axNote: string = 'Read from the browser accessibility tree with a drawer open, once per variant. aria-modal never appears unless you add it — and adding it is a claim about the rest of the page that nothing in the component backs up.';
 
   readonly rtlRows = [
     {
@@ -2396,9 +2395,7 @@ export class DrawerArticleComponent {
     },
   ];
 
-  readonly rtlNote =
-    'Computed style on the rendered panels with dir="ltr" and then dir="rtl" on the document; border widths read clockwise from the top. The logical values themselves never move — border-inline-start/end stay 3px/1px for a left drawer — only their physical mapping flips, which is exactly what makes the rule contradict its own pin. The one :dir(rtl) rule the stylesheet ships, on .p-drawer-mask, changes nothing here: in this library the mask has no children to reverse. The enter and leave keyframes translate on the X axis with fixed signs and do not mirror either.';
+  readonly rtlNote: string = 'Computed style on the rendered panels with dir="ltr" and then dir="rtl" on the document; border widths read clockwise from the top. The logical values themselves never move — border-inline-start/end stay 3px/1px for a left drawer — only their physical mapping flips, which is exactly what makes the rule contradict its own pin. The one :dir(rtl) rule the stylesheet ships, on .p-drawer-mask, changes nothing here: in this library the mask has no children to reverse. The enter and leave keyframes translate on the X axis with fixed signs and do not mirror either.';
 
-  readonly focusMeasuredNote =
-    'Measured with the keyboard: after Enter on the trigger, document.activeElement is still the trigger, and the following eight Tab presses walk the controls of the page behind the mask without ever entering the panel. Once focus is inside, Tab and Shift+Tab cycle between the panel controls and do not leave it. Closing a panel that holds focus drops focus outside it — <body>, or whichever container survives the panel — never on the opener.';
+  readonly focusMeasuredNote: string = 'Measured with the keyboard: after Enter on the trigger, document.activeElement is still the trigger, and the following eight Tab presses walk the controls of the page behind the mask without ever entering the panel. Once focus is inside, Tab and Shift+Tab cycle between the panel controls and do not leave it. Closing a panel that holds focus drops focus outside it — <body>, or whichever container survives the panel — never on the opener.';
 }

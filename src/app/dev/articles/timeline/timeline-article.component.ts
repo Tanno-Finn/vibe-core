@@ -7,6 +7,251 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, TimelineModule, CardModule, SelectModule, ToggleSwitchModule, FormsModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+        gap: var(--space-5);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        padding: 0;
+        margin-bottom: var(--space-2);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .pg__preview {
+        min-width: 0;
+      }
+      .pg__preview-label {
+        display: block;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-2);
+      }
+      .pg__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+        overflow-x: auto;
+      }
+      .pg__read {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: var(--space-3) 0 0;
+      }
+      .demo-tl .demo-h {
+        margin: 0 0 0.2rem;
+        font-size: 0.95rem;
+      }
+      .demo-tl .demo-p {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .demo-time {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .demo-marker {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 2px solid var(--control-border);
+        background: var(--surface-card);
+        font-size: 0.9rem;
+      }
+      /* --- Do/Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-3);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      /* --- Blocks --- */
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .code-block--inline {
+        margin: 0;
+        font-size: 0.75rem;
+        background: var(--surface-card);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      caption {
+        text-align: left;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        padding-bottom: 0.4rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background: var(--surface-section);
+        font-weight: var(--font-weight-medium);
+      }
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+      @media (max-width: 900px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 720px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Timeline (`p-timeline`) — Guides layer, library category.
  *
@@ -51,7 +296,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-timeline-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, TimelineModule, CardModule, SelectModule, ToggleSwitchModule, FormsModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'timeline'">
@@ -840,248 +1085,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-        gap: var(--space-5);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        padding: 0;
-        margin-bottom: var(--space-2);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: 0.3rem;
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .pg__preview {
-        min-width: 0;
-      }
-      .pg__preview-label {
-        display: block;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-2);
-      }
-      .pg__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-        overflow-x: auto;
-      }
-      .pg__read {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: var(--space-3) 0 0;
-      }
-      .demo-tl .demo-h {
-        margin: 0 0 0.2rem;
-        font-size: 0.95rem;
-      }
-      .demo-tl .demo-p {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .demo-time {
-        font-family: var(--font-mono);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .demo-marker {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        border: 2px solid var(--control-border);
-        background: var(--surface-card);
-        font-size: 0.9rem;
-      }
-      /* --- Do/Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-3);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      /* --- Blocks --- */
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .code-block--inline {
-        margin: 0;
-        font-size: 0.75rem;
-        background: var(--surface-card);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      caption {
-        text-align: left;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        padding-bottom: 0.4rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        background: var(--surface-section);
-        font-weight: var(--font-weight-medium);
-      }
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-      @media (max-width: 900px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 720px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TimelineArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -1137,43 +1141,37 @@ export class TimelineArticleComponent {
     { year: '2026', iso: '2026-09-01', glyph: '◆', title: 'Guides layer', summary: 'Agent docs and article tabs from one file.' },
   ];
 
-  readonly oppositeFixSnippet =
-    '<!-- The empty opposite box is always rendered and always flex: 1.\n' +
+  readonly oppositeFixSnippet: string = '<!-- The empty opposite box is always rendered and always flex: 1.\n' +
     '     Give it back to the content instead of leaving half the row blank. -->\n' +
     '<p-timeline [value]="events()" align="left" [pt]="tlPt">\n' +
     '  <ng-template #content let-event>…</ng-template>\n' +
     '</p-timeline>\n\n' +
     "readonly tlPt = { eventOpposite: { style: 'flex: 0' } };";
 
-  readonly responsiveSnippet =
-    '<!-- One component, one DOM, the breakpoint in your own stylesheet. -->\n' +
+  readonly responsiveSnippet: string = '<!-- One component, one DOM, the breakpoint in your own stylesheet. -->\n' +
     '<p-timeline [value]="events()" [align]="narrow() ? \'left\' : \'alternate\'">\n' +
     '  …\n' +
     '</p-timeline>\n\n' +
     "// narrow() is a signal over matchMedia('(max-width: 48rem)'),\n" +
     '// guarded for the server the way any media query has to be.';
 
-  readonly slotBadSnippet =
-    '<p-timeline [value]="events()">\n' +
+  readonly slotBadSnippet: string = '<p-timeline [value]="events()">\n' +
     '  <div class="wrap">\n' +
     '    <ng-template #content let-event>…</ng-template>\n' +
     '  </div>\n' +
     '</p-timeline>';
 
-  readonly slotGoodSnippet =
-    '<p-timeline [value]="events()">\n' +
+  readonly slotGoodSnippet: string = '<p-timeline [value]="events()">\n' +
     '  <ng-template #content let-event>\n' +
     '    @if (event.detailed) { … } @else { … }\n' +
     '  </ng-template>\n' +
     '</p-timeline>';
 
-  readonly colorBadSnippet =
-    '<ng-template #marker let-event>\n' +
+  readonly colorBadSnippet: string = '<ng-template #marker let-event>\n' +
     '  <span class="dot" [style.background]="event.categoryColour"></span>\n' +
     '</ng-template>';
 
-  readonly colorGoodSnippet =
-    '<ng-template #marker let-event>\n' +
+  readonly colorGoodSnippet: string = '<ng-template #marker let-event>\n' +
     '  <span class="dot" [style.background]="event.categoryColour" aria-hidden="true"></span>\n' +
     '</ng-template>\n' +
     '<ng-template #content let-event>\n' +
@@ -1181,16 +1179,14 @@ export class TimelineArticleComponent {
     '  …\n' +
     '</ng-template>';
 
-  readonly tokenOverrideSnippet =
-    '/* Inert: the library re-declares this on :root after your stylesheet loads. */\n' +
+  readonly tokenOverrideSnippet: string = '/* Inert: the library re-declares this on :root after your stylesheet loads. */\n' +
     ':root { --p-timeline-event-connector-color: var(--control-border); }\n\n' +
     '/* Works: an element scope beats the :root declaration on specificity. */\n' +
     '.release-rail { --p-timeline-event-connector-color: var(--control-border); }\n\n' +
     '/* Works, and cannot escape the instance: */\n' +
     "readonly tlPt = { eventConnector: { style: 'background: var(--control-border)' } };";
 
-  readonly valueSnippet =
-    '// Renders nothing new — same reference, OnPush, no signal input.\n' +
+  readonly valueSnippet: string = '// Renders nothing new — same reference, OnPush, no signal input.\n' +
     'this.events.push(next);\n\n' +
     '// Renders: a new array reference.\n' +
     'this.events = [...this.events, next];\n\n' +
@@ -1198,8 +1194,7 @@ export class TimelineArticleComponent {
     'readonly events = signal<Event[]>([]);\n' +
     '// <p-timeline [value]="events()">';
 
-  readonly i18nSnippet =
-    '<p-timeline [value]="events()" [pt]="tlPt()">\n' +
+  readonly i18nSnippet: string = '<p-timeline [value]="events()" [pt]="tlPt()">\n' +
     '  <ng-template #opposite let-event>\n' +
     '    <time [attr.datetime]="event.iso">{{ dateLabel(event.iso) }}</time>\n' +
     '  </ng-template>\n' +

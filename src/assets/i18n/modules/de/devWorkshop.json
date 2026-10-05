@@ -129,6 +129,7 @@
     "notFoundNote": "Es gibt keinen Guide-Artikel mit dieser ID:",
     "relatedTitle": "Verwandte Guides",
     "agentTabHint": "Denselben Inhalt bekommen Agenten token-sparsam über die CLI:",
+    "agentTabLanguageNote": "Dieser Tab ist der Vertrag für KI-Agenten und bleibt deshalb auf Englisch.",
     "agentsTitle": "Guides für Bibliotheks- und Layout-Fragen",
     "agentsLede": "Für Fragen zu Optimus-UI-Bausteinen, Grundlagen oder Layout-Mustern liefern die Guides ausführliche Artikel - mit einem kanonischen Agenten-Dokument je Guide. Lies token-sparsam: erst den Index, dann eine Sektion, dann bei Bedarf das ganze Dokument.",
     "cliTopicsNote": "Abdeckungskarte: was es überhaupt gibt, beide Schichten",

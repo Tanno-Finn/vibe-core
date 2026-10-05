@@ -1,25 +1,36 @@
 import type { ExtendedRoute } from '../app.routes';
 import { VIBE_DEV_SENTINEL } from './dev-sentinel';
 import { articleRegistry } from './articles/article-registry';
+import { germanGuideLoaders } from './articles/guide-translations.generated';
+import { GUIDE_COMPONENTS_KEY, guideComponentsResolver } from './articles/guide-language-switch.component';
 
 /**
  * One lazy child route per guide article, GENERATED from `articleRegistry`
  * (SPEC N5, Guides extension). Path is the literal `dev/design/guide/<id>` (a
  * distinct 3-segment path, so it never collides with the 2-segment
- * `dev/design/:slug` component-detail route). Each carries the entry's own
+ * `dev/design/:slug` component-detail route). Each resolves the entry's own
  * `loadComponent`, plus `devOnly`/`hidden`/`data.devSentinel` like every other
  * workshop route — so the whole set is stripped in prod via the same
  * dev.routes.ts -> dev.routes.prod.ts fileReplacement. New registry entry ->
  * new route automatically; check-design-guides.mjs verifies the 1:1 mapping.
+ *
+ * Language (ADR-0018): the route resolves the English component and, when the
+ * guide has one, its German twin (from the generated `germanGuideLoaders`, written
+ * by scripts/sync-guide-translations.mjs), and renders GuideLanguageSwitchComponent,
+ * which picks the twin for a `de` base language and English otherwise.
  */
 const guideRoutes: ExtendedRoute[] = articleRegistry.map((article) => ({
   path: `dev/design/guide/${article.id}`,
   devOnly: true,
   hidden: true,
-  // staticTitle: literal <title> source for MetaSeoService's route-title
-  // fallback (guides are English-canonical, so no i18n key exists for them).
-  data: { devSentinel: VIBE_DEV_SENTINEL, staticTitle: article.title },
-  loadComponent: article.loadComponent,
+  // staticTitle / staticTitleDe: literal <title> sources for MetaSeoService's
+  // route-title fallback (guide titles live in the registry, not in i18n keys).
+  data: { devSentinel: VIBE_DEV_SENTINEL, staticTitle: article.title, staticTitleDe: article.titleDe },
+  resolve: { [GUIDE_COMPONENTS_KEY]: guideComponentsResolver(article.loadComponent, germanGuideLoaders[article.id]) },
+  // loadComponent, not component: app.routes.ts adds translationReadyGuard only to
+  // routes that load one (the module is already in this chunk, so it resolves at once).
+  loadComponent: () =>
+    import('./articles/guide-language-switch.component').then((m) => m.GuideLanguageSwitchComponent),
 }));
 
 /**

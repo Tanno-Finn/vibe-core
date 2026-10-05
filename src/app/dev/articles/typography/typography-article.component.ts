@@ -2,6 +2,279 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+
+      /* --- Size scale --- */
+      .scale {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        margin: 0 0 var(--space-4);
+      }
+      .scale__row {
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-4);
+        flex-wrap: wrap;
+        padding: var(--space-3) var(--space-4);
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+      }
+      .scale__row code {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-color-secondary);
+        flex: 0 0 11rem;
+      }
+      .s-xs {
+        font-size: var(--font-size-xs);
+      }
+      .s-sm {
+        font-size: var(--font-size-sm);
+      }
+      .s-base {
+        font-size: var(--font-size-base);
+      }
+      .s-lg {
+        font-size: var(--font-size-lg);
+      }
+      .s-xl {
+        font-size: var(--font-size-xl);
+      }
+      .s-2xl {
+        font-size: var(--font-size-2xl);
+      }
+      .s-3xl {
+        font-size: var(--font-size-3xl);
+      }
+
+      /* --- Weight ladder --- */
+      .ladder {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        font-size: var(--font-size-xl);
+      }
+      .w-100 {
+        font-weight: var(--font-weight-thin);
+      }
+      .w-200 {
+        font-weight: var(--font-weight-extralight);
+      }
+      .w-300 {
+        font-weight: var(--font-weight-light);
+      }
+      .w-400 {
+        font-weight: var(--font-weight-normal);
+      }
+      .w-500 {
+        font-weight: var(--font-weight-medium);
+      }
+      .w-600 {
+        font-weight: var(--font-weight-semibold);
+      }
+      .w-700 {
+        font-weight: var(--font-weight-bold);
+      }
+      .w-800 {
+        font-weight: var(--font-weight-extrabold);
+      }
+      .w-900 {
+        font-weight: var(--font-weight-black);
+      }
+
+      /* --- Family samples --- */
+      .fams {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+        margin: 0 0 var(--space-4);
+      }
+      .fam {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+        padding: var(--space-3) var(--space-4);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+      }
+      .fam code {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--text-color-secondary);
+      }
+      .f-ui {
+        font-family: var(--font-family);
+        font-size: var(--font-size-lg);
+      }
+      .f-mono {
+        font-family: var(--font-mono);
+        font-size: var(--font-size-lg);
+      }
+      .f-serif {
+        font-family: var(--font-serif);
+        font-size: var(--font-size-lg);
+      }
+      .f-heading {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-lg);
+      }
+
+      /* --- Leading samples --- */
+      .lh {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .lh p {
+        margin: 0;
+        padding: var(--space-4);
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-size: var(--font-size-sm);
+      }
+      .lh--tight {
+        line-height: var(--line-height-tight);
+      }
+      .lh--relaxed {
+        line-height: var(--line-height-relaxed);
+      }
+      @media (max-width: 640px) {
+        .lh {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .dd__code {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
+        color: var(--semantic-red-fg, #b91c1c);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: Typography (foundations).
  *
@@ -79,7 +352,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-typography-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'typography'">
@@ -898,276 +1171,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-
-      /* --- Size scale --- */
-      .scale {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-        margin: 0 0 var(--space-4);
-      }
-      .scale__row {
-        display: flex;
-        align-items: baseline;
-        gap: var(--space-4);
-        flex-wrap: wrap;
-        padding: var(--space-3) var(--space-4);
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-      }
-      .scale__row code {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-        color: var(--text-color-secondary);
-        flex: 0 0 11rem;
-      }
-      .s-xs {
-        font-size: var(--font-size-xs);
-      }
-      .s-sm {
-        font-size: var(--font-size-sm);
-      }
-      .s-base {
-        font-size: var(--font-size-base);
-      }
-      .s-lg {
-        font-size: var(--font-size-lg);
-      }
-      .s-xl {
-        font-size: var(--font-size-xl);
-      }
-      .s-2xl {
-        font-size: var(--font-size-2xl);
-      }
-      .s-3xl {
-        font-size: var(--font-size-3xl);
-      }
-
-      /* --- Weight ladder --- */
-      .ladder {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        font-size: var(--font-size-xl);
-      }
-      .w-100 {
-        font-weight: var(--font-weight-thin);
-      }
-      .w-200 {
-        font-weight: var(--font-weight-extralight);
-      }
-      .w-300 {
-        font-weight: var(--font-weight-light);
-      }
-      .w-400 {
-        font-weight: var(--font-weight-normal);
-      }
-      .w-500 {
-        font-weight: var(--font-weight-medium);
-      }
-      .w-600 {
-        font-weight: var(--font-weight-semibold);
-      }
-      .w-700 {
-        font-weight: var(--font-weight-bold);
-      }
-      .w-800 {
-        font-weight: var(--font-weight-extrabold);
-      }
-      .w-900 {
-        font-weight: var(--font-weight-black);
-      }
-
-      /* --- Family samples --- */
-      .fams {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-        margin: 0 0 var(--space-4);
-      }
-      .fam {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-        padding: var(--space-3) var(--space-4);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-      }
-      .fam code {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-        color: var(--text-color-secondary);
-      }
-      .f-ui {
-        font-family: var(--font-family);
-        font-size: var(--font-size-lg);
-      }
-      .f-mono {
-        font-family: var(--font-mono);
-        font-size: var(--font-size-lg);
-      }
-      .f-serif {
-        font-family: var(--font-serif);
-        font-size: var(--font-size-lg);
-      }
-      .f-heading {
-        font-family: var(--font-heading);
-        font-size: var(--font-size-lg);
-      }
-
-      /* --- Leading samples --- */
-      .lh {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .lh p {
-        margin: 0;
-        padding: var(--space-4);
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-size: var(--font-size-sm);
-      }
-      .lh--tight {
-        line-height: var(--line-height-tight);
-      }
-      .lh--relaxed {
-        line-height: var(--line-height-relaxed);
-      }
-      @media (max-width: 640px) {
-        .lh {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .dd__code {
-        font-family: var(--font-mono);
-        font-size: 0.8rem;
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
-        color: var(--semantic-red-fg, #b91c1c);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TypographyArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -1175,7 +1179,7 @@ export class TypographyArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly addStepSnippet = `// src/styles/design-tokens.scss — the map IS the scale.
+  readonly addStepSnippet: string = `// src/styles/design-tokens.scss — the map IS the scale.
 $font-sizes: (
   'xs': 0.75rem,
   // ... existing steps ...
@@ -1195,7 +1199,7 @@ $font-sizes: (
    there only when you intend it to differ from the generated scale —
    which is how --font-mono ended up with two different stacks. */`;
 
-  readonly runtimeSnippet = `// The picker writes BOTH names as inline style on <html>.
+  readonly runtimeSnippet: string = `// The picker writes BOTH names as inline style on <html>.
 // Inline style is the strongest layer: no selector out-specifies it.
 fontService.setFont('atkinson-hyperlegible');
 //   --font-base:   'Atkinson Hyperlegible', <system stack>

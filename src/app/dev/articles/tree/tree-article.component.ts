@@ -8,6 +8,135 @@ import { TreeTableModule } from '@openng/optimus-ui/treetable';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    TreeModule,
+    TreeTableModule,
+    TreeSelectModule,
+    OrganizationChartModule,
+    ButtonModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-tree-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-tree-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-tree-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      app-tree-article .col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        min-width: 0;
+      }
+
+      app-tree-article .lbl {
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+
+      app-tree-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-tree-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 0;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-tree-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-tree-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-tree-article .dd__stage {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-tree-article .dd__stage--scroll,
+      app-tree-article .dd__scroll {
+        overflow-x: auto;
+        max-width: 100%;
+      }
+
+      app-tree-article .dd__stage--col {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      app-tree-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-tree-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-tree-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-tree-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-tree-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-tree-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Tree, TreeTable, and TreeSelect (Guides, category `library`).
  *
@@ -106,15 +235,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-tree-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    TreeModule,
-    TreeTableModule,
-    TreeSelectModule,
-    OrganizationChartModule,
-    ButtonModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'tree'">
@@ -691,124 +812,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-tree-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-tree-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-tree-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-
-      app-tree-article .col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.4rem;
-        min-width: 0;
-      }
-
-      app-tree-article .lbl {
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-
-      app-tree-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-tree-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        min-width: 0;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-tree-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-tree-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-tree-article .dd__stage {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-tree-article .dd__stage--scroll,
-      app-tree-article .dd__scroll {
-        overflow-x: auto;
-        max-width: 100%;
-      }
-
-      app-tree-article .dd__stage--col {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      app-tree-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-tree-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-tree-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-tree-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-tree-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-tree-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TreeArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -837,7 +841,7 @@ export class TreeArticleComponent {
   readonly orgNodes: TreeNode[] = TreeArticleComponent.orgData();
   readonly orgTreeNodes: TreeNode[] = TreeArticleComponent.orgData();
 
-  private static orgData(): TreeNode[] {
+  protected static orgData(): TreeNode[] {
     return [
       {
         label: 'Editor in chief',
@@ -857,16 +861,16 @@ export class TreeArticleComponent {
   readonly togglerBadPt = { table: { 'aria-label': 'Folders without a toggler column' } };
   readonly togglerGoodPt = { table: { 'aria-label': 'Folders with a toggler column' } };
 
-  readonly nameBadSnippet = `<p-treeSelect
+  readonly nameBadSnippet: string = `<p-treeSelect
   [options]="nodes"
   placeholder="Pick a folder" />`;
 
-  readonly nameGoodSnippet = `<p-treeSelect
+  readonly nameGoodSnippet: string = `<p-treeSelect
   [options]="nodes"
   ariaLabel="Destination folder"
   placeholder="Pick a folder" />`;
 
-  readonly emittedMarkupSnippet = `<!-- p-tree -->
+  readonly emittedMarkupSnippet: string = `<!-- p-tree -->
 <ul role="tree" aria-label="Sample folders">
   <p-treeNode>            <!-- component host, between the list and the item -->
     <li role="treeitem" aria-level="1" aria-posinset="1" aria-setsize="2"
@@ -886,7 +890,7 @@ export class TreeArticleComponent {
 <!-- p-treeSelect -->
 <input role="combobox" aria-haspopup="tree" aria-expanded="false" aria-label="…">`;
 
-  readonly annotatedSnippet = `import { TreeModule } from '@openng/optimus-ui/tree';
+  readonly annotatedSnippet: string = `import { TreeModule } from '@openng/optimus-ui/tree';
 import type { TreeNode } from '@openng/optimus-ui/api';
 
 // Expansion lives on the node object, not in the component:
@@ -905,7 +909,7 @@ nodes: TreeNode[] = [
   (onNodeExpand)="load($event.node)"
 />`;
 
-  readonly i18nSnippet = `// setTranslation merges one level deep, so spread the current
+  readonly i18nSnippet: string = `// setTranslation merges one level deep, so spread the current
 // aria block or the keys you do not list are lost.
 optimus.setTranslation({
   aria: {

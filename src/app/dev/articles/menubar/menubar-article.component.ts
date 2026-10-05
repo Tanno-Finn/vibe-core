@@ -8,6 +8,383 @@ import { ToggleSwitchModule } from '@openng/optimus-ui/toggleswitch';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    MenubarModule,
+    ButtonModule,
+    SelectModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        padding: var(--space-5);
+        padding-bottom: 9rem;
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+      }
+      .pg__code {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      @media (max-width: 720px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .journal {
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        padding: var(--space-3);
+        background: var(--surface-section);
+      }
+      .journal__label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .journal__empty {
+        margin: var(--space-1) 0 0;
+        font-size: 0.82rem;
+        color: var(--text-color-secondary);
+      }
+      .journal__list {
+        margin: var(--space-1) 0 0;
+        padding-left: 1.2rem;
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+      }
+      .journal__list li {
+        margin: 0.1rem 0;
+      }
+
+      /* --- Examples --- */
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        max-width: 46rem;
+      }
+      .ex__stage {
+        display: block;
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-ground);
+      }
+      .ex__stage--tall {
+        padding-bottom: 12rem;
+      }
+      .ex__stage--dir {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        padding-bottom: 12rem;
+      }
+      @media (max-width: 800px) {
+        .ex__stage--dir {
+          grid-template-columns: 1fr;
+        }
+      }
+      .dir-cell {
+        min-width: 0;
+      }
+      .dir-cell__label {
+        display: block;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-2);
+        font-family: var(--font-mono);
+      }
+      .dir-end {
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+      .chrome-brand {
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+
+      /* --- The plain-nav comparison --- */
+      .plain-nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-2);
+      }
+      .plain-nav a {
+        display: inline-block;
+        padding: 0.5rem 0.75rem;
+        border-radius: var(--radius-sm);
+        color: var(--text-color);
+        text-decoration: none;
+      }
+      .plain-nav a:hover {
+        background: var(--surface-section);
+        text-decoration: underline;
+      }
+      .plain-nav a[aria-current='page'] {
+        font-weight: var(--font-weight-medium);
+        box-shadow: inset 0 -2px 0 var(--primary-color-fg);
+      }
+      .plain-nav a:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-ground);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 720px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .code-block--inline {
+        margin: 0;
+        font-size: 0.75rem;
+        background: var(--surface-card);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Menubar (`p-menubar`) — SPEC N5, Guides.
  *
@@ -96,15 +473,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-menubar-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    MenubarModule,
-    ButtonModule,
-    SelectModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'menubar'">
@@ -1735,381 +2104,16 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        padding: var(--space-5);
-        padding-bottom: 9rem;
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-      }
-      .pg__code {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      @media (max-width: 720px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .journal {
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        padding: var(--space-3);
-        background: var(--surface-section);
-      }
-      .journal__label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .journal__empty {
-        margin: var(--space-1) 0 0;
-        font-size: 0.82rem;
-        color: var(--text-color-secondary);
-      }
-      .journal__list {
-        margin: var(--space-1) 0 0;
-        padding-left: 1.2rem;
-        font-family: var(--font-mono);
-        font-size: 0.76rem;
-      }
-      .journal__list li {
-        margin: 0.1rem 0;
-      }
-
-      /* --- Examples --- */
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        max-width: 46rem;
-      }
-      .ex__stage {
-        display: block;
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-ground);
-      }
-      .ex__stage--tall {
-        padding-bottom: 12rem;
-      }
-      .ex__stage--dir {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        padding-bottom: 12rem;
-      }
-      @media (max-width: 800px) {
-        .ex__stage--dir {
-          grid-template-columns: 1fr;
-        }
-      }
-      .dir-cell {
-        min-width: 0;
-      }
-      .dir-cell__label {
-        display: block;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-2);
-        font-family: var(--font-mono);
-      }
-      .dir-end {
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-      .chrome-brand {
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-
-      /* --- The plain-nav comparison --- */
-      .plain-nav ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-2);
-      }
-      .plain-nav a {
-        display: inline-block;
-        padding: 0.5rem 0.75rem;
-        border-radius: var(--radius-sm);
-        color: var(--text-color);
-        text-decoration: none;
-      }
-      .plain-nav a:hover {
-        background: var(--surface-section);
-        text-decoration: underline;
-      }
-      .plain-nav a[aria-current='page'] {
-        font-weight: var(--font-weight-medium);
-        box-shadow: inset 0 -2px 0 var(--primary-color-fg);
-      }
-      .plain-nav a:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-ground);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 720px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .code-block--inline {
-        margin: 0;
-        font-size: 0.75rem;
-        background: var(--surface-card);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class MenubarArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
+  protected readonly destroyRef = inject(DestroyRef);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -2119,7 +2123,7 @@ export class MenubarArticleComponent {
 
   // --- Journal ---------------------------------------------------------------
   readonly journal = signal<{ id: number; text: string }[]>([]);
-  private journalSeq = 0;
+  protected journalSeq = 0;
 
   log(text: string): void {
     this.journal.update((lines) => [{ id: ++this.journalSeq, text }, ...lines].slice(0, 6));
@@ -2254,7 +2258,7 @@ export class MenubarArticleComponent {
   ];
 
   /** The same label twice: once with `escape` unset, once with it set. */
-  private readonly escapeLabel = 'Tools &amp; <b>beta</b>';
+  protected readonly escapeLabel: string = 'Tools &amp; <b>beta</b>';
 
   readonly escapeModel: MenuItem[] = [{ label: this.escapeLabel }, { label: this.escapeLabel, escape: true }];
 
@@ -2270,7 +2274,7 @@ export class MenubarArticleComponent {
   ];
 
   // --- Snippets --------------------------------------------------------------
-  readonly plainNavSnippet = `<nav [attr.aria-label]="labels().mainNav">
+  readonly plainNavSnippet: string = `<nav [attr.aria-label]="labels().mainNav">
   <ul class="site-nav">
     @for (link of links(); track link.route) {
       <li>
@@ -2281,7 +2285,7 @@ export class MenubarArticleComponent {
   </ul>
 </nav>`;
 
-  readonly chromePtSnippet = `<!-- A menubar used as header chrome: no model, so no menu.
+  readonly chromePtSnippet: string = `<!-- A menubar used as header chrome: no model, so no menu.
      Only two pass-through keys are reliable here. tabindex is a plain
      attribute the component writes once, so this write is the last one;
      aria-hidden is written by nobody else. role is a host binding the
@@ -2294,7 +2298,7 @@ export class MenubarArticleComponent {
   <ng-template #end>…</ng-template>
 </p-menubar>`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { MenubarModule } from '@openng/optimus-ui/menubar';
 import { MenuItem } from '@openng/optimus-ui/api';
@@ -2333,7 +2337,7 @@ describe('menubar structure', () => {
   });
 });`;
 
-  readonly annotatedSource = `<p-menubar
+  readonly annotatedSource: string = `<p-menubar
   [model]="menuModel()"                  <!-- computed(): a new array per language change -->
   [ariaLabel]="labels().menuName"        <!-- the only name the menu bar gets -->
   breakpoint="60rem"                     <!-- the same value your layout switches on -->
@@ -2353,7 +2357,7 @@ describe('menubar structure', () => {
      ] },
    ]); */`;
 
-  readonly i18nSnippet = `// The hamburger's name comes from the global config, not from an input.
+  readonly i18nSnippet: string = `// The hamburger's name comes from the global config, not from an input.
 provideOptimus({
   translation: { aria: { navigation: 'Hauptmenü' } },
 });

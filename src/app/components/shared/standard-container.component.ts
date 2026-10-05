@@ -34,7 +34,7 @@ export type ContainerType =
   | 'success' // Positive actions/results - green accent
   | 'warning' // Alerts/cautions - orange accent
   | 'info' // Informational content - blue accent
-  | 'definition' // Educational definitions - purple accent
+  | 'definition' // Educational definitions - pink accent
   | 'demo' // Interactive demonstrations - amber accent
   | 'controls' // Control panels - teal accent
   | 'danger'; // Error/critical content - red accent
@@ -78,7 +78,7 @@ const CONTAINER_COLORS = {
   success: 'var(--green-500)',
   warning: 'var(--orange-500)',
   info: 'var(--blue-500)',
-  definition: 'var(--purple-500)',
+  definition: 'var(--p-pink-500)',
   demo: 'var(--yellow-500)',
   controls: 'var(--teal-500)',
   danger: 'var(--red-500)',
@@ -447,11 +447,11 @@ const CONTAINER_COLORS = {
 
       .standard-container.type-definition {
         border-left-width: var(--border-width-accent);
-        border-left-color: var(--purple-500);
+        border-left-color: var(--p-pink-500);
       }
 
       .standard-container.type-definition .header-icon {
-        color: var(--purple-500);
+        color: var(--p-pink-500);
       }
 
       .standard-container.type-demo {

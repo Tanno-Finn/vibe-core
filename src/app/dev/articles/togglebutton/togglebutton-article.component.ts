@@ -6,6 +6,135 @@ import { ToggleButtonModule } from '@openng/optimus-ui/togglebutton';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    ToggleButtonModule,
+    ButtonGroupModule,
+    ButtonModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-togglebutton-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-togglebutton-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-togglebutton-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      app-togglebutton-article .stage__fluid {
+        margin-top: 1rem;
+        max-width: 22rem;
+      }
+
+      app-togglebutton-article .readout {
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-togglebutton-article .lbl {
+        display: block;
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+        margin-bottom: 0.35rem;
+      }
+
+      app-togglebutton-article .lbl--spaced {
+        margin-top: 1.25rem;
+      }
+
+      app-togglebutton-article .matrix {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 1rem;
+      }
+
+      app-togglebutton-article .matrix__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      app-togglebutton-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 1rem;
+      }
+
+      app-togglebutton-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 0.9rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-togglebutton-article .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.6rem;
+        min-height: 3rem;
+      }
+
+      app-togglebutton-article .dd__why {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-togglebutton-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-togglebutton-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-togglebutton-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-togglebutton-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-togglebutton-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Toggle Button and Button Group (Guides, category `library`).
  *
@@ -75,14 +204,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-togglebutton-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    ToggleButtonModule,
-    ButtonGroupModule,
-    ButtonModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'togglebutton'">
@@ -774,131 +896,13 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-togglebutton-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-togglebutton-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-togglebutton-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.9rem;
-      }
-
-      app-togglebutton-article .stage__fluid {
-        margin-top: 1rem;
-        max-width: 22rem;
-      }
-
-      app-togglebutton-article .readout {
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-togglebutton-article .lbl {
-        display: block;
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-        margin-bottom: 0.35rem;
-      }
-
-      app-togglebutton-article .lbl--spaced {
-        margin-top: 1.25rem;
-      }
-
-      app-togglebutton-article .matrix {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-end;
-        gap: 1rem;
-      }
-
-      app-togglebutton-article .matrix__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-      }
-
-      app-togglebutton-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 1rem;
-      }
-
-      app-togglebutton-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        padding: 0.9rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-togglebutton-article .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.6rem;
-        min-height: 3rem;
-      }
-
-      app-togglebutton-article .dd__why {
-        margin: 0;
-        font-size: 0.9rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-togglebutton-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-togglebutton-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-togglebutton-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-togglebutton-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-togglebutton-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class ToggleButtonArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
 
   /** Playground state. `bold` is read back through a signal so the readout tracks it. */
-  private readonly boldState = signal(false);
+  protected readonly boldState = signal(false);
   get bold(): boolean {
     return this.boldState();
   }
@@ -999,8 +1003,7 @@ export class ToggleButtonArticleComponent {
 
   };
 
-  readonly emittedMarkupSnippet =
-    '<!-- p-togglebutton, unpressed: the host element IS the button -->\n' +
+  readonly emittedMarkupSnippet: string = '<!-- p-togglebutton, unpressed: the host element IS the button -->\n' +
     '<p-togglebutton class="p-togglebutton p-component" role="button" aria-pressed="false"\n' +
     '                aria-label="Bold" tabindex="0" data-p-checked="false" data-p-disabled="false">\n' +
     '  <span class="p-togglebutton-content">\n' +
@@ -1014,8 +1017,7 @@ export class ToggleButtonArticleComponent {
     '<!-- p-buttonGroup: a wrapper span carries the role, the host carries nothing -->\n' +
     '<p-buttongroup><span class="p-buttongroup p-component" role="group">...</span></p-buttongroup>';
 
-  readonly usageSnippet =
-    "// One key, one name, both states. translate() takes a key and nothing else.\n" +
+  readonly usageSnippet: string = "// One key, one name, both states. translate() takes a key and nothing else.\n" +
     "readonly boldLabel = computed(() => this.i18n.translate('editor.toolbar.bold'));\n\n" +
     '<!-- the name never moves; the state is the attribute -->\n' +
     '<p-togglebutton\n' +
@@ -1034,8 +1036,7 @@ export class ToggleButtonArticleComponent {
     '  </p-buttonGroup>\n' +
     '</div>';
 
-  readonly slotSnippet =
-    '<!-- These two arrive: the template refs the ContentChild queries look for -->\n' +
+  readonly slotSnippet: string = '<!-- These two arrive: the template refs the ContentChild queries look for -->\n' +
     '<p-togglebutton [ariaLabel]="label()" [(ngModel)]="on">\n' +
     '  <ng-template #icon let-checked>\n' +
     '    <span class="pi" [class.pi-check]="checked" [class.pi-minus]="!checked"></span>\n' +
@@ -1051,8 +1052,7 @@ export class ToggleButtonArticleComponent {
     '  <ng-template pTemplate="content">...</ng-template>\n' +
     '</p-togglebutton>';
 
-  readonly formsSnippet =
-    '// Reactive: the control holds the boolean, nothing else does.\n' +
+  readonly formsSnippet: string = '// Reactive: the control holds the boolean, nothing else does.\n' +
     'readonly form = new FormGroup({ notify: new FormControl(false, { nonNullable: true }) });\n\n' +
     '<form [formGroup]="form">\n' +
     '  <p-togglebutton\n' +
@@ -1064,8 +1064,7 @@ export class ToggleButtonArticleComponent {
     '// [required] is accepted and reaches no attribute: validate in the form, and\n' +
     '// render the message yourself. [invalid] only adds a border color.';
 
-  readonly i18nSnippet =
-    "// One key feeds all three inputs, inside a computed() so a language switch re-resolves it.\n" +
+  readonly i18nSnippet: string = "// One key feeds all three inputs, inside a computed() so a language switch re-resolves it.\n" +
     "readonly muteLabel = computed(() => this.i18n.translate('player.controls.mute'));\n\n" +
     '<p-togglebutton\n' +
     '  [ariaLabel]="muteLabel()"\n' +

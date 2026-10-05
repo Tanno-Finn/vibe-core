@@ -14,7 +14,402 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
  * the input entirely is a seventh case and deliberately NOT in this union — it
  * falls back to the brand palette, which is a different thing from a severity.
  */
-type TagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast';
+export type TagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast';
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    RouterLink,
+    TagModule,
+    ChipModule,
+    SelectButtonModule,
+    ButtonModule,
+    ToggleSwitchModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      kbd {
+        font-family: var(--font-mono);
+        font-size: 0.8em;
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-bottom-width: 2px;
+        border-radius: var(--radius-sm);
+        padding: 0.05em 0.4em;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+      .rule-line {
+        max-width: 46rem;
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        border-left: 3px solid var(--primary-color-fg);
+        background: var(--surface-section);
+        border-radius: var(--radius-md);
+        font-size: 1.05rem;
+      }
+      .mono {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+      }
+      .fail {
+        color: var(--semantic-red-fg);
+        font-weight: var(--font-weight-medium);
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      /* Seven severities do not fit one half-width row; wrap the segments instead
+         of letting them shrink and clip their labels ("seconda", "succes"). */
+      .pg__field p-selectbutton {
+        flex-wrap: wrap;
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__preview-wrap {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-3);
+        min-height: 5rem;
+        padding: var(--space-4);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      @media (max-width: 760px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .ex__stage--column {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .sev {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-1);
+      }
+      .sev__caption {
+        font-size: 0.72rem;
+        color: var(--text-color-secondary);
+      }
+
+      .card-demo {
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-card);
+      }
+      .card-demo__head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--space-3);
+        margin-bottom: var(--space-2);
+      }
+      .card-demo__title {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: var(--font-weight-medium);
+      }
+      .card-demo__tags,
+      .card-demo__chips {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-2);
+      }
+      .card-demo__body {
+        margin: var(--space-2) 0 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .card-demo__empty {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      /* The Don't example is deliberately a tag wearing a button's clothes. */
+      .fake-button {
+        cursor: pointer;
+      }
+      .fake-button:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
 
 /**
  * Guide article: Tags and Chips (SPEC N5, Guides extension).
@@ -74,17 +469,7 @@ type TagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contr
   selector: 'app-tags-and-chips-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    RouterLink,
-    TagModule,
-    ChipModule,
-    SelectButtonModule,
-    ButtonModule,
-    ToggleSwitchModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'tags-and-chips'">
@@ -1489,397 +1874,16 @@ type TagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contr
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      kbd {
-        font-family: var(--font-mono);
-        font-size: 0.8em;
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-bottom-width: 2px;
-        border-radius: var(--radius-sm);
-        padding: 0.05em 0.4em;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-      .rule-line {
-        max-width: 46rem;
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        border-left: 3px solid var(--primary-color-fg);
-        background: var(--surface-section);
-        border-radius: var(--radius-md);
-        font-size: 1.05rem;
-      }
-      .mono {
-        font-family: var(--font-mono);
-        font-size: 0.78rem;
-      }
-      .fail {
-        color: var(--semantic-red-fg);
-        font-weight: var(--font-weight-medium);
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      /* Seven severities do not fit one half-width row; wrap the segments instead
-         of letting them shrink and clip their labels ("seconda", "succes"). */
-      .pg__field p-selectbutton {
-        flex-wrap: wrap;
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__preview-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: var(--space-3);
-        min-height: 5rem;
-        padding: var(--space-4);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      @media (max-width: 760px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .ex__stage--column {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .sev {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-1);
-      }
-      .sev__caption {
-        font-size: 0.72rem;
-        color: var(--text-color-secondary);
-      }
-
-      .card-demo {
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-card);
-      }
-      .card-demo__head {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: var(--space-3);
-        margin-bottom: var(--space-2);
-      }
-      .card-demo__title {
-        margin: 0;
-        font-size: 0.95rem;
-        font-weight: var(--font-weight-medium);
-      }
-      .card-demo__tags,
-      .card-demo__chips {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-2);
-      }
-      .card-demo__body {
-        margin: var(--space-2) 0 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .card-demo__empty {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      /* The Don't example is deliberately a tag wearing a button's clothes. */
-      .fake-button {
-        cursor: pointer;
-      }
-      .fake-button:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class TagsAndChipsArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
+  protected readonly destroyRef = inject(DestroyRef);
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   constructor() {
     this.destroyRef.onDestroy(() => {
@@ -1892,8 +1896,7 @@ export class TagsAndChipsArticleComponent {
    * asset, no network request, and it still exercises the `image` code path
    * (which is what the guide is demonstrating).
    */
-  readonly avatarDataUri =
-    'data:image/svg+xml;utf8,' +
+  readonly avatarDataUri: string = 'data:image/svg+xml;utf8,' +
     encodeURIComponent(
       '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">' +
         '<rect width="32" height="32" fill="#334155"/>' +
@@ -1924,7 +1927,7 @@ export class TagsAndChipsArticleComponent {
     return s === 'none' ? undefined : s;
   });
 
-  readonly pgTagValue = computed(() => (this.pgSeverity() === 'none' ? 'Featured' : this.pgSeverity()));
+  readonly pgTagValue = computed<string>(() => (this.pgSeverity() === 'none' ? 'Featured' : this.pgSeverity()));
 
   readonly pgTagCode = computed(() => {
     const attrs: string[] = [`value="${this.pgTagValue()}"`];
@@ -1975,7 +1978,7 @@ export class TagsAndChipsArticleComponent {
     this.ddBadFilters.set(current.includes(value) ? current.filter((v) => v !== value) : [...current, value]);
   }
 
-  private readonly removableSeed = ['Kapitel 3', 'Typ: Buch', 'Suche: KI'];
+  protected readonly removableSeed = ['Kapitel 3', 'Typ: Buch', 'Suche: KI'];
   readonly ddRemovableBad = signal<string[]>([...this.removableSeed]);
   readonly ddRemovableGood = signal<string[]>([...this.removableSeed]);
 
@@ -2183,7 +2186,7 @@ export class TagsAndChipsArticleComponent {
   ];
 
   // --- Code snippets -----------------------------------------------------------
-  readonly severityCode = `<p-tag value="Featured" />                       <!-- brand palette -->
+  readonly severityCode: string = `<p-tag value="Featured" />                       <!-- brand palette -->
 <p-tag value="Draft"       severity="secondary" />
 <p-tag value="Published"   severity="success" />
 <p-tag value="Beginner"    severity="info" />
@@ -2191,13 +2194,13 @@ export class TagsAndChipsArticleComponent {
 <p-tag value="Broken link" severity="danger" />
 <p-tag value="New"         severity="contrast" />`;
 
-  readonly chipVariantsCode = `<p-chip label="Plain label" />
+  readonly chipVariantsCode: string = `<p-chip label="Plain label" />
 <p-chip label="With icon" icon="pi pi-file" />
 <p-chip label="Ada Lovelace" [image]="avatarUrl" alt="Portrait of Ada Lovelace" />
 <p-chip label="Removable" [removable]="true" (onRemove)="drop(item)" />
 <p-chip label="Disabled" icon="pi pi-ban" [removable]="true" [disabled]="true" />`;
 
-  readonly bothCode = `<!-- What the system says about the lesson: tags. -->
+  readonly bothCode: string = `<!-- What the system says about the lesson: tags. -->
 <div class="card-tags">
   <p-tag [value]="t('status.draft')" severity="warn" [rounded]="true" />
   <p-tag [value]="t('level.beginner')" severity="info" [rounded]="true" />
@@ -2211,7 +2214,7 @@ export class TagsAndChipsArticleComponent {
   }
 </div>`;
 
-  readonly devImport = `import { TagModule } from '@openng/optimus-ui/tag';
+  readonly devImport: string = `import { TagModule } from '@openng/optimus-ui/tag';
 import { ChipModule } from '@openng/optimus-ui/chip';
 
 @Component({
@@ -2220,7 +2223,7 @@ import { ChipModule } from '@openng/optimus-ui/chip';
   // ...
 })`;
 
-  readonly closeSnippet = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-chip.mjs
+  readonly closeSnippet: string = `// @openng/optimus-ui/fesm2022/openng-optimus-ui-chip.mjs
 close(event) {
   this.visible = false;      // -> inline "display: none" via the style hook
   this.onRemove.emit(event); // -> your handler, AFTER the fact
@@ -2229,7 +2232,7 @@ onKeydown(event) {
   if (event.key === 'Enter' || event.key === 'Backspace') this.close(event);
 }`;
 
-  readonly collectionSnippet = `// The parent owns the collection; the chip only reports.
+  readonly collectionSnippet: string = `// The parent owns the collection; the chip only reports.
 readonly filters = signal<Filter[]>([]);
 
 dropFilter(id: string): void {
@@ -2241,7 +2244,7 @@ dropFilter(id: string): void {
 //   <p-chip [label]="f.label" [removable]="true" (onRemove)="dropFilter(f.id)" />
 // }`;
 
-  readonly themingSnippet = `/* Scoped to one region — geometry travels, color is contested. */
+  readonly themingSnippet: string = `/* Scoped to one region — geometry travels, color is contested. */
 .filter-bar {
   --p-chip-border-radius: 6px;      /* square off the pills */
   --p-chip-padding-y: 0.25rem;
@@ -2259,7 +2262,7 @@ dropFilter(id: string): void {
    not at all. */
 .dense-table { --p-tag-success-background: #0f5132; }`;
 
-  readonly i18nSnippet = `// A status enum -> a translated tag. The map is a computed(), so a
+  readonly i18nSnippet: string = `// A status enum -> a translated tag. The map is a computed(), so a
 // language switch rebuilds the labels instead of freezing them.
 readonly statusLabels = computed<Record<LessonStatus, string>>(() => ({
   draft: this.i18n.translate('lesson.status.draft'),
@@ -2275,7 +2278,7 @@ readonly statusSeverity: Record<LessonStatus, 'warn' | 'info' | 'success'> = {
 // <p-tag [value]="statusLabels()[lesson.status]"
 //        [severity]="statusSeverity[lesson.status]" [rounded]="true" />`;
 
-  readonly primengTranslationSnippet = `// Static, for a single-language app: app.config.ts
+  readonly primengTranslationSnippet: string = `// Static, for a single-language app: app.config.ts
 provideOptimus({
   theme: { preset: Aura, options: { prefix: 'p', darkModeSelector: '.dark-theme' } },
   translation: {
@@ -2295,7 +2298,7 @@ this.primeng.setTranslation({
   },
 });`;
 
-  readonly focusSnippet = `// Removal destroys the focused element. Decide where focus goes.
+  readonly focusSnippet: string = `// Removal destroys the focused element. Decide where focus goes.
 @ViewChildren('chipEl', { read: ElementRef }) chips!: QueryList<ElementRef>;
 
 dropFilter(id: string, index: number): void {
@@ -2308,7 +2311,7 @@ dropFilter(id: string, index: number): void {
   }, { injector: this.injector });
 }`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component, signal } from '@angular/core';
 import { TagModule } from '@openng/optimus-ui/tag';
 import { ChipModule } from '@openng/optimus-ui/chip';

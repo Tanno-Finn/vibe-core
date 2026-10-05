@@ -4,6 +4,103 @@ import type { PaginatorState } from '@openng/optimus-ui/types/paginator';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, PaginatorModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-paginator-article .stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        border-radius: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      app-paginator-article .stage--col {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: stretch;
+      }
+
+      app-paginator-article .slice {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+        columns: 2;
+        font-size: 0.9rem;
+      }
+
+      app-paginator-article .hint {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-paginator-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      app-paginator-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      app-paginator-article .dd__stage {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: stretch;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 4.5rem;
+      }
+
+      app-paginator-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-paginator-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-paginator-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-paginator-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-paginator-article .checklist,
+      app-paginator-article .history {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-paginator-article .dd {
+          grid-template-columns: 1fr;
+        }
+
+        app-paginator-article .slice {
+          columns: 1;
+        }
+      }
+    `;
+
 /**
  * Guide article: Paginator (Guides, category `library`).
  *
@@ -75,7 +172,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-paginator-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, PaginatorModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'paginator'">
@@ -549,106 +646,13 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-paginator-article .stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        border-radius: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
-
-      app-paginator-article .stage--col {
-        display: flex;
-        flex-direction: column;
-        gap: 0.6rem;
-        align-items: stretch;
-      }
-
-      app-paginator-article .slice {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-        columns: 2;
-        font-size: 0.9rem;
-      }
-
-      app-paginator-article .hint {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-paginator-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      app-paginator-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      app-paginator-article .dd__stage {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: stretch;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 4.5rem;
-      }
-
-      app-paginator-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-paginator-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-paginator-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-paginator-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-paginator-article .checklist,
-      app-paginator-article .history {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-paginator-article .dd {
-          grid-template-columns: 1fr;
-        }
-
-        app-paginator-article .slice {
-          columns: 1;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class PaginatorArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
 
   /** A stand-in collection for the wired example. */
-  private readonly records = Array.from({ length: 47 }, (_, i) => 'Record ' + String(i + 1));
+  protected readonly records = Array.from({ length: 47 }, (_, i) => 'Record ' + String(i + 1));
   readonly total = this.records.length;
 
   readonly first = signal(0);
@@ -714,8 +718,7 @@ export class PaginatorArticleComponent {
       'currentPageReportTemplate defaults to English prose that no translation layer can reach, because it is a default value and not a key. Bind it from your own strings in every language, including the ones where the word order around the placeholders differs.',
   };
 
-  readonly usageSnippet =
-    '<!-- The component pages; everything around it is yours -->\n' +
+  readonly usageSnippet: string = '<!-- The component pages; everything around it is yours -->\n' +
     '<nav [attr.aria-label]="t(\'your-module.resultsPagerName\')">\n' +
     '  <p-paginator\n' +
     '    [rows]="rows()"\n' +
@@ -730,8 +733,7 @@ export class PaginatorArticleComponent {
     '<!-- The announcement the library does not make -->\n' +
     '<p class="sr-only" aria-live="polite">{{ announcement() }}</p>';
 
-  readonly eventSnippet =
-    '// onPageChange is the only output; there is no firstChange and no rowsChange.\n' +
+  readonly eventSnippet: string = '// onPageChange is the only output; there is no firstChange and no rowsChange.\n' +
     '// PaginatorState (@openng/optimus-ui/types/paginator) declares every field optional.\n' +
     'onPage(e: PaginatorState): void {\n' +
     '  this.first.set(e.first ?? 0); // zero-based ROW offset, not a page index\n' +
@@ -740,8 +742,7 @@ export class PaginatorArticleComponent {
     '  this.load(e.first, e.rows);\n' +
     '}';
 
-  readonly i18nSnippet =
-    '// What the kit already does (src/app/services/optimus-a11y.service.ts):\n' +
+  readonly i18nSnippet: string = '// What the kit already does (src/app/services/optimus-a11y.service.ts):\n' +
     '// every key in OPTIMUS_ARIA_KEYS — the seven paginator keys included —\n' +
     '// is read from optimus.json in the page language and handed over.\n' +
     'syncAriaStrings(): void {\n' +

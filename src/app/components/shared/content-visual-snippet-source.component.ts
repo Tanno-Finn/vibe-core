@@ -80,13 +80,13 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 <div style="width:8px;height:8px;border-radius:50%;border:1.5px solid var(--orange-400,#fb923c)"></div>
               </div>
               <div
-                style="flex:1;background:var(--purple-100,#f3e8ff);border-radius:3px;padding:3px 5px;box-shadow:1px 1px 2px rgba(0,0,0,.1);display:flex;align-items:center;gap:4px"
+                style="flex:1;background:var(--teal-100,#ccfbf1);border-radius:3px;padding:3px 5px;box-shadow:1px 1px 2px rgba(0,0,0,.1);display:flex;align-items:center;gap:4px"
               >
-                <div style="font-size:7px;font-weight:900;color:var(--purple-600,#9333ea);width:14px">05</div>
+                <div style="font-size:7px;font-weight:900;color:var(--teal-600,#0d9488);width:14px">05</div>
                 <div style="flex:1">
-                  <div style="height:3px;width:40%;background:var(--purple-300,#d8b4fe);border-radius:1px"></div>
+                  <div style="height:3px;width:40%;background:var(--teal-300,#5eead4);border-radius:1px"></div>
                 </div>
-                <div style="width:8px;height:8px;border-radius:50%;border:1.5px solid var(--purple-400,#c084fc)"></div>
+                <div style="width:8px;height:8px;border-radius:50%;border:1.5px solid var(--teal-400,#2dd4bf)"></div>
               </div>
             </div>
           </div>
@@ -175,11 +175,11 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
               ></div>
             </div>
             <div
-              style="background:var(--purple-200,#e9d5ff);border-radius:3px;padding:4px;box-shadow:0 1px 3px rgba(0,0,0,.12)"
+              style="background:var(--teal-200,#99f6e4);border-radius:3px;padding:4px;box-shadow:0 1px 3px rgba(0,0,0,.12)"
             >
-              <div style="height:3px;width:65%;background:var(--purple-500,#a855f7);border-radius:1px"></div>
+              <div style="height:3px;width:65%;background:var(--teal-500,#14b8a6);border-radius:1px"></div>
               <div
-                style="height:2px;background:var(--purple-400,#c084fc);border-radius:1px;margin-top:2px;opacity:.7"
+                style="height:2px;background:var(--teal-400,#2dd4bf);border-radius:1px;margin-top:2px;opacity:.7"
               ></div>
             </div>
             <div
@@ -228,7 +228,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:3px">
               <div
-                style="width:100%;aspect-ratio:1;border-radius:10px;background:linear-gradient(135deg,var(--purple-200,#e9d5ff),var(--purple-400,#c084fc));border:1px solid var(--surface-border)"
+                style="width:100%;aspect-ratio:1;border-radius:10px;background:linear-gradient(135deg,var(--yellow-200,#fde68a),var(--yellow-400,#fbbf24));border:1px solid var(--surface-border)"
               ></div>
               <div style="display:flex;gap:1px">
                 <i class="vs-star vs-sf"></i><i class="vs-star vs-sf"></i><i class="vs-star vs-sf"></i
@@ -305,7 +305,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
           <div style="width:140px;height:120px;display:flex;gap:4px">
             <div style="width:18px;display:flex;flex-direction:column;gap:2px;padding:4px 0">
               <div
-                style="width:18px;height:16px;background:var(--purple-400,#c084fc);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:white"
+                style="width:18px;height:16px;background:var(--teal-400,#2dd4bf);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:7px;font-weight:700;color:white"
               >
                 A
               </div>
@@ -329,10 +329,10 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
               style="flex:1;border:1.5px solid var(--surface-border);border-radius:6px;padding:5px;display:flex;flex-direction:column;gap:4px"
             >
               <div>
-                <div style="height:3px;width:50%;background:var(--purple-400,#c084fc);border-radius:2px"></div>
-                <div style="height:2px;background:var(--purple-200,#e9d5ff);border-radius:2px;margin-top:2px"></div>
+                <div style="height:3px;width:50%;background:var(--teal-400,#2dd4bf);border-radius:2px"></div>
+                <div style="height:2px;background:var(--teal-200,#99f6e4);border-radius:2px;margin-top:2px"></div>
                 <div
-                  style="height:2px;width:70%;background:var(--purple-100,#f3e8ff);border-radius:2px;margin-top:1px"
+                  style="height:2px;width:70%;background:var(--teal-100,#ccfbf1);border-radius:2px;margin-top:1px"
                 ></div>
               </div>
               <div style="height:1px;background:var(--surface-border)"></div>
@@ -530,7 +530,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
         }
         @case ('qs-glossary-term') {
           <div
-            style="width:100%;height:100%;box-sizing:border-box;background:linear-gradient(150deg,var(--surface-0) 0%,var(--surface-50) 100%);border:1.5px solid var(--p-indigo-300);border-radius:11px;padding:9px 10px;display:flex;flex-direction:column;gap:5px;position:relative;overflow:hidden;box-shadow:0 0 0 3px rgba(99,102,241,.07),0 6px 20px rgba(99,102,241,.14),0 2px 6px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.95)"
+            style="width:100%;height:100%;box-sizing:border-box;background:linear-gradient(150deg,var(--surface-0) 0%,var(--surface-50) 100%);border:1.5px solid var(--p-green-300);border-radius:11px;padding:9px 10px;display:flex;flex-direction:column;gap:5px;position:relative;overflow:hidden;box-shadow:0 0 0 3px rgba(34,197,94,.07),0 6px 20px rgba(34,197,94,.14),0 2px 6px rgba(0,0,0,.1),inset 0 1px 0 rgba(255,255,255,.95)"
           >
             <svg width="0" height="0" style="position:absolute">
               <defs>
@@ -544,14 +544,14 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
               </defs>
             </svg>
             <div
-              style="position:absolute;top:-12px;right:-12px;width:55px;height:55px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,.14) 0%,transparent 70%)"
+              style="position:absolute;top:-12px;right:-12px;width:55px;height:55px;border-radius:50%;background:radial-gradient(circle,rgba(34,197,94,.14) 0%,transparent 70%)"
             ></div>
             <div style="display:flex;align-items:center;justify-content:space-between;gap:4px">
               <div style="font-size:12px;font-weight:800;color:var(--text-color);letter-spacing:-.02em">
                 Transformer
               </div>
               <div
-                style="font-size:6px;font-weight:700;color:white;background:linear-gradient(135deg,var(--p-indigo-500),var(--p-indigo-700));padding:2px 5px;border-radius:6px;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 2px 6px rgba(99,102,241,.4)"
+                style="font-size:6px;font-weight:700;color:white;background:linear-gradient(135deg,var(--p-green-600),var(--p-green-800));padding:2px 5px;border-radius:6px;text-transform:uppercase;letter-spacing:.06em;box-shadow:0 2px 6px rgba(34,197,94,.4)"
               >
                 DL
               </div>
@@ -570,23 +570,23 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 Example
               </div>
               <div
-                style="height:3px;width:82%;background:linear-gradient(90deg,var(--p-indigo-400),var(--p-indigo-300));border-radius:2px;margin-top:2.5px;box-shadow:0 1px 4px rgba(99,102,241,.3)"
+                style="height:3px;width:82%;background:linear-gradient(90deg,var(--p-green-400),var(--p-green-300));border-radius:2px;margin-top:2.5px;box-shadow:0 1px 4px rgba(34,197,94,.3)"
               ></div>
-              <div style="height:3px;width:58%;background:var(--p-indigo-200);border-radius:2px;margin-top:2.5px"></div>
+              <div style="height:3px;width:58%;background:var(--p-green-200);border-radius:2px;margin-top:2.5px"></div>
             </div>
             <div style="display:flex;gap:3px;margin-top:auto;flex-wrap:wrap">
               <div
-                style="font-size:6px;background:linear-gradient(135deg,var(--p-indigo-50),var(--p-indigo-100));color:var(--p-indigo-700);padding:2px 5px;border-radius:5px;font-weight:700;border:1px solid var(--p-indigo-200);box-shadow:0 1px 3px rgba(99,102,241,.15),inset 0 1px 0 rgba(255,255,255,.9)"
+                style="font-size:6px;background:linear-gradient(135deg,var(--p-green-50),var(--p-green-100));color:var(--p-green-800);padding:2px 5px;border-radius:5px;font-weight:700;border:1px solid var(--p-green-200);box-shadow:0 1px 3px rgba(34,197,94,.15),inset 0 1px 0 rgba(255,255,255,.9)"
               >
                 Attention
               </div>
               <div
-                style="font-size:6px;background:linear-gradient(135deg,var(--p-indigo-50),var(--p-indigo-100));color:var(--p-indigo-700);padding:2px 5px;border-radius:5px;font-weight:700;border:1px solid var(--p-indigo-200);box-shadow:0 1px 3px rgba(99,102,241,.15),inset 0 1px 0 rgba(255,255,255,.9)"
+                style="font-size:6px;background:linear-gradient(135deg,var(--p-green-50),var(--p-green-100));color:var(--p-green-800);padding:2px 5px;border-radius:5px;font-weight:700;border:1px solid var(--p-green-200);box-shadow:0 1px 3px rgba(34,197,94,.15),inset 0 1px 0 rgba(255,255,255,.9)"
               >
                 GPT
               </div>
               <div
-                style="font-size:6px;background:linear-gradient(135deg,var(--p-indigo-50),var(--p-indigo-100));color:var(--p-indigo-700);padding:2px 5px;border-radius:5px;font-weight:700;border:1px solid var(--p-indigo-200);box-shadow:0 1px 3px rgba(99,102,241,.15),inset 0 1px 0 rgba(255,255,255,.9)"
+                style="font-size:6px;background:linear-gradient(135deg,var(--p-green-50),var(--p-green-100));color:var(--p-green-800);padding:2px 5px;border-radius:5px;font-weight:700;border:1px solid var(--p-green-200);box-shadow:0 1px 3px rgba(34,197,94,.15),inset 0 1px 0 rgba(255,255,255,.9)"
               >
                 BERT
               </div>
@@ -710,7 +710,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
         }
         @case ('home') {
           <div
-            style="width:140px;height:120px;background:linear-gradient(160deg,#0f172a 0%,#1e1b4b 60%,#1a120c 100%);border-radius:4px;position:relative;overflow:hidden"
+            style="width:140px;height:120px;background:linear-gradient(160deg,#0f172a 0%,#172554 60%,#1a120c 100%);border-radius:4px;position:relative;overflow:hidden"
           >
             <!-- Sterne-Partikel -->
             <div
@@ -771,7 +771,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
               <div
                 style="width:6px;height:6px;border-radius:50%;background:#fcd34d;opacity:.95;box-shadow:0 0 5px rgba(252,211,77,.5)"
               ></div>
-              <div style="width:5px;height:5px;border-radius:50%;background:#c084fc;opacity:.85"></div>
+              <div style="width:5px;height:5px;border-radius:50%;background:#f472b6;opacity:.85"></div>
               <div style="width:5px;height:5px;border-radius:50%;background:#2dd4bf;opacity:.85"></div>
             </div>
           </div>

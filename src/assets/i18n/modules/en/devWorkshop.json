@@ -129,6 +129,7 @@
     "notFoundNote": "There is no guide article with this id:",
     "relatedTitle": "Related guides",
     "agentTabHint": "Agents get the same content token-cheaply from the CLI:",
+    "agentTabLanguageNote": "This tab is the contract for AI agents, so it stays in English.",
     "agentsTitle": "Guides for library & layout questions",
     "agentsLede": "For questions about Optimus UI building blocks, foundations, or layout patterns, the guides give long-form articles - with one canonical agent doc per guide. Read token-cheaply: the index first, then one section, then the whole doc only when needed.",
     "cliTopicsNote": "coverage map: what exists at all, both layers",

@@ -5,6 +5,101 @@ import { StandardContainerComponent } from '../../../components/shared/standard-
 import { scrollBehavior } from '../../../utils/reduced-motion';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, StandardContainerComponent, ScrollTop];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+    :host { display: block; }
+    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
+    .m0 { margin: 0; }
+
+    /* --- Page skeleton --- */
+    .skel { margin: 0 0 var(--space-4); }
+    .skel__band {
+      position: relative;
+      padding: var(--space-5) var(--space-4) var(--space-4);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      background: var(--surface-section);
+    }
+    .skel__band--body {
+      margin: var(--space-3) 0;
+      background: var(--surface-card);
+      border-style: dashed;
+    }
+    .skel__cap {
+      position: absolute; top: var(--space-2); left: var(--space-4);
+      font-size: var(--font-size-sm); color: var(--text-color-secondary);
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .skel__row {
+      margin: var(--space-2) 0; padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--surface-border); border-radius: var(--radius-md);
+      background: var(--surface-card); font-size: 0.9rem; overflow-wrap: anywhere;
+    }
+    .skel__band--body .skel__row { background: var(--surface-section); }
+    .skel__row--muted { color: var(--text-color-secondary); }
+
+    /* --- Rendered stages --- */
+    .stage {
+      margin: 0 0 var(--space-4); padding: var(--space-4);
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+    }
+    .stage--stack { display: grid; gap: var(--space-4); }
+
+    /* p-scrolltop demo: the panel owns its scroll, so target="parent" has something to watch. */
+    .st-panel {
+      max-height: 16rem; overflow-y: auto;
+      padding: var(--space-4);
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      margin: 0 0 var(--space-3);
+    }
+    .st-panel:focus-visible { outline: 2px solid var(--primary-color-fg); outline-offset: 2px; }
+    .st-panel__title { margin: 0 0 var(--space-3); }
+    .st-panel__title:focus-visible { outline: 2px solid var(--primary-color-fg); outline-offset: 2px; }
+    .st-panel__row { margin: 0 0 var(--space-3); }
+
+    /* --- Do / Don't --- */
+    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
+    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
+    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
+    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
+    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
+    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
+    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; }
+    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
+    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
+    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
+    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
+
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { margin: 0.3rem 0; }
+
+    .code-block {
+      margin: 0 0 var(--space-4);
+      padding: var(--space-4);
+      overflow-x: auto;
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text-color);
+    }
+    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
+    .td-you { color: var(--primary-color-fg); font-weight: var(--font-weight-medium); }
+    .history strong { color: var(--primary-color-fg); }
+  `;
+
 /**
  * Guide article: Article Layout (layouts).
  *
@@ -54,7 +149,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-article-layout-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, StandardContainerComponent, ScrollTop],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'article-layout'">
@@ -639,96 +734,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
     </app-guide-shell>
   `,
-  styles: [`
-    :host { display: block; }
-    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
-    .m0 { margin: 0; }
-
-    /* --- Page skeleton --- */
-    .skel { margin: 0 0 var(--space-4); }
-    .skel__band {
-      position: relative;
-      padding: var(--space-5) var(--space-4) var(--space-4);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      background: var(--surface-section);
-    }
-    .skel__band--body {
-      margin: var(--space-3) 0;
-      background: var(--surface-card);
-      border-style: dashed;
-    }
-    .skel__cap {
-      position: absolute; top: var(--space-2); left: var(--space-4);
-      font-size: var(--font-size-sm); color: var(--text-color-secondary);
-      text-transform: uppercase; letter-spacing: 0.04em;
-    }
-    .skel__row {
-      margin: var(--space-2) 0; padding: var(--space-3) var(--space-4);
-      border: 1px solid var(--surface-border); border-radius: var(--radius-md);
-      background: var(--surface-card); font-size: 0.9rem; overflow-wrap: anywhere;
-    }
-    .skel__band--body .skel__row { background: var(--surface-section); }
-    .skel__row--muted { color: var(--text-color-secondary); }
-
-    /* --- Rendered stages --- */
-    .stage {
-      margin: 0 0 var(--space-4); padding: var(--space-4);
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-    }
-    .stage--stack { display: grid; gap: var(--space-4); }
-
-    /* p-scrolltop demo: the panel owns its scroll, so target="parent" has something to watch. */
-    .st-panel {
-      max-height: 16rem; overflow-y: auto;
-      padding: var(--space-4);
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      margin: 0 0 var(--space-3);
-    }
-    .st-panel:focus-visible { outline: 2px solid var(--primary-color-fg); outline-offset: 2px; }
-    .st-panel__title { margin: 0 0 var(--space-3); }
-    .st-panel__title:focus-visible { outline: 2px solid var(--primary-color-fg); outline-offset: 2px; }
-    .st-panel__row { margin: 0 0 var(--space-3); }
-
-    /* --- Do / Don't --- */
-    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
-    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
-    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
-    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
-    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
-    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
-    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; }
-    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
-    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
-    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
-    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
-
-    .checklist { list-style: none; padding-left: 0; }
-    .checklist li { margin: 0.3rem 0; }
-
-    .code-block {
-      margin: 0 0 var(--space-4);
-      padding: var(--space-4);
-      overflow-x: auto;
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--text-color);
-    }
-    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
-    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
-    .td-you { color: var(--primary-color-fg); font-weight: var(--font-weight-medium); }
-    .history strong { color: var(--primary-color-fg); }
-  `],
+  styles: [ARTICLE_STYLES],
 })
 export class ArticleLayoutArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -747,8 +753,7 @@ export class ArticleLayoutArticleComponent {
     return scrollBehavior();
   }
 
-  readonly scrollTopSnippet =
-    "import { ScrollTop } from '@openng/optimus-ui/scrolltop';\n" +
+  readonly scrollTopSnippet: string = "import { ScrollTop } from '@openng/optimus-ui/scrolltop';\n" +
     "import { scrollBehavior } from '../../utils/reduced-motion';\n" +
     '\n' +
     '<!-- A panel with its own scroll. The page itself needs nothing: the shell\n' +
@@ -772,7 +777,7 @@ export class ArticleLayoutArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly pageSnippet = '<!-- The template: one wrapper, and your body inside it. -->\n' +
+  readonly pageSnippet: string = '<!-- The template: one wrapper, and your body inside it. -->\n' +
     '<app-lesson-template [meta]="meta" [tocItems]="tocItems">\n' +
     '\n' +
     '  <!-- Opening paragraphs carry no heading of their own. -->\n' +
@@ -815,7 +820,7 @@ export class ArticleLayoutArticleComponent {
     '  }\n' +
     '}';
 
-  readonly checkSnippet = '# Does every table-of-contents id have a target in the same file?\n' +
+  readonly checkSnippet: string = '# Does every table-of-contents id have a target in the same file?\n' +
     'grep -o "id: .[a-z-]*." src/app/pages/articles/art-example/*.ts\n' +
     'grep -o "section id=\\"[a-z-]*\\"" src/app/pages/articles/art-example/*.ts\n' +
     '\n' +
@@ -826,7 +831,7 @@ export class ArticleLayoutArticleComponent {
     '# Does the block you are about to build already exist?\n' +
     'node scripts/design-guides.mjs list --layer kit';
 
-  readonly tocSnippet = '// A: a getter. Always current, allocates on every check.\n' +
+  readonly tocSnippet: string = '// A: a getter. Always current, allocates on every check.\n' +
     'get tocItems(): TocItem[] {\n' +
     '  return [{ id: "lead", label: this.t("articleExample.toc.lead") }];\n' +
     '}\n' +

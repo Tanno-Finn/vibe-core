@@ -101,6 +101,11 @@ from it and clearly marked as translations, never edited independently — so th
 canonical doc stays the single source of truth (the same "roadmap docs are derived,
 not truth" discipline the kit uses elsewhere).
 
+The guide **articles** (`/dev/design/guide/<id>`) are read by people and ship in two
+languages: an English canonical component plus a German twin that extends it, shown on
+`de` and `de-easy` (ADR-0018, `directives/guide-authoring.md`). Their agent docs stay
+English like every other canonical doc.
+
 ### Plain language
 
 Write for a **competent non-native reader**, not for a compiler and not for a

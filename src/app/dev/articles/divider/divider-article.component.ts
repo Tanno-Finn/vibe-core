@@ -3,6 +3,130 @@ import { DividerModule } from '@openng/optimus-ui/divider';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, DividerModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-divider-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-divider-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-divider-article .stage--row {
+        display: flex;
+        align-items: stretch;
+        gap: 0.25rem;
+      }
+
+      app-divider-article .stage p {
+        margin: 0;
+      }
+
+      app-divider-article .chip {
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-divider-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-divider-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-divider-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-divider-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-divider-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-divider-article .dd__h {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      app-divider-article .dd__body {
+        margin: 0;
+        font-size: 0.9rem;
+      }
+
+      app-divider-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-divider-article .probe--block span {
+        display: block;
+      }
+
+      app-divider-article .probe--row {
+        display: flex;
+        align-items: stretch;
+        gap: 0.25rem;
+      }
+
+      app-divider-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-divider-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-divider-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-divider-article .sources a {
+        color: var(--primary-color-fg);
+      }
+
+      app-divider-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-divider-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Divider (Guides, category `library`).
  *
@@ -46,7 +170,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-divider-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, DividerModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'divider'">
@@ -466,127 +590,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-divider-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-divider-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-divider-article .stage--row {
-        display: flex;
-        align-items: stretch;
-        gap: 0.25rem;
-      }
-
-      app-divider-article .stage p {
-        margin: 0;
-      }
-
-      app-divider-article .chip {
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-divider-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-divider-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-divider-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-divider-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-divider-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-divider-article .dd__h {
-        margin: 0;
-        font-size: 0.95rem;
-      }
-
-      app-divider-article .dd__body {
-        margin: 0;
-        font-size: 0.9rem;
-      }
-
-      app-divider-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-divider-article .probe--block span {
-        display: block;
-      }
-
-      app-divider-article .probe--row {
-        display: flex;
-        align-items: stretch;
-        gap: 0.25rem;
-      }
-
-      app-divider-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-divider-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-divider-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-divider-article .sources a {
-        color: var(--primary-color-fg);
-      }
-
-      app-divider-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-divider-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class DividerArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -658,8 +662,7 @@ export class DividerArticleComponent {
       'The stylesheet is written in logical properties throughout, so the rule follows the writing mode with no work on your side. One rule is direction-aware beyond that: p-divider-left and p-divider-right reverse the flex direction under :dir(rtl), so "left" keeps meaning the start of the line rather than the physical left edge. Note which dividers that covers — a horizontal divider carries p-divider-left whenever align is left or unset, so the rule applies to the default divider as well, not only to the ones you aligned by hand. Nothing else in the component reads the direction.',
   };
 
-  readonly anatomySnippet =
-    '<!-- What <p-divider type="dashed" align="left">Billing</p-divider> renders. -->\n' +
+  readonly anatomySnippet: string = '<!-- What <p-divider type="dashed" align="left">Billing</p-divider> renders. -->\n' +
     '<p-divider role="separator"\n' +
     '           aria-orientation="horizontal"\n' +
     '           class="p-divider p-component p-divider-horizontal p-divider-dashed p-divider-left"\n' +
@@ -669,8 +672,7 @@ export class DividerArticleComponent {
     '</p-divider>\n' +
     '<!-- The line itself is the :before pseudo-element of the host. -->';
 
-  readonly undefinedSnippet =
-    '// The class name is concatenated from the raw input value.\n' +
+  readonly undefinedSnippet: string = '// The class name is concatenated from the raw input value.\n' +
     'orientation: "horizontal" | "vertical" | undefined = undefined;\n' +
     '\n' +
     '// <p-divider [layout]="orientation" /> emits class="... p-divider-undefined",\n' +
@@ -679,8 +681,7 @@ export class DividerArticleComponent {
     '// Keep the value total, and let the component apply its own default.\n' +
     'orientation: "horizontal" | "vertical" = "horizontal";';
 
-  readonly dtSnippet =
-    '<!-- Per-instance tokens; the app-wide preset stays untouched. -->\n' +
+  readonly dtSnippet: string = '<!-- Per-instance tokens; the app-wide preset stays untouched. -->\n' +
     '<p-divider [dt]="quietRule" />\n' +
     '\n' +
     '// quietRule, in the calling component class:\n' +
@@ -689,8 +690,7 @@ export class DividerArticleComponent {
     '  horizontal: { margin: "2rem 0" },\n' +
     '};';
 
-  readonly i18nSnippet =
-    '// A divider label is your content, so it follows the kit pattern:\n' +
+  readonly i18nSnippet: string = '// A divider label is your content, so it follows the kit pattern:\n' +
     '// translate() inside a computed, which re-runs on a language switch.\n' +
     'private readonly i18n = inject(TranslationService);\n' +
     'readonly billingLabel = computed(() => this.i18n.translate("account.billing.title"));\n' +

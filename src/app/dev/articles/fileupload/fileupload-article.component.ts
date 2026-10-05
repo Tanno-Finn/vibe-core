@@ -4,6 +4,120 @@ import type { FileSelectEvent, FileUploadHandlerEvent } from '@openng/optimus-ui
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, FileUploadModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-fileupload-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-fileupload-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-fileupload-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      app-fileupload-article .stage__out {
+        margin: 0.75rem 0 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+        min-height: 1.2em;
+      }
+
+      app-fileupload-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-fileupload-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-fileupload-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-fileupload-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-fileupload-article .dd__stage {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-fileupload-article .dd__stage--stack {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.6rem;
+      }
+
+      app-fileupload-article .dd__alert {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--semantic-red-fg);
+      }
+
+      app-fileupload-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-fileupload-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-fileupload-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-fileupload-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-fileupload-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-fileupload-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: File Upload (Guides, category `library`).
  *
@@ -65,7 +179,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-fileupload-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, FileUploadModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'fileupload'">
@@ -485,117 +599,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-fileupload-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-fileupload-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-fileupload-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.9rem;
-      }
-
-      app-fileupload-article .stage__out {
-        margin: 0.75rem 0 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-        min-height: 1.2em;
-      }
-
-      app-fileupload-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-fileupload-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-fileupload-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-fileupload-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-fileupload-article .dd__stage {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-fileupload-article .dd__stage--stack {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0.6rem;
-      }
-
-      app-fileupload-article .dd__alert {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--semantic-red-fg);
-      }
-
-      app-fileupload-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-fileupload-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-fileupload-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-fileupload-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-fileupload-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-fileupload-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class FileUploadArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -696,8 +700,7 @@ export class FileUploadArticleComponent {
       'only a #file template that formats the size itself, e.g. with formatNumberFor(value, language, 1) from the kit — a German reader takes 1.234 MB for 1234 MB',
   };
 
-  readonly fileRowSnippet =
-    '<!-- one row per file, from [pFileContent] -->\n' +
+  readonly fileRowSnippet: string = '<!-- one row per file, from [pFileContent] -->\n' +
     '<div class="p-fileupload-file">\n' +
     '  <img role="presentation" alt="report.pdf" src="…" width="50">   <!-- always rendered -->\n' +
     '  <div class="p-fileupload-file-info">\n' +
@@ -710,8 +713,7 @@ export class FileUploadArticleComponent {
     '  </div>\n' +
     '</div>';
 
-  readonly usageSnippet =
-    '// The component never tells the user that the upload failed. You do.\n' +
+  readonly usageSnippet: string = '// The component never tells the user that the upload failed. You do.\n' +
     'readonly failed = signal(false);\n' +
     'readonly busy = signal(false);\n\n' +
     'send(files: File[]): void {\n' +
@@ -729,8 +731,7 @@ export class FileUploadArticleComponent {
     '              (uploadHandler)="send($event.files)" />\n' +
     '@if (failed()) { <p role="alert">{{ t(\'your-module.failed\') }}</p> }';
 
-  readonly errorPathSnippet =
-    '.subscribe((event) => {\n' +
+  readonly errorPathSnippet: string = '.subscribe((event) => {\n' +
     '    switch (event.type) {\n' +
     '        case HttpEventType.Response:\n' +
     '            this.uploading = false;\n' +
@@ -751,8 +752,7 @@ export class FileUploadArticleComponent {
     '    this.onError.emit({ files: this.files, error: error });\n' +
     '});';
 
-  readonly i18nSnippet =
-    "// The Optimus locale is a separate store from the kit's translations:\n" +
+  readonly i18nSnippet: string = "// The Optimus locale is a separate store from the kit's translations:\n" +
     '// nothing connects them, so a language switch must push into both.\n' +
     '// Extend the kit sync in optimus-a11y.service.ts rather than adding a second one.\n' +
     "import { Optimus } from '@openng/optimus-ui/config';\n" +

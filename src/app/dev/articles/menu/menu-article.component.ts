@@ -7,6 +7,129 @@ import { TieredMenuModule } from '@openng/optimus-ui/tieredmenu';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, MenuModule, TieredMenuModule, ContextMenuModule, ButtonModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-menu-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-menu-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-menu-article .stage--row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 1.5rem;
+      }
+
+      app-menu-article .col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      app-menu-article .lbl {
+        font-size: 0.72rem;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+
+      app-menu-article .target {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 12rem;
+        min-height: 4rem;
+        padding: 0.75rem;
+        text-align: center;
+        font-size: 0.85rem;
+        border: 1px dashed var(--surface-border);
+        background: var(--surface-section);
+      }
+
+      app-menu-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-menu-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-menu-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-menu-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-menu-article .dd__stage {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem;
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+
+      app-menu-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-menu-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-menu-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-menu-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-menu-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 640px) {
+        app-menu-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
+
 /**
  * Guide article: Menu, TieredMenu, and ContextMenu (Guides, category `library`).
  *
@@ -114,7 +237,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-menu-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, MenuModule, TieredMenuModule, ContextMenuModule, ButtonModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'menu'">
@@ -775,126 +898,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-menu-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-menu-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-menu-article .stage--row {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        gap: 1.5rem;
-      }
-
-      app-menu-article .col {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
-
-      app-menu-article .lbl {
-        font-size: 0.72rem;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-
-      app-menu-article .target {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-width: 12rem;
-        min-height: 4rem;
-        padding: 0.75rem;
-        text-align: center;
-        font-size: 0.85rem;
-        border: 1px dashed var(--surface-border);
-        background: var(--surface-section);
-      }
-
-      app-menu-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-menu-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-menu-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-menu-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-menu-article .dd__stage {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.75rem;
-        padding: 1rem;
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-
-      app-menu-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-menu-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-menu-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-menu-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-menu-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 640px) {
-        app-menu-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class MenuArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -1091,8 +1095,7 @@ export class MenuArticleComponent {
       'Typeahead matches the label from its first characters, so it follows the translated word rather than a stable shortcut, and a language whose input needs composition does not reach it at all.',
   };
 
-  readonly emittedMarkupSnippet =
-    '<!-- one p-menu item: the li carries the role and the name, the anchor carries nothing -->\n' +
+  readonly emittedMarkupSnippet: string = '<!-- one p-menu item: the li carries the role and the name, the anchor carries nothing -->\n' +
     '<li id="pn_id_1_0" class="p-menu-item" role="menuitem" aria-label="Rename"\n' +
     '    aria-disabled="false" data-p-focused="false">\n' +
     '  <div class="p-menu-item-content">\n' +
@@ -1106,8 +1109,7 @@ export class MenuArticleComponent {
     '<li role="menuitem" aria-label="Export" aria-haspopup="menu" aria-expanded="false"\n' +
     '    aria-setsize="3" aria-posinset="2"> ... </li>';
 
-  readonly usageSnippet =
-    '// A menu model is data, and the component only reacts to a NEW array.\n' +
+  readonly usageSnippet: string = '// A menu model is data, and the component only reacts to a NEW array.\n' +
     'readonly items = computed<MenuItem[]>(() => [\n' +
     "  { label: this.i18n.translate('doc.menu.rename'), icon: 'pi pi-pencil', command: () => this.rename() },\n" +
     "  { label: this.i18n.translate('doc.menu.duplicate'), command: () => this.duplicate() },\n" +
@@ -1119,8 +1121,7 @@ export class MenuArticleComponent {
     '<p-menu #docMenu [model]="items()" [popup]="true" [ariaLabel]="labels().actionsMenu" />\n\n' +
     '<!-- No focus rule here: the kit rings the .p-focus item globally (src/styles.scss). -->';
 
-  readonly tabStopSnippet =
-    '// tieredmenu / contextmenu: the nested list is created without a tabindex binding,\n' +
+  readonly tabStopSnippet: string = '// tieredmenu / contextmenu: the nested list is created without a tabindex binding,\n' +
     '// so it falls back to the sub component default of 0 and is focusable on its own.\n' +
     '<p-tieredmenusub *ngIf="isItemVisible(processedItem) && isItemGroup(processedItem)"\n' +
     '                 [items]="processedItem.items"\n' +
@@ -1133,8 +1134,7 @@ export class MenuArticleComponent {
     '// Silence the nested list through the submenu section pt addresses (:278 / :252):\n' +
     "// [pt]=\"{ submenu: { tabindex: '-1' } }\"";
 
-  readonly i18nSnippet =
-    '// translate() takes a key and nothing else, and the model must be a fresh array,\n' +
+  readonly i18nSnippet: string = '// translate() takes a key and nothing else, and the model must be a fresh array,\n' +
     '// so the whole model is one computed() over the translation signal.\n' +
     'readonly exportMenu = computed<MenuItem[]>(() => [\n' +
     "  { label: this.i18n.translate('export.csv'), command: () => this.exportCsv() },\n" +

@@ -5,16 +5,85 @@ import { PickListModule } from '@openng/optimus-ui/picklist';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
-interface Row {
+export interface Row {
   id: number;
   label: string;
 }
 
-interface Card {
+export interface Card {
   id: number;
   title: string;
   note: string;
 }
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, DataViewModule, OrderListModule, PickListModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-dataview-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-dataview-article .stage {
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-dataview-article .stage--split {
+        display: grid;
+        gap: 1.5rem;
+      }
+
+      app-dataview-article .stage__bar {
+        display: flex;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      app-dataview-article .plain {
+        font: inherit;
+        padding: 0.25rem 0.7rem;
+        border: 1px solid var(--control-border, var(--surface-border));
+        background: var(--surface-ground);
+        color: var(--text-color);
+        cursor: pointer;
+      }
+
+      app-dataview-article .plain[aria-pressed='true'] {
+        background: var(--surface-hover);
+        font-weight: 600;
+      }
+
+      app-dataview-article .dv-list {
+        margin: 0;
+        padding-inline-start: 1.1rem;
+      }
+
+      app-dataview-article .dv-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+        gap: 0.6rem;
+      }
+
+      app-dataview-article .dv-tile {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.6rem;
+        border: 1px solid var(--surface-border);
+      }
+
+      app-dataview-article .dd__caption {
+        margin: 0.5rem 0 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+        min-height: 1.2em;
+      }
+    `;
 
 /**
  * Guide article: DataView, OrderList, and PickList (Guides, category `library`).
@@ -98,7 +167,7 @@ interface Card {
   selector: 'app-dataview-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, DataViewModule, OrderListModule, PickListModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'dataview'">
@@ -494,72 +563,7 @@ interface Card {
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-dataview-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-dataview-article .stage {
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-dataview-article .stage--split {
-        display: grid;
-        gap: 1.5rem;
-      }
-
-      app-dataview-article .stage__bar {
-        display: flex;
-        gap: 0.5rem;
-        margin-bottom: 0.75rem;
-      }
-
-      app-dataview-article .plain {
-        font: inherit;
-        padding: 0.25rem 0.7rem;
-        border: 1px solid var(--control-border, var(--surface-border));
-        background: var(--surface-ground);
-        color: var(--text-color);
-        cursor: pointer;
-      }
-
-      app-dataview-article .plain[aria-pressed='true'] {
-        background: var(--surface-hover);
-        font-weight: 600;
-      }
-
-      app-dataview-article .dv-list {
-        margin: 0;
-        padding-inline-start: 1.1rem;
-      }
-
-      app-dataview-article .dv-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
-        gap: 0.6rem;
-      }
-
-      app-dataview-article .dv-tile {
-        display: flex;
-        flex-direction: column;
-        gap: 0.2rem;
-        padding: 0.6rem;
-        border: 1px solid var(--surface-border);
-      }
-
-      app-dataview-article .dd__caption {
-        margin: 0.5rem 0 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-        min-height: 1.2em;
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class DataviewArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -641,8 +645,7 @@ export class DataviewArticleComponent {
       'A translated row label can be several times the English length, and neither list component wraps or truncates for you: the row scrolls horizontally inside the list, and a long header pushes the list container wider before the flex row gives way.',
   };
 
-  readonly usageSnippet =
-    '<p-orderlist [value]="steps" [(selection)]="picked" dragdrop\n' +
+  readonly usageSnippet: string = '<p-orderlist [value]="steps" [(selection)]="picked" dragdrop\n' +
     '             [ariaLabel]="listLabel()" (onReorder)="announce($event)">\n' +
     '  <ng-template #item let-row>{{ row.label }}</ng-template>\n' +
     '</p-orderlist>\n' +
@@ -657,16 +660,14 @@ export class DataviewArticleComponent {
     '  this.moveMessage.set(`${moved[0].label}, ${at} of ${this.steps.length}`);\n' +
     '}';
 
-  readonly edgeSnippet =
-    '/* Already in the kit (src/styles.scss) — element-scoped, because Optimus\n' +
+  readonly edgeSnippet: string = '/* Already in the kit (src/styles.scss) — element-scoped, because Optimus\n' +
     '   resolves the form-field chain on :root. It reaches the listbox inside\n' +
     '   p-orderlist and p-picklist as well. */\n' +
     '.p-listbox {\n' +
     '  --p-listbox-border-color: var(--control-border);\n' +
     '}';
 
-  readonly branchSnippet =
-    '// sort(): the lazy branch never touches the array\n' +
+  readonly branchSnippet: string = '// sort(): the lazy branch never touches the array\n' +
     'sort() {\n' +
     '  this.first = 0;\n' +
     '  if (this.lazy) { this.onLazyLoad.emit(this.createLazyLoadMetadata()); }\n' +
@@ -681,8 +682,7 @@ export class DataviewArticleComponent {
     "@if (layout === 'list') { <!-- your #list template --> }\n" +
     "@if (layout === 'grid') { <!-- your #grid template --> }";
 
-  readonly i18nSnippet =
-    '// None of the eight names exists in a translation module today: author them\n' +
+  readonly i18nSnippet: string = '// None of the eight names exists in a translation module today: author them\n' +
     '// first, in a namespace of your own, and read them through your own helper.\n' +
     'const tr = (k: string) => this.i18n.translate(`your-module.${k}`);\n' +
     '\n' +

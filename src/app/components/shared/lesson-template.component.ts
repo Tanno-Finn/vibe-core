@@ -1026,7 +1026,7 @@ export interface LessonMeta {
         border-left-color: #06b6d4;
       }
       .cited-source-card[data-type='wikipedia'] {
-        border-left-color: #6366f1;
+        border-left-color: #64748b;
       }
       .cited-source-card[data-type='blog'] {
         border-left-color: #f59e0b;
@@ -1035,7 +1035,7 @@ export interface LessonMeta {
         border-left-color: #ef4444;
       }
       .cited-source-card[data-type='interview'] {
-        border-left-color: #8b5cf6;
+        border-left-color: #ec4899;
       }
       .cited-source-card[data-type='article'] {
         border-left-color: #14b8a6;
@@ -1076,7 +1076,7 @@ export interface LessonMeta {
         background: #06b6d4;
       }
       .cited-source-card[data-type='wikipedia'] .cited-type-icon {
-        background: #6366f1;
+        background: #64748b;
       }
       .cited-source-card[data-type='blog'] .cited-type-icon {
         background: #f59e0b;
@@ -1085,7 +1085,7 @@ export interface LessonMeta {
         background: #ef4444;
       }
       .cited-source-card[data-type='interview'] .cited-type-icon {
-        background: #8b5cf6;
+        background: #ec4899;
       }
       .cited-source-card[data-type='article'] .cited-type-icon {
         background: #14b8a6;

@@ -4,7 +4,7 @@ import { TranslationService } from '../services/translation.service';
 import { PageHeaderComponent } from '../components/shared/page-header.component';
 import { designRegistry } from './design-registry';
 import { groupDesignEntries } from './design-groups';
-import { articleRegistry, groupGuidesByCategory } from './articles/article-registry';
+import { articleRegistry, groupGuidesByCategory, localizedGuide } from './articles/article-registry';
 import { VIBE_DEV_SENTINEL } from './dev-sentinel';
 
 /**
@@ -476,13 +476,14 @@ export class DevAgentsComponent {
    * category). A new guide entry appears here automatically — the table
    * maintains itself, exactly like the component index above.
    */
-  readonly guideGroups = computed(() =>
-    groupGuidesByCategory(articleRegistry).map((bucket) => ({
+  readonly guideGroups = computed(() => {
+    const language = this.i18n.currentLanguage$();
+    return groupGuidesByCategory(articleRegistry).map((bucket) => ({
       id: bucket.id,
       title: this.i18n.translate(`devWorkshop.guides.category.${bucket.id}`),
-      entries: bucket.entries,
-    })),
-  );
+      entries: bucket.entries.map((a) => ({ ...a, ...localizedGuide(a, language) })),
+    }));
+  });
 
   /** "{count} components in {groups} task groups ..." with numbers filled in. */
   readonly indexSummary = computed(() =>

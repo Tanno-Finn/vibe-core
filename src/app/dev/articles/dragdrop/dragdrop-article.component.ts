@@ -12,18 +12,233 @@ import { Draggable, Droppable } from '@openng/optimus-ui/dragdrop';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
-type ZoneId = 'pool' | 'supervised' | 'unsupervised';
+export type ZoneId = 'pool' | 'supervised' | 'unsupervised';
 
-interface SortZone {
+export interface SortZone {
   id: ZoneId;
   title: string;
   short: string;
 }
 
-interface SortItem {
+export interface SortItem {
   id: string;
   label: string;
 }
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, Draggable, Droppable];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-dragdrop-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-dragdrop-article .stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        margin-block: 0.75rem;
+      }
+
+      app-dragdrop-article .sort-board {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+        margin-block: 0.75rem;
+      }
+
+      app-dragdrop-article .sort-zone {
+        padding: 0.75rem;
+        border: 1px solid var(--control-border);
+        background: var(--surface-card);
+        min-height: 8rem;
+      }
+
+      app-dragdrop-article .sort-zone.p-draggable-enter {
+        background: color-mix(in srgb, var(--primary-color) 10%, var(--surface-card));
+        outline: 2px dashed var(--primary-color-fg);
+        outline-offset: -4px;
+      }
+
+      app-dragdrop-article .sort-zone__title {
+        margin: 0 0 0.5rem;
+        font-size: 0.95rem;
+      }
+
+      app-dragdrop-article .sort-list,
+      app-dragdrop-article .mini-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      app-dragdrop-article .sort-item,
+      app-dragdrop-article .mini-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 0.5rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-section);
+        cursor: grab;
+        font-size: 0.9rem;
+      }
+
+      app-dragdrop-article .mini-item {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      app-dragdrop-article .sort-item:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+
+      app-dragdrop-article .sort-item.is-dragging {
+        opacity: 0.5;
+      }
+
+      app-dragdrop-article .sort-item__grip {
+        color: var(--text-color-secondary);
+        margin-inline-end: 0.25rem;
+      }
+
+      app-dragdrop-article .sort-item__moves {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.35rem;
+      }
+
+      app-dragdrop-article .sort-item__moves-label {
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-dragdrop-article .move-btn {
+        min-height: 2rem;
+        padding: 0.2rem 0.6rem;
+        border: 1px solid var(--control-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+        font: inherit;
+        font-size: 0.8rem;
+        cursor: pointer;
+      }
+
+      app-dragdrop-article .move-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+
+      app-dragdrop-article .sort-empty {
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-dragdrop-article .sort-status,
+      app-dragdrop-article .mini-status {
+        margin: 0.25rem 0 0;
+        font-size: 0.9rem;
+        min-height: 1.4em;
+      }
+
+      app-dragdrop-article .scope-chip {
+        padding: 0.35rem 0.6rem;
+        border: 1px solid var(--control-border);
+        background: var(--surface-section);
+        cursor: grab;
+      }
+
+      app-dragdrop-article .scope-label {
+        font-size: 0.85rem;
+      }
+
+      app-dragdrop-article .scope-probe {
+        flex: 1 1 12rem;
+        font: inherit;
+        border: 1px solid var(--control-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+      }
+
+      app-dragdrop-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-dragdrop-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-dragdrop-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-dragdrop-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-dragdrop-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+      }
+
+      app-dragdrop-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-dragdrop-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-dragdrop-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-dragdrop-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-dragdrop-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 40rem) {
+        app-dragdrop-article .sort-board,
+        app-dragdrop-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
 
 /**
  * Guide article: Drag and Drop (Guides, category `library`).
@@ -56,7 +271,7 @@ interface SortItem {
   selector: 'app-dragdrop-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, Draggable, Droppable],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'dragdrop'">
@@ -434,224 +649,13 @@ interface SortItem {
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-dragdrop-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-dragdrop-article .stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.75rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        margin-block: 0.75rem;
-      }
-
-      app-dragdrop-article .sort-board {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.75rem;
-        margin-block: 0.75rem;
-      }
-
-      app-dragdrop-article .sort-zone {
-        padding: 0.75rem;
-        border: 1px solid var(--control-border);
-        background: var(--surface-card);
-        min-height: 8rem;
-      }
-
-      app-dragdrop-article .sort-zone.p-draggable-enter {
-        background: color-mix(in srgb, var(--primary-color) 10%, var(--surface-card));
-        outline: 2px dashed var(--primary-color-fg);
-        outline-offset: -4px;
-      }
-
-      app-dragdrop-article .sort-zone__title {
-        margin: 0 0 0.5rem;
-        font-size: 0.95rem;
-      }
-
-      app-dragdrop-article .sort-list,
-      app-dragdrop-article .mini-list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      app-dragdrop-article .sort-item,
-      app-dragdrop-article .mini-item {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        padding: 0.5rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-section);
-        cursor: grab;
-        font-size: 0.9rem;
-      }
-
-      app-dragdrop-article .mini-item {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
-      app-dragdrop-article .sort-item:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-
-      app-dragdrop-article .sort-item.is-dragging {
-        opacity: 0.5;
-      }
-
-      app-dragdrop-article .sort-item__grip {
-        color: var(--text-color-secondary);
-        margin-inline-end: 0.25rem;
-      }
-
-      app-dragdrop-article .sort-item__moves {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 0.35rem;
-      }
-
-      app-dragdrop-article .sort-item__moves-label {
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-dragdrop-article .move-btn {
-        min-height: 2rem;
-        padding: 0.2rem 0.6rem;
-        border: 1px solid var(--control-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-        font: inherit;
-        font-size: 0.8rem;
-        cursor: pointer;
-      }
-
-      app-dragdrop-article .move-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-
-      app-dragdrop-article .sort-empty {
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-dragdrop-article .sort-status,
-      app-dragdrop-article .mini-status {
-        margin: 0.25rem 0 0;
-        font-size: 0.9rem;
-        min-height: 1.4em;
-      }
-
-      app-dragdrop-article .scope-chip {
-        padding: 0.35rem 0.6rem;
-        border: 1px solid var(--control-border);
-        background: var(--surface-section);
-        cursor: grab;
-      }
-
-      app-dragdrop-article .scope-label {
-        font-size: 0.85rem;
-      }
-
-      app-dragdrop-article .scope-probe {
-        flex: 1 1 12rem;
-        font: inherit;
-        border: 1px solid var(--control-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-      }
-
-      app-dragdrop-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-dragdrop-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-dragdrop-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-dragdrop-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-dragdrop-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-      }
-
-      app-dragdrop-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-dragdrop-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-dragdrop-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-dragdrop-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-dragdrop-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 40rem) {
-        app-dragdrop-article .sort-board,
-        app-dragdrop-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class DragdropArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
-  private readonly injector = inject(Injector);
+  protected readonly host = inject<ElementRef<HTMLElement>>(ElementRef);
+  protected readonly injector = inject(Injector);
 
   // --- the live sorting board (synthetic content) ---
   readonly zones: SortZone[] = [
@@ -713,7 +717,7 @@ export class DragdropArticleComponent {
   }
 
   /** The button that was pressed leaves the DOM with its row; focus the row in its new place. */
-  private focusItem(itemId: string): void {
+  protected focusItem(itemId: string): void {
     afterNextRender(
       () => {
         this.host.nativeElement.querySelector<HTMLElement>('#dd-item-' + itemId)?.focus();
@@ -724,8 +728,8 @@ export class DragdropArticleComponent {
 
   // --- the do/don't mini example ---
   readonly miniIn = signal<'pool' | 'supervised'>('pool');
-  readonly miniWhere = computed(() => (this.miniIn() === 'pool' ? 'not sorted' : 'in Supervised'));
-  readonly miniTarget = computed(() => (this.miniIn() === 'pool' ? 'Supervised' : 'Not sorted'));
+  readonly miniWhere = computed<string>(() => (this.miniIn() === 'pool' ? 'not sorted' : 'in Supervised'));
+  readonly miniTarget = computed<string>(() => (this.miniIn() === 'pool' ? 'Supervised' : 'Not sorted'));
   readonly miniStatus = signal('');
 
   miniToggle(): void {
@@ -810,8 +814,7 @@ export class DragdropArticleComponent {
       'The directives have no direction of their own. The move buttons carry destination names, not arrows, so they need no mirroring; if you use arrow icons for move-up and move-down, those are vertical and direction-neutral, while left and right arrows would need to swap under dir="rtl".',
   };
 
-  readonly anatomySnippet =
-    '<!-- <li pDraggable="ml-task"> after init -->\n' +
+  readonly anatomySnippet: string = '<!-- <li pDraggable="ml-task"> after init -->\n' +
     '<li draggable="true">Spam filter from labeled emails</li>\n' +
     '\n' +
     '<!-- <div pDroppable="ml-task"> while a drag is over it -->\n' +
@@ -819,8 +822,7 @@ export class DragdropArticleComponent {
     '\n' +
     '<!-- Nothing else: no role, no tabindex, no aria-* on either. -->';
 
-  readonly recipeSnippet =
-    '<!-- Zone: accepts drags whose scope is "ml-task" -->\n' +
+  readonly recipeSnippet: string = '<!-- Zone: accepts drags whose scope is "ml-task" -->\n' +
     '<div role="group" [attr.aria-labelledby]="zone.headingId"\n' +
     '     pDroppable="ml-task" (onDrop)="dropInto(zone.id)">\n' +
     '  <li pDraggable="ml-task"\n' +
@@ -843,8 +845,7 @@ export class DragdropArticleComponent {
     '  // focus the moved row when returnFocus is true\n' +
     '}';
 
-  readonly i18nSnippet =
-    '// Labels and the announcement are yours; resolve them in a computed.\n' +
+  readonly i18nSnippet: string = '// Labels and the announcement are yours; resolve them in a computed.\n' +
     'private readonly i18n = inject(TranslationService);\n' +
     'readonly labels = computed(() => ({\n' +
     '  moveTo: this.i18n.translate("sorting.moveTo"),\n' +

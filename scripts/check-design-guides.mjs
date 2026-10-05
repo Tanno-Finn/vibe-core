@@ -268,8 +268,19 @@ if (!fs.existsSync(ROUTES_FILE)) {
 }
 
 /** The registry fields in contract order; each scalar is a single-quoted literal. */
-const REGISTRY_FIELDS = ['id', 'title', 'category', 'tags', 'summary', 'related', 'agentDocPath', 'loadComponent'];
-const REGISTRY_SCALARS = new Set(['id', 'title', 'category', 'summary', 'agentDocPath']);
+const REGISTRY_FIELDS = [
+  'id',
+  'title',
+  'titleDe',
+  'category',
+  'tags',
+  'summary',
+  'summaryDe',
+  'related',
+  'agentDocPath',
+  'loadComponent',
+];
+const REGISTRY_SCALARS = new Set(['id', 'title', 'titleDe', 'category', 'summary', 'summaryDe', 'agentDocPath']);
 
 /**
  * Where an entry breaks the PARSER CONTRACT, one message per break, naming the

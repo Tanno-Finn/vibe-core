@@ -2,6 +2,114 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+    :host { display: block; }
+    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
+
+    /* --- Card skeleton --- */
+    .skel { margin: 0 0 var(--space-4); }
+    .skel__band {
+      position: relative;
+      padding: var(--space-5) var(--space-4) var(--space-4);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      background: var(--surface-section);
+    }
+    .skel__band--body {
+      margin: var(--space-3) 0;
+      background: var(--surface-card);
+      border-style: dashed;
+    }
+    .skel__cap {
+      position: absolute; top: var(--space-2); left: var(--space-4);
+      font-size: var(--font-size-sm); color: var(--text-color-secondary);
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+    .skel__row {
+      margin: var(--space-2) 0; padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--surface-border); border-radius: var(--radius-md);
+      background: var(--surface-card); font-size: 0.9rem; overflow-wrap: anywhere;
+    }
+    .skel__band--body .skel__row { background: var(--surface-section); }
+    .skel__row--muted { color: var(--text-color-secondary); }
+
+    /* --- Two wrappers, one shared container rule --- */
+    .cq-row { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0 0 var(--space-4); }
+    .cq-box { flex: 0 1 auto; min-width: 0; }
+    .cq-box--narrow { width: 17rem; }
+    .cq-box--wide { width: 30rem; max-width: 100%; }
+    .cq-card {
+      container-type: inline-size;
+      overflow: hidden;
+      padding: var(--space-4);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      background: var(--surface-card);
+    }
+    .cq-head {
+      margin: 0 0 var(--space-3);
+      font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
+      color: var(--text-color-secondary);
+    }
+    .cq-body { display: flex; flex-direction: column; gap: var(--space-3); }
+    .cq-stage, .cq-panel {
+      padding: var(--space-4); border-radius: var(--radius-md);
+      font-size: 0.85rem; color: var(--text-color);
+    }
+    .cq-stage {
+      background: var(--surface-section);
+      border: 1px dashed var(--surface-border);
+      min-height: 4rem;
+    }
+    .cq-panel { background: var(--surface-section); border: 1px solid var(--surface-border); }
+    @container (min-width: 24rem) {
+      .cq-body {
+        display: grid; align-items: start;
+        grid-template-columns: minmax(0, 1.3fr) minmax(7rem, 1fr);
+        gap: var(--space-3);
+      }
+    }
+
+    /* --- Do / Don't --- */
+    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
+    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
+    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
+    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
+    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
+    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
+    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; white-space: pre-wrap; }
+    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
+    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
+    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
+    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
+
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { margin: 0.3rem 0; }
+
+    .code-block {
+      margin: 0 0 var(--space-4);
+      padding: var(--space-4);
+      overflow-x: auto;
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text-color);
+    }
+    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
+    .history strong { color: var(--primary-color-fg); }
+    .sources a { color: var(--primary-color-fg); }
+  `;
+
 /**
  * Guide article: Demo Layout (layouts).
  *
@@ -39,7 +147,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-demo-layout-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'demo-layout'">
@@ -536,109 +644,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
     </app-guide-shell>
   `,
-  styles: [`
-    :host { display: block; }
-    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
-
-    /* --- Card skeleton --- */
-    .skel { margin: 0 0 var(--space-4); }
-    .skel__band {
-      position: relative;
-      padding: var(--space-5) var(--space-4) var(--space-4);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      background: var(--surface-section);
-    }
-    .skel__band--body {
-      margin: var(--space-3) 0;
-      background: var(--surface-card);
-      border-style: dashed;
-    }
-    .skel__cap {
-      position: absolute; top: var(--space-2); left: var(--space-4);
-      font-size: var(--font-size-sm); color: var(--text-color-secondary);
-      text-transform: uppercase; letter-spacing: 0.04em;
-    }
-    .skel__row {
-      margin: var(--space-2) 0; padding: var(--space-3) var(--space-4);
-      border: 1px solid var(--surface-border); border-radius: var(--radius-md);
-      background: var(--surface-card); font-size: 0.9rem; overflow-wrap: anywhere;
-    }
-    .skel__band--body .skel__row { background: var(--surface-section); }
-    .skel__row--muted { color: var(--text-color-secondary); }
-
-    /* --- Two wrappers, one shared container rule --- */
-    .cq-row { display: flex; flex-wrap: wrap; gap: var(--space-4); margin: 0 0 var(--space-4); }
-    .cq-box { flex: 0 1 auto; min-width: 0; }
-    .cq-box--narrow { width: 17rem; }
-    .cq-box--wide { width: 30rem; max-width: 100%; }
-    .cq-card {
-      container-type: inline-size;
-      overflow: hidden;
-      padding: var(--space-4);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-lg);
-      background: var(--surface-card);
-    }
-    .cq-head {
-      margin: 0 0 var(--space-3);
-      font-size: var(--font-size-sm); font-weight: var(--font-weight-medium);
-      color: var(--text-color-secondary);
-    }
-    .cq-body { display: flex; flex-direction: column; gap: var(--space-3); }
-    .cq-stage, .cq-panel {
-      padding: var(--space-4); border-radius: var(--radius-md);
-      font-size: 0.85rem; color: var(--text-color);
-    }
-    .cq-stage {
-      background: var(--surface-section);
-      border: 1px dashed var(--surface-border);
-      min-height: 4rem;
-    }
-    .cq-panel { background: var(--surface-section); border: 1px solid var(--surface-border); }
-    @container (min-width: 24rem) {
-      .cq-body {
-        display: grid; align-items: start;
-        grid-template-columns: minmax(0, 1.3fr) minmax(7rem, 1fr);
-        gap: var(--space-3);
-      }
-    }
-
-    /* --- Do / Don't --- */
-    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
-    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
-    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
-    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
-    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
-    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
-    .dd__code { font-family: var(--font-mono); font-size: 0.8rem; overflow-wrap: anywhere; min-width: 0; white-space: pre-wrap; }
-    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
-    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
-    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
-    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
-
-    .checklist { list-style: none; padding-left: 0; }
-    .checklist li { margin: 0.3rem 0; }
-
-    .code-block {
-      margin: 0 0 var(--space-4);
-      padding: var(--space-4);
-      overflow-x: auto;
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--text-color);
-    }
-    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
-    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
-    .history strong { color: var(--primary-color-fg); }
-    .sources a { color: var(--primary-color-fg); }
-  `],
+  styles: [ARTICLE_STYLES],
 })
 export class DemoLayoutArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -646,33 +652,33 @@ export class DemoLayoutArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly badQuery = '@media (min-width: 700px) {\n' +
+  readonly badQuery: string = '@media (min-width: 700px) {\n' +
     '  .demo-layout { grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 1fr); }\n' +
     '}';
 
-  readonly goodQuery = ':host { display: block; container-type: inline-size; }\n' +
+  readonly goodQuery: string = ':host { display: block; container-type: inline-size; }\n' +
     '@container (min-width: 700px) {\n' +
     '  .demo-layout { grid-template-columns: minmax(0, 1.3fr) minmax(15rem, 1fr); }\n' +
     '}';
 
-  readonly badOrder = '<div class="demo-layout">\n' +
+  readonly badOrder: string = '<div class="demo-layout">\n' +
     '  <div class="controls-panel">...</div>\n' +
     '  <div class="stage">...</div>\n' +
     '</div>';
 
-  readonly goodOrder = '<div class="demo-layout">\n' +
+  readonly goodOrder: string = '<div class="demo-layout">\n' +
     '  <div class="stage">...</div>\n' +
     '  <div class="controls-panel">...</div>\n' +
     '</div>';
 
-  readonly badSrOnly = '/* in the component styles */\n' +
+  readonly badSrOnly: string = '/* in the component styles */\n' +
     '.sr-only { position: absolute; }';
 
-  readonly goodSrOnly = '<p class="sr-only" aria-live="polite" aria-atomic="true">\n' +
+  readonly goodSrOnly: string = '<p class="sr-only" aria-live="polite" aria-atomic="true">\n' +
     '  {{ statusMessage() }}\n' +
     '</p>';
 
-  readonly deadApiSnippet = '// src/styles/design-tokens.scss — declared, never called; deleted 2026-08-20.\n' +
+  readonly deadApiSnippet: string = '// src/styles/design-tokens.scss — declared, never called; deleted 2026-08-20.\n' +
     '@mixin demo-layout($left-ratio: \'demo-left\', $right-ratio: \'demo-right\', $gap: \'demo-gap\') { ... }\n' +
     '\n' +
     '// The tokens it reads, emitted on :root and read by nothing:\n' +
@@ -682,7 +688,7 @@ export class DemoLayoutArticleComponent {
     '\n' +
     '// Use the grid recipe from the Development tab instead.';
 
-  readonly widgetSnippet = '<!-- The interactive core of the blueprint, trimmed to its structure. -->\n' +
+  readonly widgetSnippet: string = '<!-- The interactive core of the blueprint, trimmed to its structure. -->\n' +
     '<app-standard-container id="demo"\n' +
     '  [config]="{ titleKey: \'myDemo.demo.title\', type: \'demo\', headingLevel: 2 }">\n' +
     '  <p class="demo-lead">{{ translate(\'myDemo.demo.lead\') }}</p>\n' +
@@ -726,7 +732,7 @@ export class DemoLayoutArticleComponent {
     '  border: 1px solid var(--surface-border);\n' +
     '}';
 
-  readonly checkSnippet = '# Is the switch asked of the container, or of the window?\n' +
+  readonly checkSnippet: string = '# Is the switch asked of the container, or of the window?\n' +
     'grep -n "container-type\\|@container\\|@media" \\\n' +
     '  src/app/pages/my-demo/*.ts\n' +
     '\n' +
@@ -737,7 +743,7 @@ export class DemoLayoutArticleComponent {
     '# Does the control you are about to build already exist?\n' +
     'node scripts/design-guides.mjs list --layer kit';
 
-  readonly i18nSnippet = '// One method, one namespace; placeholders replaced after translation.\n' +
+  readonly i18nSnippet: string = '// One method, one namespace; placeholders replaced after translation.\n' +
     'translate(key: string): string {\n' +
     '  return this.translationService.translate(key);\n' +
     '}\n' +

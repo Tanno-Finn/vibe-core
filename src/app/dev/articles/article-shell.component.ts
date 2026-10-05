@@ -29,7 +29,8 @@ import { TranslationService } from '../../services/translation.service';
 
 import { PageHeaderComponent } from '../../components/shared/page-header.component';
 import { CursorGlowDirective } from '../../directives/cursor-glow.directive';
-import { findArticle, ArticleRegistryEntry } from './article-registry';
+import { findArticle, localizedGuide, ArticleRegistryEntry } from './article-registry';
+import { LANGUAGE_RULES } from '../../../config/languages';
 import { buildSwitchGroups, resolveSwitchRoute, guideSwitchValue } from '../switch-options';
 import { VIBE_DEV_SENTINEL } from '../dev-sentinel';
 import { ScrollRegionWatcher } from './scroll-regions';
@@ -105,8 +106,8 @@ type DocState = { status: 'loading' } | { status: 'loaded'; html: string } | { s
   template: `
     <div class="guide" [attr.data-dev-sentinel]="sentinel">
       @if (entry(); as e) {
-        <app-page-header [title]="e.title">
-          <p class="guide__summary">{{ e.summary }}</p>
+        <app-page-header [title]="display().title">
+          <p class="guide__summary">{{ display().summary }}</p>
         </app-page-header>
 
         <!-- Controls toolbar — visual twin of the component detail toolbar. -->
@@ -235,6 +236,14 @@ type DocState = { status: 'loading' } | { status: 'loaded'; html: string } | { s
                 >{{ agentHint() }} <code>node scripts/design-guides.mjs show {{ e.id }}</code></span
               >
             </p>
+            <!-- The agent doc is the contract for AI agents and stays English (ADR-0018);
+                 a German reader is told so instead of meeting it unannounced. -->
+            @if (isGerman()) {
+              <p class="guide__agent-hint" role="note">
+                <i class="pi pi-info-circle" aria-hidden="true"></i>
+                <span>{{ agentLanguageNote() }}</span>
+              </p>
+            }
             @switch (doc().status) {
               @case ('loading') {
                 <p class="tabs__muted">{{ labels().loading }}</p>
@@ -243,7 +252,8 @@ type DocState = { status: 'loading' } | { status: 'loaded'; html: string } | { s
                 <p class="tabs__error" role="alert">{{ errorMessage() }}</p>
               }
               @case ('loaded') {
-                <div class="markdown" [innerHTML]="agentHtml()"></div>
+                <!-- English text inside a German page: lang="en" for screen readers (SC 3.1.2). -->
+                <div class="markdown" [attr.lang]="isGerman() ? 'en' : null" [innerHTML]="agentHtml()"></div>
               }
             }
           </div>
@@ -651,6 +661,15 @@ export class GuideShellComponent {
   readonly entryId = input.required<string>();
   readonly entry = computed<ArticleRegistryEntry | undefined>(() => findArticle(this.entryId()));
 
+  /** True while the base language is German (de, de-easy): German titles, the agent-tab note. */
+  readonly isGerman = computed(() => LANGUAGE_RULES.baseLanguageOf(this.i18n.currentLanguage$()) === 'de');
+
+  /** This guide's title and summary in the reader's language (registry `titleDe` / `summaryDe` on de). */
+  readonly display = computed(() => {
+    const e = this.entry();
+    return e ? localizedGuide(e, this.i18n.currentLanguage$()) : { title: '', summary: '' };
+  });
+
   /** Projected `*guideTab` templates (declared by the concrete article). */
   private readonly projectedTabs = contentChildren(GuideTabDirective);
 
@@ -701,6 +720,7 @@ export class GuideShellComponent {
   }
 
   readonly agentHint = computed(() => this.i18n.translate('devWorkshop.guides.agentTabHint'));
+  readonly agentLanguageNote = computed(() => this.i18n.translate('devWorkshop.guides.agentTabLanguageNote'));
 
   /** Localized category chip label (amber toolbar chip). */
   readonly categoryLabel = computed(() => {
@@ -722,10 +742,14 @@ export class GuideShellComponent {
    * resolve in the registry. Forward references (an id whose guide is not built
    * yet) are silently skipped, so a chip appears the moment its guide ships.
    */
-  readonly relatedGuides = computed<ArticleRegistryEntry[]>(() => {
+  readonly relatedGuides = computed<{ id: string; title: string; summary: string }[]>(() => {
     const e = this.entry();
     if (!e) return [];
-    return e.related.map((id) => findArticle(id)).filter((g): g is ArticleRegistryEntry => g !== undefined);
+    const language = this.i18n.currentLanguage$();
+    return e.related
+      .map((id) => findArticle(id))
+      .filter((g): g is ArticleRegistryEntry => g !== undefined)
+      .map((g) => ({ id: g.id, ...localizedGuide(g, language) }));
   });
 
   /**

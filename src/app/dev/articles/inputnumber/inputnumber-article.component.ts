@@ -5,6 +5,194 @@ import { InputTextModule } from '@openng/optimus-ui/inputtext';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [FormsModule, InputNumberModule, InputTextModule, GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      .lead {
+        margin: 0 0 var(--space-5);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        color: var(--text-color-secondary);
+      }
+      h3 {
+        margin: var(--space-6) 0 var(--space-3);
+        font-size: 1.05rem;
+      }
+      p {
+        line-height: 1.65;
+      }
+
+      .stage {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-5);
+        padding: var(--space-4);
+        background: var(--surface-section);
+        border-radius: var(--radius-md);
+        margin: 0 0 var(--space-3);
+      }
+      .stage__item {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+        flex: 1 1 14rem;
+        max-width: 22rem;
+      }
+      .stage__item > label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+      .stage__item p-inputnumber {
+        width: 100%;
+      }
+      .hint {
+        font-size: 0.8rem;
+        color: var(--text-color-secondary);
+      }
+      .field-error {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-2);
+        font-size: 0.85rem;
+        line-height: 1.5;
+        color: var(--red-600);
+      }
+      .field-error i {
+        margin-top: 0.15em;
+        font-size: 0.85rem;
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg, #15803d);
+      }
+      .dd__stage {
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .dd__stage--stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+      }
+      .dd__stage label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+      .dd__stage p-inputnumber,
+      .dd__stage input {
+        width: 100%;
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
+        color: var(--semantic-red-fg, #b91c1c);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
+        color: var(--semantic-green-fg, #15803d);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .sources {
+        padding-left: 1.1rem;
+      }
+      .sources li {
+        margin: 0 0 var(--space-3);
+        line-height: 1.6;
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .src-note {
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-4);
+      }
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+    `;
+
 /**
  * Guide article: InputNumber (Optimus UI).
  *
@@ -38,7 +226,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-inputnumber-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [FormsModule, InputNumberModule, InputTextModule, GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'inputnumber'">
@@ -600,191 +788,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      .lead {
-        margin: 0 0 var(--space-5);
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: var(--text-color-secondary);
-      }
-      h3 {
-        margin: var(--space-6) 0 var(--space-3);
-        font-size: 1.05rem;
-      }
-      p {
-        line-height: 1.65;
-      }
-
-      .stage {
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--space-5);
-        padding: var(--space-4);
-        background: var(--surface-section);
-        border-radius: var(--radius-md);
-        margin: 0 0 var(--space-3);
-      }
-      .stage__item {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-        flex: 1 1 14rem;
-        max-width: 22rem;
-      }
-      .stage__item > label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-      .stage__item p-inputnumber {
-        width: 100%;
-      }
-      .hint {
-        font-size: 0.8rem;
-        color: var(--text-color-secondary);
-      }
-      .field-error {
-        display: flex;
-        align-items: flex-start;
-        gap: var(--space-2);
-        font-size: 0.85rem;
-        line-height: 1.5;
-        color: var(--red-600);
-      }
-      .field-error i {
-        margin-top: 0.15em;
-        font-size: 0.85rem;
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg, #b91c1c);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg, #15803d);
-      }
-      .dd__stage {
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .dd__stage--stack {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .dd__stage label {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-color);
-      }
-      .dd__stage p-inputnumber,
-      .dd__stage input {
-        width: 100%;
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent);
-        color: var(--semantic-red-fg, #b91c1c);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent);
-        color: var(--semantic-green-fg, #15803d);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .sources {
-        padding-left: 1.1rem;
-      }
-      .sources li {
-        margin: 0 0 var(--space-3);
-        line-height: 1.6;
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .src-note {
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-4);
-      }
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class InputnumberArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -816,8 +820,7 @@ export class InputnumberArticleComponent {
   };
 
   // --- Flat string constants: these resolve wherever the tab is read ------
-  readonly wiringSnippet =
-    '<label for="fx-amount">{{ t(\'form.amountLabel\') }}</label>\n' +
+  readonly wiringSnippet: string = '<label for="fx-amount">{{ t(\'form.amountLabel\') }}</label>\n' +
     '<p-inputnumber\n' +
     '  inputId="fx-amount"\n' +
     '  mode="currency" currency="EUR"\n' +
@@ -830,8 +833,7 @@ export class InputnumberArticleComponent {
     '/>\n' +
     '<small id="fx-amount-hint">{{ t(\'form.amountHint\') }}</small>';
 
-  readonly eventSnippet =
-    '// The model moves on every accepted keystroke - validate from it directly.\n' +
+  readonly eventSnippet: string = '// The model moves on every accepted keystroke - validate from it directly.\n' +
     'readonly amount = signal<number | null>(null);\n' +
     'private readonly errors = computed(() => validate(this.amount()));\n' +
     '\n' +
@@ -839,8 +841,7 @@ export class InputnumberArticleComponent {
     '// (onInput) => { value: number | null, formattedValue: string }\n' +
     '// onClear fires for the showClear icon; onBlur is when formatting settles.';
 
-  readonly localeSnippet =
-    '// The kit rule - one binding, same locale as dates and collation:\n' +
+  readonly localeSnippet: string = '// The kit rule - one binding, same locale as dates and collation:\n' +
     'readonly i18n = inject(TranslationService);\n' +
     '// template: [locale]="i18n.currentIntlLocale"\n' +
     '// de      -> 1.234,56   (comma is the decimal key)\n' +

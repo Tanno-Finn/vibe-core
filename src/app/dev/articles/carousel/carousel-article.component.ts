@@ -6,16 +6,210 @@ import { prefersReducedMotion } from '../../../utils/reduced-motion';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
-interface Concept {
+export interface Concept {
   term: string;
   text: string;
 }
 
-interface Figure {
+export interface Figure {
   kind: 'bars' | 'clusters' | 'loss' | 'grid';
   title: string;
   alt: string;
 }
+
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective, Carousel, GalleriaModule];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      app-carousel-article .lead {
+        font-size: 1.05rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-carousel-article .slide {
+        padding: 1rem 1.25rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+        min-height: 7rem;
+      }
+
+      app-carousel-article .slide__term {
+        margin: 0 0 0.35rem;
+        font-size: 1rem;
+      }
+
+      app-carousel-article .slide__text {
+        margin: 0;
+      }
+
+      app-carousel-article .rotator {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-block: 0.75rem;
+      }
+
+      app-carousel-article .rot-btn {
+        align-self: flex-start;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        min-height: 2.5rem;
+        padding: 0.4rem 0.9rem;
+        border: 1px solid var(--control-border);
+        background: var(--surface-card);
+        color: var(--text-color);
+        font: inherit;
+        cursor: pointer;
+      }
+
+      app-carousel-article .rot-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+
+      app-carousel-article .rot-note {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-carousel-article .fig {
+        margin: 0;
+        padding: 1rem;
+        background: var(--surface-card);
+      }
+
+      app-carousel-article .fig__svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: 14rem;
+      }
+
+      app-carousel-article .fig__svg .ink {
+        fill: var(--primary-color);
+      }
+
+      app-carousel-article .fig__svg .ink2 {
+        fill: var(--text-color-secondary);
+      }
+
+      app-carousel-article .fig__svg .line {
+        fill: none;
+        stroke: var(--primary-color);
+        stroke-width: 3;
+      }
+
+      app-carousel-article .fig__caption {
+        margin: 0;
+      }
+
+      app-carousel-article .thumb {
+        display: block;
+        padding: 0.35rem;
+        font-size: 0.75rem;
+        text-align: center;
+      }
+
+      app-carousel-article .mock-slide {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        font-size: 0.9rem;
+      }
+
+      app-carousel-article .mock-dots {
+        display: flex;
+        gap: 0.35rem;
+        margin-top: 0.35rem;
+      }
+
+      app-carousel-article .mock-dots span {
+        width: 1.25rem;
+        height: 0.35rem;
+        background: var(--surface-border);
+      }
+
+      app-carousel-article .mock-dots span.on {
+        background: var(--primary-color);
+      }
+
+      app-carousel-article .concept-list {
+        margin: 0;
+        padding-inline-start: 1.1rem;
+        font-size: 0.85rem;
+      }
+
+      app-carousel-article .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-block: 0.75rem;
+      }
+
+      app-carousel-article .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        min-width: 0;
+        padding: 1rem;
+        border: 1px solid var(--surface-border);
+        background: var(--surface-card);
+      }
+
+      app-carousel-article .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+
+      app-carousel-article .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+
+      app-carousel-article .dd__stage {
+        padding: 1rem;
+        background: var(--surface-section);
+        overflow-x: auto;
+      }
+
+      app-carousel-article .dd__why {
+        margin: 0;
+        font-size: 0.85rem;
+        color: var(--text-color-secondary);
+      }
+
+      app-carousel-article .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+
+      app-carousel-article .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+
+      app-carousel-article .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+
+      app-carousel-article .checklist {
+        margin: 0;
+        padding-inline-start: 1.2rem;
+      }
+
+      @media (max-width: 40rem) {
+        app-carousel-article .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+    `;
 
 /**
  * Guide article: Carousel and Galleria (Guides, category `library`).
@@ -64,7 +258,7 @@ interface Figure {
   selector: 'app-carousel-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective, Carousel, GalleriaModule],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'carousel'">
@@ -541,197 +735,7 @@ interface Figure {
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      app-carousel-article .lead {
-        font-size: 1.05rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-carousel-article .slide {
-        padding: 1rem 1.25rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-        min-height: 7rem;
-      }
-
-      app-carousel-article .slide__term {
-        margin: 0 0 0.35rem;
-        font-size: 1rem;
-      }
-
-      app-carousel-article .slide__text {
-        margin: 0;
-      }
-
-      app-carousel-article .rotator {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        margin-block: 0.75rem;
-      }
-
-      app-carousel-article .rot-btn {
-        align-self: flex-start;
-        display: inline-flex;
-        align-items: center;
-        gap: 0.4rem;
-        min-height: 2.5rem;
-        padding: 0.4rem 0.9rem;
-        border: 1px solid var(--control-border);
-        background: var(--surface-card);
-        color: var(--text-color);
-        font: inherit;
-        cursor: pointer;
-      }
-
-      app-carousel-article .rot-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-
-      app-carousel-article .rot-note {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-carousel-article .fig {
-        margin: 0;
-        padding: 1rem;
-        background: var(--surface-card);
-      }
-
-      app-carousel-article .fig__svg {
-        display: block;
-        width: 100%;
-        height: auto;
-        max-height: 14rem;
-      }
-
-      app-carousel-article .fig__svg .ink {
-        fill: var(--primary-color);
-      }
-
-      app-carousel-article .fig__svg .ink2 {
-        fill: var(--text-color-secondary);
-      }
-
-      app-carousel-article .fig__svg .line {
-        fill: none;
-        stroke: var(--primary-color);
-        stroke-width: 3;
-      }
-
-      app-carousel-article .fig__caption {
-        margin: 0;
-      }
-
-      app-carousel-article .thumb {
-        display: block;
-        padding: 0.35rem;
-        font-size: 0.75rem;
-        text-align: center;
-      }
-
-      app-carousel-article .mock-slide {
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-        font-size: 0.9rem;
-      }
-
-      app-carousel-article .mock-dots {
-        display: flex;
-        gap: 0.35rem;
-        margin-top: 0.35rem;
-      }
-
-      app-carousel-article .mock-dots span {
-        width: 1.25rem;
-        height: 0.35rem;
-        background: var(--surface-border);
-      }
-
-      app-carousel-article .mock-dots span.on {
-        background: var(--primary-color);
-      }
-
-      app-carousel-article .concept-list {
-        margin: 0;
-        padding-inline-start: 1.1rem;
-        font-size: 0.85rem;
-      }
-
-      app-carousel-article .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-        margin-block: 0.75rem;
-      }
-
-      app-carousel-article .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        min-width: 0;
-        padding: 1rem;
-        border: 1px solid var(--surface-border);
-        background: var(--surface-card);
-      }
-
-      app-carousel-article .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-
-      app-carousel-article .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-
-      app-carousel-article .dd__stage {
-        padding: 1rem;
-        background: var(--surface-section);
-        overflow-x: auto;
-      }
-
-      app-carousel-article .dd__why {
-        margin: 0;
-        font-size: 0.85rem;
-        color: var(--text-color-secondary);
-      }
-
-      app-carousel-article .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-
-      app-carousel-article .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-
-      app-carousel-article .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-
-      app-carousel-article .checklist {
-        margin: 0;
-        padding-inline-start: 1.2rem;
-      }
-
-      @media (max-width: 40rem) {
-        app-carousel-article .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class CarouselArticleComponent {
   readonly sentinel = VIBE_DEV_SENTINEL;
@@ -771,11 +775,11 @@ export class CarouselArticleComponent {
   readonly galleriaStyle = { 'max-width': '40rem' };
 
   // --- the rotating carousel ---
-  private readonly rotator = viewChild<Carousel>('rotator');
+  protected readonly rotator = viewChild<Carousel>('rotator');
   readonly rotating = signal(true);
   readonly reducedMotion = signal(false);
 
-  readonly rotationNote = computed(() => {
+  readonly rotationNote = computed<string>(() => {
     if (this.rotating()) return 'Rotating every 6 seconds. Focus inside stops it; the pointer on it pauses it.';
     if (this.reducedMotion()) return 'Not rotating: your system asks for reduced motion. The button starts it anyway.';
     return 'Rotation stopped.';
@@ -818,7 +822,7 @@ export class CarouselArticleComponent {
     if (this.rotating()) this.stopRotation();
   }
 
-  private stopRotation(): void {
+  protected stopRotation(): void {
     this.rotator()?.stopAutoplay();
     this.rotating.set(false);
   }
@@ -926,11 +930,9 @@ export class CarouselArticleComponent {
       'The carousel moves its track with translate3d on the x axis and never reads the writing direction, so under dir="rtl" the chevrons and the slide direction stay physically left-to-right. Test a right-to-left page before adopting it there.',
   };
 
-  readonly defaultNavSnippet =
-    '<p-carousel [value]="items">\n' + '  <!-- prev/next: unnamed, prev has no type -->\n' + '</p-carousel>';
+  readonly defaultNavSnippet: string = '<p-carousel [value]="items">\n' + '  <!-- prev/next: unnamed, prev has no type -->\n' + '</p-carousel>';
 
-  readonly namedNavSnippet =
-    '<p-carousel [value]="items"\n' +
+  readonly namedNavSnippet: string = '<p-carousel [value]="items"\n' +
     '  aria-label="AI concepts"\n' +
     '  [prevButtonProps]="prevProps"\n' +
     '  [nextButtonProps]="nextProps" />\n' +
@@ -940,8 +942,7 @@ export class CarouselArticleComponent {
     '  type: "button", ariaLabel: labels().previous,\n' +
     '};';
 
-  readonly rotationSnippet =
-    '<button type="button" (click)="toggle()">\n' +
+  readonly rotationSnippet: string = '<button type="button" (click)="toggle()">\n' +
     '  {{ rotating() ? "Stop slide rotation" : "Start slide rotation" }}\n' +
     '</button>\n' +
     '<div (focusin)="stop()" (mouseenter)="pause()" (mouseleave)="resume()">\n' +
@@ -959,8 +960,7 @@ export class CarouselArticleComponent {
     'resume() { const c = this.rotator();\n' +
     '           if (this.rotating() && c && !c.isPlaying()) c.startAutoplay(); }';
 
-  readonly fullscreenSnippet =
-    '<button #opener type="button" (click)="open.set(true)">View figures full screen</button>\n' +
+  readonly fullscreenSnippet: string = '<button #opener type="button" (click)="open.set(true)">View figures full screen</button>\n' +
     '<p-galleria [value]="figures" [fullScreen]="true"\n' +
     '            [visible]="open()" (visibleChange)="close()"\n' +
     '            (keydown.escape)="close()" />\n' +
@@ -970,8 +970,7 @@ export class CarouselArticleComponent {
     '  this.opener().nativeElement.focus(); // the component returns focus nowhere\n' +
     '}';
 
-  readonly i18nSnippet =
-    '// The navigator names are per instance, through buttonProps:\n' +
+  readonly i18nSnippet: string = '// The navigator names are per instance, through buttonProps:\n' +
     'readonly prevProps = computed<ButtonProps>(() => ({\n' +
     '  severity: "secondary", text: true, rounded: true, type: "button",\n' +
     '  ariaLabel: this.i18n.translate("carousel.previous"),\n' +

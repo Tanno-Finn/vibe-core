@@ -11,6 +11,444 @@ import { TooltipModule } from '@openng/optimus-ui/tooltip';
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [
+    GuideShellComponent,
+    GuideTabDirective,
+    PopoverModule,
+    ButtonModule,
+    AutoFocusModule,
+    InputTextModule,
+    SelectModule,
+    ToggleSwitchModule,
+    TooltipModule,
+    FormsModule,
+  ];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+      :host {
+        display: block;
+      }
+      .lead {
+        max-width: 46rem;
+        line-height: 1.6;
+        color: var(--text-color-secondary);
+        margin: 0 0 var(--space-5);
+      }
+      h3 {
+        margin: 1.5rem 0 0.6rem;
+        font-size: 1.05rem;
+        color: var(--text-color);
+      }
+      h4 {
+        margin: 1.2rem 0 0.5rem;
+        font-size: 0.95rem;
+        color: var(--text-color);
+      }
+      p,
+      li {
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+      ul {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+      }
+      li {
+        margin: 0.35rem 0;
+      }
+      code {
+        font-family: var(--font-mono);
+        font-size: 0.85em;
+        background: var(--surface-section);
+        border-radius: var(--radius-sm);
+        padding: 0.1em 0.35em;
+      }
+      .src-note {
+        max-width: 46rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+        margin: 0.4rem 0 1.2rem;
+      }
+
+      /* --- Live focus probe --- */
+      .probe {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: var(--space-2) var(--space-3);
+        margin: 0 0 var(--space-5);
+        padding: var(--space-3) var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-left: 3px solid var(--primary-color-fg);
+        border-radius: var(--radius-md);
+        background: var(--surface-card);
+      }
+      .probe__label {
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: var(--text-color-secondary);
+      }
+      /* One fixed line box, clipped: the read-out's text changes on every focus
+       move, and a popover is positioned exactly ONCE. If this box could grow or
+       shrink, the reflow would slide the trigger out from under an open panel. */
+      .probe__value {
+        flex: 1 1 100%;
+        min-width: 0;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 0.82rem;
+      }
+      .probe__hint {
+        flex: 1 1 20rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+
+      /* --- Playground --- */
+      .pg {
+        margin: 0 0 var(--space-6);
+        padding: var(--space-5);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .pg__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: var(--space-5);
+        margin-bottom: var(--space-4);
+      }
+      .pg__controls {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-3);
+      }
+      .pg__controls legend {
+        padding: 0;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+        margin-bottom: var(--space-1);
+      }
+      .pg__field {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-1);
+      }
+      .pg__label,
+      .pg__field label {
+        font-size: 0.85rem;
+        color: var(--text-color);
+        font-weight: var(--font-weight-medium);
+      }
+      .pg__field--switch {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+      }
+      .pg__field--switch label {
+        flex: 1;
+      }
+      .pg__field p-select {
+        width: 100%;
+      }
+      .pg__preview {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .pg__preview-label,
+      .pg__code-label {
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-medium);
+        color: var(--text-color-secondary);
+      }
+      .pg__stage {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: var(--space-3);
+        min-height: 9rem;
+        padding: var(--space-5);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+      }
+      .pg__hint {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--text-color-secondary);
+      }
+      @media (max-width: 640px) {
+        .pg__grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Examples --- */
+      .ex {
+        margin: 0 0 var(--space-6);
+      }
+      .ex__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-bottom: var(--space-1);
+      }
+      .ex__title {
+        margin: 0;
+        font-size: 1rem;
+      }
+      .ex__note {
+        margin: 0 0 var(--space-3);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .ex__stage {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-4);
+        padding: var(--space-5);
+        margin-bottom: var(--space-3);
+        border: 1px dashed var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-section);
+      }
+      .ex__stage--split {
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .ex__aside {
+        flex: 1 1 16rem;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .prose {
+        flex: 1 1 100%;
+        line-height: 1.9;
+        color: var(--text-color);
+      }
+      .place {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        min-width: 0;
+      }
+      .place--right {
+        margin-left: auto;
+        text-align: right;
+      }
+
+      .scrollbox {
+        max-height: 6.5rem;
+        overflow-y: auto;
+        padding: var(--space-4);
+        margin-bottom: var(--space-3);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        background: var(--surface-card);
+      }
+      .scrollbox:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .scrollbox__filler {
+        margin: 0 0 var(--space-4);
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+
+      /* --- Panel content (inside the popovers) --- */
+      .panel {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        max-width: 22rem;
+        padding: var(--space-3);
+      }
+      .panel--prose {
+        max-width: 24rem;
+      }
+      .panel--tall {
+        max-width: 20rem;
+      }
+      .panel--wide {
+        max-width: 34rem;
+      }
+      .panel__title {
+        margin: 0 0 var(--space-1);
+        font-size: 0.95rem;
+      }
+      .panel__body {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        line-height: 1.55;
+      }
+      .panel__label {
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+      }
+      .panel__row {
+        display: flex;
+        gap: var(--space-2);
+        justify-content: flex-end;
+        margin-top: var(--space-2);
+      }
+
+      /* --- Do / Don't --- */
+      .dd {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-4);
+        margin: 0 0 var(--space-4);
+      }
+      .dd__cell {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-2);
+        padding: var(--space-4);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        background: var(--surface-card);
+      }
+      .dd__cell--bad {
+        border-left: 3px solid var(--semantic-red-fg);
+      }
+      .dd__cell--good {
+        border-left: 3px solid var(--semantic-green-fg);
+      }
+      .dd__stage {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+        padding: var(--space-4);
+        border-radius: var(--radius-md);
+        background: var(--surface-section);
+        min-height: 3.5rem;
+      }
+      .dd__aside {
+        font-size: 0.75rem;
+        color: var(--text-color-secondary);
+      }
+      .dd__why {
+        margin: 0;
+        font-size: var(--font-size-sm);
+        color: var(--text-color-secondary);
+      }
+      .tag {
+        align-self: flex-start;
+        font-size: 0.72rem;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        padding: 0.15em 0.55em;
+        border-radius: 999px;
+      }
+      .tag--bad {
+        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
+        color: var(--semantic-red-fg);
+      }
+      .tag--good {
+        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
+        color: var(--semantic-green-fg);
+      }
+      @media (max-width: 640px) {
+        .dd {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .checklist {
+        list-style: none;
+        padding-left: 0;
+      }
+      .checklist li {
+        margin: 0.3rem 0;
+      }
+
+      .copy-btn {
+        appearance: none;
+        flex: 0 0 auto;
+        padding: 0.35rem 0.8rem;
+        font-family: inherit;
+        font-size: 0.8rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--primary-color-fg);
+        background: var(--surface-card);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: border-color 0.15s ease;
+      }
+      .copy-btn:hover {
+        border-color: var(--primary-color-fg);
+      }
+      .copy-btn:focus-visible {
+        outline: 2px solid var(--primary-color-fg);
+        outline-offset: 2px;
+      }
+      .code-block {
+        margin: 0 0 var(--space-4);
+        padding: var(--space-4);
+        overflow-x: auto;
+        background: var(--surface-section);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        line-height: 1.55;
+        color: var(--text-color);
+      }
+      .table-wrap {
+        overflow-x: auto;
+        margin: 0 0 1rem;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      th,
+      td {
+        border: 1px solid var(--surface-border);
+        padding: 0.4rem 0.6rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        color: var(--text-color-secondary);
+        font-weight: var(--font-weight-medium);
+      }
+      .sources a,
+      .history strong {
+        color: var(--primary-color-fg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .copy-btn {
+          transition: none;
+        }
+      }
+    `;
+
 /**
  * Guide article: Popover — p-popover (SPEC N5, Guides).
  *
@@ -70,18 +508,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-popover-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [
-    GuideShellComponent,
-    GuideTabDirective,
-    PopoverModule,
-    ButtonModule,
-    AutoFocusModule,
-    InputTextModule,
-    SelectModule,
-    ToggleSwitchModule,
-    TooltipModule,
-    FormsModule,
-  ],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'popover'">
@@ -1771,444 +2198,21 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
       </ng-template>
     </app-guide-shell>
   `,
-  styles: [
-    `
-      :host {
-        display: block;
-      }
-      .lead {
-        max-width: 46rem;
-        line-height: 1.6;
-        color: var(--text-color-secondary);
-        margin: 0 0 var(--space-5);
-      }
-      h3 {
-        margin: 1.5rem 0 0.6rem;
-        font-size: 1.05rem;
-        color: var(--text-color);
-      }
-      h4 {
-        margin: 1.2rem 0 0.5rem;
-        font-size: 0.95rem;
-        color: var(--text-color);
-      }
-      p,
-      li {
-        line-height: 1.6;
-        color: var(--text-color);
-      }
-      ul {
-        padding-left: 1.4rem;
-        margin: 0 0 1rem;
-      }
-      li {
-        margin: 0.35rem 0;
-      }
-      code {
-        font-family: var(--font-mono);
-        font-size: 0.85em;
-        background: var(--surface-section);
-        border-radius: var(--radius-sm);
-        padding: 0.1em 0.35em;
-      }
-      .src-note {
-        max-width: 46rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-        margin: 0.4rem 0 1.2rem;
-      }
-
-      /* --- Live focus probe --- */
-      .probe {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: baseline;
-        gap: var(--space-2) var(--space-3);
-        margin: 0 0 var(--space-5);
-        padding: var(--space-3) var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-left: 3px solid var(--primary-color-fg);
-        border-radius: var(--radius-md);
-        background: var(--surface-card);
-      }
-      .probe__label {
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        color: var(--text-color-secondary);
-      }
-      /* One fixed line box, clipped: the read-out's text changes on every focus
-       move, and a popover is positioned exactly ONCE. If this box could grow or
-       shrink, the reflow would slide the trigger out from under an open panel. */
-      .probe__value {
-        flex: 1 1 100%;
-        min-width: 0;
-        height: 1.5rem;
-        line-height: 1.5rem;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        font-size: 0.82rem;
-      }
-      .probe__hint {
-        flex: 1 1 20rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-
-      /* --- Playground --- */
-      .pg {
-        margin: 0 0 var(--space-6);
-        padding: var(--space-5);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .pg__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: var(--space-5);
-        margin-bottom: var(--space-4);
-      }
-      .pg__controls {
-        border: 0;
-        margin: 0;
-        padding: 0;
-        min-width: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-3);
-      }
-      .pg__controls legend {
-        padding: 0;
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-        margin-bottom: var(--space-1);
-      }
-      .pg__field {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-1);
-      }
-      .pg__label,
-      .pg__field label {
-        font-size: 0.85rem;
-        color: var(--text-color);
-        font-weight: var(--font-weight-medium);
-      }
-      .pg__field--switch {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-      }
-      .pg__field--switch label {
-        flex: 1;
-      }
-      .pg__field p-select {
-        width: 100%;
-      }
-      .pg__preview {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .pg__preview-label,
-      .pg__code-label {
-        font-size: var(--font-size-sm);
-        font-weight: var(--font-weight-medium);
-        color: var(--text-color-secondary);
-      }
-      .pg__stage {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        gap: var(--space-3);
-        min-height: 9rem;
-        padding: var(--space-5);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-      }
-      .pg__hint {
-        margin: 0;
-        font-size: 0.78rem;
-        line-height: 1.5;
-        color: var(--text-color-secondary);
-      }
-      @media (max-width: 640px) {
-        .pg__grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* --- Examples --- */
-      .ex {
-        margin: 0 0 var(--space-6);
-      }
-      .ex__head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: var(--space-3);
-        margin-bottom: var(--space-1);
-      }
-      .ex__title {
-        margin: 0;
-        font-size: 1rem;
-      }
-      .ex__note {
-        margin: 0 0 var(--space-3);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .ex__stage {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--space-4);
-        padding: var(--space-5);
-        margin-bottom: var(--space-3);
-        border: 1px dashed var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-section);
-      }
-      .ex__stage--split {
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-      .ex__aside {
-        flex: 1 1 16rem;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .prose {
-        flex: 1 1 100%;
-        line-height: 1.9;
-        color: var(--text-color);
-      }
-      .place {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        min-width: 0;
-      }
-      .place--right {
-        margin-left: auto;
-        text-align: right;
-      }
-
-      .scrollbox {
-        max-height: 6.5rem;
-        overflow-y: auto;
-        padding: var(--space-4);
-        margin-bottom: var(--space-3);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        background: var(--surface-card);
-      }
-      .scrollbox:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .scrollbox__filler {
-        margin: 0 0 var(--space-4);
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-
-      /* --- Panel content (inside the popovers) --- */
-      .panel {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        max-width: 22rem;
-        padding: var(--space-3);
-      }
-      .panel--prose {
-        max-width: 24rem;
-      }
-      .panel--tall {
-        max-width: 20rem;
-      }
-      .panel--wide {
-        max-width: 34rem;
-      }
-      .panel__title {
-        margin: 0 0 var(--space-1);
-        font-size: 0.95rem;
-      }
-      .panel__body {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        line-height: 1.55;
-      }
-      .panel__label {
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-      }
-      .panel__row {
-        display: flex;
-        gap: var(--space-2);
-        justify-content: flex-end;
-        margin-top: var(--space-2);
-      }
-
-      /* --- Do / Don't --- */
-      .dd {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-4);
-        margin: 0 0 var(--space-4);
-      }
-      .dd__cell {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-        padding: var(--space-4);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-lg);
-        background: var(--surface-card);
-      }
-      .dd__cell--bad {
-        border-left: 3px solid var(--semantic-red-fg);
-      }
-      .dd__cell--good {
-        border-left: 3px solid var(--semantic-green-fg);
-      }
-      .dd__stage {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-3);
-        padding: var(--space-4);
-        border-radius: var(--radius-md);
-        background: var(--surface-section);
-        min-height: 3.5rem;
-      }
-      .dd__aside {
-        font-size: 0.75rem;
-        color: var(--text-color-secondary);
-      }
-      .dd__why {
-        margin: 0;
-        font-size: var(--font-size-sm);
-        color: var(--text-color-secondary);
-      }
-      .tag {
-        align-self: flex-start;
-        font-size: 0.72rem;
-        font-weight: var(--font-weight-medium);
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        padding: 0.15em 0.55em;
-        border-radius: 999px;
-      }
-      .tag--bad {
-        background: color-mix(in srgb, var(--semantic-red-fg) 14%, transparent);
-        color: var(--semantic-red-fg);
-      }
-      .tag--good {
-        background: color-mix(in srgb, var(--semantic-green-fg) 16%, transparent);
-        color: var(--semantic-green-fg);
-      }
-      @media (max-width: 640px) {
-        .dd {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .checklist {
-        list-style: none;
-        padding-left: 0;
-      }
-      .checklist li {
-        margin: 0.3rem 0;
-      }
-
-      .copy-btn {
-        appearance: none;
-        flex: 0 0 auto;
-        padding: 0.35rem 0.8rem;
-        font-family: inherit;
-        font-size: 0.8rem;
-        font-weight: var(--font-weight-medium);
-        color: var(--primary-color-fg);
-        background: var(--surface-card);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: border-color 0.15s ease;
-      }
-      .copy-btn:hover {
-        border-color: var(--primary-color-fg);
-      }
-      .copy-btn:focus-visible {
-        outline: 2px solid var(--primary-color-fg);
-        outline-offset: 2px;
-      }
-      .code-block {
-        margin: 0 0 var(--space-4);
-        padding: var(--space-4);
-        overflow-x: auto;
-        background: var(--surface-section);
-        border: 1px solid var(--surface-border);
-        border-radius: var(--radius-md);
-        font-family: var(--font-mono);
-        font-size: 0.82rem;
-        line-height: 1.55;
-        color: var(--text-color);
-      }
-      .table-wrap {
-        overflow-x: auto;
-        margin: 0 0 1rem;
-      }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 0.9rem;
-      }
-      th,
-      td {
-        border: 1px solid var(--surface-border);
-        padding: 0.4rem 0.6rem;
-        text-align: left;
-        vertical-align: top;
-      }
-      th {
-        color: var(--text-color-secondary);
-        font-weight: var(--font-weight-medium);
-      }
-      .sources a,
-      .history strong {
-        color: var(--primary-color-fg);
-      }
-      @media (prefers-reduced-motion: reduce) {
-        .copy-btn {
-          transition: none;
-        }
-      }
-    `,
-  ],
+  styles: [ARTICLE_STYLES],
 })
 export class PopoverArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
   readonly sentinel = VIBE_DEV_SENTINEL;
 
-  private readonly destroyRef = inject(DestroyRef);
-  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  protected readonly destroyRef = inject(DestroyRef);
+  protected readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly copiedId = signal<string | null>(null);
-  private copyTimer: ReturnType<typeof setTimeout> | null = null;
+  protected copyTimer: ReturnType<typeof setTimeout> | null = null;
 
   /** Live description of document.activeElement — the focus read-out. */
   readonly activeDesc = signal('(nothing yet — click or Tab somewhere)');
-  private focusListener: ((e: Event) => void) | null = null;
+  protected focusListener: ((e: Event) => void) | null = null;
 
   constructor() {
     if (this.isBrowser) {
@@ -2229,7 +2233,7 @@ export class PopoverArticleComponent {
    * A short, readable identifier for whatever currently holds focus.
    * browser-only: reached only from a focusin listener.
    */
-  private describeActive(): string {
+  protected describeActive(): string {
     const el = document.activeElement as HTMLElement | null;
     if (!el || el === document.body) return 'body — nothing focused';
     const tag = el.tagName.toLowerCase();
@@ -2276,7 +2280,7 @@ export class PopoverArticleComponent {
    * pass-through object. Written on `<p-button>` itself they would land on the
    * host element, which carries no role — see the Usage tab.
    */
-  private disclosurePt(open: () => boolean, controls?: string) {
+  protected disclosurePt(open: () => boolean, controls?: string) {
     return computed(() => ({
       root: {
         'aria-expanded': String(open()),
@@ -2338,7 +2342,7 @@ export class PopoverArticleComponent {
   }
 
   /** The restore the component does not do: put focus back on the opener. */
-  private restoreFocus(triggerId: string): void {
+  protected restoreFocus(triggerId: string): void {
     if (!this.isBrowser) return;
     const host = document.getElementById(triggerId);
     const focusable = host?.matches('button') ? host : host?.querySelector('button');
@@ -2346,26 +2350,25 @@ export class PopoverArticleComponent {
   }
 
   // --- Measured values -------------------------------------------------------
-  readonly tokBgLight = '#ffffff';
-  readonly tokBgDark = '#18181b';
-  readonly tokTextLight = '#334155';
-  readonly tokTextDark = '#ffffff';
-  readonly tokBorderLight = 'the kit: --style-outline (Aura #e2e8f0)';
-  readonly tokBorderDark = 'the kit: --style-outline (Aura #3f3f46)';
-  readonly tokRadius = '0 werkbund, 12px lernwerkstatt (default), 10px skizzenbuch, 2px blaupause (Aura stock 6px)';
-  readonly tokPadding = '0.75rem';
-  readonly tokGutter = '10px';
-  readonly tokArrowOffset = '1.25rem = 20px';
-  readonly tokShadow = '0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)';
+  readonly tokBgLight: string = '#ffffff';
+  readonly tokBgDark: string = '#18181b';
+  readonly tokTextLight: string = '#334155';
+  readonly tokTextDark: string = '#ffffff';
+  readonly tokBorderLight: string = 'the kit: --style-outline (Aura #e2e8f0)';
+  readonly tokBorderDark: string = 'the kit: --style-outline (Aura #3f3f46)';
+  readonly tokRadius: string = '0 werkbund, 12px lernwerkstatt (default), 10px skizzenbuch, 2px blaupause (Aura stock 6px)';
+  readonly tokPadding: string = '0.75rem';
+  readonly tokGutter: string = '10px';
+  readonly tokArrowOffset: string = '1.25rem = 20px';
+  readonly tokShadow: string = '0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)';
 
-  readonly crTextLight = '10.35';
-  readonly crTextDark = '17.72';
-  readonly crBorderLight = '4.09–18.73';
-  readonly crBorderDark = '3.97–14.86';
-  readonly crBgLight = '1.00';
-  readonly crBgDark = '1.05–1.35';
-  readonly contrastNote =
-    'The surface behind the panel is the kit\'s --surface-card — #ffffff in light for all four ' +
+  readonly crTextLight: string = '10.35';
+  readonly crTextDark: string = '17.72';
+  readonly crBorderLight: string = '4.09–18.73';
+  readonly crBorderDark: string = '3.97–14.86';
+  readonly crBgLight: string = '1.00';
+  readonly crBgDark: string = '1.05–1.35';
+  readonly contrastNote: string = 'The surface behind the panel is the kit\'s --surface-card — #ffffff in light for all four ' +
     'visual styles, and per style in dark; ranges run across the four. The border and the ' +
     'background rows are gated in docs/generated/CONTRAST.MD, group "panel outline": the kit ' +
     'rule .p-popover in styles.scss re-points --p-popover-border-color to --style-outline, the ' +
@@ -2376,98 +2379,77 @@ export class PopoverArticleComponent {
     'background still matches the card it floats over (1.00:1 in light, 1.05:1 in dark ' +
     'werkbund), so the style outline is what marks the layer, with the 10% shadow as a second ' +
     'cue. The arrow\'s outer triangle takes the same border color.';
-  readonly contentPaddingNote =
-    'an ordinary custom property, which is also how to change it. Scope any override to one ' +
+  readonly contentPaddingNote: string = 'an ordinary custom property, which is also how to change it. Scope any override to one ' +
     'panel; an unencapsulated rule for .p-popover-content retunes every popover in the app';
 
-  readonly arrowLeftFinding =
-    'Measured 0px whenever the panel is inline-start-aligned with its trigger; on a panel ' +
+  readonly arrowLeftFinding: string = 'Measured 0px whenever the panel is inline-start-aligned with its trigger; on a panel ' +
     'that had to right-align it was written as 339.89px, moving the arrow from its 20px ' +
     'resting offset to 359.89px.';
-  readonly flipFinding =
-    'Measured on a flipped panel: both the class and the data attribute are set, ' +
+  readonly flipFinding: string = 'Measured on a flipped panel: both the class and the data attribute are set, ' +
     'margin-block-start becomes -10px and margin-block-end 10px, and the panel sits exactly ' +
     'one gutter above its trigger.';
-  readonly edgeFinding =
-    "Measured on a right-aligned panel: its right edge lands on the trigger's right edge, " +
+  readonly edgeFinding: string = "Measured on a right-aligned panel: its right edge lands on the trigger's right edge, " +
     'and the arrow variable is written with the distance the panel moved (339.89px on the ' +
     'panel measured), carrying the arrow from its 20px resting offset back towards the trigger.';
-  readonly scrollFinding =
-    'Measured: scrolling an overflow:auto ancestor of the trigger hides the panel, while ' +
+  readonly scrollFinding: string = 'Measured: scrolling an overflow:auto ancestor of the trigger hides the panel, while ' +
     'scrolling the page does not - there it stays one gutter below its trigger throughout.';
-  readonly resizeFinding = 'Measured: any window resize hides an open panel outright, off touch devices.';
-  readonly ptIdFinding =
-    "Measured: the pass-through id lands on the root element, so the trigger's aria-controls " +
+  readonly resizeFinding: string = 'Measured: any window resize hides an open panel outright, off touch devices.';
+  readonly ptIdFinding: string = "Measured: the pass-through id lands on the root element, so the trigger's aria-controls " +
     'resolves to a node that exists.';
-  readonly rtlFinding =
-    'Measured with dir="rtl": placement is NOT mirrored. The panel\'s LEFT edge still meets ' +
+  readonly rtlFinding: string = 'Measured with dir="rtl": placement is NOT mirrored. The panel\'s LEFT edge still meets ' +
     "the trigger's left edge, so it hangs off the trigger's inline end by whatever the panel " +
     'is wider than the trigger, and the arrow stays at a physical left of 20px - it no longer ' +
     'marks the anchor.';
 
-  readonly motionEnter =
-    'p-animate-anchored-overlay-enter, 300ms cubic-bezier(.19,1,.22,1): opacity 0 to 1, scale(0.93) to 1';
-  readonly motionLeave = 'p-animate-anchored-overlay-leave, 300ms, the same curve';
-  readonly motionEnterReduced = 'never applied - no p-anchored-overlay class appears on the root at all';
-  readonly motionLeaveReduced = 'never applied';
-  readonly reducedStillWorksFinding =
-    'Measured under the emulated media feature: the enter classes never appear on the root at ' +
+  readonly motionEnter: string = 'p-animate-anchored-overlay-enter, 300ms cubic-bezier(.19,1,.22,1): opacity 0 to 1, scale(0.93) to 1';
+  readonly motionLeave: string = 'p-animate-anchored-overlay-leave, 300ms, the same curve';
+  readonly motionEnterReduced: string = 'never applied - no p-anchored-overlay class appears on the root at all';
+  readonly motionLeaveReduced: string = 'never applied';
+  readonly reducedStillWorksFinding: string = 'Measured under the emulated media feature: the enter classes never appear on the root at ' +
     'all, the panel is opaque from the first frame, still appended to body and positioned ' +
     'against its trigger, and Escape still closes it. The skip path calls the enter hooks ' +
     'synchronously, so no behavior rides on the animation. Emulate the feature and read the ' +
     'root class list to confirm it in your own build.';
-  readonly deadTransitionFinding =
-    'PrimeNG 22 dropped them; Optimus keeps the v21 inputs (openng-optimus-ui-popover.mjs:107 ' +
+  readonly deadTransitionFinding: string = 'PrimeNG 22 dropped them; Optimus keeps the v21 inputs (openng-optimus-ui-popover.mjs:107 ' +
     'and :113, deprecated since v21.0.0) but reads neither - the template binds motionOptions ' +
     '(pMotion) instead, so setting them changes nothing.';
-  readonly deadCloseLabelFinding =
-    'Declared at openng-optimus-ui-popover.mjs:91 and read by no template and no method. ' +
+  readonly deadCloseLabelFinding: string = 'Declared at openng-optimus-ui-popover.mjs:91 and read by no template and no method. ' +
     'Measured on the rendered panel: its only child is .p-popover-content, and ' +
     'there is no close button for the label to name. Render your own close button and ' +
     'label that.';
 
-  readonly ariaModalFinding =
-    'measured in the accessibility tree as a dialog with modal: true, while the page behind ' +
+  readonly ariaModalFinding: string = 'measured in the accessibility tree as a dialog with modal: true, while the page behind ' +
     'it stays clickable, tabbable, and scrollable';
-  readonly focusSummary =
-    'In only to an element with the autofocus attribute - which every p-button has. No trap, no restore. Escape always closes.';
-  readonly focusInFinding =
-    'Only to the first element carrying the autofocus attribute, in document order. Measured: ' +
+  readonly focusSummary: string = 'In only to an element with the autofocus attribute - which every p-button has. No trap, no restore. Escape always closes.';
+  readonly focusInFinding: string = 'Only to the first element carrying the autofocus attribute, in document order. Measured: ' +
     'a panel holding an input and two p-buttons focuses the first BUTTON; put pAutoFocus on ' +
     'the input and focus goes there instead; a panel of plain markup leaves focus on the trigger.';
-  readonly focusBackFinding = 'No. Measured after Escape from a panel that held focus: document.activeElement is body.';
-  readonly escapeFinding =
-    'Measured: Escape closes the panel with focus outside it, and closes it even with dismissable off.';
-  readonly tabOrderFinding =
-    'Measured: with focus on the trigger, one Tab moves to the next control on the PAGE and the panel stays open.';
-  readonly axNamed = 'dialog, name from ariaLabel, modal: true';
-  readonly axTrigger =
-    'button, name from the label, expanded: true, haspopup: "dialog" - when the attributes are routed through [pt]';
-  readonly unnamedFinding = 'measured in the accessibility tree, the node comes back as a dialog with an empty name.';
-  readonly labelledByFinding =
-    'dialog named from the referenced element. The capitalized [attr.aria-labelledBy] in the ' +
+  readonly focusBackFinding: string = 'No. Measured after Escape from a panel that held focus: document.activeElement is body.';
+  readonly escapeFinding: string = 'Measured: Escape closes the panel with focus outside it, and closes it even with dismissable off.';
+  readonly tabOrderFinding: string = 'Measured: with focus on the trigger, one Tab moves to the next control on the PAGE and the panel stays open.';
+  readonly axNamed: string = 'dialog, name from ariaLabel, modal: true';
+  readonly axTrigger: string = 'button, name from the label, expanded: true, haspopup: "dialog" - when the attributes are routed through [pt]';
+  readonly unnamedFinding: string = 'measured in the accessibility tree, the node comes back as a dialog with an empty name.';
+  readonly labelledByFinding: string = 'dialog named from the referenced element. The capitalized [attr.aria-labelledBy] in the ' +
     'shipped template lands as the lowercase attribute, because setAttribute lowercases ' +
     'attribute names in an HTML document.';
-  readonly axNote =
-    'Read from the accessibility tree of a rendered panel and its trigger. Two ' +
+  readonly axNote: string = 'Read from the accessibility tree of a rendered panel and its trigger. Two ' +
     'things are worth carrying away. The dialog node is present and modal whatever else you ' +
     'configure, so its name is the only part of that announcement you control - and an ' +
     'unnamed panel is announced as an anonymous dialog. And the trigger carries the ' +
     'disclosure state only if the attributes reached the button element: read that from the ' +
     'tree rather than from the markup, because the markup can look correct and reach nothing.';
-  readonly wrapperAttrFinding =
-    'measured on the rendered DOM, the bindings sit on the p-button element, which carries ' +
+  readonly wrapperAttrFinding: string = 'measured on the rendered DOM, the bindings sit on the p-button element, which carries ' +
     'no role, while the inner button a screen reader announces has neither attribute. ' +
     'Routed through [pt], the same button comes back from the accessibility tree with ' +
     'expanded: true and haspopup: "dialog".';
-  readonly autofocusAttrFinding =
-    'in Optimus 2.0.2 every p-button writes one: the AutoFocus directive sets the attribute ' +
+  readonly autofocusAttrFinding: string = 'in Optimus 2.0.2 every p-button writes one: the AutoFocus directive sets the attribute ' +
     'unless its input is exactly false (openng-optimus-ui-autofocus.mjs:23-28), and Button ' +
     'binds it to autofocus || buttonProps?.autofocus, which is undefined by default ' +
     '(openng-optimus-ui-button.mjs:844). So the panel focuses its first button.';
 
   // --- Static example snippets ----------------------------------------------
-  readonly detailCode = `<!-- labels() and triggerPt() are computed(); triggerPt carries the disclosure
+  readonly detailCode: string = `<!-- labels() and triggerPt() are computed(); triggerPt carries the disclosure
      attributes through [pt], so they reach the inner <button>. -->
 <p-button [label]="labels().whatIsGrounding" [link]="true"
   [pt]="triggerPt()"
@@ -2481,7 +2463,7 @@ export class PopoverArticleComponent {
   </div>
 </p-popover>`;
 
-  readonly formCode = `<p-button id="add-label-trigger" [label]="labels().addLabel"
+  readonly formCode: string = `<p-button id="add-label-trigger" [label]="labels().addLabel"
   [pt]="triggerPt()"
   (onClick)="panel.toggle($event)" />
 
@@ -2505,7 +2487,7 @@ onHide(): void {
   document.getElementById('add-label-trigger')?.querySelector('button')?.focus();
 }`;
 
-  readonly placeCode = `<!-- There is no position input. Placement is computed once, at open time:
+  readonly placeCode: string = `<!-- There is no position input. Placement is computed once, at open time:
      below and inline-start-aligned, flipped above when it does not fit,
      right-aligned when it would overflow the viewport's right edge. -->
 <p-button [label]="labels().placement" (onClick)="panel.toggle($event)" />
@@ -2516,7 +2498,7 @@ onHide(): void {
 /* The one thing worth styling: a width cap, because there is no width token. */
 .panel { max-width: 22rem; }`;
 
-  readonly dismissCode = `<!-- Default: outside click and Escape both close it. -->
+  readonly dismissCode: string = `<!-- Default: outside click and Escape both close it. -->
 <p-popover #a [ariaLabel]="labels().panel">...</p-popover>
 
 <!-- dismissable off: an outside click no longer closes it.
@@ -2530,7 +2512,7 @@ onHide(): void {
   <p-popover #c [ariaLabel]="labels().panel">...</p-popover>
 </div>`;
 
-  readonly vsCode = `<!-- A hint about a control: short, non-interactive, hover or focus. -->
+  readonly vsCode: string = `<!-- A hint about a control: short, non-interactive, hover or focus. -->
 <p-button [label]="labels().save" [pTooltip]="labels().saveHint" tooltipPosition="bottom" />
 
 <!-- Anything a user must reach: a panel, opened by a click. -->
@@ -2542,7 +2524,7 @@ onHide(): void {
   <a [href]="docsUrl">{{ labels().readTheDocs }}</a>
 </p-popover>`;
 
-  readonly devImport = `import { PopoverModule } from '@openng/optimus-ui/popover';
+  readonly devImport: string = `import { PopoverModule } from '@openng/optimus-ui/popover';
 // Only if a control inside the panel must receive focus on open:
 import { AutoFocusModule } from '@openng/optimus-ui/autofocus';
 
@@ -2552,7 +2534,7 @@ import { AutoFocusModule } from '@openng/optimus-ui/autofocus';
   // ...
 })`;
 
-  readonly focusSnippet = `// The lines the component does not write for you.
+  readonly focusSnippet: string = `// The lines the component does not write for you.
 
 // 1. Focus IN - focusOnShow (default true) focuses the FIRST element carrying
 //    the autofocus attribute, in document order. pAutoFocus writes it.
@@ -2572,7 +2554,7 @@ restore(): void {
   this.trigger()?.nativeElement.querySelector('button')?.focus();
 }`;
 
-  readonly triggerSnippet = `<!-- The disclosure half of the component, which p-popover does not ship.
+  readonly triggerSnippet: string = `<!-- The disclosure half of the component, which p-popover does not ship.
      Written on <p-button> these three attributes would sit on the host element;
      [pt] puts them on the <button> a screen reader announces. -->
 <p-button
@@ -2590,7 +2572,7 @@ restore(): void {
   <div class="panel">...</div>
 </p-popover>`;
 
-  readonly sizingSnippet = `/* 1. Cap the width. There is no width token, so the panel is as wide as its
+  readonly sizingSnippet: string = `/* 1. Cap the width. There is no width token, so the panel is as wide as its
       content - and a translation 30% longer is a panel 30% wider. */
 .popover-panel { max-width: 22rem; }
 
@@ -2603,7 +2585,7 @@ restore(): void {
    needs no ::ng-deep. styleClass reaches the root if you need the panel. */
 .compact-popover { --p-popover-content-padding: 0.5rem; }`;
 
-  readonly i18nSnippet = `// Four strings, none of them from the library.
+  readonly i18nSnippet: string = `// Four strings, none of them from the library.
 readonly labels = computed(() => ({
   // 1. the trigger: name the CONTENT, not the gesture
   trigger: this.i18n.translate('shipment.detailsTrigger'),   // "Shipment details"
@@ -2625,7 +2607,7 @@ readonly labels = computed(() => ({
   </div>
 </p-popover>`;
 
-  readonly testSnippet = `import { TestBed } from '@angular/core/testing';
+  readonly testSnippet: string = `import { TestBed } from '@angular/core/testing';
 import { Component, computed, signal, viewChild } from '@angular/core';
 import { PopoverModule, Popover } from '@openng/optimus-ui/popover';
 import { ButtonModule } from '@openng/optimus-ui/button';

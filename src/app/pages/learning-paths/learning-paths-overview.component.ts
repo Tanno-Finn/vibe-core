@@ -911,7 +911,7 @@ import {
 
       /* Type Badge — NEUTRALER Glas-Knubbel an der oberen rechten Kachel-Ecke
        (spiegelt die Step-Nummer). Bewusst KEINE Typ-Farbe: Farbe ist allein
-       Pfad-Identität (sonst kollidiert lila Pfad+Artikel bzw. blau Pfad+Demo).
+       Pfad-Identität (sonst kollidiert ein Pfad mit der gleichfarbigen Typ-Farbe, etwa blau Pfad+Demo).
        Typ wird über Icon-Form (Datei/Play/Buch) + aria-label kommuniziert. Die
        Glas-Optik (vs. satter Nummer-Knubbel) trennt die beiden Rollen klar. */
       .type-icon {
@@ -1746,7 +1746,7 @@ export class LearningPathsOverviewComponent implements OnInit, OnDestroy {
   private buildCertificateHtml(path: LearningPathDefinition, name: string): string {
     const esc = (s: string) => this.escapeHtml(s);
     const lang = this.translationService.currentLanguage.replace(/-easy$/, '');
-    const pathColor = path.color || '#6366F1';
+    const pathColor = path.color || '#3B82F6';
 
     const certTitle = this.t('learningPaths.certificate.title');
     const subtitle = this.t('learningPaths.certificate.subtitle');

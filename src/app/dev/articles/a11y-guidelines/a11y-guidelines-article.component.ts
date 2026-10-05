@@ -7,6 +7,150 @@ import {
 import { GuideShellComponent, GuideTabDirective } from '../article-shell.component';
 import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
+/** Standalone imports, shared with the German twin beside this file (ADR-0018). */
+export const ARTICLE_IMPORTS = [GuideShellComponent, GuideTabDirective];
+
+/** Component styles, shared with the German twin, so both languages render with the same rules. */
+export const ARTICLE_STYLES = `
+    :host { display: block; }
+    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
+
+    /* --- Stages --- */
+    .stage {
+      display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3);
+      padding: var(--space-4);
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      margin: 0 0 var(--space-3);
+    }
+    .stage--column { flex-direction: column; align-items: flex-start; }
+
+    .ring-demo {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 2.75rem;
+      padding: var(--space-2) var(--space-4);
+      background: var(--surface-card);
+      color: var(--text-color);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .ring-demo:focus-visible {
+      outline: 2px solid var(--primary-color-fg);
+      outline-offset: 2px;
+    }
+
+    /* The Don't cell, rendered rather than quoted: the outline is removed and the
+       replacement is invalid at computed-value time, so nothing is drawn at all. */
+    .ring-demo--broken:focus,
+    .ring-demo--broken:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
+    }
+
+    .ring-demo--icon { min-width: 2.75rem; padding: var(--space-2); }
+
+    .mirror {
+      margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary);
+      display: flex; align-items: baseline; gap: var(--space-2);
+    }
+    .mirror__tag {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em;
+      padding: 0.1em 0.5em; border-radius: 999px;
+      background: color-mix(in srgb, var(--primary-color-fg) 14%, transparent);
+      color: var(--primary-color-fg);
+    }
+
+    /* --- Preference probe: the block IS the live output --- */
+    .probe {
+      display: flex; flex-direction: column; gap: var(--space-2);
+      padding: var(--space-4);
+      background: var(--surface-card);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      margin: 0 0 var(--space-3);
+    }
+    .probe__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); }
+    .probe__row code { font-family: var(--font-mono); font-size: 0.82rem; }
+    .probe__val { font-weight: var(--font-weight-bold); color: var(--primary-color-fg); }
+    .pm-yes, .pc-yes, .fc-yes { display: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .pm-no { display: none; }
+      .pm-yes { display: inline; }
+    }
+    @media (prefers-contrast: high) {
+      .pc-no { display: none; }
+      .pc-yes { display: inline; }
+    }
+    @media (forced-colors: active) {
+      .fc-no { display: none; }
+      .fc-yes { display: inline; }
+    }
+
+    /* --- Skip-link stage --- */
+    .skip { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-3); }
+    .skip__frame {
+      position: relative; overflow: hidden;
+      min-height: 5.5rem;
+      display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3);
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+    }
+    .skip__pill {
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      padding: 12px 24px;
+      background: var(--primary-color);
+      color: #ffffff;
+      border-radius: 0 0 8px 8px;
+      font-weight: var(--font-weight-bold);
+    }
+    .skip__pill--hidden { top: -100%; }
+    .skip__label { font-size: var(--font-size-sm); color: var(--text-color-secondary); }
+    @media (max-width: 640px) { .skip { grid-template-columns: 1fr; } }
+
+    /* --- Do / Don't --- */
+    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
+    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
+    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
+    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
+    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
+    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
+    .dd__code { font-family: var(--font-mono); font-size: 0.78rem; word-break: break-word; }
+    .dd__badge { display: inline-flex; align-items: center; gap: 0.35em; padding: 0.2em 0.7em; border-radius: 999px; font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); }
+    .dd__badge--red { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
+    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
+    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
+    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
+    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
+
+    .checklist { list-style: none; padding-left: 0; }
+    .checklist li { margin: 0.3rem 0; }
+
+    .code-block {
+      margin: 0 0 var(--space-4);
+      padding: var(--space-4);
+      overflow-x: auto;
+      background: var(--surface-section);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.55;
+      color: var(--text-color);
+    }
+    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
+    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
+    .history strong { color: var(--primary-color-fg); }
+  `;
+
 /**
  * Guide article: Accessibility Guidelines (foundations).
  *
@@ -88,7 +232,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
   selector: 'app-a11y-guidelines-article',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [GuideShellComponent, GuideTabDirective],
+  imports: ARTICLE_IMPORTS,
   template: `
     <span hidden [attr.data-dev-sentinel]="sentinel"></span>
     <app-guide-shell [entryId]="'a11y-guidelines'">
@@ -436,7 +580,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
           <code>scripts/check-contrast.mjs</code> asserts the selector lists
           (<code>KIT_RING_SELECTORS</code>, <code>KIT_RING_INSET</code>) and measures the ring in
           <code>docs/generated/CONTRAST.MD</code>, group <code>focus ring</code> — lowest 3.88:1
-          on the page surfaces, 3.48:1 inset on a selected table row. Verify in your build: focus a
+          on the page surfaces, 3.52:1 inset on a selected table row. Verify in your build: focus a
           field by keyboard and read the computed outline once its color transition has run.
         </p>
         <div class="table-wrap">
@@ -651,7 +795,8 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
         <p>
           The convention is a bound attribute over a literal:
           <code>[attr.aria-label]="translate('…')"</code>. A static <code>aria-label</code> is
-          reserved for the developer workshop, which is English-canonical by design; on any
+          reserved for the developer workshop, whose guides ship one file per language (the English
+          article and its German twin, ADR-0018), so each file carries its own literal; on any
           reader-facing surface a literal is a name that never translates. The same holds for
           <code>aria-labelledby</code> and <code>aria-describedby</code> — they point at nodes
           whose text is already translated, which is why they are usually the cheaper option.
@@ -774,145 +919,7 @@ import { VIBE_DEV_SENTINEL } from '../../dev-sentinel';
 
     </app-guide-shell>
   `,
-  styles: [`
-    :host { display: block; }
-    .lead { font-size: 1.05rem; color: var(--text-color-secondary); margin: 0 0 var(--space-5); }
-
-    /* --- Stages --- */
-    .stage {
-      display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3);
-      padding: var(--space-4);
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      margin: 0 0 var(--space-3);
-    }
-    .stage--column { flex-direction: column; align-items: flex-start; }
-
-    .ring-demo {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 2.75rem;
-      padding: var(--space-2) var(--space-4);
-      background: var(--surface-card);
-      color: var(--text-color);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      font: inherit;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .ring-demo:focus-visible {
-      outline: 2px solid var(--primary-color-fg);
-      outline-offset: 2px;
-    }
-
-    /* The Don't cell, rendered rather than quoted: the outline is removed and the
-       replacement is invalid at computed-value time, so nothing is drawn at all. */
-    .ring-demo--broken:focus,
-    .ring-demo--broken:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.1);
-    }
-
-    .ring-demo--icon { min-width: 2.75rem; padding: var(--space-2); }
-
-    .mirror {
-      margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary);
-      display: flex; align-items: baseline; gap: var(--space-2);
-    }
-    .mirror__tag {
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em;
-      padding: 0.1em 0.5em; border-radius: 999px;
-      background: color-mix(in srgb, var(--primary-color-fg) 14%, transparent);
-      color: var(--primary-color-fg);
-    }
-
-    /* --- Preference probe: the block IS the live output --- */
-    .probe {
-      display: flex; flex-direction: column; gap: var(--space-2);
-      padding: var(--space-4);
-      background: var(--surface-card);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      margin: 0 0 var(--space-3);
-    }
-    .probe__row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); }
-    .probe__row code { font-family: var(--font-mono); font-size: 0.82rem; }
-    .probe__val { font-weight: var(--font-weight-bold); color: var(--primary-color-fg); }
-    .pm-yes, .pc-yes, .fc-yes { display: none; }
-    @media (prefers-reduced-motion: reduce) {
-      .pm-no { display: none; }
-      .pm-yes { display: inline; }
-    }
-    @media (prefers-contrast: high) {
-      .pc-no { display: none; }
-      .pc-yes { display: inline; }
-    }
-    @media (forced-colors: active) {
-      .fc-no { display: none; }
-      .fc-yes { display: inline; }
-    }
-
-    /* --- Skip-link stage --- */
-    .skip { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-3); }
-    .skip__frame {
-      position: relative; overflow: hidden;
-      min-height: 5.5rem;
-      display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
-      gap: var(--space-2);
-      padding: var(--space-3);
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-    }
-    .skip__pill {
-      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-      padding: 12px 24px;
-      background: var(--primary-color);
-      color: #ffffff;
-      border-radius: 0 0 8px 8px;
-      font-weight: var(--font-weight-bold);
-    }
-    .skip__pill--hidden { top: -100%; }
-    .skip__label { font-size: var(--font-size-sm); color: var(--text-color-secondary); }
-    @media (max-width: 640px) { .skip { grid-template-columns: 1fr; } }
-
-    /* --- Do / Don't --- */
-    .dd { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin: 0 0 var(--space-4); }
-    .dd__cell { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); border: 1px solid var(--surface-border); border-radius: var(--radius-lg); background: var(--surface-card); }
-    .dd__cell--bad { border-left: 3px solid var(--semantic-red-fg, #b91c1c); }
-    .dd__cell--good { border-left: 3px solid var(--semantic-green-fg, #15803d); }
-    .dd__stage { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); background: var(--surface-section); min-height: 3.5rem; }
-    .dd__why { margin: 0; font-size: var(--font-size-sm); color: var(--text-color-secondary); }
-    .dd__code { font-family: var(--font-mono); font-size: 0.78rem; word-break: break-word; }
-    .dd__badge { display: inline-flex; align-items: center; gap: 0.35em; padding: 0.2em 0.7em; border-radius: 999px; font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); }
-    .dd__badge--red { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
-    .tag { align-self: flex-start; font-size: 0.72rem; font-weight: var(--font-weight-medium); letter-spacing: 0.02em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 999px; }
-    .tag--bad { background: color-mix(in srgb, var(--semantic-red-fg, #b91c1c) 14%, transparent); color: var(--semantic-red-fg, #b91c1c); }
-    .tag--good { background: color-mix(in srgb, var(--semantic-green-fg, #15803d) 16%, transparent); color: var(--semantic-green-fg, #15803d); }
-    @media (max-width: 640px) { .dd { grid-template-columns: 1fr; } }
-
-    .checklist { list-style: none; padding-left: 0; }
-    .checklist li { margin: 0.3rem 0; }
-
-    .code-block {
-      margin: 0 0 var(--space-4);
-      padding: var(--space-4);
-      overflow-x: auto;
-      background: var(--surface-section);
-      border: 1px solid var(--surface-border);
-      border-radius: var(--radius-md);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      line-height: 1.55;
-      color: var(--text-color);
-    }
-    .table-wrap { overflow-x: auto; margin: 0 0 1rem; }
-    table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
-    th, td { border: 1px solid var(--surface-border); padding: 0.4rem 0.6rem; text-align: left; vertical-align: top; }
-    th { color: var(--text-color-secondary); font-weight: var(--font-weight-medium); }
-    .history strong { color: var(--primary-color-fg); }
-  `],
+  styles: [ARTICLE_STYLES],
 })
 export class A11yGuidelinesArticleComponent {
   /** Strip-proof sentinel; rendered so the optimizer cannot drop it (D2). */
@@ -936,12 +943,12 @@ export class A11yGuidelinesArticleComponent {
    * cycles a pretend page language, so the bound name moves and the literal does
    * not — the failure is visible rather than described.
    */
-  private readonly demoLangs = [
+  protected readonly demoLangs = [
     { label: 'English', close: 'Close' },
     { label: 'Deutsch', close: 'Schließen' },
     { label: 'Français', close: 'Fermer' },
   ];
-  private readonly demoLangIndex = signal(0);
+  protected readonly demoLangIndex = signal(0);
 
   cycleLang(): void {
     this.demoLangIndex.update((i) => (i + 1) % this.demoLangs.length);
@@ -952,10 +959,10 @@ export class A11yGuidelinesArticleComponent {
 
   // --- Flat string constants: these resolve wherever the tab is read ---------
 
-  readonly ringLightMin = '4.75:1';
-  readonly ringDarkMin = '4.75:1';
+  readonly ringLightMin: string = '4.75:1';
+  readonly ringDarkMin: string = '4.75:1';
 
-  readonly widgetSnippet = `<!-- A custom widget owes four things. The kit supplies one of them. -->
+  readonly widgetSnippet: string = `<!-- A custom widget owes four things. The kit supplies one of them. -->
 <div
   class="rating"
   role="slider"
