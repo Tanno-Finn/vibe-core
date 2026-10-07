@@ -604,7 +604,7 @@ h6 {
   --surface-900: #121212;
 
   /* Red palette — was missing entirely from design-tokens.scss while
-     blue/green/orange/purple/yellow were defined. Components using --red-*
+     blue/green/orange/yellow were defined. Components using --red-*
      rendered no color at all. Fixed (matches Tailwind/Optimus UI red scale). */
   --red-50: #fef2f2;
   --red-100: #fee2e2;

@@ -1,6 +1,6 @@
 {
   "name": "vibecore",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An agent-first Angular starter kit for an educational companion portal: interactive demos, a glossary, a timeline and didactic article pages, plus the standards, safety model and skills an AI coding agent needs to work in the repo.",
   "license": "MIT AND CC-BY-4.0",
   "repository": {
@@ -59,15 +59,15 @@
     "node": "^22.22.3 || ^24.15.0 || >=26.0.0"
   },
   "dependencies": {
-    "@angular/cdk": "^22.1.4",
-    "@angular/common": "^22.1.4",
-    "@angular/compiler": "^22.1.4",
-    "@angular/core": "^22.1.4",
-    "@angular/forms": "^22.1.4",
-    "@angular/platform-browser": "^22.1.4",
-    "@angular/platform-server": "^22.1.4",
-    "@angular/router": "^22.1.4",
-    "@angular/ssr": "^22.1.5",
+    "@angular/cdk": "^22.2.1",
+    "@angular/common": "^22.2.1",
+    "@angular/compiler": "^22.2.1",
+    "@angular/core": "^22.2.1",
+    "@angular/forms": "^22.2.1",
+    "@angular/platform-browser": "^22.2.1",
+    "@angular/platform-server": "^22.2.1",
+    "@angular/router": "^22.2.1",
+    "@angular/ssr": "^22.2.1",
     "@fontsource/andika": "^5.3.0",
     "@fontsource/archivo": "^5.3.0",
     "@fontsource/archivo-black": "^5.3.0",
@@ -86,27 +86,28 @@
     "@openng/optimus-ui": "^2.0.2",
     "@openng/optimus-ui-themes": "^2.0.2",
     "chart.js": "^4.5.0",
-    "cytoscape": "^3.33.3",
+    "cytoscape": "^3.34.3",
     "cytoscape-fcose": "^2.2.0",
     "marked": "16.4.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "^0.15.0"
+    "zone.js": "^0.16.3"
   },
   "overrides": {
     "js-yaml": "^4.3.2",
     "qs": "^6.16.0",
-    "hono": "^4.13.5"
+    "hono": "^4.13.5",
+    "shell-quote": "^1.12.0"
   },
   "devDependencies": {
-    "@angular/build": "^22.1.5",
-    "@angular/cli": "^22.1.5",
-    "@angular/compiler-cli": "^22.1.4",
+    "@angular/build": "^22.2.1",
+    "@angular/cli": "^22.2.1",
+    "@angular/compiler-cli": "^22.2.1",
     "@types/cytoscape": "^3.31.0",
     "@types/cytoscape-fcose": "^2.2.5",
     "@types/node": "^24.10.1",
     "@vitest/coverage-v8": "^4.1.10",
-    "angular-eslint": "^22.1.0",
+    "angular-eslint": "^22.5.0",
     "axe-core": "^4.13.0",
     "chokidar": "^4.0.3",
     "concurrently": "^9.2.1",
@@ -114,10 +115,10 @@
     "eslint-config-prettier": "^10.1.8",
     "glob": "^13.0.0",
     "jsdom": "^29.1.1",
-    "prettier": "^3.9.5",
-    "puppeteer": "^25.11.0",
+    "prettier": "^3.9.9",
+    "puppeteer": "^25.12.0",
     "typescript": "~6.0.3",
-    "typescript-eslint": "^8.64.0",
+    "typescript-eslint": "^8.71.1",
     "vitest": "^4.1.10"
   }
 }

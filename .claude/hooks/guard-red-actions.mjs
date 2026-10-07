@@ -166,6 +166,68 @@ function stripUnknownGitGlobals(cmd) {
 const PROTECTED_GIT_SUB = '(?:push|send-pack|receive-pack|reset|rebase|commit|update-ref|symbolic-ref|filter-branch|filter-repo|clean|checkout|restore|switch|reflog|gc|prune|config|remote|branch|stash|worktree|subtree|pull|rm|tag)';
 const UNKNOWN_GLOBAL = new RegExp(`\\bgit\\s+-{1,2}[A-Za-z][\\w-]*(?:=\\S*)?\\s+(?:[^\\s;&|-]\\S*\\s+)?${PROTECTED_GIT_SUB}\\b`);
 
+// git config keys whose VALUE git runs as an external program. Setting one of these with
+// `-c key=…` or `--config-env=key=…` turns an otherwise plain `git diff` / `git log`
+// (now pre-approved) into arbitrary code execution that no rule reading the command can
+// review. `core.hooksPath` and `alias.*` are handled by their own rules and left out
+// here. `user.name`, `core.autocrlf`, `rebase.autostash`, … are data and stay allowed.
+// `include.path` / `includeIf.<cond>.path` pull in a whole config FILE, which can set
+// any of the others — a config planted in `out/` is one `-c include.path=…` away.
+// (`git clone -c/--config key=…` writes the key into the new repo, so it counts too.)
+const GIT_CONFIG_EXEC = new RegExp(
+  '(?:^|\\s)(?:-c\\s*|--config(?:-env)?(?:=|\\s+))["\']?(?:' +
+    'core\\.(?:pager|editor|askpass|sshcommand|fsmonitor|gitproxy|alternaterefscommand)' +
+    '|sequence\\.editor' +
+    '|pager\\.[\\w.-]+' +
+    '|interactive\\.difffilter' +
+    '|diff\\.external' +
+    '|diff\\.[\\w.-]+\\.(?:textconv|command)' +
+    '|merge\\.[\\w.-]+\\.driver' +
+    '|(?:diff|merge)tool\\.[\\w.-]+\\.(?:cmd|path)' +
+    '|guitool\\.[\\w.-]+\\.cmd' +
+    '|filter\\.[\\w.-]+\\.(?:clean|smudge|process)' +
+    '|credential\\.helper|credential\\.[\\w.-]+\\.helper' +
+    '|gpg\\.program|gpg\\.[\\w.-]+\\.(?:program|defaultkeycommand)' +
+    '|uploadpack\\.packobjectshook' +
+    '|remote\\.[\\w.-]+\\.(?:uploadpack|receivepack)' +
+    '|submodule\\.[\\w.-]+\\.update' +
+    '|trailer\\.[\\w.-]+\\.(?:command|cmd)' +
+    '|(?:web|help)\\.browser|browser\\.[\\w.-]+\\.(?:cmd|path)' +
+    '|man\\.viewer|man\\.[\\w.-]+\\.(?:cmd|path)' +
+    '|instaweb\\.httpd' +
+    '|sendemail\\.(?:smtpserver|[\\w.-]*cmd)' +
+    '|imap\\.tunnel' +
+    '|init\\.templatedir' +
+    '|include\\.path|includeif\\.\\S*?\\.path' +
+    '|protocol\\.ext\\.allow|protocol\\.allow' +
+    '|ssh\\.variant' +
+  ')\\b',
+  'i',
+);
+// The same door, opened from the environment: `GIT_EXTERNAL_DIFF=… git diff`,
+// `GIT_PAGER=… git log`, `GIT_SSH_COMMAND=…`, `GIT_EDITOR=…`, the variables git falls
+// back to (`PAGER`, `EDITOR`, `VISUAL`), and the variables that inject config itself:
+// `GIT_CONFIG_PARAMETERS` (what `-c` sets), `GIT_CONFIG_COUNT`/`_KEY_n`/`_VALUE_n`,
+// `GIT_CONFIG_GLOBAL`/`_SYSTEM` (a whole config file), plus `GIT_EXEC_PATH` and
+// `GIT_TEMPLATE_DIR` (where git looks for its helper programs / the hooks a new repo
+// gets). `GIT_CONFIG_NOSYSTEM` only switches a file OFF and stays allowed. Bash
+// (`NAME=…`, `export`, `env`), PowerShell (`$env:NAME =`, `Set-Item env:NAME`,
+// `[Environment]::SetEnvironmentVariable('NAME', …)`) and cmd (`set NAME=`) spellings.
+const GIT_EXEC_ENV_NAME =
+  '(?:GIT_(?:EXTERNAL_DIFF|PAGER|SSH|SSH_COMMAND|EDITOR|SEQUENCE_EDITOR|ASKPASS|PROXY_COMMAND' +
+  '|CONFIG(?:_PARAMETERS|_COUNT|_KEY_\\d+|_VALUE_\\d+|_GLOBAL|_SYSTEM)?|EXEC_PATH|TEMPLATE_DIR)' +
+  '|PAGER|EDITOR|VISUAL)';
+const GIT_CONFIG_EXEC_ENV = new RegExp(
+  `(?:(?:^|[\\s;&|(])(?:\\$env:)?${GIT_EXEC_ENV_NAME}\\s*\\+?=` +
+  `|(?:^|[\\s;&|(:])env:${GIT_EXEC_ENV_NAME}\\b` +
+  `|SetEnvironmentVariable\\(\\s*["']?${GIT_EXEC_ENV_NAME}\\b)`,
+  'i',
+);
+// `GIT_TRACE`, `GIT_TRACE_PACKET`, `GIT_TRACE2_EVENT`, … with a path as value (below).
+const GIT_TRACE_ENV = /(?:^|[\s;&|(])(?:\$env:)?GIT_TRACE\w*\s*=\s*("[^"]*"|'[^']*'|[^\s;&|]*)/gi;
+// `GIT_DIR` / `GIT_WORK_TREE` are judged by WHERE they point, like `git -C` (below).
+const GIT_DIR_ENV = /(?:^|[\s;&|(])(?:\$env:)?GIT_(?:DIR|WORK_TREE)\s*=\s*("[^"]*"|'[^']*'|[^\s;&|]+)/gi;
+
 // git accepts any UNAMBIGUOUS PREFIX of a long option: `git reset --har HEAD~5` is
 // `--hard`, and `git push --mir` is `--mirror`. A rule that only knows the full
 // spelling is one keystroke away from being walked past, so long options are matched
@@ -360,9 +422,12 @@ function expandHome(p) {
 // Any other `tmp`/`temp` folder is somebody's: `C:/temp/important`, or
 // `../other-project/tmp`. Those used to be exempt because of their NAME.
 let TMP_CANON = null;
-function isScratch(canonPath) {
+function osTmpRoots() {
   TMP_CANON ??= [canonical(os.tmpdir()), ...(process.platform === 'win32' ? [] : ['/tmp'])];
-  const roots = [...TMP_CANON, ...repoRoots().map((r) => `${r}/tmp`)];
+  return TMP_CANON;
+}
+function isScratch(canonPath) {
+  const roots = [...osTmpRoots(), ...repoRoots().map((r) => `${r}/tmp`)];
   return roots.some((r) => canonPath.startsWith(r + '/') ||
     (canonPath === r && !TMP_CANON.includes(r)));
 }
@@ -518,9 +583,12 @@ function unwrapShellPayloads(s) {
   // it is not quoted (`cmd /c git push --force`), unlike `sh -c word`, whose later words
   // are only $0/$1. Those payloads run to the end of the segment.
   const REST = /\b(?:cmd|powershell|pwsh)(?:\.exe)?(?:\s+-[A-Za-z][\w-]*)*\s+(?:\/[cCkK]|-[Cc](?:ommand)?)\s+([^\s"'][^\n;&|]*)/g;
+  // `npx -c '<cmd>'` / `npm exec --call '<cmd>'` run their argument as a shell command too.
+  const NPX_CALL = /\b(?:npx|npm\s+(?:exec|x))(?:\s+-[\w-]+(?:=\S+)?)*?\s+(?:-c|--call)(?:=|\s+)(?:"([^"]*)"|'([^']*)'|(\S+))/g;
   let out = String(s || '').replace(REST, (_m, rest) => ` ; ${rest} ; `), prev, depth = 0;
   do {
     prev = out;
+    out = out.replace(NPX_CALL, (_m, a, b, c) => ` ; ${a ?? b ?? c ?? ''} ; `);
     out = out.replace(ENC, (_m, a, b, c) => {
       const encoded = a ?? b ?? c ?? '';
       try { return ` ; ${Buffer.from(encoded, 'base64').toString('utf16le')} ; `; }
@@ -1345,6 +1413,117 @@ function attachedPaths(tokens) {
   return out;
 }
 
+// The scripts a `node`/`tsx`/`ts-node` invocation would load and run: its main script
+// argument, plus any module pulled in with `-r`/`--require`/`--import`/`--loader`. A
+// `-e`/`--eval`/`-p` payload is NOT a path — the dedicated node-eval rule reads those —
+// so the main-script argument is skipped when one is present (a `--require` value is
+// still a real module path and is always collected).
+const NODE_RUNNER = /^(?:node|tsx|ts-node)$/i;
+const NODE_LOAD_FLAG = /^(?:-r|--require|--import|--loader|--experimental-loader)$/i;
+// Is this path (resolved against the call's cwd) somewhere an agent can plant code
+// without a prompt: the project's `out/` or `src/assets/`, or a temp/scratch folder?
+function inPlantableDir(p) {
+  let resolved = '';
+  try { resolved = canonical(resolvePath(p)); } catch { resolved = ''; }
+  if (!resolved) return false;
+  const root = projectRootCanon();
+  if (['out', 'src/assets'].some((d) => resolved === `${root}/${d}` || resolved.startsWith(`${root}/${d}/`))) return true;
+  // A project that itself lives below the OS temp dir (a trial clone, a CI scratch
+  // checkout) would otherwise have every one of its own files counted as "temp".
+  // There, a path inside the project is judged like in any other checkout: only the
+  // project's own `tmp/` (and `out/` above) is agent scratch. Everything else under
+  // the temp dir, siblings included, still counts.
+  const projectInTmp = osTmpRoots().some((r) => root.startsWith(`${r}/`));
+  if (projectInTmp && (resolved === root || resolved.startsWith(`${root}/`)))
+    return repoRoots().some((r) => resolved === `${r}/tmp` || resolved.startsWith(`${r}/tmp/`));
+  return isScratch(resolved);
+}
+function insideProjectPath(p) {
+  try {
+    const resolved = canonical(resolvePath(p));
+    const root = projectRootCanon();
+    return resolved === root || resolved.startsWith(`${root}/`);
+  } catch { return false; }
+}
+
+// The folders a git call is pointed at: `-C <dir>`, `--git-dir[=| ]<dir>`,
+// `--work-tree[=| ]<dir>` among git's GLOBAL options (before the subcommand — `tar -C`
+// or `git log -C` are something else), plus `GIT_DIR=`/`GIT_WORK_TREE=` assignments.
+function gitRepoDirs(cmd) {
+  const out = [];
+  const segs = splitQuoteAware(cmd) || segments(cmd).map((text) => ({ text, sep: ';' }));
+  for (const { text } of segs) {
+    const words = shellWords(text);
+    for (let i = 0; i < words.length; i++) {
+      if (!/^git$/i.test(words[i])) continue;
+      // Each `-C` is relative to the one before it (`git -C out -C evil` is out/evil),
+      // and `--git-dir`/`--work-tree` are relative to where the `-C`s led.
+      let base = '';
+      const under = (v) => (!base || /^(?:[A-Za-z]:)?[/\\]|^~/.test(v) ? v : `${base}/${v}`);
+      for (let j = i + 1; j < words.length && words[j].startsWith('-'); j++) {
+        const w = words[j];
+        const attached = w.match(/^--(?:git-dir|work-tree)=(.*)$/);
+        if (attached) { out.push(under(attached[1])); continue; }
+        if (w === '-C') { base = under(words[j + 1] || '.'); out.push(base); j++; continue; }
+        if (w === '--git-dir' || w === '--work-tree') { out.push(under(words[j + 1] || '')); j++; continue; }
+        if (/^(?:-c|--namespace|--config-env|--attr-source)$/.test(w)) j++;  // takes a value
+      }
+    }
+  }
+  for (const m of String(cmd || '').matchAll(GIT_DIR_ENV)) {
+    if (/\bgit\b/.test(cmd)) out.push(m[1].replace(/^["']|["']$/g, ''));
+  }
+  return out;
+}
+
+// Words in front of the runner that only launch it: `npx tsx …`, `npm exec -- node …`,
+// `pnpm dlx tsx …`, `yarn tsx …`, `env X=1 node …`, `cross-env X=1 node …`,
+// `timeout 600 node …`. They are peeled off (with their own flags) so the script the
+// runner gets is judged the same as a bare `node <script>`.
+function stripLaunchers(words) {
+  let w = words.slice(), prev;
+  const dropFlags = () => {
+    while (w.length && w[0].startsWith('-')) {
+      const f = w.shift();
+      if (f === '--') break;
+      // `npx -p tsx …` / `npm exec --package tsx …` / `timeout -k 5 …`: the next word is the value.
+      if (/^(?:-p|--package|-k|--kill-after|-s|--signal)$/i.test(f)) w.shift();
+    }
+  };
+  do {
+    prev = w.length;
+    while (w.length && /^[A-Za-z_]\w*=/.test(w[0])) w.shift();             // NAME=value
+    if (!w.length) break;
+    const a = w[0].toLowerCase(), b = (w[1] || '').toLowerCase();
+    if (/^(?:npx|bunx|pnpx|env|sudo|time|nohup|command|exec|cross-env|cross-env-shell)$/.test(a)) { w.shift(); dropFlags(); }
+    else if (a === 'timeout') { w.shift(); dropFlags(); w.shift(); }       // timeout <duration>
+    else if (/^(?:npm|pnpm|yarn)$/.test(a) && /^(?:exec|x|dlx)$/.test(b)) { w.splice(0, 2); dropFlags(); }
+    else if (/^(?:pnpm|yarn)$/.test(a) && NODE_RUNNER.test(b)) w.shift(); // `yarn tsx x.ts` runs the bin
+  } while (w.length && w.length !== prev);
+  return w;
+}
+
+function nodeScriptTargets(cmd) {
+  const out = [];
+  const segs = splitQuoteAware(cmd) || segments(cmd).map((text) => ({ text, sep: ';' }));
+  for (const { text } of segs) {
+    const seg = text.trim().replace(/^(?:export\s+)?(?:[A-Za-z_]\w*=\S*\s+)+/, '');
+    const words = stripLaunchers(seg.split(/\s+/).filter(Boolean).map((w) => w.replace(/^["']+|["']+$/g, '')));
+    if (!words.length || !NODE_RUNNER.test(words[0])) continue;
+    const hasEval = words.some((w) => /^(?:-e|--eval|-p|--print)$/i.test(w) || /^(?:-e|--eval|-p|--print)=/i.test(w));
+    let gotMain = false;
+    for (let j = 1; j < words.length; j++) {
+      const w = words[j];
+      const attached = w.match(/^(?:-r|--require|--import|--loader|--experimental-loader)=(.+)$/i);
+      if (attached) { out.push(attached[1].replace(/^["']+|["']+$/g, '')); continue; }
+      if (NODE_LOAD_FLAG.test(w)) { if (words[j + 1]) { out.push(words[j + 1].replace(/^["']+|["']+$/g, '')); j++; } continue; }
+      if (w.startsWith('-')) continue;      // any other flag
+      if (!gotMain) { gotMain = true; if (!hasEval) out.push(w); }  // the main script
+    }
+  }
+  return out;
+}
+
 function classifyShellReading(raw, psBackticks) {
   // A search PATTERN is data, and it has to be recognised as data before normalisation
   // unquotes it — `grep -n '=>' file` must not become a redirection.
@@ -1468,8 +1647,97 @@ function classifyShellReading(raw, psBackticks) {
     return hard('piping a file list into `xargs rm` deletes whatever the upstream command happened to print — the same unbounded wipe as `find … -delete`. Delete explicit paths instead.');
 
   // ---- RED (block, but explain it is a human-only / needs-confirmation action) --
+
+  // `git difftool` / `git mergetool` launch an external program for every changed file.
+  // With `-x`/`--extcmd` that program is one YOU name on the command line; otherwise it
+  // is whatever the repo's config points at. A `Bash(git diff*)` allow rule (no space
+  // before `*`) matches `git difftool` per the permission docs, so this has to be shut
+  // here rather than relied on not to be allow-listed. Plain `git diff` shows changes.
+  if (/\bgit\s+(?:difftool|mergetool)\b/.test(gcmd))
+    return red('`git difftool` / `git mergetool` runs an external program for each changed file — an arbitrary command with `-x`/`--extcmd`, or the repo\'s configured tool otherwise — and a `git diff*` allow rule matches it. Use `git diff` to view changes, or confirm explicitly (SEC-006).');
+
+  // `git … --output=<file>` writes a file named as an ARGUMENT, not a shell redirect, so
+  // the redirect / protected-path checks never see the target: it can overwrite the
+  // safety hook, `.claude/settings.json` or a `.git/hooks/*` that then runs on commit.
+  // `--output-indicator-*` only matters alongside `--output`, so one rule covers both.
+  if (/\bgit\b/.test(gcmd) && /(?:^|\s)--output(?:-indicator-(?:new|old|context))?(?:=|\s)/.test(gcmd))
+    return red('`git … --output=<file>` writes an arbitrary file as a command argument, so the shell-redirect and protected-path checks never see it — it can overwrite the safety hook, `.claude/settings.json` or `.git/hooks/*`. Redirect visibly instead (`git diff > file`), or confirm explicitly (SEC-006).');
+  if (/\bgit\s+format-patch\b/.test(gcmd) && /(?:^|\s)(?:-o\s|--output-directory(?:=|\s))/.test(gcmd))
+    return red('`git format-patch -o <dir>` writes files to a directory given as an argument, past the redirect / protected-path checks. Confirm explicitly (SEC-006).');
+
+  // Config / env injection that makes a plain, pre-approved `git diff`/`git log` run an
+  // external program (pager, editor, diff.external, textconv, mergetool.cmd, a filter
+  // driver, a credential helper, …). The value is code no rule can read.
+  if (/\bgit\b/.test(withGlobals) && GIT_CONFIG_EXEC.test(withGlobals))
+    return red('this sets a git config value that makes git run an external program — pager / editor / `diff.external` / `textconv` / `*tool.*.cmd` / a filter driver / `credential.helper` / … — via `-c` or `--config-env`. A plain `git diff`/`git log` would then execute it, unseen by any rule. Drop the option, or confirm explicitly (SEC-006).');
+  if (/\bgit\b/.test(gcmd) && GIT_CONFIG_EXEC_ENV.test(gcmd))
+    return red('a `GIT_EXTERNAL_DIFF` / `GIT_PAGER` / `GIT_SSH_COMMAND` / `GIT_EDITOR` / `GIT_CONFIG_*` (…) environment variable in front of git names a program git runs, or injects config that does, for a plain-looking `git diff`/`git log`. Remove it, or confirm explicitly (SEC-006).');
+  // `GIT_TRACE*=<path>` makes git write its trace log to that file, past the redirect
+  // and protected-path checks, so it can overwrite a gate file. Only the stderr / file
+  // descriptor forms (`0`-`9`, `true`/`false`, …) stay allowed.
+  for (const m of gcmd.matchAll(GIT_TRACE_ENV)) {
+    const v = m[1].replace(/^["']|["']$/g, '');
+    if (/\bgit\b/.test(gcmd) && !/^(?:\d|true|false|yes|no|on|off)?$/i.test(v))
+      return red('a `GIT_TRACE*` environment variable set to a path makes git write its trace log to that file — past the redirect and protected-path checks, so it can overwrite a gate file. Use `GIT_TRACE=1` (stderr), or confirm explicitly (SEC-006).');
+  }
+  // `--ext-diff` / `--textconv` turn ON the repo's configured external diff / textconv
+  // program. Harmless only if that config is absent; refuse so it is never the one step
+  // that activates a planted driver.
+  if (/\bgit\s+(?:diff|log|show)\b/.test(gcmd) && /(?:^|\s)--(?:ext-diff|textconv)\b/.test(gcmd))
+    return red('`git diff/log --ext-diff` / `--textconv` runs the repository\'s configured external diff / textconv program. View changes without it, or confirm explicitly (SEC-006).');
+
+  // `node … <script>` where the script escapes its folder via `..`, lives under `out/`
+  // or `src/assets/` (auto-approved write targets), or sits in a temp/scratch dir is not part of the
+  // kit's own `tools/`/`scripts/` tooling — it is the shape of attacker-planted code
+  // being executed. `-r`/`--import` modules are checked the same way. The kit's normal
+  // `node tools/x.mjs` / `node scripts/check-*.mjs` have none of those and stay allowed.
+  // `npx`/`npm exec`/`pnpm dlx`/`yarn` in front of the runner are peeled off first.
+  for (const t of nodeScriptTargets(gcmd)) {
+    if (!t) continue;
+    if (/(?:^|[/\\])\.\.(?:[/\\]|$)/.test(t) || inPlantableDir(t))
+      return red(`running \`${t}\` with node — a script that escapes its folder via \`..\`, lives under \`out/\` or \`src/assets/\`, or sits in a temp/scratch dir — is not part of the kit's tooling and could be code an agent just wrote. Run the kit's own \`tools/\`/\`scripts/\` files, or confirm explicitly (SEC-006).`);
+  }
+
+  // `NODE_OPTIONS` is read by EVERY node process a command starts — `npm run lint`
+  // included — so a `--require`/`--import`/`-r`/`--loader` in it runs a module before
+  // any of the kit's own code, whatever the visible command is. npm's `--node-options`
+  // and `npm_config_node_options` set the same variable for the scripts npm starts.
+  if (/node[-_]options/i.test(gcmd)) {
+    const segs = splitQuoteAware(gcmd) || segments(gcmd).map((text) => ({ text, sep: ';' }));
+    if (segs.some(({ text }) => /node[-_]options[\s\S]*?(?:^|[\s"'=])(?:-r|--require|--import|--loader|--experimental-loader)(?=[\s"'=]|$)/i.test(text)))
+      return red('`NODE_OPTIONS` (or npm\'s `--node-options`) with `--require` / `--import` / `-r` / `--loader` makes every node process this command starts load that module first — code no rule reads, behind a plain-looking `npm run …`. Drop the flag (memory flags such as `--max-old-space-size` are fine), or confirm explicitly (SEC-006).');
+  }
+
+  // `git -C <dir>`, `--git-dir`, `--work-tree` and `GIT_DIR`/`GIT_WORK_TREE` choose which
+  // repository — and so which `.git/config` and hooks — a plain `git diff`/`git log`
+  // obeys. A repository or config planted under `out/`, `src/assets/` or a temp folder,
+  // or one reached by `..` outside the project, can carry a pager, an external diff or
+  // an fsmonitor that runs code. `git -C <this project> status` stays allowed.
+  for (const d of gitRepoDirs(withGlobals)) {
+    if (!d) continue;
+    const escapes = /(?:^|[/\\])\.\.(?:[/\\]|$)/.test(d) && !insideProjectPath(d);
+    if (escapes || inPlantableDir(d))
+      return red(`\`${d}\` as git's repository or work tree (\`-C\` / \`--git-dir\` / \`--work-tree\` / \`GIT_DIR\`) is under \`out/\`, \`src/assets/\`, a temp folder, or reached by \`..\` outside the project — a repository there can bring its own config (pager, external diff, fsmonitor) that runs code on a plain \`git diff\`/\`git log\`. Run git in this project, or confirm explicitly (SEC-006).`);
+  }
+  if (/\bgit\s+--exec-path=/.test(withGlobals))
+    return red('`git --exec-path=<dir>` makes git look for its helper programs in that folder — any file named like a git command there runs. Drop the option, or confirm explicitly (SEC-006).');
+  // `git clone/init --template=<dir>` copies that folder's hooks into the new repository,
+  // and clone runs `post-checkout` right away; `--upload-pack`/`--receive-pack`/`--exec`
+  // name a program git starts for a local remote.
+  if (/\bgit\s+(?:clone|init)\b[^\n;&|]*\s--template(?:=|\s)/.test(gcmd))
+    return red('`git clone/init --template=<dir>` installs that folder\'s hooks into the new repository, and clone runs one right away. Drop the option, or confirm explicitly (SEC-006).');
+  if (/\bgit\s+(?:clone|fetch|pull|ls-remote|archive|push)\b[^\n;&|]*\s--(?:upload-pack|receive-pack|exec)(?:=|\s)/.test(gcmd) ||
+      /\bgit\s+clone\b[^\n;&|]*\s-u\s/.test(gcmd))
+    return red('`--upload-pack` / `--receive-pack` / `--exec` (or `git clone -u`) names a program git runs for the transfer — on a local remote, on this machine. Drop the option, or confirm explicitly (SEC-006).');
+
   // Stage-all hides what's being committed — a repo with an untracked secret or a
   // sibling's WIP gets swept in unseen. Can't verify the tree from the command.
+  // `git commit -a`/`-am`/`--all` is the same stage-all as `git add -A`, one step later.
+  if (/\bgit\s+commit\b/.test(gcmd)) {
+    const commitArgs = gcmd.replace(/^[\s\S]*?\bgit\s+commit\b/, '');
+    if (/(?:^|\s)--all\b/.test(commitArgs) || /(?:^|\s)-[a-zA-Z]*a[a-zA-Z]*\b/.test(commitArgs))
+      return red('`git commit -a` / `-am` / `--all` stages every modified tracked file before committing — the same unverifiable stage-all as `git add -A`, which I can\'t check for a secret or another worker\'s WIP. Stage explicit paths (`git add <path> && git commit`), or override if you\'re sure.');
+  }
   if (/\bgit\s+add\b/.test(gcmd)) {
     const addArgs = gcmd.replace(/^[\s\S]*?\bgit\s+add\b/, '');
     if (/(?:^|\s)(?:-A|--all|--no-ignore-removal)\b/.test(addArgs) ||

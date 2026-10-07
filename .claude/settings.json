@@ -1,5 +1,30 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(npm run tools)",
+      "PowerShell(npm run tools)",
+      "Bash(npm start)",
+      "PowerShell(npm start)",
+      "Bash(npm run test:ci)",
+      "PowerShell(npm run test:ci)",
+      "Bash(npm run test:tools)",
+      "PowerShell(npm run test:tools)",
+      "Bash(npm run lint)",
+      "PowerShell(npm run lint)",
+      "Bash(npm run build:prod)",
+      "PowerShell(npm run build:prod)",
+      "Bash(git status)",
+      "PowerShell(git status)",
+      "Bash(git diff)",
+      "PowerShell(git diff)",
+      "Bash(git log)",
+      "PowerShell(git log)",
+      "Edit(/out/**)",
+      "Edit(/src/assets/**)",
+      "Edit(/profile/USER-MANIFEST.MD)",
+      "Edit(/JOURNAL.md)",
+      "Edit(/OPEN-QUESTIONS.md)"
+    ],
     "deny": [
       "Edit(/.claude/hooks/**)",
       "Edit(/.claude/settings.json)",

@@ -42,11 +42,13 @@ const REPO_NAME = basename(PROJECT_DIR);
 // The hook exempts the OS temp dir (and this repo's own tmp/) from the outside-the-project
 // rule. A checkout that itself sits under the OS temp dir — a CI scratch dir, a trial
 // clone — has its SIBLINGS in scratch too, so "escape to ../x" is correctly allowed there.
-// Those few expectations follow where the checkout lives.
+// Those few expectations follow where the checkout lives — also when it sits DIRECTLY
+// in the temp dir (`%TEMP%/clone`): its siblings are then below the temp dir as well.
 const norm = (p) => (process.platform === 'win32' ? p.toLowerCase() : p).replace(/\\/g, '/');
 const PARENT = norm(dirname(PROJECT_DIR));
-const PARENT_IS_SCRATCH = PARENT.startsWith(norm(tmpdir()) + '/') ||
-  (process.platform !== 'win32' && PARENT.startsWith('/tmp/'));
+const under = (p, r) => p === r || p.startsWith(r + '/');
+const PARENT_IS_SCRATCH = under(PARENT, norm(tmpdir())) ||
+  (process.platform !== 'win32' && under(PARENT, '/tmp'));
 const ESCAPE = PARENT_IS_SCRATCH ? ['allow', 'ALLOW'] : ['deny', 'RED'];
 // Forward slashes so these read the same in a command string on either platform.
 const INSIDE = PROJECT_DIR.replace(/\\/g, '/');
@@ -705,7 +707,7 @@ const CASES = [
   ['git config user.name (TRAP)',   bash('git config user.name "A B"'),                'allow', 'ALLOW'],
 
   // ==== WP-M step 2 ==========================================================
-  // ---- S1: git — every spelling of the same protected operation -----------
+  // ---- git — every spelling of the same protected operation ---------------
   ['--config-env=… push --force',   bash('git --config-env=core.x=Y push --force'),    'deny',  'HARD'],
   ['--config-env … push --force',   bash('git --config-env core.x=Y push --force'),    'deny',  'HARD'],
   ['unknown global, push --force',  bash('git --future-flag push --force'),            'deny',  'HARD'],
@@ -754,7 +756,7 @@ const CASES = [
   ['Start-Process notepad (TRAP)',  ps('Start-Process notepad README.md'),             'allow', 'ALLOW'],
   ['Start-Process npm build (TRAP)',ps("Start-Process npm -ArgumentList 'run','build' -Wait"), 'allow', 'ALLOW'],
 
-  // ---- S2: tool coverage — Read, MCP read/write/terminal ------------------
+  // ---- tool coverage — Read, MCP read/write/terminal ----------------------
   ['Read .env',                     { tool_name: 'Read', tool_input: { file_path: '.env' } },              'deny',  'RED'],
   ['Read abs .env.local',           { tool_name: 'Read', tool_input: { file_path: `${PROJECT_DIR}/.env.local` } }, 'deny', 'RED'],
   ['Read keys/api.key',             { tool_name: 'Read', tool_input: { file_path: 'keys/api.key' } },      'deny',  'RED'],
@@ -775,7 +777,7 @@ const CASES = [
   ['MCP shell: $var assign (TRAP)', { tool_name: 'mcp__webstorm__execute_terminal_command', tool_input: { command: '$o = "C:\\x"; node s.mjs' } }, 'allow', 'ALLOW'],
   ['MCP unknown tool (TRAP)',       { tool_name: 'mcp__x__list_things', tool_input: { query: 'git push --force' } }, 'allow', 'ALLOW'],
 
-  // ---- S3: secret files by wildcard, upload spellings, auto-install -------
+  // ---- secret files by wildcard, upload spellings, auto-install -----------
   ['git add .env*',                 bash('git add .env*'),                             'deny',  'HARD'],
   ['git add .e?v',                  bash('git add .e?v'),                              'deny',  'HARD'],
   ['git add *.pem',                 bash('git add certs/*.pem'),                       'deny',  'HARD'],
@@ -812,7 +814,7 @@ const CASES = [
   ['vercel ls (TRAP)',              bash('vercel ls'),                                 'allow', 'ALLOW'],
   ['gh release list (TRAP)',        bash('gh release list'),                           'allow', 'ALLOW'],
 
-  // ---- S4: false positives removed ----------------------------------------
+  // ---- false positives removed --------------------------------------------
   ['PS $o = "C:\\x"; node (TRAP)',  ps('$o = "C:\\x"; node s.mjs'),                    'allow', 'ALLOW'],
   ['NAME=value cmd (TRAP)',         bash('NODE_ENV=production node s.mjs'),            'allow', 'ALLOW'],
   ['A=1 B=2 npm test (TRAP)',       bash('A=1 B=2 npm test'),                          'allow', 'ALLOW'],
@@ -841,7 +843,7 @@ const CASES = [
   ['node deploy-prod.mjs',          bash('node scripts/deploy-prod.mjs'),              'deny',  'RED'],
   ['python deploy.py',              bash('python3 scripts/deploy.py --prod'),          'deny',  'RED'],
 
-  // ==== WP-M audit fixes (2026-09-23) ========================================
+  // ==== WP-M follow-up (2026-09-23) ==========================================
   // ---- H1 (SEC-1): moving or renaming the gate switches it off -------------
   // A renamed hook makes `node <hook>` exit 1, which Claude Code treats as a
   // non-blocking error: every later call would pass unchecked.
@@ -974,6 +976,182 @@ const CASES = [
   ] : [
     ['rm -rf /tmp/x (TRAP)',        bash('rm -rf /tmp/agent-scratch/x'),               'allow', 'ALLOW'],
   ]),
+
+  // ---- Pre-approved commands: what an allow-listed git/node line could reach --
+  // `git diff*` (no space) also matches `git difftool`, which runs a command.
+  ['difftool -x runs cmd (external tool)', bash('git difftool -y -x "node out/x.mjs" HEAD~1'), 'deny', 'RED'],
+  ['difftool --extcmd (external tool)', bash('git difftool -y --extcmd="pwsh -File out/x.ps1"'), 'deny', 'RED'],
+  ['PS difftool -x (external tool)', ps('git difftool -y -x "node out/x.mjs" HEAD~1'),  'deny', 'RED'],
+  ['mergetool (external tool)',     bash('git mergetool --tool=vimdiff'),              'deny', 'RED'],
+  ['difftool --tool-help (external tool)', bash('git difftool --tool-help'),                  'deny', 'RED'],
+  // `git diff/log --output=<file>` writes any file, gate files included.
+  ['diff --output settings (writes a file)', bash('git diff --output=.claude/settings.json'),   'deny', 'RED'],
+  ['log --output settings (writes a file)', bash('git log --output=.claude/settings.json -1'), 'deny', 'RED'],
+  ['diff --output-indicator (writes a file)', bash("git diff --output-indicator-new=' ' --output=.git/hooks/pre-commit -p -1"), 'deny', 'RED'],
+  ['PS log --output (writes a file)', ps('git log --output=.claude/settings.json -1'),   'deny', 'RED'],
+  ['format-patch -o temp (writes a file)', bash(`git format-patch -o ${TMP_DIR}/out -1`),     'deny', 'RED'],
+  // Config / env injection that runs code behind a plain-looking git diff/log.
+  ['-c core.pager=cmd (cfg)',       bash('git -c core.pager="node out/x.mjs" log'),    'deny', 'RED'],
+  ['-c diff.external=cmd (cfg)',    bash('git -c diff.external="node out/x.mjs" diff'),'deny', 'RED'],
+  ['-c core.sshCommand (cfg)',      bash('git -c core.sshCommand="node x.mjs" fetch'), 'deny', 'RED'],
+  ['-c mergetool.cmd (cfg)',        bash('git -c mergetool.x.cmd="node x" log'),       'deny', 'RED'],
+  ['--config-env pager (cfg)',      bash('git --config-env=core.pager=PX log'),        'deny', 'RED'],
+  ['PS -c diff.external (cfg)',     ps('git -c diff.external="node out/x.mjs" diff'),  'deny', 'RED'],
+  ['GIT_EXTERNAL_DIFF env (cfg)',   bash('GIT_EXTERNAL_DIFF="node out/x.mjs" git diff'),'deny', 'RED'],
+  ['GIT_PAGER env (cfg)',           bash('GIT_PAGER="node out/x.mjs" git log'),        'deny', 'RED'],
+  ['PS $env:GIT_EXTERNAL_DIFF',     ps('$env:GIT_EXTERNAL_DIFF="node x.mjs"; git diff'),'deny', 'RED'],
+  ['diff --ext-diff (cfg)',         bash('git diff --ext-diff'),                       'deny', 'RED'],
+  ['log --textconv (cfg)',          bash('git log -p --textconv'),                     'deny', 'RED'],
+  // Config injected through the environment instead of `-c`.
+  ['GIT_CONFIG_PARAMETERS (cfg env)', bash(`GIT_CONFIG_PARAMETERS="'core.pager=x'" git log`), 'deny', 'RED'],
+  ['GIT_CONFIG_COUNT/KEY/VALUE (cfg env)', bash('GIT_CONFIG_COUNT=1 GIT_CONFIG_KEY_0=diff.external GIT_CONFIG_VALUE_0=x git diff'), 'deny', 'RED'],
+  ['GIT_CONFIG_GLOBAL (cfg env)',   bash('GIT_CONFIG_GLOBAL=out/evil.cfg git diff'),  'deny', 'RED'],
+  ['GIT_CONFIG_SYSTEM (cfg env)',   bash('GIT_CONFIG_SYSTEM=out/evil.cfg git log'),   'deny', 'RED'],
+  ['env GIT_CONFIG_PARAMETERS (cfg env)', bash(`env GIT_CONFIG_PARAMETERS="'core.pager=x'" git log`), 'deny', 'RED'],
+  ['export GIT_CONFIG_PARAMETERS (cfg env)', bash(`export GIT_CONFIG_PARAMETERS="'core.pager=x'"; git log`), 'deny', 'RED'],
+  ['PAGER fallback (cfg env)',      bash('PAGER="node out/x.mjs" git log'),            'deny', 'RED'],
+  ['GIT_EXEC_PATH (cfg env)',       bash('GIT_EXEC_PATH=out git diff'),                'deny', 'RED'],
+  ['GIT_TRACE=<gate file> (cfg env)', bash('GIT_TRACE=.claude/settings.json git status'), 'deny', 'RED'],
+  ['GIT_TRACE2_EVENT=path (cfg env)', bash('GIT_TRACE2_EVENT=/tmp/x.json git log'),   'deny', 'RED'],
+  ['PS GIT_TRACE=path (cfg env)',    ps("$env:GIT_TRACE = '.git/hooks/pre-commit'; git diff"), 'deny', 'RED'],
+  ['GIT_TRACE=1 stderr (TRAP)',      bash('GIT_TRACE=1 git status'),                    'allow', 'ALLOW'],
+  ['GIT_TRACE=true (TRAP)',          bash('GIT_TRACE=true git fetch --dry-run'),        'allow', 'ALLOW'],
+  ['PS $env:GIT_CONFIG_PARAMETERS (cfg env)', ps(`$env:GIT_CONFIG_PARAMETERS="'core.pager=x'"; git log`), 'deny', 'RED'],
+  ['PS Set-Item env:GIT_CONFIG_GLOBAL (cfg env)', ps('Set-Item -Path Env:GIT_CONFIG_GLOBAL -Value out/e.cfg; git diff'), 'deny', 'RED'],
+  ['PS SetEnvironmentVariable GIT_PAGER (cfg env)', ps("[Environment]::SetEnvironmentVariable('GIT_PAGER','x'); git log"), 'deny', 'RED'],
+  // More config keys whose value git runs (or that pull in a whole config file).
+  ['-c interactive.diffFilter (cfg)', bash('git -c interactive.diffFilter=x add -p'),  'deny', 'RED'],
+  ['-c include.path (cfg)',         bash('git -c include.path=out/evil.cfg diff'),     'deny', 'RED'],
+  ['-c includeIf…path (cfg)',       bash('git -c includeIf.gitdir:C:/x/.path=out/e.cfg diff'), 'deny', 'RED'],
+  ['-c difftool.x.path (cfg)',      bash('git -c difftool.x.path=out/x.exe diff'),     'deny', 'RED'],
+  ['-c remote.x.uploadpack (cfg)',  bash('git -c remote.origin.uploadpack=x fetch'),   'deny', 'RED'],
+  ['-c core.alternateRefsCommand (cfg)', bash('git -c core.alternateRefsCommand=x log'), 'deny', 'RED'],
+  ['-c trailer.x.command (cfg)',    bash('git -c trailer.x.command=x log'),            'deny', 'RED'],
+  ['clone --config fsmonitor (cfg)', bash('git clone --config core.fsmonitor=out/x.sh ../a b'), 'deny', 'RED'],
+  ['PS -c interactive.diffFilter (cfg)', ps('git -c interactive.diffFilter=x add -p'), 'deny', 'RED'],
+  ['clone --template (cfg)',        bash('git clone --template=out/tpl ../a b'),       'deny', 'RED'],
+  ['fetch --upload-pack (cfg)',     bash('git fetch --upload-pack="node x" ../a'),     'deny', 'RED'],
+  ['--exec-path=dir (cfg)',         bash('git --exec-path=out log'),                   'deny', 'RED'],
+  // Which repository a plain git call obeys: none planted in out/, src/assets/, temp.
+  ['git -C out/x (repo dir)',       bash('git -C out/evil diff'),                      'deny', 'RED'],
+  ['git -C out -C x (repo dir)',    bash('git -C out -C evil log'),                    'deny', 'RED'],
+  ['git --git-dir=out (repo dir)',  bash('git --git-dir=out/evil.git log'),            'deny', 'RED'],
+  ['git --git-dir out (repo dir)',  bash('git --git-dir out/evil.git log'),            'deny', 'RED'],
+  ['git --work-tree=src/assets (repo dir)', bash('git --work-tree=src/assets/x status'), 'deny', 'RED'],
+  ['git -C src/assets (repo dir)',  bash('git -C src/assets status'),                  'deny', 'RED'],
+  ['git -C temp (repo dir)',        bash(`git -C ${TMP_DIR}/evil diff`),               'deny', 'RED'],
+  ['git -C ../x (repo dir)',        bash('git -C ../other status'),                    'deny', 'RED'],
+  ['GIT_DIR=out (repo dir)',        bash('GIT_DIR=out/evil.git git log'),              'deny', 'RED'],
+  ['D=out; git -C $D (repo dir)',   bash('D=out/evil; git -C $D log'),                 'deny', 'RED'],
+  ['git.exe -C out (repo dir)',     bash('git.exe -C out/evil log'),                   'deny', 'RED'],
+  ['PS git -C out\\x (repo dir)',   ps('git -C out\\evil diff'),                       'deny', 'RED'],
+  ['PS git --git-dir=out (repo dir)', ps('git --git-dir=out\\evil.git log'),           'deny', 'RED'],
+  ['PS $env:GIT_DIR (repo dir)',    ps('$env:GIT_DIR="out/evil.git"; git log'),        'deny', 'RED'],
+  // NODE_OPTIONS loads a module into every node process the command starts.
+  ['NODE_OPTIONS --require (node options)', bash('NODE_OPTIONS="--require ./out/x.cjs" npm run lint'), 'deny', 'RED'],
+  ['NODE_OPTIONS -r (node options)', bash("NODE_OPTIONS='-r ./out/x.cjs' npm run lint"), 'deny', 'RED'],
+  ['NODE_OPTIONS --import= (node options)', bash('NODE_OPTIONS=--import=./out/x.mjs npm test'), 'deny', 'RED'],
+  ['NODE_OPTIONS --loader (node options)', bash('NODE_OPTIONS="--loader ./x.mjs" npm run build:prod'), 'deny', 'RED'],
+  ['NODE_OPTIONS --experimental-loader (node options)', bash('NODE_OPTIONS="--experimental-loader ./out/x.mjs" npm run build:prod'), 'deny', 'RED'],
+  ['npm --node-options (node options)', bash('npm run lint --node-options="--require ./out/x.cjs"'), 'deny', 'RED'],
+  ['npm_config_node_options (node options)', bash('npm_config_node_options="--require ./x.cjs" npm run lint'), 'deny', 'RED'],
+  ['PS $env:NODE_OPTIONS --require (node options)', ps('$env:NODE_OPTIONS="--require ./out/x.cjs"; npm run lint'), 'deny', 'RED'],
+  ['PS $env:NODE_OPTIONS += --import (node options)', ps("$env:NODE_OPTIONS += ' --import ./out/x.mjs'; npm run build:prod"), 'deny', 'RED'],
+  ['PS Set-Item env:NODE_OPTIONS (node options)', ps("Set-Item env:NODE_OPTIONS '--require ./out/x.cjs'; npm run lint"), 'deny', 'RED'],
+  // A launcher in front of the runner does not change where the script comes from.
+  ['npx tsx out (script origin)',   bash('npx tsx out/x.ts'),                          'deny', 'RED'],
+  ['npx tsx src/assets (script origin)', bash('npx tsx src/assets/x.ts'),              'deny', 'RED'],
+  ['npx node out (script origin)',  bash('npx node out/x.mjs'),                        'deny', 'RED'],
+  ['npx ts-node temp (script origin)', bash(`npx ts-node ${TMP_DIR}/x.ts`),            'deny', 'RED'],
+  ['npx -p tsx tsx out (script origin)', bash('npx -p tsx tsx out/x.ts'),              'deny', 'RED'],
+  ['npm exec -- tsx out (script origin)', bash('npm exec -- tsx out/x.ts'),            'deny', 'RED'],
+  ['npx -c "node out" (script origin)', bash('npx -c "node out/x.mjs"'),               'deny', 'RED'],
+  ['pnpm dlx tsx out (script origin)', bash('pnpm dlx tsx out/x.ts'),                  'deny', 'RED'],
+  ['yarn dlx tsx out (script origin)', bash('yarn dlx tsx out/x.ts'),                  'deny', 'RED'],
+  ['yarn tsx out (script origin)',  bash('yarn tsx out/x.ts'),                         'deny', 'RED'],
+  ['pnpm exec tsx out (script origin)', bash('pnpm exec tsx out/x.ts'),                'deny', 'RED'],
+  ['env X=1 node out (script origin)', bash('env FOO=1 node out/x.mjs'),               'deny', 'RED'],
+  ['timeout node out (script origin)', bash('timeout 60 node out/x.mjs'),              'deny', 'RED'],
+  ['cross-env node out (script origin)', bash('cross-env A=1 node out/x.mjs'),         'deny', 'RED'],
+  ['PS npx tsx out\\x (script origin)', ps('npx tsx out\\x.ts'),                        'deny', 'RED'],
+  // `node tools/*` must not admit path traversal / out / temp.
+  ['node tools/../out (script origin)', bash('node tools/../out/x.mjs'),                   'deny', 'RED'],
+  ['node out/x.mjs (script origin)', bash('node out/x.mjs'),                            'deny', 'RED'],
+  ['node ../evil (script origin)',  bash('node ../evil/x.mjs'),                        'deny', 'RED'],
+  ['node -r out loader (script origin)', bash('node -r ./out/evil.mjs tools/new-page.mjs'), 'deny', 'RED'],
+  ['node --import out (script origin)', bash('node --import=./out/evil.mjs tools/x.mjs'),  'deny', 'RED'],
+  ['node temp script (script origin)', bash(`node ${TMP_DIR}/evil.mjs`),                  'deny', 'RED'],
+  ['PS node out/x (script origin)', ps('node out/x.mjs'),                              'deny', 'RED'],
+  ['tsx out/x.ts (script origin)',  bash('tsx out/x.ts'),                              'deny', 'RED'],
+  ['node src/assets (script origin)', bash('node src/assets/x.mjs'),                   'deny', 'RED'],
+  ['PS node src/assets (script origin)', ps('node src/assets/data/x.mjs'),             'deny', 'RED'],
+  // `git commit -a`/`-am`/`--all` is the same stage-all as `git add -A`.
+  ['commit -a -m (stage-all)',      bash('git commit -a -m wip'),                      'deny', 'RED'],
+  ['commit -am (stage-all)',        bash('git commit -am wip'),                        'deny', 'RED'],
+  ['commit --all (stage-all)',      bash('git commit --all -m x'),                     'deny', 'RED'],
+  ['PS commit -am (stage-all)',     ps('git commit -am wip'),                          'deny', 'RED'],
+
+  // ---- Pre-approved commands: must-NOT-block (the kit's own normal commands) --
+  ['difftool word in msg (TRAP)',   bash('git commit -m "set up difftool later"'),     'allow', 'ALLOW'],
+  ['node tools/x.mjs (TRAP)',       bash('node tools/new-page.mjs --help'),            'allow', 'ALLOW'],
+  ['node tools/index (TRAP)',       bash('node tools/index.mjs'),                      'allow', 'ALLOW'],
+  ['node scripts/check-* (TRAP)',   bash('node scripts/check-doc-drift.mjs'),          'allow', 'ALLOW'],
+  ['node scripts/verify-* (TRAP)',  bash('node scripts/verify-harness.mjs'),           'allow', 'ALLOW'],
+  ['PS node tools (TRAP)',          ps('node tools/new-page.mjs'),                     'allow', 'ALLOW'],
+  ['-c user.name commit (TRAP)',    bash('git -c user.name=x commit -m wip'),          'allow', 'ALLOW'],
+  ['-c core.autocrlf status (TRAP)',bash('git -c core.autocrlf=input status'),         'allow', 'ALLOW'],
+  ['-c rebase.autostash (TRAP)',    bash('git -c rebase.autostash=true log --oneline'),'allow', 'ALLOW'],
+  ['commit -v -m (TRAP)',           bash('git commit -v -m x'),                        'allow', 'ALLOW'],
+  ['commit -m only (TRAP)',         bash('git commit -m "normal message"'),            'allow', 'ALLOW'],
+  ['git diff plain (TRAP)',         bash('git diff'),                                  'allow', 'ALLOW'],
+  ['git log plain (TRAP)',          bash('git log -5'),                                'allow', 'ALLOW'],
+  ['git -C <project> status (TRAP)', bash(`git -C ${INSIDE} status`),                  'allow', 'ALLOW'],
+  ['git -C . status (TRAP)',        bash('git -C . status'),                           'allow', 'ALLOW'],
+  ['git -C src log (TRAP)',         bash('git -C src/app log --oneline -3'),           'allow', 'ALLOW'],
+  ['git -C other project (TRAP)',   bash(`git -C ${FOREIGN_DIR}/project log --oneline -3`), 'allow', 'ALLOW'],
+  ['PS git -C <project> (TRAP)',    ps(`git -C ${INSIDE} status`),                     'allow', 'ALLOW'],
+  ['git log -C (copy detection) (TRAP)', bash('git log -C --stat'),                    'allow', 'ALLOW'],
+  ['tar -C out (TRAP)',             bash('tar -C out -xf x.tar'),                      'allow', 'ALLOW'],
+  ['GIT_CONFIG_NOSYSTEM (TRAP)',    bash('GIT_CONFIG_NOSYSTEM=1 git status'),          'allow', 'ALLOW'],
+  ['NODE_OPTIONS memory (TRAP)',    bash('NODE_OPTIONS=--max-old-space-size=4096 npm run build:prod'), 'allow', 'ALLOW'],
+  ['NODE_OPTIONS two flags (TRAP)', bash('NODE_OPTIONS="--max-old-space-size=4096 --enable-source-maps" npm run build:prod'), 'allow', 'ALLOW'],
+  ['PS NODE_OPTIONS memory (TRAP)', ps("$env:NODE_OPTIONS='--max-old-space-size=4096'; npm run build:prod"), 'allow', 'ALLOW'],
+  ['NODE_OPTIONS in msg (TRAP)',    bash('git commit -m "set NODE_OPTIONS --require later"'), 'allow', 'ALLOW'],
+  ['npx tsx tools (TRAP)',          bash('npx tsx tools/x.ts'),                        'allow', 'ALLOW'],
+  ['npx prettier (TRAP)',           bash('npx prettier --check CHANGELOG.md'),         'allow', 'ALLOW'],
+  ['npm exec -- prettier (TRAP)',   bash('npm exec -- prettier --check .'),            'allow', 'ALLOW'],
+  ['PS npx ng version (TRAP)',      ps('npx ng version'),                              'allow', 'ALLOW'],
+  ['timeout build:prod (TRAP)',     bash('timeout 600 npm run build:prod'),            'allow', 'ALLOW'],
+
+  // ---- A project that itself lives under the OS temp dir --------------------
+  // FX_REPO / FX_WT sit in a mkdtemp folder, so these hold wherever this suite runs:
+  // the project's own scripts still run, its tmp/ and out/ and every other temp
+  // folder (siblings included) stay refused.
+  ['tmp project: node tools (TRAP)',     at(FX_REPO, bash('node tools/new-page.mjs --help')),        'allow', 'ALLOW'],
+  ['tmp project: node scripts (TRAP)',   at(FX_REPO, bash('node scripts/check-doc-drift.mjs')),      'allow', 'ALLOW'],
+  ['tmp project: PS node tools (TRAP)',  at(FX_REPO, ps('node tools/new-page.mjs')),                 'allow', 'ALLOW'],
+  ['tmp project: abs own script (TRAP)', at(FX_REPO, bash(`node ${FX_REPO}/tools/index.mjs`)),       'allow', 'ALLOW'],
+  ['tmp project: NAME=v node (TRAP)',    at(FX_REPO, bash('NAME=value node scripts/verify-harness.mjs')), 'allow', 'ALLOW'],
+  ['tmp project: guard tests (TRAP)',    at(FX_REPO, bash('node .claude/hooks/guard-red-actions.test.mjs 2>&1')), 'allow', 'ALLOW'],
+  ['tmp project: from src/ (TRAP)',      at(`${FX_REPO}/src`, bash(`node ${FX_REPO}/scripts/x.mjs`)), 'allow', 'ALLOW'],
+  ['tmp worktree: node tools (TRAP)',    at(FX_WT, bash('node tools/new-page.mjs')),                 'allow', 'ALLOW'],
+  ['tmp project: node tmp/x',            at(FX_REPO, bash('node tmp/evil.mjs')),                     'deny',  'RED'],
+  ['tmp project: node abs tmp/x',        at(FX_REPO, ps(`node ${FX_REPO}/tmp/evil.mjs`)),           'deny',  'RED'],
+  ['tmp project: node out/x',            at(FX_REPO, bash('node out/x.mjs')),                        'deny',  'RED'],
+  ['tmp project: sibling in temp',       at(FX_REPO, bash(`node ${FIXTURE}/evil.mjs`)),              'deny',  'RED'],
+  ['tmp project: PS sibling in temp',    at(FX_REPO, ps(`node ${FIXTURE}/evil.mjs`)),                'deny',  'RED'],
+  ['tmp project: temp dir script',       at(FX_REPO, bash(`node ${TMP_DIR}/evil.mjs`)),              'deny',  'RED'],
+  ['tmp project: -r loader in tmp/',     at(FX_REPO, bash('node -r ./tmp/x.mjs tools/new-page.mjs')),'deny',  'RED'],
+  ['tmp project: --import sibling',      at(FX_REPO, bash(`node --import=${FIXTURE}/x.mjs tools/x.mjs`)), 'deny', 'RED'],
+  ['tmp worktree: main checkout tmp/',   at(FX_WT, bash(`node ${FX_REPO}/tmp/x.mjs`)),               'deny',  'RED'],
+  ['tmp worktree: own out/',             at(FX_WT, bash('node out/x.mjs')),                          'deny',  'RED'],
+  ['temp dir as project: script',        at(TMP_DIR, bash('node evil.mjs')),                         'deny',  'RED'],
+  ['tmp project: git -C itself (TRAP)',  at(FX_REPO, bash(`git -C ${FX_REPO} status`)),              'allow', 'ALLOW'],
+  ['tmp project: git -C src (TRAP)',     at(FX_REPO, bash('git -C src log')),                        'allow', 'ALLOW'],
+  ['tmp project: npx tsx tools (TRAP)',  at(FX_REPO, bash('npx tsx tools/x.ts')),                    'allow', 'ALLOW'],
+  ['tmp project: git -C out/x',          at(FX_REPO, bash('git -C out/evil log')),                   'deny',  'RED'],
+  ['tmp project: git -C sibling in temp', at(FX_REPO, bash(`git -C ${FIXTURE}/evil log`)),           'deny',  'RED'],
+  ['tmp project: npx tsx tmp/x',         at(FX_REPO, bash('npx tsx tmp/x.ts')),                      'deny',  'RED'],
 ];
 
 // -----------------------------------------------------------------------------

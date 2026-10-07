@@ -46,8 +46,13 @@ calls; an estimate). So:
   with `cat`, `sed`, `grep`, `head` or heredocs. Reading never asks; an edit asks at most once.
 - **Run the kit's registered tools and `npm run` commands** as they are listed. The same
   line comes back every time, so a person can allow it once ("don't ask again"); an ad-hoc
-  `node -e` or a script in the temp folder is new each time and asks every time. (The kit's
-  `.claude/settings.json` allows nothing in advance; that choice stays with the person.)
+  `node -e` is new each time and asks every time, and the safety hook refuses a script in
+  the temp folder outright. (The kit's `.claude/settings.json` allows a short list in
+  advance: the `npm` commands for start, tools, tests, lint and build, plain
+  `git status`/`diff`/`log`, and edits in `out/`, `src/assets/` and the books; each command
+  only as written (in Bash a wrapper such as `timeout` in front does not matter), the full
+  list is in [SAFETY](../base/SAFETY.md#what-runs-without-a-confirmation-click).
+  Everything else asks, and the person can widen or narrow the list.)
 - **One command per job.** Do not chain several steps into one line to save a prompt; the
   person cannot judge a long line, and each part is checked on its own anyway.
 

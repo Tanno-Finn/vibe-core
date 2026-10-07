@@ -90,7 +90,7 @@
     "factHub": "Rule document",
     "factGuides": "Guide articles (agent guides)",
     "factScript": "Agent command for the guides",
-    "englishNote": "The guides are in English on purpose. One version for people and agents. Nothing can drift apart.",
+    "englishNote": "The guides for the building blocks and the agent guides are in English on purpose. One version for people and agents. Nothing can drift apart. The long Guides also exist in German.",
     "indexTitle": "Which guide to read when",
     "indexLede": "Find your task. Then open the linked guides. The table is built automatically from the list of building blocks. Each building block is in exactly one row.",
     "thTask": "Your task",

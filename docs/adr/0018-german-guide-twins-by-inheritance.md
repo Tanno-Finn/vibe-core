@@ -89,5 +89,5 @@ What makes it work:
 - **Cost:** on an English page the twin's chunk is not loaded, but on a German page the
   English chunk is (the twin extends it); both are dev-only workshop chunks, stripped from
   production with the rest of `src/app/dev/` (ADR-0004).
-- **Watch:** if a third guide language is ever ordered, the switch takes a map per
+- **Watch:** if a third guide language is ever added, the switch takes a map per
   language instead of one `de` slot; the twin pattern itself scales unchanged.

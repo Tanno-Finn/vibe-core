@@ -11,6 +11,84 @@ user-facing summary that begins at the first release.
 
 ## [Unreleased]
 
+## [1.0.2] — 2026-10-06
+
+Security updates of the dependencies, a pre-approved list of routine commands for Claude
+Code, and small corrections from the review of 1.0.1.
+
+### Added
+
+- **Routine commands run without a confirmation click.** `.claude/settings.json` now carries
+  a short `permissions.allow` list, so Claude Code no longer asks before the kit's routine
+  steps: `npm start`, `npm run tools`, `npm run test:ci`, `npm run test:tools`,
+  `npm run lint`, `npm run build:prod` and plain `git status`, `git diff`, `git log`, each
+  as written (in Bash a wrapper such as `timeout` in front does not matter) and from Bash
+  and PowerShell, plus edits in `out/`, `src/assets/`, `profile/USER-MANIFEST.MD`,
+  `JOURNAL.md` and `OPEN-QUESTIONS.md`. The command entries carry no wildcards, so a
+  different command line still asks, unless Claude Code already counts it as read-only, as
+  it does for `git log --oneline`; the safety hook still checks every call and the deny list
+  still wins. [`base/SAFETY.md`](base/SAFETY.md) lists the entries, and
+  `directives/kit-tools.md` no longer says that nothing is allowed in advance.
+
+### Fixed
+
+- **Easy-language note on the agents page.** The easy-language versions of `/dev/agents`
+  (German and English) still said the guides are in English on purpose, while the guide
+  articles are German on German pages since 1.0.1. The note now says that the building-block
+  docs and the agent guides stay English and that the long guides also come in German.
+- **Wording.** ADR-0018 speaks of a third guide language being added, not ordered; the
+  1.0.1 entry below names `OptimusA11yService` instead of an "Optimus bridge" and wraps an
+  overlong line; a stylesheet comment no longer lists a purple palette.
+
+### Security
+
+- **The safety hook was hardened.** Alongside the pre-approved command list, the
+  `PreToolUse` hook (`.claude/hooks/guard-red-actions.mjs`) now refuses the few ways a
+  plain-looking git or `node` command could still run code or write a protected file
+  without review: `git difftool`/`git mergetool` and a git config value or environment
+  variable that makes `git diff`/`git log` run an external program (pager, editor,
+  `diff.external`, `textconv`, `interactive.diffFilter`, a merge/diff tool command, a
+  filter driver, `credential.helper`, an included config file,
+  `GIT_EXTERNAL_DIFF`/`GIT_PAGER`/`GIT_SSH_COMMAND`, config injected through
+  `GIT_CONFIG_PARAMETERS`/`GIT_CONFIG_COUNT`/`GIT_CONFIG_GLOBAL`, `--ext-diff`,
+  `--textconv`); git pointed with `-C`, `--git-dir`, `--work-tree` or `GIT_DIR` at a
+  repository under `out/`, `src/assets/`, a temp folder or outside the project via `..`;
+  `NODE_OPTIONS` carrying `--require`/`--import`/`--loader`, which every node process of
+  the command would load; `git … --output=<file>`, `git format-patch -o <dir>` and
+  `GIT_TRACE*=<path>`, which write a file named in the command past the usual redirect checks; `node`/`tsx`/`ts-node`
+  running a script that escapes its folder with `..`, lives under `out/` or `src/assets/`,
+  or sits in a temp directory, also when `npx`, `npm exec`, `pnpm dlx` or `yarn` starts it;
+  and `git commit -a`/`-am`/`--all`, the same stage-all as `git add -A`. Each is refused with a
+  reason, so a person runs it themselves if it is wanted; the kit's own `node tools/…` and
+  `node scripts/…` commands are unaffected, also when the project itself lives in the temp
+  folder. [`base/SAFETY.md`](base/SAFETY.md) lists them.
+- **No known vulnerabilities left.** All 16 open security advisories against the kit's
+  dependencies are fixed, and so are two that were published while this release was being
+  prepared: `shell-quote` (critical, used by `concurrently` for `npm start`) and
+  `source-map-js` (high, used by the build's CSS tooling). On the release date `npm audit`
+  reports 0 vulnerabilities, for production and development dependencies alike. The current
+  releases of `concurrently` pin an affected `shell-quote` version, so `package.json` now
+  overrides it to 1.12 (`overrides`); remove that line once `concurrently` ships a fixed
+  version.
+- **Major versions.** No direct dependency of version 1.x or later moved to a new major
+  version. Some packages they pull in did, inside the ranges those dependencies declare:
+  the parser packages of the build's CSS inliner (`htmlparser2` 10→12, `css-select` 6→7
+  and their helpers) and `@inquirer/core` 11→12 behind the Angular CLI's prompts. The
+  kit's full test suite and build pass on them.
+- **Angular 22.2.1** (from 22.1.x) fixes the advisories in `@angular/router` and
+  `@angular/platform-server`, and brings `piscina` 5.3.2, which fixes a critical advisory in
+  the build tooling.
+- **Development tooling refreshed** within the allowed ranges: `undici`, `fast-uri` and
+  `brace-expansion`; `ip-address` is no longer installed at all.
+- **Further updates:** cytoscape 3.34.3, prettier 3.9.9, puppeteer 25.12.0,
+  typescript-eslint 8.71.1, angular-eslint 22.5.0, and zone.js 0.16.3 (from 0.15; a 0.x
+  step, which may change behaviour, but the kit's full test suite passes on it).
+
+### Upgrading
+
+- Puppeteer 25.12 uses a newer Chrome. If the PDF, screenshot or accessibility tools report
+  a missing browser after updating, run `npx puppeteer browsers install chrome` once.
+
 ## [1.0.1] — 2026-10-05
 
 The design-system workshop speaks German: all 61 design guides come in a full German
@@ -50,7 +128,8 @@ kit: color variants, tokens, components, pages and the guides that name them.
   `--purple-50` … `--purple-900` (with the `purple-*` keys of `$colors` in
   `src/styles/design-tokens.scss`, and with them `--color-purple-*` and the utility classes
   `.text-purple-*`, `.bg-purple-*` and `.border-purple-*`) is removed — use `--p-pink-*` from
-  Aura or another kit hue; class names are not type-checked, so search your templates. The `purple` value of component inputs is renamed: `app-stat-card`, `app-icon-grid`
+  Aura or another kit hue; class names are not type-checked, so search your templates. The
+  `purple` value of component inputs is renamed: `app-stat-card`, `app-icon-grid`
   and `app-circular-progress` take `'pink'`, a `PromptTag` takes `'yellow'`, a registered
   floating button takes `FabColor` `'blue'` (CSS class `.fab-blue` instead of `.fab-purple`);
   TypeScript flags every old value when you build. `--rarity-epic`, `--neural-network` and
@@ -92,7 +171,7 @@ kit: color variants, tokens, components, pages and the guides that name them.
 - **Guide corrections found while translating.** Skeleton counts seven inputs, as its
   table does; the Chart guide's unnamed chart is announced in four words, not six; the
   Rating guide says that the per-star names follow the page language through the kit's
-  Optimus bridge; the Card guide's history records the changed dark outline of the
+  `OptimusA11yService`; the Card guide's history records the changed dark outline of the
   Lernwerkstatt style; the Accessibility guide gives 3.52:1 as the lowest inset focus ring on
   a selected row and no longer calls the workshop English-only.
 
@@ -151,6 +230,7 @@ reads and follows when it works on the portal with you. Checked for this release
   started, your first agent session, deploying, making the kit yours, adding a page, a
   source, a language or a backend, and the decision records behind the architecture.
 
-[Unreleased]: https://github.com/Tanno-Finn/vibe-core/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/Tanno-Finn/vibe-core/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/Tanno-Finn/vibe-core/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/Tanno-Finn/vibe-core/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/Tanno-Finn/vibe-core/releases/tag/v1.0.0

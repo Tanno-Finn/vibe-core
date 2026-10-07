@@ -102,6 +102,70 @@ one refusal that mattered goes past unread. Read-only commands are ALLOW, and th
 requirement of the design, not a convenience: the hook's own test suite carries a
 must-not-block case for every rule that has one.
 
+### What runs without a confirmation click
+
+`.claude/settings.json` carries a short `permissions.allow` list, so Claude Code does not
+ask the person before the kit's routine Green steps:
+
+- `npm start`, `npm run tools`, `npm run test:ci`, `npm run test:tools`, `npm run lint`,
+  `npm run build:prod`;
+- read-only git without arguments: `git status`, `git diff`, `git log`;
+- edits inside `out/` and `src/assets/`, and of `profile/USER-MANIFEST.MD`, `JOURNAL.md`
+  and `OPEN-QUESTIONS.md`.
+
+The command entries hold for Bash and PowerShell and carry no wildcards on purpose: a
+pattern such as `git diff*` would also match `git difftool -x <any command>`, and
+`node tools/*` would match `node tools/../out/x.mjs`. A rule without `*` matches one exact
+command. For Bash, Claude Code compares it only after stripping a fixed set of wrappers
+(`timeout`, `time`, `nice`, `nohup`, `stdbuf`, `command`, `builtin`) and a leading
+assignment of certain known-safe environment variables, so `timeout 600 npm run build:prod`
+counts as the listed line; a compound command needs every part to be allowed on its own. The
+same command with other arguments, a script started with `node`, and every commit still
+ask. The git entries change little: Claude Code already runs read-only forms of git
+(`git log --oneline`, `git diff --stat`) without a prompt, as built-in read-only commands.
+The list only saves the click; it lifts no rule. The `PreToolUse` hook still runs
+on every call, and `permissions.deny` wins over `allow`, so the gate's own files stay closed
+to edits. Everything not on the list asks as before.
+
+As a second line, the hook refuses the known ways a plain-looking, pre-approved command
+could still run code or write a gate file. That keeps today's exact entries from being
+turned into something else; it does not make a future wildcard entry safe, because the
+hook only knows the routes listed here: `git difftool`/`git mergetool` (they launch an
+external program, with `-x`/`--extcmd` one you name); `git … --output=<file>` and
+`git format-patch -o <dir>` and `GIT_TRACE*=<path>` (they write a file named in the command,
+past the redirect and protected-path checks); a git config value that makes git run a program (`-c core.pager=…`,
+`diff.external`, `textconv`, `interactive.diffFilter`, `*tool.*.cmd`/`.path`, a filter
+driver, `credential.helper`, `include.path`, … via `-c`, `--config-env` or
+`git clone --config`), the environment variables that do the same (`GIT_EXTERNAL_DIFF`,
+`GIT_PAGER`, `PAGER`, `GIT_SSH_COMMAND`, `GIT_EDITOR`, `GIT_EXEC_PATH`, and the config
+injectors `GIT_CONFIG_PARAMETERS`, `GIT_CONFIG_COUNT`/`_KEY_n`/`_VALUE_n`,
+`GIT_CONFIG_GLOBAL`/`_SYSTEM`), `--ext-diff`/`--textconv`, `--template`, `--upload-pack`
+and `--exec-path=` directly after `git` (behind `-C` it is not caught, so such a call
+asks first unless an allow rule matches it); git pointed at another repository under
+`out/`, `src/assets/`, a temp folder or `..` outside the project (`git -C`, `--git-dir`,
+`--work-tree`, `GIT_DIR`, `GIT_WORK_TREE`), whose own config could run code; `NODE_OPTIONS` (or npm's
+`--node-options`) carrying `--require`/`--import`/`-r`/`--loader`/`--experimental-loader`,
+which every node process of the command would load first; `node`/`tsx`/`ts-node` running a
+script that escapes its folder via `..`, lives under `out/` or `src/assets/`, or sits in a
+temp/scratch dir, also when `npx`, `npm exec`, `pnpm dlx`, `yarn` or `env` starts it (a
+project that itself lives in the temp folder still runs its own scripts); and
+`git commit -a`/`-am`/`--all`, the same unverifiable stage-all as `git add -A`.
+
+In **auto mode** — the built-in starting mode for interactive terminal and VS Code
+sessions since Claude Code v2.1.283 — a classifier reviews actions in place of the person.
+Per the Claude Code docs, on entering auto mode the broad allow rules that grant arbitrary
+code execution are dropped (a blanket `Bash(*)`/`PowerShell(*)`, wildcarded interpreters
+like `Bash(python*)`, package-manager run commands, `Agent` and `Monitor` allow rules);
+narrow rules such as `Bash(npm test)` stay in effect, and the dropped rules return when the
+session leaves auto mode. An action an allow rule matches resolves immediately, except that
+writes to protected paths (`.git`, `.claude`, …) route to the classifier even when a rule
+matches, and no allow rule approves an `rm`/`rmdir` of a critical path. A `PreToolUse`
+hook that denies a call (the kit's hook answers with a JSON `deny` decision and exit code 0,
+not with exit code 2) takes precedence over allow rules in every mode, and `permissions.deny`
+blocks in every mode including `bypassPermissions`; allow rules have no effect under
+`bypassPermissions`. `defaultMode: "auto"` set in a project's `.claude/settings.json` does
+not take effect — Claude Code reads it only from `~/.claude/settings.json`.
+
 ## Why doubled — and how far it reaches
 
 Red prohibitions live in instruction (this file + SECURITY) **and** in a `PreToolUse`
@@ -118,8 +182,8 @@ there:
 | SEC-002 — send a secret out | **partly** | reading a real secret file (`.env`, `.env.*`, `*.pem`, `*.key`, `id_rsa`, `.deploy-credentials` — never `.env.example`) through `Read`, an MCP read tool, or `cat`/`Get-Content`/`base64`/`Copy-Item`, also by wildcard; handing one to `curl` (`-d@`, `-T.env`, `-F f=@.env`, `--data-binary=@…`), `wget --post-file` or `Invoke-WebRequest -InFile`; `gh secret set`, `gh auth token`. A request that builds the value some other way passes |
 | SEC-003 — rewrite history | **yes** | force-push (`--force`, `-f`, `--force-with-lease`, `--mirror`, `+refspec`), deleting a published branch (`--delete`, `:ref`), `reset --hard/--merge/--keep`, `rebase`, `pull --rebase`/`-r`, `--amend`, `update-ref`, `symbolic-ref`, `branch -f`, `filter-branch`, `clean -fdx`, `checkout/restore .`, `checkout -f`/`switch -f`, expiring the reflog, deleting `.git`, `gh repo delete`. Long options are matched as git's **unique prefixes** (`--har`, `--am`, `--fo`). The same verbs are recognized through git's global options (`-c`, `-C`, `--config-env[=]`, …; an unknown global in front of a protected subcommand is itself Red), line continuations (`\`, `` ` ``, `^`), cmd `^` and PowerShell `` ` `` escapes inside a word, `& ('gi'+'t')`, `Start-Process git -ArgumentList …`, and `cmd /c` / `pwsh -Command` payloads |
 | SEC-004 — exfiltrate personal data | **no** | nothing. No gate inspects outbound traffic or what a request carries |
-| SEC-005 — irreversible / outward | **yes** | `git push` (also `send-pack`, `subtree push`), `npm/yarn/pnpm publish`, `gh` mutations — visibility, `repo create/delete/transfer`, `release`, `secret`/`variable`, `workflow run`, `pr merge`, `issue`, `auth`, and `gh api` with POST/PUT/PATCH/DELETE or `-f` fields — deployment CLIs (`vercel`, `netlify`, `firebase`, `wrangler`, `surge`, `fly`, `heroku`, `serverless`, `gh-pages`, `aws s3 sync`, `gcloud`/`az` deploys, `docker push`, `kubectl apply`, `helm`, `terraform apply`, `pulumi`, `ansible-playbook`, `scp`/`rsync`/`sftp` to a server), `npm run deploy*` and a script it RUNS whose name says deploy (`./deploy.sh`, `python deploy.py` — not `git grep deploy.py`); killing node/agent processes; `git add -A`; changing the remote; `rsync --delete`; code piped from the network into a shell; registry code run unasked (`npx --yes`, `npm exec --yes`, `pnpm dlx`, `yarn dlx`, `pnpx`) |
-| SEC-006 — disable a gate | **partly** | writes to a `.claude` hook, `.claude/settings*.json`, a `.git/hooks/` file or `.git/config` (from `Write`/`Edit`, from the shell, through an MCP write tool, or as a target inside an MCP patch body — paths normalized as for SEC-001); deleting `.claude`, its hooks or settings, a worktree's own hooks and settings, or a whole worktree; moving or renaming `.claude`, `.claude/hooks`, a settings file or `.git/hooks` (`mv`, `git mv`, `Move-Item`/`mi`, `Rename-Item`/`rni`, `ren`, cmd `move`, `fs.rename`), because a hook file that no longer exists fails to start and Claude Code then lets every call through; MCP tools that execute something unreadable (`execute_run_configuration`, `execute_tool`, `run_inspection_kts`); `--no-verify` / `core.hooksPath`; defining **any** git alias (`git config alias.*`, `git -c alias.*=…`), which is the last point at which what it runs is visible; a command word built at run time (`$c push`, `& $x`, `& (…)`, `Invoke-Expression`, `eval`). Behind the hook, `permissions.deny` in `.claude/settings.json` refuses `Edit` (and so `Write`) of the hook folder, both settings files, `.git/config` and `.git/hooks/**`. Any other route around a gate is invisible |
+| SEC-005 — irreversible / outward | **yes** | `git push` (also `send-pack`, `subtree push`), `npm/yarn/pnpm publish`, `gh` mutations — visibility, `repo create/delete/transfer`, `release`, `secret`/`variable`, `workflow run`, `pr merge`, `issue`, `auth`, and `gh api` with POST/PUT/PATCH/DELETE or `-f` fields — deployment CLIs (`vercel`, `netlify`, `firebase`, `wrangler`, `surge`, `fly`, `heroku`, `serverless`, `gh-pages`, `aws s3 sync`, `gcloud`/`az` deploys, `docker push`, `kubectl apply`, `helm`, `terraform apply`, `pulumi`, `ansible-playbook`, `scp`/`rsync`/`sftp` to a server), `npm run deploy*` and a script it RUNS whose name says deploy (`./deploy.sh`, `python deploy.py` — not `git grep deploy.py`); killing node/agent processes; `git add -A` and `git commit -a`/`-am`/`--all` (stage-all); changing the remote; `rsync --delete`; code piped from the network into a shell; registry code run unasked (`npx --yes`, `npm exec --yes`, `pnpm dlx`, `yarn dlx`, `pnpx`) |
+| SEC-006 — disable a gate | **partly** | writes to a `.claude` hook, `.claude/settings*.json`, a `.git/hooks/` file or `.git/config` (from `Write`/`Edit`, from the shell, through an MCP write tool, or as a target inside an MCP patch body — paths normalized as for SEC-001); deleting `.claude`, its hooks or settings, a worktree's own hooks and settings, or a whole worktree; moving or renaming `.claude`, `.claude/hooks`, a settings file or `.git/hooks` (`mv`, `git mv`, `Move-Item`/`mi`, `Rename-Item`/`rni`, `ren`, cmd `move`, `fs.rename`), because a hook file that no longer exists fails to start and Claude Code then lets every call through; MCP tools that execute something unreadable (`execute_run_configuration`, `execute_tool`, `run_inspection_kts`); `--no-verify` / `core.hooksPath`; defining **any** git alias (`git config alias.*`, `git -c alias.*=…`), which is the last point at which what it runs is visible; a git config value or environment variable that makes a plain `git diff`/`git log` run an external program (`-c core.pager=…`/`diff.external`/`*.textconv`/`interactive.diffFilter`/`*tool.*.cmd`/filter driver/`credential.helper`/`include.path`/… via `-c`, `--config-env` or `clone --config`, the `GIT_EXTERNAL_DIFF`/`GIT_PAGER`/`PAGER`/`GIT_SSH_COMMAND`/`GIT_EDITOR`/`GIT_EXEC_PATH` env vars and the config injectors `GIT_CONFIG_PARAMETERS`/`GIT_CONFIG_COUNT`/`_KEY_n`/`_VALUE_n`/`GIT_CONFIG_GLOBAL`/`_SYSTEM`, also as PowerShell `$env:`/`Set-Item env:`, `--ext-diff`/`--textconv`, `--template`, `--upload-pack`, `--exec-path=` directly after `git`); git pointed at a repository under `out/`, `src/assets/`, a temp dir or `..` outside the project (`-C`, `--git-dir`, `--work-tree`, `GIT_DIR`, `GIT_WORK_TREE`); `NODE_OPTIONS` or npm's `--node-options` with `--require`/`--import`/`-r`/`--loader`/`--experimental-loader`; `git difftool`/`git mergetool` (external program per changed file); `git … --output=<file>`/`format-patch -o <dir>`/`GIT_TRACE*=<path>` (writes a file as an argument, past the redirect and protected-path checks, so it can overwrite a gate file); `node`/`tsx`/`ts-node` running a script that escapes via `..`, lives under `out/` or `src/assets/` (the folders agents may edit without a click), or sits in a temp dir, also behind `npx`/`npm exec`/`pnpm dlx`/`yarn`/`env`; a command word built at run time (`$c push`, `& $x`, `& (…)`, `Invoke-Expression`, `eval`). Behind the hook, `permissions.deny` in `.claude/settings.json` refuses `Edit` (and so `Write`) of the hook folder, both settings files, `.git/config` and `.git/hooks/**`. Any other route around a gate is invisible |
 | Project boundary (above) | **yes** | delete targets and `Write`/`Edit` paths resolved against the call's `cwd` — `~/…`, `../…`, foreign absolute paths are Red; the project root itself or any folder above it is hard-forbidden; a target the hook cannot resolve (`"$(pwd)/x"`, `$VAR`, `(Get-Location)`, `{a,b}`, a glob that could reach `.git` or `.claude`) is Red. Covers `rm`, `Remove-Item` and its aliases (`ri`, `rd`, `rmdir`, `del`, `erase`) and `Get-ChildItem … \| Remove-Item` |
 
 Read that table the honest way round: **instruction is the load-bearing layer.** The hook
